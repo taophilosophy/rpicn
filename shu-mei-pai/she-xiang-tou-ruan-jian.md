@@ -1,10 +1,10 @@
 # 摄像头软件
 
-本文档描述如何使用我们的软件工具与支持的摄像头模块。所有的树莓派摄像头都可以使用我们的软件工具录制高分辨率照片和全高清 1080p 视频（或更高）。
+本文档说明了如何使用我们的软件工具与支持的摄像头模块。所有树莓派摄像头都可以使用我们的软件工具录制高分辨率照片和全高清 1080p 视频（或更高）。
 
 树莓派生产了几款官方摄像头模块，包括：
 
-* 原始的 500 万像素摄像头模块 1（已停产）
+* 最开始的 500 万像素摄像头模块 1（已停产）
 * 配备 8 百万像素相机模块 2，带或不带红外滤光片
 * 配备 12 百万像素相机模块 3，带标准和广角镜头，带或不带红外滤光片
 * 配备 12 百万像素高质量相机，CS 和 M12 安装变种，可用于外部镜头
@@ -18,7 +18,7 @@
 
 >**注意**
 >
->Raspberry Pi OS Bookworm 将相机捕获应用程序从 libcamera-* 重命名为 rpicam-* 。符号链接允许用户暂时使用旧名称。尽快采用新的应用程序名称。旧版之前的 Raspberry Pi OS 版本仍然使用 libcamera-* 名称。 
+>Raspberry Pi OS Bookworm 将相机捕获应用程序从 `libcamera-*` 重命名为 `rpicam-*` 。符号链接允许用户暂时使用旧名称。请尽快采用新的应用程序名称。之前旧版的 Raspberry Pi OS 仍然使用 `libcamera-*` 这个名称。 
 
 树莓派提供了一小组示例 rpicam-apps 。这些 CLI 应用程序是建立在 libcamera 之上的，从相机捕获图像和视频。这些应用程序包括：
 
@@ -39,27 +39,25 @@ libcamera 是一个开源软件库，旨在直接从 Arm 处理器上的 Linux �
 
 libcamera 提供了一个 C++ API，用于配置相机，然后允许应用程序请求图像帧。这些图像缓冲区驻留在系统内存中，并可以直接传递给静态图像编码器（如 JPEG）或视频编码器（如 H.264）。 libcamera 不会对图像进行编码或显示：要使用该功能，请使用 rpicam-apps 。
 
-您可以在官方 libcamera 存储库中找到源代码。Raspberry Pi OS 发行版使用一个分支来控制更新。
+您可以在官方 libcamera 存储库中找到源代码。Raspberry Pi OS 发行版使用分支控制更新。
 
 在 libcamera 核心下，我们提供了一个自定义的流水线处理程序。 libcamera 使用这一层来驱动树莓派上的传感器和图像信号处理器（ISP）。 libcamera 包含了一系列图像处理算法（IPAs），包括自动曝光/增益控制（AEC/AGC）、自动白平衡（AWB）和自动镜头阴影校正（ALSC）。
 
 树莓派的 libcamera 实现支持以下摄像头：
 
 * 官方摄像头:
-
   * OV5647 (V1)
   * IMX219 (V2)
   * IMX477（HQ）
   * IMX296（GS）
   * IMX708（V3）
 * 第三方传感器:
-
   * IMX290
   * IMX327
   * IMX378
   * OV9281
 
-要扩展对新传感器的支持，请贡献至 libcamera 。
+要增加对新传感器的支持，请贡献至 libcamera 。
 
 ### `rpicam-hello`
 
@@ -86,13 +84,13 @@ $ rpicam-hello --timeout 0
 >**注意**
 >
 >使用 Gtk2 的旧版系统在与 OpenCV 链接时，可能会产生 Glib-GObject 错误，并且无法显示 Qt 预览窗口。在这种情况下，请以 root 身份编辑文件 /etc/xdg/qt5ct/qt5ct.conf ，并将包含 style=gtk2 的行替换为 style=gtk3 。 
-要完全禁止预览窗口，请传递 nopreview 标志：
+要完全禁止预览窗口，请使用 nopreview 参数：
 
 ```
 $ rpicam-hello -n
 ```
 
-info-text 选项使用 % 指令在窗口标题栏上显示图像信息。例如，以下命令显示当前的红色和蓝色增益值：
+info-text 选项使用 `%` 指令在窗口标题栏上显示图像信息。例如，以下命令显示当前的红色和蓝色增益值：
 
 ```
 $ rpicam-hello --info-text "red gain %rg, blue gain %bg"
@@ -239,7 +237,7 @@ $ rpicam-still --timeout 30000 --timelapse 2000 -o timelapse/image%04d.jpg
 
 ##### 通过 cron
 
-您还可以使用 cron 自动化延时摄影。首先，创建脚本，命名为 timelapse.sh 包含以下命令。将 <username> 占位符替换为您的树莓派上的用户账户名称：
+您还可以使用 cron 自动化延时摄影。首先，创建脚本，命名为 timelapse.sh 包含以下命令。将 `<username>` 占位符替换为您的树莓派上的用户账户名称：
 
 ```
 #!/bin/bash
@@ -265,7 +263,7 @@ $ mkdir timelapse
 $ crontab -e
 ```
 
-请您在编辑器中打开文件后，添加以下行以安排每分钟捕获图像，将 <username> 占位符替换为您的主用户账户的用户名：
+请您在编辑器中打开文件后，添加以下行以安排每分钟捕获图像，将 `<username>` 占位符替换为您的主用户账户的用户名：
 
 ```
 * * * * * /home/<username>/timelapse.sh 2>&1
@@ -410,7 +408,7 @@ $ rpicam-raw -t 5000 --width 4056 --height 3040 -o test.raw --framerate 8
 
 >**注意**
 >
->Raspberry Pi OS 不包括 rpicam-detect 。但是，如果您已安装了 TensorFlow Lite，可以构建 rpicam-detect 。有关更多信息，请参阅 rpicam-apps 构建说明。运行 cmake 时，请不要忘记传递 -DENABLE_TFLITE=1 。
+>Raspberry Pi OS 不包括 rpicam-detect 。但是，如果您已安装了 TensorFlow Lite，可以编译 rpicam-detect 。有关更多信息，请参阅 rpicam-apps 编译说明。运行 cmake 时，请不要忘记参数 -DENABLE_TFLITE=1 。
 
 rpicam-detect 显示一个预览窗口，并使用经过训练的 Google MobileNet v1 SSD（Single Shot Detector）神经网络监视内容，以识别大约 80 种对象类别，使用 Coco 数据集。 rpicam-detect 可以识别人、汽车、猫和许多其他对象。
 
@@ -424,7 +422,7 @@ $ rpicam-detect -t 0 -o cat%04d.jpg --lores-width 400 --lores-height 300 --post-
 
 ### 配置
 
-大多数用例可以自动工作，无需更改摄像头配置。但是，一些常见用例确实需要进行配置调整，包括：
+大多数用例无需更改摄像头配置就可以自动工作。但是，一些常见用例确实需要进行配置调整，包括：
 
 * 第三方摄像头（制造商的说明应解释必要的配置更改，如果有的话）
 * 使用官方树莓派摄像头的非标准驱动程序或叠加物
@@ -483,7 +481,7 @@ rpicam-apps 对多个摄像头有基本支持。您可以通过以下方式将�
 
 #### 依赖关系
 
-rpicam-apps 依赖于名为 library-name<n> 的库包，其中 <n> 是 ABI 版本。您的软件包管理器应自动安装这些。
+rpicam-apps 依赖于名为 `library-name<n>` 的库包，其中 `<n>` 是 ABI 版本。您的软件包管理器应自动安装这些。
 
 #### 开发包
 
@@ -495,13 +493,13 @@ rpicam-apps 依赖于名为 library-name<n> 的库包，其中 <n> 是 ABI 版�
 
 ### UDP
 
-使用以下命令在树莓派作为服务器上通过 UDP 流式传输视频，替换 <ip-addr> 占位符为客户端的 IP 地址或组播地址，并替换 <port> 占位符为您想要用于流式传输的端口：
+使用以下命令在树莓派作为服务器上通过 UDP 流式传输视频，替换 `<ip-addr>` 占位符为客户端的 IP 地址或组播地址，并替换 `<port>` 占位符为您想要用于流式传输的端口：
 
 ```
 $ rpicam-vid -t 0 --inline -o udp://<ip-addr>:<port>
 ```
 
-使用以下命令在树莓派作为客户端上查看通过 UDP 流式传输的视频，替换 <port> 占位符为您想要从中流式传输的端口：
+使用以下命令在树莓派作为客户端上查看通过 UDP 流式传输的视频，替换 `<port>` 占位符为您想要从中流式传输的端口：
 
 ```
 $ vlc udp://@:<port> :demux=h264
@@ -559,7 +557,7 @@ $ vlc rtsp://<ip-addr-of-server>:8554/stream1
 
 ### `libav`
 
-您可以将 libav 后端用作音频/视频的网络流源。要使用树莓派作为服务器通过 TCP 流式传输视频，请使用以下命令，将 <ip-addr> 占位符替换为客户端的 IP 地址或组播地址，并将 <port> 占位符替换为要用于流式传输的端口：
+您可以将 libav 后端用作音频/视频的网络流源。要使用树莓派作为服务器通过 TCP 流式传输视频，请使用以下命令，将 `<ip-addr>` 占位符替换为客户端的 IP 地址或组播地址，并将 `<port>` 占位符替换为要用于流式传输的端口：
 
 ```
 $ rpicam-vid -t 0 --codec libav --libav-format mpegts --libav-audio -o "tcp://<ip-addr>:<port>?listen=1"
@@ -575,7 +573,7 @@ $ rpicam-vid -t 0 --codec libav --libav-format mpegts --libav-audio  -o "udp://<
 
 GStreamer 是用于读取、处理和播放多媒体文件的 Linux 框架。本节展示了如何使用 rpicam-vid 来通过网络进行视频流传输。
 
-此设置使用 rpicam-vid 将编码的 h.264 比特流输出到标准输出。然后，我们使用 GStreamer fdsrc 元素接收比特流，并使用额外的 GStreamer 元素将其发送到网络上。在服务器上，运行以下命令以启动流，将 <ip-addr> 占位符替换为客户端的 IP 地址或组播地址，并将 <port> 占位符替换为用于流式传输的端口：
+此设置使用 rpicam-vid 将编码的 h.264 比特流输出到标准输出。然后，我们使用 GStreamer fdsrc 元素接收比特流，并使用额外的 GStreamer 元素将其发送到网络上。在服务器上，运行以下命令以启动流，将 `<ip-addr>` 占位符替换为客户端的 IP 地址或组播地址，并将 `<port>` 占位符替换为用于流式传输的端口：
 
 ```
 $ rpicam-vid -t 0 -n --inline -o - | gst-launch-1.0 fdsrc fd=0 ! udpsink host=<ip-addr> port=<port>
@@ -593,13 +591,13 @@ $ gst-launch-1.0 udpsrc address=<ip-addr> port=<port> ! h264parse ! v4l2h264dec 
 
 #### RTP
 
-要使用 RTP 进行流媒体传输，请在服务器上运行以下命令，将 <ip-addr> 占位符替换为客户端的 IP 地址或组播地址，并将 <port> 占位符替换为要用于流媒体传输的端口：
+要使用 RTP 进行流媒体传输，请在服务器上运行以下命令，将 `<ip-addr>` 占位符替换为客户端的 IP 地址或组播地址，并将 `<port>` 占位符替换为要用于流媒体传输的端口：
 
 ```
 $ rpicam-vid -t 0 -n --inline -o - | gst-launch-1.0 fdsrc fd=0 ! h264parse ! rtph264pay ! udpsink host=<ip-addr> port=<port>
 ```
 
-要接收 RTP，请在客户端上运行以下命令，将 <ip-addr> 占位符替换为客户端的 IP 地址或组播地址，并将 <port> 占位符替换为要用于流媒体传输的端口：
+要接收 RTP，请在客户端上运行以下命令，将 `<ip-addr>` 占位符替换为客户端的 IP 地址或组播地址，并将 `<port>` 占位符替换为要用于流媒体传输的端口：
 
 ```
 $ gst-launch-1.0 udpsrc address=<ip-addr> port=<port> caps=application/x-rtp ! rtph264depay ! h264parse ! v4l2h264dec ! autovideosink
@@ -613,7 +611,7 @@ $ gst-launch-1.0 udpsrc address=<ip-addr> port=<port> caps=application/x-rtp ! r
 
 #### libcamerasrc GStreamer 元素
 
-libcamera 提供一个 libcamerasrc GStreamer 元素，可以直接替代 rpicam-vid 。要使用此元素，请在服务器上运行以下命令，将 <ip-addr> 占位符替换为客户端的 IP 地址或多播地址，并将 <port> 占位符替换为您希望用于流式传输的端口：
+libcamera 提供一个 libcamerasrc GStreamer 元素，可以直接替代 rpicam-vid 。要使用此元素，请在服务器上运行以下命令，将 `<ip-addr>` 占位符替换为客户端的 IP 地址或多播地址，并将 `<port>` 占位符替换为您希望用于流式传输的端口：
 
 ```
 $ gst-launch-1.0 libcamerasrc ! capsfilter caps=video/x-raw,width=1280,height=720,format=NV12 ! v4l2convert ! v4l2h264enc extra-controls="controls,repeat_sequence_header=1" ! 'video/x-h264,level=(string)4.1' ! h264parse ! rtph264pay ! udpsink host=<ip-addr> port=<port>
@@ -629,7 +627,7 @@ $ gst-launch-1.0 libcamerasrc ! capsfilter caps=video/x-raw,width=1280,height=72
 
 要将以下选项之一传递给应用程序，请在选项名称前加上 -- 。如果选项需要一个值，请在选项名称后立即传递该值，用单个空格分隔。如果值包含空格，请用引号括起来。
 
-一些选项具有速记别名，例如 -h 而不是 --help 。使用这些速记别名代替完整的选项名称，以节省空间和时间，但牺牲可读性。
+一些选项具有速记别名，例如 -h 可代替 --help 。使用这些速记别名代替完整的选项名称，以节省空间和时间，但牺牲可读性。
 
 #### `help`
 
@@ -654,7 +652,7 @@ libcamera build: v0.0.0+3058-c29143f7
 
 传感器模式标识符具有以下形式： S<Bayer order><Bit-depth>_<Optional packing> : <Resolution list>
 
-在传感器阵列中，即使在像素合并模式下，裁剪也以本机传感器像素指定为 (<x>, <y>)/<Width>×<Height> 。 (x, y) 指定了传感器阵列中尺寸为 width × height 的裁剪窗口的位置。
+在传感器阵列中，即使在像素合并模式下，裁剪也以本机传感器像素指定为`(<x>, <y>)/<Width>×<Height>` 。`(x, y)` 指定了传感器阵列中尺寸为 width × height 的裁剪窗口的位置。
 
 例如，以下输出显示有关索引为 0 处的 IMX219 传感器和索引为 1 处的 IMX477 传感器的信息：
 
@@ -699,7 +697,7 @@ verbose=
 
 >**技巧**
 >
->省略通常在命令行上传递的 -- 开头。对于缺少值的标志，例如上面示例中的 verbose ，必须包含尾随 = 。 
+>省略通常在命令行上传递的 `--` 开头。对于缺少值的标志，例如上面示例中的 verbose ，必须包含尾随 = 。 
 
 然后，您可以运行以下命令来指定超时时间为 99000 毫秒并输出详细信息：
 
@@ -723,7 +721,7 @@ $ rpicam-hello --config example_configuration.txt
 
 设置桌面或 DRM 预览窗口的位置（x，y 坐标）和大小（w，h 尺寸）。不影响从摄像头请求的图像的分辨率或宽高比。将图像大小缩放并将图像宽高比裁剪或填充以适应预览窗口。
 
-以以下逗号分隔的形式传递预览窗口尺寸： x,y,w,h
+以以下逗号分隔的形式传递预览窗口尺寸： `x,y,w,h`
 
  示例： rpicam-hello --preview 100,100,500,500
 
@@ -747,7 +745,7 @@ $ rpicam-hello --config example_configuration.txt
 
 #### `info-text`
 
- 默认值： "#%frame (%fps fps) exp %exp ag %ag dg %dg"
+ 默认值： "`#%frame (%fps fps) exp %exp ag %ag dg %dg`"
 
 将提供的字符串设置为在桌面环境中运行时预览窗口的标题。支持以下图像元数据替换：
 
@@ -793,7 +791,7 @@ $ rpicam-hello --config example_configuration.txt
 
 #### `mode`
 
-允许您以以下以冒号分隔的格式指定相机模式： <width>:<height>:<bit-depth>:<packing> 。如果提供的值没有完全匹配项，系统将选择最接近的可用选项以用于传感器。您可以使用打包（ P ）或未打包（ U ）的打包格式。影响存储的视频和静止图像的格式，但不影响传递到预览窗口的帧的格式。
+允许您以以下以冒号分隔的格式指定相机模式： `<width>:<height>:<bit-depth>:<packing>` 。如果提供的值没有完全匹配项，系统将选择最接近的可用选项以用于传感器。您可以使用打包（ P ）或未打包（ U ）的打包格式。影响存储的视频和静止图像的格式，但不影响传递到预览窗口的帧的格式。
 
 位深度和打包是可选的。位深度默认为 12。打包默认为 P （打包）。
 
@@ -857,14 +855,14 @@ $ rpicam-hello --config example_configuration.txt
 
 #### `roi`
 
-从传感器的整个场景中裁剪图像。接受四个小数值，范围为 0 到 1，格式如下： <x>,<y>,<w>,h> 。这些值中的每一个代表可用宽度和高度的百分比，介于 0 和 1 之间的小数。
+从传感器的整个场景中裁剪图像。接受四个小数值，范围为 0 到 1，格式如下： `<x>,<y>,<w>,<h>`。这些值中的每一个代表可用宽度和高度的百分比，介于 0 和 1 之间的小数。
 
 这些值定义了以下比例：
 
-* <x> ：提取图像前要跳过的 X 坐标
-* <y> ：提取图像前要跳过的 Y 坐标
-* <w> ：要提取的图像宽度
-* <h> ：要提取的图像高度
+* `<x>` ：提取图像前要跳过的 X 坐标
+* `<y>` ：提取图像前要跳过的 Y 坐标
+* `<w>` ：要提取的图像宽度
+* `<h>` ：要提取的图像高度
 
 默认为 0,0,1,1 （从第一个 X 坐标和第一个 Y 坐标开始，使用图像宽度的 100％，使用图像高度的 100％）。
 
@@ -991,7 +989,7 @@ $ rpicam-hello --config example_configuration.txt
 | `indoor`         | 3000K 到 5000K                 |
 | `daylight`         | 5500K 到 6500K                 |
 | `cloudy`         | 从 7000K 到 8500K              |
-| `custom`         | 在调整文件中定义的自定义范围。 |
+| `custom`         | 在调整文件中自定义的范围。 |
 
 这些值仅为近似值：根据相机调整，值可能会有所变化。
 
@@ -1061,14 +1059,14 @@ $ rpicam-hello --config example_configuration.txt
 
 #### `autofocus-range`
 
-指定传感器全视场内的自动对焦窗口。接受四个小数值，范围为 0 到 1，格式如下： <x>,<y>,<w>,h> 。每个值代表可用宽度和高度的百分比，为 0 到 1 之间的小数。
+指定传感器全视场内的自动对焦窗口。接受四个小数值，范围为 0 到 1，格式如下： `<x>,<y>,<w>,<h>`。每个值代表可用宽度和高度的百分比，为 0 到 1 之间的小数。
 
 这些值定义了以下比例：
 
-* <x> ：应用自动对焦前要跳过的 X 坐标
-* <y> ：应用自动对焦前要跳过的 Y 坐标
-* <w> ：自动对焦区域宽度
-* <h> ：自动对焦区域高度
+* `<x>` ：应用自动对焦前要跳过的 X 坐标
+* `<y>` ：应用自动对焦前要跳过的 Y 坐标
+* `<w>` ：自动对焦区域宽度
+* `<h>` ：自动对焦区域高度
 
 默认值在两个维度上使用输出图像的中间三分之一（总图像面积的 1/9）。
 
@@ -1114,8 +1112,8 @@ $ rpicam-hello --config example_configuration.txt
 *  
 
   * ：写入标准输出。
-* udp:// （前缀）：用于 UDP 流媒体的网络地址。
-* tcp:// （前缀）：用于 TCP 流媒体的网络地址。
+* `udp://` （前缀）：用于 UDP 流媒体的网络地址。
+* `tcp://` （前缀）：用于 TCP 流媒体的网络地址。
 * 在文件名中包含 %d 指令，以将指令替换为递增的计数，每打开一个文件计数递增。该指令支持标准 C 格式指令修饰符。
 
  例子：
@@ -1284,7 +1282,7 @@ $ rpicam-hello --config example_configuration.txt
 
 控制 H.264 编码器使用的目标比特率，单位为每秒比特数。仅适用于以 H.264 格式编码的视频。影响输出视频的大小。
 
- 例子： rpicam-vid -b 10000000 --width 1920 --height 1080 -o test.h264
+ 例子： `rpicam-vid -b 10000000 --width 1920 --height 1080 -o test.h264`
 
 #### `intra`
 
@@ -1825,7 +1823,7 @@ face_detect_cv 阶段仅在预览和视频捕获期间运行。它会忽略静�
 
 #### object_classify_tf 阶段
 
-下载：https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_2018_08_02/mobilenet_v1_1.0_224_quant.tgz
+下载：<https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_2018_08_02/mobilenet_v1_1.0_224_quant.tgz>
 
 object_classify_tf 使用 Google MobileNet v1 模型对摄像头图像中的对象进行分类。此阶段需要一个 labels.txt 文件。
 
@@ -1877,7 +1875,7 @@ $ rpicam-hello --post-process-file object_classify_tf.json --lores-width 224 --l
 
 #### pose_estimation_tf 阶段
 
-下载：https://github.com/Qengineering/TensorFlow_Lite_Pose_RPi_32-bits
+下载：<https://github.com/Qengineering/TensorFlow_Lite_Pose_RPi_32-bits>
 
 pose_estimation_tf 使用 Google MobileNet v1 模型来检测姿势信息。
 
@@ -1923,7 +1921,7 @@ $ rpicam-hello --post-process-file pose_estimation_tf.json --lores-width 258 --l
 
 #### object_detect_tf 阶段
 
-下载: https://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip
+下载: <https://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip>
 
 object_detect_tf 使用 Google MobileNet v1 SSD（Single Shot Detector）模型来检测和标记对象。
 
@@ -2226,7 +2224,7 @@ $ meson compile -C build
 
 >**技巧**
 >
->在内存为 1GB 或更少的设备上，构建可能超出可用内存。在 meson 命令中附加 -j 1 标志以将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。 
+>在内存为 1GB 或更小的设备上，编译可能会超出可用内存。在 meson 命令中附加 -j 1 标志以将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。 
 最后，运行以下命令安装您新构建的 rpicam-apps 二进制文件：
 
 ```
@@ -2455,7 +2453,7 @@ Writing JPEG image to 'image.jpg'.
 
 默认情况下， fswebcam 使用低分辨率，并添加显示时间戳的横幅。
 
-要为捕获的图像指定不同的分辨率，请使用 -r 标志，传递宽度和高度作为两个由 x 分隔的数字：
+要为捕获的图像指定不同的分辨率，请使用参数 -r，传递宽度和高度作为两个由 x 分隔的数字：
 
 ```
 $ fswebcam -r 1280x720 image2.jpg
@@ -2481,7 +2479,7 @@ Writing JPEG image to 'image2.jpg'.
 
 #### 删除横幅
 
-要从捕获的图像中删除横幅，请使用 --no-banner 标志：
+要从捕获的图像中删除横幅，请使用参数 --no-banner：
 
 ```
 $ fswebcam --no-banner image3.jpg
@@ -2652,8 +2650,7 @@ ccp2  |             |
 
 >**注意**
 >
->所有内核驱动程序均在 GPLv2 许可下授权，因此必须提供源代码。仅提供二进制模块违反了 Linux 内核所授权的 GPLv2 许可。
-
+>所有内核驱动程序均在 GPLv2 许可下授权，因此必须提供源代码。仅提供二进制模块的行为违反了 Linux 内核所授权的 GPLv2 许可协议。
 
 
 旧版 bcm2835-unicam 模块已经编写，以尝试适应当前在主线 Linux 内核中找到的所有类型的 CSI-2 源驱动程序。这些可以大致分为相机传感器和桥接芯片。桥接芯片允许在某些其他格式和 CSI-2 之间进行转换。
@@ -2691,7 +2688,7 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 
 处理桥接芯片的机制可以分为两类：模拟或数字。
 
-在下面的部分中使用 ioctls 时，名称中的 <em>S</em> 表示它是一个设置函数，而 <em>G</em> 是一个获取函数， <em>ENUM</em> 列举了一组允许的值。
+在下面的部分中使用 ioctls 时，名称中的 `<em>S</em>` 表示它是一个设置函数，而 `<em>G</em>` 是一个获取函数， `<em>ENUM</em>`  列举了一组允许的值。
 
 ##### 模拟视频源
 
