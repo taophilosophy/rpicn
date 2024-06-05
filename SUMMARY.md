@@ -20,7 +20,7 @@
 * [远程访问](shu-mei-pai/yuan-cheng-fang-wen.md)
 * [摄像头软件](shu-mei-pai/she-xiang-tou-ruan-jian.md)
 * [树莓派硬件](shu-mei-pai/shu-mei-pai-ying-jian.md)
-* [计算模块硬件](shu-mei-pai/ji-suan-mo-kuai-ying-jian.md)
+* [计算模块（硬件）](shu-mei-pai/ji-suan-mo-kuai-ying-jian.md)
 * [处理器](shu-mei-pai/chu-li-qi.md)
 
 ## 配件
