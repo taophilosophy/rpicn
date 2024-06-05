@@ -1,8 +1,6 @@
 # Table of contents
 
-* [Taophilosophy Code of Conduct](README.md)
-* [贡献指南](CONTRIBUTING.md)
-* [rpicn](<README (1).md>)
+* [树莓派官方文档简体中文版](README.md)
 
 ## 前言
 
