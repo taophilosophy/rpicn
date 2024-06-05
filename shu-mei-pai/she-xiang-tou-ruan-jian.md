@@ -2650,7 +2650,7 @@ ccp2  |             |
 
 >**注意**
 >
->所有内核驱动程序均在 GPLv2 许可下授权，因此必须提供源代码。仅提供二进制模块的行为违反了 Linux 内核所授权的 GPLv2 许可协议。
+>所有内核驱动程序均在 GPLv2 许可下授权，因此必须提供源代码。仅提供二进制模块的行为会违反 Linux 内核所授权的 GPLv2 许可。
 
 
 旧版 bcm2835-unicam 模块已经编写，以尝试适应当前在主线 Linux 内核中找到的所有类型的 CSI-2 源驱动程序。这些可以大致分为相机传感器和桥接芯片。桥接芯片允许在某些其他格式和 CSI-2 之间进行转换。
@@ -2668,7 +2668,7 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 * V4L2_CID_ANALOGUE_GAIN ：传感器特定单位中的模拟增益
 * V4L2_CID_DIGITAL_GAIN ：传感器特定单位中的可选数字增益
 * V4L2_CID_HFLIP / V4L2_CID_VFLIP ：将图像水平或垂直翻转；此操作可能会改变帧中数据的 Bayer 顺序，就像在 IMX219 上的情况一样。
-* V4L2_CID_TEST_PATTERN / V4L2_CID_TEST_PATTERN_* ：启用从传感器输出各种测试图案；用于调试
+* V4L2_CID_TEST_PATTERN / `V4L2_CID_TEST_PATTERN_*` ：启用从传感器输出各种测试图案；用于调试
 
 在 IMX219 的情况下，许多这些控件直接映射到对传感器本身的寄存器写入。
 
@@ -2688,7 +2688,7 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 
 处理桥接芯片的机制可以分为两类：模拟或数字。
 
-在下面的部分中使用 ioctls 时，名称中的 `<em>S</em>` 表示它是一个设置函数，而 `<em>G</em>` 是一个获取函数， `<em>ENUM</em>`  列举了一组允许的值。
+在下面的部分中使用 ioctls 时，名称中的 **S** 表示它是一个设置函数，而 **G** 是一个获取函数， **ENUM** 列举了一组允许的值。
 
 ##### 模拟视频源
 
@@ -2774,9 +2774,9 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 * 要在 rpicam-apps 中禁用自动白平衡（AWB），请使用一对色彩增益设置 awbgains （例如 1.0,1.0 ）。
 * rpicam-apps 无法将 NoIR 相机模块的自动白平衡（AWB）设置为灰世界模式。相反，将 tuning-file 选项传递给一个 NoIR 特定的调整文件，如 imx219_noir.json 。
 * rpicam-apps 不提供对数字增益的显式控制。相反， gain 选项隐式设置它。
-* rpicam-apps 移除了 --ISO 选项。相反，计算所需 ISO 值对应的增益。供应商可以提供增益到 ISO 的映射。
+* rpicam-apps 移除了 `--ISO` 选项。相反，计算所需 ISO 值对应的增益。供应商可以提供增益到 ISO 的映射。
 * rpicam-apps 不支持设置闪烁周期。
-* rpicam-still 不支持连拍。相反，考虑在 MJPEG 模式下使用 rpicam-vid ，并使用 --segment 1 强制将每帧保存为单独的文件。
+* rpicam-still 不支持连拍。相反，考虑在 MJPEG 模式下使用 rpicam-vid ，并使用 `--segment 1` 强制将每帧保存为单独的文件。
 * rpicam-apps 使用开源驱动程序来驱动所有图像传感器，因此启用或禁用传感器上的瑕疵像素校正（DPC）的机制是不同的。树莓派 HQ 摄像头上的 imx477 驱动程序默认启用传感器上的 DPC。要在 HQ 摄像头上禁用传感器上的 DPC，请运行以下命令：
 
   ```
@@ -2787,10 +2787,9 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 
 如果您的摄像头模块不像您期望的那样工作，请尝试以下一些修复方法：
 
-* 在树莓派 3 及更早版本设备上运行 Raspberry Pi OS Bullseye 或更早版本：
-
-  * 要启用硬件加速的摄像头预览，请启用 Glamor。要启用 Glamor，请在终端中输入 sudo raspi-config ，选择 Advanced Options > Glamor > Yes 。然后使用 sudo reboot 重新启动您的树莓派。
-  * 如果您看到与显示驱动程序相关的错误，请将 dtoverlay=vc4-fkms-v3d 或 dtoverlay=vc4-kms-v3d 添加到 /boot/config.txt 。然后使用 sudo reboot 重启您的树莓派。
+* 在树莓派 3 及更老版本的设备上运行 Raspberry Pi OS Bullseye 或更老的版本：
+  * 要启用硬件加速的摄像头预览，请启用 Glamor。要启用 Glamor，请在终端中输入 `sudo raspi-config` ，选择 Advanced Options > Glamor > Yes 。然后使用 `sudo reboot` 重新启动您的树莓派。
+  * 如果您看到与显示驱动程序相关的错误，请将 `dtoverlay=vc4-fkms-v3d` 或 `dtoverlay=vc4-kms-v3d` 添加到 `/boot/config.txt` 。然后使用 `sudo reboot` 重启您的树莓派。
 * 在旧版树莓派 3 及更早版本上，图形硬件只能支持最大尺寸为 2048×2048 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 2048 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
 * 在树莓派 4 上，图形硬件只能支持最大尺寸为 4096×4096 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 4096 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
 * 预览窗口可能在桌面环境中显示屏幕撕裂。这是一个已知的，无法修复的问题。
@@ -2805,8 +2804,8 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 
 要获取有关 libcamera 和 rpicam-apps 的进一步帮助，请查看树莓派摄像头论坛。在发帖之前：
 
-* 记下您的操作系统版本（ uname -a ）。
-* 记下您的 libcamera 和 rpicam-apps 版本（ rpicam-hello --version ）。
+* 记下您的操作系统版本（ `uname -a` ）。
+* 记下您 libcamera 和 rpicam-apps 的版本（ `rpicam-hello --version` ）。
 * 报告您正在使用的摄像头模块的制造商和型号。
 * 报告您正在尝试使用的软件。我们不支持第三方摄像头模块供应商的软件。
 * 报告您的树莓派型号，包括内存大小。
