@@ -1,5 +1,9 @@
 # 树莓派官方文档简体中文版
 
+## 关于我们
+
+我们是树莓派爱好者基地的子部门，如有问题请加入 QQ 群 893333927。
+
 ## 版本说明
 
 当前版本指向 <https://github.com/raspberrypi/documentation/commit/f0511a225236d2defc8c12010c315827cb3baf7d>
