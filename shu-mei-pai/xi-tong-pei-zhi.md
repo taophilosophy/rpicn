@@ -19,7 +19,7 @@ $ sudo raspi-config
 
 使用上下箭头键在可用选项之间移动突出显示的选择。
 
-按右箭头键或按 Tab 键访问 <Select> 和 <Finish> 按钮。按左箭头键或按 Tab 键返回选项。
+按右箭头键或按 Tab 键访问 `<Select>` 和 `<Finish>` 按钮。按左箭头键或按 Tab 键返回选项。
 
 raspi-config 自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件。某些选项需要重新启动才能生效。如果您更改了其中任何一个， raspi-config 在退出时会要求您重新启动。
 
