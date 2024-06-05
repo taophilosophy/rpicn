@@ -1,5 +1,8 @@
 # 树莓派官方文档简体中文版
 
+## 版本说明
+
+当前版本指向 <https://github.com/raspberrypi/documentation/commit/f0511a225236d2defc8c12010c315827cb3baf7d>
 
 ## 版权说明
 
