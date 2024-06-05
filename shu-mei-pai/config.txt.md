@@ -2,8 +2,9 @@
 
 ## 什么是 config.txt ？
 
-| NOTE | 在 Bookworm 之前，Raspberry Pi OS 将引导分区存储在 /boot/ 处。自从 Bookworm 以来，引导分区位于 /boot/firmware/ 处。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在 Bookworm 之前，Raspberry Pi OS 将引导分区存储在 /boot/。自从 Bookworm 以来，引导分区位于 /boot/firmware/。 
 
 Raspberry Pi 使用一个配置文件，而不是您在传统 PC 上期望找到的 BIOS。系统配置参数，传统上会使用 BIOS 进行编辑和存储，现在存储在一个名为 config.txt 的可选文本文件中。这个文件在 ARM CPU 和 Linux 初始化之前由 GPU 读取。因此，它必须位于 SD 卡的第一个（引导）分区上，与 bootcode.bin 和 start.elf 一起。这个文件通常在 Linux 中作为 /boot/firmware/config.txt 访问，并且必须作为 root 用户进行编辑。在 Windows 或 OS X 中，它显示为卡片上唯一可访问部分中的一个文件。如果您需要应用下面的一些配置设置，但是您的引导分区上还没有 config.txt ，请将其创建为一个新的文本文件。
 
@@ -13,8 +14,9 @@ Raspberry Pi 使用一个配置文件，而不是您在传统 PC 上期望找到
 * vcgencmd get_config int ：列出所有已设置的整数配置选项（非零）
 * vcgencmd get_config str ：列出所有已设置的字符串配置选项（非空）
 
-| NOTE | 有一些配置设置无法使用 vcgencmd 检索。 |
-| ------ | ---------------------------------------- |
+>**注意**
+>
+>有一些配置设置无法使用 vcgencmd 查看。
 
 ### 文件格式
 
