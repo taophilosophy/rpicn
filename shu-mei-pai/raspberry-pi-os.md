@@ -5,7 +5,7 @@
 
 Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配树莓派的硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数使用需求来说，我们推荐在树莓派上使用 Raspberry Pi OS。
 
-因为 Raspberry Pi OS 源自 Debian，因此基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
+因为 Raspberry Pi OS 源自 Debian，因此 Raspberry Pi OS 基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
 
 最新版本的 Raspberry Pi OS 基于 Debian Bookworm。之前的版本基于 Debian Bullseye。
 
@@ -14,7 +14,7 @@ Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以�
 ## 更新软件
 
 
-请始终保持您的在 Raspberry Pi 上运行的软件更新到最新版本。这可以使您的设备免受漏洞的影响，并确保您获得最新的错误修复。
+请始终保持您的在 Raspberry Pi 上运行的软件更新到了最新版本。这可以使您的设备免受漏洞的影响，并确保您获得最新的错误修复。
 
 ### 使用 APT 管理软件包
 
@@ -22,7 +22,7 @@ Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以�
 
 #### 安装更新
 
-apt 在 /etc/apt/sources.list 的文件中存储软件源列表。在安装软件之前，请运行以下命令，使用 /etc/apt/sources.list 更新本地软件包列表：
+apt 在 /etc/apt/sources.list 的文件中存储软件源列表。在安装软件之前，请运行以下命令，使用 /etc/apt/sources.list 刷新本地软件包列表：
 
 ```
 $ sudo apt update
@@ -38,13 +38,13 @@ $ sudo apt full-upgrade
 >
 >与 Debian 不同，Raspberry Pi OS 处于持续开发状态。因此，软件包依赖关系有时会发生变化，因此您应始终使用 full-upgrade 而非标准的 upgrade 。 
 
-请定期运行这些命令，以保持软件是最新的。使用 apt 来确保 Raspberry Pi OS 是最新的，也会使您的 Linux 内核和固件保持最新状态，因为树莓派将它们作为 Debian 软件包分发。
+请定期运行这些命令，以保持软件是最新的。使用 apt 来确保 Raspberry Pi OS 是最新的，也会使您的 Linux 内核和固件保持最新状态，因为树莓派将它们作为 Debian 软件包进行分发。
 
 当树莓派发布 Raspberry Pi OS 新的主要版本时，上述命令将不会将您的操作系统升级到该新主要版本。要升级到新的主要版本，请按照我们的操作系统升级说明进行操作。
 
 #### 搜索软件
 
-要搜索软件包存档，请将搜索关键字传递给 apt-cache search ：
+要搜索软件包，请将搜索关键字传递给 apt-cache search ：
 
 ```
 $ apt-cache search <keyword>
@@ -225,7 +225,7 @@ $ vlc big-buck-bunny-1080p.mp4
 $ vlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
-要在全屏模式下播放视频（在某些情况下可能会使播放更流畅），请添加 --fullscreen 标志：
+要在全屏模式下播放视频（在某些情况下可能会使播放更流畅），请添加参数 --fullscreen：
 
 ```
 $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
@@ -241,7 +241,7 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 
 ### 在 Raspberry Pi OS Lite 上播放音频和视频
 
-与完整版本的 Raspberry Pi OS 不同，VLC 没有预装在 Raspberry Pi OS Lite 上。要在 Raspberry Pi OS Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
+与完整版本的 Raspberry Pi OS 不同，在 Raspberry Pi OS Lite 上没有预装 VLC 。要在 Raspberry Pi OS Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
 
 ```
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
@@ -327,7 +327,7 @@ kmsprint 工具可用于列出连接到树莓派的显示器支持的显示模�
 
 ### `vclog`
 
-vclog 显示来自运行在 Arm 上的 Linux 上的 VideoCore GPU 的日志消息。它需要以 root 用户身份运行。
+vclog 显示来自运行在 Arm 上的 Linux 上的 VideoCore GPU 的日志消息。它需要以 root 权限运行。
 
 sudo vclog --msg 打印出消息日志，而 sudo vclog --assert 打印出断言日志。
 
@@ -417,7 +417,7 @@ $ vcgencmd get_config total_mem
 
 ##### `codec_enabled [type]`
 
-报告指定编解码器类型是否已启用。类型的可能选项包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于树莓派 4 和 400 上的 H.265 硬件块不是 VideoCore GPU 的一部分，因此其状态不通过此命令访问。
+报告指定编解码器类型是否已启用。可用的类型选项包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于树莓派 4 和 400 上的 H.265 硬件块不是 VideoCore GPU 的一部分，因此其状态不能通过此命令查看。
 
 ##### `mem_oom`
 
@@ -502,7 +502,7 @@ note: If you believe this is a mistake, please contact your Python installation 
 hint: See PEP 668 for the detailed specification.
 ```
 
-Python 用户长期以来一直在处理操作系统软件包管理器（ apt ）和 Python 特定软件包管理工具（ pip ）之间的冲突。这些冲突包括 Python 级别的 API 不兼容性以及文件所有权方面的冲突。
+Python 用户长期以来一直处于处理操作系统软件包管理器（ apt ）和 Python 特定软件包管理工具（ pip ）之间的冲突。这些冲突包括 Python 级别的 API 不兼容性以及文件所有权方面的冲突。
 
 从 Raspberry Pi OS Bookworm 开始，通过 pip 安装的软件包必须安装到 Python 虚拟环境（ venv ）中。虚拟环境是一个容器，在这里您可以安全地安装第三方模块，以免干扰系统 Python。
 
@@ -510,7 +510,7 @@ Python 用户长期以来一直在处理操作系统软件包管理器（ apt �
 
 要使用虚拟环境，请创建一个容器来存储环境。根据您希望如何使用 Python，有几种不同的方法可以做到这一点。
 
-运行以下命令以创建一个虚拟环境配置文件夹，将 <env-name> 替换为您想要用于虚拟环境的名称（例如 env ）:
+运行以下命令以创建一个虚拟环境配置文件夹，将 `<env-name>` 替换为您想要用于虚拟环境的名称（例如 env ）:
 
 ```
 $ python -m venv <env-name>
