@@ -2,7 +2,7 @@
 
 ## 远程访问简介
 
-有时候您需要访问树莓派，而无需连接显示器、键盘和鼠标。也许树莓派嵌入在机器人中或安装在不便利的位置。或者您可能没有多余的显示器。
+有时候您需要访问树莓派，但不使用连接显示器、键盘和鼠标。也许树莓派被嵌入在机器人中或安装在难以触及的地方。或者您可能没有多余的显示器。
 
 ### 在本地网络上的远程控制
 
@@ -12,7 +12,7 @@
 * [VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)
 * [Raspberry Pi connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
 
-SSH（Secure SHell）提供了对树莓派上终端会话的安全访问。VNC（Virtual Network Computing）提供了对树莓派桌面屏幕共享的安全访问。您只需要另一台计算机、本地网络和树莓派的本地 IP 地址。Raspberry Pi Connect 可安全地共享您的树莓派屏幕，无需确定本地 IP 地址。
+SSH（Secure SHell）提供了对树莓派上终端会话的安全访问。VNC（Virtual Network Computing）提供了对树莓派桌面屏幕共享的安全访问。您只需要另一台计算机、本地网络和树莓派的本地 IP 地址。Raspberry Pi Connect 可安全地共享您的树莓派屏幕，且无需确认树莓派的 IP 地址。
 
 ### 在本地网络上在设备之间共享文件
 
@@ -20,14 +20,14 @@ NFS（网络文件系统）、SCP（安全复制协议）、Samba 等服务使�
 
 ### 通过互联网远程控制
 
-要从连接到互联网的任何设备远程控制您的树莓派，您可以：
+要从连接到互联网的任何设备远程控制您的树莓派，您需要：
 
-* 在树莓派上公开 SSH 或 VNC，可以通过开放互联网、VPN 内部，或使用 RealVNC 的云 VNC Viewer 等外部服务。
+* 在树莓派上放开 SSH 或 VNC，可以通过互联网、内部 VPN，或使用 RealVNC 的云 VNC Viewer 等外部服务。
 * 使用 Raspberry Pi Connect，这是由树莓派提供的免费屏幕共享服务。
 
 ## 查找树莓派的 IP 地址
 
-连接到树莓派的大多数方法都需要您知道树莓派的本地 IP 地址。
+大多数连接到树莓派的方法都需要您知道树莓派的本地 IP 地址。
 
 分配给连接到局域网的任何设备一个 IP 地址。要使用 SSH 或 VNC 从另一台机器连接到树莓派，您需要知道树莓派的 IP 地址。如果连接了显示器，这很容易，还有许多方法可以从网络上的另一台机器远程查找它。
 
@@ -49,7 +49,7 @@ $ hostname -I
 
 ### 引导输出
 
-如果您在树莓派上使用显示器，并且引导到命令行而不是桌面，则引导顺序将在登录提示符之前的最后几条输出消息中包含您的 IP 地址。
+如果您在树莓派上使用显示器，并且引导到命令行而不是桌面，则引导顺序将在登录提示符之前的最后几条输出信息中包含您的 IP 地址。
 
 ### 网络管理器
 
@@ -119,7 +119,7 @@ IP6.GATEWAY:                            --
 
 在上面的示例中，树莓派使用 Wi-Fi 访问互联网。检查 GENERAL.TYPE 字段为“wifi”的块，以查找 IP 地址。在这种情况下，您可以使用 IP4.ADDRESS[1] 字段中的 IPv4 地址访问此设备： 192.168.1.42 。
 
-### 使用 mDNS 解析 raspberrypi.local 。
+### 使用 mDNS 解析 `raspberrypi.local` 。
 
 Raspberry Pi OS 支持 Avahi 服务的多播 DNS。
 
@@ -146,7 +146,7 @@ PING raspberrypi.local (192.168.1.131): 56 data bytes
 
 >**技巧**
 >
->您的路由器 IP 地址通常为 http://192.168.1.1 ，但并非总是如此。您可能会在路由器标签上找到路由器的地址和凭据。 
+>您的路由器 IP 地址通常为 `http://192.168.1.1` ，但并非总是如此。您可能会在路由器的标签上找到路由器的地址和凭据。 
 
 这将带您进入控制面板。浏览到连接设备列表或类似内容（所有路由器都不同），您应该能看到一些您认识的设备。一些设备被检测为 PC、平板电脑、手机、打印机等，因此您应该能识别一些并排除它们，以找出哪个是您的树莓派。
 
@@ -251,7 +251,7 @@ Fing 应用程序是一款免费的智能手机网络扫描器。它适用于 An
 
 ### 连接到一个 SSH 服务器
 
-在您的计算机上打开一个终端窗口，并输入以下命令，将 <ip address> 占位符替换为您要连接到的树莓派的 IP 地址，将 <username> 替换为您的用户名：
+在您的计算机上打开一个终端窗口，并输入以下命令，将 `<ip address>` 占位符替换为您要连接到的树莓派的 IP 地址，将 `<username>` 替换为您的用户名：
 
 ```
 $ ssh <username>@<ip address>
@@ -271,7 +271,7 @@ $ ssh <username>@<ip address>
 
 >**注意**
 >
->如果收到 connection timed out 错误消息，则可能输入了错误的树莓派 IP 地址。请检查树莓派的 IP 地址。 
+>如果收到错误消息 connection timed out，则可能输入的树莓派 IP 地址不正确。请检查树莓派的 IP 地址。 
 
 #### 通过 SSH 转发 X11
 
@@ -281,9 +281,9 @@ $ ssh <username>@<ip address>
 
 >**注意**
 >
->X11 不再默认安装在许多桌面环境中。安装第三方 X 服务器，如 XQuartz，以使用 X11 转发。
+>在许多桌面环境中都不再默认安装 X11。可安装第三方 X 服务器，如 XQuartz，以使用 X11 转发。
 
-X11 可以通过 SSH 启用图形应用程序。传递 -Y 标志以通过 SSH 转发 X 会话：
+X11 可以通过 SSH 启用图形应用程序。传递 -Y 参数以通过 SSH 转发 X 会话：
 
 ```
 $ ssh -Y <username>@<ip address>
@@ -299,11 +299,11 @@ $ geany &
 
 要远程访问您的树莓派而无需每次连接时提供密码，请使用 SSH 密钥对。
 
-#### 使用 Raspberry Pi Imager 预配置 OS 映像
+#### 使用 Raspberry Pi Imager 预配置 OS 镜像
 
-使用 Raspberry Pi Imager 配置引导映像时，您可以预配置 SSH 密钥。您可以生成新的 SSH 密钥对或使用现有的 SSH 密钥。
+使用 Raspberry Pi Imager 配置启动镜像时，您可以预配置 SSH 密钥。您可以生成新的 SSH 密钥对或使用现有的 SSH 密钥。
 
-1. 按照使用 Imager 指南安装来配置您的引导映像。
+1. 按照使用 Imager 指南安装来配置您的启动镜像。
 2. 在 OS 自定义步骤中，导航到服务选项卡，选中启用 SSH 复选框。
 3. 选择仅允许公钥身份验证单选按钮。如果您已经在 ~/.ssh/id_rsa.pub 中存储了一个 SSH 公钥，Imager 会自动使用该公钥来预填文本框。如果 Imager 没有找到 SSH 公钥，您可以单击“运行 SSH-KEYGEN”按钮生成新的密钥对。
 
@@ -415,13 +415,13 @@ $ chmod 644 .ssh/authorized_keys
 
 ## 使用 VNC 进行屏幕共享
 
-有时候在物理上操作设备并不方便。虚拟网络计算（VNC）允许您从另一台设备控制一台设备的桌面。
+有时候在物理上操作设备并不方便。虚拟网络计算（VNC）可让您通过另一台设备控制某台设备的桌面。
 
 VNC 依赖于客户端和服务器。客户端运行在您可以直接与之交互的设备上，例如个人笔记本电脑、台式机、平板电脑或手机。服务器运行在您的树莓派上。当您使用 VNC 时，客户端将键盘和鼠标事件传输到服务器。服务器在您的树莓派上执行这些事件，并将屏幕更新返回给客户端。
 
 VNC 客户端在窗口中显示您的树莓派的桌面。您可以像在树莓派本身上工作一样与桌面交互。
 
-Raspberry Pi OS 包含 wayvnc。这提供了一个 VNC 服务器，您可以在设备首选项中启用。
+Raspberry Pi OS 包含 wayvnc。它提供了一个 VNC 服务器，您可以在设备首选项中启用。
 
 在您的树莓派上使用 VNC 之前，您必须启用 VNC 服务器。
 
@@ -467,11 +467,10 @@ Raspberry Pi OS 支持在图形界面和命令行两种方式下启用 VNC 服�
 如果您不知道设备的 IP 地址，请参阅有关查找 IP 地址的说明。
 
 1. 下载 TigerVNC。您可以从其 GitHub 存储库的 Releases 页面安装最新版本。单击最新版本中的链接，找到适用于您平台的二进制文件。Windows 用户应下载 exe ；macOS 用户应下载 dmg ；Linux 用户应安装 jar 。
-2. 在您的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，您可以双击二进制文件。在 Linux 上，安装 java，然后运行 java -jar VncViewer-<version>.jar ，将 <version> 占位符替换为您下载的版本。
+2. 在您的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，您可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<version>.jar` ，将 `<version>` 占位符替换为您下载的版本。
 3. 在“VNC 服务器”字段中输入您树莓派的 IP 地址。![Entering the Raspberry Pi’s local IP address into TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-enter-ip.png)
 4. 单击“Options”按钮。导航到“Input”选项卡。选中“在没有光标时显示点”旧版，以确保您始终可以在 TigerVNC 中看到光标。![TigerVNC option to render the cursor at all times as a dot](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-show-dot.png)
 5. 单击“Connect”按钮以与服务器建立连接。
-
     * 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。![TigerVNC warning about mismatched certificates](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-warning.png)
     * 如果 TigerVNC 警告您“证书由未知机构签署”，请单击“是”按钮以为您的树莓派授予异常。![TigerVNC warning about certificates signed by an unknown authority](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
 6. 在提示输入用户名和密码时，请输入您的凭据。![Entering a username and password to authenticate via TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-username-password.png)
@@ -491,13 +490,13 @@ Raspberry Pi OS 支持在图形界面和命令行两种方式下启用 VNC 服�
 
 ### 将文件复制到您的树莓派
 
-要将名为 myfile.txt 的文件从您的个人计算机复制到树莓派上用户的主文件夹，请从包含 myfile.txt 的目录中运行以下命令，将 <username> 占位符替换为您用于登录到树莓派的用户名，将 <pi_ip_address> 占位符替换为您的树莓派的 IP 地址：
+要将名为 myfile.txt 的文件从您的个人计算机复制到树莓派上用户的主文件夹，请从包含 myfile.txt 的目录中运行以下命令，将 `<username>` 占位符替换为您用于登录到树莓派的用户名，将 `<pi_ip_address>` 占位符替换为您的树莓派的 IP 地址：
 
 ```
 $ scp myfile.txt <username>@<pi_ip_address>:
 ```
 
-要将文件复制到特定目录，请在 scp 命令中的 : 后附加目录路径。在运行 scp 之前创建文件夹，因为 scp 不会自动创建文件夹。例如，以下命令将名为 myfile.txt 的文件复制到用户主文件夹中的 project/ 目录中：
+要将文件复制到特定目录，请在 scp 命令中的 `:` 后附加目录路径。在运行 scp 之前创建文件夹，因为 scp 不会自动创建文件夹。例如，以下命令将名为 myfile.txt 的文件复制到用户主文件夹中的 project/ 目录中：
 
 ```
 $ scp myfile.txt <username>@<pi_ip_address>:project/
@@ -543,7 +542,7 @@ $ scp "my file.txt" <username>@<pi_ip_address>:
 
 ### 复制文件夹
 
-要复制文件夹及其所有内容，请传递文件夹名称和 -r （递归）标志：
+要复制文件夹及其所有内容，请传递文件夹名称和 -r （递归）参数：
 
 ```
 $ scp -r project/ <username>@<pi_ip_address>:
@@ -555,10 +554,10 @@ $ scp -r project/ <username>@<pi_ip_address>:
 
 在配置 rsync 之前，确定以下数值的值：
 
-* <pi_ip_address> ：您树莓派的本地 IP 地址：有关更多信息，请参阅查找您的树莓派的 IP 地址
-* <pi_username> ：您用于登录到树莓派的用户名
-* <pi_folder_name> ：您要从树莓派复制文件的文件夹名称
-* <pc_folder_name> ：您想要在个人计算机上同步的文件夹名称
+* `<pi_ip_address>` ：您树莓派的本地 IP 地址：有关更多信息，请参阅查找您的树莓派的 IP 地址
+* `<pi_username>` ：您用于登录到树莓派的用户名
+* `<pi_folder_name>` ：您要从树莓派复制文件的文件夹名称
+* `<pc_folder_name>` ：您想要在个人计算机上同步的文件夹名称
 
 要配置 rsync 以同步文件，请在个人计算机上完成以下步骤，并使用上面确定的值替换命令中的占位符：
 
@@ -685,7 +684,7 @@ rpcbind mountd nfsd statd lockd rquotad : ALL
 rpcbind mountd nfsd statd lockd rquotad : <list of IPv4s>
 ```
 
-其中 <list of IPv4s> 是服务器和所有客户端的 IP 地址列表。（由于 rpcbind 中的限制不喜欢主机名，这些必须是 IP 地址。）请注意，如果您设置了 NIS，您可以将这些添加到同一行中。
+其中 `<list of IPv4s>` 是服务器和所有客户端的 IP 地址列表。（由于 rpcbind 中的限制不喜欢主机名，这些必须是 IP 地址。）请注意，如果您设置了 NIS，您可以将这些添加到同一行中。
 
 请确保授权 IP 地址列表包括 localhost 地址（ 127.0.0.1 ），因为 Ubuntu 的最新版本中的启动脚本使用 rpcinfo 命令来发现 NFSv3 支持，如果 localhost 无法连接，这将被禁用。
 
@@ -711,7 +710,7 @@ $ mount -t nfs -o proto=tcp,port=2049 <nfs-server-IP>:/ /mnt
 
 您还可以指定 NFS 服务器主机名，而不是其 IP 地址，但在这种情况下，您需要确保主机名可以在客户端上解析为 IP。确保这将始终解析的一种稳健方法是使用 /etc/hosts 文件。
 
-请注意，在 NFSv4 中， <nfs-server-IP>:/export 不是必需的，就像在 NFSv3 中一样。根导出 :/ 默认导出为 fsid=0 。
+请注意，在 NFSv4 中， `<nfs-server-IP>:/export` 不是必需的，就像在 NFSv3 中一样。根导出 `:/` 默认导出为 fsid=0 。
 
 我们还可以挂载导出的子树：
 
@@ -725,7 +724,7 @@ $ mount -t nfs -o proto=tcp,port=2049 <nfs-server-IP>:/users /home/users
 <nfs-server-IP>:/   /mnt   nfs    auto  0  0
 ```
 
-如果在挂载后， /proc/mounts appears 中的条目为 <nfs-server-IP>:// （带有两个斜杠），那么您可能需要在 /etc/fstab 中指定两个斜杠，否则 umount 可能会抱怨找不到该挂载点。
+如果在挂载后， /proc/mounts appears 中的条目为 `<nfs-server-IP>://` （带有两个斜杠），那么您可能需要在 /etc/fstab 中指定两个斜杠，否则 umount 可能会抱怨找不到该挂载点。
 
 #### 端口映射锁定（可选）
 
@@ -743,13 +742,13 @@ rpcbind : ALL
 rpcbind : <NFS server IP address>
 ```
 
-其中 <NFS server IP address> 是服务器的 IP 地址。
+其中 `<NFS server IP address>` 是服务器的 IP 地址。
 
 ### 配置复杂的 NFS 服务器
 
 NFS 用户权限基于用户 ID（UID）。客户端上任何用户的 UID 必须与服务器上的 UID 匹配，以便用户能够访问。通常的做法有：
 
-* 手动密码文件同步
+* 手动同步密码文件
 * 使用 LDAP
 * 使用 DNS
 * 使用 NIS
@@ -800,7 +799,7 @@ rpcbind mountd nfsd statd lockd rquotad : ALL
 rpcbind mountd nfsd statd lockd rquotad : <list of IPs>
 ```
 
-其中 <list of IPs> 是服务器和所有客户端的 IP 地址列表。由于 rpcbind 的限制，这些必须是 IP 地址。请注意，如果您设置了 NIS，可以将这些添加到同一行。
+其中 `<list of IPs>` 是服务器和所有客户端的 IP 地址列表。由于 rpcbind 的限制，这些必须是 IP 地址。请注意，如果您设置了 NIS，可以将这些添加到同一行。
 
 #### 软件包安装和配置
 
@@ -946,7 +945,7 @@ $ sudo apt install samba samba-common-bin smbclient cifs-utils
 $ mkdir windowshare
 ```
 
-现在，我们需要将远程文件夹挂载到该位置。远程文件夹是 Windows PC 的主机名或 IP 地址，以及在共享时使用的共享名称。我们还需要提供将用于访问远程计算机的 Windows 用户名。不要忘记用你的 Raspberry Pi OS 用户名替换 <username> 占位符。
+现在，我们需要将远程文件夹挂载到该位置。远程文件夹是 Windows PC 的主机名或 IP 地址，以及在共享时使用的共享名称。我们还需要提供将用于访问远程计算机的 Windows 用户名。不要忘记用你的 Raspberry Pi OS 用户名替换 `<username>` 占位符。
 
 ```
 $ sudo mount.cifs //<hostname or IP address>/<shared windows folder> /home/<username>/windowshare -o user=<name>
@@ -968,7 +967,7 @@ $ sudo mount.cifs //IP/share /mnt/point -o user=<uname>,vers=1.0
 
 您可能需要尝试不同的版本以与服务器版本匹配。可能的值包括：
 
-| 版本 | 描述                                                                |
+| 版本 | 说明                                                                |
 | ------ | --------------------------------------------------------------------- |
 | 1.0  | 旧版的 CIFS/SMBv1 协议                                              |
 | 2.0  | SMBv2.002 协议。Windows Vista Service Pack 1 和 Windows Server 2008 |
@@ -988,7 +987,7 @@ $ mkdir shared
 $ chmod 0740 shared
 ```
 
-现在我们需要告诉 Samba 关于您的默认用户账户在访问该文件夹时。在提示时，请输入您的密码，并用您的主用户账户的用户名替换 <username> 占位符：
+现在我们需要告诉 Samba 关于您的默认用户账户在访问该文件夹时。在提示时，请输入您的密码，并用您的主用户账户的用户名替换 `<username>` 占位符：
 
 ```
 $ sudo smbpasswd -a <username>
@@ -1000,7 +999,7 @@ $ sudo smbpasswd -a <username>
 sudo nano /etc/samba/smb.conf
 ```
 
-在文件末尾，添加以下内容以共享文件夹，为远程用户提供读写权限。用你的树莓派上主用户账户的用户名替换 <username> 占位符：
+在文件末尾，添加以下内容以共享文件夹，为远程用户提供读写权限。用你的树莓派上主用户账户的用户名替换 `<username>` 占位符：
 
 ```
 [share]
@@ -1010,7 +1009,7 @@ sudo nano /etc/samba/smb.conf
     writable = yes
 ```
 
-在同一文件中，找到 workgroup 行，如有必要，将其更改为本地 Windows 网络工作组的名称。
+在同一文件中，找到 workgroup 这一行，如有必要，将其更改为本地 Windows 网络工作组的名称。
 
 ```
 workgroup = <your workgroup name here>
@@ -1040,7 +1039,7 @@ sudo apt install apache2 -y
 
 ### 测试 Web 服务器
 
-默认情况下，Apache 在 Web 文件夹中放置一个测试 HTML 文件。当您在树莓派本身上浏览到 http://localhost/ ，或者在网络中的另一台计算机上浏览到 http://192.168.1.10 （无论树莓派的 IP 地址是什么）时，将提供此默认网页。要查找树莓派的 IP 地址，请在命令行中键入 hostname -I （或阅读有关查找 IP 地址的更多信息）。
+默认情况下，Apache 在 Web 文件夹中放置一个测试 HTML 文件。当您在树莓派本身上浏览到 `http://localhost/` ，或者在网络中的另一台计算机上浏览到 `http://192.168.1.10` （无论树莓派的 IP 地址是什么）时，将提供此默认网页。要查找树莓派的 IP 地址，请在命令行中键入 hostname -I （或阅读有关查找 IP 地址的更多信息）。
 
 在树莓派上或网络中的另一台计算机上浏览到默认网页，您应该看到以下内容：
 
@@ -1068,7 +1067,7 @@ drwxr-xr-x 12 root root 4096 Jan  8 01:28 ..
 -rw-r--r--  1 root root  177 Jan  8 01:29 index.html
 ```
 
-这表明默认情况下， /var/www/html/ 中有一个名为 index.html 的文件，由 root 用户拥有（就像包含文件的文件夹一样）。要编辑该文件，您需要将其所有权更改为您自己的用户名。使用以下命令更改文件的所有者，将 <username> 占位符替换为您的主用户账户的用户名：
+这表明默认情况下， /var/www/html/ 中有一个名为 index.html 的文件，由 root 用户拥有（就像包含文件的文件夹一样）。要编辑该文件，您需要将其所有权更改为您自己的用户名。使用以下命令更改文件的所有者，将 `<username>` 占位符替换为您的主用户账户的用户名：
 
 ```
 $ sudo chown <username>: index.html
@@ -1114,7 +1113,7 @@ sudo nano index.php
 <?php phpinfo(); ?>
 ```
 
-## 在树莓派上进行网络引导
+## 在树莓派上通过网络启动
 
 您可以设置一个 DHCP/TFTP 服务器，这将允许您从网络引导树莓派 3 或 4。
 
@@ -1124,17 +1123,17 @@ sudo nano index.php
 >
 >由于网络设备和路由器的种类繁多，我们无法保证网络引导能在任何设备上正常工作。我们收到报告称，如果无法使网络引导正常工作，可以尝试在网络上禁用 STP 帧来帮助解决问题。 
 
-### 配置网络引导客户端
+### 配置网络启动客户端
 
 #### 树莓派 3 Model B
 
 >**注意**
 >
->本部分仅适用于树莓派 3 Model B，因为树莓派 3 Model B+ 在出厂时已启用网络引导。 
+>本部分仅适用于树莓派 3 Model B，因为树莓派 3 Model B+ 在出厂时已启用网络启动。 
 
-在树莓派 3 Model B 进行网络引导之前，需要从带有配置选项的 SD 卡引导，以启用 USB 引导模式。 这将在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。 完成此操作后，树莓派 3B 将尝试从 USB 和网络引导，如果无法从 SD 卡引导。
+在树莓派 3 Model B 进行网络启动之前，需要从带有配置选项的 SD 卡启动，以启用 USB 启动模式。 这将在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。 完成此操作后，树莓派 3B 将尝试从 USB 和网络启动，如果无法从 SD 卡启动。
 
-以通常方式在 SD 卡上安装 Raspberry Pi OS Lite 或带桌面的 Raspberry Pi OS。 接下来，使用以下命令启用 USB 引导模式：
+以通常方式在 SD 卡上安装 Raspberry Pi OS Lite 或带桌面的 Raspberry Pi OS。 接下来，使用以下命令启用 USB 启动模式：
 
 ```
 $ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
@@ -1159,25 +1158,25 @@ $ sudo nano /boot/firmware/config.txt
 
 #### 树莓派 4 Model B
 
-可以使用 raspi-config 工具在树莓派 4 上启用网络引导。首先，按照以下方式运行 raspi-config ：
+可以使用 raspi-config 工具在树莓派 4 上启用网络启动。首先，按照以下方式运行 raspi-config ：
 
 ```
 $ sudo raspi-config
 ```
 
-在 raspi-config 中，选择 Advanced Options ，然后选择 Boot Order ，最后选择 Network Boot 。然后必须重新启动设备，以便将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重新启动后，请检查引导顺序是否现在为 0xf21 ：
+在 raspi-config 中，选择 Advanced Options ，然后选择 Boot Order ，最后选择 Network Boot 。然后必须重新启动设备，以便将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重新启动后，请检查启动顺序是否现在为 0xf21 ：
 
 ```
 $ vcgencmd bootloader_config
 ```
 
-要了解如何配置树莓派 4 引导加载程序的更多详细信息，请参阅树莓派引导加载程序配置。
+要了解如何配置树莓派 4 启动加载程序的更多详细信息，请参阅树莓派引导加载程序配置。
 
 ### 以太网 MAC 地址
 
-在配置网络引导之前，请记下序列号和 MAC 地址，以便 TFTP/DHCP 服务器可以识别板子。
+在配置网络引导之前，请记下序列号和 MAC 地址，以便 TFTP/DHCP 服务器可以识别开发板。
 
-在树莓派 4 上，MAC 地址是在制造时编程的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在引导加载程序 HDMI 诊断屏幕上。
+在树莓派 4 上，MAC 地址是在制造时编程的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在启动加载程序的 HDMI 诊断屏幕上。
 
 要查找以太网 MAC 地址：
 
@@ -1191,9 +1190,9 @@ $ ethtool -P eth0
 $ grep Serial /proc/cpuinfo | cut -d ' ' -f 2 | cut -c 9-16
 ```
 
-### 配置网络引导服务器
+### 配置网络启动服务器
 
-将 SD 卡插入服务器的树莓派，然后启动服务器。客户端的树莓派需要一个用于引导的根文件系统：我们将使用服务器的根文件系统的副本，并将其放置在 /nfs/client1 ：
+将 SD 卡插入服务器的树莓派，然后启动服务器。客户端的树莓派需要一个用于启动的根文件系统：我们将使用服务器的根文件系统的副本，并将其放置在 /nfs/client1 ：
 
 ```
 $ sudo mkdir -p /nfs/client1
@@ -1285,7 +1284,7 @@ Gateway=10.42.0.1
 $ sudo nano /etc/systemd/resolved.conf
 ```
 
-取消注释 DNS 行，并在那里添加 DNS IP 地址。另外，如果您有备用 DNS 服务器，请也添加在那里。
+取消注释 DNS 那一行，并在那里添加 DNS IP 地址。另外，如果您有备用 DNS 服务器，请也添加在那里。
 
 ```
 [Resolve]
@@ -1372,7 +1371,7 @@ $ sudo systemctl restart dnsmasq
 
 #### 设置 NFS root
 
-现在，这应该允许您的树莓派客户端尝试引导，直到尝试加载根文件系统（它没有）。
+现在，这应该允许您的树莓派客户端尝试启动，直到尝试加载根文件系统（它没有）。
 
 在这一点上，导出之前创建的 /nfs/client1 文件系统和 TFTP 引导文件夹。
 
@@ -1407,9 +1406,9 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 如果第一次尝试无法启动，请继续尝试。树莓派启动可能需要一分钟左右，所以请耐心等待。
 
-## 使用 IPv6 进行网络引导
+## 使用 IPv6 进行网络启动
 
-树莓派计算机通过网络引导有 4 个阶段：
+通过网络启动树莓派有 4 个阶段：
 
 1. 引导加载程序使用 DHCP 协商获取 IP 地址和 TFTP 服务器的详细信息。
 2. 引导加载程序通过 TFTP 加载固件，并将引导过程交给固件，将网络详细信息传递给它。
@@ -1425,11 +1424,11 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 ### 工作原理
 
-要通过 IPv6 引导，您需要一个更新的固件版本（例如 start4.elf ）和引导加载程序。使用最新版本的 Raspberry Pi OS 和最新的稳定引导加载程序应该足够了。
+要通过 IPv6 启动，您需要一个更新的固件版本（例如 start4.elf ）和引导加载程序。使用最新版本的 Raspberry Pi OS 和最新的稳定引导加载程序应该足够了。
 
 >**注意**
 >
->常用的 dnsmasq DHCP 服务器目前不支持 IPv6 网络引导所需的网络引导参数，因此在目前，您将不得不使用其他 DHCP 服务器，如 ISC DHCP。 
+>常用的 dnsmasq DHCP 服务器目前不支持 IPv6 网络启动所需的网络启动参数，因此在目前，您只能使用其他 DHCP 服务器，如 ISC DHCP。 
 
 要通过网络挂载 rootfs ，IPv4 网络引导教程建议使用 nfsroot 。这不支持 IPv6，因此需要另一种方法来通过网络挂载 rootfs 。
 
@@ -1457,11 +1456,11 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 #### 内核引导
 
-使用 IPv4 网络引导时， nfsroot 用于在网络上挂载 rootfs 。这不支持 IPv6，因此需要另一种解决方案。可能涉及一个可以在切换到适当的 rootfs 内容之前挂载适当网络位置的小型 RAM 文件系统。
+使用 IPv4 网络启动时， nfsroot 用于在网络上挂载 rootfs 。这不支持 IPv6，因此需要另一种解决方案。可能涉及一个可以在切换到适当的 rootfs 内容之前挂载适当网络位置的小型 RAM 文件系统。
 
 >**注意**
 >
->通过 IPv6 通过 NFS 引导 Linux 内核的机制仍需演示。 
+>通过 IPv6 通过 NFS 启动 Linux 内核的机制仍需演示。 
 ### 测试设置
 
 如果您想尝试这个，您将需要另一个树莓派作为 TFTP 和 DHCP 服务器。
@@ -1470,7 +1469,7 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 #### TFTP 服务器
 
-如果您有一个工作的 IPv4 网络引导设置，您可以重用 dnsmasq 中的 TFTP 服务器提供文件（它可以与 IPv4 和 IPv6 通信）。
+如果您有一个工作的 IPv4 网络启动设置，您可以重用 dnsmasq 中的 TFTP 服务器提供文件（它可以与 IPv4 和 IPv6 通信）。
 
 或者您可以使用一个独立的 TFTP 服务器，比如 tftpd-hpa 。
 
@@ -1527,7 +1526,7 @@ $ sudo systemctl restart isc-dhcp-server.service
 
 #### 引导加载程序
 
-修改配置以通过 IPv6 尝试网络引导，而不是 IPv4。
+修改配置以通过 IPv6 尝试网络启动，而非 IPv4。
 
 ```
 BOOT_ORDER=0xf21 # 2=Network boot
@@ -1535,7 +1534,7 @@ USE_IPV6=1 # Enable IPv6 network boot
 BOOT_UART=1 # Debug
 ```
 
-要恢复到 IPv4 网络引导，只需从 boot.conf 中删除 USE_IPV6 行。
+要恢复到 IPv4 网络启动，只需从 boot.conf 中删除 USE_IPV6 行。
 
 #### 路由器
 
@@ -1581,7 +1580,7 @@ Retransmit time           :  unspecified (0x00000000)
 
 如果启用了引导 UART，则应该从串行端口看到类似以下内容。 以 RX6 开头的行表示正在使用 IPv6。
 
-这里 dc:a6:32:6f:73:f4 是 TFTP 服务器的 MAC 地址，它具有一个 IPv6 地址 fd49:869:6f93::1 。设备本身具有一个 MAC 地址 e4:5f:01:20:24:0b 和一个 IPv6 地址 fd49:869:6f93::1000
+这里 `dc:a6:32:6f:73:f4` 是 TFTP 服务器的 MAC 地址，它具有一个 IPv6 地址 `fd49:869:6f93::1` 。设备本身具有一个 MAC 地址 `e4:5f:01:20:24:0b` 和一个 IPv6 地址 `fd49:869:6f93::1000`
 
 ```
 Boot mode: NETWORK (02) order f
