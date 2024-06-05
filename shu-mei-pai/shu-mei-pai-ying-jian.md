@@ -11,8 +11,9 @@
 
 ![GPIO layout](https://www.raspberrypi.com/documentation/computers/images/GPIO.png)
 
-| NOTE | GPIO 引脚编号方案不按数字顺序排列。 GPIO 引脚 0 和 1 位于板上（物理引脚 27 和 28），但保留供高级使用。 |
-| ------ | -------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>GPIO 引脚编号方案不按数字顺序排列。 GPIO 引脚 0 和 1 位于板上（物理引脚 27 和 28），但保留供高级使用。
 
 ### 电压
 
@@ -48,10 +49,11 @@
 
 ### 查看树莓派的 GPIO 引脚布局
 
-通过打开终端窗口并运行命令 pinout ，可以在您的 Raspberry Pi 上访问 GPIO 参考。此工具由 GPIO Zero Python 库提供，在 Raspberry Pi OS 中默认安装。
+通过打开终端窗口并运行命令 pinout ，可以在您的树莓派上访问 GPIO 参考。此工具由 GPIO Zero Python 库提供，在 Raspberry Pi OS 中默认安装。
 
-| WARNING | 尽管连接简单的组件到 GPIO 引脚是安全的，但要小心如何连接它们。LED 应该有电阻器来限制通过它们的电流。不要为 3.3V 组件使用 5V。不要直接连接电机到 GPIO 引脚，而是使用 H 桥电路或电机控制板。 |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**警告**
+>
+>尽管连接简单的组件到 GPIO 引脚是安全的，但要小心如何连接它们。LED 应该有电阻器来限制通过它们的电流。不要为 3.3V 组件使用 5V。不要直接连接电机到 GPIO 引脚，而是使用 H 桥电路或电机控制板。 
 
 ### 权限
 
@@ -154,20 +156,20 @@ button.when_released = led.off
 
 ![](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)[https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)
 
-您可以在 Raspberry Pi Press 的《使用 GPIO Zero Python 库的简单电子学》一书中找到有关如何使用 GPIO Zero Python 库编程连接到您的 Raspberry Pi 的更多信息。该书将带您开始使用 GPIO Zero 库，并通过构建一系列项目来指导您如何使用它。
+您可以在 Raspberry Pi Press 的《使用 GPIO Zero Python 库的简单电子学》一书中找到有关如何使用 GPIO Zero Python 库编程连接到您树莓派的更多信息。该书将带您开始使用 GPIO Zero 库，并通过构建一系列项目来指导您如何使用它。
 
 您可以免费下载这本书的 PDF 文件，它已根据知识共享署名-非商业性使用-相同方式共享 3.0 未本地化版本（CC BY NC-SA）许可发布。
 
 ## 框图和机械图纸
 
-各种 Raspberry Pi 板版本的原理图：
+各种树莓派开发板版本的原理图：
 
-### Raspberry Pi 5
+### 树莓派 5
 
 * [机械图，PDF](https://datasheets.raspberrypi.com/rpi5/raspberry-pi-5-mechanical-drawing.pdf)
-* Raspberry Pi 5 的 STEP 文件
+* 树莓派 5 的 STEP 文件
 
-### Raspberry Pi 4 Model B
+### 树莓派 4 Model B
 
 * [4.0 版本的原理图](https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf)
@@ -180,17 +182,17 @@ button.when_released = led.off
 * [机械图纸，DXF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-mechanical-drawing.dxf)
 * [ 案例图，PDF](https://datasheets.raspberrypi.com/case/raspberry-pi-3-b-plus-case-mechanical-drawing.pdf)
 
-### Raspberry Pi 3 Model B
+### 树莓派 3 Model B
 
 * [电路图，修订版 1.2](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-mechanical-drawing.pdf)
 * [机械图纸，DXF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-mechanical-drawing.dxf)
 
-### Raspberry Pi 2 Model B
+### 树莓派 2 Model B
 
 * [电路图，版本 1.2](https://datasheets.raspberrypi.com/rpi2/raspberry-pi-2-b-reduced-schematics.pdf)
 
-### Raspberry Pi 1 Model B+
+### 树莓派 1 Model B+
 
 * [电路图，版本 1.2](https://datasheets.raspberrypi.com/rpi/raspberry-pi-b-plus-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi/raspberry-pi-b-plus-mecahnical-drawing.pdf)
@@ -202,10 +204,11 @@ button.when_released = led.off
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-mechanical-drawing.pdf)
 * [ 机箱图纸，PDF](https://datasheets.raspberrypi.com/case/raspberry-pi-3-a-plus-case-mechanical-drawing.pdf)
 
-| NOTE | Raspberry Pi 3 Model A+的机械图也适用于 Raspberry Pi 1 Model A+。 |
-| ------ | ------------------------------------------------------------------- |
+>**注意**
+>
+>树莓派 3 Model A+ 的机械图也适用于树莓派 1 Model A+。 
 
-### Raspberry Pi 1 Model A+
+### 树莓派 1 Model A+
 
 * [电路图，版本 1.1](https://datasheets.raspberrypi.com/rpi/raspberry-pi-a-plus-reduced-schematics.pdf)
 
@@ -222,7 +225,7 @@ button.when_released = led.off
 * [电路图，版本 1.1](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-w-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-w-mechanical-drawing.pdf)
 
-### Raspberry Pi Zero 2 W
+### 树莓派 Zero 2 W
 
 * [ 电路图](https://datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-mechanical-drawing.pdf)
@@ -262,24 +265,26 @@ button.when_released = led.off
 
 ## 产品合规性和安全性
 
-所有 Raspberry Pi 产品均经过了广泛的合规性测试。有关更多信息，请参阅产品信息门户。
+所有的树莓派产品均经过了广泛的合规性测试。有关更多信息，请参阅产品信息门户。
 
 ### 燃烧性评级
 
 树莓派设备中使用的 PCB 符合 UL94-V0 标准。
 
-| NOTE | 仅适用于 PCB。 |
-| ------ | ---------------- |
+
+>**注意**
+>
+>仅适用于 PCB。 
 
 ### 树莓派合规支持
 
-旧版支持计划旨在消除导航合规问题的负担，使公司更容易将新产品带给消费者。它提供了访问与我们的 Raspberry Pis 在合规测试期间合作的相同测试工程师的机会，将用户连接到 UL 的专门团队，他们通过对 Raspberry Pi 的深入了解来评估和测试用户的产品。
+旧版支持计划旨在消除导航合规问题的负担，使公司更容易将新产品带给消费者。它提供了访问与我们的树莓派在合规测试期间合作的相同测试工程师的机会，将用户连接到 UL 的专门团队，他们通过对树莓派的深入了解来评估和测试用户的产品。
 
-了解更多关于 Raspberry Pi 合规支持计划。
+了解更多关于树莓派合规支持计划。
 
-### 由 Raspberry Pi 提供支持
+### 由树莓派提供支持
 
-由 Raspberry Pi 提供支持的 Powered by Raspberry Pi 计划为希望使用 Raspberry Pi 标志形式的公司提供流程，涵盖搭载 Raspberry Pi 计算机或芯片的产品，以及由 Raspberry Pi 提供的服务。如果您希望开始申请流程，可以在线进行。
+由树莓派提供支持的 Powered by Raspberry Pi 计划为希望使用 Raspberry Pi 标志形式的公司提供流程，涵盖搭载树莓派计算机或芯片的产品，以及由树莓派提供的服务。如果您希望开始申请流程，可以在线进行。
 
 ### 已批准的设计合作伙伴
 
@@ -287,20 +292,21 @@ button.when_released = led.off
 
 ## 频率管理和热控制
 
-所有 Raspberry Pi 型号在重载情况下都会执行一定程度的热管理，以避免过热。SoC 具有内部温度传感器，GPU 上的软件会定期轮询以确保温度不超过我们定义的 85°C 的限制。可以将此值设置为较低值，但不能设置为较高值。当设备接近极限时，芯片（Arm、GPU）上使用的各种频率和有时电压会降低。这样可以减少产生的热量，保持温度在可控范围内。
+所有树莓派 型号在重载情况下都会执行一定程度的热管理，以避免过热。SoC 具有内部温度传感器，GPU 上的软件会定期轮询以确保温度不超过我们定义的 85°C 的限制。可以将此值设置为较低值，但不能设置为较高值。当设备接近极限时，芯片（Arm、GPU）上使用的各种频率和有时电压会降低。这样可以减少产生的热量，保持温度在可控范围内。
 
 当核心温度在 80°C 和 85°C 之间时，Arm 核心将逐渐减速。如果温度达到 85°C，Arm 核心和 GPU 都将减速。
 
-对于 Raspberry Pi 3 Model B+，PCB 技术已经更改，以提供更好的散热和增加热量。此外，引入了软温度限制，旨在最大限度地延长设备在达到 85°C 的硬限制之前可以“冲刺”的时间。当达到软限制时，时钟速度从 1.4GHz 降低到 1.2GHz，并且操作电压略微降低。这减少了温度增加的速度：我们以 1.4GHz 的短暂时期换取了 1.2GHz 的较长时期。默认情况下，软限制为 60°C，可以通过 config.txt 中的 temp_soft_limit 设置进行更改。
+对于树莓派 3 Model B+，PCB 技术已经更改，以提供更好的散热和增加热量。此外，引入了软温度限制，旨在最大限度地延长设备在达到 85°C 的硬限制之前可以“冲刺”的时间。当达到软限制时，时钟速度从 1.4GHz 降低到 1.2GHz，并且操作电压略微降低。这减少了温度增加的速度：我们以 1.4GHz 的短暂时期换取了 1.2GHz 的较长时期。默认情况下，软限制为 60°C，可以通过 config.txt 中的 temp_soft_limit 设置进行更改。
 
-Raspberry Pi 4 Model B 采用与 Raspberry Pi 3 Model B+ 相同的 PCB 技术，以帮助散热。目前尚未定义软限制。
+树莓派4 Model B 采用与 树莓派 3 Model B+ 相同的 PCB 技术，以帮助散热。目前尚未定义软限制。
 
 ### 使用 DVFS
 
-| NOTE | 仅适用于 Raspberry Pi 4 Model B、Raspberry Pi 400 和 Compute Module 4 的 DVFS 讨论。 |
-| ------ | -------------------------------------------------------------------------------------- |
+>**注意**
+>
+>仅适用于树莓派 4 Model B、树莓派 400 和计算模块 4 的 DVFS 讨论。 
 
-Raspberry Pi 4 设备实现动态电压和频率调节（DVFS）。这种技术使 Raspberry Pi 4 设备能够在提供相同性能的同时以更低的温度运行。
+树莓派 4 设备实现动态电压和频率调节（DVFS）。这种技术使树莓派 4 设备能够在提供相同性能的同时以更低的温度运行。
 
 SoC 内部的各种时钟（例如 Arm、Core、V3D、ISP、H264、HEVC）由固件监视，每当它们未以全速运行时，供应给由时钟驱动的芯片特定部分的电压会相对于全速降低。实际上，只提供足够的电压以使块在其运行的特定速度下正确运行。这可能导致 SoC 使用的功率大幅减少，从而减少总体产生的热量。
 
@@ -312,8 +318,9 @@ SoC 内部的各种时钟（例如 Arm、Core、V3D、ISP、H264、HEVC）由固
 | dvfs=2  | 默认操作频率的固定电压                                                                                                   |
 | dvfs=3  | 根据需求增加电压以进行超频（默认）。如果 over_voltage 在 config.txt 中指定，则禁用动态电压调节，导致系统恢复到 dvfs=2 。 |
 
-| NOTE | 该设置已在 Raspberry Pi 5 上移除，实际上始终处于模式 3。 |
-| ------ | ---------------------------------------------------------- |
+>**注意**
+>
+>该设置已在树莓派 5 上移除，实际上始终处于模式 3。 
 
 另外，还使用了更加分级的 CPU 调度程序来更精细地控制 ARM 核频率，这意味着 DVFS 更加有效。现在的步长为 1500MHz、1000MHz、750MHz 和 600MHz。这些步骤在 SoC 被限制时也会有帮助，意味着很少会出现一直降至 600MHz 的限制，从而在完全负载性能上有所提升。
 
@@ -334,18 +341,18 @@ SoC 内部的各种时钟（例如 Arm、Core、V3D、ISP、H264、HEVC）由固
 
 ### 添加散热片
 
-由于内置节流，不需要散热片来防止 SoC 过热损坏。但是，散热片或小风扇可以减少热节流并提高性能。将 Raspberry Pi 垂直安装以获得最佳气流，从而略微改善散热。
+由于内置节流，不需要散热片来防止 SoC 过热损坏。但是，散热片或小风扇可以减少热节流并提高性能。将树莓派垂直安装以获得最佳气流，从而略微改善散热。
 
 ### 风扇外壳
 
-Raspberry Pi 5 有两种官方风扇选项可用于辅助冷却：
+树莓派 5 有两种官方风扇选项可用于辅助冷却：
 
 * [ 主动散热器](https://www.raspberrypi.com/products/active-cooler/)
-* [Raspberry Pi 5 机箱](https://www.raspberrypi.com/products/raspberry-pi-5-case/)
+* [树莓派 5 机箱](https://www.raspberrypi.com/products/raspberry-pi-5-case/)
 
 这两者都插入到板子右上角的四针 JST-SH PWM 风扇连接器中，位于 40 针 GPIO 引脚排线和 USB 2 端口之间。风扇连接器从与 USB 外设相同的电流限制中提取电流。我们建议超频者使用主动散热器机箱，因为它提供更好的散热性能。
 
-可用的两个官方配件都由 Raspberry Pi 固件进行积极管理。随着 Raspberry Pi 的温度升高，风扇会做出以下反应：
+可用的两个官方配件都由树莓派固件进行积极管理。随着树莓派的温度升高，风扇会做出以下反应：
 
 * 在 50°C 以下，风扇根本不转动（0%速度）
 * 在 50°C 时，风扇以低速运转（30%速度）
@@ -368,12 +375,13 @@ Raspberry Pi 5 有两种官方风扇选项可用于辅助冷却：
 | 3    | GND  | 黑色     |
 | 4    | 转速 | 黄色     |
 
-## Raspberry Pi 引导 EEPROM
+## 树莓派引导 EEPROM
 
-Raspberry Pi 5，Raspberry Pi 4，400，Compute Module 4 和 Compute Module 4S 计算机使用 EEPROM 引导系统。Raspberry Pi 计算机的所有其他型号使用位于引导文件系统中的 bootcode.bin 文件。
+树莓派 5，树莓派 4，400，Compute Module 4 和 Compute Module 4S 计算机使用 EEPROM 引导系统。树莓派计算机的所有其他型号使用位于引导文件系统中的 bootcode.bin 文件。
 
-| NOTE | 您可以在 rpi-eeprom GitHub 存储库中找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。 |
-| ------ | ----------------------------------------------------------------------------------------- |
+>**注意**
+>
+>您可以在 rpi-eeprom GitHub 存储库中找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。
 
 ### 启动诊断
 
@@ -381,9 +389,9 @@ Raspberry Pi 5，Raspberry Pi 4，400，Compute Module 4 和 Compute Module 4S �
 
 ### 更新引导程序
 
-有多种方法可以更新您的 Raspberry Pi 的引导程序。
+有多种方法可以更新您的树莓派的引导程序。
 
-#### Raspberry Pi 5，Raspberry Pi 4 和 Raspberry Pi 400
+#### 树莓派 5，树莓派 4 和 树莓派 400
 
 Raspberry Pi OS 会自动更新引导加载程序以进行重要的错误修复。手动更新引导加载程序或更改引导模式的推荐方法是使用 Raspberry Pi Imager 和 raspi-config。
 
@@ -396,13 +404,13 @@ Raspberry Pi Imager 提供了一个 GUI，用于更新引导加载程序和选�
 * 启动 Raspberry Pi Imager
 * 选择 Choose OS
 * 选择 Misc utility images ![Select Misc utility images](https://www.raspberrypi.com/documentation/computers/images/misc-utility-images.png)
-* 为您的 Raspberry Pi 版本选择 Bootloader （Pi 400 是 4 系列的一部分）![Choose a family for your bootloader](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png)
+* 为您的树莓派版本选择 Bootloader （Pi 400 是 4 系列的一部分）![Choose a family for your bootloader](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png)
 * 选择引导模式： SD （推荐）， USB 或 Network ![Choose the storage from which you’d like to boot](https://www.raspberrypi.com/documentation/computers/images/bootloader-storage-select.png)
 * 选择 SD card 然后 Write
 * 点击 Yes 继续
-* 使用新镜像启动 Raspberry Pi 并等待至少十秒
+* 使用新镜像启动树莓派并等待至少十秒
 * 当绿色活动 LED 以稳定的模式闪烁且 HDMI 显示器显示绿屏时，您已成功写入引导程序
-* 关闭 Raspberry Pi 并取出 SD 卡
+* 关闭树莓派并取出 SD 卡
 
 #### 使用 raspi-config 更新引导加载程序
 
@@ -523,8 +531,9 @@ $ sudo systemctl mask rpi-eeprom-update
 $ sudo systemctl unmask rpi-eeprom-update
 ```
 
-| NOTE | 如果设置了 FREEZE_VERSION bootloader 配置，则更新服务将跳过任何自动更新。这样可以避免在安装了多个操作系统或交换 SD 卡时需要逐个禁用更新服务。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果设置了 FREEZE_VERSION bootloader 配置，则更新服务将跳过任何自动更新。这样可以避免在安装了多个操作系统或交换 SD 卡时需要逐个禁用更新服务。 
 
 #### `rpi-eeprom-update`
 
@@ -580,8 +589,9 @@ $ rpi-eeprom-update -h
 
 #### 更改引导加载程序版本
 
-| NOTE | 您可以通过编辑 /etc/default/rpi-eeprom-update 文件并将 FIRMWARE_RELEASE_STATUS 条目更改为适当的流来更改更新期间要使用的发布流。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>您可以通过编辑 /etc/default/rpi-eeprom-update 文件并将 FIRMWARE_RELEASE_STATUS 条目更改为适当的流来更改更新期间要使用的发布流。 
 
 #### 在引导加载程序映像文件中更新引导加载程序配置
 
@@ -595,7 +605,7 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 在上电时，BCM2711 和 BCM2712 上的 ROM 会在 SD 卡的引导分区的根目录中查找名为 recovery.bin 的文件。如果找到有效的 recovery.bin ，则 ROM 会执行该文件，而不是 EEPROM 的内容。这种机制确保引导加载程序闪存图像始终可以重置为具有出厂默认设置的有效图像。
 
-另请参阅 Raspberry Pi 引导流程
+另请参阅树莓派引导流程
 
 #### 引导加载程序更新文件
 
@@ -605,7 +615,7 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 | `pieeprom.upd`       | 引导加载程序 EEPROM 图像                                                       |
 | `pieeprom.bin`       | 引导加载程序 EEPROM 图像 - 与 pieeprom.upd 相同，但更改了 recovery.bin 的行为  |
 | `pieeprom.sig`       | bootloader 镜像（pieeprom.upd/pieeprom.bin）的 sha256 校验和                   |
-| `vl805.bin`       | VLI805 USB 固件 EEPROM 镜像 - 仅适用于 Raspberry Pi 4B 修订版 1.3 及更早版本。 |
+| `vl805.bin`       | VLI805 USB 固件 EEPROM 镜像 - 仅适用于树莓派 4B 修订版 1.3 及更早版本。 |
 | `vl805.sig`       | vl805.bin 的 sha256 校验和                                                     |
 
 * 如果引导加载程序更新映像称为 pieeprom.upd ，则一旦更新完成， recovery.bin 将重命名为 recovery.000 ，然后系统将重新启动。由于 recovery.bin 不再存在，ROM 将从 SPI 闪存加载新更新的引导加载程序，操作系统将正常启动。
@@ -620,9 +630,9 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 引导加载程序和 VLI EEPROM 都支持硬件写保护。有关在刷新 EEPROM 时如何启用此功能的更多信息，请参阅 eeprom_write_protect 选项。
 
-## Raspberry Pi 4 上的启动诊断
+## 树莓派 4 上的启动诊断
 
-从 Raspberry Pi 4 bootloader 的 2020-04-16 版本开始，诊断信息可以在 HDMI 显示器上显示。要查看此诊断信息，请关闭 Raspberry Pi 4，取出 SD 卡，然后重新上电。应该在连接的显示器上出现类似下面的诊断显示。
+从 树莓派 4 bootloader 的 2020-04-16 版本开始，诊断信息可以在 HDMI 显示器上显示。要查看此诊断信息，请关闭树莓派 4，取出 SD 卡，然后重新上电。应该在连接的显示器上出现类似下面的诊断显示。
 
 ![Boot diagnostics screen](https://www.raspberrypi.com/documentation/computers/images/bootloader-diagnostics.png)
 
@@ -650,32 +660,35 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 可以使用 DISABLE_HDMI 选项禁用此显示器，请参阅引导加载程序配置。
 
-| NOTE | 这仅用于诊断引导失败；这不是交互式引导加载程序。如果您需要交互式引导加载程序，请考虑使用 U-Boot 等工具。 |
-| ------ | ---------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>这仅用于诊断引导失败；这不是交互式引导加载程序。如果您需要交互式引导加载程序，请考虑使用 U-Boot 等工具。
 
-## Raspberry Pi 启动模式
+## 树莓派启动模式
 
-Raspberry Pi 有许多不同的启动阶段。本文解释了启动模式的工作原理，以及哪些模式适用于 Linux 启动。
+树莓派有许多不同的启动阶段。本文解释了启动模式的工作原理，以及哪些模式适用于 Linux 启动。
 
 ### 特殊 bootcode.bin -only 启动模式
 
-基于 BCM2837 的 Raspberry Pi（即 Raspberry Pi 2B 版本 1.2、Raspberry Pi 3B 和 Raspberry Pi 3B+）可以执行 USB 主机和以太网引导（由于 Raspberry Pi 3A+没有内置以太网接口，因此无法进行网络引导）。此外，所有旧版 Raspberry Pi 型号在 Raspberry Pi 4 之前可以使用仅 bootcode.bin 方法启用 USB 主机引导。
+基于 BCM2837 的树莓派（即树莓派 2B 版本 1.2、树莓派 3B 和 树莓派 3B+）可以执行 USB 主机和以太网引导（由于树莓派 3A+没有内置以太网接口，因此无法进行网络引导）。此外，所有旧版树莓派型号在树莓派4 之前可以使用仅 bootcode.bin 方法启用 USB 主机引导。
 
-| NOTE | Raspberry Pi 4 和 5 不使用 bootcode.bin 文件。相反，引导加载程序位于板载 EEPROM 芯片中。请参阅有关 Raspberry Pi 引导流程和 SPI 引导 EEPROM 的文档。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>树莓派 4 和 5 不使用 bootcode.bin 文件。相反，引导加载程序位于板载 EEPROM 芯片中。请参阅有关树莓派引导流程和 SPI 引导 EEPROM 的文档。
 
-将 SD 卡格式化为 FAT32 并复制最新的 bootcode.bin 到 SD 卡上。SD 卡必须放在 Raspberry Pi 中才能引导。一旦从 SD 卡加载了 bootcode.bin，Raspberry Pi 将继续使用 USB 主机模式引导。
+将 SD 卡格式化为 FAT32 并复制最新的 bootcode.bin 到 SD 卡上。SD 卡必须放在树莓派中才能引导。在从 SD 卡加载了 bootcode.bin 后，树莓派将继续使用 USB 主机模式引导。
 
-这对基于 BCM2835 和 BCM2836 芯片的 Raspberry Pi 1、2 和 Zero 型号非常有用，在 Raspberry Pi 3 无法启动的情况下（与烧录到 BCM2837A0 的引导代码相比，最新的 bootcode.bin 包含了额外的错误修复）。
+这对基于 BCM2835 和 BCM2836 芯片的树莓派 1、2 和 Zero 型号非常有用，在树莓派 3 无法启动的情况下（与烧录到 BCM2837A0 的引导代码相比，最新的 bootcode.bin 包含了额外的错误修复）。
 
 如果您遇到质量存储设备仍无法工作的问题，即使使用了这个 bootcode.bin，那么请在 SD 卡上添加一个名为"timeout"的新文件。这将使其等待质量存储设备初始化的时间延长到六秒。
 
 ### bootcode.bin UART 启用
 
-| NOTE | 适用于早于 Raspberry Pi 4 Model B 的主板。 |
-| ------ | -------------------------------------------- |
+>**注意**
+>
+>适用于早于树莓派 4 Model B 的主板。 
 
-有关在 Raspberry Pi 4 bootloader 上启用 UART 的信息，请参阅 bootloader 配置文档。
+有关在树莓派 4 bootloader 上启用 UART 的信息，请参阅 bootloader 配置文档。
 
 可以启用早期阶段的 UART 来调试启动问题（与上述 bootcode.bin 仅引导模式一起使用很有用）。要做到这一点，请确保您有最新版本的固件（包括 bootcode.bin）。要检查当前固件是否支持 UART：
 
@@ -693,14 +706,15 @@ sed -i -e "s/BOOT_UART=0/BOOT_UART=1/" bootcode.bin
 
 然后在 Linux 或 Mac 上使用 screen ，或在 Windows 上使用 putty 连接到串行端口。
 
-设置串行端口以接收 115200-8-N-1，并启动您的 Raspberry Pi。您应该在设备上立即收到来自 bootcode.bin 的串行输出。
+设置串行端口以接收 115200-8-N-1，并启动您的树莓派。您应该在设备上立即收到来自 bootcode.bin 的串行输出。
 
 ## 启动顺序
 
-| IMPORTANT | 以下启动顺序仅适用于基于 BCM2837 和 BCM2837B0 的 Raspberry Pi 型号。在此之前的型号上，Raspberry Pi 将尝试 SD 卡引导，然后是 USB 设备模式引导。有关 Raspberry Pi 4 和 Raspberry Pi 5 的引导顺序，请参阅 Raspberry Pi 4 和 Raspberry Pi 5 引导流程部分。 |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**重要**
+>
+>以下启动顺序仅适用于基于 BCM2837 和 BCM2837B0 的树莓派型号。在此之前的型号上，树莓派将尝试 SD 卡引导，然后是 USB 设备模式引导。有关树莓派 4 和树莓派 5 的引导顺序，请参阅树莓派i 4 和树莓派 5 引导流程部分。 
 
-Raspberry Pi 3 上的 USB 启动默认取决于使用的版本。有关在默认情况下未启用时启用 USB 启动模式的信息，请参阅此页面。
+树莓派 3 上的 USB 启动默认取决于使用的版本。有关在默认情况下未启用时启用 USB 启动模式的信息，请参阅此页面。
 
 当 BCM2837 启动时，它使用两个不同的源来确定要启用哪些启动模式。首先，检查一次可编程（OTP）存储器块，以查看启用了哪些启动模式。如果启用了 GPIO 启动模式设置，则会测试相关的 GPIO 线以选择应尝试哪些已在 OTP 中启用的启动模式。请注意，GPIO 启动模式只能用于选择已在 OTP 中启用的启动模式。有关配置 GPIO 启动模式的详细信息，请参阅 GPIO 启动模式。默认情况下，GPIO 启动模式已禁用。
 
@@ -710,52 +724,42 @@ Raspberry Pi 3 上的 USB 启动默认取决于使用的版本。有关在默认
 * 读取 OTP 以确定要启用的引导模式
 * 如果启用了 GPIO 引导模式，请使用 GPIO 引导模式来优化已启用的引导模式列表
 * 如果启用：检查 GPIO 48-53 上的主要 SD 卡上的 bootcode.bin
-
   * 成功 - 启动
   * 失败 - 超时（五秒）
 * 如果启用：检查次要 SD
-
   * 成功 - 启动
   * 失败 - 超时（五秒）
 * 如果启用：检查 NAND
 * 如果启用：检查 SPI
 * 如果启用：检查 USB
-
   * 如果 OTG 引脚== 0
-
     * 启用 USB，等待有效的 USB 2.0 设备（两秒）
-
       * 发现设备：
-
         * 如果设备类型 == hub
-
           * 递归每个端口
         * 如果设备类型 == (大容量存储或 LAN951x)
-
           * 存储在设备列表中
     * 通过每个 MSD 进行递归
-
       * 如果找到 bootcode.bin，则启动
     * 通过每个 LAN951x 进行递归
-
       * DHCP / TFTP 引导
   * 其他（设备模式引导）
-
     * 启用设备模式并等待主机 PC 枚举
-    * 我们使用 VID: 0a5c PID: 0x2763（Raspberry Pi 1 或 Raspberry Pi 2）或 0x2764（Raspberry Pi 3）回复 PC
+    * 我们使用 VID: 0a5c PID: 0x2763（树莓派 1 或树莓派 2）或 0x2764（树莓派 3）回复 PC
 
-| NOTE | * 如果没有插入 SD 卡，则 SD 启动模式需要五秒钟才能失败。为了减少这一时间并更快地回退到 USB，您可以插入一个空 SD 卡，或者使用上面描述的 GPIO 启动模式 OTP 设置来仅启用 USB。* GPIO 的默认拉电定义在 ARM 外设数据手册的第 102 页。如果在启动时的值不等于默认拉电，则启用该启动模式。* USB 枚举是一种启用下游设备在集线器上的电源，然后等待设备拉动 D+和 D-线以指示其是 USB 1 还是 USB 2 的方法。这可能需要时间：对于某些设备，硬盘驱动器可能需要长达三秒才能启动并开始枚举过程。因为这是检测硬件连接的唯一方法，我们必须等待最短时间（两秒）。如果设备在此最大超时后仍未响应，则可以使用 program_usb_boot_timeout=1 在 config.txt 中将超时增加到五秒。* MSD 启动优先于以太网启动。* 不再需要第一个分区是 FAT 分区，因为 MSD 启动将继续搜索第一个分区之外的 FAT 分区。* 引导 ROM 现在还支持 GUID 分区，并已经测试了使用 Mac、Windows 和 Linux 分区的硬盘。* 使用供应商 ID 0x0424 和产品 ID 0xec00 检测 LAN951x，这与独立的 LAN9500 设备不同，后者的产品 ID 为 0x9500 或 0x9e00。要使用独立的 LAN9500，需要添加 I2C EEPROM 以更改这些 ID 以匹配 LAN951x。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果没有插入 SD 卡，则 SD 启动模式需要五秒钟才能失败。为了减少这一时间并更快地回退到 USB，您可以插入一个空 SD 卡，或者使用上面描述的 GPIO 启动模式 OTP 设置来仅启用 USB。GPIO 的默认拉电定义在 ARM 外设数据手册的第 102 页。如果在启动时的值不等于默认拉电，则启用该启动模式。USB 枚举是一种启用下游设备在集线器上的电源，然后等待设备拉动 D+和 D-线以指示其是 USB 1 还是 USB 2 的方法。这可能需要时间：对于某些设备，硬盘驱动器可能需要长达三秒才能启动并开始枚举过程。因为这是检测硬件连接的唯一方法，我们必须等待最短时间（两秒）。如果设备在此最大超时后仍未响应，则可以使用 program_usb_boot_timeout=1 在 config.txt 中将超时增加到五秒。* MSD 启动优先于以太网启动。不再需要第一个分区是 FAT 分区，因为 MSD 启动将继续搜索第一个分区之外的 FAT 分区。引导 ROM 现在还支持 GUID 分区，并已经测试了使用 Mac、Windows 和 Linux 分区的硬盘。* 使用供应商 ID 0x0424 和产品 ID 0xec00 检测 LAN951x，这与独立的 LAN9500 设备不同，后者的产品 ID 为 0x9500 或 0x9e00。要使用独立的 LAN9500，需要添加 I2C EEPROM 以更改这些 ID 以匹配 LAN951x。
 
 主要的 SD 卡引导模式，标准情况下设置为 GPIOs 49-53。可以从第二组引脚上的次要 SD 卡引导，即将次要 SD 卡添加到 GPIO 引脚上。但是，我们尚未启用此功能。
 
 NAND 引导和 SPI 引导模式确实可以工作，尽管它们尚未完全支持 GPU。
 
-USB 设备引导模式在制造时默认启用，但 USB 主机引导模式仅在 program_usb_boot_mode=1 时启用。一旦启用，处理器将使用处理器上的 OTGID 引脚的值来决定两种模式之间的选择。在任何 Raspberry Pi Model B/B+上，OTGID 引脚被驱动为 0，因此一旦启用，只能通过主机模式引导（无法通过设备模式引导，因为 LAN951x 设备会阻碍）。
+USB 设备引导模式在制造时默认启用，但 USB 主机引导模式仅在 program_usb_boot_mode=1 时启用。一旦启用，处理器将使用处理器上的 OTGID 引脚的值来决定两种模式之间的选择。在任何树莓派 Model B/B+上，OTGID 引脚被驱动为 0，因此一旦启用，只能通过主机模式引导（无法通过设备模式引导，因为 LAN951x 设备会阻碍）。
 
-如果将 OTGID 引脚悬空（例如插入 PC），USB 将作为 Raspberry Pi Zero 或 Compute Module 上的 USB 设备启动，因此您可以将 bootcode.bin 推送到设备中。用于执行此操作的 usbboot 代码可在 GitHub 上找到。
+如果将 OTGID 引脚悬空（例如插入 PC），USB 将作为树莓派 Zero 或计算模块上的 USB 设备启动，因此您可以将 bootcode.bin 推送到设备中。用于执行此操作的 usbboot 代码可在 GitHub 上找到。
 
-## Raspberry Pi 4 和 Raspberry Pi 5 启动流程
+## 树莓派 4 和 树莓派 5 启动流程
 
 与以前的产品相比，主要区别在于第二阶段引导加载程序是从 SPI 闪存 EEPROM 而不是从以前产品上的 bootcode.bin 文件加载的。
 
@@ -784,8 +788,9 @@ ROM（第一阶段）的引导流程如下：
     * 成功 - 运行 recovery.bin 并更新 SPI EEPROM 或切换到 USB 大容量存储设备模式
     * 失败 - 重试 USB 设备引导
 
-| NOTE | recovery.bin 是一个用于刷新引导加载程序 SPI EEPROM 图像的最小第二阶段程序。 |
-| ------ | ----------------------------------------------------------------------------- |
+>**注意**
+>
+>recovery.bin 是一个用于刷新引导加载程序 SPI EEPROM 图像的最小第二阶段程序。
 
 ### 第二阶段引导加载程序
 
@@ -871,7 +876,7 @@ ROM（第一阶段）的引导流程如下：
 sudo reboot '0 tryboot'
 ```
 
-所有 Raspberry Pi 型号都支持 tryboot ，但在 Raspberry Pi 4 Model B 修订版 1.0 和 1.1 上，EEPROM 不能被写保护。这是因为旧版 Raspberry Pi 4B 设备必须重置电源供应（丢失 tryboot 状态），因此这些信息存储在 EEPROM 中。
+所有型号的树莓派都支持 tryboot ，但在树莓派 4 Model B 修订版 1.0 和 1.1 上，EEPROM 不能被写保护。这是因为旧版树莓派 4B 设备必须重置电源供应（丢失 tryboot 状态），因此这些信息存储在 EEPROM 中。
 
 如果 secure-boot 已启用，则 tryboot 模式将导致加载 tryboot.img 而不是 boot.img 。
 
@@ -881,7 +886,7 @@ sudo reboot '0 tryboot'
 
 注意：当从 boot.img ramdisk 中加载文件时， tryboot_a_b 属性会被隐式设置为 1 。
 
-## Raspberry Pi 引导加载程序配置
+## 树莓派引导加载程序配置
 
 ### 编辑配置
 
@@ -913,7 +918,7 @@ sudo -E rpi-eeprom-config --edit
 
 #### `UART_BAUD`
 
-仅适用于 Raspberry Pi 5。
+仅适用于树莓派 5。
 
 更改引导加载程序 UART 的波特率。
 
@@ -925,7 +930,7 @@ sudo -E rpi-eeprom-config --edit
 
 如果 1 则 sudo halt 将在低功耗模式下运行，直到 GPIO3 或 GLOBAL_EN 短接到地。
 
-由于专用电源按钮可始终用于唤醒 HALT 或 STANDBY ，因此 Raspberry Pi 5 上此设置无关紧要。
+由于专用电源按钮可始终用于唤醒 HALT 或 STANDBY ，因此树莓派 5 上此设置无关紧要。
 
  默认值： 1
 
@@ -933,9 +938,9 @@ sudo -E rpi-eeprom-config --edit
 
 如果 1 和 WAKE_ON_GPIO=0 ，则 sudo halt 将关闭所有 PMIC 输出。这是停机的最低功耗状态，但可能会导致一些 HAT 出现问题，因为 5V 仍然开启。必须将 GLOBAL_EN 短接到地以启动。
 
-Raspberry Pi 400 具有专用电源按钮，即使处理器关闭，也可以操作。此行为默认情况下已启用，但 WAKE_ON_GPIO=2 可以设置为使用外部 GPIO 电源按钮，而不是专用电源按钮。
+树莓派 400 具有专用电源按钮，即使处理器关闭，也可以操作。此行为默认情况下已启用，但 WAKE_ON_GPIO=2 可以设置为使用外部 GPIO 电源按钮，而不是专用电源按钮。
 
-在 Raspberry Pi 5 上，这将使 PMIC 处于 STANDBY 模式，其中所有输出都已关闭。无需设置 WAKE_ON_GPIO ，按下专用电源按钮将启动设备。
+在树莓派 5 上，这将使 PMIC 处于 STANDBY 模式，其中所有输出都已关闭。无需设置 WAKE_ON_GPIO ，按下专用电源按钮将启动设备。
 
  默认： 0
 
@@ -954,7 +959,7 @@ BOOT_ORDER 属性定义了不同引导模式的顺序。它从右向左读取，
 | 2   | NETWORK     | 网络引导 - 请参阅网络引导服务器教程。                                                                  |
 | 3   | RPIBOOT     | RPIBOOT - 查看 usbboot。                                                                               |
 | 4   | USB-MSD     | USB 大容量存储启动 - 请参阅 USB 大容量存储启动。                                                       |
-| 5   | BCM-USB-MSD | 通过 USB Type C 插座从 USB 2.0 引导（CM4：CM4IO 板上的 USB Type A 插座）。在 Raspberry Pi 5 上不可用。 |
+| 5   | BCM-USB-MSD | 通过 USB Type C 插座从 USB 2.0 引导（CM4：CM4IO 板上的 USB Type A 插座）。在树莓派 5 上不可用。 |
 | 6   | NVME        | 仅限 CM4 和 Pi 5：从连接到 PCIe 接口的 NVMe SSD 启动。有关更多详细信息，请参阅 NVMe 启动。             |
 | 7   | HTTP        | 通过以太网进行 HTTP 引导。有关更多详细信息，请参阅 HTTP 引导。                                         |
 | 14  | STOP        | 停止并显示错误模式。需要重新上电才能退出此状态。                                                       |
@@ -1026,9 +1031,9 @@ RPIBOOT 旨在与 Compute Module 4 一起使用，以加载自定义调试映像
 
 #### `TFTP_PREFIX`
 
-为了支持每个 Raspberry Pi 的唯一 TFTP 引导目录，引导加载程序使用设备特定目录作为文件名的前缀。如果在带前缀的目录中找不到 start4.elf 或 start.elf，则清除前缀。
+为了支持每个树莓派的唯一 TFTP 引导目录，引导加载程序使用设备特定目录作为文件名的前缀。如果在带前缀的目录中找不到 start4.elf 或 start.elf，则清除前缀。
 
-在旧版模型上，序列号被用作前缀，但是在 Raspberry Pi 4 和 5 上，MAC 地址不再从序列号生成，这使得通过检查 DHCPDISCOVER 数据包自动创建 tftpboot 目录在服务器上变得困难。为了支持这一点，TFTP_PREFIX 可以定制为 MAC 地址、固定值或序列号（默认）。
+在旧版模型上，序列号被用作前缀，但是在树莓派 4 和 5 上，MAC 地址不再从序列号生成，这使得通过检查 DHCPDISCOVER 数据包自动创建 tftpboot 目录在服务器上变得困难。为了支持这一点，TFTP_PREFIX 可以定制为 MAC 地址、固定值或序列号（默认）。
 
 | 值 | 描述                                   |
 | ---- | ---------------------------------------- |
@@ -1054,7 +1059,7 @@ RPIBOOT 旨在与 Compute Module 4 一起使用，以加载自定义调试映像
 
 #### `DHCP_OPTION97`
 
-在旧版中，客户端 GUID（Option97）只是将序列号重复四次。默认情况下，新的 GUID 格式是四字符代码（FourCC）的串联（Raspberry Pi 4 为 RPi4 0x34695052，Raspberry Pi 5 为 RPi5 0x35695052），板子修订版（例如 0x00c03111 或 0x00d04170）（4 字节），MAC 地址的最低有效 4 字节和 4 字节序列号。这旨在是独一无二的，但也向 DHCP 服务器提供了结构化信息，允许识别 Raspberry Pi 4 和 5 计算机，而无需依赖以太网 MAC OUID。
+在旧版中，客户端 GUID（Option97）只是将序列号重复四次。默认情况下，新的 GUID 格式是四字符代码（FourCC）的串联（树莓派 4 为 RPi4 0x34695052，树莓派 5 为 RPi5 0x35695052），板子修订版（例如 0x00c03111 或 0x00d04170）（4 字节），MAC 地址的最低有效 4 字节和 4 字节序列号。这旨在是独一无二的，但也向 DHCP 服务器提供了结构化信息，允许识别树莓派 4 和 5 计算机，而无需依赖以太网 MAC OUID。
 
 指定 DHCP_OPTION97=0 以恢复旧行为，或指定自定义 4 字节前缀的非零十六进制值。
 
@@ -1062,13 +1067,13 @@ RPIBOOT 旨在与 Compute Module 4 一起使用，以加载自定义调试映像
 
 #### `MAC_ADDRESS`
 
-使用给定值覆盖 Raspberry Pi 以太网 MAC 地址。例如 dc:a6:32:01:36:c2
+使用给定值覆盖树莓派的以太网 MAC 地址。例如 dc:a6:32:01:36:c2
 
  默认： ""
 
 #### `MAC_ADDRESS_OTP`
 
-使用存储在客户 OTP 寄存器中的值覆盖 Raspberry Pi 以太网 MAC 地址。
+使用存储在客户 OTP 寄存器中的值覆盖树莓派的以太网 MAC 地址。
 
 例如，要使用存储在 Customer OTP 的第 0 行和第 1 行中的 MAC 地址。
 
@@ -1076,7 +1081,7 @@ RPIBOOT 旨在与 Compute Module 4 一起使用，以加载自定义调试映像
 MAC_ADDRESS_OTP=0,1
 ```
 
-第一个值（例如中的第 0 行）包含 OUI 和 MAC 地址的最高 8 位。第二个值（例如中的第 1 行）存储 MAC 地址的其余 16 位。这与制造时为 Raspberry Pi 编程的 MAC 地址使用的格式相同。
+第一个值（例如中的第 0 行）包含 OUI 和 MAC 地址的最高 8 位。第二个值（例如中的第 1 行）存储 MAC 地址的其余 16 位。这与制造时为树莓派编程的 MAC 地址使用的格式相同。
 
 任意两个客户行可以选择并以任何顺序组合。
 
@@ -1132,7 +1137,7 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
  注意：
 
 * 2021 年之前的引导加载程序版本不支持 self-update 。
-* 在 2022 年之前，SD 卡引导中未启用自更新。在 Raspberry Pi 4 上，ROM 可以从 SD 卡加载 recovery.bin。在 CM4 上，自更新和 recovery.bin 均无效，需要使用 USB 引导（请参阅 CM4 引导加载程序文档）。
+* 在 2022 年之前，SD 卡引导中未启用自更新。在树莓派 4 上，ROM 可以从 SD 卡加载 recovery.bin。在 CM4 上，自更新和 recovery.bin 均无效，需要使用 USB 引导（请参阅 CM4 引导加载程序文档）。
 * 从 2022 年开始（beta 和稳定版），可以从 SD 卡启用自更新。
 * 用于网络引导，请确保可以通过 NFS 挂载 TFTP boot 目录，并且 rpi-eeprom-update 可以对其进行写入。
 
@@ -1190,7 +1195,7 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 为了检测键盘，网络安装必须初始化 USB 控制器并枚举设备。这会增加约 1 秒的启动时间，因此在某些嵌入式应用中禁用网络安装可能是有利的。
 
-默认值：在 Raspberry Pi 4 和 Raspberry Pi 400 上为 1 ，在 Compute Module 4 上为 0 。
+默认值：在树莓派 4 和树莓派 400 上为 1 ，在 Compute Module 4 上为 0 。
 
 #### `NET_INSTALL_KEYBOARD_WAIT`
 
@@ -1198,8 +1203,9 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 设置此项为 0 会禁用键盘等待，尽管如果未找到引导文件且 USB 引导模式 4 处于 BOOT_ORDER 状态，仍然可以启动网络安装。
 
-| NOTE | 测试表明键盘和 SHIFT 检测至少需要 750 毫秒。 |
-| ------ | ---------------------------------------------- |
+>**注意**
+>
+>测试表明键盘和 SHIFT 检测至少需要 750 毫秒。
 
  默认值： 900
 
@@ -1207,8 +1213,10 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 NETCONSOLE 复制调试消息到网络接口。IP 地址和端口由 NETCONSOLE 字符串定义。
 
-| NOTE | NETCONSOLE 阻塞，直到以太网链路建立或超时发生。超时值为 DHCP_TIMEOUT ，尽管除非请求网络引导，否则不会尝试 DHCP。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------ |
+>**注意**
+>
+>NETCONSOLE 阻塞，直到以太网链路建立或超时发生。超时值为 DHCP_TIMEOUT ，尽管除非请求网络引导，否则不会尝试 DHCP。
+
 
 ##### 格式
 
@@ -1227,7 +1235,7 @@ E.g. 6665@169.254.1.1/,6666@/
 * 目的地 IP - 255.255.255.255
 * 目的地 MAC - 00:00:00:00:00
 
-查看数据的一种方法是将测试 Raspberry Pi 4 连接到另一台运行 WireShark 的 Raspberry Pi，并选择“udp.srcport == 6665”作为过滤器，然后选择分析 → 跟踪 → UDP 流以 ASCII 日志形式查看。
+查看数据的一种方法是将测试树莓派 4 连接到另一台运行 WireShark 的树莓派，并选择“udp.srcport == 6665”作为过滤器，然后选择分析 → 跟踪 → UDP 流以 ASCII 日志形式查看。
 
 NETCONSOLE 不应默认启用，因为它可能会导致网络问题。可以通过 GPIO 过滤器按需启用：
 
@@ -1255,7 +1263,7 @@ PARTITION=2
 
 #### `PSU_MAX_CURRENT`
 
-仅适用于 Raspberry Pi 5。
+仅适用于树莓派 5。
 
 如果设置，则此属性指示固件跳过 USB 供电协商，并假定连接到具有给定电流评级的电源。通常，这通常设置为 3000 或 5000 ，即低电流或高电流能力的电源。
 
@@ -1287,7 +1295,7 @@ PARTITION=2
 
 #### `USB_MSD_PWR_OFF_TIME`
 
-仅适用于 Raspberry Pi 4。
+仅适用于树莓派 4。
 
 当树莓派重新启动时，USB 电源会被硬件关闭。短暂的断电时间可能会导致一些 USB 设备出现问题，因此可以使用此参数来强制延长断电时间，就好像电缆被物理拔出一样。
 
@@ -1319,7 +1327,7 @@ PARTITION=2
 
 * 在 Compute Module 4 上，引导加载程序永远不会写入专用的 VL805 SPI EEPROM。此选项只是配置控制器从 SDRAM 加载固件。
 * 如果 VL805 XHCI 控制器有专用的 EEPROM，请不要使用此选项。如果安装了 VL805 ROM，它将无法初始化，因为 VL805 ROM 将尝试使用专用的 SPI EEPROM。
-* 嵌入式的 VL805 固件假定与 Raspberry Pi 4B 相同的 USB 配置（两个 USB 3.0 端口和四个 USB 2.0 端口）。不支持加载替代的 VL805 固件映像，应该使用专用的 VL805 SPI EEPROM 来代替这样的配置。
+* 嵌入式的 VL805 固件假定与树莓派 4B 相同的 USB 配置（两个 USB 3.0 端口和四个 USB 2.0 端口）。不支持加载替代的 VL805 固件映像，应该使用专用的 VL805 SPI EEPROM 来代替这样的配置。
 
  默认: 0
 
@@ -1350,12 +1358,13 @@ XHCI_DEBUG=0x3
 
 阅读 config.txt 后，GPU 固件 start4.elf 会读取引导加载程序 EEPROM 配置，并检查是否存在名为 [config.txt] 的部分。如果 [config.txt] 部分存在，则将此部分开头到文件末尾的内容附加到内存中，以便与从引导分区读取的 config.txt 文件的内容合并。这可用于自动将设置应用于每个操作系统，例如 dtoverlays。
 
-| WARNING | 如果指定了导致引导失败的无效配置，则必须重新刷新引导加载程序 EEPROM。 |
-| --------- | ----------------------------------------------------------------------- |
+>**警告**
+>
+>如果指定了导致引导失败的无效配置，则必须重新刷新引导加载程序 EEPROM。 
 
 ### config.txt 中的配置属性
 
-Raspberry Pi 5 需要存在一个 config.txt 文件来指示分区是可引导的。
+树莓派 5 需要存在一个 config.txt 文件来指示分区是可引导的。
 
 #### `boot_ramdisk`
 
@@ -1379,13 +1388,13 @@ boot_ramdisk 的主要目的是支持 secure-boot ，然而，未签名的 boot.
 
 第 0 位（0x1）表示.elf 文件是自定义固件。这将禁用任何兼容性检查（例如 USB MSD 启动支持），并在启动可执行文件之前重置 PCIe。
 
-在 Raspberry Pi 5 上不相关，因为没有 start.elf 文件。
+在树莓派 5 上不相关，因为没有 start.elf 文件。
 
  默认： 0x0
 
 #### `pciex4_reset`
 
-仅适用于 Raspberry Pi 5。
+仅适用于树莓派 5。
 
 默认情况下， RP1 使用的 PCIe x4 控制器在启动操作系统之前被重置。如果将此参数设置为 0 ，则禁用重置，允许操作系统或裸金属代码继承 PCIe 配置设置从引导加载程序。
 
@@ -1421,32 +1430,33 @@ eeprom_write_protect 设置在 config.txt 中为 recovery.bin 。
 | 0  | 清除写保护区域。                  |
 | -1 | 什么也不做。                      |
 
-| NOTE | flashrom 不支持清除写保护区域，如果定义了写保护区域，则更新 EEPROM 将失败。 |
-| ------ | ----------------------------------------------------------------------------- |
+>**注意**
+>
+>flashrom 不支持清除写保护区域，如果定义了写保护区域，则更新 EEPROM 将失败。
 
-在 Raspberry Pi 5 上， /WP 默认被拉低，因此一旦配置 Write Status Register ，写保护就会被启用。要清除写保护，请通过连接 TP14 和 TP1 将 /WP 拉高。
+在树莓派 5 上， /WP 默认被拉低，因此一旦配置 Write Status Register ，写保护就会被启用。要清除写保护，请通过连接 TP14 和 TP1 将 /WP 拉高。
 
  默认： -1
 
 #### `os_check`
 
-在 Raspberry Pi 5 上，固件会在尝试从当前分区引导之前自动检查兼容的设备树文件。否则，会加载旧版的不兼容内核，然后挂起。要禁用此检查（例如用于裸机开发），请在 config.txt 中设置 os_check=0
+在树莓派 5 上，固件会在尝试从当前分区引导之前自动检查兼容的设备树文件。否则，会加载旧版的不兼容内核，然后挂起。要禁用此检查（例如用于裸机开发），请在 config.txt 中设置 os_check=0
 
  默认： 1
 
 #### `bootloader_update`
 
-此选项可设置为 0，以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个 Raspberry Pi 时，有时会很有用，因为此选项可以针对每个 Raspberry Pi 进行控制（例如，通过 config.txt 中的序列号过滤器）。
+此选项可设置为 0，以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个树莓派时，有时会很有用，因为此选项可以针对每个树莓派进行控制（例如，通过 config.txt 中的序列号过滤器）。
 
  默认： 1
 
 ### config.txt 中的安全启动配置属性
 
-##### [如何使用 Raspberry Pi 安全启动](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003466-WP/Boot-Security-Howto.pdf)
+##### [如何使用树莓派安全启动](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003466-WP/Boot-Security-Howto.pdf)
 
-如何使用 Raspberry Pi 安全启动
+如何使用树莓派安全启动
 
-本白皮书描述了如何在基于 Raspberry Pi 4 的设备上实现安全启动。有关我们实现安全启动方法的概述，请参阅 Raspberry Pi 4 启动安全白皮书。安全启动系统旨在与 buildroot -based OS 映像一起使用；不建议或支持将其与 Raspberry Pi OS 一起使用。
+本白皮书描述了如何在基于树莓派 4 的设备上实现安全启动。有关我们实现安全启动方法的概述，请参阅树莓派 4 启动安全白皮书。安全启动系统旨在与 buildroot -based OS 映像一起使用；不建议或支持将其与 Raspberry Pi OS 一起使用。
 
 以下 config.txt 属性用于编程 secure-boot OTP 设置。这些更改是不可逆的，只能在刷新引导加载程序 EEPROM 图像时通过 RPIBOOT 编程。这确保 secure-boot 无法远程设置，也无法通过意外插入陈旧的 SD 卡图像来设置。
 
@@ -1480,24 +1490,27 @@ eeprom_write_protect 设置在 config.txt 中为 recovery.bin 。
 
 ## USB 启动模式
 
-| WARNING | 默认情况下，Raspberry Pi 从 SD 卡启动。这是新用户和经验不足用户的推荐方法。 |
-| --------- | ----------------------------------------------------------------------------- |
+>**警告**
+>
+>默认情况下，树莓派从 SD 卡启动。这是新用户和经验不足用户的推荐方法。 
 
 USB 有两种独立的启动模式：USB 设备启动和 USB 主机启动。
 
-在启动时，固件通过读取 OTP 位来选择两种启动模式之间的选择。有两个位来控制 USB 启动。第一个启用 USB 设备启动，默认情况下启用；第二个启用 USB 主机启动。如果设置了 USB 主机启动模式位，则处理器会读取 OTGID 引脚以决定是作为主机（驱动为零，如任何 Raspberry Pi Model B/B+上）还是作为设备（悬空）。Raspberry Pi Zero 通过 USB 连接器上的 OTGID 引脚访问此引脚，计算模块通过边缘连接器访问此引脚。
+在启动时，固件通过读取 OTP 位来选择两种启动模式之间的选择。有两个位来控制 USB 启动。第一个启用 USB 设备启动，默认情况下启用；第二个启用 USB 主机启动。如果设置了 USB 主机启动模式位，则处理器会读取 OTGID 引脚以决定是作为主机（驱动为零，如任何树莓派 Model B/B+上）还是作为设备（悬空）。树莓派 Zero 通过 USB 连接器上的 OTGID 引脚访问此引脚，计算模块通过边缘连接器访问此引脚。
 
 还有 OTP 位，允许使用某些 GPIO 引脚来选择树莓派应尝试使用哪些引导模式。
 
-| NOTE | 仅适用于某些型号的 USB 引导模式。 |
-| ------ | ----------------------------------- |
+>**注意**
+>
+>仅适用于某些型号的 USB 引导模式。 
 
 ### USB 设备引导模式
 
-| NOTE | 仅适用于 Raspberry Pi Compute Module、Compute Module 3、Raspberry Pi Zero、Zero W、A、A+ 和 3A+ 上可用的设备引导。 |
-| ------ | -------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>仅适用于树莓派计算模块、计算模块3、树莓派 Zero、Zero W、A、A+ 和 3A+ 上可用的设备引导。 
 
-当激活此引导模式（通常在从 SD 卡引导失败后），Raspberry Pi 将其 USB 端口置于设备模式，并等待主机发送 USB 复位。示例代码显示主机需要如何与 Raspberry Pi 通信可在 Github 上找到。
+当激活此引导模式（通常在从 SD 卡引导失败后），树莓派将其 USB 端口置于设备模式，并等待主机发送 USB 复位。示例代码显示主机需要如何与树莓派通信可在 Github 上找到。
 
 主机首先向设备发送一个结构，通过控制端点 0 传输。其中包含引导的大小和签名（未启用安全性，因此不需要签名）。其次，代码通过端点 1 传输（bootcode.bin）。最后，设备将以成功代码回复：
 
@@ -1506,8 +1519,9 @@ USB 有两种独立的启动模式：USB 设备启动和 USB 主机启动。
 
 ### USB 主机启动模式
 
-| NOTE | 仅适用于 Raspberry Pi 3B、3B+、3A+ 和 2B v1.2 的主机引导。Raspberry Pi 3A+ 仅支持大容量存储引导，不支持网络引导。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>仅适用于树莓派 3B、3B+、3A+ 和 2B v1.2 的主机引导。树莓派 3A+ 仅支持大容量存储引导，不支持网络引导。
 
 USB 主机引导模式遵循以下顺序：
 
@@ -1540,17 +1554,19 @@ USB 主机引导模式遵循以下顺序：
 
 ## USB 大容量存储启动
 
-| NOTE | 仅适用于 Raspberry Pi 2B v1.2、3A+、3B、3B+、4B、400 和 Zero 2 W，以及 Raspberry Pi Compute Module 3、3+ 和 4。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>仅适用于树莓派 2B v1.2、3A+、3B、3B+、4B、400 和 Zero 2 W，以及树莓派计算模块 3、3+ 和 4。 
 
-您可能希望从 USB 大容量存储设备（如闪存驱动器或 USB 硬盘）引导您的 Raspberry Pi。连接 USB 设备时，特别是硬盘和固态硬盘时，请注意它们的功率要求。如果您计划连接多个固态硬盘或硬盘到 Raspberry Pi，通常需要外部电源 - 要么是带电源的硬盘外壳，要么是带电源的 USB 集线器。
+您可能希望从 USB 大容量存储设备（如闪存驱动器或 USB 硬盘）引导您的树莓派。连接 USB 设备时，特别是硬盘和固态硬盘时，请注意它们的功率要求。如果您计划连接多个固态硬盘或硬盘到树莓派，通常需要外部电源 - 要么是带电源的硬盘外壳，要么是带电源的 USB 集线器。
 
-| NOTE | 旧版 Raspberry Pi 4B 之前的型号存在已知问题，无法使用某些 USB 设备启动。 |
-| ------ | -------------------------------------------------------------------------- |
+>**注意**
+>
+>旧版树莓派 4B 之前的型号存在已知问题，无法使用某些 USB 设备启动。
 
-### Raspberry Pi 4B 和 Raspberry Pi 400
+### 树莓派 4B 和 树莓派 400
 
-Raspberry Pi 400 和更新的 Raspberry Pi 4B 板上的引导加载程序默认支持 USB 引导，尽管 BOOT_ORDER 引导加载程序配置可能需要修改。在旧版的 Raspberry Pi 4B 板上，或者选择备用引导模式时，必须更新引导加载程序。
+树莓派 400 和更新的树莓派 4B 板上的引导加载程序默认支持 USB 引导，尽管 BOOT_ORDER 引导加载程序配置可能需要修改。在旧版的树莓派 4B 板上，或者选择备用引导模式时，必须更新引导加载程序。
 
  查看：
 
@@ -1562,23 +1578,25 @@ Raspberry Pi 400 和更新的 Raspberry Pi 4B 板上的引导加载程序默认�
 
 请查看闪存计算模块 eMMC 以获取引导加载程序更新说明。
 
-### Raspberry Pi 3B+
+### 树莓派 3B+
 
-Raspberry Pi 3B+支持开箱即用的 USB 大容量存储启动。
+树莓派 3B+支持开箱即用的 USB 大容量存储启动。
 
-### Raspberry Pi 2B, 3A+, 3B, CM3, CM3+, Zero 2 W
+### 树莓派 2B, 3A+, 3B, CM3, CM3+, Zero 2 W
 
-在 Raspberry Pi 2B v1.2、3A+、3B、Zero 2 W 和 Compute Module 3 和 3+ 上，您必须首先启用 USB 主机启动模式。这是为了允许 USB 大容量存储启动和网络启动。
+在 树莓派 2B v1.2、3A+、3B、Zero 2 W 和 Compute Module 3 和 3+ 上，您必须首先启用 USB 主机启动模式。这是为了允许 USB 大容量存储启动和网络启动。
 
-| NOTE | Raspberry Pi 3A+ 或 Zero 2 W 上不支持网络启动。 |
-| ------ | ------------------------------------------------- |
+>**注意**
+>
+>树莓派 3A+ 或 Zero 2 W 上不支持网络启动。
 
-要启用 USB 主机启动模式，Raspberry Pi 需要从带有特殊选项的 SD 卡引导，以在一次性可编程（OTP）存储器中设置 USB 主机启动模式位。一旦设置了此位，就不再需要 SD 卡。
+要启用 USB 主机启动模式，树莓派需要从带有特殊选项的 SD 卡引导，以在一次性可编程（OTP）存储器中设置 USB 主机启动模式位。一旦设置了此位，就不再需要 SD 卡。
 
-| WARNING | 对 OTP 所做的任何更改都是永久的，无法撤消。 |
-| --------- | --------------------------------------------- |
+>**警告**
+>
+>对 OTP 所做的任何更改都是永久的，无法撤消。 
 
-* 在 Raspberry Pi 3A+上，将 OTP 位设置为启用 USB 主机启动模式将永久阻止该 Raspberry Pi 以 USB 设备模式启动。
+* 在树莓派 3A+上，将 OTP 位设置为启用 USB 主机启动模式将永久阻止该树莓派以 USB 设备模式启动。
 
 您可以使用运行 Raspberry Pi OS 的任何 SD 卡来编程 OTP 位。
 
@@ -1590,18 +1608,18 @@ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
 
 这将 program_usb_boot_mode=1 添加到 /boot/firmware/config.txt 的末尾。
 
-虽然选项被命名为 program_usb_boot_mode ，但它只启用了 USB 主机启动模式。 USB 设备启动模式仅适用于某些 Raspberry Pi 型号-请参阅 USB 设备启动模式。
+虽然选项被命名为 program_usb_boot_mode ，但它只启用了 USB 主机启动模式。 USB 设备启动模式仅适用于某些树莓派型号-请参阅 USB 设备启动模式。
 
-使用 sudo reboot 重新启动 Raspberry Pi，并检查 OTP 是否已被编程：
+使用 sudo reboot 重新启动树莓派，并检查 OTP 是否已被编程：
 
 ```
 vcgencmd otp_dump | grep 17:
 17:3020000a
 ```
 
-检查输出 0x3020000a 是否显示。如果没有显示，则 OTP 位未成功编程。在这种情况下，请再次执行编程过程。如果位仍未设置，则可能表明 Raspberry Pi 硬件本身存在故障。
+检查输出 0x3020000a 是否显示。如果没有显示，则 OTP 位未成功编程。在这种情况下，请再次执行编程过程。如果位仍未设置，则可能表明树莓派硬件本身存在故障。
 
-如果您愿意，可以从 config.txt 中删除 program_usb_boot_mode 行，这样，如果您将 SD 卡插入另一台 Raspberry Pi，它将不会编程 USB 主机启动模式。确保 config.txt 末尾没有空行。
+如果您愿意，可以从 config.txt 中删除 program_usb_boot_mode 行，这样，如果您将 SD 卡插入另一台树莓派，它将不会编程 USB 主机启动模式。确保 config.txt 末尾没有空行。
 
 您现在可以像从 SD 卡引导一样从 USB 大容量存储设备引导。有关更多信息，请参阅以下部分。
 
@@ -1609,26 +1627,28 @@ vcgencmd otp_dump | grep 17:
 
 过程与 SD 卡相同-只需使用操作系统映像对 USB 存储设备进行映像。
 
-准备存储设备后，连接驱动器并启动 Raspberry Pi，注意外部驱动器的额外 USB 功率要求。
+准备存储设备后，连接驱动器并启动树莓派，注意外部驱动器的额外 USB 功率要求。
 
-五到十秒后，Raspberry Pi 应开始引导并在连接的显示器上显示彩虹闪屏。确保在 Raspberry Pi 中没有插入 SD 卡，因为如果有，它将首先从 SD 卡引导。
+五到十秒后，树莓派应开始引导并在连接的显示器上显示彩虹闪屏。确保在树莓派中没有插入 SD 卡，因为如果有，它将首先从 SD 卡引导。
 
 查看引导模式文档，了解引导顺序和备用引导模式（网络、USB 设备、GPIO 或 SD 引导）。
 
 ### 已知问题
 
-| NOTE | 这些不适用于 Raspberry Pi 4 Model B。 |
-| ------ | --------------------------------------- |
+>**注意**
+>
+>这些不适用于树莓派 4 Model B。
 
 * 检查可引导 USB 设备的默认超时时间为两秒。一些闪存驱动器和硬盘启动速度太慢。可以将此超时时间延长到五秒（在 SD 卡上添加一个新文件 timeout ），但请注意，有些设备响应时间甚至更长。
 * 一些闪存驱动器具有非常特定的协议要求，这些要求不受引导代码处理，因此可能不兼容。
 
 ### 特殊 bootcode.bin -only 引导模式
 
-| IMPORTANT | 这不适用于 Raspberry Pi 4 Model B。 |
-| ----------- | ------------------------------------- |
+>**重要**
+>
+>这不适用于树莓派 4 Model B。 
 
-如果您无法使用特定的 USB 设备来引导您的 Raspberry Pi，另一种选择（适用于 Raspberry Pi 2B v1.2、3A+、3B 和 3B+）是使用特殊的 bootcode.bin-only 引导模式。Raspberry Pi 仍将从 SD 卡引导，但只有 bootcode.bin 从中读取的文件。
+如果您无法使用特定的 USB 设备来引导您的树莓派，另一种选择（适用于树莓派 2B v1.2、3A+、3B 和 3B+）是使用特殊的 bootcode.bin-only 引导模式。树莓派仍将从 SD 卡引导，但只有 bootcode.bin 从中读取的文件。
 
 ### 硬件兼容性
 
@@ -1640,18 +1660,19 @@ vcgencmd otp_dump | grep 17:
 
 在搜索可引导分区时，引导加载程序并行扫描所有 USB 大容量存储设备，并将选择第一个响应的设备。如果引导分区不包含适当的 start.elf 文件，则会选择下一个可用设备。根据 USB 拓扑结构指定引导设备的方法不存在，因为这会减慢引导速度并增加不必要且难以支持的配置复杂性。
 
-| NOTE | config.txt 文件条件过滤器可用于在复杂设备配置中选择备用固件。 |
-| ------ | --------------------------------------------------------------- |
+>**注意**
+>
+>config.txt 文件条件过滤器可用于在复杂设备配置中选择备用固件。 
 
 ## 网络引导
 
-本节描述了 Raspberry Pi 3B、3B+ 和 2B v1.2 上的网络引导工作原理。
+本节描述了树莓派 3B、3B+ 和 2B v1.2 上的网络引导工作原理。
 
-在 Pi 4 和 Pi 5 上，网络引导是在 EEPROM 中的第二阶段引导加载程序中实现的。有关更多信息，请参阅 Raspberry Pi 4 引导加载程序配置。
+在 Pi 4 和 Pi 5 上，网络引导是在 EEPROM 中的第二阶段引导加载程序中实现的。有关更多信息，请参阅树莓派 4 引导加载程序配置。
 
 我们还有关于设置网络引导系统的教程。
 
-仅适用于上述 Raspberry Pi 型号内置有线适配器的网络引导。不支持通过无线局域网引导，也不支持通过任何其他有线网络设备引导。
+仅适用于上述树莓派型号内置有线适配器的网络引导。不支持通过无线局域网引导，也不支持通过任何其他有线网络设备引导。
 
 ### 网络引导流程
 
@@ -1673,7 +1694,7 @@ vcgencmd otp_dump | grep 17:
 
   * 通常会导致错误 file not found 。这是可以预料到的，TFTP 引导服务器应该能够处理它。
 
-从这一点开始， bootcode.bin 代码继续加载系统。它将尝试访问的第一个文件是 <serial_number>/start.elf 。如果这不会导致错误，那么要读取的任何其他文件都将以 serial_number 为前缀。这很有用，因为它使您能够为您的 Raspberry Pis 创建具有单独 start.elf / 内核的单独目录。
+从这一点开始， bootcode.bin 代码继续加载系统。它将尝试访问的第一个文件是 <serial_number>/start.elf 。如果这不会导致错误，那么要读取的任何其他文件都将以 serial_number 为前缀。这很有用，因为它使您能够为您的树莓派创建具有单独 start.elf / 内核的单独目录。
 
 要获取设备的序列号，您可以尝试使用 tcpdump / wireshark 查看访问的文件，或者运行标准的 Raspberry Pi OS SD 卡和 cat /proc/cpuinfo 。
 
@@ -1687,7 +1708,7 @@ vcgencmd otp_dump | grep 17:
 $ vcgencmd otp_dump | grep 17:
 ```
 
-如果第 17 行包含 3020000a ，则 OTP 已正确编程。现在，您应该能够移除 SD 卡，插入以太网，然后在 Raspberry Pi 上电约 5 秒后，以太网 LED 灯应该亮起。
+如果第 17 行包含 3020000a ，则 OTP 已正确编程。现在，您应该能够移除 SD 卡，插入以太网，然后在树莓派上电约 5 秒后，以太网 LED 灯应该亮起。
 
 要在服务器上捕获以太网数据包，请在 tftpboot 服务器（或 DHCP 服务器，如果它们不同）上使用 tcpdump。否则，您将无法看到直接发送的数据包，因为网络交换机不是集线器！
 
@@ -1741,7 +1762,7 @@ Vendor-Option Option 43 包含回复的重要部分。这部分必须包含字�
 
 #### TFTP 文件读取
 
-当正确指定供应商选项时，您将看到随后发送的 TFTP RRQ 数据包。 RRQ 可以通过数据的第一个块或错误消息（文件未找到）进行回复。在某些情况下，它们甚至会收到第一个数据包，然后传输会被 Raspberry Pi 中止（当检查文件是否存在时会发生这种情况）。下面的示例仅包括三个数据包：原始读取请求，第一个数据块（始终为 516 字节，包含标头和 512 字节数据，尽管最后一个块始终少于 512 字节，可能为零长度），以及第三个数据包（包含与数据块中的帧编号匹配的 ACK）。
+当正确指定供应商选项时，您将看到随后发送的 TFTP RRQ 数据包。 RRQ 可以通过数据的第一个块或错误消息（文件未找到）进行回复。在某些情况下，它们甚至会收到第一个数据包，然后传输会被树莓派中止（当检查文件是否存在时会发生这种情况）。下面的示例仅包括三个数据包：原始读取请求，第一个数据块（始终为 516 字节，包含标头和 512 字节数据，尽管最后一个块始终少于 512 字节，可能为零长度），以及第三个数据包（包含与数据块中的帧编号匹配的 ACK）。
 
 ```
 16:44:41.224964 IP (tos 0x0, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 49)
@@ -1758,48 +1779,49 @@ Vendor-Option Option 43 包含回复的重要部分。这部分必须包含字�
 
 #### DHCP 请求在五次尝试后超时
 
-Raspberry Pi 将尝试在五秒内进行五次 DHCP 请求，总共持续 25 秒。如果服务器在此时间内无法响应，则 Raspberry Pi 将进入低功耗状态。除了在 SD 卡上的 bootcode.bin 之外，没有其他解决方法。
+树莓派将尝试在五秒内进行五次 DHCP 请求，总共持续 25 秒。如果服务器在此时间内无法响应，则树莓派将进入低功耗状态。除了在 SD 卡上的 bootcode.bin 之外，没有其他解决方法。
 
 #### 分开子网上的 TFTP 服务器不受支持
 
-在 Raspberry Pi 3 Model B+ (BCM2837B0) 中修复。
+在树莓派 3 Model B+ (BCM2837B0) 中修复。
 
 #### DHCP 中继损坏
 
 DHCP 检查还检查跳数值是否为 1 ，而使用 DHCP 中继时不会是这个值。
 
-在 Raspberry Pi 3 Model B+ 中修复。
+在 树莓派 3 Model B+ 中修复。
 
-#### Raspberry Pi 启动字符串
+#### 树莓派启动字符串
 
 由于计算字符串长度时出错，“Raspberry Pi Boot”字符串在 DHCP 回复中需要额外的三个空格。
 
-在 Raspberry Pi 3 Model B+ 中修复。
+在 树莓派 3 Model B+ 中修复。
 
 #### DHCP UUID 常量
 
 DHCP UUID 被设置为一个常量值。
 
-在 Raspberry Pi 3 Model B+ 中修复;该值设置为 32 位序列号。
+在 树莓派 3 Model B+ 中修复;该值设置为 32 位序列号。
 
 #### ARP 检查可能在 TFTP 事务中间失败响应
 
-当 Raspberry Pi 处于初始化阶段时，它只会响应 ARP 请求;一旦开始传输数据，它将无法继续响应。
+当树莓派处于初始化阶段时，它只会响应 ARP 请求;一旦开始传输数据，它将无法继续响应。
 
-在 Raspberry Pi 3 Model B+ 中修复。
+在树莓派 3 Model B+ 中修复。
 
 #### DHCP 请求/回复/确认序列未正确实现
 
-在引导时，Raspberry Pi 广播 DHCPDISCOVER 数据包。DHCP 服务器以 DHCPOFFER 数据包回复。然后 Raspberry Pi 继续引导而不执行 DHCPREQUEST 或等待 DHCPACK。这可能导致两个不同的设备被提供相同的 IP 地址并在未正确分配给客户端的情况下使用它。
+在引导时，树莓派广播 DHCPDISCOVER 数据包。DHCP 服务器以 DHCPOFFER 数据包回复。然后树莓派继续引导而不执行 DHCPREQUEST 或等待 DHCPACK。这可能导致两个不同的设备被提供相同的 IP 地址并在未正确分配给客户端的情况下使用它。
 
 在这种情况下，不同的 DHCP 服务器有不同的行为。dnsmasq（取决于设置）将对 MAC 地址进行哈希处理以确定 IP 地址，并 ping 该 IP 地址以确保它尚未被使用。这降低了发生这种情况的几率，因为它需要在哈希中发生冲突。
 
 ## GPIO 引导模式
 
-| NOTE | GPIO 引导模式仅适用于 Raspberry Pi 3A+、3B、3B+、Compute Module 3 和 3+。 |
-| ------ | --------------------------------------------------------------------------- |
+>**注意**
+>
+>GPIO 引导模式仅适用于 树莓派 3A+、3B、3B+、Compute Module 3 和 3+。 
 
-旧版的 Raspberry Pis 可以配置，允许在使用连接到 GPIO 连接器的硬件时在上电时选择引导模式。这是通过在 SoC 的 OTP 存储器中设置位来完成的。一旦设置了这些位，它们将永久地分配五个 GPIO 以允许进行此选择。一旦设置了 OTP 位，它们就无法取消设置。在启用此功能时，您应该仔细考虑，因为这五个 GPIO 线将始终控制引导。虽然一旦 Raspberry Pi 启动后，您可以使用这些 GPIO 进行其他功能，但必须设置它们以使其在 Raspberry Pi 引导时启用所需的引导模式。
+旧版的树莓派可以配置，允许在使用连接到 GPIO 连接器的硬件时在上电时选择引导模式。这是通过在 SoC 的 OTP 存储器中设置位来完成的。一旦设置了这些位，它们将永久地分配五个 GPIO 以允许进行此选择。一旦设置了 OTP 位，它们就无法取消设置。在启用此功能时，您应该仔细考虑，因为这五个 GPIO 线将始终控制引导。虽然在树莓派启动后，您可以使用这些 GPIO 进行其他功能，但必须设置它们以使其在树莓派引导时启用所需的引导模式。
 
 要启用 GPIO 引导模式，请将以下行添加到 config.txt 文件中：
 
@@ -1807,13 +1829,13 @@ DHCP UUID 被设置为一个常量值。
 program_gpio_bootmode=n
 ```
 
-其中 n 是您希望使用的 GPIO 组。然后重新启动 Raspberry Pi 一次，以使用此设置对 OTP 进行编程。第 1 组是 GPIO 22-26，第 2 组是 GPIO 39-43。除非您使用的是计算模块，否则必须使用第 1 组：第 2 组中的 GPIO 仅在计算模块上可用。由于 OTP 位的排列方式，如果您首先为第 1 组编程 GPIO 引导模式，然后稍后可以选择第 2 组。反之则不成立：一旦选择了第 2 组作为 GPIO 引导模式，就无法选择第 1 组。
+其中 n 是您希望使用的 GPIO 组。然后重新启动树莓派一次，以使用此设置对 OTP 进行编程。第 1 组是 GPIO 22-26，第 2 组是 GPIO 39-43。除非您使用的是计算模块，否则必须使用第 1 组：第 2 组中的 GPIO 仅在计算模块上可用。由于 OTP 位的排列方式，如果您首先为第 1 组编程 GPIO 引导模式，然后稍后可以选择第 2 组。反之则不成立：一旦选择了第 2 组作为 GPIO 引导模式，就无法选择第 1 组。
 
-一旦启用 GPIO 引导模式，Raspberry Pi 将不再启动。您必须拉高至少一个引导模式 GPIO 引脚，以便 Raspberry Pi 启动。
+一旦启用 GPIO 引导模式，树莓派将不再启动。您必须拉高至少一个引导模式 GPIO 引脚，以便树莓派启动。
 
 ### 引脚分配
 
-#### Raspberry Pi 3B 和 Compute Module 3
+#### 树莓派 3B 和 Compute Module 3
 
 | 银行 1 | 银行 2 | 引导类型                 |
 | -------- | -------- | -------------------------- |
@@ -1825,7 +1847,7 @@ program_gpio_bootmode=n
 
 在上表中，USB 选择 USB 设备启动模式和 USB 主机启动模式。要使用 USB 启动模式，必须在 OTP 存储器中启用它。有关更多信息，请参阅 USB 设备启动和 USB 主机启动。
 
-#### 旧版 Raspberry Pi 3B（带金属盖的 BCM2837B0），Raspberry Pi 3A+，3B+ 和 Compute Module 3+
+#### 旧版树莓派 3B（带金属盖的 BCM2837B0），树莓派 3A+，3B+ 和计算模块 3+
 
 | 银行 1 | 银行 2 | 引导类型                  |
 | -------- | -------- | --------------------------- |
@@ -1837,18 +1859,19 @@ program_gpio_bootmode=n
 | 25     | 42     | USB 主机 - 大容量存储设备 |
 | 26     | 43     | USB 主机 - 以太网         |
 
-| NOTE | 各种引导模式按照 GPIO 线的数字顺序尝试，即 SD0，然后 SD1，然后 NAND 等等。 |
-| ------ | ---------------------------------------------------------------------------- |
+>**注意**
+>
+>各种引导模式按照 GPIO 线的数字顺序尝试，即 SD0，然后 SD1，然后 NAND 等等。
 
 ### 引导流程
 
-SD0 是 Broadcom SD 卡/MMC 接口。当 SoC 中的引导 ROM 运行时，它总是将 SD0 连接到内置的 microSD 卡槽。在带有 eMMC 设备的计算模块上，SD0 连接到该设备；在计算模块 Lite 上，SD0 可在边缘连接器上使用，并连接到 CMIO 扩展板中的 microSD 卡槽。SD1 是 Arasan SD 卡/MMC 接口，还能够支持 SDIO。所有具有内置无线局域网的 Raspberry Pi 型号都使用 SD1 通过 SDIO 连接到无线芯片。
+SD0 是 Broadcom SD 卡/MMC 接口。当 SoC 中的引导 ROM 运行时，它总是将 SD0 连接到内置的 microSD 卡槽。在带有 eMMC 设备的计算模块上，SD0 连接到该设备；在计算模块 Lite 上，SD0 可在边缘连接器上使用，并连接到 CMIO 扩展板中的 microSD 卡槽。SD1 是 Arasan SD 卡/MMC 接口，还能够支持 SDIO。所有具有内置无线局域网的树莓派型号都使用 SD1 通过 SDIO 连接到无线芯片。
 
 GPIO 线上的默认拉电阻为 50KΩ，如 BCM2835 ARM 外围设备数据表第 102 页所述。建议使用 5KΩ的拉电阻来拉高 GPIO 线：这将使 GPIO 正常工作但不会消耗太多功率。
 
 ## NVMe SSD 引导
 
-NVMe（非易失性内存表达）是通过 PCIe 总线访问外部存储的标准。您可以通过 Compute Module 4（CM4）IO 板或 Raspberry Pi 5 上的 PCIe 插槽连接 NVMe 驱动器。通过一些额外的配置，您可以从 NVMe 驱动器引导。
+NVMe（非易失性内存表达）是通过 PCIe 总线访问外部存储的标准。您可以通过 Compute Module 4（CM4）IO 板或树莓派 5 上的 PCIe 插槽连接 NVMe 驱动器。通过一些额外的配置，您可以从 NVMe 驱动器引导。
 
 ### 先决条件
 
@@ -1856,11 +1879,10 @@ NVMe（非易失性内存表达）是通过 PCIe 总线访问外部存储的标�
 
 * NVMe M.2 固态硬盘
 * 从 PCIe 转换为 M.2 标准的适配器。
-
-  * 对于 Raspberry Pi 5，我们推荐使用 M.2 HAT+，它可以将树莓派的 PCIe FFC 插槽转换为 M 键接口。
+  * 对于树莓派 5，我们推荐使用 M.2 HAT+，它可以将树莓派的 PCIe FFC 插槽转换为 M 键接口。
   * 对于 CM4，请搜索"PCI-E 3.0 ×1 通道到 M.2 NGFF M 键 SSD NVMe PCI Express 适配器卡"。
 
-要检查 NVMe 驱动器是否正确连接，请从另一个存储设备（如 SD 卡）引导您的 Raspberry Pi，并运行 ls -l /dev/nvme* 。示例输出如下。
+要检查 NVMe 驱动器是否正确连接，请从另一个存储设备（如 SD 卡）引导您的树莓派，并运行 ls -l /dev/nvme* 。示例输出如下。
 
 ```
 crw------- 1 root root 245, 0 Mar  9 14:58 /dev/nvme0
@@ -1875,7 +1897,7 @@ brw-rw---- 1 root disk 259, 0 Mar  9 14:58 /dev/nvme0n1
 $ sudo rpi-eeprom-update
 ```
 
-对于 Raspberry Pi 5，您需要在 2023 年 12 月 6 日或之后发布的固件。
+对于树莓派 5，您需要在 2023 年 12 月 6 日或之后发布的固件。
 
 对于 CM4，NVMe 启动支持是在 2021 年 7 月引入的。您需要自那日期以来发布的以下软件版本：
 
@@ -1887,9 +1909,9 @@ $ sudo rpi-eeprom-update
 
 ### 编辑 EEPROM 启动顺序
 
-对于 Raspberry Pi 5，您需要启动 Raspberry Pi OS 来编辑启动顺序。您可以从 SD 卡或 USB 驱动器引导您的 Raspberry Pi 进行此步骤。即使更改引导设备，EEPROM 配置也会持续存在，因为 EEPROM 配置存储在板上本身。
+对于树莓派 5，您需要启动 Raspberry Pi OS 来编辑启动顺序。您可以从 SD 卡或 USB 驱动器引导您的树莓派进行此步骤。即使更改引导设备，EEPROM 配置也会持续存在，因为 EEPROM 配置存储在板上本身。
 
-使用 Raspberry Pi 配置 CLI 更新引导加载程序：
+使用树莓派 配置 CLI 更新引导加载程序：
 
 ```
 $ sudo raspi-config
@@ -1903,7 +1925,7 @@ $ sudo raspi-config
 $ sudo rpi-eeprom-update -a
 ```
 
-然后，使用 sudo reboot 重新启动。您的 Raspberry Pi 5 应该从 NVMe 启动。
+然后，使用 sudo reboot 重新启动。您的树莓派 5 应该从 NVMe 启动。
 
 对于 CM4，请使用 rpiboot 来更新引导加载程序。您可以在 USB 启动 GitHub 存储库中找到构建 rpiboot 和配置 IO 板以将 ROM 切换到 usbboot 模式的说明。
 
@@ -1913,7 +1935,7 @@ $ sudo rpi-eeprom-update -a
 
 ### NVMe `BOOT_ORDER`
 
-EEPROM 配置中的 BOOT_ORDER 设置控制引导行为。对于 NVMe 引导，请使用引导模式 6 。有关更多信息，请参阅 Raspberry Pi 引导加载程序配置。
+EEPROM 配置中的 BOOT_ORDER 设置控制引导行为。对于 NVMe 引导，请使用引导模式 6 。有关更多信息，请参阅树莓派引导加载程序配置。
 
 ### 示例
 
@@ -1985,8 +2007,9 @@ boot.img 和 boot.sig 签名文件是包含引导文件系统的 RAM 磁盘。�
 
 所有 HTTP 下载必须经过签名。引导加载程序包含默认主机 fw-download-alias1.raspberrypi.com 上文件的公钥。除非您设置 HTTP_HOST 并在 EEPROM 中包含公钥，否则将使用此密钥来验证网络安装映像。这使您可以在自己的服务器上托管树莓派网络安装映像。
 
-| WARNING | 使用您自己的网络安装映像将需要您对映像进行签名并将您的公钥添加到 EEPROM 中。如果您之后应用公共 EEPROM 更新，您的密钥将丢失并需要重新添加。 |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+>**警告**
+>
+>使用您自己的网络安装映像将需要您对映像进行签名并将您的公钥添加到 EEPROM 中。如果您之后应用公共 EEPROM 更新，您的密钥将丢失并需要重新添加。 
 
 USBBOOT 具有编程公钥所需的所有工具。
 
@@ -2061,7 +2084,7 @@ $ rpi-eeprom-config -c boot.conf -p mypubkey.pem -o pieeprom.bin --cacertder cer
 $ rpi-eeprom-digest -k myprivkey.pem -i pieeprom.bin -o pieeprom.sig
 ```
 
-在网络引导期间，您的 Raspberry Pi 应该使用 HTTPS 而不是 HTTP。要查看由网络安装解析的完整 HTTPS URL 以进行下载，请检查引导输出：
+在网络引导期间，您的树莓派应该使用 HTTPS 而不是 HTTP。要查看由网络安装解析的完整 HTTPS URL 以进行下载，请检查引导输出：
 
 ```
 Loading boot.img ...
@@ -2071,7 +2094,7 @@ HTTP: GET request for https://yourserver.org:443/path/to/files/boot.img
 
 ### 安全引导
 
-如果启用了安全引导，则 Raspberry Pi 只能运行由客户私钥签名的代码。因此，如果您想要在启用安全引导的情况下使用网络安装或 HTTP 引导模式，您必须使用自己的密钥签署 boot.img 并生成 boot.sig ，并在某处托管这些文件以供下载。EEPROM 中的公钥将用于验证镜像。
+如果启用了安全引导，则树莓派只能运行由客户私钥签名的代码。因此，如果您想要在启用安全引导的情况下使用网络安装或 HTTP 引导模式，您必须使用自己的密钥签署 boot.img 并生成 boot.sig ，并在某处托管这些文件以供下载。EEPROM 中的公钥将用于验证镜像。
 
 如果启用了安全启动并且未设置 HTTP_HOST，则网络安装和 HTTP 引导将被禁用。
 
@@ -2079,13 +2102,13 @@ HTTP: GET request for https://yourserver.org:443/path/to/files/boot.img
 
 ## 并行显示接口
 
-##### [在 Raspberry Pi 上使用 DPI 显示器](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003471-WP/Using-a-DPI-display.pdf)
+##### [在树莓派上使用 DPI 显示器](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003471-WP/Using-a-DPI-display.pdf)
 
-在 Raspberry Pi 上使用 DPI 显示器
+在树莓派上使用 DPI 显示器
 
-可以通过 40 针通用输入/输出(GPIO)连接器将 Display Parallel Interface (DPI)显示器连接到 Raspberry Pi 设备，作为使用专用 Display Serial Interface (DSI)或高清多媒体接口(HDMI)端口的替代方案。
+可以通过 40 针通用输入/输出(GPIO)连接器将 Display Parallel Interface (DPI)显示器连接到树莓派设备，作为使用专用 Display Serial Interface (DSI)或高清多媒体接口(HDMI)端口的替代方案。
 
-所有带有 40 针排针和计算模块的 Raspberry Pi 主板上都提供了高达 24 位并行 RGB 接口。该接口允许将并行 RGB 显示器连接到 Raspberry Pi GPIO，无论是以 RGB24（每色 8 位红、绿和蓝）还是 RGB666（每色 6 位）或 RGB565（5 位红、6 位绿和 5 位蓝）的形式。
+所有带有 40 针排针和计算模块的树莓派主板上都提供了高达 24 位并行 RGB 接口。该接口允许将并行 RGB 显示器连接到树莓派 GPIO，无论是以 RGB24（每色 8 位红、绿和蓝）还是 RGB666（每色 6 位）或 RGB565（5 位红、6 位绿和 5 位蓝）的形式。
 
 该接口由 GPU 固件控制，并可以通过用户通过特殊 config.txt 参数和启用正确的 Linux 设备树叠加来进行编程。
 
@@ -2124,10 +2147,10 @@ HTTP: GET request for https://yourserver.org:443/path/to/files/boot.img
 | GPIO26 | DPI_D22   |
 | GPIO27 | DPI_D23   |
 
-| NOTE | DPI 输出引脚上的颜色值可以以 565、666 或 24 位模式的各种方式呈现（请参阅以下表格和 output_format 参数的 dpi_output_format 部分）： |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-
-| ** 模式** | ** RGB 位** | **GPIO**  |
+>**注意**
+>
+>DPI 输出引脚上的颜色值可以以 565、666 或 24 位模式的各种方式呈现（请参阅以下表格和 output_format 参数的 dpi_output_format 部分）：
+| **模式** | **RGB 位** | **GPIO**  |
 | ----------- | ------------- | --- |
 | **27**          | **26**            | **25**  |
 | 1         | -           | - |
@@ -2153,20 +2176,21 @@ dtparam=spi=off
 
 #### 自动检测
 
-自动检测允许您的 Raspberry Pi 在不需要手动配置设备树叠加的情况下连接显示器。自动检测默认情况下已启用。您可以通过将以下行添加到 config.txt 来启用显示器自动检测：
+自动检测允许您的树莓派在不需要手动配置设备树叠加的情况下连接显示器。自动检测默认情况下已启用。您可以通过将以下行添加到 config.txt 来启用显示器自动检测：
 
 ```
 `display_auto_detect=1`
 ```
 
-用 0 替换 1 以禁用自动检测。当您连接启用自动检测的官方 Raspberry Pi 显示器时，KMS 会自动确定显示器型号并配置适当的显示设置。
+用 0 替换 1 以禁用自动检测。当您连接启用自动检测的官方树莓派显示器时，KMS 会自动确定显示器型号并配置适当的显示设置。
 
 #### 手动配置显示器
 
-| NOTE | 在 Raspberry Pi OS Bookworm 或更高版本中，以前用于设置 DPI 的 dpi_output_format 和 dpi_timings 条目在 config.txt 中已被 vc4-kms-dpi-generic 覆盖。 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在 Raspberry Pi OS Bookworm 或更高版本中，以前用于设置 DPI 的 dpi_output_format 和 dpi_timings 条目在 config.txt 中已被 vc4-kms-dpi-generic 覆盖。 
 
-要使用官方 Raspberry Pi 显示器之外的任何显示器，必须在 config.txt 中指定一个 dtoverlay 条目。面板制造商应在 Linux 内核代码中为您的显示器配置时间，并提供一个覆盖来启用这些设置。请参阅 Adafruit Kippah 显示器条目以获取示例。以下示例演示了如何在您的 /boot/firmware/config.txt 文件中为 Kippah 显示器设置 dtoverlay 条目：
+要使用官方树莓派显示器之外的任何显示器，必须在 config.txt 中指定一个 dtoverlay 条目。面板制造商应在 Linux 内核代码中为您的显示器配置时间，并提供一个覆盖来启用这些设置。请参阅 Adafruit Kippah 显示器条目以获取示例。以下示例演示了如何在您的 /boot/firmware/config.txt 文件中为 Kippah 显示器设置 dtoverlay 条目：
 
 ```
 dtoverlay=vc4-kms-kippah-7inch-overlay
@@ -2183,12 +2207,13 @@ dtparam=vactive=640,vfp=25,vsync=10,vbp=16
 dtparam=clock-frequency=32000000,rgb666-padhi
 ```
 
-| NOTE | 设备树行长度不得超过 80 个字符。当设置需要超过 80 个字符的行时，请将该参数的赋值拆分成多行。 |
-| ------ | ---------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>设备树行长度不得超过 80 个字符。当设置需要超过 80 个字符的行时，请将该参数的赋值拆分成多行。 
 
 参数显示树定义支持以下选项：
 
-| 选项 | 描述                                               |
+| 选项 | 说明                                               |
 | ------ | ---------------------------------------------------- |
 | `clock-frequency`     | 显示时钟频率 (Hz)                                  |
 | `hactive`     | 水平活动像素                                       |
@@ -2215,12 +2240,13 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 
 通用输入/输出（GPIO）引脚可配置为通用输入、通用输出，或者作为最多六个特殊备用设置之一，其功能取决于引脚。
 
-BCM2835 上有三个 GPIO bank。每个 bank 都有自己的 VDD 输入引脚。在 Raspberry Pi 上，所有 GPIO bank 都由 3.3V 供电。
+BCM2835 上有三个 GPIO bank。每个 bank 都有自己的 VDD 输入引脚。在树莓派上，所有 GPIO bank 都由 3.3V 供电。
 
-| WARNING | 将 GPIO 连接到高于 3.3V 的电压可能会摧毁 SoC 内部的 GPIO 块。 |
-| --------- | --------------------------------------------------------------- |
+>**警告**
+>
+>将 GPIO 连接到高于 3.3V 的电压可能会摧毁 SoC 内部的 GPIO 块。
 
-在 Raspberry Pi 的 P1 引脚上提供了来自 Bank 0 的引脚选择。
+在树莓派的 P1 引脚上提供了来自 Bank 0 的引脚选择。
 
 ### GPIO 引脚
 
@@ -2254,7 +2280,7 @@ BCM2835 封装上的 GPIO 连接有时在外设数据表中被称为“pads” �
 
 ### 电压规格
 
-下表列出了针对 BCM2835、BCM2836、BCM2837 和 RP3A0 系列产品（例如 Raspberry Pi Zero 或 Raspberry Pi 3+）的 GPIO 引脚的各种电压规格。有关计算模块的信息，请参阅相关数据表。
+下表列出了针对 BCM2835、BCM2836、BCM2837 和 RP3A0 系列产品（例如树莓派 Zero 或树莓派 3+）的 GPIO 引脚的各种电压规格。有关计算模块的信息，请参阅相关数据表。
 
 | 符号   | 参数          | 条件        | 最小 | 典型 | 最大 | 单元   |
 | -------- | --------------- | ------------- | ------ | ------ | ------ | -------- |
@@ -2271,7 +2297,7 @@ BCM2835 封装上的 GPIO 连接有时在外设数据表中被称为“pads” �
 
 ^a^ 滞后启用 ^b^ 默认驱动强度（8mA） ^c^ 最大驱动强度（16mA）
 
-下表列出了基于 BCM2711 的产品（例如 Raspberry Pi 4 和 Raspberry Pi 400）的 GPIO 引脚的电压规格。有关计算模块的信息，您应查看相关的数据表。
+下表列出了基于 BCM2711 的产品（例如树莓派 4 和树莓派 400）的 GPIO 引脚的电压规格。有关计算模块的信息，您应查看相关的数据表。
 
 | 符号       | 参数          | 条件          | 最小值 | 典型的 | 最大 | 单位 |
 | ------------ | --------------- | --------------- | -------- | -------- | ------ | ------ |
@@ -2295,15 +2321,18 @@ GPIO 驱动强度并不表示最大电流，而是在该电流下垫还能满足
 
 在垫子内部有许多并联的驱动器。如果驱动强度设置低（0b000），则大多数驱动器都是三态的，因此它们不会对输出电流产生影响。如果增加驱动强度，将会并联更多驱动器。图表显示了这种行为。
 
-| WARNING | 对于 Raspberry Pi 4、Raspberry Pi 400 和 Compute Module 4，当前级别是图表中显示值的一半。 |
-| --------- | ------------------------------------------------------------------------------------------- |
+>**警告**
+>
+>对于树莓派 4、树莓派 400 和计算模块 4，当前级别是图表中显示值的一半。
+
 
 ![GPIO drive strength diagram](https://www.raspberrypi.com/documentation/computers/images/pi_gpio_drive_strength_diagram.png)
 
 ### 当前值代表什么意思？
 
-| NOTE | 当前值指定了在该值以下的最大电流下，焊盘仍将符合规格。 |
-| ------ | -------------------------------------------------------- |
+>**注意**
+>
+>当前值指定了在该值以下的最大电流下，焊盘仍将符合规格。
 
 * 当前值不是垫子将提供的电流，也不是电流限制。
 
@@ -2327,12 +2356,14 @@ V~OL~=0.14V 意味着如果输出为低，则<= 0.14V。V~OH~=3.0V 意味着如�
 
 GPIO 引脚的物理特性有更多信息。
 
-| NOTE | 在 Compute Module 设备上，可以将 VDD IO 从标准的 3.3V 更改。在这种情况下，V~OL~和 V~OH~将根据 GPIO 部分的表格进行更改。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在计算模块设备上，可以将 VDD IO 从标准的 3.3V 更改。在这种情况下，V~OL~和 V~OH~将根据 GPIO 部分的表格进行更改。
+
 
 ### 为什么我不能将所有引脚都设置为最大电流？
 
-* Raspberry Pi 3.3V 供电设计时每个 GPIO 引脚的最大电流为~3mA。如果您将每个引脚负载为 16mA，则总电流为 272mA。3.3V 供电将在该负载水平下崩溃。
+* 树莓派 3.3V 供电设计时每个 GPIO 引脚的最大电流为~3mA。如果您将每个引脚负载为 16mA，则总电流为 272mA。3.3V 供电将在该负载水平下崩溃。
 * 大电流峰值将会发生，特别是在具有电容负载时。峰值将在附近的所有其他引脚之间反弹。这很可能会干扰 SD 卡，甚至 SDRAM 的行为。
 
 ### 什么是安全电流？
@@ -2372,13 +2403,13 @@ GPIO 引脚的物理特性有更多信息。
 
 ### 一次性可编程设置
 
-##### [在 Raspberry Pi 单板计算机上使用一次性可编程存储器](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003611-WP/Using-the-One-time-programmable-memory-on-Raspberry-Pi-single-board-computers.pdf)
+##### [在树莓派单板计算机上使用一次性可编程存储器](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003611-WP/Using-the-One-time-programmable-memory-on-Raspberry-Pi-single-board-computers.pdf)
 
-在 Raspberry Pi 单板计算机上使用一次性可编程存储器
+在树莓派单板计算机上使用一次性可编程存储器
 
-所有 Raspberry Pi 单板计算机（SBCs）都有一个内置的一次性可编程（OTP）存储器区域，实际上是主 SoC 的一部分。正如其名称所示，OTP 存储器只能写入一次（即，二进制 0 可以更改为 1）。一旦某个位被更改为 1，就永远无法恢复为 0。看待 OTP 的一种方式是将每个位视为保险丝。编程涉及故意烧断保险丝 - 这是一个不可逆的过程，因为您无法进入芯片内部进行更换！
+所有树莓派单板计算机（SBCs）都有一个内置的一次性可编程（OTP）存储器区域，实际上是主 SoC 的一部分。正如其名称所示，OTP 存储器只能写入一次（即，二进制 0 可以更改为 1）。一旦某个位被更改为 1，就永远无法恢复为 0。看待 OTP 的一种方式是将每个位视为保险丝。编程涉及故意烧断保险丝 - 这是一个不可逆的过程，因为您无法进入芯片内部进行更换！
 
-本白皮书假定 Raspberry Pi 正在运行 Raspberry Pi 操作系统（OS），并且已完全更新到最新的固件和内核。
+本白皮书假定树莓派正在运行 Raspberry Pi OS，并且已完全更新到最新的固件和内核。
 
 有许多可以使用的 OTP 值。要查看所有 OTP 值的列表，您可以使用：
 
@@ -2394,8 +2425,9 @@ vcgencmd otp_dump
 
 此外，在 36 到 43（包括）之间，有八行 32 位可供客户使用。
 
-| NOTE | 在 BCM2712 设备上，这些数字是不同的。第 31 行是序列号，第 32 行是板子修订号。客户行是 77 到 84（包括）。 |
-| ------ | ---------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在 BCM2712 设备上，这些数字是不同的。第 31 行是序列号，第 32 行是板子修订号。客户行是 77 到 84（包括）。 
 
 这些行中的一些可以使用 vcmailbox 进行编程。这是一个 Linux 驱动程序接口，用于处理行的编程。要做到这一点，请参考文档和 vcmailbox 示例应用程序。
 
@@ -2415,8 +2447,9 @@ vcmailbox 0x00010004 8 8 0 0
 
 ### 编写和读取客户 OTP 值
 
-| WARNING | OTP 值是一次性可编程的。一旦将位从 0 更改为 1，就无法再更改回来。 |
-| --------- | ------------------------------------------------------------------- |
+>**警告**
+>
+>OTP 值是一次性可编程的。一旦将位从 0 更改为 1，就无法再更改回来。 
 
 要设置客户 OTP 值，您需要使用 SET_CUSTOMER_OTP （0x38021）标记，如下所示：
 
@@ -2538,8 +2571,9 @@ vcmailbox 0x00038082 6 6 0x44332211 0x6655
 
 该 rpi-otp-private-key 脚本包装了设备私钥 vcmailbox API，使得在 OpenSSL 格式中更易于读写密钥。
 
-| NOTE | 该 usbboot 存储库包含您需要的所有工具，包括 rpi-eeprom 作为 Git 子模块。 |
-| ------ | -------------------------------------------------------------------------- |
+>**注意**
+>
+>该 usbboot 存储库包含您需要的所有工具，包括 rpi-eeprom 作为 Git 子模块。
 
 将 32 字节密钥读取为 64 字符十六进制数：
 
@@ -2556,15 +2590,17 @@ f8dbc7b0a4fcfb1d706e298ac9d0485c2226ce8df7f7596ac77337bd09fbe160
 
 将 32 字节随机生成的数字写入设备私钥。
 
-| WARNING | 该操作无法撤销。 |
-| --------- | ------------------ |
+>**警告**
+>
+>该操作无法撤销。
 
 ```
 # rpi-otp-private-key -w $(openssl rand -hex 32)
 ```
 
-| NOTE | 要指定要使用的 OTP 行数，请传递 -l <word count> 。要指定密钥存储中的起始位置，请传递 -o <word offset> 。 |
-| ------ | ---------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>要指定要使用的 OTP 行数，请传递 -l <word count> 。要指定密钥存储中的起始位置，请传递 `-o <word offset>` 。 
 
 #### 用于读取/写入密钥的邮箱 API。
 
@@ -2594,7 +2630,7 @@ vcmailbox 0x38081 40 40 0 8 0xf8dbc7b0 0xa4fcfb1d 0x706e298a 0xc9d0485c 0x2226ce
 
 ## OTP 寄存器和位定义
 
-Raspberry Pi 系列使用的所有 SoC 都具有内置的一次性可编程 (OTP) 存储器块。少数位置具有出厂编程数据。
+树莓派系列使用的所有 SoC 都具有内置的一次性可编程 (OTP) 存储器块。少数位置具有出厂编程数据。
 
  OTP 存储器大小：
 
@@ -2628,8 +2664,9 @@ vcgencmd otp_dump
 * 位 28：启用 USB 设备引导
 * 位 29：启用 USB 主机引导（以太网和大容量存储）
 
-| NOTE | 在 BCM2711 上，引导模式由引导加载程序 EEPROM 配置定义，而不是 OTP。 |
-| ------ | --------------------------------------------------------------------- |
+>**注意**
+>
+>在 BCM2711 上，引导模式由引导加载程序 EEPROM 配置定义，而不是 OTP。 
 
 18 引导模式寄存器的副本
 
@@ -2642,19 +2679,15 @@ vcgencmd otp_dump
 33 板上修订版扩展 - 其含义取决于板型。这可通过设备树在 /proc/device-tree/chosen/rpi-boardrev-ext 中获得，出于测试目的，可以通过在 config.txt 中设置 board_rev_ext 来临时覆盖此 OTP 值。
 
 * 计算模块 4
-
   * 位 30：计算模块是否安装了 Wi-Fi 模块
-
     * 0 - 无线网络
     * 1 - 无 Wi-Fi
   * 位 31: 计算模块是否安装了 EMMC 模块
 
     * 0 - EMMC
     * 1 - 无 EMMC（精简版）
-* Raspberry Pi 400
-
+* 树莓派 400
   * 位 0-7：piwiz 使用的默认键盘国家代码
-
 36-43 客户 OTP 值
 
   45 MPG2 解码密钥
@@ -2677,7 +2710,6 @@ vcgencmd otp_dump
 * 位 15：启用 LAN_RUN 输出
 * 位 24：延长 USB HUB 超时参数
 * 位 25：ETH_CLK 频率:
-
   * 0 - 25MHz
   * 1 - 24MHz
 
@@ -2730,20 +2762,21 @@ vcgencmd otp_dump
 
 通过设备树在 /proc/device-tree/chosen/rpi-duid 中可用。
 
-## Raspberry Pi 连接器用于 PCIe
+## 树莓派连接器用于 PCIe
 
 ![Raspberry Pi connector for PCIe](https://www.raspberrypi.com/documentation/computers/images/pcie.jpg)
 
-Raspberry Pi 连接器用于 PCIe
+树莓派连接器用于 PCIe
 
-Raspberry Pi 5 在板的右侧有一个 FPC 连接器。该连接器为快速外围设备提供了一个 PCIe Gen 2.0 ×1 接口。
+树莓派 5 在板的右侧有一个 FPC 连接器。该连接器为快速外围设备提供了一个 PCIe Gen 2.0 ×1 接口。
 
-要连接 PCIe HAT+设备，请将其连接到您的 Raspberry Pi。您的 Raspberry Pi 应该会自动检测到该设备。要连接非 HAT+设备，请将其连接到您的 Raspberry Pi，然后手动启用 PCIe。
+要连接 PCIe HAT+设备，请将其连接到您的树莓派。您的树莓派应该会自动检测到该设备。要连接非 HAT+设备，请将其连接到您的树莓派，然后手动启用 PCIe。
 
 有关 PCIe FPC 连接器引脚布局及创建第三方设备、配件和 HAT 所需的其他详细信息，请参阅 Raspberry Pi Connector for PCIe 标准文档。应与 Raspberry Pi HAT+ 规范一起阅读。
 
-| NOTE | 目前不支持枚举位于交换机后面的 PCIe 设备。 |
-| ------ | -------------------------------------------- |
+>**注意**
+>
+>目前不支持枚举位于交换机后面的 PCIe 设备。 
 
 ### 启用 PCIe
 
@@ -2755,12 +2788,13 @@ dtparam=pciex1
 
 使用 sudo reboot 重新启动，以使配置更改生效。
 
-| NOTE | 您还可以使用别名 nvme 。 |
-| ------ | -------------------------- |
+>**注意**
+>
+>您还可以使用别名 nvme 。 
 
 ### 从 PCIe 启动
 
-默认情况下，Raspberry Pi 设备不会从 PCIe 存储启动。要启用从 PCIe 启动，请更改引导加载程序配置中的 BOOT_ORDER 。使用以下命令编辑 EEPROM 配置：
+默认情况下，树莓派设备不会从 PCIe 存储启动。要启用从 PCIe 启动，请更改引导加载程序配置中的 BOOT_ORDER 。使用以下命令编辑 EEPROM 配置：
 
 ```
 $ sudo rpi-eeprom-config --edit
@@ -2778,12 +2812,13 @@ BOOT_ORDER=0xf416
 PCIE_PROBE=1
 ```
 
-保存更改后，使用 sudo reboot 重新启动您的 Raspberry Pi 以更新 EEPROM。
+保存更改后，使用 sudo reboot 重新启动您的树莓派以更新 EEPROM。
 
 ### PCIe Gen 3.0
 
-| WARNING | Raspberry Pi 5 未获得 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。 |
-| --------- | ----------------------------------------------------------------------- |
+>**警告**
+>
+>树莓派 5 未获得 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。 
 
 #### 通过 config.txt
 
@@ -2793,11 +2828,11 @@ PCIE_PROBE=1
 dtparam=pciex1_gen=3
 ```
 
-使用 sudo reboot 重新启动您的 Raspberry Pi 以使这些设置生效。
+使用 sudo reboot 重新启动您的树莓派以使这些设置生效。
 
 #### 通过 raspi-config
 
-运行以下命令以打开 Raspberry Pi 配置 CLI：
+运行以下命令以打开树莓派配置 CLI：
 
 ```
 $ sudo raspi-config
@@ -2810,28 +2845,31 @@ $ sudo raspi-config
 3. 选择 Yes 以启用 PCIe Gen 3 模式。
 4. 选择 Finish 以退出。
 
-使用 sudo reboot 重新启动您的 Raspberry Pi，以使这些设置生效。
+使用 sudo reboot 重新启动您的树莓派，以使这些设置生效。
 
 ## 电源按钮
 
-| NOTE | 本节仅适用于带有电源按钮的 Raspberry Pi 型号，例如 Raspberry Pi 5。 |
-| ------ | --------------------------------------------------------------------- |
+>**注意**
+>
+>本节仅适用于带有电源按钮的树莓派型号，例如树莓派 5。 
 
-当您第一次将 Raspberry Pi 插入电源时，它将自动打开并启动操作系统，无需按按钮。
+当您首次将树莓派插入电源时，它将自动打开并启动操作系统，无需按按钮。
 
 如果您运行 Raspberry Pi Desktop，则可以通过简短按下电源按钮来启动干净的关机。 一个窗口将出现，询问您是否要关机、重新启动或注销。
 
 选择一个选项或再次按下电源按钮以启动干净的关机。
 
-| NOTE | 如果您运行 Raspberry Pi Desktop，则可以快速连续按两次电源按钮来关闭。 如果您运行没有桌面的 Raspberry Pi OS Lite，请按一次电源按钮来启动关机。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果您运行 Raspberry Pi Desktop，则可以快速连续按两次电源按钮来关闭。 如果您运行没有桌面的 Raspberry Pi OS Lite，请按一次电源按钮来启动关机。
 
 ### 重新启动
 
-如果 Raspberry Pi 主板已关闭，但仍连接电源，则按下电源按钮会重新启动主板。
+如果树莓派主板已关闭，但仍连接电源，则按下电源按钮会重新启动主板。
 
-| NOTE | 重置电源管理集成电路（PMIC）也可以重新启动主板。连接 HAT 可以重置 PMIC。在连接 HAT 之前，始终将设备与电源断开连接。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>重置电源管理集成电路（PMIC）也可以重新启动主板。连接 HAT 可以重置 PMIC。在连接 HAT 之前，始终将设备与电源断开连接。 
 
 ### 强制关机
 
@@ -2843,61 +2881,64 @@ $ sudo raspi-config
 
  J2 跳线
 
-J2 跳线位于 RTC 电池连接器和板边之间。这个引脚允许您通过添加一个常开（NO）瞬时开关来为 Raspberry Pi 5 添加自己的电源按钮。简短地关闭此开关将执行与板载电源按钮相同的操作。
+J2 跳线位于 RTC 电池连接器和板边之间。这个引脚允许您通过添加一个常开（NO）瞬时开关来为树莓派 5 添加自己的电源按钮。简短地关闭此开关将执行与板载电源按钮相同的操作。
 
 ## 电源供应
 
-Raspberry Pi 型号的电源供应要求有所不同。所有型号都需要 5.1V 的供应，但根据型号，所需的电流通常会增加。直到 Raspberry Pi 3 型号，所有型号都需要一个 micro USB 电源连接器，而 Raspberry Pi 4、Raspberry Pi 400 和 Raspberry Pi 5 使用 USB-C 连接器。
+树莓派型号的电源供应要求有所不同。所有型号都需要 5.1V 的供应，但根据型号，所需的电流通常会增加。直到树莓派 3 型号，所有型号都需要一个 micro USB 电源连接器，而树莓派 4、树莓派 400 和树莓派 5 使用 USB-C 连接器。
 
-每个 Raspberry Pi 消耗的电流取决于连接的外围设备。
+每个树莓派耗的电流取决于连接的外围设备。
 
 ### 推荐的电源供应
 
-对于 Raspberry Pi 1、Raspberry Pi 2 和 Raspberry Pi 3，我们建议使用 2.5A 微型 USB 电源适配器。对于 Raspberry Pi 4 和 Raspberry Pi 400，我们建议使用 3A USB-C 电源适配器。对于 Raspberry Pi 5，我们建议使用 27W USB-C 电源适配器。
+对于树莓派 1、树莓派 2 和 树莓派 3，我们建议使用 2.5A 微型 USB 电源适配器。对于树莓派 4 和树莓派 400，我们建议使用 3A USB-C 电源适配器。对于树莓派 5，我们建议使用 27W USB-C 电源适配器。
 
-| NOTE | 没有 Raspberry Pi 型号支持 USB-PPS。 |
-| ------ | -------------------------------------- |
+>**注意**
+>
+>所有型号的树莓派都不支持 USB-PPS。 
 
-| NOTE | 如果您使用第三方 USB-PD 多端口电源适配器，在连接 Raspberry Pi 时插入其他设备会导致电源适配器和 Raspberry Pi 之间重新协商。如果 Raspberry Pi 已上电，这将无缝进行。如果 Raspberry Pi 已关机，此重新协商可能导致 Raspberry Pi 启动。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+>**注意**
+>
+>如果您使用第三方 USB-PD 多端口电源适配器，在连接树莓派时插入其他设备会导致电源适配器和树莓派间重新协商。如果树莓派已上电，这将无缝进行。如树莓派已关机，此重新协商可能导致树莓派启动。 
 
 ### 通过以太网（PoE）连接器
 
 ![The PoE connector,width=](https://www.raspberrypi.com/documentation/computers/images/poe.jpg)
 
-Raspberry Pi 5 PoE 标头
+树莓派 5 PoE 标头
 
-Raspberry Pi 5 上的以太网插孔支持 IEEE 802.3at-2009 PoE 标准，支持 PoE+。
+树莓派 5 上的以太网插孔支持 IEEE 802.3at-2009 PoE 标准，支持 PoE+。
 
 树莓派 4B 和 Pi 3B+上的以太网插孔支持 IEEE 802.3af-2003 PoE 标准，可提供 PoE 功能。
 
 所有具有 PoE 功能的树莓派型号都需要一个 HAT 来通过以太网端口提取电源。对于支持 PoE 的型号，我们推荐 PoE HAT。对于支持 PoE+的型号，我们推荐 PoE+ HAT。
 
-### 典型的功率需求
+### 典型功率需求
 
-| 产品                    | 推荐的电源供应器电流容量 | 最大总 USB 外围设备电流吸收                  | 典型的裸板活动电流消耗 |
+| 产品                    | 推荐的电源供应器电流容量 | 最大总 USB 外围设备电流吸收                  | 典型裸板活动电流消耗 |
 | ------------------------- | -------------------------- | ---------------------------------------------- | ------------------------ |
-| Raspberry Pi 1 Model A  | 700 毫安                 | 500 毫安                                     | 200 毫安               |
+|树莓派1 Model A  | 700 毫安                 | 500 毫安                                     | 200 毫安               |
 | 树莓派 1 型 B           | 1.2A                     | 500 毫安                                     | 500 毫安               |
-| Raspberry Pi 1 Model A+ | 700 毫安                 | 500 毫安                                     | 180 毫安               |
+| 树莓派 1 Model A+ | 700 毫安                 | 500 毫安                                     | 180 毫安               |
 | 树莓派 1 型 B+          | 1.8A                     | 1.2A                                         | 330 毫安               |
 | 树莓派 2 型 B           | 1.8A                     | 1.2A                                         | 350 毫安               |
-| Raspberry Pi 3 Model B  | 2.5A                     | 1.2A                                         | 400 毫安               |
-| Raspberry Pi 3 Model A+ | 2.5A                     | 受电源、主板和连接器额定值的限制。           | 350 毫安               |
+| 树莓派 3 Model B  | 2.5A                     | 1.2A                                         | 400 毫安               |
+| 树莓派 3 Model A+ | 2.5A                     | 受电源、主板和连接器额定值的限制。           | 350 毫安               |
 | 树莓派 3 型 B+          | 2.5A                     | 1.2A                                         | 500 毫安               |
 | 树莓派 4 型 B           | 3.0A                     | 1.2A                                         | 600 毫安               |
-| Raspberry Pi 5          | 5.0A                     | 1.6 安培（如果使用 3 安培电源则为 600 毫安） | 800 毫安               |
-| Raspberry Pi 400        | 3.0A                     | 1.2A                                         | 800 毫安               |
-| Raspberry Pi Zero       | 1.2A                     | 仅受电源、板和连接器额定值限制               | 100 毫安               |
+| 树莓派 5          | 5.0A                     | 1.6 安培（如果使用 3 安培电源则为 600 毫安） | 800 毫安               |
+| 树莓派 400        | 3.0A                     | 1.2A                                         | 800 毫安               |
+| 树莓派 Zero       | 1.2A                     | 仅受电源、板和连接器额定值限制               | 100 毫安               |
 | 树莓派 Zero W           | 1.2A                     | 仅受电源、板和连接器额定值限制。             | 150 毫安               |
 | 树莓派 Zero 2 W         | 2A                       | 仅受电源、板和连接器额定值限制。             | 350 毫安               |
 
-| NOTE | Raspberry Pi 5 在连接到 5A、+5V（25W）的功率适配器时，为下游 USB 外设提供 1.6A 的电源。当连接到任何其他兼容的电源时，Raspberry Pi 5 将限制下游 USB 设备的电流为 600mA。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>树莓派 5 在连接到 5A、+5V（25W）的功率适配器时，为下游 USB 外设提供 1.6A 的电源。当连接到任何其他兼容的电源时，树莓派 5 将限制下游 USB 设备的电流为 600mA。
 
-大多数 Raspberry Pi 提供足够的电流给 USB 外设，以供应大多数 USB 设备，包括键盘、鼠标和适配器。然而，一些设备需要额外的电流，包括调制解调器、外部磁盘和高功率天线。要连接功率要求超过上表规定值的 USB 设备，请使用外部供电的 USB 集线器。
+大多数树莓派提供足够的电流给 USB 外设，以供应大多数 USB 设备，包括键盘、鼠标和适配器。然而，一些设备需要额外的电流，包括调制解调器、外部磁盘和高功率天线。要连接功率要求超过上表规定值的 USB 设备，请使用外部供电的 USB 集线器。
 
-随着您在 Raspberry Pi 上使用各种接口，其功率需求会增加。GPIO 引脚的总和可以安全地吸收 50mA；每个引脚可以单独吸收高达 16mA。HDMI 端口使用 50mA。摄像头模块需要 250mA。USB 键盘和鼠标的电流范围可以从 100mA 到 1000mA 不等。检查您计划连接到 Raspberry Pi 的设备的功率评级，并相应购买电源适配器。如果不确定，请使用外部供电的 USB 集线器。
+随着您在树莓派上使用各种接口，其功率需求会增加。GPIO 引脚的总和可以安全地吸收 50mA；每个引脚可以单独吸收高达 16mA。HDMI 端口使用 50mA。摄像头模块需要 250mA。USB 键盘和鼠标的电流范围可以从 100mA 到 1000mA 不等。检查您计划连接到树莓派的设备的功率评级，并相应购买电源适配器。如果不确定，请使用外部供电的 USB 集线器。
 
 您可以使用 vcgencmd 检查 USB 端口的电源输出状态。
 
@@ -2905,9 +2946,9 @@ Raspberry Pi 5 上的以太网插孔支持 IEEE 802.3at-2009 PoE 标准，支持
 vcgencmd get_config usb_max_current_enable
 ```
 
-以下表格描述了不同 Raspberry Pi 型号在各种工作负载期间所吸收的功率量（安培）：
+以下表格描述了不同树莓派型号在各种工作负载期间所吸收的功率量（安培）：
 
-|                   |      | Raspberry Pi 1B+ | 树莓派 2B | 树莓派 3B | 树莓派 Zero | 树莓派 4B |
+|                   |      | 树莓派 1B+ | 树莓派 2B | 树莓派 3B | 树莓派 Zero | 树莓派 4B |
 | ------------------- | ------ | ------------------ | ----------- | ----------- | ------------- | ----------- |
 | 引导              | 最大 | 0.26             | 0.40      | 0.75      | 0.20        | 0.85      |
 |                   | 平均 | 0.22             | 0.22      | 0.35      | 0.15        | 0.7       |
@@ -2918,18 +2959,19 @@ vcgencmd get_config usb_max_current_enable
 |                   | 平均 | 0.32             | 0.75      | 0.85      | 0.23        | 1.2       |
 | 停止当前          |      |                  |           | 0.10      | 0.055       | 0.023     |
 
-| NOTE | 这些测量使用了标准的 Raspberry Pi OS 镜像（截至 2016 年 2 月 26 日，或 2019 年 6 月对于 Raspberry Pi 4），在室温下进行，Raspberry Pi 连接到 HDMI 显示器，USB 键盘和 USB 鼠标。Raspberry Pi 3 Model B 连接到无线局域网接入点，Raspberry Pi 4 连接到以太网。所有这些功耗测量均为近似值，不考虑来自额外 USB 设备的功耗；如果连接了多个额外的 USB 设备或 HAT 到 Raspberry Pi，功耗很容易超过这些测量值。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+>**注意**
+>
+>这些测量使用了标准的 Raspberry Pi OS 镜像（截至 2016 年 2 月 26 日，或 2019 年 6 月对于树莓派 4），在室温下进行，树莓派连接到 HDMI 显示器，USB 键盘和 USB 鼠标。树莓派 3 Model B 连接到无线局域网接入点，树莓派 4 连接到以太网。所有这些功耗测量均为近似值，不考虑来自额外 USB 设备的功耗；如果连接了多个额外的 USB 设备或 HAT 到树莓派，功耗很容易超过这些测量值。 
 
-##### [Raspberry Pi 4 和 Compute Module 4 上的额外 PMIC 功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
+##### [树莓派4 和计算模块 4 上的额外 PMIC 功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
 
-Raspberry Pi 4 和 Compute Module 4 上的额外 PMIC 功能
+树莓派 4 和计算模块 4 上的额外 PMIC 功能
 
-Raspberry Pi 4 和 CM4 上使用了许多不同的 PMIC 设备。所有的 PMIC 都提供了除电压供应之外的额外功能。本文描述了如何在软件中访问这些功能。
+树莓派 4 和 CM4 上使用了许多不同的 PMIC 设备。所有的 PMIC 都提供了除电压供应之外的额外功能。本文描述了如何在软件中访问这些功能。
 
-#### 关闭时降低 Raspberry Pi 5 的功率
+#### 降低树莓派 5 在关机状态下的功率
 
-默认情况下，Raspberry Pi 5 在关闭状态时消耗约 1W 到 1.4W 的功率。这可以通过手动编辑 EEPROM 配置来降低，使用 sudo rpi-eeprom-config -e 。将设置更改为以下内容：
+默认情况下，树莓派 5 在关闭状态时消耗约 1W 到 1.4W 的功率。这可以通过手动编辑 EEPROM 配置来降低，使用 sudo rpi-eeprom-config -e 。将设置更改为以下内容：
 
 ```
 BOOT_UART=1
@@ -2975,12 +3017,13 @@ PMIC 具有内置 ADC，可以测量供电电压 EXT5V_V 等内容。使用以�
 vcgencmd pmic_read_adc
 ```
 
-| NOTE | 您无法看到连接到 5V 的 USB 电流或其他任何内容，因为这会绕过 PMIC。您不应该期望这些内容加起来等于电源供应的瓦特数。但是，监视核心电压等内容可能会很有用。 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>您无法看到连接到 5V 的 USB 电流或其他任何内容，因为这会绕过 PMIC。您不应该期望这些内容加起来等于电源供应的瓦特数。但是，监视核心电压等内容可能会很有用。 
 
 ### 反向供电
 
-USB 规范要求 USB 设备不得向上游设备提供电流。如果 USB 设备确实向上游设备提供电流，则称为反向供电。通常情况下，当连接了制作不良的供电 USB 集线器时会发生这种情况，并且将导致供电 USB 集线器向主机 Raspberry Pi 供电。这不被推荐，因为通过集线器向 Raspberry Pi 供电的电源将绕过 Raspberry Pi 内置的保护电路，使其在电涌事件中容易受损。
+USB 规范要求 USB 设备不得向上游设备提供电流。如果 USB 设备确实向上游设备提供电流，则称为反向供电。通常情况下，当连接了制作不良的供电 USB 集线器时会发生这种情况，并且将导致供电 USB 集线器向主机树莓派供电。这不被推荐，因为通过集线器向树莓派供电的电源将绕过树莓派内置的保护电路，使其在电涌事件中容易受损。
 
 ## 实时时钟（RTC）
 
@@ -3020,8 +3063,9 @@ RTC 还提供引导时的时间，例如在 dmesg 中，用于缺乏 NTP 访问�
 [    1.295799] rpi-rtc soc:rpi_rtc: setting system clock to 2023-08-16T15:58:50 UTC (1692201530)
 ```
 
-| NOTE | 即使未连接备用电池到 J5 连接器，RTC 仍然可用。 |
-| ------ | ------------------------------------------------ |
+>**注意**
+>
+>即使未连接备用电池到 J5 连接器，RTC 仍然可用。 
 
 ### 添加备用电池
 
@@ -3031,11 +3075,14 @@ RTC 还提供引导时的时间，例如在 dmesg 中，用于缺乏 NTP 访问�
 
 官方电池部件是可充电的锰酸锂硬币电池，带有预装的双引脚 JST-SH 插头和粘贴式安装垫。当板子的主电源断开时，这适用于为 RTC 供电。由于关机时的电流吸收为个位数µA，保持时间为几个月。
 
-| NOTE | 我们不建议为 RTC 使用主要（非可充电）锂电池。RTC 备份电流消耗高于大多数专用 RTC 模块，将导致短暂的使用寿命。 |
-| ------ | -------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>我们不建议为 RTC 使用主要（非可充电）锂电池。RTC 备份电流消耗高于大多数专用 RTC 模块，将导致使用寿命缩短。
 
-| WARNING | 不要为 RTC 使用锂离子电池。 |
-| --------- | ----------------------------- |
+
+>**警告**
+>
+>不要给 RTC 使用锂离子电池。
 
 ### 启用电池充电
 
@@ -3063,17 +3110,17 @@ dtparam=rtc_bbat_vchg=3000000
 
 ## 串行外围接口（SPI）
 
-Raspberry Pi 计算机配备了多个 SPI 总线。SPI 可用于连接各种外围设备 - 显示器，网络控制器（以太网，CAN 总线），UART 等。这些设备最好由内核设备驱动程序支持，但 spidev API 允许用户空间驱动程序用多种语言编写。
+树莓派计算机配备了多个 SPI 总线。SPI 可用于连接各种外围设备 - 显示器，网络控制器（以太网，CAN 总线），UART 等。这些设备最好由内核设备驱动程序支持，但 spidev API 允许用户空间驱动程序用多种语言编写。
 
 ### SPI 硬件
 
 树莓派 Zero、1、2 和 3 都有三个 SPI 控制器：
 
 * SPI0 具有两个硬件芯片选择信号，在所有树莓派的引脚上都可以找到；还有一种仅适用于计算模块的备用映射。
-* SPI1，具有三个硬件芯片选择，适用于除旧版 Raspberry Pi 1 Model A 和 Model B 之外的所有 Raspberry Pi 型号。
-* SPI2，也具有三个硬件芯片选择，仅适用于 Compute Module 1、3 和 3+。
+* SPI1，具有三个硬件芯片选择，适用于除旧版树莓派 1 Model A 和 Model B 之外的所有的树莓派型号。
+* SPI2，也具有三个硬件芯片选择，仅适用于计算模块 1、3 和 3+。
 
-在 Raspberry Pi 4、400 和 Compute Module 4 上，有四个额外的 SPI 总线：SPI3 到 SPI6，每个总线都有两个硬件芯片选择。这些额外的 SPI 总线可通过某些 GPIO 引脚的备用功能分配使用。有关更多信息，请参阅 BCM2711 Arm 外围设备数据表。
+在树莓派 4、400 和 Compute Module 4 上，有四个额外的 SPI 总线：SPI3 到 SPI6，每个总线都有两个硬件芯片选择。这些额外的 SPI 总线可通过某些 GPIO 引脚的备用功能分配使用。有关更多信息，请参阅 BCM2711 Arm 外围设备数据表。
 
 BCM2835 Arm 外围设备数据表中的第 10 章描述了主控制器。第 2.3 章描述了辅助控制器。
 
@@ -3185,8 +3232,9 @@ MOMI - master out master in
 
 LoSSI 标准允许向外围设备（LCD）发出命令，并与其之间传输数据。LoSSI 命令和参数为 8 位长，但额外使用一位来指示字节是命令还是参数/数据。对于数据，将此额外位设置为高位，对于命令，将其设置为低位。生成的 9 位值被串行化到输出。LoSSI 通常与 MIPI DBI 类型 C 兼容的 LCD 控制器一起使用。
 
-| NOTE | 一些命令会触发 SPI 控制器的自动读取，因此这种模式不能用作多功能 9 位 SPI。 |
-| ------ | ---------------------------------------------------------------------------- |
+>**注意**
+>
+>一些命令会触发 SPI 控制器的自动读取，因此这种模式不能用作多功能 9 位 SPI。
 
 #### 传输模式
 
@@ -3312,56 +3360,57 @@ F0 0D
 
 ## 通用串行总线（USB）
 
-一般来说，Linux 支持的每个设备都可以与 Raspberry Pi 一起使用，尽管旧版 Raspberry Pi 4 之前的型号存在一些限制。
+一般来说，Linux 支持的每个设备都可以与树莓派一起使用，尽管旧版树莓派 4 之前的型号存在一些限制。
 
 ### 最大功率输出
 
-与所有计算机一样，Raspberry Pi 上的 USB 端口提供有限的功率。通常，USB 设备的问题是由功率问题引起的。为了排除问题的原因是功率不足，将您的 USB 设备连接到 Raspberry Pi 使用有源集线器。
+与所有计算机一样，树莓派上的 USB 端口提供有限的功率。通常，USB 设备的问题是由功率问题引起的。为了排除问题的原因是功率不足，将您的 USB 设备连接到树莓派使用有源集线器。
 
 | 型号                 | USB 端口的最大功率输出                                      |
 | ---------------------- | ------------------------------------------------------------- |
-| Raspberry Pi Zero, 1 | 每个端口 500 毫安^1^                                        |
-| Raspberry Pi 2, 3, 4 | 所有端口总共 1200 毫安                                      |
+| 树莓派 Zero, 1 | 每个端口 500 毫安^1^                                        |
+| 树莓派 2, 3, 4 | 所有端口总共 1200 毫安                                      |
 | 树莓派 5             | 如果使用 3A 电源，则为 600mA，如果使用 5A 电源，则为 1600mA |
 
 1. 对于旧版树莓派 1 Model B，每个端口的限制为 100mA。
 
-### Raspberry Pi 5
+### 树莓派 5
 
-Raspberry Pi 5 需要一款能够提供 3A 的高质量 USB-C 电源适配器（+5V，15W）才能启动。然而，使用这样的电源会限制外围设备的电流。如果您在首次启动时使用无法提供 5A 的+5V 电源，操作系统将警告您外围设备的电流将被限制在 600mA。
+树莓派 5 需要一款能够提供 3A 的高质量 USB-C 电源适配器（+5V，15W）才能启动。然而，使用这样的电源会限制外围设备的电流。如果您在首次启动时使用无法提供 5A 的+5V 电源，操作系统将警告您外围设备的电流将被限制在 600mA。
 
-对于希望驱动高功率外围设备（如硬盘和固态硬盘）并保留峰值工作负载余量的用户，应使用支持 USB-PD 的电源适配器，能够提供 5A 的+5V（25W）。如果 Raspberry Pi 5 固件检测到这样的电源，它会增加外围设备的 USB 电流限制至 1.6A，为下游 USB 设备提供额外的 5W 电力，并为板载设备提供额外的 5W 电力预算。
+对于希望驱动高功率外围设备（如硬盘和固态硬盘）并保留峰值工作负载余量的用户，应使用支持 USB-PD 的电源适配器，能够提供 5A 的+5V（25W）。如果树莓派 5 固件检测到这样的电源，它会增加外围设备的 USB 电流限制至 1.6A，为下游 USB 设备提供额外的 5W 电力，并为板载设备提供额外的 5W 电力预算。
 
-| NOTE | 电源预算在 USB 端口和风扇头之间共享。 |
-| ------ | --------------------------------------- |
+>**注意**
+>
+>电源预算在 USB 端口和风扇头之间共享。 
 
-### Raspberry Pi 4
+### 树莓派 4
 
-Raspberry Pi 4 提供两个 USB 3.0 端口和两个 USB 2.0 端口，这些端口连接到 VL805 USB 控制器。所有四个端口上的 USB 2.0 线路连接到 VL805 内的单个 USB 2.0 集线器。这限制了 USB 1.1 和 USB 2.0 设备的总可用带宽与单个 USB 2.0 端口相同。
+树莓派 4 提供两个 USB 3.0 端口和两个 USB 2.0 端口，这些端口连接到 VL805 USB 控制器。所有四个端口上的 USB 2.0 线路连接到 VL805 内的单个 USB 2.0 集线器。这限制了 USB 1.1 和 USB 2.0 设备的总可用带宽与单个 USB 2.0 端口相同。
 
-在 Raspberry Pi 4 上，以前型号上使用的 USB 控制器位于 USB 类型 C 端口上，并且默认情况下已禁用。
+在树莓派 4 上，以前型号上使用的 USB 控制器位于 USB 类型 C 端口上，并且默认情况下已禁用。
 
-### Raspberry Pi Zero, 1, 2 和 3
+### 树莓派 Zero, 1, 2 和 3
 
-Raspberry Pi 1 Model B+、Raspberry Pi 2 和 Raspberry Pi 3 主板提供四个 USB 2.0 端口。Raspberry Pi Zero 主板具有一个 micro USB On-The-Go（OTG）端口。
+树莓派 1 Model B+、树莓派2 和树莓派 3 主板提供四个 USB 2.0 端口。树莓派 Zero 主板具有一个 micro USB On-The-Go（OTG）端口。
 
-旧版的 Raspberry Pi 4 之前的型号上的 USB 控制器仅对某些设备提供基本级别的支持，这会带来更高的软件处理开销。它还仅支持一个根 USB 端口：所有连接设备的流量都会被导向这个单一总线，其最大速度为 480Mbps。
+旧版的树莓派 4 之前的型号上的 USB 控制器仅对某些设备提供基本级别的支持，这会带来更高的软件处理开销。它还仅支持一个根 USB 端口：所有连接设备的流量都会被导向这个单一总线，其最大速度为 480Mbps。
 
 USB 2.0 规范定义了三种设备速度 - 低速、全速和高速。大多数鼠标和键盘是低速，大多数 USB 声音设备是全速，而大多数视频设备（网络摄像头或视频捕捉设备）是高速。
 
-通常，连接多个高速 USB 设备到 Raspberry Pi 上不会出现问题。
+通常，连接多个高速 USB 设备到树莓派上不会出现问题。
 
-与低速和全速设备通信时产生的软件开销意味着同时活动的低速和全速设备数量存在限制。连接到 Raspberry Pi 的这些类型设备数量较少不会造成问题。
+与低速和全速设备通信时产生的软件开销意味着同时活动的低速和全速设备数量存在限制。连接到树莓派的这些类型设备数量较少不会造成问题。
 
 ### 已知的 USB 问题
 
 #### 与 USB 3.0 集线器的互操作性
 
-使用 USB 3.0 集线器与全速或低速设备（包括大多数鼠标和键盘）存在问题。大多数 USB 3.0 集线器硬件中的错误意味着旧版 Raspberry Pi 4 之前的型号无法与连接到 USB 3.0 集线器的全速或低速设备通信。
+使用 USB 3.0 集线器与全速或低速设备（包括大多数鼠标和键盘）存在问题。大多数 USB 3.0 集线器硬件中的错误意味着旧版树莓派 4 之前的型号无法与连接到 USB 3.0 集线器的全速或低速设备通信。
 
 USB 2.0 高速设备，包括 USB 2.0 集线器，当通过 USB 3.0 集线器连接时可以正常运行。
 
-避免将低速或全速设备连接到 USB 3.0 集线器。作为解决方法，将 USB 2.0 集线器插入 USB 3.0 集线器的下游端口，并连接低速设备，或者在 Raspberry Pi 和 USB 3.0 集线器之间使用 USB 2.0 集线器，然后将低速设备插入 USB 2.0 集线器。
+避免将低速或全速设备连接到 USB 3.0 集线器。作为解决方法，将 USB 2.0 集线器插入 USB 3.0 集线器的下游端口，并连接低速设备，或者在树莓派和 USB 3.0 集线器之间使用 USB 2.0 集线器，然后将低速设备插入 USB 2.0 集线器。
 
 #### USB 1.1 网络摄像头
 
@@ -3373,17 +3422,17 @@ USB 2.0 高速设备，包括 USB 2.0 集线器，当通过 USB 3.0 集线器连
 
 #### 单 TT USB 集线器
 
-USB 2.0 和 3.0 集线器具有一种用于与连接到其下游端口的全速或低速设备通信的机制，称为事务转换器（TT）。该设备缓冲来自主机的高速请求，并将它们以全速或低速传输到下游设备。USB 规范允许两种集线器配置：单 TT（所有端口共用一个 TT）和多 TT（每个端口一个 TT）。由于硬件限制，如果将太多全速或低速设备插入单个 TT 集线器，则这些设备可能表现不可靠。建议使用多 TT 集线器与多个全速和低速设备进行接口。作为解决方法，将全速和低速设备分散在 Raspberry Pi 自己的 USB 端口和单 TT 集线器之间。
+USB 2.0 和 3.0 集线器具有一种用于与连接到其下游端口的全速或低速设备通信的机制，称为事务转换器（TT）。该设备缓冲来自主机的高速请求，并将它们以全速或低速传输到下游设备。USB 规范允许两种集线器配置：单 TT（所有端口共用一个 TT）和多 TT（每个端口一个 TT）。由于硬件限制，如果将太多全速或低速设备插入单个 TT 集线器，则这些设备可能表现不可靠。建议使用多 TT 集线器与多个全速和低速设备进行接口。作为解决方法，将全速和低速设备分散在树莓派 自己的 USB 端口和单 TT 集线器之间。
 
-## Raspberry Pi 修订代码
+## 树莓派修订代码
 
-每个不同的 Raspberry Pi 型号修订版都有一个独特的修订代码。您可以通过运行以下命令查找 Raspberry Pi 的修订代码：
+每个不同的 树莓派型号修订版都有一个独特的修订代码。您可以通过运行以下命令查找树莓派的修订代码：
 
 ```
 cat /proc/cpuinfo
 ```
 
-最后三行显示硬件类型、修订代码和 Raspberry Pi 的唯一序列号。例如：
+最后三行显示硬件类型、修订代码和树莓派的唯一序列号。例如：
 
 ```
 Hardware    : BCM2835
@@ -3391,12 +3440,12 @@ Revision    : a02082
 Serial      : 00000000765fc593
 ```
 
-| NOTE | 所有 Raspberry Pi 计算机报告 BCM2835 ，即使是搭载 BCM2836、BCM2837、BCM2711 和 BCM2712 处理器的那些。您不应该使用此字符串来检测处理器。请使用以下信息解码修订代码，或者 cat /sys/firmware/devicetree/base/model 。 |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
+>**注意**
+>
+>所有树莓派算机报告 BCM2835 ，即使是搭载 BCM2836、BCM2837、BCM2711 和 BCM2712 处理器的那些。您不应该使用此字符串来检测处理器。请使用以下信息解码修订代码，或者 cat /sys/firmware/devicetree/base/model 。 
 ### 旧版修订代码
 
-第一批 Raspberry Pi 型号从 0002 到 0015 被赋予了顺序十六进制修订代码：
+第一批树莓派型号从 0002 到 0015 被赋予了顺序十六进制修订代码：
 
 | 代码 | 型号 | 修订 | RAM         | 制造商   |
 | ------ | ------ | ------ | ------------- | ---------- |
@@ -3483,12 +3532,13 @@ NOQuuuWuFMMMCCCCPPPPTTTTTTTTRRRR
 
 ^1^ 编程 OTP 位的信息。
 
-^2^ Raspberry Pi 4 上从未设置保修位。
+^2^ 树莓派 4 上从未设置保修位。
 
 ### 使用中的新版式修订代码。
 
-| NOTE | 此列表并非详尽无遗 - 可能存在未在此表中列出的正在使用的代码。请参阅下一节，了解如何使用修订代码识别板。 |
-| ------ | --------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>此列表并非详尽无遗 - 可能存在未在此表中列出的正在使用的代码。请参阅下一节，了解如何使用修订代码识别板。
 
 | 代码   | 型号               | 修订版 | RAM   | 制造商    |
 | -------- | -------------------- | -------- | ------- | ----------- |
@@ -3548,7 +3598,7 @@ Revision      : c03111
 
 在上面的示例中，我们有一个十六进制修订代码为 c03111 。将其转换为二进制，我们得到 0 0 0 000 0 0 1 100 0000 0011 00010001 0001 。已插入空格以显示修订代码的各部分之间的边界，根据上表。
 
-从最低位开始，最低的四位（0-3）是板的修订号，因此此板的修订号为 1。接下来的八位（4-11）是板类型，在本例中为二进制 00010001 ，十六进制 11 ，因此这是一个 Raspberry Pi 4B。使用相同的过程，我们可以确定处理器是 BCM2711，板是由索尼英国制造的，并且具有 4GB 的 RAM。
+从最低位开始，最低的四位（0-3）是板的修订号，因此此板的修订号为 1。接下来的八位（4-11）是板类型，在本例中为二进制 00010001 ，十六进制 11 ，因此这是个树莓派 4B。使用相同的过程，我们可以确定处理器是 BCM2711，板是由索尼英国制造的，并且具有 4GB 的 RAM。
 
 #### 在程序中获取修订代码
 
@@ -3609,14 +3659,15 @@ if new and model == 0x11 and mem >= 3 : # Note, 3 in the mem field is 2GB
 * 通过板类型字段（3A、4B 等）进行过滤，该字段表示型号，但不表示修订版。
 * 通过内存量字段进行过滤，因为 RAM 大致对应于板的计算能力。
 
-例如，您可以将支持限制为具有 2GB RAM 或更多的 Raspberry Pi 4B 型号。前一节中的示例使用了这种推荐方法。
+例如，您可以将支持限制为具有 2GB RAM 或更多的树莓派 4B 型号。前一节中的示例使用了这种推荐方法。
 
-| NOTE | 始终检查第 23 位，即“New”标志，以确保修订代码是新版本，然后再检查其他字段。 |
-| ------ | ------------------------------------------------------------------------------- |
+>**注意**
+>
+>始终检查第 23 位，即“New”标志，以确保修订代码是新版本，然后再检查其他字段。
 
-#### 在各个发行版中检查 Raspberry Pi 型号和 CPU
+#### 在各个发行版中检查树莓派型号和 CPU
 
-在各个 Linux 发行版中，对 /proc/cpuinfo 的支持和格式化各不相同。要在任何 Linux 发行版（包括 Raspberry Pi OS）上检查 Raspberry Pi 设备的型号或 CPU，请查看设备树：
+在各个 Linux 发行版中，对 /proc/cpuinfo 的支持和格式化各不相同。要在任何 Linux 发行版（包括 Raspberry Pi OS）上检查树莓派设备的型号或 CPU，请查看设备树：
 
 ```
 $ cat /proc/device-tree/compatible | tr '\0' '\n'
@@ -3624,14 +3675,14 @@ raspberrypi,5-model-b
 brcm,bcm2712
 ```
 
-这将输出两个空值分隔的字符串值，每个字符串值包含一个逗号分隔的制造商和型号。例如，Raspberry Pi 5 会输出上述板和 CPU 字符串。这些对应以下值：
+这将输出两个空值分隔的字符串值，每个字符串值包含一个逗号分隔的制造商和型号。例如，树莓派 5 会输出上述板和 CPU 字符串。这些对应以下值：
 
 * raspberrypi （板制造商）
 * 5-model-b （板载型号）
 * brcm （CPU 制造商）
 * bcm2712 （CPU 型号）
 
-Raspberry Pi 型号具有以下设备树数值：
+树莓派型号具有以下设备树数值：
 
 | 设备名称                   | 制造商 | 型号 | CPU 制造商 | CPU |
 | ---------------------------- | -------- | ------ | ------------ | ----- |
