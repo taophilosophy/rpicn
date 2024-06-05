@@ -4,7 +4,7 @@
 
 ![debug probe](https://www.raspberrypi.com/documentation/microcontrollers/images/debug-probe.jpg)
 
-Raspberry Pi 调试器是一种 USB 设备，提供 UART 串行端口和标准 Arm 串行线调试（SWD）接口。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
+树莓派调试器是一种 USB 设备，提供 UART 串行端口和标准 Arm 串行线调试（SWD）接口。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
 
 * USB 到 ARM 串行线调试（SWD）端口
 * USB 到 UART 桥接器
@@ -12,8 +12,9 @@ Raspberry Pi 调试器是一种 USB 设备，提供 UART 串行端口和标准 A
 * 与支持 CMSIS-DAP 的 OpenOCD 和其他工具配合使用
 * 开源，易升级的固件
 
-| NOTE | 有关树莓派三针调试连接器的更多信息，请参阅规格。 |
-| ------ | -------------------------------------------------- |
+>**注意**
+>
+>有关树莓派三针调试连接器的更多信息，请参阅规格书。 
 
 这使得在 Windows、macOS 和 Linux 等缺少 GPIO 引脚头直接连接到 Pico 的串行 UART 或 SWD 端口的平台上轻松使用树莓派 Pico。
 
@@ -37,32 +38,33 @@ Raspberry Pi 调试器是一种 USB 设备，提供 UART 串行端口和标准 A
 
 YellowRX/SD（输入到调试器或 I/O）
 
-带有三针 JST-SH 连接器的电缆旨在与较新的 Raspberry Pi 主板用于 SWD 调试端口和 UART 连接器的标准三针连接器一起使用。
+带有三针 JST-SH 连接器的电缆旨在与较新的树莓派主板用于 SWD 调试端口和 UART 连接器的标准三针连接器一起使用。
 
 调试器有五个 LED 灯，一个红色 LED 指示电源，另外四个活动指示灯。
 
 ![debug leds](https://www.raspberrypi.com/documentation/microcontrollers/images/debug-leds.png)
 
-| NOTE | 当目标连接时，OpenOCD 会同时打开 DAP 的两个 LED，并在调用 DAP_DISCONNECT 时将它们关闭。 |
-| ------ | ----------------------------------------------------------------------------------------- |
+>**注意**
+>
+>当目标连接时，OpenOCD 会同时打开 DAP 的两个 LED，并在调用 DAP_DISCONNECT 时将它们关闭。
 
 ## 入门指南
 
 ![labelled wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/labelled-wiring.jpg)
 
-根据您的设置，有几种方法可以将调试器连接到 Raspberry Pi Pico。在下面的示例中，我们将调试器连接到具有更新的三针 JST-SH 连接器用于 SWD 的 Raspberry Pi Pico H。
+根据您的设置，有几种方法可以将调试器连接到树莓派 Pico。在下面的示例中，我们将调试器连接到具有更新的三针 JST-SH 连接器用于 SWD 的树莓派 Pico H。
 
  连接以下内容：
 
 * 将调试器“D”端口连接到 Pico H SWD JST-SH 连接器
 * 将调试器“U”端口，带有三针 JST-SH 连接器连接到 0.1 英寸排针（公头）:
-
   * 调试器 RX 连接到 Pico H TX 引脚
   * 调试器 TX 连接到 Pico H RX 引脚
   * 调试器 GND 连接到 Pico H GND 引脚
 
-| NOTE | 如果您有一个非 H Pico 或 Pico W（没有 JST-SH 连接器），您仍然可以将其连接到调试器。在板上的 SWCLK ， GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK ， GND 和 SWDIO 连接到调试器上的 SC ， GND 和 SD 引脚。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果您有一个非 H Pico 或 Pico W（没有 JST-SH 连接器），您仍然可以将其连接到调试器。在板上的 SWCLK ， GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK ， GND 和 SWDIO 连接到调试器上的 SC ， GND 和 SD 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
@@ -120,17 +122,19 @@ $ brew install gdb
 
 您可以安全地忽略安装过程中关于“特殊权限”请求的消息。
 
-| IMPORTANT | GDB 不支持 gdb Arm-based Macs。相反，要么从源代码安装 gdb ，要么使用 gdb 而不是 gdb 。开发人员没有为在 Arm-based Macs 上运行 GDB 提供官方支持。可以在 Sourceware.org 的 GDB 邮件列表中找到有关 GDB 的支持。 lldb 作为 Xcode 命令行工具的一部分安装。 |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+>**重要**
+>
+>GDB 不支持 gdb Arm-based Macs。因此，要么从源代码安装 gdb，要么使用 lldb 来代替 gdb 。开发者没有为在 Arm-based Macs 上运行 GDB 提供官方支持。可以在 Sourceware.org 的 GDB 邮件列表中找到有关 GDB 的支持。 lldb 作为 Xcode 命令行工具的一部分安装。
 
 #### MS Windows
 
 GDB 包含在我们的 Pico Windows 安装程序中。它也包含在 Arm GNU Toolchain Downloads 中。
 
-或者，您可以在我们的《Raspberry Pi Pico 入门指南》第 9 章和附录 A 中找到有关手动安装的信息。
+或者，您可以在我们的《树莓派 Pico 入门指南》第 9 章和附录 A 中找到有关手动安装的信息。
 
-| NOTE | 不建议在 Windows 上手动安装 GDB。 |
-| ------ | ----------------------------------- |
+>**注意**
+>
+> 不建议在 Windows 上手动安装 GDB。 
 
 ## 串行线调试（SWD）
 
@@ -146,8 +150,9 @@ Pico 调试探针将允许您通过 SWD 端口和 OpenOCD 加载二进制文件�
 $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000" -c "program blink.elf verify reset exit"
 ```
 
-| NOTE | 当您使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是您在拖放时使用的 UF2 文件。 |
-| ------ | -------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>当您使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是您在拖放时使用的 UF2 文件。
 
 ### 使用 SWD 进行调试
 
@@ -166,7 +171,7 @@ $ make -j4
 
 在调试构建中，当您在调试器下运行时，您将获得更多信息，因为编译器会使用信息构建您的程序，以告诉 GDB 您的程序正在做什么。
 
- 有关更多信息，请参阅《Raspberry Pi Pico 入门指南》第 6 章。
+ 有关更多信息，请参阅《树莓派 Pico 入门指南》第 6 章。
 
 要启动 OpenOCD 服务器，请运行以下命令：
 
@@ -185,16 +190,16 @@ $ gdb blink.elf
 
 GDB 不适用于所有平台。根据您的操作系统和设备，使用以下替代方案之一而不是 gdb ：
 
-* 在非 Raspberry Pi 设备上使用 gdb-multiarch 。
+* 在非树莓派设备上使用 gdb-multiarch 。
 * 在基于 Arm 的 macOS 设备上使用 lldb 。
 
 ## 串行连接
 
-确保调试器连接到您的 Raspberry Pi Pico 的 UART 引脚。
+确保调试器连接到您的树莓派 Pico 的 UART 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
-Raspberry Pi Pico UART0 的默认引脚如下：
+树莓派 Pico UART0 的默认引脚如下：
 
 | 默认 UART0 | 物理引脚 | GPIO 引脚 |
 | ------------ | ---------- | ----------- |
@@ -202,7 +207,7 @@ Raspberry Pi Pico UART0 的默认引脚如下：
 | UART0_TX   | 1        | GP0       |
 | UART0_RX   | 2        | GP1       |
 
-一旦连接，Raspberry Pi Pico 的 UART 上的流量将通过调试器中继到您的计算机，并显示为 CDC UART。在 Raspberry Pi 上，这将显示为 /dev/ttyACM0 ；在其他平台上，此串行端口将以不同方式显示（例如，在 macOS 上，它将显示为 /dev/cu.usbmodemXXXX ）。
+在连接以后，树莓派 Pico 的 UART 上的流量将通过调试器中继到您的计算机，并显示为 CDC UART。在树莓派上，这将显示为 /dev/ttyACM0 ；在其他平台上，此串行端口将以不同方式显示（例如，在 macOS 上，它将显示为 /dev/cu.usbmodemXXXX ）。
 
 如果您尚未安装 minicom，请执行以下操作：
 
@@ -216,12 +221,13 @@ $ sudo apt install minicom
 $ minicom -b 115200 -o -D /dev/ttyACM0
 ```
 
-| TIP | 要退出 minicom ，请使用 CTRL-A，然后按 X 键。 |
-| ----- | ----------------------------------------------- |
+>**技巧**
+>
+>要退出 minicom ，请按 CTRL-A，然后按 X 键。 
 
 要测试串行通信，您可以构建并上传“Hello World”示例应用程序。
 
-进入 pico-examples 树中的 hello_world 目录，并运行 make 。之后，您可以使用 openocd 将其上传到您的 Raspberry Pi Pico。要了解构建 hello_serial 示例程序的完整步骤，请参阅《开始使用 Raspberry Pi Pico》第 4 章。
+进入 pico-examples 树中的 hello_world 目录，并运行 make 。之后，您可以使用 openocd 将其上传到您的树莓派 Pico。要了解构建 hello_serial 示例程序的完整步骤，请参阅《开始使用树莓派 Pico》第 4 章。
 
 ```
 $ cd pico-examples
@@ -235,7 +241,7 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 $ minicom -b 115200 -o -D /dev/ttyACM0
 ```
 
-打开 minicom 后，应该在控制台上看到打印出"Hello, world!"。
+打开 minicom 后，应该在控制台上看到打印出了"Hello, world!"。
 
 对于支持的终端程序，USB 串行 UART 的描述会在 USB 设备描述中进行广告。
 
@@ -245,7 +251,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 ## 更新调试器固件
 
-调试器固件以 UF2 文件的形式由 Raspberry Pi 分发。
+调试器固件以 UF2 文件的形式由树莓派分发。
 
 调试器固件的最新版本是版本 2。如果您正在运行旧版，或者如果您意外地覆盖了调试器的固件，您可以在 debugprobe GitHub 存储库中找到固件的最新版本。
 
@@ -266,6 +272,6 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 * 原理图（PDF）
 * 机械图（PDF）
 
-原文：The test point (TP) shown on the schematics are located as shown in the diagram below. 翻译：原理图上显示的测试点（TP）位于下图所示位置。
+原理图上显示的测试点（TP）位于下图所示位置。
 
 ![debug probe tps](https://www.raspberrypi.com/documentation/microcontrollers/images/debug-probe-tps.jpg)
