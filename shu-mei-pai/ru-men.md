@@ -21,20 +21,20 @@
 
 | 型号                    | 推荐的电源适配器（电压/电流）     | 树莓派电源适配器 |
 | ------------------------- | ----------------------------------- | ------------------ |
-| 树莓派 5                | 5V/5A，5V/3A 将限制外围设备为 600mA | [27W USB-C 电源适配器](https://www.raspberrypi.com/products/27w-power-supply/)                 |
+| 树莓派 5                | 5V/5A，5V/3A（将限制外围设备为 600mA） | [27W USB-C 电源适配器](https://www.raspberrypi.com/products/27w-power-supply/)                 |
 | 树莓派 4 型 B           | 5V/3A                             | [15W USB-C 电源适配器](https://www.raspberrypi.com/products/type-c-power-supply/)                 |
-| 树莓派 3（所有型号）    | 5V/2.5A                           | [12.5W 微型 USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
-| 树莓派 2（所有型号）    | 5V/2.5A                           | [12.5W 微型 USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
-| 树莓派 1（所有型号）    | 5V/2.5A                           | [12.5W 微型 USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
-| 树莓派 Zero（所有型号） | 5V/2.5A                           | [12.5W 微型 USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
+| 树莓派 3（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
+| 树莓派 2（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
+| 树莓派 1（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
+| 树莓派 Zero（所有型号） | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 
 ![Plugging a power supply into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-power.png)
 
-将电源适配器插入标有 "POWER IN"、"PWR IN" 或 "PWR" 的接口。某些树莓派型号，如 Zero 系列，具有与电源接口相同外形尺寸的输出 USB 接口。请确保在树莓派上使用正确的接口！
+将电源适配器插入标有 "POWER IN"、"PWR IN" 或 "PWR" 的接口。某些树莓派型号，如 Zero 系列，具有与电源接口相同外形尺寸的 USB 输出接口。请确保在树莓派上使用正确的接口！
 
 ### 引导介质
 
-树莓派没有内置存储，因此需要您来提供。您可以通过安装在受支持的介质上的操作系统来启动您的树莓派：通常使用 microSD 卡，但也可以使用 USB 存储设备、网络存储和通过 PCIe HAT 连接的存储设备。然而，只有最新型号的树莓派支持这些所有类型的介质。
+树莓派没有内置存储，因此需要您来提供它。您可以通过安装在受支持的介质上的操作系统来启动您的树莓派：通常使用 microSD 卡，但也可以使用 USB 存储设备、网络存储和通过 PCIe HAT 连接的存储设备。然而，只有最新型号的树莓派支持所有这些类型的介质。
 
 自树莓派 1 Model A+ 以来的所有树莓派消费者型号都配备了 microSD 插槽。当插槽中插入了 microSD 时，您的树莓派会自动从 microSD 启动。
 
@@ -42,7 +42,7 @@
 
 #### 推荐的 SD 卡
 
-我们建议在安装 Raspberry Pi OS 时使用至少拥有 32GB 存储空间的 SD 卡。对于 Raspberry Pi OS Lite，我们建议至少 16GB。您可以使用任何容量小于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。与所有其他启动介质一样，读写速度更快的 SD 卡可提供更好的性能。
+我们建议在安装 Raspberry Pi OS 时使用的 SD 卡至少要拥有 32GB 存储空间。对于 Raspberry Pi OS Lite，我们建议至少 16GB。您可以使用任何容量小于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。与所有其他启动介质一样，读写速度更快的 SD 卡可提供更好的性能。
 
 由于硬件限制，以下设备只能从 256GB 或更小的引导分区启动：
 
@@ -71,8 +71,8 @@
 | 型号                    | 显示输出                                             |
 | ------------------------- | ------------------------------------------------------ |
 | 树莓派 5                | 2× micro HDMI                                        |
-| 树莓派 4（所有型号）    | 2× micro HDMI，音频和复合输出通过 3.5 毫米 TRRS 插孔 |
-| 树莓派 3（所有型号）    | HDMI，音频和复合输出通过 3.5 毫米 TRRS 插孔          |
+| 树莓派 4（所有型号）    | 2× micro HDMI，音频和通过 3.5 毫米 TRRS 插孔复合输出通过 |
+| 树莓派 3（所有型号）    | HDMI，音频和通过 3.5 毫米 TRRS 插孔复合输出          |
 | 树莓派 2 (所有型号)     | 通过 3.5 毫米 TRRS 插孔进行 HDMI、音频和复合输出     |
 | 树莓派 1 Model B+       | 通过 3.5 毫米 TRRS 插孔进行 HDMI、音频和复合输出     |
 | 树莓派 1 型 A+          | 通过 3.5 毫米 TRRS 插孔进行 HDMI、音频和复合输出     |
@@ -84,7 +84,7 @@
 
 如果您的树莓派有多个 HDMI 接口，请将主显示器插入标有 HDMI0 的接口。
 
-大多数显示器没有 micro 或 mini HDMI 接口。但是，您可以使用 micro-HDMI 至 HDMI 线缆或 mini-HDMI 至 HDMI 线缆将树莓派上的这些接口连接到 HDMI 显示器。对于不支持 HDMI 的显示器，请考虑使用转换器将 HDMI 输出转换为设备所支持的类型。
+大多数显示器没有 micro 或 mini HDMI 接口。但是，您可以使用 micro-HDMI 至 HDMI 线缆或 mini-HDMI 至 HDMI 线缆将树莓派上的这些接口转接到 HDMI 显示器。对于不支持 HDMI 的显示器，请考虑使用转换器将 HDMI 输出转换为设备所支持的类型。
 
 ![Plugging a micro HDMI cable into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-hdmi.png)
 
@@ -152,7 +152,7 @@
 
 >**警告**
 >
->如果您的计算机连接了多个存储设备，请务必选择正确的设备！通常可以通过大小识别存储设备。如果不确定，请断开其他设备，直到确定要刻录镜像的设备。 
+>如果您的计算机连接了多个存储设备，请务必选择正确的设备！通常可以通过大小识来别存储设备。如果不确定，请断开其他设备，直到确定要刻录镜像的设备。 
 
 ![Storage selection options in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
 
@@ -204,13 +204,13 @@
 
 当您完成输入系统定制设置后，请单击“保存”以保存您的定制。
 
-然后，在将映像写入存储设备时，单击“是”应用系统自定义设置。
+然后，在将镜像写入存储设备时，单击“是”应用系统自定义设置。
 
 最后，回答“您确定要继续吗？”弹出窗口中的“是”，开始向存储设备写入数据。
 
 ![Confirming a reimage of a storage device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
 
-如果看到一个要求权限以读取和写入存储介质的管理员提示，请授予 Imager 权限以继续。
+如果看到要求管理员权限以读取和写入存储介质的提示，请授予 Imager 权限以继续。
 
 ![Writing an image to a device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
 
@@ -224,7 +224,7 @@
 
 ![The screen Imager shows when it finishes writing an image to a storage device.](https://www.raspberrypi.com/documentation/computers/images/imager/finished.png)
 
-接下来，继续进行第一次启动配置说明，让您的树莓派运行起来。
+接下来，继续进行首次启动配置说明，让您的树莓派运行起来。
 
 ### 通过网络安装
 
@@ -234,7 +234,7 @@
 
 网络安装需要以下条件：
 
-* 支持网络安装的固件运行的兼容树莓派型号
+* 受支持的树莓派型号且使用着支持网络安装的固件
 * 显示器
 * 键盘
 * 有线网络连接
@@ -247,7 +247,7 @@
 
 ![The Network Install screen.](https://www.raspberrypi.com/documentation/computers/images/network-install-1.png)
 
-如果您尚未将树莓派连接到互联网，请使用以太网线缆连接。
+如果您尚未将树莓派连接到互联网，请使用网线进行连接。
 
 ![Starting Network Install.](https://www.raspberrypi.com/documentation/computers/images/network-install-2.png)
 
@@ -255,7 +255,7 @@
 
 ![Downloading Imager using Network Install.](https://www.raspberrypi.com/documentation/computers/images/network-install-3.png)
 
-您完成下载树莓派安装程序后，您的树莓派将自动启动树莓派镜像工具。有关运行树莓派镜像工具的更多信息，请参阅安装操作系统。
+在您完成下载树莓派安装程序后，您的树莓派将自动启动树莓派镜像工具。有关运行树莓派镜像工具的更多信息，请参阅安装操作系统。
 
 ![Choose a storage device.](https://www.raspberrypi.com/documentation/computers/images/network-install-4.png)
 
@@ -280,13 +280,13 @@
 
 如果您在 Imager 中使用了系统自定义来预配置您的树莓派，恭喜！您的设备已经准备就绪。继续下一步，了解如何充分利用您的树莓派。
 
-如果您的树莓派在 5 分钟内无法启动，请检查状态 LED。如果 LED 在闪烁，请查看 LED 警告闪烁代码以获取更多信息。如果您的树莓派拒绝启动，请尝试以下缓解措施：
+如果您的树莓派在 5 分钟内无法启动，请检查 LED 状态灯。如果 LED 在闪烁，请查看 LED 警告闪烁代码以获取更多信息。如果您的树莓派拒绝启动，请尝试以下缓解措施：
 
 * 如果您使用的是除 SD 卡以外的启动设备，请尝试从 SD 卡启动
-* 重新为您的 SD 卡重新映像; 确保在 Imager 中完成整个验证步骤
-* 更新您的树莓派上的引导加载程序，然后重新为您的 SD 卡重新映像
+* 重新为您的 SD 卡写入镜像; 确保在 Imager 中完成了完整的校验步骤
+* 更新您的树莓派上的引导加载程序，然后重新为您的 SD 卡重新写入镜像
 
-如果您选择在 Imager 中跳过系统定制，则您的树莓派将在首次启动时运行配置向导。您需要一个显示器和键盘来浏览向导; 如果没有鼠标也可以。
+如果您选择在 Imager 中跳过系统定制，则您的树莓派将在首次启动时运行配置向导。您需要一个显示器和键盘来浏览向导（如果没有鼠标也可以进行）。
 
 ![Click Next to get started with configuration.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/start.png)
 
@@ -306,7 +306,7 @@
 
 此页面可帮助您配置默认用户帐户的用户名和密码。
 
-默认情况下，旧版本的 Raspberry Pi OS 将用户名设置为"pi"。如果您使用用户名"pi"，请避免使用旧的默认密码"raspberry"，以保持您的树莓派安全。
+在默认情况下，旧版的 Raspberry Pi OS 将用户名设置为"pi"。如果您使用用户名"pi"，请避免使用旧的默认密码"raspberry"，以保持您的树莓派安全。
 
 ![Create your username and password.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/user.png)
 
