@@ -2,7 +2,7 @@
 
 ## 概述
 
-Raspberry Pi 音频扩展板为您现有的高保真音响设备或基于 Raspberry Pi 的设备和项目提供高质量音频。我们提供四种不同的硬件附加在顶部（HAT）选项，适用于使用 40 针 GPIO 引脚的任何 Raspberry Pi。
+树莓派音频扩展板为您现有的高保真音响设备或基于树莓派的设备和项目提供高质量音频。我们提供四种不同的硬件附加在顶部（HAT）选项，适用于使用 40 针 GPIO 引脚的任何树莓派。
 
 每块板都有特定的用途和一组功能。 DAC PRO，DAC+和 DigiAMP+板支持高达全高清音频（192kHz）的最高音质播放；而 Codec Zero 支持高达高清音频（96kHz），并包括内置麦克风，非常适合紧凑项目。
 
@@ -23,7 +23,7 @@ Raspberry Pi 音频扩展板为您现有的高保真音响设备或基于 Raspbe
 
 单声道扬声器一个单独的 1.2W 扬声器的螺钉端子，如晶体管收音机或类似产品中所找到的。
 
-一个 3.5 毫米插孔插座，为一副耳机提供立体声音频。 Raspberry Pi DAC 板上的耳机放大器可驱动高达 80/90Ω的阻抗耳机。
+一个 3.5 毫米插孔插座，为一副耳机提供立体声音频。树莓派 DAC 板上的耳机放大器可驱动高达 80/90Ω的阻抗耳机。
 
 Aux in 双 Phono/RCA 连接器或 3.5 毫米插孔。可接受高达 1V RMS 的模拟音频输入。这可用于从可变模拟源（如手机，MP3 播放器或类似设备）录制音频。
 
@@ -31,15 +31,15 @@ Aux out 双 Phono/RCA 连接器或 3.5 毫米插孔。提供高达 1V RMS 的模
 
 用于与外部电容麦克风配合使用的外部麦克风 3.5 毫米插孔。当使用外部麦克风插座时，Codec Zero 上的内置 MEMS 麦克风会自动禁用。
 
-### Raspberry Pi DAC Pro
+### 树莓派 DAC Pro
 
-Raspberry Pi DAC Pro HAT 是我们最高保真度的数字模拟转换器（DAC）。
+树莓派 DAC Pro HAT 是我们最高保真度的数字模拟转换器（DAC）。
 
 ![DAC Pro Board Diagram](https://www.raspberrypi.com/documentation/accessories/images/DAC_Pro_Board_Diagram.jpg)
 
-使用 Texas Instruments PCM5242，DAC Pro 提供出色的信噪比（SNR），支持平衡/差分输出，并与留声机/RCA 线级输出并行。它还包括专用耳机放大器。DAC Pro 由 Raspberry Pi 通过 GPIO 标头供电。
+使用 Texas Instruments PCM5242，DAC Pro 提供出色的信噪比（SNR），支持平衡/差分输出，并与留声机/RCA 线级输出并行。它还包括专用耳机放大器。DAC Pro 由树莓派通过 GPIO 标头供电。
 
-作为 DAC Pro 的一部分，两个三针标头（P7/P9）位于 Raspberry Pi 的 USB 和以太网端口上方，供可选的 XLR 板使用，允许差分/平衡输出。
+作为 DAC Pro 的一部分，两个三针标头（P7/P9）位于树莓派的 USB 和以太网端口上方，供可选的 XLR 板使用，允许差分/平衡输出。
 
 #### 引脚分配
 
@@ -57,13 +57,13 @@ Pi-DAC PRO 通过一个 6 针头连接器暴露出一个可选的 XLR 板，通�
 
 XLR 连接器用于工作室和一些高端 hifi 系统。它也可用于驱动在迪斯科或舞台上使用的主动“监视器”扬声器。
 
-### Raspberry Pi DAC+
+### 树莓派 DAC+
 
-Raspberry Pi DAC+是一款提供 24 位 192kHz 数字音频输出的高分辨率音频输出 HAT。
+树莓派 DAC+是一款提供 24 位 192kHz 数字音频输出的高分辨率音频输出 HAT。
 
 ![DAC+ Board Diagram](https://www.raspberrypi.com/documentation/accessories/images/DAC+_Board_Diagram.jpg)
 
-DAC+中使用了德州仪器 PCM5122，将模拟音频传输到设备的音频插座。它还支持专用耳机放大器，并通过 GPIO 引脚头从 Raspberry Pi 供电。
+DAC+中使用了德州仪器 PCM5122，将模拟音频传输到设备的音频插座。它还支持专用耳机放大器，并通过 GPIO 引脚头从树莓派 供电。
 
 #### 引脚分配
 
@@ -71,9 +71,9 @@ DAC+中使用了德州仪器 PCM5122，将模拟音频传输到设备的音频�
 | -- | ------------------------------------------------------------------------------- |
 | **P6** | 耳机插孔信号（引脚 1：左，2：地线，3：右，4：地线，5：检测）。                |
 
-### Raspberry Pi DigiAMP+
+### 树莓派 DigiAMP+
 
-使用 Raspberry Pi DigiAMP+，您可以连接 2 个无源立体声扬声器，输出功率高达 35W，可变输出，非常适合用于基于 Raspberry Pi 的高保真系统。
+使用树莓派 DigiAMP+，您可以连接 2 个无源立体声扬声器，输出功率高达 35W，可变输出，非常适合用于基于树莓派的高保真系统。
 
 DigiAMP+ 使用德州仪器 TAS5756M PowerDAC，必须由外部电源供电。它需要 12-24V 直流电源（建议使用 XP Power VEC65US19 电源适配器）。
 
@@ -81,12 +81,14 @@ DigiAMP+ 使用德州仪器 TAS5756M PowerDAC，必须由外部电源供电。�
 
 DigiAMP+ 的电源桶连接器尺寸为 5.5mm x 2.5mm。
 
-在上电时，默认情况下放大器会被静音（静音 LED 灯亮起）。软件负责静音状态和 LED 控制（Raspberry Pi GPIO22）。
+在上电时，默认情况下放大器会被静音（静音 LED 灯亮起）。软件负责静音状态和 LED 控制（树莓派 GPIO22）。
 
-DigiAMP+ 旨在同时并联为 Raspberry Pi 和 DigiAMP+ 提供电源，通过 GPIO 头部向 Raspberry Pi 提供 5.1V 2.5 安培的电流。
+DigiAMP+ 旨在同时并联为树莓派和 DigiAMP+ 提供电源，通过 GPIO 头部向树莓派提供 5.1V 2.5 安培的电流。
 
-| WARNING | 使用 DigiAMP+ 时，请勿向 Raspberry Pi 的电源输入端口供电。 |
-| --------- | ------------------------------------------------------------ |
+>**警告**
+>
+>在使用 DigiAMP+ 时，请勿向树莓派的电源输入端口供电。
+
 
 #### 引脚分配
 
@@ -94,9 +96,9 @@ DigiAMP+ 旨在同时并联为 Raspberry Pi 和 DigiAMP+ 提供电源，通过 G
 | -- | ---------------------------------------------- |
 | **P8** | TAS5756m 内部 GPIO1/2/3                      |
 
-### Raspberry Pi Codec Zero
+### 树莓派 Codec Zero
 
-Raspberry Pi Codec Zero 是一款 Raspberry Pi Zero 尺寸的音频 HAT。它在 Raspberry Pi 和 Codec Zero 的内置 Dialog Semiconductor DA7212 编解码器之间传递双向数字音频信号（I2S）。Codec Zero 支持各种输入和输出设备。
+树莓派 Codec Zero 是一款树莓派 Zero 尺寸的音频 HAT。它在树莓派和 Codec Zero 的内置 Dialog Semiconductor DA7212 编解码器之间传递双向数字音频信号（I2S）。Codec Zero 支持各种输入和输出设备。
 
 * 高性能 24 位音频编解码器
 * 支持 8-96kHz 之间的常见音频采样率
@@ -129,13 +131,13 @@ Codec Zero 是小型项目的理想设计起点，如对讲机、智能门铃、
 
 ## 配置
 
-所有 Raspberry Pi 音频扩展板上都包含了预编程的 EEPROM。Raspberry Pi 音频扩展板设计为即插即用；Raspberry Pi OS 能够自动检测和配置。在 Raspberry Pi OS 中，右键单击屏幕右上角的音频设置，可以在板载音频设置和 HAT 音频设置之间切换：
+所有树莓派音频扩展板上都包含了预编程的 EEPROM。树莓派音频扩展板设计为即插即用；Raspberry Pi OS 能够自动检测和配置。在 Raspberry Pi OS 中，右键单击屏幕右上角的音频设置，可以在板载音频设置和 HAT 音频设置之间切换：
 
 ![gui](https://www.raspberrypi.com/documentation/accessories/images/gui.png)
 
-有许多第三方音频软件应用程序适用于 Raspberry Pi，支持我们音频扩展板的即插即用功能。通常这些是无屏幕的。它们可以通过 PC 或 Mac 应用程序控制，也可以通过安装在 Raspberry Pi 上的 Web 服务器控制，并通过网页进行交互。
+有许多第三方音频软件应用程序适用于树莓派，支持我们音频扩展板的即插即用功能。通常这些是无屏幕的。它们可以通过 PC 或 Mac 应用程序控制，也可以通过安装在树莓派上的 Web 服务器控制，并通过网页进行交互。
 
-如果您需要自行配置 Raspberry Pi OS，也许是因为您正在运行自己的无头系统，无法通过 GUI 进行控制，那么您需要将 Raspberry Pi 音频扩展板设置为 Raspberry Pi OS 的主要音频设备，禁用 Raspberry Pi 的板载音频设备。这可以通过编辑 /boot/firmware/config.txt 文件来实现。通过 SSH 连接到您的 Raspberry Pi 的终端会话，运行以下命令来编辑文件：
+如果您需要自行配置 Raspberry Pi OS，也许是因为您正在运行自己的无头系统，无法通过 GUI 进行控制，那么您需要将树莓派音频扩展板设置为 Raspberry Pi OS 的主要音频设备，禁用树莓派的板载音频设备。这可以通过编辑 /boot/firmware/config.txt 文件来实现。通过 SSH 连接到您的树莓派的终端会话，运行以下命令来编辑文件：
 
 ```
 $ sudo nano /boot/firmware/config.txt
@@ -147,23 +149,23 @@ $ sudo nano /boot/firmware/config.txt
 #dtparam=audio=on
 ```
 
-按下 Ctrl+X 键，然后按 Y 键，最后按 Enter 保存。最后，重新启动您的 Raspberry Pi 以使设置生效。
+按下 Ctrl+X 键，然后按 Y 键，最后按 Enter 保存。最后，重新启动您的树莓派以使设置生效。
 
 ```
 $ sudo reboot
 ```
 
-或者，可以直接在 Raspberry Pi 的 microSD 卡上编辑 /boot/firmware/config.txt 文件，然后将其插入您通常使用的计算机。使用默认文件管理器，在卡上打开 /boot/firmware/ 卷，并使用适当的文本编辑器编辑 config.txt 文件，然后保存文件，弹出 microSD 卡，重新插入到 Raspberry Pi 中。
+或者，可以直接在树莓派的 microSD 卡上编辑 /boot/firmware/config.txt 文件，然后将其插入您通常使用的计算机。使用默认文件管理器，在卡上打开 /boot/firmware/ 卷，并使用适当的文本编辑器编辑 config.txt 文件，然后保存文件，弹出 microSD 卡，重新插入到树莓派中。
 
 ### 安装 HAT
 
-Raspberry Pi 音频扩展板连接到 Raspberry Pi 的 40 针引脚头上。它们设计为使用提供的电路板支架和螺丝支撑在 Raspberry Pi 上。除非您在 DAC Pro 上使用硬连线连接器（如 XLR（外部线路返回）连接）需要对 Raspberry Pi 音频扩展板进行常规操作，否则无需焊接。
+树莓派音频扩展板连接到树莓派的 40 针引脚头上。它们设计为使用提供的电路板支架和螺丝支撑在树莓派上。除非您在 DAC Pro 上使用硬连线连接器（如 XLR（外部线路返回）连接）需要对树莓派音频扩展板进行常规操作，否则无需焊接。
 
-所提供的所有必要安装硬件，包括间隔柱、螺丝和连接器。在添加音频扩展板之前，应将 PCB 间隔柱仅用手指拧紧到 Raspberry Pi 上。然后，应将剩余的螺丝从上方拧入间隔柱中。
+所提供的所有必要安装硬件，包括间隔柱、螺丝和连接器。在添加音频扩展板之前，应将 PCB 间隔柱仅用手指拧紧到树莓派上。然后，应将剩余的螺丝从上方拧入间隔柱中。
 
 ### 硬件版本
 
-音频卡有多个版本，您拥有的版本决定了配置所需的操作。较旧的 IQaudIO 标记的板（黑色 PCB）在电气上等同于 Raspberry Pi 品牌的板（绿色 PCB），但具有不同的 EEPROM 内容。可以使用以下命令确认您拥有的版本：
+音频卡有多个版本，您拥有的版本决定了配置所需的操作。较旧的 IQaudIO 标记的板（黑色 PCB）在电气上等同于树莓派品牌的板（绿色 PCB），但具有不同的 EEPROM 内容。可以使用以下命令确认您拥有的版本：
 
 ```
 $ grep -a . /proc/device-tree/hat/*
@@ -183,7 +185,7 @@ dtoverlay=rpi-digiampplus
 
 ### 额外的 Codec Zero 配置
 
-Raspberry Pi Codec Zero 板使用 Dialog Semiconductor DA7212 编解码器。这允许从内置 MEMS 麦克风、立体声磁头插座（AUX IN）或两个单声道外部电容麦克风录制音频。播放通过立体声磁头插座（AUX OUT）或单声道扬声器连接器进行。
+树莓派 Codec Zero 板使用 Dialog Semiconductor DA7212 编解码器。这允许从内置 MEMS 麦克风、立体声磁头插座（AUX IN）或两个单声道外部电容麦克风录制音频。播放通过立体声磁头插座（AUX OUT）或单声道扬声器连接器进行。
 
 每个输入和输出设备都有自己的混音器，允许独立调整音频级别和音量。在编解码器本身内部，还存在其他混音器和开关，允许将输出混合到单声道以用于单扬声器输出。信号也可以被反转；有一个五段均衡器来调整特定频段。这些设置可以通过交互方式使用 AlsaMixer 进行控制，也可以通过编程方式进行控制。
 
@@ -196,7 +198,7 @@ AUX IN 和 AUX OUT 都是 1V RMS。可能需要调整 AUX IN 的混音器，以�
 * 立体声 AUX IN 录制，立体声 AUX OUT 播放
 * 立体声 MIC1/MIC2 录音，立体声 AUX OUT 播放
 
-Codec Zero 需要在每次 Raspberry Pi 上电时知道正在使用哪些输入和输出设置。在 Raspberry Pi 上的终端会话中，运行以下命令下载脚本：
+Codec Zero 需要在每次树莓派上电时知道正在使用哪些输入和输出设置。在树莓派上的终端会话中，运行以下命令下载脚本：
 
 ```
 $ git clone https://github.com/raspberrypi/Pi-Codec.git
@@ -247,7 +249,7 @@ exit 0
 $ sudo reboot
 ```
 
-如果您在无头环境中使用您的 Raspberry Pi 和 Codec Zero，则需要执行一个最后步骤，以使 Codec Zero 成为默认音频设备，而无需访问桌面上的 GUI 音频设置。我们需要在您的主文件夹中创建一个小文件：
+如果您在无头环境中使用您的树莓派和 Codec Zero，则需要执行一个最后步骤，以使 Codec Zero 成为默认音频设备，而无需访问桌面上的 GUI 音频设置。我们需要在您的主文件夹中创建一个小文件：
 
 ```
 $ sudo nano .asoundrc
@@ -270,11 +272,11 @@ $ sudo reboot
 
 ### 静音和取消静音 DigiAMP+
 
-Raspberry Pi 上的 GPIO22 切换 DigiAMP+静音状态。最新的音频设备树通过附加参数支持取消 DigiAMP+的静音。
+树莓派上的 GPIO22 切换 DigiAMP+静音状态。最新的音频设备树通过附加参数支持取消 DigiAMP+的静音。
 
 首先，在内核模块加载时进行“一次性”静音。
 
-对于 Raspberry Pi 板：
+对于树莓派板：
 
 ```
 dtoverlay=rpi-digiampplus,unmute_amp
@@ -288,7 +290,7 @@ dtoverlay=iqaudio-digiampplus,unmute_amp
 
 当 ALSA 设备被客户端打开时取消静音。当 ALSA 设备关闭时，延迟五秒后静音。（在五秒关闭窗口内重新打开设备将取消静音。）
 
-对于 Raspberry Pi 板：
+对于树莓派板：
 
 ```
 dtoverlay=rpi-digiampplus,auto_mute_amp
@@ -334,21 +336,21 @@ $ sudo sh -c "echo 0 >/sys/class/gpio/gpio22/value"
 
 使用小型扁头螺丝刀将扬声器连接到螺丝端子。对于额外的按钮，根据指示将按钮线焊接到 Codec Zero 垫片上，使用 GPIO 引脚 27 和地线作为开关，如果需要，使用 +3.3V 和地线作为 LED。
 
-### 设置您的 Raspberry Pi
+### 设置您的树莓派
 
 在此示例中，我们使用 Raspberry Pi OS Lite。有关更多详细信息，请参考我们的安装 Raspberry Pi OS 指南。
 
 在继续之前，请确保更新您的操作系统，并按照提供的 Codec Zero 配置说明进行操作，包括启用板载麦克风和扬声器输出的命令。
 
-### 编程您的 Raspberry Pi
+### 编程您的树莓派
 
-在您的 Raspberry Pi 上打开一个 shell — 例如通过 SSH 连接 — 并运行以下内容来创建我们的 Python 脚本：
+在您的树莓派上打开一个 shell — 例如通过 SSH 连接 — 并运行以下内容来创建我们的 Python 脚本：
 
 ```
 $ sudo nano chatter_box.py
 ```
 
-将以下内容添加到文件中，将 <username> 替换为您的用户名：
+将以下内容添加到文件中，将 `<username>` 替换为您的用户名：
 
 ```
 #!/usr/bin/env python3
@@ -431,7 +433,7 @@ $ sudo chmod +x chatter_box.py
 $ crontab -e
 ```
 
-您将被要求选择一个编辑器；我们建议您使用 nano 。通过输入相应的数字进行选择，然后按 Enter 键继续。应将以下行添加到文件底部，将 <username> 替换为您的用户名：
+您将被要求选择一个编辑器；我们建议您使用 nano 。通过输入相应的数字进行选择，然后按 Enter 键继续。应将以下行添加到文件底部，将 `<username>` 替换为您的用户名：
 
 ```
 @reboot python /home/<username>/chatter_box.py
@@ -455,7 +457,7 @@ $ crontab -e
 * PCB 支架（用于机箱）为 5mm 公/母。
 * PCB 支架（用于树莓派到音频扩展板）为 9mm 母/母。
 * PCB 支架（用于 XLR 到 DAC PRO）为 8mm 母/公。
-* PCB 支架（用于官方 Raspberry Pi 7 英寸显示屏）为 5 毫米公母。
+* PCB 支架（用于官方树莓派 7 英寸显示屏）为 5 毫米公母。
 * 我们使用和测试过的旋转编码器包括 Alpha 三针旋转编码器 RE160F-40E3-20A-24P，ALPS EC12E2430804（RS：729-5848），和 Bourns ECW0JB24-AC0006L（RS：263-2839）。
 * 用于为 DigiAMP+供电的圆筒连接器为 2.5mm 内径，5.5mm 外径，11mm。
 * DigiAMP+设计为与 12V 至 24V、3A 供应配合使用，例如 XPPower VEC65US19 或类似产品。
@@ -464,9 +466,9 @@ $ crontab -e
 
 ### GPIO 使用
 
-Raspberry Pi 音频扩展板利用 GPIO 头上的许多引脚才能成功运行。其中一些引脚仅供扩展板使用，而另一些可以与其他外设、传感器等共享。
+树莓派音频扩展板利用 GPIO 头上的许多引脚才能成功运行。其中一些引脚仅供扩展板使用，而另一些可以与其他外设、传感器等共享。
 
-以下 Raspberry Pi GPIO 引脚将被音频扩展板使用：
+以下树莓派 GPIO 引脚将被音频扩展板使用：
 
 * 所有电源引脚
 * 所有地线引脚
@@ -484,7 +486,7 @@ Raspberry Pi 音频扩展板利用 GPIO 头上的许多引脚才能成功运行�
 
 ![pin table new](https://www.raspberrypi.com/documentation/accessories/images/pin_table_new.jpg)
 
-DAC PRO，DAC+和 DigiAMP+重新公开了 Raspberry Pi 信号，可以轻松添加其他传感器和外围设备。请注意，一些信号是一些我们的板卡专用的（如 I2S 和 EEPROM）；其他信号如 I2C 可以在多个板卡之间共享。
+DAC PRO，DAC+ 和 DigiAMP+ 重新公开了树莓派信号，可以轻松添加其他传感器和外围设备。请注意，一些信号是一些我们的板卡专用的（如 I2S 和 EEPROM）；其他信号如 I2C 可以在多个板卡之间共享。
 
 ![pin out new](https://www.raspberrypi.com/documentation/accessories/images/pin_out_new.jpg)
 
@@ -528,8 +530,9 @@ audio_output {
 
 树莓派音频板使用包含信息的 EEPROM，该信息由主机树莓派设备在启动时选择适当的驱动程序时使用。此信息在制造过程中编程到 EEPROM 中。在某些情况下，最终用户可能希望更新 EEPROM 内容：可以通过命令行完成。
 
-| IMPORTANT | 在继续之前，您应该将运行在您的 Raspberry Pi 上的 Raspberry Pi OS 更新到最新版本。 |
-| ----------- | ----------------------------------------------------------------------------------- |
+>**重要**
+>
+>在继续之前，您应该将运行在您的树莓派上的 Raspberry Pi OS 更新到最新版本。
 
 ### EEPROM 写保护链接
 
@@ -537,12 +540,13 @@ audio_output {
 
 ![write protect tabs](https://www.raspberrypi.com/documentation/accessories/images/write_protect_tabs.jpg)
 
-| NOTE | 在某些情况下，两个焊盘上可能已经焊接了一个 0Ω电阻，用于连接写保护链接，就像上面 Codec Zero 板的图片中所示。 |
-| ------ | -------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在某些情况下，两个焊盘上可能已经焊接了一个 0Ω电阻，用于连接写保护链接，就像上面 Codec Zero 板的图片中所示。
 
 ### EEPROM 编程
 
-一旦写保护线被拉低，EEPROM 就可以被编程。
+在写保护线被拉低后，EEPROM 就可以被编程。
 
 您应该首先安装实用程序，然后运行程序员。打开一个终端窗口，输入以下内容：
 
@@ -560,8 +564,9 @@ $ sudo rpi-audio-flash
 
 ![select](https://www.raspberrypi.com/documentation/accessories/images/firmware-update/select.png)
 
-| NOTE | 如果没有 HAT 存在，或者连接的 HAT 不是 Raspberry Pi 音频扩展板，则会显示错误屏幕。如果已经在板上更新了固件，将显示一条消息，告知您无需继续操作。 |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果没有 HAT 存在，或者连接的 HAT 不是树莓派音频扩展板，则会显示错误屏幕。如果已经在板上更新了固件，将显示一条消息，告知您无需继续操作。
 
 选择正确的硬件后，屏幕将显示，同时将新固件刷入 HAT。
 
@@ -571,5 +576,6 @@ $ sudo rpi-audio-flash
 
 ![flashed](https://www.raspberrypi.com/documentation/accessories/images/firmware-update/flashed.png)
 
-| NOTE | 如果固件安装失败，将显示错误屏幕。首先，您应该移除并重新安装 HAT 板，然后尝试重新刷写固件。 |
-| ------ | --------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果固件安装失败，将在屏幕上显示错误。首先，您应该移除并重新安装 HAT 板，然后尝试重新刷写固件。 
