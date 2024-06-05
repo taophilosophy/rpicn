@@ -3,9 +3,9 @@
 
 ## 介绍
 
-Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配 Raspberry Pi 硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。我们推荐大多数 Raspberry Pi 使用情况下使用 Raspberry Pi OS。
+Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配树莓派的硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数使用需求，我们推荐在树莓派上使用 Raspberry Pi OS。
 
-因为 Raspberry Pi OS 源自 Debian，因此遵循 Debian 发行周期的分阶段版本。大约每 2 年发布一次。
+因为 Raspberry Pi OS 源自 Debian，因此基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
 
 最新版本的 Raspberry Pi OS 基于 Debian Bookworm。之前的版本基于 Debian Bullseye。
 
@@ -14,11 +14,11 @@ Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以�
 ## 更新软件
 
 
-始终保持您的 Raspberry Pi 上运行的软件更新到最新版本。这可以使您的设备免受漏洞的影响，并确保您获得最新的错误修复。
+请始终保持您的在 Raspberry Pi 上运行的软件更新到最新版本。这可以使您的设备免受漏洞的影响，并确保您获得最新的错误修复。
 
 ### 使用 APT 管理软件包
 
-高级软件包工具 (APT) 是在 Raspberry Pi OS 中安装、更新和删除软件的推荐方法。您可以通过 apt CLI 访问 APT。
+高级软件包工具 (APT) 是在 Raspberry Pi OS 中安装、更新和删除软件的推荐方法。您可以通过命令 apt 使用 APT。
 
 #### 安装更新
 
@@ -34,12 +34,13 @@ $ sudo apt update
 $ sudo apt full-upgrade
 ```
 
-| TIP | 与 Debian 不同，Raspberry Pi OS 在持续开发中。因此，软件包依赖关系有时会发生变化，因此您应始终使用 full-upgrade 而不是标准的 upgrade 。 |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>与 Debian 不同，Raspberry Pi OS 处于持续开发状态。因此，软件包依赖关系有时会发生变化，因此您应始终使用 full-upgrade 而非标准的 upgrade 。 
 
-定期运行这些命令，以保持软件最新。使用 apt 来保持 Raspberry Pi OS 最新，也会使您的 Linux 内核和固件保持最新，因为 Raspberry Pi 将它们作为 Debian 软件包分发。
+请定期运行这些命令，以保持软件是最新的。使用 apt 来确保 Raspberry Pi OS 是最新的，也会使您的 Linux 内核和固件保持最新状态，因为 Raspberry Pi 将它们作为 Debian 软件包分发。
 
-当 Raspberry Pi 发布 Raspberry Pi OS 的新主要版本时，上述命令将不会将您的操作系统升级到该新主要版本。要升级到新的主要版本，请按照我们的操作系统升级说明进行操作。
+当树莓派发布 Raspberry Pi OS 新的主要版本时，上述命令将不会将您的操作系统升级到该新主要版本。要升级到新的主要版本，请按照我们的操作系统升级说明进行操作。
 
 #### 搜索软件
 
@@ -49,7 +50,7 @@ $ sudo apt full-upgrade
 $ apt-cache search <keyword>
 ```
 
-例如，考虑以下关键字“raspi”的搜索：
+例如，设想搜索以下关键字“raspi”：
 
 ```
 $ apt-cache search raspi
@@ -76,7 +77,7 @@ raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 $ apt-cache show <package-name>
 ```
 
-例如，考虑对“raspi-config”软件包进行以下查询：
+例如，设想对“raspi-config”软件包进行以下查询：
 
 ```
 $ apt-cache show raspi-config
@@ -101,9 +102,9 @@ Description-md5: 19630c04463bfe7193152448b53d85a0
 
 使用此命令验证维护者、版本和大小是否符合您对软件包的期望。
 
-#### 安装一个软件包
+#### 安装软件包
 
-要在您的 Raspberry Pi 上安装一个软件包，请将软件包的名称传递给以下命令：
+要在您的 Raspberry Pi 上安装软件包，请将软件包的名称传递给以下命令：
 
 ```
 $ sudo apt install <package-name>
@@ -111,16 +112,17 @@ $ sudo apt install <package-name>
 
 apt 将显示软件包将占用的磁盘空间量。输入 Y 并按 Enter 键确认安装软件包。您可以通过在上述命令中添加 -y 标志来跳过此确认步骤。
 
-#### 卸载一个软件包
+#### 卸载软件包
 
-要从您的 Raspberry Pi 卸载一个软件包，请将软件包的名称传递给以下命令：
+要从您的 Raspberry Pi 卸载软件包，请将软件包的名称传递给以下命令：
 
 ```
 $ sudo apt remove <package-name>
 ```
 
-| TIP | 要彻底删除软件包的所有痕迹，包括配置文件，请使用 purge 而不是 remove 。 |
-| ----- | ------------------------------------------------------------------------- |
+>**技巧**
+>
+>要彻底删除软件包的所有痕迹，包括配置文件，请使用 purge 而非 remove 。 
 
 apt 将显示卸载软件包后将释放的磁盘空间量。输入 Y 并按 Enter 键确认安装该软件包。您可以通过在上述命令中添加 -y 标志来跳过此确认步骤。
 
@@ -140,22 +142,25 @@ $ sudo apt clean
 
 ### 将您的操作系统升级到新的主要版本
 
-| WARNING | 在尝试主要版本升级之前，请备份。 |
-| --------- | ---------------------------------- |
+>**警告**
+>
+>在尝试升级主要版本之前，请进行备份。 
 
-将操作系统更新到 Raspberry Pi 的新主要版本，使用第二个 SD 卡映像新版本。使用 USB SD 卡阅读器或网络存储从当前安装中复制文件和配置到新 SD 卡。然后，将新 SD 卡插入 Raspberry Pi 上的插槽，并启动。
+将操作系统更新到 Raspberry Pi 新的主要版本，请使用第二张 SD 卡写入新版本的镜像。使用 SD 读卡器或网络存储从当前安装中复制文件和配置到新 SD 卡。然后，将新 SD 卡插入树莓派上的插槽，并启动。
 
 ### 升级固件
 
-| WARNING | 在尝试固件升级之前，请备份。 |
-| --------- | ------------------------------ |
+>**警告**
+>
+>在尝试固件升级之前，请备份。
 
-| WARNING | 软件的预发布版本不能保证正常工作。除非得到 Raspberry Pi 工程师的推荐，否则不要在任何系统上使用 rpi-update 。这可能导致您的系统不可靠或损坏。不要将 rpi-update 作为任何常规更新过程的一部分。 |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**警告**
+>
+>软件的预发布版本不能保证正常工作。除非得到了树莓派工程师的推荐，否则不要在任何系统上使用 rpi-update 。这可能导致您的系统不稳定或损坏。不要将 rpi-update 作为常规更新过程的一部分。 
 
-要将您的 Raspberry Pi 固件更新到最新版本，请使用 rpi-update 。
+要将您的树莓派固件更新到最新版本，请使用 rpi-update 。
 
-rpi-update 下载最新的 Linux 内核预发布版本，其匹配的模块，设备树文件和最新版本的 VideoCore 固件。然后将这些文件安装到现有的 Raspberry Pi OS 安装中。
+rpi-update 会下载最新的 Linux 内核预发布版本，和与其匹配的模块，设备树文件及最新版本的 VideoCore 固件。然后将这些文件安装到现有的 Raspberry Pi OS。
 
 所有 rpi-update 使用的源数据来自 rpi-firmware 存储库。该存储库包含来自官方固件存储库的数据子集。
 
@@ -166,15 +171,15 @@ $ sudo rpi-update
 $ sudo reboot
 ```
 
-##### [更新 Raspberry Pi 固件](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003476-WP/Updating-Pi-firmware.pdf)
+##### [更新树莓派固件](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003476-WP/Updating-Pi-firmware.pdf)
 
-更新 Raspberry Pi 固件
+更新树莓派固件
 
-本白皮书记录了如何在 Raspberry Pi OS 镜像中更新 VideoCore 固件。
+本白皮书记录了如何在 Raspberry Pi OS 中更新 VideoCore 固件。
 
-### 将固件降级到最后一个稳定版本。
+### 将固件降级到最新稳定版本。
 
-如果您将固件更新到最新版本并遇到问题，请使用以下命令返回到上一个稳定的固件版本：
+如果您在将固件更新到最新版本后遇到问题，请使用以下命令退回到上一个稳定版固件：
 
 ```
 $ sudo apt-get update
@@ -185,17 +190,16 @@ $ sudo apt install --reinstall raspi-firmware
 $ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
 ```
 
-使用 sudo reboot 重新启动您的 Raspberry Pi 以使这些更改生效。
+使用 sudo reboot 重新启动您的树莓派以使这些更改生效。
 
 ## 播放音频和视频
-
 
 
 Raspberry Pi OS 预装了 VLC 媒体播放器。您可以使用 VLC 播放视频和音频文件。VLC 在 Raspberry Pi OS 中使用硬件加速，并支持许多流行的音频和视频文件格式。
 
 ### VLC 媒体播放器
 
-#### VLC GUI
+#### VLC 图形界面
 
 从 Raspberry Pi 桌面播放音频或视频文件，请在文件管理器中双击文件。这将自动启动 VLC 播放文件。或者，从“声音和视频”菜单中启动 VLC 媒体播放器。然后，从“媒体”菜单中选择“打开文件...”，并导航到要播放的文件。
 
@@ -215,19 +219,19 @@ $ wget --trust-server-names http://rptl.io/big-buck-bunny
 $ vlc big-buck-bunny-1080p.mp4
 ```
 
-为了在文件播放完成后防止 VLC GUI 保持打开状态，请添加 --play-and-exit 标志：
+为了在文件播放完成后关闭 VLC 图形界面，请添加 --play-and-exit 标志：
 
 ```
 $ vlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
-要在全屏模式下播放视频（在某些情况下可能会导致更流畅的播放），请添加 --fullscreen 标志：
+要在全屏模式下播放视频（在某些情况下可能会使播放更流畅），请添加 --fullscreen 标志：
 
 ```
 $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 ```
 
-#### 使用 cvlc 来播放没有 GUI 的媒体
+#### 使用 cvlc 来播放没有图形界面的媒体
 
 如果您在任何这些命令中使用 cvlc 而不是 vlc ，那么 VLC GUI 将不会显示：
 
@@ -237,7 +241,7 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 
 ### 在 Raspberry Pi OS Lite 上播放音频和视频
 
-与完整版本的 Raspberry Pi OS 不同，VLC 不会预装在 Raspberry Pi OS Lite 上。要在 Raspberry Pi OS Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
+与完整版本的 Raspberry Pi OS 不同，VLC 没有预装在 Raspberry Pi OS Lite 上。要在 Raspberry Pi OS Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
 
 ```
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
@@ -265,7 +269,7 @@ $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startu
 
 用以下选项之一替换 <alsa-device> 占位符：
 
-| ALSA 设备 | 描述                                                              |
+| ALSA 设备 | 说明                                                              |
 | ----------- | ------------------------------------------------------------------- |
 | `sysdefault:CARD=Headphones`          | 耳机插孔                                                          |
 | `sysdefault:CARD=vc4hdmi`          | Raspberry Pi Zero 上的 HDMI 输出，或 Raspberry Pi Model 1、2 或 3 |
@@ -284,9 +288,9 @@ $ aplay -L | grep sysdefault
 $ cvlc --play-and-exit --drm-vout-display <drm-device> big-buck-bunny-1080p.mp4
 ```
 
-用以下选项之一替换 <drm-device> 占位符：
+用以下选项之一替换文本 <drm-device> ：
 
-| DRM 设备 | 描述                                                                               |
+| DRM 设备 | 说明                                                                              |
 | ---------- | ------------------------------------------------------------------------------------ |
 | `HDMI-A-1`         | 树莓派 Zero、树莓派 1、2 或 3 上的 HDMI 输出；或树莓派 4、5 或 400 上的 HDMI0 输出 |
 | `HDMI-A-2`         | 树莓派 4、5 或 400 上的 HDMI1 输出                                                 |
@@ -306,7 +310,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果您有原始的 H.264 流，比如从 Raspberry Pi 摄像头模块捕获的流，您可以通过将流放入诸如 MP4 之类的容器格式中来提高 VLC 中的播放性能。您可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令将名为 video.h264 的流转换为一个以 30fps 为速率的 MP4 容器，命名为 video.mp4 ：
+如果您有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，您可以通过将流放入诸如 MP4 之类的容器格式中来提高 VLC 中的播放性能。您可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令将名为 video.h264 的流转换为一个以 30fps 为速率的 MP4 容器，命名为 video.mp4 ：
 
 ```
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -315,12 +319,11 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 ## 实用工具
 
 
-
 Raspberry Pi OS 中预装了几个有用的命令行实用程序。
 
 ### `kmsprint`
 
-kmsprint 工具可用于列出连接到 Raspberry Pi 的显示器支持的显示模式。使用 kmsprint 查看连接到 Raspberry Pi 的显示器的详细信息，使用 kmsprint -m 查看每个显示器支持的所有显示模式的列表。您可以在 Github 上找到 kmsprint 实用程序的源代码。
+kmsprint 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 kmsprint -m 查看每个显示器支持的所有显示模式的列表。您可以在 Github 上找到 kmsprint 实用程序的源代码。
 
 ### `vclog`
 
@@ -330,7 +333,7 @@ sudo vclog --msg 打印出消息日志，而 sudo vclog --assert 打印出断言
 
 ### `vcgencmd`
 
-vcgencmd 工具用于输出 Raspberry Pi 上 VideoCore GPU 的信息。您可以在 GitHub 上找到 vcgencmd 实用程序的源代码。
+vcgencmd 工具用于输出树莓派上 VideoCore GPU 的信息。您可以在 GitHub 上找到 vcgencmd 实用程序的源代码。
 
 要获取 vcgencmd 支持的所有命令列表，请使用 vcgencmd commands 。下面列出了一些有用的命令及其所需参数。
 
@@ -338,8 +341,8 @@ vcgencmd 工具用于输出 Raspberry Pi 上 VideoCore GPU 的信息。您可以
 
 vcos 命令有两个有用的子命令：
 
-* version 显示 VideoCore 上固件的构建日期和版本。
-* log status 显示各个 VideoCore 固件区域的错误日志状态
+* version 可显示 VideoCore 上固件的构建日期和版本。
+* log status 可显示各个 VideoCore 固件区域的错误日志状态
 
 #### `version`
 
@@ -362,13 +365,13 @@ vcos 命令有两个有用的子命令：
 
 #### `measure_temp`
 
-返回 SoC 的温度，由其内部温度传感器测量。在 Raspberry Pi 4 上， measure_temp pmic 返回 PMIC 的温度。
+返回 SoC 的温度，由其内部温度传感器测量。在树莓派 4 上， measure_temp pmic 将返回 PMIC 的温度。
 
 #### `measure_clock [clock]`
 
 返回指定时钟的当前频率。接受以下时钟值：
 
-| 时钟 | 描述                   |
+| 时钟 | 说明                  |
 | ------ | ------------------------ |
 | `arm`     | ARM 核心               |
 | `core`     | GPU 核心               |
@@ -389,7 +392,7 @@ vcos 命令有两个有用的子命令：
 
 显示特定块使用的当前电压。接受以下块值：
 
-| 区块 | 描述           |
+| 区块 | 说明          |
 | ------ | ---------------- |
 | `core`     | VC4 核电压     |
 | `sdram_c`     | SDRAM 核心电压 |
@@ -435,44 +438,47 @@ $ vcgencmd get_config total_mem
 
 使用 Raspberry Pi OS 的视障用户可以在“推荐软件”菜单中找到有用的工具。
 
-我们提供 Orca 屏幕阅读器来简化 Raspberry Pi 桌面的导航。此外，我们还提供屏幕放大器来增加用户界面和屏幕元素的可读性。
+我们提供 Orca 屏幕阅读器来简化树莓派桌面的导航。此外，我们还提供屏幕放大器来增加用户界面和屏幕元素的可读性。
 
 #### Orca 屏幕阅读器
 
-您可以从主 Raspberry Pi 菜单的推荐软件部分安装 Orca 屏幕阅读器。或者，按 Ctrl + Alt + Space 自动安装 Orca。
+您可以从主树莓派菜单的推荐软件部分安装 Orca 屏幕阅读器。或者，按 Ctrl + Alt + Space 自动安装 Orca。
 
 在安装新镜像后首次启动 Raspberry Pi OS 时，将在 30 秒后播放自动语音提醒。此提醒提供有关如何安装 Orca 的说明。
 
-## 在 Raspberry Pi 上使用 Python
+## 在树莓派上使用 Python
 
 
-Raspberry Pi OS 预装了 Python 3。干扰系统 Python 安装可能会导致操作系统出现问题。安装第三方 Python 库时，请始终使用正确的软件包管理工具。
+Raspberry Pi OS 预装了 Python 3。破坏系统安装的 Python 可能会导致操作系统出现问题。安装第三方 Python 库时，请始终使用正确的软件包管理工具。
 
 在 Linux 上，您可以通过两种方式安装 python 依赖项：
 
 * 使用 apt 来安装预配置的系统软件包
-* | 使用 pip 在虚拟环境中使用 Python 的依赖管理器安装库 | ||IMPORTANT|从 Raspberry Pi OS Bookworm 开始，您只能使用 pip 安装到 Python 虚拟环境（ venv ）。这一变化是由 Python 社区引入的，而不是由 Raspberry Pi 引入的：有关更多信息，请参阅 PEP 668。|
-  | -----------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+* 使用 pip 在虚拟环境中使用 Python 的依赖管理器安装库
+
+>**重要**
+>
+>从 Raspberry Pi OS Bookworm 开始，您只能使用 pip 安装到 Python 虚拟环境（ venv ）。这一变化是由 Python 社区引入的，而非树莓派：有关更多信息，请参阅 PEP 668。
+
 
 ### 使用 apt 安装 Python 软件包
 
-通过 apt 安装的软件包专门为 Raspberry Pi OS 打包。这些软件包通常是预编译的，因此安装速度更快。由于 apt 管理所有软件包的依赖关系，使用此方法安装将包括运行软件包所需的所有子依赖项。而 apt 确保您在卸载时不会破坏其他软件包。
-
-例如，要安装支持 Raspberry Pi Build HAT 的 Python 3 库，请运行以下命令：
+通过 apt 安装的软件包专门为 Raspberry Pi OS 打包。这些软件包通常是预编译的，因此安装速度更快。由于 apt 管理所有软件包的依赖关系，使用此方法安装将包括运行软件包所需的所有子依赖项。而 apt 确保您在卸载时不会破坏其他软件包
+例如，要安装支持树莓派 Build HAT 的 Python 3 库，请运行以下命令：
 
 ```
 $ sudo apt install python3-build-hat
 ```
 
-要查找与 apt 分发的 Python 包，请使用 apt search 。在大多数情况下，Python 包使用前缀 python- 或 python3- ：例如，您可以在名称为 python3-numpy 下找到 numpy 包。
+要查找使用 apt 分发的 Python 包，请使用 apt search 。在大多数情况下，Python 包使用前缀 python- 或 python3- ：例如，您可以在名称为 python3-numpy 下找到 numpy 包。
 
 ### 使用 pip 安装 Python 库
 
-#### 书虫更改为 pip 安装
+#### Bookworm 改为使用 pip 安装
 
-在旧版本的 Raspberry Pi OS 中，您可以直接将库安装到系统版本的 Python 中使用 pip 。自从 Raspberry Pi OS Bookworm 以来，用户无法直接将库安装到系统版本的 Python 中。
+在旧版本的 Raspberry Pi OS 中，您可以直接将库安装到系统版本的 Python 中使用 pip 。自从 Raspberry Pi OS Bookworm 以来，用户无法直接将库安装到系统版本的 Python。
 
-相反，将库安装到虚拟环境（ venv ）。要为所有用户在系统级别安装库，请使用 apt 安装。
+应该将库安装到虚拟环境（ venv ）。要为所有用户在系统级别安装库，请使用 apt 安装。
 
 尝试在系统范围内安装 Python 软件包会输出类似以下错误：
 
@@ -510,8 +516,9 @@ Python 用户长期以来一直在处理操作系统软件包管理器（ apt �
 $ python -m venv <env-name>
 ```
 
-| TIP | 在虚拟环境中将当前安装的所有软件包预加载到系统 Python 安装中的文件夹名称之前使用 --system-site-packages 标志。 |
-| ----- | ---------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>在虚拟环境中将当前安装的所有软件包预加载到系统 Python 安装中的文件夹名称之前需使用参数 --system-site-packages。
 
 然后，在虚拟环境配置文件夹中执行 bin/activate 脚本以进入虚拟环境：
 
@@ -537,7 +544,7 @@ pip        23.0.1
 setuptools 66.1.1
 ```
 
-列表应该比系统 Python 中安装的软件包列表要短得多。您现在可以安全地使用 pip 安装软件包。在虚拟环境中，使用 pip 安装的任何软件包都只安装到该虚拟环境中。在虚拟环境中， python 或 python3 命令会自动使用虚拟环境的 Python 版本和已安装的软件包，而不是系统 Python。
+列表应该比系统 Python 中安装的软件包列表要短得多。您现在可以安全地使用 pip 安装软件包。在虚拟环境中，使用 pip 安装的任何软件包都只安装到该虚拟环境中。在虚拟环境中， python 或 python3 命令会自动使用虚拟环境的 Python 版本和已安装的软件包，而非系统 Python。
 
 离开虚拟环境，请运行以下命令：
 
@@ -612,21 +619,21 @@ $ source ~/.env/bin/activate
 ## GPIO 和 40 针排针
 
  
-
-树莓派的一个强大功能是板子顶部沿边的 GPIO（通用输入/输出）引脚排列。所有当前的树莓派板子上都有一个 40 针的 GPIO 引脚排针，尽管在树莓派 Zero、树莓派 Zero W 和树莓派 Zero 2 W 上是未焊接的。所有板子上的 GPIO 引脚排针都是 0.1 英寸（2.54 毫米）的引脚间距。
+树莓派的一个强大功能是板子顶部沿边的 GPIO（通用输入/输出）引脚排列。所有当前的树莓派板子上都有一个 40 针的 GPIO 引脚排针（尽管在树莓派 Zero、树莓派 Zero W 和树莓派 Zero 2 W 上是未焊接的）。所有板子上的 GPIO 引脚排针的引脚间距都是 0.1 英寸（2.54 毫米）。
 
 ![GPIO pins](https://www.raspberrypi.com/documentation/computers/images/GPIO-Pinout-Diagram-2.png)
 
-任何 GPIO 引脚都可以在软件中指定为输入或输出引脚，并用于各种用途。
+所有 GPIO 引脚都可以在软件中指定为输入或输出引脚，并用于各种用途。
 
 ![GPIO layout](https://www.raspberrypi.com/documentation/computers/images/GPIO.png)
 
-| NOTE | GPIO 引脚编号方案不是按照数字顺序排列的。GPIO 引脚 0 和 1 存在于板子上（物理引脚 27 和 28），但保留用于高级用途。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>GPIO 引脚编号方案不是按照数字顺序排列的。GPIO 引脚 0 和 1 存在于板子上（物理引脚 27 和 28），但被保留用于高级用途。 
 
 ### 电压
 
-板上有两个 5V 引脚和两个 3.3V 引脚，以及若干接地引脚（GND），这些引脚无法重新配置。其余引脚都是通用的 3.3V 引脚，意味着输出设置为 3.3V，输入为 3.3V 容忍。
+板上有两个 5V 引脚和两个 3.3V 引脚，以及若干接地引脚（GND），这些引脚无法重新配置。其余引脚都是通用的 3.3V 引脚，意味着输出设置为 3.3V，输入为 3.3V 容忍（Tolerant）。
 
 ### 输出
 
@@ -641,31 +648,28 @@ $ source ~/.env/bin/activate
 除了简单的输入和输出设备外，GPIO 引脚还可以与各种替代功能一起使用。一些功能适用于所有引脚，而另一些功能适用于特定引脚：
 
 * PWM（脉冲宽度调制）
-
   * 所有引脚上都可用的软件 PWM
   * GPIO12、GPIO13、GPIO18、GPIO19 上可用的硬件 PWM
 * SPI
-
   * SPI0：MOSI（GPIO10）；MISO（GPIO9）；SCLK（GPIO11）；CE0（GPIO8），CE1（GPIO7）
   * SPI1：MOSI（GPIO20）；MISO（GPIO19）；SCLK（GPIO21）；CE0（GPIO18）；CE1（GPIO17）；CE2（GPIO16）
 * I2C
-
   * 数据：（GPIO2）；时钟（GPIO3）
   * EEPROM 数据：（GPIO0）；EEPROM 时钟（GPIO1）
 * 串行
-
   * TX（GPIO14）；RX（GPIO15）
 
 ### 查看您的 Raspberry Pi 的 GPIO 引脚布局
 
 通过打开终端窗口并运行命令 pinout ，可以访问 Raspberry Pi 上的 GPIO 参考。此工具由 GPIO Zero Python 库提供，默认情况下安装在 Raspberry Pi OS 中。
 
-| WARNING | 连接简单组件到 GPIO 引脚是安全的，但要小心如何连接它们。LED 应该有电阻器来限制通过它们的电流。不要为 3.3V 组件使用 5V。不要直接将电机连接到 GPIO 引脚，而是使用 H 桥电路或电机控制板。 |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**警告**
+>
+>将简单组件连接到 GPIO 引脚是安全的，但要小心如何连接它们。LED 应该有电阻器来限制通过它们的电流。不要让 3.3V 组件使用 5V。不要直接将电机连接到 GPIO 引脚，而应该使用 H 桥电路或电机控制板。 
 
 ### 权限
 
-为了使用 GPIO 端口，您的用户必须是 gpio 组的成员。默认用户帐户默认是成员，但您必须使用以下命令手动添加其他用户。
+为了使用 GPIO，您的用户必须是 gpio 组的成员。默认用户账户默认是成员，但您必须使用以下命令手动添加其他用户。
 
 ```
 $ sudo usermod -a -G gpio <username>
@@ -762,8 +766,8 @@ button.when_released = led.off
 
 #### 更进一步
 
-![](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)[https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)
+![](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)
 
-您可以在树莓派出版的书籍《使用 GPIO Zero 的简单电子学》中找到有关如何使用 GPIO Zero Python 库编程连接到您的树莓派的更多信息。该书籍通过 GPIO Zero 库帮助您入门，并通过构建一系列项目来指导您如何使用它。
+您可以在由树莓派出版的书籍《使用 GPIO Zero 的简单电子学》中找到有关如何使用 GPIO Zero Python 库编程连接到您的树莓派的更多信息。该书籍通过 GPIO Zero 库帮助您入门，并通过构建一系列项目来指导您如何使用它。
 
 您可以免费下载这本书的 PDF 文件，它是根据知识共享署名-非商业性使用-相同方式共享 3.0 国际许可发布的。
