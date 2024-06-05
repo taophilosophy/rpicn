@@ -142,7 +142,7 @@ SSH 允许您从另一台计算机远程访问树莓派的命令行。默认情�
 
 #### 超频
 
-如果您的 Raspberry Pi 型号允许，可以对 CPU 进行超频。超频潜力因个别 Raspberry Pi 设备而异，即使是同一型号也会有所不同。超频过高可能会导致不稳定。
+如果您的树莓派型号支持，可以对 CPU 进行超频。超频潜力因个别树莓派设备而异，即使是同一型号也会有所不同。超频过高可能会导致不稳定。
 
 >**警告**
 >
@@ -417,7 +417,7 @@ $ sudo raspi-config nonint do_vnc_resolution <width>x<height>
 
 启用或禁用复合视频输出。
 
-在 Raspberry Pi 4 上：
+在树莓派 4 上：
 
 ```
 $ sudo raspi-config nonint do_pi4video <V1/V2/V3>
@@ -442,7 +442,7 @@ $ sudo raspi-config nonint do_composite <0/1>
 
 使用 SSH 启用或禁用对树莓派的远程终端访问。
 
-SSH 允许您从另一台计算机远程访问 Raspberry Pi 的命令行。有关 SSH 的更多信息，请参阅 SSH 文档。
+SSH 允许您从另一台计算机远程访问树莓派的命令行。有关 SSH 的更多信息，请参阅 SSH 文档。
 
 ```
 $ sudo raspi-config nonint do_ssh <0/1>
@@ -532,12 +532,12 @@ $ sudo raspi-config nonint do_rgpio <0/1>
 
 #### 超频
 
-如果您的 Raspberry Pi 型号允许，可以对 CPU 进行超频。即使是相同型号的 Raspberry Pi 设备，超频潜力也会有所不同。超频过高可能会导致不稳定。
+如果您的树莓派型号允许，可以对 CPU 进行超频。即使是相同型号的树莓派设备，超频潜力也会有所不同。超频过高可能会导致不稳定。
 
 
 >**警告**
 >
->超频可能会缩短您的 Raspberry Pi 的使用寿命。如果在某个水平上超频导致系统不稳定，请尝试更温和的超频。在启动时按住 Shift 键可临时禁用超频。
+>超频可能会缩短您树莓派的使用寿命。如果在某个水平上超频导致系统不稳定，请尝试更温和的超频。在启动时按住 Shift 键可临时禁用超频。
 
 ```
 $ sudo raspi-config nonint do_overclock <setting>
@@ -572,7 +572,7 @@ $ sudo raspi-config nonint do_overlayfs <0/1>
 
 #### 风扇
 
-自定义 GPIO 连接的 Raspberry Pi 4 机箱风扇的行为。不影响 Raspberry Pi 5 机箱中的风扇或使用特殊四针风扇头连接的 Raspberry Pi 5 主动散热器。
+自定义 GPIO 连接的树莓派 4 机箱风扇的行为。不影响树莓派 5 机箱中的风扇或使用特殊四针风扇头连接的树莓派 5 主动散热器。
 
 ```
 $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
@@ -631,7 +631,7 @@ $ sudo raspi-config nonint do_wifi_country <country>
 
 #### 扩展文件系统
 
-将您的操作系统分区扩展到填满整个存储设备，为您提供更多用于文件的空间。重新启动 Raspberry Pi 以完成此操作。通常，Raspberry Pi OS 在第一次启动时运行此操作。如果您将操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能很有用。
+将您的操作系统分区扩展到填满整个存储设备，为您提供更多用于文件的空间。重启树莓派以完成此操作。通常，Raspberry Pi OS 在第一次启动时运行此操作。如果您将操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能很有用。
 
 >**警告**
 >
@@ -687,7 +687,7 @@ $ sudo raspi-config nonint do_boot_rom <E1/E2>
 
 #### Wayland
 
-在 X11 和 Wayland 后端之间切换。 Raspberry Pi 4 及更高版本默认使用 Wayland；其他型号的 Raspberry Pi 默认使用 X11。
+在 X11 和 Wayland 后端之间切换。树莓派 4 及更高版本默认使用 Wayland；其他型号的树莓派默认使用 X11。
 
 ```
 $ sudo raspi-config nonint do_wayland <W1/W2>
@@ -721,7 +721,7 @@ $ sudo raspi-config nonint do_update
 
 ## 显示
 
-要配置您的 Raspberry Pi 使用非默认显示模式，请手动设置分辨率或旋转。
+要配置您的树莓派使用非默认显示模式，请手动设置分辨率或旋转。
 
 ### 支持 HDMI 显示器
 
@@ -729,17 +729,17 @@ $ sudo raspi-config nonint do_update
 
 树莓派 Zero、Zero W 和 Zero 2 W 配备迷你 HDMI 端口，因此您需要迷你 HDMI 转全尺寸 HDMI 电缆或适配器。
 
-Raspberry Pi 4、Raspberry Pi 5 和 Raspberry Pi 400 都有两个 micro HDMI 端口，因此您需要为每个您希望连接的显示器准备一个 micro HDMI 转标准 HDMI 的线缆或适配器。在打开 Raspberry Pi 之前连接这些线缆。
+树莓派 4、树莓派 5 和树莓派 400 都有两个 micro HDMI 端口，因此您需要为每个您希望连接的显示器准备一个 micro HDMI 转标准 HDMI 的线缆或适配器。在打开树莓派之前连接这些线缆。
 
-Raspberry Pi 4 和 400 可以驱动高达 1080p 分辨率、60Hz 刷新率的两个显示器。这些设备支持两个 30Hz 刷新率的 4K 显示器。如果您将显示器连接到 HDMI0 端口并在 /boot/firmware/config.txt 中设置 hdmi_enable_4kp60=1 标志，还可以以 60Hz 刷新率驱动单个 4K 显示器。
+树莓派 4 和 400 可以驱动高达 1080p 分辨率、60Hz 刷新率的两个显示器。这些设备支持两个 30Hz 刷新率的 4K 显示器。如果您将显示器连接到 HDMI0 端口并在 /boot/firmware/config.txt 中设置 hdmi_enable_4kp60=1 标志，还可以以 60Hz 刷新率驱动单个 4K 显示器。
 
-Raspberry Pi 5 可以在无需额外配置的情况下以 60Hz 刷新率驱动两个 4K 分辨率的显示器。
+树莓派 5 可以在无需额外配置的情况下以 60Hz 刷新率驱动两个 4K 分辨率的显示器。
 
 ### 设置分辨率和旋转
 
 #### 通过桌面
 
-在 Raspberry Pi 桌面上，打开“首选项”菜单，然后选择“屏幕配置”实用程序。您应该看到连接到 Raspberry Pi 的显示器的图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭“屏幕配置”以保存更改。
+在树莓派桌面上，打开“首选项”菜单，然后选择“屏幕配置”实用程序。您应该看到连接到树莓派的显示器的图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭“屏幕配置”以保存更改。
 
 #### 通过 CLI
 
@@ -749,7 +749,7 @@ Raspberry Pi 5 可以在无需额外配置的情况下以 60Hz 刷新率驱动�
 $ arandr
 ```
 
-您应该看到连接到 Raspberry Pi 的显示器的图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭屏幕配置以保存更改。
+您应该看到连接到树莓派的显示器的图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭屏幕配置以保存更改。
 
 ### 手动设置分辨率和旋转
 
@@ -813,7 +813,7 @@ Wayland 支持以下 transform 选项：
 
 ### 控制台分辨率和旋转
 
-要在 Raspberry Pi 控制台模式下更改分辨率和旋转，请使用 KMS 设置。有关更多信息，请参阅配置内核命令行。
+要在树莓派控制台模式下更改分辨率和旋转，请使用 KMS 设置。有关更多信息，请参阅配置内核命令行。
 
 >**注意**
 >
@@ -867,11 +867,11 @@ Raspberry Pi OS 为设置无线连接提供了图形用户界面（GUI）。Rasp
 
 #### 通过桌面
 
-通过菜单栏右端的网络图标访问网络管理器。如果您使用带有内置无线连接功能的 Raspberry Pi，或者插入了无线适配器，则单击此图标即可显示可用无线网络列表。如果看到消息“未找到 AP - 正在扫描...”，请等待几秒钟，网络管理器应该会找到您的网络。
+通过菜单栏右端的网络图标访问网络管理器。如果您使用带有内置无线连接功能的树莓派，或者插入了无线适配器，则单击此图标即可显示可用无线网络列表。如果看到消息“未找到 AP - 正在扫描...”，请等待几秒钟，网络管理器应该会找到您的网络。
 
 >**注意**
 >
->支持双频无线的 Raspberry Pi 设备（Raspberry Pi 3B+、Raspberry Pi 4、Compute Module 4、Raspberry Pi 400 和 Raspberry Pi 5）会自动禁用网络，直到您分配一个无线局域网国家。要设置无线局域网国家，请从“首选项”菜单中打开 Raspberry Pi 配置应用程序，选择本地化，然后从菜单中选择您的国家。
+>支持双频无线的树莓派设备（树莓派 3B+、树莓派 4、计算模块 4、树莓派 400 和树莓派 5）会自动禁用网络，直到您分配一个无线局域网国家。要设置无线局域网国家，请从“首选项”菜单中打开树莓派配置应用程序，选择本地化，然后从菜单中选择您的国家。
 
 ![wifi2](https://www.raspberrypi.com/documentation/computers/images/wifi2.png)
 
@@ -895,7 +895,7 @@ Raspberry Pi OS 为设置无线连接提供了图形用户界面（GUI）。Rasp
 
 #### 通过命令行
 
-本指南将帮助您在 Raspberry Pi 上配置无线连接，而无需使用图形工具。不需要额外的软件。
+本指南将帮助您在树莓派上配置无线连接，而无需使用图形工具。不需要额外的软件。
 
 >**注意**
 >
@@ -955,7 +955,7 @@ $ sudo nmcli --ask dev wifi connect <example_ssid>
 
 在提示时输入您的网络密码。
 
-一旦您输入密码，您的 Raspberry Pi 应该会自动连接到网络。
+您输入密码后，您的树莓派应该会自动连接到网络。
 
 如果您看到错误输出，声称“需要密码，但未提供密码”，则表示您输入了错误的密码。请再次运行上述命令，仔细输入您的密码。
 
@@ -1003,7 +1003,7 @@ $ sudo nmcli --ask dev wifi connect <example_ssid> hidden yes
 
 ##### 设置网络优先级
 
-如果您的设备同时检测到多个已知网络，它可能会连接任何一个已检测到的已知网络。使用优先级选项来强制您的 Raspberry Pi 优先连接某些网络。您的设备将连接到具有最高优先级的范围内的网络。运行以下命令查看已知网络的优先级：
+如果您的设备同时检测到多个已知网络，它可能会连接任何一个已检测到的已知网络。使用优先级选项来强制让您的树莓派优先连接某些网络。您的设备将连接到具有最高优先级的范围内的网络。运行以下命令查看已知网络的优先级：
 
 ```
 $ nmcli --fields autoconnect-priority,name connection
@@ -1047,17 +1047,17 @@ AUTOCONNECT-PRIORITY  NAME
 
 ### 分配静态 IP 地址
 
-为了为您的 Raspberry Pi 分配静态 IP 地址，请在路由器上为其保留一个地址。您的 Raspberry Pi 将继续通过 DHCP 分配其地址，但每次都将收到相同的地址。可以通过在 DHCP 服务器中将 Raspberry Pi 的 MAC 地址与静态 IP 地址关联来分配“固定”地址。
+为了为您的树莓派分配静态 IP 地址，请在路由器上为其保留一个地址。您的树莓派将继续通过 DHCP 分配其地址，但每次都将收到相同的地址。可以通过在 DHCP 服务器中将树莓派的 MAC 地址与静态 IP 地址关联来分配“固定”地址。
 
 ## 屏幕空白
 
-您可以配置您的 Raspberry Pi 在一段时间内的不活动后将屏幕变暗。默认情况下，当启用屏幕空白时，Raspberry Pi OS 在不活动十分钟后将屏幕变暗。
+您可以配置您的树莓派在一段时间内的不活动后将屏幕变暗。默认情况下，当启用屏幕空白时，Raspberry Pi OS 在不活动十分钟后将屏幕变暗。
 
 ### 桌面
 
-您可以使用 Raspberry Pi 配置菜单中的屏幕空白选项来控制屏幕空白。
+您可以使用树莓派配置菜单中的屏幕空白选项来控制屏幕空白。
 
-#### Raspberry Pi 配置
+#### 配置树莓派
 
 单击菜单栏中的 Raspberry Pi 按钮。导航到首选项 > Raspberry Pi 配置。
 
@@ -1088,7 +1088,7 @@ dpms_timeout 变量控制了在 Raspberry Pi OS 在屏幕空白之前需要的�
 
 ### 控制台
 
-Raspberry Pi Configuration 使用的 dpms_timeout 屏幕空白配置仅影响桌面会话。在控制台模式下，当您的 Raspberry Pi 连接到仅有终端输入的监视器和键盘时，请在内核命令行中使用 consoleblank 设置。
+Raspberry Pi Configuration 使用的 dpms_timeout 屏幕空白配置仅影响桌面会话。在控制台模式下，当您的树莓派连接到仅有终端输入的监视器和键盘时，请在内核命令行中使用 consoleblank 设置。
 
 #### 设置控制台模式屏幕空白
 
@@ -1100,7 +1100,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 
 您可以在这里调整 Raspberry Pi OS 在空白控制台之前等待的秒数。例如，添加 consoleblank=600 以在 600 秒的不活动后禁用显示输出。将值设置为 0 以永远不要空白屏幕。
 
-更改 cmdline.txt 后，只有在重新启动后才会生效。使用以下命令重新启动您的 Raspberry Pi：
+更改 cmdline.txt 后，只有在重启后才会生效。使用以下命令重启您的树莓派：
 
 ```
 $ sudo reboot
@@ -1170,7 +1170,7 @@ $ sudo deluser -remove-home <username>
 
 ### 更改默认用户
 
-要更改在启动时自动登录到您的 Raspberry Pi 的用户，请运行以下命令：
+要更改在启动时自动登录到您树莓派的用户，请运行以下命令：
 
 ```
 $ sudo raspi-config
@@ -1180,13 +1180,13 @@ $ sudo raspi-config
 
 ## 外部存储
 
-您可以将外部硬盘、固态硬盘或 USB 闪存连接到 Raspberry Pi 上的任何 USB 端口，并挂载文件系统以访问其中存储的数据。
+您可以将外部硬盘、固态硬盘或 USB 闪存连接到树莓派上的任何 USB 端口，并挂载文件系统以访问其中存储的数据。
 
-默认情况下，您的 Raspberry Pi 会自动挂载一些流行的文件系统，如 FAT、NTFS 和 HFS+，位于 /media/pi/<HARD-DRIVE-LABEL> 位置。
+默认情况下，您的树莓派会自动挂载一些流行的文件系统，如 FAT、NTFS 和 HFS+，位于 /media/pi/<HARD-DRIVE-LABEL> 位置。
 
 >**注意**
 >
->Raspberry Pi OS Lite 不实现自动挂载。
+>Raspberry Pi OS Lite 不会自动挂载。
 
 要设置存储设备，使其始终挂载到您选择的特定位置，必须手动挂载。
 
@@ -1194,13 +1194,13 @@ $ sudo raspi-config
 
 您可以将存储设备挂载到特定文件夹位置。通常在 /mnt 文件夹中执行此操作，例如 /mnt/mydisk 。请注意，文件夹必须为空。
 
-将存储设备插入 Raspberry Pi 上的 USB 端口，并使用以下命令列出 Raspberry Pi 上的所有磁盘分区：
+将存储设备插入树莓派上的 USB 端口，并使用以下命令列出树莓派上的所有磁盘分区：
 
 ```
 $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
 ```
 
-Raspberry Pi 使用挂载点 / 和 /boot/firmware/ 。您的存储设备将显示在此列表中，以及任何其他连接的存储设备。
+树莓派使用挂载点 / 和 /boot/firmware/ 。您的存储设备将显示在此列表中，以及任何其他连接的存储设备。
 
 使用 SIZE、LABEL 和 MODEL 列来识别指向存储设备的磁盘分区的名称。例如， sda1 。FSTYPE 列包含文件系统类型。如果您的存储设备使用 exFAT 文件系统，请安装 exFAT 驱动程序：
 
@@ -1268,11 +1268,11 @@ UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 
 如果文件系统类型为 FAT 或 NTFS，请在 nofail 之后立即添加 ,umask=000 - 这将允许所有用户完全读写存储设备上的每个文件。
 
-现在您已在 fstab 中设置了一个条目，您可以启动带有或不带有存储设备的 Raspberry Pi。在拔下设备之前，您必须关闭 Raspberry Pi 或手动卸载它。
+现在您已在 fstab 中设置了一个条目，您可以启动带有或不带有存储设备的树莓派。在拔下设备之前，您必须关闭树莓派或手动卸载它。
 
 >**注意**
 >
->如果在 Raspberry Pi 启动时未连接存储设备，启动时间将额外需要 90 秒。您可以通过在 nofail 后立即添加 ,x-systemd.device-timeout=30 来缩短这个时间。这将把超时时间更改为 30 秒，这意味着系统只会等待 30 秒，然后放弃尝试挂载磁盘。
+>如果在树莓派启动时未连接存储设备，启动时间将额外需要 90 秒。您可以通过在 nofail 后立即添加 ,x-systemd.device-timeout=30 来缩短这个时间。这将把超时时间更改为 30 秒，这意味着系统只会等待 30 秒，然后放弃尝试挂载磁盘。
 
 
 要获取有关每个 Linux 命令的更多信息，请使用 man 命令查阅特定的手册页。例如， man fstab 。
@@ -1308,14 +1308,16 @@ $ lsof /mnt/mydisk
 
 ## 内核命令行（ cmdline.txt ）
 
-Linux 内核在启动时接受一组命令行参数。在 Raspberry Pi 上，这个命令行在引导分区中的一个文件中定义，称为 cmdline.txt 。您可以使用任何文本编辑器编辑此文本文件。
+Linux 内核在启动时接受一组命令行参数。在树莓派上，这个命令行在引导分区中的一个文件中定义，称为 cmdline.txt 。您可以使用任何文本编辑器编辑此文本文件。
 
 ```
 $ sudo nano /boot/firmware/cmdline.txt
 ```
 
-| IMPORTANT | 将所有参数放在同一行的 cmdline.txt 中。不要使用换行符。 |
-| ----------- | --------------------------------------------------------- |
+>**重要**
+>
+>将所有参数放在同一行的 cmdline.txt 中。不要使用换行符。
+
 
 要查看在启动时传递给内核的命令行，请运行以下命令：
 
@@ -1323,7 +1325,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 $ cat /proc/cmdline
 ```
 
-因为 Raspberry Pi 固件在启动内核之前对命令行进行更改，所以此命令的输出将不完全匹配 cmdline.txt 的内容。
+因为树莓派固件在启动内核之前对命令行进行更改，所以此命令的输出将不完全匹配 cmdline.txt 的内容。
 
 ### 命令行选项
 
@@ -1364,8 +1366,8 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 | 视频选项 | 显示                                                                   |
 | ---------- | ------------------------------------------------------------------------ |
-| `HDMI-A-1`         | HDMI 1（Raspberry Pi 4B 硅片上标注为 HDMI 0，单 HDMI 板上标注为 HDMI） |
-| `HDMI-A-2`         | HDMI 2（Raspberry Pi 4B 硅片上标注为 HDMI 1）                          |
+| `HDMI-A-1`         | HDMI 1（树莓派 4B 硅片上标注为 HDMI 0，单 HDMI 板上标注为 HDMI） |
+| `HDMI-A-2`         | HDMI 2（树莓派 4B 硅片上标注为 HDMI 1）                          |
 | `DSI-1`         | DSI 或 DPI                                                             |
 | `Composite-1`         | 复合                                                                   |
 
@@ -1377,7 +1379,7 @@ splash 告诉引导使用 Plymouth 模块显示启动画面。
 
 plymouth.ignore-serial-consoles 通常，如果启用了 Plymouth 模块，它将阻止任何串行控制台上出现启动消息。此标志告诉 Plymouth 忽略所有串行控制台，使启动消息再次可见，就像没有运行 Plymouth 时一样。
 
-dwc_otg.lpm_enable=0 关闭 Link Power Management（LPM）在 dwc_otg 驱动程序中的设置，该驱动程序驱动着嵌入在用于 Raspberry Pi 计算机的处理器中的 USB 控制器。在 Raspberry Pi 4 上，默认情况下禁用此控制器，并且仅连接到 USB Type C 电源输入连接器。Raspberry Pi 4 上的 USB-A 端口由另一个不受此设置影响的 USB 控制器驱动。
+dwc_otg.lpm_enable=0 关闭 Link Power Management（LPM）在 dwc_otg 驱动程序中的设置，该驱动程序驱动着嵌入在用于树莓派计算机的处理器中的 USB 控制器。在树莓派 4 上，默认情况下禁用此控制器，并且仅连接到 USB Type C 电源输入连接器。树莓派 4 上的 USB-A 端口由另一个不受此设置影响的 USB 控制器驱动。
 
 dwc_otg.speed 设置了树莓派计算机上内置处理器的 USB 控制器的速度。 dwc_otg.speed=1 将其设置为全速（USB 1.0），比高速（USB 2.0）慢。除非在解决 USB 设备问题时，否则不应设置此选项。
 
@@ -1387,17 +1389,17 @@ usbhid.mousepoll 指定鼠标轮询间隔。如果您遇到无线鼠标运行缓
 
 使用 drm.edid_firmware=HDMI-A-1:edid/your_edid.bin 覆盖您的显示器内置的 EDID 内容。
 
-## 本地化您的 Raspberry Pi
+## 本地化您的树莓派 Pi
 
 您可以使用 raspi-config 工具配置 Raspberry Pi OS 的 UI 语言、键盘布局和时区。
 
-## 保护您的 Raspberry Pi
+## 保护您的树莓派
 
-在这里，我们描述了一些提高您的 Raspberry Pi 安全性的常见方法。
+在这里，我们描述了一些提高您树莓派安全性的常见方法。
 
 ### 为 sudo 命令要求密码
 
-使用 sudo 前缀运行命令将其作为超级用户运行。默认情况下，这不需要密码。但是，您可以通过要求为所有使用 sudo 运行的命令输入密码来使您的 Raspberry Pi 更安全。
+使用 sudo 前缀运行命令将其作为超级用户运行。默认情况下，这不需要密码。但是，您可以通过要求为所有使用 sudo 运行的命令输入密码来使您的树莓派更安全。
 
 要强制 sudo 需要密码，请编辑您的用户帐户的 nopasswd sudoers 文件，将文件名中的 <username> 占位符替换为您的用户名：
 
@@ -1419,7 +1421,7 @@ $ sudo visudo /etc/sudoers.d/010_<username>-nopasswd
 
 ### 自动更新您的 SSH 服务器
 
-如果您使用 SSH 连接到您的 Raspberry Pi，添加一个 cron 工作可能是值得的，专门更新 SSH 服务器。 以下命令，可能作为每日 cron 工作运行，确保您及时获得最新的 SSH 安全修复程序，独立于您的正常更新过程。
+如果您使用 SSH 连接到您的树莓派，添加一个 cron 工作可能是值得的，专门更新 SSH 服务器。 以下命令，可能作为每日 cron 工作运行，确保您及时获得最新的 SSH 安全修复程序，独立于您的正常更新过程。
 
 ```
 $ apt install openssh-server
@@ -1427,7 +1429,7 @@ $ apt install openssh-server
 
 ### 改善 SSH 安全
 
-SSH 是远程访问 Raspberry Pi 的常用方式。默认情况下，SSH 需要用户名和密码。为了使 SSH 更加安全，请使用基于密钥的身份验证。
+SSH 是远程访问树莓派 的常用方式。默认情况下，SSH 需要用户名和密码。为了使 SSH 更加安全，请使用基于密钥的身份验证。
 
 #### 启用和禁用 SSH 用户
 
@@ -1457,7 +1459,7 @@ $ sudo systemctl restart ssh
 
 ### 使用防火墙
 
-Linux 有许多防火墙解决方案可用。大多数使用底层的 iptables 项目来提供数据包过滤。该项目位于 Linux netfiltering 系统之上。默认情况下，Raspberry Pi OS 上安装了 iptables ，但未设置。设置它可能是一项复杂的任务，一个比 iptables 提供更简单界面的项目是 Uncomplicated Firewall (UFW)。这是 Ubuntu 中的默认防火墙工具，可以安装在您的 Raspberry Pi 上：
+Linux 有许多防火墙解决方案可用。大多数使用底层的 iptables 项目来提供数据包过滤。该项目位于 Linux netfiltering 系统之上。默认情况下，Raspberry Pi OS 上安装了 iptables ，但未设置。设置它可能是一项复杂的任务，一个比 iptables 提供更简单界面的项目是 Uncomplicated Firewall (UFW)。这是 Ubuntu 中的默认防火墙工具，可以安装在您的树莓派上：
 
 ```
 $ sudo apt install ufw
@@ -1523,7 +1525,7 @@ $ sudo ufw deny from 192.168.2.1 port 30
 
 ### 使用 fail2ban 阻止可疑活动
 
-当将 Raspberry Pi 用作服务器时，您必须在防火墙中创建有意的漏洞以允许服务器流量。Fail2ban 可以帮助保护您的服务器。Fail2ban 检查日志文件并检查可疑活动，如多次暴力登录尝试。它可以帮助您避免手动检查入侵尝试的日志文件，然后通过 iptables 更新防火墙以阻止它们。
+当将树莓派用作服务器时，您必须在防火墙中创建有意的漏洞以允许服务器流量。Fail2ban 可以帮助保护您的服务器。Fail2ban 检查日志文件并检查可疑活动，如多次暴力登录尝试。它可以帮助您避免手动检查入侵尝试的日志文件，然后通过 iptables 更新防火墙以阻止它们。
 
 运行以下命令安装 fail2ban ：
 
@@ -1580,15 +1582,15 @@ maxretry = 3
 bantime  = -1
 ```
 
-## 设置无头 Raspberry Pi
+## 设置无头树莓派
 
-无头 Raspberry Pi 在没有显示器、键盘或鼠标的情况下运行。要无头运行 Raspberry Pi，您需要一种从另一台计算机访问它的方式。要远程访问您的 Raspberry Pi，您需要将 Raspberry Pi 连接到网络，并找到一种通过该网络访问 Raspberry Pi 的方式。
+无头树莓派在没有显示器、键盘或鼠标的情况下运行。要无头运行树莓派，您需要一种从另一台计算机访问它的方式。要远程访问您的树莓派，您需要将树莓派连接到网络，并找到一种通过该网络访问树莓派的方式。
 
-要将 Raspberry Pi 连接到网络，您可以通过以太网将设备插入有线连接，或配置无线网络。
+要将树莓派连接到网络，您可以通过以太网将设备插入有线连接，或配置无线网络。
 
-要通过该网络访问 Raspberry Pi，请使用 SSH。一旦通过 SSH 连接，您可以使用 raspi-config 来启用 VNC，如果您更喜欢图形桌面环境。
+要通过该网络访问树莓派，请使用 SSH。一旦通过 SSH 连接，您可以使用 raspi-config 来启用 VNC，如果您更喜欢图形桌面环境。
 
-如果您从头开始设置您的 Raspberry Pi，请在镜像过程中设置无线网络和 SSH。如果您已经设置好了 Raspberry Pi，您可以使用 raspi-config 配置 SSH。
+如果您从头开始设置您的树莓派，请在镜像过程中设置无线网络和 SSH。如果您已经设置好了树莓派，您可以使用 raspi-config 配置 SSH。
 
 >**警告**
 >
@@ -1596,11 +1598,11 @@ bantime  = -1
 
 ### 连接到有线网络
 
-首次启动时，要连接到有线网络，请通过以太网将您的无头 Raspberry Pi 连接，或者如果您的 Raspberry Pi 型号不包括以太网端口，则使用以太网适配器。您的 Raspberry Pi 将自动连接到网络。
+首次启动时，要连接到有线网络，请通过以太网将您的无头树莓派连接，或者如果您的树莓派没有以太网端口，则使用以太网适配器。您的树莓派将自动连接到网络。
 
 ### 连接到无线网络
 
-要在无头 Raspberry Pi 首次启动时配置无线网络访问，请使用 Raspberry Pi Imager 中的高级设置菜单。输入您首选无线网络的 SSID 和密码。您的 Raspberry Pi 将使用这些凭据在首次启动时连接到网络。一些无线适配器和一些 Raspberry Pi 板不支持 5GHz 网络；请查阅您的无线模块文档，以确保与您首选网络的兼容性。
+要在无头树莓派首次启动时配置无线网络访问，请使用 Raspberry Pi Imager 中的高级设置菜单。输入您首选无线网络的 SSID 和密码。您的树莓派将使用这些凭据在首次启动时连接到网络。某些无线适配器和某些树莓派开发板不支持 5GHz 网络；请查阅您的无线模块文档，以确保与您首选网络的兼容性。
 
 >**注意**
 >
@@ -1609,7 +1611,7 @@ bantime  = -1
 
 ### 远程访问
 
-没有键盘或显示器，您需要一种方法来远程控制您的无头 Raspberry Pi。在首次启动时，唯一的选项是 SSH。要在全新安装的 Raspberry Pi OS 上启用 SSH，请选择以下方法之一：
+没有键盘或显示器，您需要一种方法来远程控制您的无头树莓派。在首次启动时，唯一的选项是 SSH。要在全新安装的 Raspberry Pi OS 上启用 SSH，请选择以下方法之一：
 
 * 在 Raspberry Pi Imager 的 OS 自定义菜单中启用 SSH，然后输入用户名和密码
 * 在 SD 卡的根目录下创建一个名为 ssh 的文件，然后按照下面部分的说明手动配置一个用户 userconf.txt
@@ -1634,11 +1636,11 @@ $ openssl passwd -6
 
 在提示时输入密码并进行验证。然后，该命令将输出所提供密码的加密版本。
 
-## 从您的 Raspberry Pi 主机一个无线网络
+## 从您的树莓派主机一个无线网络
 
-您的 Raspberry Pi 可以使用无线模块主机自己的无线网络。如果您通过以太网端口（或第二个无线模块）将您的 Raspberry Pi 连接到互联网，连接到无线网络的其他设备可以通过您的 Raspberry Pi 访问互联网。
+您的树莓派可以使用无线模块主机自己的无线网络。如果您通过以太网端口（或第二个无线模块）将您的树莓派连接到互联网，连接到无线网络的其他设备可以通过您的树莓派访问互联网。
 
-考虑使用 10.x.x.x IP 块的有线网络。您可以将您的 Raspberry Pi 连接到该网络，并在使用另一个 IP 块的独立网络上为无线客户端提供服务，例如 192.168.x.x 。
+考虑使用 10.x.x.x IP 块的有线网络。您可以将您的树莓派连接到该网络，并在使用另一个 IP 块的独立网络上为无线客户端提供服务，例如 192.168.x.x 。
 
 在下面的图表中，请注意笔记本电脑存在于与路由器和有线客户端分开的 IP 块中：
 
@@ -1658,7 +1660,7 @@ $ openssl passwd -6
 $ sudo nmcli device wifi hotspot ssid <example-network-name> password <example-password>
 ```
 
-使用另一个无线客户端，如笔记本电脑或智能手机，连接到网络。查找一个 SSID 与 <example-network-name> 匹配的网络。输入您的网络密码，您应该成功连接到网络。如果您的 Raspberry Pi 通过以太网连接或第二个无线适配器访问互联网，您应该能够访问互联网。
+使用另一个无线客户端，如笔记本电脑或智能手机，连接到网络。查找一个 SSID 与 <example-network-name> 匹配的网络。输入您的网络密码，您应该成功连接到网络。如果您的树莓派通过以太网连接或第二个无线适配器访问互联网，您应该能够访问互联网。
 
 ### 禁用热点
 
@@ -1678,15 +1680,15 @@ $ sudo nmcli device up wlan0
 >
 >有关连接到无线网络的更多信息，请参阅配置网络。
 
-### 将您的 Raspberry Pi 用作网络桥接器
+### 将您的树莓派用作网络桥接器
 
-默认情况下，从您的 Raspberry Pi 托管的无线网络与通过以太网连接的父网络分开存在。在这种安排中，连接到父网络的设备无法直接与连接到您的 Raspberry Pi 托管的无线网络上的设备通信。如果您希望连接的无线设备能够与父网络上的设备通信，您可以将您的 Raspberry Pi 配置为网络桥接器。有了网络桥接器，连接到 Pi 托管的无线网络的每个设备都被分配一个父网络中的 IP 地址。
+默认情况下，从您的树莓派托管的无线网络与通过以太网连接的父网络分开存在。在这种安排中，连接到父网络的设备无法直接与连接到您的树莓派托管的无线网络上的设备通信。如果您希望连接的无线设备能够与父网络上的设备通信，您可以将您的树莓派配置为网络桥接器。有了网络桥接器，连接到 Pi 托管的无线网络的每个设备都被分配一个父网络中的 IP 地址。
 
 在下面的图表中，笔记本电脑存在于与路由器和有线客户端相同的 IP 块中：
 
 ![bridge network](https://www.raspberrypi.com/documentation/computers/images/bridge-network.png)
 
-以下步骤描述了如何在您的 Raspberry Pi 上设置网络桥接，以实现无线客户端和父网络之间的通信。
+以下步骤描述了如何在您的树莓派上设置网络桥接，以实现无线客户端和父网络之间的通信。
 
 首先，创建一个网络桥接口：
 
@@ -1738,16 +1740,16 @@ $ sudo nmcli connection up Hotspot
 
 ## 使用代理服务器
 
-代理服务器充当客户端设备和互联网之间的中介。要将您的 Raspberry Pi 配置为代理服务器客户端，请按照本节中的说明操作。
+代理服务器充当客户端设备和互联网之间的中介。要将您的树莓派配置为代理服务器客户端，请按照本节中的说明操作。
 
  您将需要：
 
 * 代理服务器的 IP 地址或主机名和端口
 * 如果需要，为您的代理设置用户名和密码
 
-### 配置您的 Raspberry Pi
+### 配置您的树莓派
 
-您需要设置三个环境变量（ http_proxy ， https_proxy 和 no_proxy ），以便您的 Raspberry Pi 知道如何访问代理服务器。
+您需要设置三个环境变量（ http_proxy ， https_proxy 和 no_proxy ），以便您的树莓派知道如何访问代理服务器。
 
 打开终端窗口，并使用 nano 打开文件 /etc/environment ：
 
@@ -1775,7 +1777,7 @@ export http_proxy="http://<username>:<password>@proxyipaddress:proxyport"
 export https_proxy="http://username:password@proxyipaddress:proxyport"
 ```
 
-创建 no_proxy 环境变量，这是一个逗号分隔的地址列表，您的 Raspberry Pi 不应该使用代理。
+创建 no_proxy 环境变量，这是一个逗号分隔的地址列表，您的树莓派不应该使用代理。
 
 ```
 export no_proxy="localhost, 127.0.0.1"
@@ -1809,15 +1811,15 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 按下 Ctrl + X 保存并退出。
 
-### 重新启动您的 Raspberry Pi
+### 重启您的树莓派
 
-重新启动您的 Raspberry Pi 以使更改生效。现在您应该能够通过代理服务器访问互联网。
+重启您的树莓派以使更改生效。现在您应该能够通过代理服务器访问互联网。
 
 ## boot 文件夹内容
 
 Raspberry Pi OS 将引导文件存储在 SD 卡的第一个分区上，使用 FAT 文件系统格式化。
 
-在启动时，每个 Raspberry Pi 从引导分区加载各种文件，以便在 Linux 内核启动之前启动各个处理器。
+在启动时，每个树莓派从引导分区加载各种文件，以便在 Linux 内核启动之前启动各个处理器。
 
 在启动时，Linux 将引导分区挂载为 /boot/firmware/ 。
 
@@ -1843,11 +1845,11 @@ start_db.elf 用于调试。
 
 start_cd.elf 是固件的精简版本，移除了对硬件块（如编解码器和 3D）以及调试日志支持的支持；它还施加了初始帧缓冲区限制。当在 config.txt 中指定 gpu_mem=16 时，将自动使用精简固件。
 
-start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对 Raspberry Pi 4 系列（4B 型号，Pi 400，计算模块 4 和计算模块 4S）特定固件文件。
+start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 4 系列（4B 型号，Pi 400，计算模块 4 和计算模块 4S）特定固件文件。
 
 要了解如何使用这些文件的更多信息，请参阅 config.txt 文档。
 
-Raspberry Pi 5 不使用 elf 文件。固件被包含在引导加载程序 EEPROM 中。
+树莓派 5 不使用 elf 文件。固件被包含在引导加载程序 EEPROM 中。
 
 ### `fixup*.dat`
 
@@ -1861,8 +1863,9 @@ Raspberry Pi 5 不使用 elf 文件。固件被包含在引导加载程序 EEPRO
 
 包含许多用于设置树莓派的配置参数。有关更多信息，请参阅 config.txt 文档。
 
-| IMPORTANT | Raspberry Pi 5 需要在启动分区中有一个非空 config.txt 文件。 |
-| ----------- | ------------------------------------------------------------- |
+>**重要**
+>
+>树莓派 5 需要在启动分区中有一个非空 config.txt 文件。 
 
 ### `issue.txt`
 
@@ -1880,11 +1883,11 @@ Raspberry Pi 5 不使用 elf 文件。固件被包含在引导加载程序 EEPRO
 
 ### 设备树 blob 文件（ *.dtb ）
 
-设备树 blob 文件包含各种型号的 Raspberry Pi 的硬件定义。这些文件根据检测到的 Raspberry Pi 型号在启动时设置内核。
+设备树 blob 文件包含各种型号的树莓派的硬件定义。这些文件根据检测到的树莓派型号在启动时设置内核。
 
 ### 内核文件（ *.img ）
 
-相应于 Raspberry Pi 型号的各种内核映像文件：
+相应于树莓派型号的各种内核映像文件：
 
 | 文件名 | 处理器                    | 树莓派型号                                                                     | 笔记                                             |
 | -------- | --------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -1904,7 +1907,7 @@ Raspberry Pi 5 不使用 elf 文件。固件被包含在引导加载程序 EEPRO
 
 ## LED 警告闪烁代码
 
-如果 Raspberry Pi 由于某种原因无法启动，或者必须关闭，在许多情况下，LED 将闪烁特定次数以指示发生了什么。LED 将闪烁一定数量的长闪烁（0 或更多次），然后产生短闪烁，以指示确切状态。在大多数情况下，该模式将在两秒间隔后重复。
+如果树莓派由于某种原因无法启动，或者必须关闭，在许多情况下，LED 将闪烁特定次数以指示发生了什么。LED 将闪烁一定数量的长闪烁（0 或更多次），然后产生短闪烁，以指示确切状态。在大多数情况下，该模式将在两秒间隔后重复。
 
 | 长闪烁 | 短闪烁 | 状态                               |
 | -------- | -------- | ------------------------------------ |
@@ -1984,7 +1987,7 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 
 在树莓派上，选择一个 UART 位于 GPIO 14（发送）和 15（接收） - 这是主 UART。默认情况下，这也将是 Linux 控制台可能存在的 UART。请注意，GPIO 14 是 GPIO 引脚上的引脚 8，而 GPIO 15 是引脚 10。
 
-在 Raspberry Pi 5 上，主 UART 出现在调试标头上。
+在树莓派 5 上，主 UART 出现在调试标头上。
 
 ### 次要 UART
 
@@ -1992,7 +1995,7 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 
 ### 主要和次要 UART
 
-以下表格总结了各种 Raspberry Pi 设备上 UART 的分配：
+以下表格总结了各种树莓派设备上 UART 的分配：
 
 | 型号                            | 主/控制台 | 次要/蓝牙 |
 | --------------------------------- | ----------- | ----------- |
@@ -2017,7 +2020,7 @@ Raspberry Pi OS 上的 Linux 设备：
 
 /dev/serial0 和 /dev/serial1 是符号链接，指向 /dev/ttyS0 或 /dev/ttyAMA0 之一。
 
-在 Raspberry Pi 5 上， /dev/serial0 是一个指向 /dev/ttyAMA10 的符号链接。
+在树莓派 5 上， /dev/serial0 是一个指向 /dev/ttyAMA10 的符号链接。
 
 由于 Bookworm 的更改， /dev/serial1 默认情况下不存在。您可以通过在 config.txt 中设置以下值来重新启用 serial1 ：
 
@@ -2035,7 +2038,7 @@ dtparam=krnbt=off
 >
 > 如果迷你 UART 是主要的，或者蓝牙被禁用，则默认情况下禁用迷你 UART。 
 
-为了使用迷你 UART，您需要配置 Raspberry Pi 以使用固定的 VPU 核心时钟频率。这是因为迷你 UART 时钟与 VPU 核心时钟相连，因此当核心时钟频率发生变化时，UART 波特率也会发生变化。可以将 enable_uart 和 core_freq 设置添加到 config.txt 中，以更改迷你 UART 的行为。以下表总结了可能的组合：
+为了使用迷你 UART，您需要配置树莓派以使用固定的 VPU 核心时钟频率。这是因为迷你 UART 时钟与 VPU 核心时钟相连，因此当核心时钟频率发生变化时，UART 波特率也会发生变化。可以将 enable_uart 和 core_freq 设置添加到 config.txt 中，以更改迷你 UART 的行为。以下表总结了可能的组合：
 
 | 迷你 UART 设置为 | 核心时钟                      | 结果                                                                                 |
 | ------------------ | ------------------------------- | -------------------------------------------------------------------------------------- |
@@ -2060,7 +2063,7 @@ enable_uart 标志的默认状态取决于哪个 UART 是主 UART：
 * 选择选项 P6 - 串行端口
 * 在提示符 Would you like a login shell to be accessible over serial? 处，回答'否'
 * 在提示符 Would you like the serial port hardware to be enabled? 处，回答“是”
-* 退出 raspi-config 并重新启动 Raspberry Pi 以使更改生效
+* 退出 raspi-config 并重启树莓派以使更改生效
 
 ### 启用 Linux 的早期控制台
 
@@ -2079,14 +2082,14 @@ earlycon=uart8250,mmio32,0xfe215040
 earlycon=pl011,mmio32,0xfe201000
 ```
 
-适用于 Raspberry Pi 2、Pi 3 和 Compute Module 3：
+适用于树莓派 2、Pi 3 和计算模块 3：
 
 ```
 earlycon=uart8250,mmio32,0x3f215040
 earlycon=pl011,mmio32,0x3f201000
 ```
 
-适用于 Raspberry Pi 1、Pi Zero 和 Compute Module 1：
+适用于树莓派 1、Pi Zero 和 Compute Module 1：
 
 ```
 earlycon=uart8250,mmio32,0x20215040
@@ -2097,7 +2100,7 @@ earlycon=pl011,mmio32,0x20201000
 
 >**注意**
 >
->选择错误的早期控制台可能会阻止 Raspberry Pi 启动。 
+>选择错误的早期控制台可能会妨碍树莓派启动。 
 
 ### UART 和设备树
 
@@ -2107,7 +2110,7 @@ disable-bt 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主 UAR
 
 miniuart-bt 将蓝牙功能切换到使用迷你 UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关迷你 UART 限制的内容）。您还必须使用 force_turbo=1 或 core_freq=250 将 VPU 核心时钟设置为固定频率。
 
-叠加层 uart2 、 uart3 、 uart4 和 uart5 用于在 Raspberry Pi 4 上启用四个额外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 /boot/firmware/overlays/README ，或运行 dtoverlay -h overlay-name 查看描述和使用信息。
+叠加层 uart2 、 uart3 、 uart4 和 uart5 用于在树莓派 4 上启用四个额外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 /boot/firmware/overlays/README ，或运行 dtoverlay -h overlay-name 查看描述和使用信息。
 
 向 config.txt 文件添加一行以应用设备树叠加。请注意，文件名的 -overlay.dts 部分将被移除。例如：
 
@@ -2134,7 +2137,7 @@ PL011 UART 和 mini-UART 之间存在一些差异。
 
 ## 设备树、叠加和参数
 
-Raspberry Pi 内核和固件使用设备树（DT）来描述硬件。这些设备树可能包括用于控制板载功能的 DT 参数。DT 叠加层允许描述和配置可选外部硬件，并支持更多控制参数。
+树莓派内核和固件使用设备树（DT）来描述硬件。这些设备树可能包括用于控制板载功能的 DT 参数。DT 叠加层允许描述和配置可选外部硬件，并支持更多控制参数。
 
 固件加载程序（ start.elf 及其变体）负责加载 DTB（设备树块 - 一种机器可读的 DT 文件）。它根据板的修订号选择要加载的 DTB，并进行修改以进一步定制。这种运行时定制避免了许多只有细微差异的 DTB 的需求。
 
@@ -2276,7 +2279,7 @@ Phandles 是分配给节点的唯一 32 位整数，在其 phandle 属性中。�
 
 需要的是一种方法来描述这些可选组件，使用部分设备树，然后通过采用基本 DT 并添加一些可选元素来构建完整的树。您可以这样做，这些可选元素称为"叠加"。
 
-除非您想要学习如何为 Raspberry Pi 编写叠加，否则您可能更喜欢跳转到使用设备树。
+除非您想要学习如何为树莓派编写叠加，否则您可能更喜欢跳转到使用设备树。
 
 #### 片段
 
@@ -2326,7 +2329,7 @@ DT 叠加层包含多个片段，每个片段都针对一个节点及其子节�
 
 使用足够新版本的 dtc ，您可以按照上述示例编写并获得相同的输出，但一些自制工具尚不理解这种格式。目前，应将希望包含在标准 Raspberry Pi OS 内核中的任何叠加层以旧格式编写。
 
-将该叠加层与标准 Raspberry Pi 基础设备树（例如 bcm2708-rpi-b-plus.dtb ）合并的效果，前提是叠加层在之后加载，将启用 I2S 接口，将其状态更改为 okay 。但是，如果尝试使用以下方式编译此叠加层：
+将该叠加层与标准树莓派基础设备树（例如 bcm2708-rpi-b-plus.dtb ）合并的效果，前提是叠加层在之后加载，将启用 I2S 接口，将其状态更改为 okay 。但是，如果尝试使用以下方式编译此叠加层：
 
 ```
 $ dtc -I dts -O dtb -o 2nd.dtbo 2nd-overlay.dts
@@ -2414,7 +2417,7 @@ $ fdtdump 1st.dtbo
 
 #### 设备树参数
 
-为了避免需要大量的设备树叠加，减少外围设备用户修改 DTS 文件的需要，Raspberry Pi 加载程序支持一项新功能 - 设备树参数。这允许使用命名参数对 DT 进行小的更改，类似于内核模块从 modprobe 和内核命令行接收参数的方式。参数可以由基本 DTBs 和叠加暴露，包括 HAT 叠加。
+为了避免需要大量的设备树叠加，减少外围设备用户修改 DTS 文件的需要，树莓派加载程序支持一项新功能 - 设备树参数。这允许使用命名参数对 DT 进行小的更改，类似于内核模块从 modprobe 和内核命令行接收参数的方式。参数可以由基本 DTBs 和叠加暴露，包括 HAT 叠加。
 
 通过在根节点添加一个 **overrides** 节点来定义参数。它包含属性，其名称是选择的参数名称，其值是一个序列，包括目标节点的 phandle（对标签的引用）和指示目标属性的字符串；支持字符串、整数（单元）和布尔属性。
 
@@ -2619,7 +2622,7 @@ name 属性是一个伪属性 - 它不应出现在 DT 中，但是对其赋值�
 };
 ```
 
-每个节点都有一个需要特殊处理的叠加名称。每个节点的属性要么是平台名称，要么是少数几个特殊指令之一。当前支持的平台有 bcm2835 ，其中包括所有围绕 BCM2835、BCM2836 和 BCM2837 SoCs 构建的 Raspberry Pi， bcm2711 适用于 Raspberry Pi 4B、400 和 CM4， bcm2712 适用于 Raspberry Pi 5 和 CM5。
+每个节点都有一个需要特殊处理的叠加名称。每个节点的属性要么是平台名称，要么是少数几个特殊指令之一。当前支持的平台有 bcm2835 ，其中包括所有围绕 BCM2835、BCM2836 和 BCM2837 SoCs 构建的树莓派， bcm2711 适用于树莓派 4B、400 和 CM4， bcm2712 适用于树莓派 5 和 CM5。
 
 没有值的平台名称（空属性）表示当前叠加与该平台兼容；例如， uart5 与 bcm2711 平台兼容。对于平台的非空值是要使用的替代叠加的名称，请求在 BCM2712 上使用 disable-bt 会导致加载 disable-bt-pi5 。未在叠加节点中包含的任何平台都与该叠加不兼容。未在映射中提到的任何叠加都假定与所有平台兼容。
 
@@ -2739,11 +2742,11 @@ dtoverlay 和 dtmerge 实用程序已扩展以支持映射文件：
 
 这种拆分对于运行时叠加特别重要，因为第一步发生在 dtoverlay 实用程序中，第二步由内核执行（无法处理内部叠加片段）。
 
-### 在 Raspberry Pi 上使用设备树
+### 在树莓派上使用设备树
 
 #### DTBs，叠加和 config.txt
 
-在 Raspberry Pi 上，加载程序（其中之一是 start.elf 图像）的工作是将叠加与适当的基础设备树结合，然后将完全解析的设备树传递给内核。基础设备树位于 FAT 分区中与 start.elf 相邻（从 Linux /boot/firmware/ ），命名为 bcm2711-rpi-4-b.dtb ， bcm2710-rpi-3-b-plus.dtb ，等等。请注意，一些型号（3A+，A，A+）将使用“b” 等效型号（3B+，B，B+），分别。此选择是自动的，并允许在各种设备中使用相同的 SD 卡映像。
+在树莓派上，加载程序（其中之一是 start.elf 图像）的工作是将叠加与适当的基础设备树结合，然后将完全解析的设备树传递给内核。基础设备树位于 FAT 分区中与 start.elf 相邻（从 Linux /boot/firmware/ ），命名为 bcm2711-rpi-4-b.dtb ， bcm2710-rpi-3-b-plus.dtb ，等等。请注意，一些型号（3A+，A，A+）将使用“b” 等效型号（3B+，B，B+），分别。此选择是自动的，并允许在各种设备中使用相同的 SD 卡映像。
 
 >**注意**
 >
@@ -2807,9 +2810,9 @@ dtoverlay=
 
 #### 特定于板的标签和参数
 
-Raspberry Pi 板有两个 I2C 接口。这些通常分为：一个用于 ARM，一个用于 VideoCore（GPU）。在几乎所有型号上， i2c1 属于 ARM， i2c0 属于 VC，用于控制摄像头并读取 HAT EEPROM。然而，有两个早期版本的 Model B 角色相反。
+树莓派开发板有两个 I2C 接口。这些通常分为：一个用于 ARM，一个用于 VideoCore（GPU）。在几乎所有型号上， i2c1 属于 ARM， i2c0 属于 VC，用于控制摄像头并读取 HAT EEPROM。然而，有两个早期版本的 Model B 角色相反。
 
-为了使所有 Raspberry Pi 都能使用一组叠加和参数，固件创建了一些特定于板的 DT 参数。这些是：
+为了使所有树莓派都能使用一组叠加和参数，固件创建了一些特定于板的 DT 参数。这些是：
 
 ```
 i2c/i2c_arm
@@ -2818,7 +2821,7 @@ i2c_baudrate/i2c_arm_baudrate
 i2c_vc_baudrate
 ```
 
-这些是 i2c0 ， i2c1 ， i2c0_baudrate 和 i2c1_baudrate 的别名。建议仅在确实需要时使用 i2c_vc 和 i2c_vc_baudrate - 例如，如果您正在编程 HAT EEPROM（最好使用 i2c-gpio 叠加层使用软件 I2C 总线）。启用 i2c_vc 可能会导致 Raspberry Pi 相机或 Raspberry Pi 触摸显示屏无法正常工作。
+这些是 i2c0 ， i2c1 ， i2c0_baudrate 和 i2c1_baudrate 的别名。建议仅在确实需要时使用 i2c_vc 和 i2c_vc_baudrate - 例如，如果您正在编程 HAT EEPROM（最好使用 i2c-gpio 叠加层使用软件 I2C 总线）。启用 i2c_vc 可能会导致树莓派相机或树莓派触摸显示屏无法正常工作。
 
 对于编写叠加层的人，相同的别名已应用于 I2C DT 节点上的标签。因此，您应该编写：
 
@@ -2835,13 +2838,13 @@ fragment@0 {
 
 #### HATs 和设备树
 
-Raspberry Pi HAT 是一个带有嵌入式 EEPROM 的附加板，专为具有 40 针引脚头的 Raspberry Pi 设计。EEPROM 包括启用板（或要从文件系统加载的叠加的名称）所需的任何 DT 叠加层，此叠加层还可以公开参数。
+Raspberry Pi HAT 是一个带有嵌入式 EEPROM 的附加板，专为具有 40 针引脚头的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加的名称）所需的任何 DT 叠加层，此叠加层还可以公开参数。
 
 HAT 叠加层在基本 DTB 之后由固件自动加载，因此其参数可在加载任何其他叠加层之前访问，或者在使用 dtoverlay= 结束叠加层范围之前访问。如果出于某种原因您想要抑制 HAT 叠加层的加载，请在任何其他 dtoverlay 或 dtparam 指令之前放置 dtoverlay= 。
 
 #### 动态设备树
 
-从 Linux 4.4 开始，Raspberry Pi 内核支持动态加载叠加和参数。兼容内核管理一个叠加的堆栈，这些叠加叠加在基本 DTB 之上。更改立即反映在 /proc/device-tree 中，可能导致模块被加载和平台设备被创建和销毁。
+从 Linux 4.4 开始，树莓派内核支持动态加载叠加和参数。兼容内核管理一个叠加的堆栈，这些叠加叠加在基本 DTB 之上。更改立即反映在 /proc/device-tree 中，可能导致模块被加载和平台设备被创建和销毁。
 
 上面提到的“堆栈”一词很重要 - 叠加只能在堆栈顶部添加和移除；更改堆栈中较低位置的内容需要首先移除其顶部的任何内容。
 
@@ -2914,9 +2917,9 @@ os_prefix （字符串）由 config.txt 选择的 os_prefix 字符串。
 
 rpi-boardrev-ext 来自 OTP 行 33 的扩展板修订代码。
 
-rpi-country-code PiWiz 使用的国家代码。仅适用于 Raspberry Pi 400。
+rpi-country-code PiWiz 使用的国家代码。仅适用于树莓派 400。
 
-rpi-duid （字符串）仅适用于 Raspberry Pi 5。PCB 上 QR 码的字符串表示。
+rpi-duid （字符串）仅适用于树莓派 5。PCB 上 QR 码的字符串表示。
 
 #### 通用引导加载程序属性 /chosen/bootloader
 
@@ -2932,11 +2935,11 @@ tryboot 如果在启动时设置了 tryboot 标志，则设置为 1 。
 
 #### 电源供应属性 /chosen/power
 
-仅适用于 Raspberry Pi 5。除非另有说明，否则每个属性均存储为 32 位整数。
+仅适用于树莓派5。除非另有说明，否则每个属性均存储为 32 位整数。
 
 max_current 电源供应器可以提供的最大电流（以毫安为单位）。固件报告由 USB-C、USB-PD 或 PoE 接口指示的值。对于台式电源供应器（例如连接到 GPIO 标头），请在引导加载程序配置中定义 PSU_MAX_CURRENT 以指示电源供应器的电流能力。
 
-power_reset 仅适用于 Raspberry Pi 5。一个位字段，指示 PMIC 被重置的原因。
+power_reset 仅适用于树莓派 5。一个位字段，指示 PMIC 被重置的原因。
 
 | 位 | 原因     |
 | ---- | ---------- |
@@ -2946,7 +2949,7 @@ power_reset 仅适用于 Raspberry Pi 5。一个位字段，指示 PMIC 被重�
 | 3  | 启用信号 |
 | 4  | 看门狗   |
 
-rpi_power_supply （两个 32 位整数）官方 Raspberry Pi 27W 电源适配器的 USB VID 和 Product VDO（如果连接）。
+rpi_power_supply （两个 32 位整数）官方树莓派 27W 电源适配器的 USB VID 和 Product VDO（如果连接）。
 
 usb_max_current_enable 如果 USB 端口电流限制器在启动时设置为低限，则为零；如果启用了高限，则为非零。如果电源适配器声称最大电流为 5A 或者在 config.txt 中强制使用 usb_max_current_enable=1 ，则自动启用高电平。
 
@@ -3253,7 +3256,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 ### dt-blob 的各个部分
 
-dt-blob.bin 用于在启动时配置二进制块（VideoCore）。Linux 内核目前不使用它。dt-blob 可以配置所有版本的 Raspberry Pi，包括计算模块，以使用替代设置。dt-blob 中以下部分有效：
+dt-blob.bin 用于在启动时配置二进制块（VideoCore）。Linux 内核目前不使用它。dt-blob 可以配置所有版本的树莓派，包括计算模块，以使用替代设置。dt-blob 中以下部分有效：
 
 #### `videocore`
 
@@ -3261,7 +3264,7 @@ dt-blob.bin 用于在启动时配置二进制块（VideoCore）。Linux 内核�
 
 #### `pins_*`
 
-有许多单独的 pins_* 部分，基于特定的 Raspberry Pi 型号，即：
+有许多单独的 pins_* 部分，基于特定的树莓派型号，即：
 
 * pins_rev1 ：Rev1 引脚设置。由于移动的 I2C 引脚，存在一些差异。
 * pins_rev2 ：Rev2 引脚设置。这包括 P5 上的附加编解码器引脚。
