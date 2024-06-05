@@ -4,8 +4,9 @@
 
 ## `raspi-config`
 
-| TIP | 树莓派桌面用户可以在“首选项”>“树莓派配置”中访问此应用程序的图形版本。但是，一些高级配置仅在 raspi-config 中可用。 |
-| ----- | ----------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>树莓派桌面用户可以在“首选项”>“树莓派配置”中访问此应用程序的图形版本。但是，一些高级配置仅在 raspi-config 中可用。 
 
 raspi-config 可帮助您配置您的树莓派。不同树莓派型号之间的可用选项可能有所不同。要打开配置工具，请运行以下命令：
 
@@ -19,12 +20,13 @@ $ sudo raspi-config
 
 使用上下箭头键在可用选项之间移动突出显示的选择。
 
-按右箭头键或按 Tab 键访问 `<Select>` 和 `<Finish>` 按钮。按左箭头键或按 Tab 键返回选项。
+按右箭头键或按 Tab 键选择 `<Select>` 和 `<Finish>` 按钮。按左箭头键或按 Tab 键返回选项。
 
-raspi-config 自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件。某些选项需要重新启动才能生效。如果您更改了其中任何一个， raspi-config 在退出时会要求您重新启动。
+raspi-config 可自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件。某些选项需要重新启动才能生效。如果您更改了其中任何一个， raspi-config 在退出时会要求您重新启动。
 
-| TIP | 在选项值的长列表中（比如时区城市列表），输入一个字母以跳转到列表的相应部分。例如，输入 L 以跳转到里斯本。 |
-| ----- | ----------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>在选项值的长列表中（比如时区城市列表），输入单个字母会跳转到列表的相应部分。例如，输入 L 可跳转到里斯本。 
 
 ### 系统选项
 
@@ -38,7 +40,7 @@ raspi-config 自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件
 
 #### 音频
 
-指定音频输出目的地。
+指定音频输出位置。
 
 #### 密码
 
@@ -48,7 +50,7 @@ raspi-config 自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件
 
 #### 主机名
 
-在网络上为此 Raspberry Pi 设置可见的 mDNS 名称。
+在网络上为树莓派设置可见的 mDNS 域名。
 
 #### 启动/自动登录
 
@@ -64,7 +66,7 @@ raspi-config 自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件
 
 #### 电源 LED
 
-如果您的 Raspberry Pi 模型允许，可以更改电源 LED 的行为。
+如果您的树莓派型号支持，可以更改电源 LED 的行为。
 
 #### 浏览器
 
@@ -74,30 +76,31 @@ raspi-config 自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件
 
 ![raspi-config display options](https://www.raspberrypi.com/documentation/computers/images/raspi-display.png)
 
-#### Underscan
+#### Underscan（欠扫描）
 
-| NOTE | 运行 Wayland 时不可用。 |
-| ------ | ------------------------- |
+>**注意**
+>
+>Wayland 下不可用。 
 
-如果屏幕上显示的初始文本消失在边缘，启用超扫描以调整边框。在某些显示器上，特别是监视器上，禁用超扫描将使图像填满整个屏幕并去除黑边。
+如果屏幕上显示的初始文本消失在边缘，启用过扫描（overscan）以调整边框。在某些显示器上，特别是监视器上，禁用过扫描将使图像填满整个屏幕并去除黑边。
 
-#### 屏幕空白
+#### Screen blanking（屏幕空白）
 
 启用或禁用屏幕空白。
 
-#### VNC 分辨率
+#### VNC resolution（VNC 分辨率）
 
 定义在无头设置中使用的视频分辨率。
 
-#### 复合
+#### Composite（复合）
 
 启用或禁用复合视频。
 
 #### 4Kp60 HDMI
 
-启用或禁用 HDMI 输出的 4Kp60 分辨率。
+启用或禁用 HDMI 的 4Kp60 分辨率输出。
 
-### 接口选项
+### 接口参数
 
 启用和禁用各种物理和虚拟接口。
 
@@ -105,9 +108,9 @@ raspi-config 自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文件
 
 #### SSH
 
-启用或禁用使用 SSH 远程访问您的 Raspberry Pi 的终端。
+启用或禁用使用 SSH 远程访问您的树莓派的终端。
 
-SSH 允许您从另一台计算机远程访问 Raspberry Pi 的命令行。默认情况下，SSH 处于禁用状态。在 SSH 文档页面上阅读更多关于使用 SSH 的信息。如果将您的 Raspberry Pi 直接连接到公共网络，请不要启用 SSH，除非您为所有用户设置了安全密码。
+SSH 允许您从另一台计算机远程访问树莓派的命令行。默认情况下，SSH 处于禁用状态。在 SSH 文档页面上阅读更多关于使用 SSH 的信息。如果将您的树莓派直接连接到公共网络，请不要启用 SSH，除非您为所有用户设置了安全密码。
 
 #### VNC
 
@@ -127,7 +130,7 @@ SSH 允许您从另一台计算机远程访问 Raspberry Pi 的命令行。默�
 
 #### 1-Wire
 
-启用或禁用达拉斯 1 线接口，通常用于 DS18B20 温度传感器。
+启用或禁用 Dallas 1-wire 接口，通常用于 DS18B20 温度传感器。
 
 #### 远程 GPIO
 
@@ -141,20 +144,21 @@ SSH 允许您从另一台计算机远程访问 Raspberry Pi 的命令行。默�
 
 如果您的 Raspberry Pi 型号允许，可以对 CPU 进行超频。超频潜力因个别 Raspberry Pi 设备而异，即使是同一型号也会有所不同。超频过高可能会导致不稳定。
 
-| WARNING | 超频可能会缩短您的 Raspberry Pi 的使用寿命。如果在某个特定级别超频导致系统不稳定，请尝试更温和的超频。在启动过程中按住 Shift 键可临时禁用超频。 |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**警告**
+>
+>**超频可能会缩短您树莓派的使用寿命。** 如果在某个特定级别超频导致系统不稳定，请尝试降低超频的程度。在启动过程中按住 Shift 键可临时禁用超频。 
 
 #### GPU 内存
 
 更改向 GPU 提供的内存量。
 
-#### 叠加文件系统
+#### Overlay file system（堆叠文件系统）
 
 启用或禁用只读文件系统。
 
 #### 风扇
 
-自定义 GPIO 连接的 Raspberry Pi 4 机箱风扇的行为。不影响 Raspberry Pi 5 机箱中的风扇或使用特殊四针风扇头连接的 Raspberry Pi 5 主动散热器。
+可自定义 GPIO 连接的树莓派 4 机箱风扇的行为。这不影响树莓派 5 机箱中的风扇或使用特殊四针风扇头连接的树莓派 5 主动散热器。
 
 ### 本地化选项
 
@@ -184,10 +188,11 @@ SSH 允许您从另一台计算机远程访问 Raspberry Pi 的命令行。默�
 
 #### 扩展文件系统
 
-将您的操作系统分区扩展到填满整个存储设备，为您提供更多用于文件的空间。重新启动您的 Raspberry Pi 以完成此操作。通常，Raspberry Pi OS 在首次启动时运行此操作。如果您将您的操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能会很有用。
+将您的操作系统分区扩展到填满整个存储设备，为您提供更多用于文件的空间。重新启动您的树莓派以完成此操作。通常，Raspberry Pi OS 在首次启动时运行此操作。如果您将您的操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能会很有用。
 
-| WARNING | 没有确认步骤。选择该选项将立即开始分区扩展。 |
-| --------- | ---------------------------------------------- |
+>**警告**
+>
+>它没有确认的步骤。选择该选项将立即开始分区扩展。 
 
 #### 网络接口名称
 
@@ -199,7 +204,7 @@ SSH 允许您从另一台计算机远程访问 Raspberry Pi 的命令行。默�
 
 #### 启动顺序
 
-在 Raspberry Pi 4 及更高版本上，如果未插入 SD 卡，指定是否从 USB 或网络引导。有关更多信息，请参阅引导加载程序配置。
+在树莓派 4 及更高版本上，如果未插入 SD 卡，指定是否从 USB 或网络引导。有关更多信息，请参阅引导加载程序配置。
 
 #### 引导加载程序版本
 
@@ -207,14 +212,15 @@ SSH 允许您从另一台计算机远程访问 Raspberry Pi 的命令行。默�
 
 #### Wayland
 
-在 X11 和 Wayland 后端之间切换。 Raspberry Pi 4 及更高版本默认使用 Wayland；其他型号的 Raspberry Pi 默认使用 X11。
+在 X11 和 Wayland 后端之间切换。树莓派 4 及更高版本默认使用 Wayland；其他型号的树莓派默认使用 X11。
 
-| NOTE | 要在 Raspberry Pi 4 之前的型号上使用 Wayland，您还必须将 wayland=on 添加到 /boot/firmware/cmdline.txt 。 |
-| ------ | ---------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>要在树莓派 4 先前的型号上使用 Wayland，您还必须将 wayland=on 添加到 /boot/firmware/cmdline.txt 。 
 
 #### 音频配置
 
-在 Raspberry Pi OS Bookworm 之前，Raspberry Pi OS 使用 PulseAudio，现在可以在 PulseAudio 和 PipeWire 音频后端之间切换。
+在 Bookworm 之前，Raspberry Pi OS 使用 PulseAudio，现在可以在 PulseAudio 和 PipeWire 音频后端之间切换。
 
 ### 更新
 
@@ -236,8 +242,9 @@ raspi-config 工具还支持非交互式选项和标志，可以在命令行上�
 $ sudo raspi-config nonint <command> <arguments> [optional-argument]
 ```
 
-| NOTE | 0 和 1 的含义在选项之间有所不同。在将值传递给选项之前，请始终检查文档。 |
-| ------ | ------------------------------------------------------------------------- |
+>**注意**
+>
+>`0` 和 `1` 的含义在选项之间有所不同。在将值传递给选项之前，请始终参照文档。 
 
 ### 系统选项
 
@@ -249,7 +256,7 @@ $ sudo raspi-config nonint <command> <arguments> [optional-argument]
 $ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <passphrase> [hidden] [plain]
 ```
 
-传递无线网络名称（SSID）和密码（如果需要）。以下标志是可选的：
+传递无线网络名称（SSID）和密码（如果需要）。以下参数是可选的：
 
 <hidden> 选项表示 SSID 的可见性。如果网络广播开放的 SSID，请传递 0 或省略该选项。如果您的 SSID 是隐藏的，请传递 1 。默认为 0 。
 
@@ -275,15 +282,15 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <passphrase> [hidden] 
 
 #### 音频
 
-指定音频输出目的地。
+指定音频输出位置。
 
 ```
 $ sudo raspi-config nonint do_audio <N>
 ```
 
-在 Raspberry Pi 4B 上，您可以使用以下选项：
+在树莓派 4B 上，您可以使用以下选项：
 
-* 0 ：bcm2835 耳机插孔
+* 0 ：bcm2835 headphone jack（耳机插孔）
 * 1 ：vc4-hdmi-0
 * 2 ：vc4-hdmi-1
 
@@ -299,12 +306,13 @@ $ sudo raspi-config nonint do_audio <N>
 $ sudo raspi-config nonint do_change_pass
 ```
 
-| NOTE | 此功能使用全屏交互式界面，即使从 CLI 选项运行也是如此。 |
-| ------ | --------------------------------------------------------- |
+>**注意**
+>
+>此功能使用全屏交互式界面，即使从命令行参数运行也是如此。 
 
 #### 主机名
 
-在网络上为此 Raspberry Pi 设置可见的 mDNS 名称。
+在网络上为此树莓派设置可见的 mDNS 域名。
 
 ```
 $ sudo raspi-config nonint do_hostname <hostname>
@@ -347,7 +355,7 @@ $ sudo raspi-config nonint do_boot_splash <0/1>
 
 #### 电源 LED
 
-如果您的 Raspberry Pi 模型允许的话，可以更改电源 LED 的行为。
+如果您的树莓派允许的话，可以更改电源 LED 的行为。
 
 ```
 $ sudo raspi-config nonint do_leds <0/1>
@@ -366,10 +374,9 @@ $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 
 ### 显示选项
 
-#### 下扫描
+#### Underscan（欠扫描）
 
-| NOTE | 在运行 Wayland 时不可用。 |
-| ------ | --------------------------- |
+>在 Wayland 下不可用。 
 
 如果屏幕上显示的初始文本消失在边缘，启用过扫描以调整边框。在某些显示器上，特别是监视器上，禁用过扫描将使图像填满整个屏幕并去除黑色边框。
 
@@ -384,8 +391,8 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 
  启用：
 
-* 0 ：启用超扫描
-* 1 ：禁用超扫描
+* 0 ：启用过扫描
+* 1 ：禁用过扫描
 
 #### 屏幕空白
 
