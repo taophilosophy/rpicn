@@ -212,4 +212,4 @@ $ sudo ./eepflash.sh -f=sense.eep -t=24c32 -w
 
 >**警告**
 >
->此操作不会损坏您的 Raspberry Pi 或 Sense HAT，但如果发生错误，HAT 可能不再被自动检测。上述步骤仅供调试目的。
+>此操作不会损坏您的树莓派或 Sense HAT，但如果发生错误，HAT 可能不再被自动检测。上述步骤仅供调试目的。

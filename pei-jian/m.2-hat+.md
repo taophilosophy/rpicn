@@ -4,9 +4,9 @@
 
 ![m2 hat plus](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus.jpg)
 
-Raspberry Pi M.2 HAT+
+树莓派 M.2 HAT+
 
-Raspberry Pi M.2 HAT+ M Key 可让您将 M.2 外围设备（如 NVMe 驱动器和其他 PCIe 附件）连接到树莓派 5 的 PCIe 接口。
+树莓派 M.2 HAT+ M Key 可让您将 M.2 外围设备（如 NVMe 驱动器和其他 PCIe 附件）连接到树莓派 5 的 PCIe 接口。
 
 M.2 HAT+ 适配板在树莓派 5 上的 PCIe 连接器和单个 M.2 M 键边缘连接器之间进行转换。您可以连接任何使用 2230 或 2242 外形尺寸的设备。M.2 HAT+ 可提供高达 3A 的功率。
 
@@ -87,7 +87,7 @@ M.2 HAT+仅与 Raspberry Pi 5 的 Raspberry Pi Case 兼容，如果您移除盖�
 2. 使用 SD 卡或 USB 驱动器将树莓派引导到 Raspberry Pi OS，以更改持久性板载 EEPROM 配置中的引导顺序。
 3. 在树莓派上的终端中运行 sudo raspi-config 以打开树莓派配置 CLI。
 4. 在 Advanced Options > Boot Order 下，选择 NVMe/USB boot 。然后，使用 Finish 或 Esc 键退出 raspi-config 。
-5. 使用 sudo reboot 重新启动您的 Raspberry Pi。
+5. 使用 sudo reboot 重新启动您的树莓派。
 
 要获取更多信息，请参阅 NVMe 启动。
 
