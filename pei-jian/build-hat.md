@@ -2,47 +2,50 @@
 
 ## Build HAT 简介
 
-Raspberry Pi Build HAT 是一个附加板，可连接到 Raspberry Pi 的 40 引脚 GPIO 标头，与 LEGO® Education 合作设计，可轻松使用 Raspberry Pi 计算机控制 LEGO® Technic™ 电机和传感器。
+树莓派 Build HAT 是一个附加板，可连接到树莓派的 40 引脚 GPIO 标头，与 LEGO® Education 合作设计，可轻松使用树莓派计算机控制 LEGO® Technic™ 电机和传感器。
 
 ![build hat](https://www.raspberrypi.com/documentation/accessories/images/build-hat.jpg)
 
-| NOTE | 受支持设备的完整列表可在设备兼容性部分找到。 |
-| ------ | ---------------------------------------------- |
+>**注意**
+>
+>受支持设备的完整列表可在设备兼容性部分找到。 
 
-它为 LEGO® Technic™电机和 SPIKE™组合中的传感器提供四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有各种尺寸，并包括集成编码器，可查询其位置。
+它为 LEGO® Technic™ 电机和 SPIKE™ 组合中的传感器提供四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有各种尺寸，并包括集成编码器，可查询其位置。
 
-Build HAT 适用于所有带有 40 针 GPIO 引脚的 Raspberry Pi 计算机，包括通过连接排线或其他扩展设备的 Raspberry Pi 400。连接的 LEGO® Technic™设备可以轻松在 Python 中进行控制，同时还可以连接标准的 Raspberry Pi 配件，如摄像头模块。
+Build HAT 适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括通过连接排线或其他扩展设备的树莓派 400。连接的 LEGO® Technic™ 设备可以轻松在 Python 中进行控制，同时还可以连接标准的树莓派配件，如摄像头模块。
 
-Raspberry Pi Build HAT 电源适配器（PSU）单独出售，旨在为 Build HAT、Raspberry Pi 计算机以及所有连接的 LEGO® Technic™设备供电。
+树莓派 Build HAT 电源适配器（PSU）单独出售，旨在为 Build HAT、树莓派计算机以及所有连接的 LEGO® Technic™ 设备供电。
 
 ![psu](https://www.raspberrypi.com/documentation/accessories/images/psu.jpg)
 
 从 LEGO® Education 经销商单独提供的 SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 中，包含一组由 Build HAT 支持的实用元件。
 
-| NOTE | 该 HAT 与所有 40 针 GPIO Raspberry Pi 板块兼容，包括 Raspberry Pi 4 和 Raspberry Pi Zero。通过添加排线电缆或其他延伸设备，也可与 Raspberry Pi 400 一起使用。 |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>该 HAT 与所有 40 针 GPIO 树莓派板块兼容，包括树莓派 4 和树莓派 Zero。通过添加排线电缆或其他延伸设备，也可与树莓派 400 一起使用。 
 
-* 控制 SPIKE™ Portfolio 中包含的 4 个 LEGO® Technic™电机和传感器。
-* 控制您的 LEGO® Technic™设备的易于使用的 Python 库
-* 适用于带有 40 针 GPIO 引脚的任何 Raspberry Pi 计算机
+* 控制 SPIKE™ Portfolio 中包含的 4 个 LEGO® Technic™ 电机和传感器。
+* 控制您的 LEGO® Technic™ 设备的易于使用的 Python 库
+* 适用于带有 40 针 GPIO 引脚的任何树莓派计算机
 * Onboard RP2040 微控制器管理 LEGO® Technic™设备的低级控制
-* 单独提供外部 8V PSU 以为 Build HAT 和 Raspberry Pi 供电
+* 单独提供外部 8V PSU 以为 Build HAT 和树莓派供电
 
-| NOTE | 由于不支持通过 GPIO 引脚供电，Build HAT 无法为 Raspberry Pi 400 供电 |
-| ------ | ---------------------------------------------------------------------- |
-
+>**注意**
+>
+>由于不支持通过 GPIO 引脚供电，Build HAT 无法为树莓派 400 供电 。
 ## 准备您的 Build HAT
 
-| NOTE | 在开始使用您的 Raspberry Pi Build HAT 之前，您应该设置您的 Raspberry Pi，使用 Raspberry Pi Imager 安装最新版本的操作系统。 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在开始使用您的树莓派 Build HAT 之前，您应该设置您的树莓派，使用 Raspberry Pi Imager 安装最新版本的操作系统。
 
-将 9mm 的间隔柱连接到板的底部。将 Raspberry Pi Build HAT 安装到您的 Raspberry Pi 上。确保将其正确放置。与其他 HAT 不同，所有组件都在底部，为顶部的面包板或乐高® 元件留出空间。
+将 9mm 的间隔柱连接到板的底部。将树莓派 Build HAT 安装到您的树莓派上。确保将其正确放置。与其他 HAT 不同，所有组件都在底部，为顶部的面包板或乐高® 元件留出空间。
 
 ![fitting build hat](https://www.raspberrypi.com/documentation/accessories/images/fitting-build-hat.gif)
 
 ### 访问 GPIO 引脚
 
-如果您想访问 Raspberry Pi 的 GPIO 引脚，您可以添加一个可选的高头并使用 15 毫米间隔柱。
+如果您想访问树莓派的 GPIO 引脚，您可以添加一个可选的高头并使用 15 毫米间隔柱。
 
 ![tall headers](https://www.raspberrypi.com/documentation/accessories/images/tall-headers.png)
 
@@ -57,17 +60,17 @@ Raspberry Pi Build HAT 电源适配器（PSU）单独出售，旨在为 Build HA
 | GPIO16  | RTS       | 未使用 |
 | GPIO17  | CTS       | 未使用 |
 
-### 设置您的 Raspberry Pi
+### 设置您的树莓派
 
-一旦 Raspberry Pi 启动，通过单击 Raspberry 菜单按钮，然后选择“首选项”，再选择“Raspberry Pi 配置”来打开 Raspberry Pi 配置工具。
+树莓派启动后，通过单击 Raspberry 菜单按钮，然后选择“首选项”，再选择“Raspberry Pi 配置”来打开 Raspberry Pi 配置工具。
 
 单击“接口”选项卡，并按照下面所示调整串行设置：
 
 ![setting up](https://www.raspberrypi.com/documentation/accessories/images/setting-up.png)
 
-#### 使用您的 Raspberry Pi 无头
+#### 使用您的无头树莓派
 
-如果您正在无头运行您的 Raspberry Pi 并使用 raspi-config ，请从第一个菜单中选择“接口选项”。
+如果您正在无头运行您的树莓派并使用 raspi-config ，请从第一个菜单中选择“接口选项”。
 
 ![raspi config 1](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-1.png)
 
@@ -91,15 +94,17 @@ Raspberry Pi Build HAT 电源适配器（PSU）单独出售，旨在为 Build HA
 
 ### 供电 Build HAT
 
-连接外部电源 — 推荐使用官方 Raspberry Pi Build HAT 电源 — 但是任何可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build HAT 供电。除非您正在使用 Raspberry Pi 400，否则不需要额外连接 USB 电源供应器到 Raspberry Pi。
+连接外部电源 — 推荐使用官方树莓派 Build HAT 电源 — 但是任何可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build HAT 供电。除非您正在使用树莓派 400，否则不需要额外连接 USB 电源供应器到树莓派。
 
-| NOTE | 旧版 HAT 无法为 Raspberry Pi 400 供电，因为它不支持通过 GPIO 头部供电。 |
-| ------ | ------------------------------------------------------------------------- |
+>**注意**
+>
+>旧版 HAT 无法为树莓派 400 供电，因为它不支持通过 GPIO 头部供电。 
 
 ![powering build hat](https://www.raspberrypi.com/documentation/accessories/images/powering-build-hat.gif)
 
-| NOTE | 乐高® Technic™ 电机非常强大；因此，为了驱动它们，您将需要外部的 8V 电源。如果您想从电机编码器和 SPIKE™力传感器读取数据，您可以通过您的 Raspberry Pi 的 USB 电源插座以通常的方式为您的 Raspberry Pi 和 Build HAT 供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>乐高® Technic™ 电机非常强大；因此，为了驱动它们，您需要外部的 8V 电源。如果您想从电机编码器和 SPIKE™ 力传感器读取数据，您可以通过您树莓派的 USB 电源插座以通常的方式为您的树莓派 和 Build HAT 供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
 
 您可以选择使用 Python 或.NET 与 Build HAT 一起使用。
 
@@ -137,7 +142,7 @@ motor_a = Motor('A')
 motor_a.run_for_seconds(5)
 ```
 
-通过单击播放/运行按钮来运行程序。如果这是自 Raspberry Pi 启动以来第一次运行 Build HAT 程序，那么在固件复制到板上时会有几秒钟的暂停。您应该看到红色 LED 熄灭，绿色 LED 点亮。以后执行 Python 程序将不需要这种暂停。
+通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来第一次运行 Build HAT 程序，那么在固件复制到板上时会有几秒钟的暂停。您应该看到红色 LED 熄灭，绿色 LED 点亮。以后执行 Python 程序将不需要这种暂停。
 
 ![blinking light](https://www.raspberrypi.com/documentation/accessories/images/blinking-light.gif)
 
@@ -180,8 +185,9 @@ while True:
 
 将彩色传感器连接到 Build HAT 的 B 端口，将力传感器连接到 C 端口。
 
-| NOTE | 如果您不打算驱动电机，则不需要外部电源，可以使用标准 USB 电源为您的 Raspberry Pi 提供电源。 |
-| ------ | --------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果您不打算驱动电机，则不需要外部电源，可以使用标准 USB 电源为您的树莓派提供电源。 
 
 创建另一个新程序：
 
@@ -210,10 +216,11 @@ pause()
 
 ### 安装.NET Framework
 
-从 Microsoft 获取的.NET 框架无法通过 APT 在 Raspberry Pi 上获得。但是，您可以按照 Microsoft 的官方说明安装.NET 框架。或者，有一个简化的第三方途径可以将.NET 工具链安装到您的 Raspberry Pi 上。
+从 Microsoft 获取的 .NET 框架无法在树莓派上通过 APT 进行安装。但是，您可以按照 Microsoft 的官方说明安装 .NET 框架。或者，这有一个简化的第三方途径可以将 .NET 工具链安装到您的树莓派上。
 
-| WARNING | 安装脚本以 APT 运行。您应该先阅读它，并确保您理解它在做什么。如果您有任何疑问，应该手动按照官方说明操作。 |
-| --------- | ----------------------------------------------------------------------------------------------------------- |
+>**警告**
+>
+>安装脚本以 APT 运行。您应该先阅读它，并确保您理解它在做什么。如果您有任何疑问，应该手动按照官方说明操作。
 
 ```
 $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/install.sh | sudo bash
@@ -257,7 +264,7 @@ Hello World!
 
 ### 使用.NET 从 Build HAT 进行操作
 
-Raspberry Pi Build HAT 在 LEGO®术语中被称为"Brick"，您可以使用 Build HAT 串行协议直接与之通信
+树莓派 Build HAT 在 LEGO®术语中被称为"Brick"，您可以使用 Build HAT 串行协议直接与之通信
 
 您可以按照以下方式创建一个 brick 对象
 
@@ -271,8 +278,9 @@ Brick brick = new("/dev/serial0");
 brick.Dispose();
 ```
 
-| WARNING | 如果您不调用 brick.Dispose() ，您的程序将不会终止。 |
-| --------- | ----------------------------------------------------- |
+>**警告**
+>
+>如果您不调用 brick.Dispose() ，您的程序将不会终止。 
 
 如果您想避免在最后调用 brick.Dispose ，那么请使用 using 语句创建您的模块：
 
@@ -293,8 +301,9 @@ Console.WriteLine($"{BitConverter.ToString(info.Signature)}");
 Console.WriteLine($"Vin = {brick.InputVoltage.Volts} V");
 ```
 
-| NOTE | 输入电压仅在启动时读取一次，之后不再读取。 |
-| ------ | -------------------------------------------- |
+>**注意**
+>
+>输入电压仅在启动时读取一次，之后不再读取。 
 
 #### 获取传感器和电机详细信息
 
@@ -414,8 +423,9 @@ Console.WriteLine("Stop the train");
 train.Stop();
 ```
 
-| NOTE | 一旦火车启动，您可以调整速度，电机会相应调整。 |
-| ------ | ------------------------------------------------ |
+>**注意**
+>
+>在火车启动后，您可以调整速度，电机会相应调整。 
 
 #### 活动电机
 
@@ -452,8 +462,9 @@ active.Stop();
 active2.Stop();
 ```
 
-| NOTE | 在需要时不要忘记启动和停止您的马达。 |
-| ------ | -------------------------------------- |
+>**注意**
+>
+>在需要时不要忘记启动和停止您的马达。
 
 高级功能适用于活动电机。您可以请求移动几秒钟，到特定位置，到特定绝对位置。以下是一些示例：
 
@@ -685,8 +696,9 @@ while (!Console.KeyAvailable)
 }
 ```
 
-| NOTE | 为了更好地测量，不建议以非常快的方式更改测量模式，颜色集成可能无法正确完成。此示例为您展示了可以使用传感器做什么。此类不实现连续测量模式。您可以通过高级模式使用 SelectModeAndRead 函数设置一个连续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>为了更好地测量，不建议以非常快的方式更改测量模式，颜色集成可能无法正确完成。此示例为您展示了可以使用传感器做什么。此类不实现连续测量模式。您可以通过高级模式使用 SelectModeAndRead 函数设置一个连续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。 
 
 #### SPIKE Prime 超声波距离传感器
 
@@ -711,8 +723,8 @@ while(!console.KeyAvailable)
 
 您可以下载有关文档
 
-* [Raspberry Pi Build HAT 串行协议](https://datasheets.raspberrypi.com/build-hat/build-hat-serial-protocol.pdf)
-* [Raspberry Pi Build HAT Python 库](https://datasheets.raspberrypi.com/build-hat/build-hat-python-library.pdf)
+* [树莓派 Build HAT 串行协议](https://datasheets.raspberrypi.com/build-hat/build-hat-serial-protocol.pdf)
+* [树莓派 Build HAT Python 库](https://datasheets.raspberrypi.com/build-hat/build-hat-python-library.pdf)
 
 Python 库文档的详细信息也可以在 ReadTheDocs 上找到。您可以在.NET IoT Github 存储库中找到有关.NET 库的更多信息。
 
@@ -728,8 +740,9 @@ Python 库文档的详细信息也可以在 ReadTheDocs 上找到。您可以在
 
 Build HAT 库支持 SPIKE™组合中包含的所有乐高® Technic™设备，以及来自乐高® Mindstorms 机器人发明家套件和其他使用 PoweredUp 连接器的设备。
 
-| IMPORTANT | 包含 Maker Plate 的 SPIKE™ Prime Expansion Set 的产品代码为 45681。原始 Expansion Set 为 45680，不包括 Maker Plate。 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- |
+>**重要**
+>
+>包含 Maker Plate 的 SPIKE™ Prime Expansion Set 的产品代码为 45681。原始 Expansion Set 为 45680，不包括 Maker Plate。 
 
 | 描述                | 颜色      | 乐高物品编号                     | 在固件中支持 | 在 Python 中支持 | 替代编号       | BrickLink | 可用于                                                                                  | 设置数字            | 类             | 类型   | 设备标识 |
 | --------------------- | ----------- | ---------------------------------- | -------------- | ------------------ | ---------------- | ----------- | ----------------------------------------------------------------------------------------- | --------------------- | ---------------- | -------- | ---------- |
@@ -753,6 +766,6 @@ Build HAT 库支持 SPIKE™组合中包含的所有乐高® Technic™设备，
 
 ## 机械图纸
 
-Raspberry Pi Build HAT 的机械图纸。
+树莓派 Build HAT 的机械图纸。
 
 ![mech build hat](https://www.raspberrypi.com/documentation/accessories/images/mech-build-hat.png)
