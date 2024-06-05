@@ -6,11 +6,11 @@
 
 ### 在本地网络上的远程控制
 
-从本地网络上的另一台设备远程控制您的 Raspberry Pi，请使用以下服务之一：
+从本地网络上的另一台设备远程控制您的树莓派，请使用以下服务之一：
 
 * [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)
 * [VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)
-* [ Raspberry Pi 连接](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
+* [Raspberry Pi connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
 
 SSH（Secure SHell）提供了对树莓派上终端会话的安全访问。VNC（Virtual Network Computing）提供了对树莓派桌面屏幕共享的安全访问。您只需要另一台计算机、本地网络和树莓派的本地 IP 地址。Raspberry Pi Connect 可安全地共享您的树莓派屏幕，无需确定本地 IP 地址。
 
@@ -20,12 +20,12 @@ NFS（网络文件系统）、SCP（安全复制协议）、Samba 等服务使�
 
 ### 通过互联网远程控制
 
-要从连接到互联网的任何设备远程控制您的 Raspberry Pi，您可以：
+要从连接到互联网的任何设备远程控制您的树莓派，您可以：
 
-* 在 Raspberry Pi 上公开 SSH 或 VNC，可以通过开放互联网、VPN 内部，或使用 RealVNC 的云 VNC Viewer 等外部服务。
-* 使用 Raspberry Pi Connect，这是由 Raspberry Pi 提供的免费屏幕共享服务。
+* 在树莓派上公开 SSH 或 VNC，可以通过开放互联网、VPN 内部，或使用 RealVNC 的云 VNC Viewer 等外部服务。
+* 使用 Raspberry Pi Connect，这是由树莓派提供的免费屏幕共享服务。
 
-## 查找 Raspberry Pi 的 IP 地址
+## 查找树莓派的 IP 地址
 
 连接到树莓派的大多数方法都需要您知道树莓派的本地 IP 地址。
 
@@ -49,7 +49,7 @@ $ hostname -I
 
 ### 引导输出
 
-如果您在 Raspberry Pi 上使用显示器，并且引导到命令行而不是桌面，则引导顺序将在登录提示符之前的最后几条输出消息中包含您的 IP 地址。
+如果您在树莓派上使用显示器，并且引导到命令行而不是桌面，则引导顺序将在登录提示符之前的最后几条输出消息中包含您的 IP 地址。
 
 ### 网络管理器
 
@@ -117,39 +117,42 @@ IP6.GATEWAY:                            --
 
 一旦确定了正确的网络接口块，请查找名为 IP4.ADDRESS[1] 的字段以获取 IPv4 地址，或者查找名为 IP6.ADDRESS[1] 的字段以获取 IPv6 地址。您可以忽略这些字段中的斜杠和数字（例如 /24 ）。
 
-在上面的示例中，Raspberry Pi 使用 Wi-Fi 访问互联网。检查 GENERAL.TYPE 字段为“wifi”的块，以查找 IP 地址。在这种情况下，您可以使用 IP4.ADDRESS[1] 字段中的 IPv4 地址访问此设备： 192.168.1.42 。
+在上面的示例中，树莓派使用 Wi-Fi 访问互联网。检查 GENERAL.TYPE 字段为“wifi”的块，以查找 IP 地址。在这种情况下，您可以使用 IP4.ADDRESS[1] 字段中的 IPv4 地址访问此设备： 192.168.1.42 。
 
 ### 使用 mDNS 解析 raspberrypi.local 。
 
 Raspberry Pi OS 支持 Avahi 服务的多播 DNS。
 
-如果您的设备支持 mDNS，您可以通过使用其主机名和 .local 后缀来访问您的 Raspberry Pi。在新安装的 Raspberry Pi OS 上，默认主机名为 raspberrypi ，因此默认情况下，任何运行 Raspberry Pi OS 的 Raspberry Pi 都会响应：
+如果您的设备支持 mDNS，您可以通过使用其主机名和 .local 后缀来访问您的树莓派。在新安装的 Raspberry Pi OS 上，默认主机名为 raspberrypi ，因此默认情况下，任何运行 Raspberry Pi OS 的树莓派都会响应：
 
 ```
 $ ping raspberrypi.local
 ```
 
-如果可以访问 Raspberry Pi，则 ping 将显示其 IP 地址：
+如果可以访问树莓派，则 ping 将显示其 IP 地址：
 
 ```
 PING raspberrypi.local (192.168.1.131): 56 data bytes
 64 bytes from 192.168.1.131: icmp_seq=0 ttl=255 time=2.618 ms
 ```
 
-| TIP | 如果您使用 Raspberry Pi Configuration、 raspi-config 或 /etc/hostname 更改 Raspberry Pi 的系统主机名，Avahi 会更新 .local 的 mDNS 地址。如果您忘记了 Raspberry Pi 的主机名，您可以在另一台设备上安装 Avahi，然后使用 avahi-browse 浏览本地网络上的所有主机和服务。 |
-| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>如果您使用 Raspberry Pi Configuration、 raspi-config 或 /etc/hostname 更改树莓派的系统主机名，Avahi 会更新 .local 的 mDNS 地址。如果您忘记了树莓派的主机名，您可以在另一台设备上安装 Avahi，然后使用 avahi-browse 浏览本地网络上的所有主机和服务。 
 
 ### 检查路由器的设备列表
 
 在 Web 浏览器中，导航到您的路由器 IP 地址。然后，使用您的凭据登录。
 
-| TIP | 您的路由器 IP 地址通常为 http://192.168.1.1 ，但并非总是如此。您可能会在路由器标签上找到路由器的地址和凭据。 |
-| ----- | -------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>您的路由器 IP 地址通常为 http://192.168.1.1 ，但并非总是如此。您可能会在路由器标签上找到路由器的地址和凭据。 
 
-这将带您进入控制面板。浏览到连接设备列表或类似内容（所有路由器都不同），您应该能看到一些您认识的设备。一些设备被检测为 PC、平板电脑、手机、打印机等，因此您应该能识别一些并排除它们，以找出哪个是您的 Raspberry Pi。
+这将带您进入控制面板。浏览到连接设备列表或类似内容（所有路由器都不同），您应该能看到一些您认识的设备。一些设备被检测为 PC、平板电脑、手机、打印机等，因此您应该能识别一些并排除它们，以找出哪个是您的树莓派。
 
-| TIP | 如果您用网线将您的 Raspberry Pi 连接到网络，请尝试在列表中筛选有线设备。应该会有较少的设备可供选择。 |
-| ----- | ------------------------------------------------------------------------------------------------------ |
+>**技巧**
+>
+>如果您用网线将您的树莓派连接到网络，请尝试在列表中筛选有线设备。应该会有较少的设备可供选择。 
 
 ### 查找带有 nmap 的设备
 
@@ -170,8 +173,9 @@ PING raspberrypi.local (192.168.1.131): 56 data bytes
 $ sudo nmap -sn 192.168.1.0/24
 ```
 
-| TIP | 根据您的本地网络速度，可能需要一分钟左右。 |
-| ----- | -------------------------------------------- |
+>**技巧**
+>
+>根据您的本地网络速度，可能需要一分钟左右。 
 
 Ping 扫描查询范围内所有 IP 地址是否有响应。对于每个响应 ping 的设备，输出显示主机名和 IP 地址如下：
 
@@ -194,14 +198,14 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 Fing 应用程序是一款免费的智能手机网络扫描器。它适用于 Android 和 iOS。
 
-1. 将手机连接到与您的 Raspberry Pi 相同的网络。
+1. 将手机连接到与您的树莓派相同的网络。
 2. 当您打开 Fing 应用时，请触摸屏幕右上角的刷新按钮。
 3. 几秒钟后，您应该看到一个列出所有连接到您的网络的设备的列表。
 4. 滚动到制造商为"Raspberry Pi"的条目。 IP 地址显示在条目左下角，MAC 地址显示在条目右下角。
 
 ## 使用 SSH 访问远程终端
 
-您可以使用安全外壳（SSH）协议从同一网络上的另一台计算机远程访问 Raspberry Pi 的终端。
+您可以使用安全外壳（SSH）协议从同一网络上的另一台计算机远程访问树莓派的终端。
 
 ### 启用 SSH 服务器
 
@@ -209,7 +213,7 @@ Fing 应用程序是一款免费的智能手机网络扫描器。它适用于 An
 
 #### 在桌面上
 
-1. 从“首选项”菜单中启动 Raspberry Pi 配置。
+1. 从“首选项”菜单中启动树莓派配置。
 2. 转到“接口”选项卡。
 3. 选择“SSH”旁边的“已启用”。
 4. 单击“确定”。
@@ -221,7 +225,7 @@ Fing 应用程序是一款免费的智能手机网络扫描器。它适用于 An
 1. 按照 Imager 指南中的说明进行安装。
 2. 在 OS 自定义步骤中，导航到服务选项卡。
 3. 选中复选框以启用 SSH。
-4. 选择密码身份验证以使用与在物理上使用 Raspberry Pi 时相同的用户名和密码登录。选择仅允许公钥身份验证以配置用于无密码登录的 SSH 密钥。
+4. 选择密码身份验证以使用与在物理上使用树莓派时相同的用户名和密码登录。选择仅允许公钥身份验证以配置用于无密码登录的 SSH 密钥。
 
 #### 从终端
 
@@ -255,26 +259,29 @@ $ ssh <username>@<ip address>
 
 当连接成功时，您将看到一个安全警告。输入 yes 继续。您只会在第一次连接时看到此警告。
 
-在提示时输入您的帐户密码。
+在提示时输入您的账户密码。
 
-您现在应该看到 Raspberry Pi 命令提示符：
+您现在应该看到了树莓派的命令提示符：
 
 ```
 <username>@<hostname> ~ $
 ```
 
-您现在已远程连接到 Raspberry Pi，并可以执行命令。
+您现在已远程连接到树莓派，并可以执行命令。
 
-| NOTE | 如果收到 connection timed out 错误消息，则可能输入了错误的 Raspberry Pi IP 地址。请检查 Raspberry Pi 的 IP 地址。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果收到 connection timed out 错误消息，则可能输入了错误的树莓派 IP 地址。请检查树莓派的 IP 地址。 
 
 #### 通过 SSH 转发 X11
 
-| NOTE | 在 Raspberry Pi 4 和 5 上，Raspberry Pi OS Bookworm 默认使用 Wayland 窗口服务器。只有在使用 X 窗口服务器时才能转发 X11。要在 X11 上启用窗口转发，请在 Raspberry Pi Configuration 中将桌面切换到 X 窗口服务器。 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在树莓派 4 和 5 上，Raspberry Pi OS Bookworm 默认使用 Wayland 窗口服务器。只有在使用 X 窗口服务器时才能转发 X11。要在 X11 上启用窗口转发，请在 Raspberry Pi Configuration 中将桌面切换到 X 窗口服务器。
 
-| NOTE | X11 不再默认安装在许多桌面环境中。安装第三方 X 服务器，如 XQuartz，以使用 X11 转发。 |
-| ------ | -------------------------------------------------------------------------------------- |
+>**注意**
+>
+>X11 不再默认安装在许多桌面环境中。安装第三方 X 服务器，如 XQuartz，以使用 X11 转发。
 
 X11 可以通过 SSH 启用图形应用程序。传递 -Y 标志以通过 SSH 转发 X 会话：
 
@@ -290,7 +297,7 @@ $ geany &
 
 ### 配置无密码的 SSH
 
-要远程访问您的 Raspberry Pi 而无需每次连接时提供密码，请使用 SSH 密钥对。
+要远程访问您的树莓派而无需每次连接时提供密码，请使用 SSH 密钥对。
 
 #### 使用 Raspberry Pi Imager 预配置 OS 映像
 
@@ -306,7 +313,7 @@ $ geany &
 
 #### 检查现有的 SSH 公钥
 
-要检查远程连接到 Raspberry Pi 的计算机上是否存在现有的 SSH 公钥，请运行以下命令：
+要检查远程连接到树莓派的计算机上是否存在现有的 SSH 公钥，请运行以下命令：
 
 ```
 $ ls ~/.ssh
@@ -316,8 +323,9 @@ $ ls ~/.ssh
 
 #### 生成新的 SSH 密钥对
 
-| TIP | 本指南提供了生成新 RSA 密钥的说明。为了增加安全性，您可以选择生成一个 Ed25519 密钥。在引用您的公钥和私钥文件名称时，将 -t ed25519 传递给 ssh-keygen ，并将 rsa 替换为 ed25519 以使用 Ed25519 密钥。 |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>本指南提供了生成新 RSA 密钥的说明。为了增加安全性，您可以选择生成一个 Ed25519 密钥。在引用您的公钥和私钥文件名称时，将 -t ed25519 传递给 ssh-keygen ，并将 rsa 替换为 ed25519 以使用 Ed25519 密钥。 
 
 生成新的 SSH 密钥对，请输入以下命令：
 
@@ -341,9 +349,9 @@ $ ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
 
-id_rsa 文件包含您的私钥。请将其安全保存在用于远程连接到 Raspberry Pi 的计算机上。
+id_rsa 文件包含您的私钥。请将其安全保存在用于远程连接到 树莓派的计算机上。
 
-id_rsa.pub 文件包含您的公钥。您将与您的 Raspberry Pi 共享此密钥。当您远程连接到 Raspberry Pi 时，它将使用此密钥来验证您的身份。
+id_rsa.pub 文件包含您的公钥。您将与您的树莓派共享此密钥。当您远程连接到树莓派 时，它将使用此密钥来验证您的身份。
 
 #### 将 SSH 密钥添加到您的 SSH 身份列表中
 
@@ -359,21 +367,21 @@ $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_rsa
 ```
 
-#### 将公钥复制到您的 Raspberry Pi
+#### 将公钥复制到您的树莓派
 
-在您用于远程连接到 Raspberry Pi 的计算机上，使用以下命令将您的公钥安全地复制到 Raspberry Pi：
+在您用于远程连接到树莓派的计算机上，使用以下命令将您的公钥安全地复制到树莓派：
 
 ```
 $ ssh-copy-id <username>@<ip address>
 ```
 
-当提示时，在 Raspberry Pi 上输入用户帐户的密码。现在您可以连接到 Raspberry Pi 而无需输入密码。
+当提示时，在树莓派上输入用户账户的密码。现在您可以连接到树莓派而无需输入密码。
 
-#### 手动将公钥复制到您的 Raspberry Pi
+#### 手动将公钥复制到您的树莓派
 
 如果您的操作系统不支持 ssh-copy-id ，您可以使用 scp 来复制您的公钥。
 
-首先，在您的 Raspberry Pi 上，创建 Linux 希望找到密钥的目录：
+首先，在您的树莓派上，创建 Linux 希望找到密钥的目录：
 
 ```
 $ mkdir .ssh
@@ -385,48 +393,50 @@ $ mkdir .ssh
 $ chmod 700 .ssh
 ```
 
-在您的常用计算机上，使用 scp 将您的公钥复制到名为 .ssh/authorized_keys 的文件中，存储在您的 Raspberry Pi 上：
+在您的常用计算机上，使用 scp 将您的公钥复制到名为 .ssh/authorized_keys 的文件中，存储在您的树莓派上：
 
 ```
 $ scp .ssh/id_rsa.pub <username>@<ip address>:.ssh/authorized_keys
 ```
 
-| TIP | 上面的命令假定您以前从未授权任何密钥访问您的 Raspberry Pi。如果您之前至少添加了一个密钥，您应该在 authorized_keys 文件的末尾添加包含公钥的新行，以保留现有的密钥。 |
-| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>上面的命令假定您以前从未授权任何密钥访问您的树莓派。如果您之前至少添加了一个密钥，您应该在 authorized_keys 文件的末尾添加包含公钥的新行，以保留现有的密钥。 
 
-在提示时，输入 Raspberry Pi 上您的用户帐户的密码。
+在提示时，在树莓派上输入您的用户账户的密码。
 
-然后，在您的 Raspberry Pi 上，配置 authorized_keys 文件的权限：
+然后，在您的树莓派上，配置 authorized_keys 文件的权限：
 
 ```
 $ chmod 644 .ssh/authorized_keys
 ```
 
-您现在可以在不输入密码的情况下连接到您的 Raspberry Pi。
+您现在可以在不输入密码的情况下连接到您的树莓派。
 
 ## 使用 VNC 进行屏幕共享
 
 有时候在物理上操作设备并不方便。虚拟网络计算（VNC）允许您从另一台设备控制一台设备的桌面。
 
-VNC 依赖于客户端和服务器。客户端运行在您可以直接与之交互的设备上，例如个人笔记本电脑、台式机、平板电脑或手机。服务器运行在您的 Raspberry Pi 上。当您使用 VNC 时，客户端将键盘和鼠标事件传输到服务器。服务器在您的 Raspberry Pi 上执行这些事件，并将屏幕更新返回给客户端。
+VNC 依赖于客户端和服务器。客户端运行在您可以直接与之交互的设备上，例如个人笔记本电脑、台式机、平板电脑或手机。服务器运行在您的树莓派上。当您使用 VNC 时，客户端将键盘和鼠标事件传输到服务器。服务器在您的树莓派上执行这些事件，并将屏幕更新返回给客户端。
 
-VNC 客户端在窗口中显示您的 Raspberry Pi 的桌面。您可以像在 Raspberry Pi 本身上工作一样与桌面交互。
+VNC 客户端在窗口中显示您的树莓派的桌面。您可以像在树莓派本身上工作一样与桌面交互。
 
 Raspberry Pi OS 包含 wayvnc。这提供了一个 VNC 服务器，您可以在设备首选项中启用。
 
-在您的 Raspberry Pi 上使用 VNC 之前，您必须启用 VNC 服务器。
+在您的树莓派上使用 VNC 之前，您必须启用 VNC 服务器。
 
 ### 启用 VNC 服务器
 
 Raspberry Pi OS 支持在图形界面和命令行两种方式下启用 VNC 服务器。
 
-| TIP | 启用后，您可以在 /etc/wayvnc/ 访问您的 WayVNC 配置。 |
-| ----- | ------------------------------------------------------ |
+>**技巧**
+>
+>启用后，您可以在 /etc/wayvnc/ 访问您的 WayVNC 配置。 
 
 #### 图形化启用 VNC 服务器
 
-1. 在 Raspberry Pi 上启动图形桌面。
-2. 单击桌面系统托盘中的 Raspberry Pi 图标。
+1. 在树莓派上启动图形桌面。
+2. 单击桌面系统托盘中的树莓派图标。
 3. 从菜单中选择 Preferences > Raspberry Pi Configuration。![Select Raspberry Pi Configuration from the Preferences menu in the system tray](https://www.raspberrypi.com/documentation/computers/images/raspberry-pi-configuration.png)
 4. 导航到 Interfaces 选项卡。
 5. 单击活动位置旁边的单选按钮以 VNC。![In the Interfaces tab](https://www.raspberrypi.com/documentation/computers/images/vnc-enable.png)
@@ -448,40 +458,40 @@ Raspberry Pi OS 支持在图形界面和命令行两种方式下启用 VNC 服�
 
 ### 连接到 VNC 服务器
 
-要连接到您的 Raspberry Pi，您需要以下内容：
+要连接到您的树莓派，您需要以下内容：
 
-* 您的 Raspberry Pi 和运行 VNC 客户端的设备连接到同一网络（例如家庭无线网络或 VPN）
-* 您的 Raspberry Pi 的主机名或 IP 地址
-* Raspberry Pi 上帐户的有效用户名和密码组合
+* 您的树莓派和运行 VNC 客户端的设备连接到同一网络（例如家庭无线网络或 VPN）
+* 您的树莓派的主机名或 IP 地址
+* 树莓派上账户的有效用户名和密码组合
 
 如果您不知道设备的 IP 地址，请参阅有关查找 IP 地址的说明。
 
 1. 下载 TigerVNC。您可以从其 GitHub 存储库的 Releases 页面安装最新版本。单击最新版本中的链接，找到适用于您平台的二进制文件。Windows 用户应下载 exe ；macOS 用户应下载 dmg ；Linux 用户应安装 jar 。
 2. 在您的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，您可以双击二进制文件。在 Linux 上，安装 java，然后运行 java -jar VncViewer-<version>.jar ，将 <version> 占位符替换为您下载的版本。
-3. 在“VNC 服务器”字段中输入您的 Raspberry Pi 的 IP 地址。![Entering the Raspberry Pi’s local IP address into TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-enter-ip.png)
+3. 在“VNC 服务器”字段中输入您树莓派的 IP 地址。![Entering the Raspberry Pi’s local IP address into TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-enter-ip.png)
 4. 单击“Options”按钮。导航到“Input”选项卡。选中“在没有光标时显示点”旧版，以确保您始终可以在 TigerVNC 中看到光标。![TigerVNC option to render the cursor at all times as a dot](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-show-dot.png)
 5. 单击“Connect”按钮以与服务器建立连接。
 
     * 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。![TigerVNC warning about mismatched certificates](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-warning.png)
-    * 如果 TigerVNC 警告您“证书由未知机构签署”，请单击“是”按钮以为您的 Raspberry Pi 授予异常。![TigerVNC warning about certificates signed by an unknown authority](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
+    * 如果 TigerVNC 警告您“证书由未知机构签署”，请单击“是”按钮以为您的树莓派授予异常。![TigerVNC warning about certificates signed by an unknown authority](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
 6. 在提示输入用户名和密码时，请输入您的凭据。![Entering a username and password to authenticate via TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-username-password.png)
-7. 单击“确定”按钮以与 VNC 服务器进行身份验证。如果您的凭据正确，TigerVNC 应打开一个包含与 Raspberry Pi 上您帐户对应的桌面的窗口。您应该能够移动鼠标和键盘以输入文本并与桌面交互。![The desktop of a Raspberry Pi after successfully authenticating with TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-desktop.png)
+7. 单击“确定”按钮以与 VNC 服务器进行身份验证。如果您的凭据正确，TigerVNC 应打开一个包含与树莓派上您账户对应的桌面的窗口。您应该能够移动鼠标和键盘以输入文本并与桌面交互。![The desktop of a Raspberry Pi after successfully authenticating with TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-desktop.png)
 
 ## 通过 Raspberry Pi Connect 进行屏幕共享
 
-您可以使用 Raspberry Pi Connect 从另一设备的浏览器远程访问 Raspberry Pi 的桌面。 Raspberry Pi Connect 会自动处理配置，因此您无需查找 Raspberry Pi 的本地 IP 地址或修改本地网络。
+您可以使用 Raspberry Pi Connect 从另一设备的浏览器远程访问树莓派的桌面。 Raspberry Pi Connect 会自动处理配置，因此您无需查找树莓派的本地 IP 地址或修改本地网络。
 
 欲了解更多信息，请参阅 Connect 文档。
 
 ## 使用 SCP 共享文件
 
-安全复制协议（ scp ）通过 SSH 发送文件。您可以使用 scp 在您的 Raspberry Pi 和另一台计算机之间复制文件。
+安全复制协议（ scp ）通过 SSH 发送文件。您可以使用 scp 在您的树莓派和另一台计算机之间复制文件。
 
-要使用 scp ，请查找您的 Raspberry Pi 的 IP 地址。
+要使用 scp ，请查找您树莓派的 IP 地址。
 
-### 将文件复制到您的 Raspberry Pi
+### 将文件复制到您的树莓派
 
-要将名为 myfile.txt 的文件从您的个人计算机复制到 Raspberry Pi 上用户的主文件夹，请从包含 myfile.txt 的目录中运行以下命令，将 <username> 占位符替换为您用于登录到 Raspberry Pi 的用户名，将 <pi_ip_address> 占位符替换为您的 Raspberry Pi 的 IP 地址：
+要将名为 myfile.txt 的文件从您的个人计算机复制到树莓派上用户的主文件夹，请从包含 myfile.txt 的目录中运行以下命令，将 <username> 占位符替换为您用于登录到树莓派的用户名，将 <pi_ip_address> 占位符替换为您的树莓派的 IP 地址：
 
 ```
 $ scp myfile.txt <username>@<pi_ip_address>:
@@ -493,9 +503,9 @@ $ scp myfile.txt <username>@<pi_ip_address>:
 $ scp myfile.txt <username>@<pi_ip_address>:project/
 ```
 
-### 从您的 Raspberry Pi 复制文件
+### 从您的树莓派复制文件
 
-要将名为 myfile.txt 的文件从 Raspberry Pi 上的用户主目录复制到另一台计算机的当前目录，请运行以下命令：
+要将名为 myfile.txt 的文件从树莓派上的用户主目录复制到另一台计算机的当前目录，请运行以下命令：
 
 ```
 $ scp <username>@<pi_ip_address>:myfile.txt .
@@ -545,9 +555,9 @@ $ scp -r project/ <username>@<pi_ip_address>:
 
 在配置 rsync 之前，确定以下数值的值：
 
-* <pi_ip_address> ：您的 Raspberry Pi 本地 IP 地址：有关更多信息，请参阅查找您的 Raspberry Pi 的 IP 地址
-* <pi_username> ：您用于登录到 Raspberry Pi 的用户名
-* <pi_folder_name> ：您要从 Raspberry Pi 复制文件的文件夹名称
+* <pi_ip_address> ：您树莓派的本地 IP 地址：有关更多信息，请参阅查找您的树莓派的 IP 地址
+* <pi_username> ：您用于登录到树莓派的用户名
+* <pi_folder_name> ：您要从树莓派复制文件的文件夹名称
 * <pc_folder_name> ：您想要在个人计算机上同步的文件夹名称
 
 要配置 rsync 以同步文件，请在个人计算机上完成以下步骤，并使用上面确定的值替换命令中的占位符：
@@ -563,7 +573,7 @@ $ scp -r project/ <username>@<pi_ip_address>:
     $ rsync -avz -e ssh <pi_username>@<pi_ip_address>:<pi_folder_name>/ <pc_folder_name>/
     ```
 
-此命令将所有文件从您的 Raspberry Pi 上的选定文件夹复制到个人计算机上的选定文件夹。如果多次运行该命令， rsync 会跟踪您已经下载的文件并跳过它们。如果您在 Raspberry Pi 上删除或修改已同步的文件， rsync 会相应地更新个人计算机上的文件。
+此命令将所有文件从您的树莓派上的选定文件夹复制到个人计算机上的选定文件夹。如果多次运行该命令， rsync 会跟踪您已经下载的文件并跳过它们。如果您在树莓派上删除或修改已同步的文件， rsync 会相应地更新个人计算机上的文件。
 
 ## 网络文件系统（NFS）
 
@@ -594,8 +604,9 @@ $ sudo apt install nfs-kernel-server
 $ sudo mkdir -p /export/users
 ```
 
-| TIP | 如果您计划配置 LDAP/NIS 身份验证，请跳过下面的 chmod 步骤。 |
-| ----- | ------------------------------------------------------------- |
+>**技巧**
+>
+>如果您计划配置 LDAP/NIS 身份验证，请跳过下面的 chmod 步骤。 
 
 授予 /export 和 /export/users 读取、写入和执行权限（ 777 ），这样您就可以在没有 LDAP/NIS 身份验证的情况下从客户端访问 NFS 共享：
 
@@ -875,9 +886,9 @@ $ ln -s /nfs/music/ /home/user/Music
 
 Samba 是 Server Message Block（SMB）网络协议的免费软件重新实现。使用 Samba，您可以在 Windows、macOS 和 Linux 机器之间共享文件夹。
 
-### 在您的 Raspberry Pi 上安装 Samba
+### 在您的树莓派上安装 Samba
 
-默认情况下，Raspberry Pi OS 不包含 Samba。要在您的 Raspberry Pi 上安装 Samba，请运行以下命令，该命令安装您运行 Samba 服务器或客户端所需的所有依赖项：
+默认情况下，Raspberry Pi OS 不包含 Samba。要在您的树莓派上安装 Samba，请运行以下命令，该命令安装您运行 Samba 服务器或客户端所需的所有依赖项：
 
 ```
 $ sudo apt update
@@ -927,7 +938,7 @@ $ sudo apt install samba samba-common-bin smbclient cifs-utils
 7. 点击“确定”按钮。
 8. 点击“完成”按钮以共享文件夹。
 
-#### 在 Raspberry Pi 上挂载文件夹。
+#### 在树莓派上挂载文件夹。
 
 在 Linux 中，挂载是将文件夹附加到位置的过程，因此我们首先需要该位置。
 
@@ -941,7 +952,7 @@ $ mkdir windowshare
 $ sudo mount.cifs //<hostname or IP address>/<shared windows folder> /home/<username>/windowshare -o user=<name>
 ```
 
-您现在应该能够在 Raspberry Pi 上查看 Windows 共享的内容。
+您现在应该能够在树莓派上查看 Windows 共享的内容。
 
 ```
 $ ls windowshare/
@@ -967,7 +978,7 @@ $ sudo mount.cifs //IP/share /mnt/point -o user=<uname>,vers=1.0
 | 3.11 | SMBv3.1.1 协议。Microsoft Windows 10 和 Windows Server 2016         |
 | 3    | SMBv3.0 协议版本及以上                                              |
 
-### 从您的 Raspberry Pi 共享文件夹
+### 从您的树莓派共享文件夹
 
 首先，创建一个要共享的文件夹。此示例在当前用户的 home 文件夹中创建一个名为 shared 的文件夹：
 
@@ -977,7 +988,7 @@ $ mkdir shared
 $ chmod 0740 shared
 ```
 
-现在我们需要告诉 Samba 关于您的默认用户帐户在访问该文件夹时。在提示时，请输入您的密码，并用您的主用户帐户的用户名替换 <username> 占位符：
+现在我们需要告诉 Samba 关于您的默认用户账户在访问该文件夹时。在提示时，请输入您的密码，并用您的主用户账户的用户名替换 <username> 占位符：
 
 ```
 $ sudo smbpasswd -a <username>
@@ -989,7 +1000,7 @@ $ sudo smbpasswd -a <username>
 sudo nano /etc/samba/smb.conf
 ```
 
-在文件末尾，添加以下内容以共享文件夹，为远程用户提供读写权限。用你的 Raspberry Pi 上主用户帐户的用户名替换 <username> 占位符：
+在文件末尾，添加以下内容以共享文件夹，为远程用户提供读写权限。用你的树莓派上主用户账户的用户名替换 <username> 占位符：
 
 ```
 [share]
@@ -1005,11 +1016,11 @@ sudo nano /etc/samba/smb.conf
 workgroup = <your workgroup name here>
 ```
 
-共享文件夹现在应该会出现在网络上的 Windows 或 macOS 设备上。输入您的 Raspberry Pi 用户名和密码以挂载文件夹。
+共享文件夹现在应该会出现在网络上的 Windows 或 macOS 设备上。输入您的树莓派用户名和密码以挂载文件夹。
 
 ## 设置 Apache Web 服务器
 
-Apache 是一款流行的 Web 服务器应用程序，您可以在 Raspberry Pi 上安装它以允许其提供网页。
+Apache 是一款流行的 Web 服务器应用程序，您可以在树莓派上安装它以允许其提供网页。
 
 单独使用，Apache 可以通过 HTTP 提供 HTML 文件，并且通过附加模块可以使用脚本语言（如 PHP）提供动态网页。
 
@@ -1031,7 +1042,7 @@ sudo apt install apache2 -y
 
 默认情况下，Apache 在 Web 文件夹中放置一个测试 HTML 文件。当您在树莓派本身上浏览到 http://localhost/ ，或者在网络中的另一台计算机上浏览到 http://192.168.1.10 （无论树莓派的 IP 地址是什么）时，将提供此默认网页。要查找树莓派的 IP 地址，请在命令行中键入 hostname -I （或阅读有关查找 IP 地址的更多信息）。
 
-在 Raspberry Pi 上或网络中的另一台计算机上浏览到默认网页，您应该看到以下内容：
+在树莓派上或网络中的另一台计算机上浏览到默认网页，您应该看到以下内容：
 
 ![Apache success message](https://www.raspberrypi.com/documentation/computers/images/apache-it-works.png)
 
@@ -1057,7 +1068,7 @@ drwxr-xr-x 12 root root 4096 Jan  8 01:28 ..
 -rw-r--r--  1 root root  177 Jan  8 01:29 index.html
 ```
 
-这表明默认情况下， /var/www/html/ 中有一个名为 index.html 的文件，由 root 用户拥有（就像包含文件的文件夹一样）。要编辑该文件，您需要将其所有权更改为您自己的用户名。使用以下命令更改文件的所有者，将 <username> 占位符替换为您的主用户帐户的用户名：
+这表明默认情况下， /var/www/html/ 中有一个名为 index.html 的文件，由 root 用户拥有（就像包含文件的文件夹一样）。要编辑该文件，您需要将其所有权更改为您自己的用户名。使用以下命令更改文件的所有者，将 <username> 占位符替换为您的主用户账户的用户名：
 
 ```
 $ sudo chown <username>: index.html
@@ -1103,23 +1114,25 @@ sudo nano index.php
 <?php phpinfo(); ?>
 ```
 
-## 在 Raspberry Pi 上进行网络引导
+## 在树莓派上进行网络引导
 
-您可以设置一个 DHCP/TFTP 服务器，这将允许您从网络引导 Raspberry Pi 3 或 4。
+您可以设置一个 DHCP/TFTP 服务器，这将允许您从网络引导树莓派 3 或 4。
 
-说明假定您有一个现有的家庭网络，并且您想要使用 Raspberry Pi 作为服务器。您还需要另一个 Raspberry Pi 3 或 4 作为客户端进行引导。只需要一个 SD 卡，因为在初始客户端配置后，客户端将从服务器引导。
+说明假定您有一个现有的家庭网络，并且您想要使用树莓派作为服务器。您还需要另一个树莓派 3 或 4 作为客户端进行引导。只需要一个 SD 卡，因为在初始客户端配置后，客户端将从服务器引导。
 
-| NOTE | 由于网络设备和路由器的种类繁多，我们无法保证网络引导能在任何设备上正常工作。我们收到报告称，如果无法使网络引导正常工作，可以尝试在网络上禁用 STP 帧来帮助解决问题。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>由于网络设备和路由器的种类繁多，我们无法保证网络引导能在任何设备上正常工作。我们收到报告称，如果无法使网络引导正常工作，可以尝试在网络上禁用 STP 帧来帮助解决问题。 
 
 ### 配置网络引导客户端
 
-#### Raspberry Pi 3 Model B
+#### 树莓派 3 Model B
 
-| NOTE | 本部分仅适用于 Raspberry Pi 3 Model B，因为 Raspberry Pi 3 Model B+ 在出厂时已启用网络引导。 |
-| ------ | ---------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>本部分仅适用于树莓派 3 Model B，因为树莓派 3 Model B+ 在出厂时已启用网络引导。 
 
-在 Raspberry Pi 3 Model B 进行网络引导之前，需要从带有配置选项的 SD 卡引导，以启用 USB 引导模式。 这将在 Raspberry Pi SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。 完成此操作后，Raspberry Pi 3B 将尝试从 USB 和网络引导，如果无法从 SD 卡引导。
+在树莓派 3 Model B 进行网络引导之前，需要从带有配置选项的 SD 卡引导，以启用 USB 引导模式。 这将在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。 完成此操作后，树莓派 3B 将尝试从 USB 和网络引导，如果无法从 SD 卡引导。
 
 以通常方式在 SD 卡上安装 Raspberry Pi OS Lite 或带桌面的 Raspberry Pi OS。 接下来，使用以下命令启用 USB 引导模式：
 
@@ -1127,7 +1140,7 @@ sudo nano index.php
 $ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
 ```
 
-将 program_usb_boot_mode=1 添加到 /boot/firmware/config.txt 的末尾。使用 sudo reboot 重新启动 Raspberry Pi。一旦客户端 Raspberry Pi 重新启动，请检查 OTP 是否已编程为：
+将 program_usb_boot_mode=1 添加到 /boot/firmware/config.txt 的末尾。使用 sudo reboot 重新启动树莓派。在客户端树莓派重新启动后，请检查 OTP 是否已编程为：
 
 ```
 $ vcgencmd otp_dump | grep 17:
@@ -1142,29 +1155,29 @@ $ vcgencmd otp_dump | grep 17:
 $ sudo nano /boot/firmware/config.txt
 ```
 
-删除包含文本 program_usb_boot_mode=1 的行。最后，使用 sudo poweroff 关闭客户端 Raspberry Pi。
+删除包含文本 program_usb_boot_mode=1 的行。最后，使用 sudo poweroff 关闭客户端树莓派。
 
-#### Raspberry Pi 4 Model B
+#### 树莓派 4 Model B
 
-可以使用 raspi-config 工具在 Raspberry Pi 4 上启用网络引导。首先，按照以下方式运行 raspi-config ：
+可以使用 raspi-config 工具在树莓派 4 上启用网络引导。首先，按照以下方式运行 raspi-config ：
 
 ```
 $ sudo raspi-config
 ```
 
-在 raspi-config 中，选择 Advanced Options ，然后选择 Boot Order ，最后选择 Network Boot 。然后必须重新启动设备，以便将引导顺序更改编程到引导加载程序 EEPROM 中。一旦 Raspberry Pi 重新启动，请检查引导顺序是否现在为 0xf21 ：
+在 raspi-config 中，选择 Advanced Options ，然后选择 Boot Order ，最后选择 Network Boot 。然后必须重新启动设备，以便将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重新启动后，请检查引导顺序是否现在为 0xf21 ：
 
 ```
 $ vcgencmd bootloader_config
 ```
 
-要了解如何配置 Raspberry Pi 4 引导加载程序的更多详细信息，请参阅 Raspberry Pi 引导加载程序配置。
+要了解如何配置树莓派 4 引导加载程序的更多详细信息，请参阅树莓派引导加载程序配置。
 
 ### 以太网 MAC 地址
 
 在配置网络引导之前，请记下序列号和 MAC 地址，以便 TFTP/DHCP 服务器可以识别板子。
 
-在 Raspberry Pi 4 上，MAC 地址是在制造时编程的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在引导加载程序 HDMI 诊断屏幕上。
+在树莓派 4 上，MAC 地址是在制造时编程的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在引导加载程序 HDMI 诊断屏幕上。
 
 要查找以太网 MAC 地址：
 
@@ -1180,7 +1193,7 @@ $ grep Serial /proc/cpuinfo | cut -d ' ' -f 2 | cut -c 9-16
 
 ### 配置网络引导服务器
 
-将 SD 卡插入服务器的 Raspberry Pi，然后启动服务器。客户端的 Raspberry Pi 需要一个用于引导的根文件系统：我们将使用服务器的根文件系统的副本，并将其放置在 /nfs/client1 ：
+将 SD 卡插入服务器的树莓派，然后启动服务器。客户端的树莓派需要一个用于引导的根文件系统：我们将使用服务器的根文件系统的副本，并将其放置在 /nfs/client1 ：
 
 ```
 $ sudo mkdir -p /nfs/client1
@@ -1220,7 +1233,7 @@ $ ip -4 addr show dev eth0 | grep inet
 inet 10.42.0.211/24 brd 10.42.0.255 scope global eth0
 ```
 
-第一个地址是您的服务器 Raspberry Pi 在网络上的 IP 地址，斜杠后面的部分是网络大小。很可能您的是一个 /24 。还要注意网络的 brd （广播）地址。记下前一个命令的输出，其中将包含 Raspberry Pi 的 IP 地址和网络的广播地址。
+第一个地址是您的服务器树莓派在网络上的 IP 地址，斜杠后面的部分是网络大小。很可能您的是一个 /24 。还要注意网络的 brd （广播）地址。记下前一个命令的输出，其中将包含树莓派的 IP 地址和网络的广播地址。
 
 最后，记下您的 DNS 服务器地址，这与您的网关地址相同。您可以使用以下命令找到这个地址：
 
@@ -1228,7 +1241,7 @@ inet 10.42.0.211/24 brd 10.42.0.255 scope global eth0
 $ cat /etc/resolv.conf
 ```
 
-通过 systemd 网络配置在您的服务器 Raspberry Pi 上配置静态网络地址，该网络作为网络处理程序和 DHCP 服务器。
+通过 systemd 网络配置在您的服务器树莓派上配置静态网络地址，该网络作为网络处理程序和 DHCP 服务器。
 
 为此，您需要创建一个 10-eth0.netdev 和一个 11-eth0.network ，如下所示：
 
@@ -1287,7 +1300,7 @@ $ sudo systemctl enable systemd-networkd
 $ sudo reboot
 ```
 
-现在启动 tcpdump ，这样您就可以从客户端 Raspberry Pi 搜索 DHCP 数据包。
+现在启动 tcpdump ，这样您就可以从客户端树莓派搜索 DHCP 数据包。
 
 ```
 $ sudo apt install tcpdump dnsmasq
@@ -1295,7 +1308,7 @@ $ sudo systemctl enable dnsmasq
 $ sudo tcpdump -i eth0 port bootpc
 ```
 
-将客户端 Raspberry Pi 连接到您的网络并打开电源。检查客户端的 LED 是否在大约 10 秒后亮起，然后您应该从客户端收到一个数据包 "DHCP/BOOTP，来自..."。
+将客户端树莓派连接到您的网络并打开电源。检查客户端的 LED 是否在大约 10 秒后亮起，然后您应该从客户端收到一个数据包 "DHCP/BOOTP，来自..."。
 
 ```
 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b8:27:eb...
@@ -1359,7 +1372,7 @@ $ sudo systemctl restart dnsmasq
 
 #### 设置 NFS root
 
-现在，这应该允许您的 Raspberry Pi 客户端尝试引导，直到尝试加载根文件系统（它没有）。
+现在，这应该允许您的树莓派客户端尝试引导，直到尝试加载根文件系统（它没有）。
 
 在这一点上，导出之前创建的 /nfs/client1 文件系统和 TFTP 引导文件夹。
 
@@ -1405,15 +1418,18 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 引导加载程序和固件（阶段 1 到 3）已经得到增强，以支持通过 IPv6 引导。
 
-| IMPORTANT | IPv6 netboot 是一个实验性的 Alpha 功能，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于 Raspberry Pi 4 和 Compute Module 4。 |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+>**重要**
+>
+>IPv6 netboot 是一个实验性的 Alpha 功能，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于树莓派 4 和计算模块 4。
+
 
 ### 工作原理
 
 要通过 IPv6 引导，您需要一个更新的固件版本（例如 start4.elf ）和引导加载程序。使用最新版本的 Raspberry Pi OS 和最新的稳定引导加载程序应该足够了。
 
-| NOTE | 常用的 dnsmasq DHCP 服务器目前不支持 IPv6 网络引导所需的网络引导参数，因此在目前，您将不得不使用其他 DHCP 服务器，如 ISC DHCP。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>常用的 dnsmasq DHCP 服务器目前不支持 IPv6 网络引导所需的网络引导参数，因此在目前，您将不得不使用其他 DHCP 服务器，如 ISC DHCP。 
 
 要通过网络挂载 rootfs ，IPv4 网络引导教程建议使用 nfsroot 。这不支持 IPv6，因此需要另一种方法来通过网络挂载 rootfs 。
 
@@ -1427,7 +1443,7 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 如果路由器指示启用了有状态配置，则使用 DHCP 来获取设备的 IP 地址。 这涉及设备向 DHCP 服务器发送一个请求，服务器响应一个通告。 然后客户端请求地址，然后从服务器获得回复确认。
 
-DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标识自己。 在 Raspberry Pi 上，这是从 MAC 地址（DUID_LL）派生的。
+DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标识自己。 在树莓派上，这是从 MAC 地址（DUID_LL）派生的。
 
 #### TFTP 地址
 
@@ -1443,9 +1459,9 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 使用 IPv4 网络引导时， nfsroot 用于在网络上挂载 rootfs 。这不支持 IPv6，因此需要另一种解决方案。可能涉及一个可以在切换到适当的 rootfs 内容之前挂载适当网络位置的小型 RAM 文件系统。
 
-| NOTE | 通过 IPv6 通过 NFS 引导 Linux 内核的机制仍需演示。 |
-| ------ | ---------------------------------------------------- |
-
+>**注意**
+>
+>通过 IPv6 通过 NFS 引导 Linux 内核的机制仍需演示。 
 ### 测试设置
 
 如果您想尝试这个，您将需要另一个树莓派作为 TFTP 和 DHCP 服务器。
