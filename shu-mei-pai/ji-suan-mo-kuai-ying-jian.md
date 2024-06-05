@@ -3,11 +3,11 @@
 
 ## 计算模块
 
-Raspberry Pi 计算模块是旗舰 Raspberry Pi 型号的系统级模块变体。计算模块在工业和商业应用中特别受欢迎，包括数字标牌、瘦客户机和流程自动化。一些应用程序使用旗舰 Raspberry Pi 设计，但许多用户希望拥有更紧凑的设计或内置 eMMC 存储。
+树莓派计算模块是旗舰树莓派型号的系统级模块变体。计算模块在工业和商业应用中特别受欢迎，包括数字标牌、瘦客户机和流程自动化。一些应用程序使用旗舰树莓派设计，但许多用户希望拥有更紧凑的设计或内置 eMMC 存储。
 
 计算模块有多种变体，内存和嵌入式多媒体卡（eMMC）闪存容量各不相同。eMMC 类似于 SD 卡，但焊接在主板上。与 SD 卡不同，eMMC 专门设计用作磁盘，并包含额外功能以提高可靠性。Lite 型号没有内置存储，并且有时用简写后缀 L 来表示，例如“CM3L”。
 
-计算模块使用以下的 Raspberry Pi SoCs:
+计算模块使用以下的树莓派 SoCs:
 
 * CM1 采用 BCM2835
 * CM3, CM3+ 采用 BCM2837
@@ -37,7 +37,7 @@ Raspberry Pi 计算模块是旗舰 Raspberry Pi 型号的系统级模块变体�
 
  计算模块 4S
 
-Compute Module 4S（CM4S）包含了 Raspberry Pi 4 的内部部件（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存存储。与 CM4 不同，CM4S 采用与 CM1、CM3 和 CM3+ 相同的 DDR2 SODIMM 外形尺寸。
+计算模块 4S（CM4S）包含了树莓派 4 的内部部件（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存存储。与 CM4 不同，CM4S 采用与 CM1、CM3 和 CM3+ 相同的 DDR2 SODIMM 外形尺寸。
 
 ### 计算模块 3+
 
@@ -45,7 +45,7 @@ Compute Module 4S（CM4S）包含了 Raspberry Pi 4 的内部部件（BCM2711 �
 
  计算模块 3+
 
-Compute Module 3+（CM3+）包含了 Raspberry Pi 3 Model B+（BCM2837 处理器和 1GB 内存）的内部，以及可选的 0GB（Lite）、8GB、16GB 或 32GB eMMC 闪存存储。
+计算模块 3+（CM3+）包含了树莓派 3 Model B+（BCM2837 处理器和 1GB 内存）的内部，以及可选的 0GB（Lite）、8GB、16GB 或 32GB eMMC 闪存存储。
 
 ### 计算模块 3
 
@@ -53,7 +53,7 @@ Compute Module 3+（CM3+）包含了 Raspberry Pi 3 Model B+（BCM2837 处理器
 
  计算模块 3
 
-Compute Module 3（CM3）包含了 Raspberry Pi 3 的内部部件（BCM2837 处理器和 1GB 的 RAM），以及可选的 4GB eMMC 闪存。
+计算模块 3（CM3）包含了树莓派 3 的内部部件（BCM2837 处理器和 1GB 的 RAM），以及可选的 4GB eMMC 闪存。
 
 ### 计算模块 1
 
@@ -61,11 +61,11 @@ Compute Module 3（CM3）包含了 Raspberry Pi 3 的内部部件（BCM2837 处�
 
  计算模块 1
 
-Compute Module 1（CM1）包含了 Raspberry Pi 的内部部件（BCM2835 处理器和 512MB 内存），以及可选的 4GB eMMC 闪存存储。
+计算模块 1（CM1）包含了树莓派的内部部件（BCM2835 处理器和 512MB 内存），以及可选的 4GB eMMC 闪存存储。
 
 ## IO 板
 
-Raspberry Pi IO 板提供了一种将单个 Compute Module 连接到各种 I/O（输入/输出）接口的方法。由于 Compute Modules 本质上较小，因此它们缺少端口和连接器。IO 板提供了一种将 Compute Modules 连接到各种外围设备的方法。
+树莓派 IO 板提供了一种将单个计算模块连接到各种 I/O（输入/输出）接口的方法。由于计算模块本质上较小，因此它们缺少端口和连接器。IO 板提供了一种将计算模块连接到各种外围设备的方法。
 
 IO 板是旨在开发的分支板；在生产中，您应该使用一个更小的、可能是定制的板，该板仅提供您的用例所需的端口和外围设备。
 
@@ -75,7 +75,7 @@ IO 板是旨在开发的分支板；在生产中，您应该使用一个更小�
 
 计算模块 4 IO 板
 
-Compute Module 4 IO Board 提供以下接口：
+计算模块 4 IO Board 提供以下接口：
 
 * 带有 40 针 GPIO 连接器和 PoE 标头的 HAT 印记
 * 两个 HDMI 端口
@@ -90,7 +90,7 @@ Compute Module 4 IO Board 提供以下接口：
 
 ### 计算模块 IO 板
 
-![Compute Module IO Board](https://www.raspberrypi.com/documentation/computers/images/cmio.jpg)
+![计算模块 IO 板](https://www.raspberrypi.com/documentation/computers/images/cmio.jpg)
 
 计算模块 IO 板
 
@@ -177,8 +177,9 @@ Compute Module 4 IO Board 提供以下接口：
     ```
 4. 几秒钟后，计算模块应该会出现为一个大容量存储设备。检查 /dev/ 目录，可能是 /dev/sda 或 /dev/sdb ，查找该设备。或者，运行 lsblk 并搜索一个存储容量与您的计算模块容量相匹配的设备。
 
-| TIP | 或者，您可以从源代码构建 rpiboot 。 |
-| ----- | ------------------------------------- |
+>**技巧**
+>
+>或者，您可以从源代码构建 rpiboot 。 
 
 #### 在 macOS 上
 
@@ -202,8 +203,9 @@ Compute Module 4 IO Board 提供以下接口：
 3. 将 IO 板连接到电源。Windows 应该会发现硬件并配置所需的驱动程序。
 4. 双击 RPiBoot.exe 运行。几秒钟后，计算模块 eMMC 应该会显示为 USB 大容量存储设备。
 
-| TIP | 或者，您可以从源代码构建 rpiboot 。 |
-| ----- | ------------------------------------- |
+>**技巧**
+>
+>或者，您可以从源代码编译 rpiboot 。 
 
 ### 刷写 eMMC
 
@@ -260,8 +262,11 @@ CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上�
 * 配置引导设备（例如网络引导）。请参阅引导加载程序配置指南中的 BOOT_ORDER 部分。
 * 启用引导加载程序 EEPROM 上的硬件写保护，以确保引导加载程序无法在无法访问的产品（如远程或嵌入式设备）上被修改。
 
-| NOTE | Compute Module 4 ROM 从未从 SD/EMMC 运行 recovery.bin ， rpi-eeprom-update 服务默认情况下未启用。这是必要的，因为 EMMC 不可移动，无效的 recovery.bin 文件将阻止系统启动。这可以被覆盖并与 self-update 模式一起使用，其中引导加载程序可以从 USB MSD 或网络引导进行更新。但是，在更新 EEPROM 时发生断电时， self-update 模式不是原子更新，因此不安全。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+>**注意**
+>
+>计算模块 4 ROM 从未从 SD/EMMC 运行 recovery.bin ， rpi-eeprom-update 服务默认情况下未启用。这是必要的，因为 EMMC 不可移动，无效的 recovery.bin 文件将阻止系统启动。这可以被覆盖并与 self-update 模式一起使用，其中引导加载程序可以从 USB MSD 或网络引导进行更新。但是，在更新 EEPROM 时发生断电时， self-update 模式不是原子更新，因此不安全。
+
+
 
 #### 除 SD 卡之外的闪存设备
 
@@ -307,7 +312,7 @@ SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示�
 * 为计算模块提供电源（至少为 3.3V 和 1.8V）
 * 将引脚连接到用户应用程序所需的外围设备
 
-Raspberry Pi 的 IO 板提供以下功能：
+树莓派的 IO 板提供以下功能：
 
 * 为模块供电
 * 将 GPIO 引线连接到引脚排
@@ -335,7 +340,7 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 
 在 BCM283x 设备中，GPU 中的 DSP 核心首先启动。它在启动主 Arm 处理器之前处理设置。
 
-Raspberry Pi BCM283x 设备具有三阶段引导过程：
+树莓派 BCM283x 设备具有三阶段引导过程：
 
 * GPU DSP 退出复位并从小型内部引导 ROM 执行代码。此代码通过外部接口加载第二阶段引导加载程序。此代码首先在称为 bootcode.bin 的引导分区上查找第二阶段引导加载程序。如果未找到引导设备或未找到 bootcode.bin ，引导 ROM 将在 USB 引导模式下等待主机提供第二阶段引导加载程序（ usbbootcode.bin ）。
 * 第二阶段引导加载程序负责设置 LPDDR2 SDRAM 接口和其他关键系统功能。设置完成后，第二阶段引导加载程序加载并执行主 GPU 固件（ start.elf ）。
@@ -343,19 +348,19 @@ Raspberry Pi BCM283x 设备具有三阶段引导过程：
 
 ### 设备树
 
-Raspberry Pi 的 Linux 设备树编码了连接到系统的硬件信息以及用于与该硬件通信的驱动程序。
+树莓派的 Linux 设备树编码了连接到系统的硬件信息以及用于与该硬件通信的驱动程序。
 
 引导分区包含几个二进制设备树（ .dtb ）文件。设备树编译器使用可读的设备树描述（ .dts ）创建这些二进制文件。
 
-引导分区包含两种不同类型的设备树文件。一种仅供 GPU 使用；其余是针对每个基于 BCM283x 的 Raspberry Pi 产品的标准 Arm 设备树文件：
+引导分区包含两种不同类型的设备树文件。一种仅供 GPU 使用；其余是针对每个基于 BCM283x 的树莓派产品的标准 Arm 设备树文件：
 
 * dt-blob.bin （供 GPU 使用）
-* bcm2708-rpi-b.dtb （用于 Raspberry Pi 1 Model A 和 B）
-* bcm2708-rpi-b-plus.dtb （用于 Raspberry Pi 1 Model B+ 和 A+）
-* bcm2709-rpi-2-b.dtb （用于 Raspberry Pi 2 Model B）
-* bcm2710-rpi-3-b.dtb （用于 Raspberry Pi 3 Model B）
-* bcm2708-rpi-cm.dtb （用于 Raspberry Pi 计算模块 1）
-* bcm2710-rpi-cm3.dtb （用于 Raspberry Pi 计算模块 3）
+* bcm2708-rpi-b.dtb （用于树莓派 1 Model A 和 B）
+* bcm2708-rpi-b-plus.dtb （用于树莓派i 1 Model B+ 和 A+）
+* bcm2709-rpi-2-b.dtb （用于树莓派 2 Model B）
+* bcm2710-rpi-3-b.dtb （用于树莓派 3 Model B）
+* bcm2708-rpi-cm.dtb （用于树莓派 计算模块 1）
+* bcm2710-rpi-cm3.dtb （用于树莓派计算模块 3）
 
 在启动过程中，用户可以通过 device_tree 参数在 config.txt 中指定要使用的特定 Arm 设备树。例如， config.txt 中的 device_tree=mydt.dtb 行指定了一个名为 mydt.dtb 的文件中的 Arm 设备树。
 
@@ -371,7 +376,7 @@ Raspberry Pi 的 Linux 设备树编码了连接到系统的硬件信息以及用
 
 dt-blob.bin 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息。例如，GPU 管理摄像头模块。GPU 需要独占访问 I2C 接口和一些引脚，以便与摄像头模块通信。
 
-在大多数 Raspberry Pi 型号上，I2C0 专为 GPU 独占使用。 dt-blob.bin 定义了用于 I2C0 的 GPIO 引脚。
+在大多数树莓派型号上，I2C0 专为 GPU 独占使用。 dt-blob.bin 定义了用于 I2C0 的 GPIO 引脚。
 
 默认情况下， dt-blob.bin 不存在。相反， start.elf 包含了文件的内置版本。许多计算模块项目提供了一个自定义 dt-blob.bin ，该文件覆盖了默认的内置文件。
 
@@ -383,7 +388,7 @@ dt-blob.bin 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息�
 
 minimal-cm-dt-blob.dts 是一个示例 .dts 设备树文件。它设置了 HDMI 热插拔检测，ACT LED，并将所有其他 GPIO 设置为带有默认拉电的输入。
 
-要将 minimal-cm-dt-blob.dts 编译为 dt-blob.bin ，请使用设备树编译器 dtc 。要在 Raspberry Pi 上安装 dtc ，请运行以下命令：
+要将 minimal-cm-dt-blob.dts 编译为 dt-blob.bin ，请使用设备树编译器 dtc 。要在树莓派上安装 dtc ，请运行以下命令：
 
 ```
 $ sudo apt install device-tree-compiler
@@ -401,7 +406,7 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 在 start.elf 读取 dt-blob.bin 并设置初始引脚状态和时钟之后，它会读取 config.txt ，其中包含许多其他系统设置选项。
 
-阅读完 config.txt 后， start.elf 会读取一个特定于模型的设备树文件。例如，Compute Module 3 使用 bcm2710-rpi-cm.dtb 。该文件是一个标准的 Arm Linux 设备树文件，详细说明连接到处理器的硬件。它枚举：
+阅读完 config.txt 后， start.elf 会读取一个特定于模型的设备树文件。例如，计算模块 3 使用 bcm2710-rpi-cm.dtb 。该文件是一个标准的 Arm Linux 设备树文件，详细说明连接到处理器的硬件。它枚举：
 
 * 外围设备的种类和位置
 * 使用了哪些 GPIO
@@ -414,7 +419,7 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 ### 设备树源码和编译
 
-Raspberry Pi OS 镜像提供已编译的 dtb 文件，但源 dts 文件位于 Raspberry Pi Linux 内核分支中。在文件名中查找 rpi 。
+Raspberry Pi OS 镜像提供已编译的 dtb 文件，但源 dts 文件位于树莓派 Linux 内核分支中。在文件名中查找 rpi 。
 
 默认叠加 dts 文件位于 arch/arm/boot/dts/overlays 。这些叠加文件是创建自己的叠加的好起点。要将这些 dts 文件编译为 dtb 文件，请使用设备树编译器 dtc 。
 
@@ -436,8 +441,9 @@ pinctrl 提供 GPIO 引脚的状态。如果出现问题，请尝试转储 GPU �
 $ sudo vclog --msg
 ```
 
-| TIP | 要在输出中包含更多诊断信息，请将 dtdebug=1 添加到 config.txt 。 |
-| ----- | ----------------------------------------------------------------- |
+>**技巧**
+>
+>要在输出中包含更多诊断信息，请将 dtdebug=1 添加到 config.txt 。 
 
 使用设备树树莓派论坛提出设备树相关问题或报告问题。
 
@@ -537,7 +543,7 @@ $ pinctrl
 
 ### 更新您的系统
 
-在配置摄像头之前，请确保您的 Raspberry Pi 固件是最新的。
+在配置摄像头之前，请确保您树莓派的固件是最新的。
 
 ```
 $ sudo apt update
@@ -549,7 +555,7 @@ $ sudo apt full-upgrade
 要将单个摄像头连接到计算模块，请完成以下步骤：
 
 1. 断开计算模块的电源。
-2. 使用 RPI-CAMERA 板或 Raspberry Pi Zero 摄像头电缆将摄像头模块连接到 CAM1 端口。![Connecting the adapter board](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-Adapter.jpg)
+2. 使用 RPI-CAMERA 板或树莓派 Zero 摄像头电缆将摄像头模块连接到 CAM1 端口。![Connecting the adapter board](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-Adapter.jpg)
 3. （仅限 CM1、CM3、CM3+ 和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
 
     * 0 到 CD1_SDA
@@ -741,15 +747,15 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
 
 ### 连接显示器到 DISP1
 
-| NOTE | 树莓派 Zero 相机电缆不能作为 RPI-DISPLAY 适配器的替代品。这两根电缆有不同的布线。 |
-| ------ | ----------------------------------------------------------------------------------- |
+>**注意**
+>
+>树莓派 Zero 相机电缆不能作为 RPI-DISPLAY 适配器的替代品。这两根电缆有不同的布线。 
 
 要连接显示器到 DISP1：
 
 1. 断开计算模块的电源。
 2. 通过 22W 至 15W 显示适配器，将显示器连接到计算模块 IO 板上的 DISP1 端口。
 3. （仅限 CM1、CM3、CM3+和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
-
     * 0 到 CD1_SDA
     * 1 到 CD1_SCL
 4. 重新连接计算模块到电源。
@@ -766,7 +772,6 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
 
 1. 通过 22W 至 15W 显示适配器将显示器连接到计算模块 IO 板上的 DISP0 端口。
 2. （仅适用于 CM1、CM3、CM3+和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
-
     * 28 到 CD0_SDA
     * 29 到 CD0_SCL
 3. 重新连接计算模块到电源。
@@ -823,19 +828,19 @@ ignore_lcd=1
 
 ### 计算模块 4S 数据表
 
-Compute Module 4S（CM4S）在 CM1、CM3 和 CM3+的 DDR2-SODIMM 尺寸中提供了 CM4 的内部组件。要了解有关 CM4S 的更多信息，请参阅以下文档：
+计算模块 4S（CM4S）在 CM1、CM3 和 CM3+的 DDR2-SODIMM 尺寸中提供了 CM4 的内部组件。要了解有关 CM4S 的更多信息，请参阅以下文档：
 
 * [ CM4S 数据表](https://datasheets.raspberrypi.com/cm4s/cm4s-datasheet.pdf)
 
-### Compute Module 3+ 数据表
+### 计算模块 3+ 数据表
 
-Compute Module 3+ (CM3+)是一个支持的产品，其终止生命周期（EOL）日期不早于 2028 年 1 月。要了解有关 CM3+及其对应 IO 板的更多信息，请参阅以下文档：
+计算模块 3+ (CM3+)是一个支持的产品，其终止生命周期（EOL）日期不早于 2028 年 1 月。要了解有关 CM3+及其对应 IO 板的更多信息，请参阅以下文档：
 
 * [ CM3+ 数据表](https://datasheets.raspberrypi.com/cm/cm3-plus-datasheet.pdf)
 
-### Compute Module 1 和 Compute Module 3 数据表
+### 计算模块 1 和计算模块 3 数据表
 
-Raspberry Pi 计算模块 1 (CM1) 和 计算模块 3 (CM3) 是支持的产品，其终止生命周期 (EOL) 日期不早于 2026 年 1 月。要了解有关 CM1 和 CM3 的更多信息，请参阅以下文档：
+树莓派计算模块 1 (CM1) 和 计算模块 3 (CM3) 是支持的产品，其终止生命周期 (EOL) 日期不早于 2026 年 1 月。要了解有关 CM1 和 CM3 的更多信息，请参阅以下文档：
 
 * [CM1 和 CM3 数据表](https://datasheets.raspberrypi.com/cm/cm1-and-cm3-datasheet.pdf)
 * [ CM1 的原理图](https://datasheets.raspberrypi.com/cm/cm1-schematics.pdf)
@@ -864,6 +869,6 @@ Raspberry Pi 计算模块 1 (CM1) 和 计算模块 3 (CM3) 是支持的产品，
 
 ### 欠压检测
 
-以下原理图描述了一个欠压检测电路，用于旧版的 Raspberry Pi 型号：
+以下原理图描述了一个欠压检测电路，用于旧版的树莓派型号：
 
 ![Under-voltage detect](https://www.raspberrypi.com/documentation/computers/images/under_voltage_detect.png)
