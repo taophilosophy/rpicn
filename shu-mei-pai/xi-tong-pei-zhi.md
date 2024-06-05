@@ -14,7 +14,8 @@ raspi-config 可帮助您配置您的树莓派。不同树莓派型号之间的�
 $ sudo raspi-config
 ```
 
-您应该看到一个带有选项的蓝色屏幕在灰色框中：
+您应该看到在灰色框中出现了一个带有选项的蓝色屏幕：
+
 
 ![raspi-config main screen](https://www.raspberrypi.com/documentation/computers/images/raspi-config.png)
 
@@ -30,7 +31,7 @@ raspi-config 可自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文
 
 ### 系统选项
 
-系统选项子菜单允许您对引导、登录和网络过程的各个部分进行配置更改，以及一些其他系统级别的更改。
+系统选项子菜单可让您对引导、登录和网络过程的各个部分进行配置更改，以及一些其他系统级别的更改。
 
 ![raspi-config system options](https://www.raspberrypi.com/documentation/computers/images/raspi-system.png)
 
@@ -192,7 +193,7 @@ SSH 允许您从另一台计算机远程访问树莓派的命令行。默认情�
 
 >**警告**
 >
->它没有确认的步骤。选择该选项将立即开始分区扩展。 
+>它没有再确认的步骤。选择该选项将立即开始分区扩展。 
 
 #### 网络接口名称
 
@@ -258,9 +259,9 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <passphrase> [hidden] 
 
 传递无线网络名称（SSID）和密码（如果需要）。以下参数是可选的：
 
-<hidden> 选项表示 SSID 的可见性。如果网络广播开放的 SSID，请传递 0 或省略该选项。如果您的 SSID 是隐藏的，请传递 1 。默认为 0 。
+`<hidden>` 选项表示 SSID 的可见性。如果网络广播开放的 SSID，请传递 0 或省略该选项。如果您的 SSID 是隐藏的，请传递 1 。默认为 0 。
 
-<plain> 选项指示您是否打算将密码作为明文传递。如果您的密码包含空格或类似 ! 的特殊字符，则必须传递 0 并在密码周围使用引号。否则，您可以传递 1 或省略该选项。默认为 1 。要传递此选项，您必须为 <hidden> 指定一个值。
+`<plain>` 选项指示您是否打算将密码作为明文传递。如果您的密码包含空格或类似 ! 的特殊字符，则必须传递 0 并在密码周围使用引号。否则，您可以传递 1 或省略该选项。默认为 1 。要传递此选项，您必须为 `<hidden>` 指定一个值。
 
 例如，运行以下命令以连接到 a：
 
@@ -294,7 +295,7 @@ $ sudo raspi-config nonint do_audio <N>
 * 1 ：vc4-hdmi-0
 * 2 ：vc4-hdmi-1
 
-要查看此选项的交互式 raspi-config 版本中使用的数字列表，请参阅可能的 <N> 值的完整列表。
+要查看此选项的交互式 raspi-config 版本中使用的数字列表，请参阅可能的 `<N>` 值的完整列表。
 
 #### 密码
 
@@ -559,7 +560,7 @@ $ sudo raspi-config nonint do_overclock <setting>
 $ sudo raspi-config nonint do_memory_split <megabytes>
 ```
 
-#### 叠加文件系统
+#### 堆叠文件系统
 
 启用或禁用只读文件系统。
 
@@ -595,7 +596,7 @@ onTemp 默认为 80 摄氏度。
 $ sudo raspi-config nonint do_change_locale <locale>
 ```
 
-要查看所有可能的 <locale> 值列表，请参阅此选项交互式 raspi-config 版本中使用的缩写。
+要查看所有可用的 `<locale>` 值列表，请参阅此选项交互式 raspi-config 版本中使用的缩写。
 
 #### 时区
 
@@ -605,7 +606,7 @@ $ sudo raspi-config nonint do_change_locale <locale>
 $ sudo raspi-config nonint do_change_timezone <timezone>
 ```
 
-要查看此选项交互式 <timezone> 版本中使用的缩写的完整列表，请参见。
+要查看此选项交互式 `<timezone>` 版本中使用的缩写的完整列表，请参见。
 
 #### 键盘
 
@@ -615,7 +616,7 @@ $ sudo raspi-config nonint do_change_timezone <timezone>
 $ sudo raspi-config nonint do_configure_keyboard <keymap>
 ```
 
-要查看可能的 <keymap> 值的完整列表，请参阅此选项交互 raspi-config 版本中使用的缩写。
+要查看可用的 `<keymap>` 值的完整列表，请参阅此选项交互 raspi-config 版本中使用的缩写。
 
 #### 无线局域网国家
 
@@ -625,7 +626,7 @@ $ sudo raspi-config nonint do_configure_keyboard <keymap>
 $ sudo raspi-config nonint do_wifi_country <country>
 ```
 
-要查看此选项交互式 raspi-config 版本中使用的缩写的可能 <country> 值的完整列表。
+要查看此选项交互式 raspi-config 版本中使用的缩写的可用 `<country>` 值的完整列表。
 
 ### 高级选项
 
@@ -635,7 +636,7 @@ $ sudo raspi-config nonint do_wifi_country <country>
 
 >**警告**
 >
->没有确认步骤。选择该选项将立即开始分区扩展。
+>没有再确认步骤。选择该选项将立即开始分区扩展。
 
 ```
 $ sudo raspi-config nonint do_expand_rootfs
@@ -662,7 +663,7 @@ $ sudo raspi-config nonint do_proxy <SCHEMES> <ADDRESS>
 
 #### 启动顺序
 
-在树莓派 4 及更高版本上，如果未插入 SD 卡，指定是否从 USB 或网络引导。有关更多信息，请参阅引导加载程序配置部分。
+在树莓派 4 及更高型号上，如果未插入 SD 卡，指定是否从 USB 或网络引导。有关更多信息，请参阅引导加载程序配置部分。
 
 ```
 $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
@@ -676,7 +677,7 @@ $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
 
 #### 引导加载程序版本
 
-在树莓派 4 及更高版本上，切换到最新的引导 ROM 软件。或者，如果最新版本导致问题，可以恢复到出厂默认设置。
+在树莓派 4 及更新型号上，切换到最新的引导 ROM 软件。或者，如果最新版本导致问题，可以恢复到出厂默认设置。
 
 ```
 $ sudo raspi-config nonint do_boot_rom <E1/E2>
@@ -687,7 +688,7 @@ $ sudo raspi-config nonint do_boot_rom <E1/E2>
 
 #### Wayland
 
-在 X11 和 Wayland 后端之间切换。树莓派 4 及更高版本默认使用 Wayland；其他型号的树莓派默认使用 X11。
+在 X11 和 Wayland 后端之间切换。树莓派 4 及更新型号默认使用 Wayland；其他型号的树莓派默认使用 X11。
 
 ```
 $ sudo raspi-config nonint do_wayland <W1/W2>
@@ -729,11 +730,11 @@ $ sudo raspi-config nonint do_update
 
 树莓派 Zero、Zero W 和 Zero 2 W 配备迷你 HDMI 端口，因此您需要迷你 HDMI 转全尺寸 HDMI 电缆或适配器。
 
-树莓派 4、树莓派 5 和树莓派 400 都有两个 micro HDMI 端口，因此您需要为每个您希望连接的显示器准备一个 micro HDMI 转标准 HDMI 的线缆或适配器。在打开树莓派之前连接这些线缆。
+树莓派 4、树莓派 5 和树莓派 400 都有两个 micro HDMI，因此您需要为每个您希望连接的显示器准备 micro HDMI 转标准 HDMI 的线缆或适配器。在打开树莓派之前连接这些线缆。
 
-树莓派 4 和 400 可以驱动高达 1080p 分辨率、60Hz 刷新率的两个显示器。这些设备支持两个 30Hz 刷新率的 4K 显示器。如果您将显示器连接到 HDMI0 端口并在 /boot/firmware/config.txt 中设置 hdmi_enable_4kp60=1 标志，还可以以 60Hz 刷新率驱动单个 4K 显示器。
+树莓派 4 和 400 可以驱动高达 1080p 分辨率、60Hz 刷新率的两个显示器。或者支持两个 30Hz 刷新率的 4K 显示器。如果您将显示器连接到 HDMI0 端口并在 /boot/firmware/config.txt 中设置 hdmi_enable_4kp60=1 参数，还可以以 60Hz 刷新率驱动单个 4K 显示器。
 
-树莓派 5 可以在无需额外配置的情况下以 60Hz 刷新率驱动两个 4K 分辨率的显示器。
+树莓派 5 可以在无需额外配置的情况下以 60Hz 的刷新率驱动两个 4K 分辨率的显示器。
 
 ### 设置分辨率和旋转
 
@@ -794,7 +795,7 @@ $ wlr-randr --output HDMI-A-1 --transform 270
 
 您还可以使用以下 --transform 选项之一，同时镜像显示器并旋转它： flipped ， flipped-90 ， flipped-180 ， flipped-270 。
 
-或者，您可以通过编辑您的家目录中的 .config/wayfire.ini 文件来旋转显示。编辑现有的 [output:<device>] 部分，或者如果不存在，则添加一个新的 [output:<device>] 部分以适配您的显示设备。要旋转您的显示，添加一个 transform 行。例如，以下示例显示了一个名为 HDMI-A-1 的设备的配置，分辨率为 1080p，刷新率为 60Hz，旋转角度为 270°：
+或者，您可以通过编辑您的家目录中的 .config/wayfire.ini 文件来旋转显示。编辑现有的 `[output:<device>]` 部分，或者如果不存在，则添加一个新的 `[output:<device>]` 部分以适配您的显示设备。要旋转您的显示，添加一个 transform 行。例如，以下示例显示了一个名为 HDMI-A-1 的设备的配置，分辨率为 1080p，刷新率为 60Hz，旋转角度为 270°：
 
 ```
 [output:HDMI-A-1]
@@ -975,11 +976,11 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
         B4:2A:0E:64:BD:BE  Example         Infra  6     195 Mbit/s  37      **    WPA1 WPA2
 ```
 
-在“IN-USE”列中查找星号（ * ）；它应该出现在您打算连接到的网络的 SSID 所在的同一行。
+在“IN-USE”列中查找星号（ `*` ）；它应该出现在您打算连接到的网络的 SSID 所在的同一行。
 
 >**注意**
 >
->您可以在 /etc/NetworkManager/system-connections/ 目录中手动编辑您的连接配置。 
+>您可以在目录 /etc/NetworkManager/system-connections/ 中手动编辑您的连接配置。 
 
 ##### 连接到一个未加密的网络
 
@@ -1003,7 +1004,7 @@ $ sudo nmcli --ask dev wifi connect <example_ssid> hidden yes
 
 ##### 设置网络优先级
 
-如果您的设备同时检测到多个已知网络，它可能会连接任何一个已检测到的已知网络。使用优先级选项来强制让您的树莓派优先连接某些网络。您的设备将连接到具有最高优先级的范围内的网络。运行以下命令查看已知网络的优先级：
+如果您的设备同时检测到多个已知网络，它可能会连接任何一个已检测到的已知网络。可使用优先级选项来强制让您的树莓派优先连接某些网络。您的设备将连接到具有最高优先级的范围内的网络。运行以下命令查看已知网络的优先级：
 
 ```
 $ nmcli --fields autoconnect-priority,name connection
@@ -1026,7 +1027,7 @@ AUTOCONNECT-PRIORITY  NAME
 $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 ```
 
-您的设备将始终尝试连接到具有最高非负优先级值的在范围内的网络。您还可以为网络分配负优先级；只有在范围内没有其他已知网络时，您的设备才会尝试连接到负优先级网络。例如，考虑三个网络：
+您的设备将始终尝试连接到具有最高非负优先级值的在范围内的网络。您还可以为网络分配负优先级；只有在范围内没有其他已知网络时，您的设备才会尝试连接到负优先级网络。例如，假设有三个网络：
 
 ```
 AUTOCONNECT-PRIORITY  NAME
@@ -1051,7 +1052,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 ## 屏幕空白
 
-您可以配置您的树莓派在一段时间内的不活动后将屏幕变暗。默认情况下，当启用屏幕空白时，Raspberry Pi OS 在不活动十分钟后将屏幕变暗。
+您可以配置您的树莓派在一段时间内的不活动后将屏幕变暗。在默认情况下，当启用屏幕空白时，Raspberry Pi OS 在不活动十分钟后将屏幕变暗。
 
 ### 桌面
 
@@ -1134,7 +1135,7 @@ $ passwd
 
 ### 添加用户
 
-要添加新用户，请输入以下命令，将 <username> 占位符替换为新用户的用户名：
+要添加新用户，请输入以下命令，将 `<username>` 占位符替换为新用户的用户名：
 
 ```
 $ sudo adduser <username>
@@ -1142,15 +1143,15 @@ $ sudo adduser <username>
 
 在提示时，为新用户输入密码。
 
-您可以在 /home/<username>/ 找到新用户的主目录。
+您可以在 `/home/<username>/` 找到新用户的主目录。
 
-为了授予新用户必要的权限，比如 sudo ，运行以下命令将用户添加到相关用户组，将 <username> 占位符替换为新用户的用户名：
+为了授予新用户必要的权限，比如 sudo ，运行以下命令将用户添加到相关用户组，将 `<username>` 占位符替换为新用户的用户名：
 
 ```
 $ sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,gpio,i2c,spi <username>
 ```
 
-要检查权限是否已成功授予，请运行以下命令，将 <username> 占位符替换为新用户的用户名：
+要检查权限是否已成功授予，请运行以下命令，将 `<username>` 占位符替换为新用户的用户名：
 
 ```
 $ sudo su - <username>
@@ -1160,7 +1161,7 @@ $ sudo su - <username>
 
 ### 删除用户
 
-要删除用户，请运行以下命令，将 <username> 占位符替换为要删除的用户名：
+要删除用户，请运行以下命令，将 `<username>` 占位符替换为要删除的用户名：
 
 ```
 $ sudo deluser -remove-home <username>
@@ -1194,7 +1195,7 @@ $ sudo raspi-config
 
 您可以将存储设备挂载到特定文件夹位置。通常在 /mnt 文件夹中执行此操作，例如 /mnt/mydisk 。请注意，文件夹必须为空。
 
-将存储设备插入树莓派上的 USB 端口，并使用以下命令列出树莓派上的所有磁盘分区：
+将存储设备插入树莓派上的 USB，并使用以下命令列出树莓派上的所有磁盘分区：
 
 ```
 $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
@@ -1202,7 +1203,7 @@ $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
 
 树莓派使用挂载点 / 和 /boot/firmware/ 。您的存储设备将显示在此列表中，以及任何其他连接的存储设备。
 
-使用 SIZE、LABEL 和 MODEL 列来识别指向存储设备的磁盘分区的名称。例如， sda1 。FSTYPE 列包含文件系统类型。如果您的存储设备使用 exFAT 文件系统，请安装 exFAT 驱动程序：
+使用 SIZE、LABEL 和 MODEL 列来识别指向存储设备的磁盘分区的名称。例如， sda1 。FSTYPE 列包含了文件系统类型。如果您的存储设备使用 exFAT 文件系统，请安装 exFAT 驱动程序：
 
 ```
 $ sudo apt update
@@ -1346,7 +1347,7 @@ quiet 将默认内核日志级别设置为 KERN_WARNING ，在启动过程中抑
 
 #### 设置 KMS 显示模式
 
-早期版本的 Raspberry Pi OS 中使用的传统固件和 FKMS 显示模式不再受支持。相反，最近的 OS 版本使用 KMS（内核模式设置）。
+早期版本的 Raspberry Pi OS 中使用的传统固件和 FKMS 显示模式不再受支持。取而代之的是，最近的 OS 版本使用 KMS（内核模式设置）。
 
 如果在 Raspberry Pi OS 中不存在 video 条目，则树莓派操作系统将使用 HDMI 连接的显示器的 EDID 自动选择基于 Linux 内核信息的显示器支持的最佳分辨率。在 Raspberry Pi OS Lite 或控制台模式中，您必须自定义 video 条目以控制分辨率和旋转。
 
@@ -1366,14 +1367,14 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 | 视频选项 | 显示                                                                   |
 | ---------- | ------------------------------------------------------------------------ |
-| `HDMI-A-1`         | HDMI 1（树莓派 4B 硅片上标注为 HDMI 0，单 HDMI 板上标注为 HDMI） |
-| `HDMI-A-2`         | HDMI 2（树莓派 4B 硅片上标注为 HDMI 1）                          |
+| `HDMI-A-1`         | HDMI 1（树莓派 4B 板子上标注为 HDMI 0，单 HDMI 板上标注为 HDMI） |
+| `HDMI-A-2`         | HDMI 2（树莓派 4B 板子上标注为 HDMI 1）                          |
 | `DSI-1`         | DSI 或 DPI                                                             |
 | `Composite-1`         | 复合                                                                   |
 
 #### 其他条目
 
-此部分包含您可以在内核命令行中使用的其他条目。此列表不是详尽的。
+此部分包含了您可以在内核命令行中使用的其他条目。此列表不是详尽的。
 
 splash 告诉引导使用 Plymouth 模块显示启动画面。
 
@@ -1397,17 +1398,17 @@ usbhid.mousepoll 指定鼠标轮询间隔。如果您遇到无线鼠标运行缓
 
 在这里，我们描述了一些提高您树莓派安全性的常见方法。
 
-### 为 sudo 命令要求密码
+### 设置 sudo 命令要求密码
 
 使用 sudo 前缀运行命令将其作为超级用户运行。默认情况下，这不需要密码。但是，您可以通过要求为所有使用 sudo 运行的命令输入密码来使您的树莓派更安全。
 
-要强制 sudo 需要密码，请编辑您的用户帐户的 nopasswd sudoers 文件，将文件名中的 <username> 占位符替换为您的用户名：
+要强制 sudo 需要密码，请编辑您的用户帐户的 nopasswd sudoers 文件，将文件名中的 `<username>` 占位符替换为您的用户名：
 
 ```
 $ sudo visudo /etc/sudoers.d/010_<username>-nopasswd
 ```
 
-将 <username> 条目更改为以下内容，并将 <username> 替换为您的用户名：
+将 `<username>` 条目更改为以下内容，并将 <username> 替换为您的用户名：
 
 ```
 <username> ALL=(ALL) PASSWD: ALL
@@ -1421,7 +1422,7 @@ $ sudo visudo /etc/sudoers.d/010_<username>-nopasswd
 
 ### 自动更新您的 SSH 服务器
 
-如果您使用 SSH 连接到您的树莓派，添加一个 cron 工作可能是值得的，专门更新 SSH 服务器。 以下命令，可能作为每日 cron 工作运行，确保您及时获得最新的 SSH 安全修复程序，独立于您的正常更新过程。
+如果您使用 SSH 连接到您的树莓派，添加 cron 工作可能是值得的，专门更新 SSH 服务器。 以下命令，可能作为每日 cron 工作运行，确保您及时获得最新的 SSH 安全修复程序，独立于您的正常更新过程。
 
 ```
 $ apt install openssh-server
@@ -1459,13 +1460,13 @@ $ sudo systemctl restart ssh
 
 ### 使用防火墙
 
-Linux 有许多防火墙解决方案可用。大多数使用底层的 iptables 项目来提供数据包过滤。该项目位于 Linux netfiltering 系统之上。默认情况下，Raspberry Pi OS 上安装了 iptables ，但未设置。设置它可能是一项复杂的任务，一个比 iptables 提供更简单界面的项目是 Uncomplicated Firewall (UFW)。这是 Ubuntu 中的默认防火墙工具，可以安装在您的树莓派上：
+Linux 有许多防火墙解决方案可用。大多数使用底层的 iptables 项目来提供数据包过滤。该项目位于 Linux netfiltering 系统之上。默认情况下，Raspberry Pi OS 上安装了 iptables，但未设置。设置它可能是一项复杂的任务，一个比 iptables 提供更简单界面的项目是 Uncomplicated Firewall (UFW)。这是 Ubuntu 中的默认防火墙工具，可以安装到您的树莓派上：
 
 ```
 $ sudo apt install ufw
 ```
 
-ufw 是一个命令行工具，尽管有一些 GUI 可用。请注意， ufw 需要以超级用户权限运行，因此所有命令都以 sudo 开头。还可以使用选项 --dry-run 任何 ufw 命令，这表示命令的结果，而不实际进行任何更改。
+ufw 是一个命令行工具，尽管有一些 GUI 可用。请注意， ufw 需要以 root 权限运行，因此所有命令都以 sudo 开头。还可以使用选项 --dry-run 任何 ufw 命令，这表示显示命令的操作结果，而不实际进行任何更改。
 
 启用防火墙，这也将确保它在启动时启动：
 
@@ -1545,7 +1546,7 @@ $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 $ sudo nano /etc/fail2ban/jail.local
 ```
 
-如果不存在，则创建 [ssh] 部分，并向该部分添加以下行：
+如果不存在，则创建 `[ssh]` 部分，并向该部分添加以下行：
 
 ```
 [ssh]
@@ -1558,7 +1559,7 @@ maxretry = 6
 
 这将启用对可疑 ssh 活动的 Fail2ban 检查，包括系统日志检查，并允许在阻止活动之前进行六次重试。
 
-在同一文件中，此 [default] 部分定义了默认的封禁操作 iptables-multiport ，当达到检测阈值时运行 /etc/fail2ban/action.d/iptables-multiport.conf 文件：
+在同一文件中，此 `[default]` 部分定义了默认的封禁操作 iptables-multiport ，当达到检测阈值时运行 /etc/fail2ban/action.d/iptables-multiport.conf 文件：
 
 ```
 # Default banning action (e.g. iptables, iptables-new,
@@ -1570,7 +1571,7 @@ banaction = iptables-multiport
 
 多端口禁止所有端口上的所有访问。 action.d 文件夹包含许多可用于自定义服务器响应可疑活动的替代操作配置文件。
 
-例如，如果要在三次失败尝试后永久禁止 IP 地址，请将 [ssh] 部分中的 maxretry 值更改为 3 ，并将 bantime 设置为负数：
+例如，如果要在三次失败尝试后永久禁止 IP 地址，请将 `[ssh]` 部分中的 maxretry 值更改为 3 ，并将 bantime 设置为负数：
 
 ```
 [ssh]
@@ -1588,9 +1589,9 @@ bantime  = -1
 
 要将树莓派连接到网络，您可以通过以太网将设备插入有线连接，或配置无线网络。
 
-要通过该网络访问树莓派，请使用 SSH。通过 SSH 连接，您就可以使用 raspi-config 来启用 VNC，如果您更喜欢图形桌面环境。
+要通过该网络访问树莓派，请使用 SSH。通过 SSH 连接，您就可以使用 raspi-config 来启用 VNC（如果您更喜欢图形桌面环境）。
 
-如果您从头开始设置您的树莓派，请在镜像过程中设置无线网络和 SSH。如果您已经设置好了树莓派，您可以使用 raspi-config 配置 SSH。
+如果您从头开始设置您的树莓派，请在刻录过程中设置无线网络和 SSH。如果您已经设置好了树莓派，您可以使用 raspi-config 配置 SSH。
 
 >**警告**
 >
@@ -1598,7 +1599,7 @@ bantime  = -1
 
 ### 连接到有线网络
 
-首次启动时，要连接到有线网络，请通过以太网将您的无头树莓派连接，或者如果您的树莓派没有以太网端口，则使用以太网适配器。您的树莓派将自动连接到网络。
+首次启动时，要连接到有线网络，请通过以太网将您的无头树莓派连接，或者如果您的树莓派没有以太网接口，则需使用以太网转换器。您的树莓派将自动连接到网络。
 
 ### 连接到无线网络
 
@@ -1606,12 +1607,12 @@ bantime  = -1
 
 >**注意**
 >
->以前的 Raspberry Pi OS 版本使用一个 wpa_supplicant.conf 文件，该文件可以放入 boot 文件夹中以配置无线网络设置。从 Raspberry Pi OS Bookworm 版本开始，不再提供此功能。
+>旧版的 Raspberry Pi OS 使用一个 wpa_supplicant.conf 文件，该文件可以放入 boot 文件夹中以配置无线网络设置。从 Raspberry Pi OS Bookworm 版本开始，不再提供该功能。
 
 
 ### 远程访问
 
-没有键盘或显示器，您需要一种方法来远程控制您的无头树莓派。在首次启动时，唯一的选项是 SSH。要在全新安装的 Raspberry Pi OS 上启用 SSH，请选择以下方法之一：
+如果没有键盘或显示器，您需要一种方法来远程控制您的无头树莓派。在首次启动时，唯一的选项是 SSH。要在全新安装的 Raspberry Pi OS 上启用 SSH，请选择以下方法之一：
 
 * 在 Raspberry Pi Imager 的 OS 自定义菜单中启用 SSH，然后输入用户名和密码
 * 在 SD 卡的根目录下创建一个名为 ssh 的文件，然后按照下面部分的说明手动配置一个用户 userconf.txt
@@ -1622,7 +1623,7 @@ bantime  = -1
 
 在您的 SD 卡根目录下，创建一个名为 userconf.txt 的文件。
 
-该文件应包含一行文本，由 <username>:<password> 组成：您想要使用的用户名，紧接着是一个冒号，然后是您想要使用的密码的加密表示。
+该文件应包含一行文本，由 `<username>:<password>` 组成：您想要使用的用户名，紧接着是一个冒号，然后是您想要使用的密码的加密表示。
 
 >**注意**
 >
@@ -1640,7 +1641,7 @@ $ openssl passwd -6
 
 您的树莓派可以使用无线模块主机自己的无线网络。如果您通过以太网端口（或第二个无线模块）将您的树莓派连接到互联网，连接到无线网络的其他设备可以通过您的树莓派访问互联网。
 
-考虑使用 10.x.x.x IP 块的有线网络。您可以将您的树莓派连接到该网络，并在使用另一个 IP 块的独立网络上为无线客户端提供服务，例如 192.168.x.x 。
+假如使用 10.x.x.x IP 块的有线网络。您可以将您的树莓派连接到该网络，并在使用另一个 IP 块的独立网络上为无线客户端提供服务，例如 192.168.x.x 。
 
 在下面的图表中，请注意笔记本电脑存在于与路由器和有线客户端分开的 IP 块中：
 
@@ -1650,17 +1651,17 @@ $ openssl passwd -6
 
 >**注意**
 >
->树莓派 5、4、3、Zero W 和 Zero 2 W 可以使用内置无线模块托管无线网络。缺乏内置模块的树莓派型号可以使用单独的无线适配器支持此功能。
+>树莓派 5、4、3、Zero W 和 Zero 2 W 可以使用内置无线模块托管无线网络。没有内置无线网卡的树莓派型号可以使用单独的无线适配器以支持此功能。
 
 ### 启用热点
 
-要在命令行上创建托管的无线网络，请运行以下命令，将 <example-network-name> 和 <example-password> 占位符替换为您自己的值：
+要在命令行上创建托管的无线网络，请运行以下命令，将 `<example-network-name>` 和 `<example-password>` 占位符替换为您自己的值：
 
 ```
 $ sudo nmcli device wifi hotspot ssid <example-network-name> password <example-password>
 ```
 
-使用另一个无线客户端，如笔记本电脑或智能手机，连接到网络。查找一个 SSID 与 <example-network-name> 匹配的网络。输入您的网络密码，您应该成功连接到网络。如果您的树莓派通过以太网连接或第二个无线适配器访问互联网，您应该能够访问互联网。
+使用另一个无线客户端，如笔记本电脑或智能手机，连接到网络。查找一个 SSID 与 `<example-network-name>` 匹配的网络。输入您的网络密码，您应该成功连接到网络。如果您的树莓派通过以太网连接或第二个无线适配器访问互联网，您应该能够访问互联网。
 
 ### 禁用热点
 
@@ -1670,7 +1671,7 @@ $ sudo nmcli device wifi hotspot ssid <example-network-name> password <example-p
 $ sudo nmcli device disconnect wlan0
 ```
 
-在禁用网络后，运行以下命令以重新连接到另一个 Wi-Fi 网络：
+在禁用网络后，运行以下命令可重新连接到另一个 Wi-Fi 网络：
 
 ```
 $ sudo nmcli device up wlan0
@@ -1710,7 +1711,7 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
   ```
   $ sudo nmcli connection modify 'Hotspot' master bridge0
   ```
-* 如果您尚未创建无线热点连接，请使用单个命令创建新接口并将其添加到桥接中，将 <hotspot-password> 占位符替换为您选择的密码：
+* 如果您尚未创建无线热点连接，请使用单个命令创建新接口并将其添加到桥接中，将 `<hotspot-password>` 占位符替换为您选择的密码：
 
   ```
   $ sudo nmcli connection add con-name 'Hotspot' \
@@ -1763,13 +1764,13 @@ $ sudo nano /etc/environment
 export http_proxy="http://<proxy_ip_address>:<proxy_port>"
 ```
 
-用代理的 IP 地址和端口替换 <proxy_ip_address> 和 <proxy_port> 占位符。
+用代理的 IP 地址和端口替换 `<proxy_ip_address>` 和 `<proxy_port>` 占位符。
 
 ```
 export http_proxy="http://<username>:<password>@proxyipaddress:proxyport"
 ```
 
-用您用于验证代理的用户名和密码替换 <username> 和 <password> 占位符。
+用您用于验证代理的用户名和密码替换 `<username>` 和 `<password>` 占位符。
 
 为环境变量 https_proxy 输入相同的信息：
 
@@ -1843,7 +1844,7 @@ start_x.elf 包含额外的编解码器。
 
 start_db.elf 用于调试。
 
-start_cd.elf 是固件的精简版本，移除了对硬件块（如编解码器和 3D）以及调试日志支持的支持；它还施加了初始帧缓冲区限制。当在 config.txt 中指定 gpu_mem=16 时，将自动使用精简固件。
+start_cd.elf 是精简版本的固件，移除了对硬件块（如编解码器和 3D）以及调试日志支持的支持；它还施加了初始帧缓冲区限制。当在 config.txt 中指定 gpu_mem=16 时，将自动使用精简固件。
 
 start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 4 系列（4B 型号，Pi 400，计算模块 4 和计算模块 4S）特定固件文件。
 
@@ -1889,17 +1890,17 @@ start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 
 
 相应于树莓派型号的各种内核映像文件：
 
-| 文件名 | 处理器                    | 树莓派型号                                                                     | 笔记                                             |
+| 文件名 | 处理器                    | 树莓派型号                                                                     | 注解                                           |
 | -------- | --------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
 | `kernel.img`       | BCM2835                   | Pi Zero，Pi 1                                                                  |                                                  |
 | `kernel7.img`       | BCM2836，BCM2837          | 树莓派 Zero 2 W，树莓派 2，树莓派 3                                            | 后来的树莓派 2 使用 BCM2837                      |
 | `kernel7l.img`       | BCM2711                   | Pi 4，Pi 400，CM4，CM4S                                                        | 大物理地址扩展（LPAE）                           |
-| `kernel8.img`       | BCM2837，BCM2711，BCM2712 | 树莓派 Zero 2 W，树莓派 2，树莓派 3，树莓派 4，树莓派 400，CM4，CM4S，树莓派 5 | 64 位内核。BCM2836 的树莓派 2 不支持 64 位内核。 |
-| `kernel_2712.img`       | BCM2712                   | 树莓派 5                                                                       | Pi 5 优化的 64 位内核。                          |
+| `kernel8.img`       | BCM2837，BCM2711，BCM2712 | 树莓派 Zero 2 W，树莓派 2，树莓派 3，树莓派 4，树莓派 400，CM4，CM4S，树莓派 5 | 64 位内核。基于 BCM2836 的树莓派 2 不支持 64 位内核。 |
+| `kernel_2712.img`       | BCM2712                   | 树莓派 5                                                                       | 为 Pi 5 优化的 64 位内核。                          |
 
 >**注意**
 >
->lscpu 报告运行 32 位内核系统的 CPU 架构为 armv7l ，运行 64 位内核系统的 CPU 架构为 aarch64 。在 armv7l 情况下， l 指的是小端 CPU 架构，而不是 LPAE ，如 kernel7l.img 文件名所示。
+>在运行 32 位内核系统上，lscpu 会报告其 CPU 架构为 armv7l ，在运行 64 位内核系统上，lscpu 会报告其 CPU 架构为 aarch64 。在 armv7l 情况下， l 指的是小端 CPU 架构，而不是 LPAE ，如 kernel7l.img 文件名所示。
 
 ### overlays 文件夹
 
@@ -1935,7 +1936,7 @@ start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 
 
 树莓派上有两种可用的 UART - PL011 和 mini UART。PL011 是一种功能强大、广泛兼容 16550 的 UART，而 mini UART 具有较少的功能集。
 
-树莓派上的所有 UART 仅支持 3.3V-如果连接到 5V 系统，将会损坏。可以使用适配器连接到 5V 系统。另外，各种第三方提供的低成本 USB 至 3.3V 串行适配器也可用。
+树莓派上的所有 UART 仅支持 3.3V（如果连接到 5V 系统，将会损坏）。可以使用适配器连接到 5V 系统。另外，也可以 用各种第三方提供的低成本 USB 至 3.3V 串行适配器。
 
 ### 树莓派 Zero、1、2 和 3
 
@@ -1944,7 +1945,7 @@ start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 
 | 名称  | 类型      |
 | ------- | ----------- |
 | UART0 | PL011     |
-| UART1 | 迷你 UART |
+| UART1 | mini UART |
 
 ### 树莓派 4 和 400
 
@@ -1953,7 +1954,7 @@ start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 
 | 名称  | 类型      |
 | ------- | ----------- |
 | UART0 | PL011     |
-| UART1 | 迷你 UART |
+| UART1 | mini UART |
 | UART2 | PL011     |
 | UART3 | PL011     |
 | UART4 | PL011     |
@@ -1961,7 +1962,7 @@ start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 
 
 ### 树莓派 5
 
-树莓派 5 有额外的四个 PL011，这些默认情况下是禁用的：
+树莓派 5 有额外的四个 PL011，这些在默认情况下是禁用的：
 
 | 名称  | 类型  |
 | ------- | ------- |
@@ -1971,11 +1972,11 @@ start4.elf ， start4x.elf ， start4db.elf 和 start4cd.elf 是针对树莓派 
 | UART3 | PL011 |
 | UART4 | PL011 |
 
-树莓派 5 没有迷你 UART。
+树莓派 5 没有 mini UART。
 
 ### CM1、CM3、CM3+ 和 CM4
 
-第一代计算模块，与计算模块 3 和计算模块 3+ 一起，有两个 UART，而计算模块 4 如上所述有六个 UART。
+第一代计算模块，与计算模块 3 和计算模块 3+ 一起，都有两个 UART，而计算模块 4 如上所述有六个 UART。
 
 在所有的计算模块型号上，默认情况下禁用了 UART，并可以通过使用设备树叠加来显式启用。您还可以指定要使用的 GPIO 引脚，例如：
 
@@ -2010,19 +2011,19 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 
 Raspberry Pi OS 上的 Linux 设备：
 
-| Linux 设备 | 描述                  |
+| Linux 设备 | 说明                  |
 | ------------ | ----------------------- |
-| `/dev/ttyS0`           | 迷你 UART             |
+| `/dev/ttyS0`           | mini UART             |
 | `/dev/ttyAMA0`           | 第一个 PL011（UART0） |
 | `/dev/serial0`           | 主 UART               |
 | `/dev/serial1`           | 次 UART               |
 | `/dev/ttyAMA10`           | 树莓派 5 调试 UART    |
 
-/dev/serial0 和 /dev/serial1 是符号链接，指向 /dev/ttyS0 或 /dev/ttyAMA0 之一。
+/dev/serial0 和 /dev/serial1 是指向 /dev/ttyS0 或 /dev/ttyAMA0 的符号链接。
 
 在树莓派 5 上， /dev/serial0 是一个指向 /dev/ttyAMA10 的符号链接。
 
-由于 Bookworm 的更改， /dev/serial1 默认情况下不存在。您可以通过在 config.txt 中设置以下值来重新启用 serial1 ：
+由于 Bookworm 的变化， /dev/serial1 在默认情况下不存在。您可以通过在 config.txt 中设置以下值来重新启用 serial1 ：
 
 ```
 dtparam=krnbt=off
@@ -2030,9 +2031,9 @@ dtparam=krnbt=off
 
 >**技巧**
 >
->该选项将来可能不适用于所有型号。只有在您的用例没有其他替代方案时才使用该选项。 
+>该选项将来可能不适用于所有型号。应只有在您的用例没有其他替代方案时才使用该选项。 
 
-### 迷你 UART 和 CPU 核心频率
+### mini UART 和 CPU 核心频率
 
 >**注意**
 >
@@ -2049,14 +2050,14 @@ dtparam=krnbt=off
 
 enable_uart 标志的默认状态取决于哪个 UART 是主 UART：
 
-| 主 UART               | 启用_uart 标志的默认状态 |
+| 主 UART               | 启用 `_uart` 参数的默认状态 |
 | ----------------------- | -------------------------- |
 | 迷你 UART             | 0                        |
 | 第一个 PL011（UART0） | 1                        |
 
 ### 禁用 Linux 串行控制台
 
-默认情况下，主 UART 被分配给 Linux 控制台。如果您希望将主 UART 用于其他目的，您必须重新配置 Raspberry Pi OS。这可以通过使用 raspi-config 来完成：
+默认情况下，主 UART 被分配给 Linux 控制台。如果您希望将主 UART 用于其他目的，您必须重新配置 Raspberry Pi OS。这可以通过使用 raspi-config 来实现：
 
 * 启动 raspi-config: sudo raspi-config
 * 选择选项 3 - 接口选项
@@ -2082,21 +2083,21 @@ earlycon=uart8250,mmio32,0xfe215040
 earlycon=pl011,mmio32,0xfe201000
 ```
 
-适用于树莓派 2、Pi 3 和计算模块 3：
+对于树莓派 2、Pi 3 和计算模块 3：
 
 ```
 earlycon=uart8250,mmio32,0x3f215040
 earlycon=pl011,mmio32,0x3f201000
 ```
 
-适用于树莓派 1、Pi Zero 和 Compute Module 1：
+对于树莓派 1、Pi Zero 和 Compute Module 1：
 
 ```
 earlycon=uart8250,mmio32,0x20215040
 earlycon=pl011,mmio32,0x20201000
 ```
 
-波特率默认为 115200bps。
+默认波特率为 115200bps。
 
 >**注意**
 >
@@ -2133,7 +2134,7 @@ PL011 UART 和 mini-UART 之间存在一些差异。
 
 迷你 UART 和 BCM2835 的 PL011 实现均没有 DCD、DSR、DTR 或 RI 信号。
 
-进一步的迷你 UART 文档可在 SoC 外设文档中找到。
+可在 SoC 外设文档中找到进一步的迷你 UART 文档。
 
 ## 设备树、叠加和参数
 
@@ -2149,13 +2150,13 @@ PL011 UART 和 mini-UART 之间存在一些差异。
 
 >**注意**
 >
->请记住，DT 应该是与操作系统无关的，因此任何与 Linux 特定的内容都不应出现在其中。
+>切记，DT 应该是与操作系统无关的，因此任何与 Linux 特定的内容都不应出现在其中。
 
-设备树表示硬件配置，以节点层次结构的形式呈现。每个节点可以包含属性和子节点。属性是命名的字节数组，可以包含字符串、数字（大端序）、任意字节序列以及二者的任意组合。类比于文件系统，节点是目录，属性是文件。树中节点和属性的位置可以用路径描述，使用斜杠作为分隔符，单个斜杠（ / ）表示根。
+设备树表示硬件配置，以节点层次结构的形式呈现。每个节点可以包含属性和子节点。属性是命名的字节数组，可以包含字符串、数字（大端序）、任意字节序列以及二者的任意组合。类比于文件系统，节点是目录，属性是文件。树中节点和属性的位置可以用路径描述，使用斜杠作为分隔符，单个斜杠（ `/` ）表示根。
 
-#### 基本的 DTS 语法
+#### DTS 基本语法
 
-设备树通常以一种称为设备树源（DTS）的文本形式编写，并存储在具有 .dts 后缀的文件中。DTS 语法类似于 C 语言，使用大括号进行分组，并在每行末尾使用分号。请注意，DTS 在关闭大括号后需要分号：将其视为 C struct 而不是函数。编译后的二进制格式称为扁平设备树（FDT）或设备树 Blob（DTB），存储在 .dtb 文件中。
+设备树通常以一种称为设备树源（DTS）的文本形式编写，并存储在具有 .dts 后缀的文件中。DTS 语法类似于 C 语言，使用大括号进行分组，并在每行末尾使用分号。请注意，DTS 在关闭大括号后需要分号：将其视为 C struct 而非函数。编译后的二进制格式称为扁平设备树（FDT）或设备树 Blob（DTB），存储在 .dtb 文件中。
 
 以下是 .dts 格式中的简单树：
 
@@ -2192,12 +2193,12 @@ PL011 UART 和 mini-UART 之间存在一些差异。
 
  此树包含：
 
-* 必需的标题： /dts-v1/
-* 包含另一个 DTS 文件，传统上命名为 *.dtsi ，类似于 C 中的 .h 头文件
-* 单个根节点： /
+* 必需的标题： `/dts-v1/`
+* 包含另一个 DTS 文件，传统上命名为 `*.dtsi` ，类似于 C 中的 .h 头文件
+* 单个根节点： `/`
 * 一对子节点： node1 和 node2
 * 一些节点的子节点： child-node1 和 child-node2
-* 一个标签（ cousin ）和对该标签的引用（ &cousin ）
+* 一个标签（ cousin ）和对该标签的引用（ `&cousin` ）
 * 散布在树中的几个属性
 * 一个重复的节点 ( /node2 )
 
@@ -2233,11 +2234,11 @@ mixed-property = "a string", [01 23 45 67], <0x12345678>;
 string-list = "red fish", "blue fish";
 ```
 
-#### 有关 /include/ 的一则说明
+#### 有关 `/include/` 的一则说明
 
-/include/ 指令导致简单的文本包含，类似于 C 的 #include 指令，但是设备树编译器的一个特性导致不同的使用模式。鉴于节点是命名的，可能带有绝对路径，因此在 DTS 文件（及其包含文件）中可能会出现相同的节点两次。当这种情况发生时，节点和属性被合并，根据需要交错和覆盖属性（后续值会覆盖先前的值）。
+`/include/` 指令实现了简单的文本包含，类似于 C 的 #include 指令，但是设备树编译器的一个特性导致不同的使用模式。鉴于节点是命名的，可能带有绝对路径，因此在 DTS 文件（及其包含文件）中可能会出现相同的节点两次。当这种情况发生时，节点和属性被合并，根据需要交错和覆盖属性（后续值会覆盖先前的值）。
 
-在上面的示例中， /node2 的第二次出现会导致将新属性添加到原始属性中：
+在上面的示例中， `/node2` 的第二次出现会导致将新属性添加到原始属性中：
 
 ```
 /node2 {
@@ -2256,13 +2257,13 @@ string-list = "red fish", "blue fish";
 
 树的一部分经常需要引用另一部分，有四种方法可以做到这一点：
 
-路径字符串类似于文件系统路径，例如 /soc/i2s@7e203000 是 BCM2835 和 BCM2836 中 I2S 设备的完整路径。标准 API 不会创建到属性的路径，例如 /soc/i2s@7e203000/status ：相反，您首先找到一个节点，然后选择该节点的属性。
+路径字符串类似于文件系统路径，例如 `/soc/i2s@7e203000` 是 BCM2835 和 BCM2836 中 I2S 设备的完整路径。标准 API 不会创建到属性的路径，例如 `/soc/i2s@7e203000/status` ：所以，您应首先找到一个节点，然后选择该节点的属性。
 
 Phandles 是分配给节点的唯一 32 位整数，在其 phandle 属性中。出于历史原因，您可能还会看到一个多余的匹配 linux,phandle 。Phandles 按顺序编号，从 1 开始；0 不是有效的 phandle。它们通常由 DT 编译器分配，当它在整数上下文中遇到对节点的引用时，通常以标签的形式。使用 phandles 引用节点的引用仅被编码为相应的整数（单元）值；没有标记表明它们应被解释为 phandles，因为这是应用程序定义的。
 
-标签就像 C 中的标签为代码中的位置命名一样，DT 标签为层次结构中的节点分配名称。编译器获取标签的引用，并在字符串上下文（ &node ）中将其转换为路径，在整数上下文（ <&node> ）中将其转换为 phandle；原始标签不会出现在编译输出中。请注意，标签不包含结构；它们只是一个扁平的全局命名空间中的标记。
+标签就像 C 中的标签为代码中的位置命名一样，DT 标签为层次结构中的节点分配名称。编译器获取标签的引用，并在字符串上下文（ `&node` ）中将其转换为路径，在整数上下文（ `<&node>` ）中将其转换为 phandle；原始标签不会出现在编译输出中。请注意，标签不包含结构；它们只是一个扁平的全局命名空间中的标记。
 
-别名类似于标签，不同之处在于它们作为索引形式出现在 FDT 输出中。它们作为 /aliases 节点的属性存储，每个属性将别名名称映射到路径字符串。尽管别名节点出现在源中，但路径字符串通常显示为对标签的引用（ &node ），而不是完全写出。解析路径字符串为节点的 DT API 通常查看路径的第一个字符，将不以斜杠开头的路径视为必须首先使用 /aliases 表转换为路径的别名。
+别名类似于标签，不同之处在于它们作为索引形式出现在 FDT 输出中。它们作为 `/aliases` 节点的属性存储，每个属性将别名名称映射到路径字符串。尽管别名节点出现在源中，但路径字符串通常显示为对标签的引用（ `&node` ），而不是完全写出。解析路径字符串为节点的 DT API 通常查看路径的第一个字符，将不以斜杠开头的路径视为必须首先使用 `/aliases` 表转换为路径的别名。
 
 #### 设备树语义
 
@@ -2343,7 +2344,7 @@ Label or path i2s not found
 
 这并不太意外，因为没有提及基础 .dtb 或 .dts 文件，以便编译器找到 i2s 标签。
 
-再试一次，这次使用原始示例并添加 -@ 选项以允许未解决的引用（和 -Hepapr 以去除一些混乱）：
+再试一次，这次使用原始示例并添加 `-@` 选项以允许未解决的引用（和 -Hepapr 以去除一些混乱）：
 
 ```
 $ dtc -@ -Hepapr -I dts -O dtb -o 1st.dtbo 1st-overlay.dts
@@ -2405,7 +2406,7 @@ $ fdtdump 1st.dtbo
 };
 ```
 
-在文件结构的详细描述之后，有我们的片段。但请仔细观察 - 我们在 &i2s 处写了什么，现在却写成了 0xffffffff ，这表明发生了一些奇怪的事情（较旧版本的 dtc 可能会写成 0xdeadbeef ）。编译器还添加了一个包含唯一（对于此叠加层而言）的小整数的 phandle 属性，以指示该节点具有标签，并用相同的小整数替换了对标签的所有引用。
+在文件结构的详细描述之后，有我们的片段。但请仔细观察 - 我们在 `&i2s` 处写了什么，现在却写成了 `0xffffffff` ，这表明发生了一些奇怪的事情（较旧版本的 dtc 可能会写成 0xdeadbeef ）。编译器还添加了一个包含唯一（对于此叠加层而言）的小整数的 phandle 属性，以指示该节点具有标签，并用相同的小整数替换了对标签的所有引用。
 
 在片段之后有三个新节点：
 
@@ -2413,7 +2414,7 @@ $ fdtdump 1st.dtbo
 * **fixups** 包含一个属性映射列表，将未解析符号的名称映射到需要使用目标节点的 phandle 进行修补的片段内单元格路径列表。在这种情况下，路径是到 target 的 0xffffffff 值，但片段可能包含其他未解析引用，这将需要额外的修复。
 * **local_fixups** 保存了存在于叠加层内的标签引用的位置 - test_ref 属性。这是必需的，因为执行合并的程序必须确保 phandle 编号是连续且唯一的。
 
-在 1.3 节中提到“原始标签不会出现在编译输出中”，但是当使用 -@ 开关时，情况并非如此。相反，每个标签都会导致 **symbols** 节点中的一个属性，将标签映射到路径，就像 aliases 节点一样。实际上，机制如此相似，以至于在解析符号时，树莓派加载程序会在没有 **symbols** 节点的情况下搜索“别名”节点。曾经这非常有用，因为提供足够的别名允许使用非常旧的 dtc 版本来构建基本的 DTB 文件，但幸运的是，那已经是远古历史了。
+在 1.3 节中提到“原始标签不会出现在编译输出中”，但是当使用 `-@` 开关时，情况并非如此。相反，每个标签都会导致 **symbols** 节点中的一个属性，将标签映射到路径，就像 aliases 节点一样。实际上，机制如此相似，以至于在解析符号时，树莓派加载程序会在没有 **symbols** 节点的情况下搜索“别名”节点。曾经这非常有用，因为提供足够的别名允许使用非常旧的 dtc 版本来构建基本的 DTB 文件，但幸运的是，那已经是远古历史了。
 
 #### 设备树参数
 
@@ -2431,7 +2432,7 @@ name = <&label>,"property";
 
 其中 label 和 property 将被适当的值替换。字符串参数可能导致它们的目标属性增长、缩小或被创建。
 
-请注意，名为 status 的属性被特殊对待；非零/true/yes/on 值将被转换为字符串 "okay" ，而零/false/no/off 将变为 "disabled" 。
+请注意，名为 status 的属性被特殊对待；`非零/true/yes/on` 值将被转换为字符串 "okay" ，而`零/false/no/off` 将变为 "disabled" 。
 
 ##### 整数参数
 
@@ -2731,7 +2732,7 @@ dtoverlay 和 dtmerge 实用程序已扩展以支持映射文件：
 };
 ```
 
-当应用此叠加时，加载程序会剥离除了已导出的符号之外的所有符号，在本例中为 public ，并重新编写路径，使其相对于包含标签的片段的目标。然后加载在此之后的叠加可以引用 &public 。
+当应用此叠加时，加载程序会剥离除了已导出的符号之外的所有符号，在本例中为 public ，并重新编写路径，使其相对于包含标签的片段的目标。然后加载在此之后的叠加可以引用 `&public` 。
 
 #### 叠加应用程序顺序
 
@@ -2854,7 +2855,7 @@ HAT 叠加层在基本 DTB 之后由固件自动加载，因此其参数可在�
 
 dtoverlay 是一个命令行实用程序，可在系统运行时加载和移除叠加层，同时列出可用的叠加层并显示其帮助信息。
 
-使用 dtoverlay -h 获取使用信息：
+使用 `dtoverlay -h` 获取使用信息：
 
 ```
 Usage:
@@ -2909,7 +2910,7 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 ### 固件参数
 
-固件使用特殊的/chosen 节点在引导加载程序和/或固件与操作系统之间传递参数。除非另有说明，否则每个属性都存储为 32 位整数。
+固件使用特殊的 `/chosen` 节点在引导加载程序和/或固件与操作系统之间传递参数。除非另有说明，否则每个属性都存储为 32 位整数。
 
 overlay_prefix （字符串）由 config.txt 选择的 overlay_prefix 字符串。
 
@@ -2921,7 +2922,7 @@ rpi-country-code PiWiz 使用的国家代码。仅适用于树莓派 400。
 
 rpi-duid （字符串）仅适用于树莓派 5。PCB 上 QR 码的字符串表示。
 
-#### 通用引导加载程序属性 /chosen/bootloader
+#### 通用引导加载程序属性 `/chosen/bootloader`
 
 除非另有说明，否则每个属性都存储为 32 位整数。
 
@@ -2933,7 +2934,7 @@ pm_rsts 引导过程中 PM_RSTS 寄存器的值。
 
 tryboot 如果在启动时设置了 tryboot 标志，则设置为 1 。
 
-#### 电源供应属性 /chosen/power
+#### 电源供应属性 `/chosen/power`
 
 仅适用于树莓派5。除非另有说明，否则每个属性均存储为 32 位整数。
 
@@ -2982,7 +2983,7 @@ update_timestamp 由 rpi-eeprom-update 设置的 UTC 更新时间戳。
 
 signed 如果启用了安全启动，则此位字段将为非零。各个位指示当前的安全启动配置。
 
-| 位    | 描述                                            |
+| 位    | 说明                                            |
 | ------- | ------------------------------------------------- |
 | 0     | SIGNED_BOOT 已在 EEPROM 配置文件中定义。        |
 | 1     | 保留                                            |
@@ -3270,7 +3271,7 @@ dt-blob.bin 用于在启动时配置二进制块（VideoCore）。Linux 内核�
 * pins_rev2 ：Rev2 引脚设置。这包括 P5 上的附加编解码器引脚。
 * pins_bplus1 ：树莓派 1 型 B+ rev 1.1，包括完整的 40 针连接器。
 * pins_bplus2 ：树莓派 1 型 B+ rev 1.2，交换低功耗和 lan-run 引脚。
-* pins_aplus ：树莓派 1 型 A+，缺少以太网。
+* pins_aplus ：树莓派 1 型 A+，无以太网。
 * pins_2b1 ：树莓派 2 型 B rev 1.0；通过 I2C0 控制开关电源管理系统。
 * pins_2b2 ：树莓派 2 型 B rev 1.1；通过软件 I2C 在 42 和 43 上控制开关电源管理系统。
 * pins_3b1 ：树莓派 3 型 B 型修订版 1.0
