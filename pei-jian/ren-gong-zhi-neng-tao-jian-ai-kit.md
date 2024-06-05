@@ -9,7 +9,7 @@
 树莓派 AI 套件将树莓派 M.2 HAT+ 与 Hailo AI 加速模块捆绑在一起，可用于树莓派 5。该套件包含以下内容：
 
 * Hailo AI 模块包含神经处理单元（NPU）
-* Raspberry Pi M.2 HAT+，用于将 AI 模块连接到您的 Raspberry Pi 5
+* 树莓派 M.2 HAT+，用于将 AI 模块连接到您的树莓派 5
 * 模块和 M.2 HAT+ 之间预装了导热垫
 * 安装硬件套件
 * 16 毫米堆叠 GPIO 引脚
@@ -23,22 +23,22 @@
 
 要使用 Ai 套件，您需要：
 
-* 一个 Raspberry Pi 5
+* 树莓派 5
 
 每个 Ai 套件都配备了预安装的 Ai 模块、排线电缆、GPIO 堆叠排针和安装硬件。请按照以下说明完成安装您的 Ai 套件：
 
-1. 首先，请确保您的 Raspberry Pi 运行的是最新软件。运行以下命令进行更新：
+1. 首先，请确保您的树莓派运行的软件是最新的。运行以下命令进行更新：
 
     ```
     $ sudo apt update && sudo apt full-upgrade
     ```
-2. 接下来，请确保您的 Raspberry Pi 固件是最新的。运行以下命令查看您正在运行的固件版本：
+2. 接下来，请确保您的树莓派固件是最新的。运行以下命令查看您正在运行的固件版本：
 
     ```
     $ sudo rpi-eeprom-update
     ```
 
-    如果您看到的日期是 2023 年 12 月 6 日或更晚，请继续下一步。如果您看到的日期早于 2023 年 12 月 6 日，请运行以下命令打开 Raspberry Pi 配置 CLI：
+    如果您看到的日期是 2023 年 12 月 6 日或更晚，请继续下一步。如果您看到的日期早于 2023 年 12 月 6 日，请运行以下命令打开树莓派配置 CLI：
 
     ```
     $ sudo raspi-config
@@ -58,31 +58,31 @@
 5. 使用提供的四颗螺丝安装间隔柱。牢固地将 GPIO 堆叠排针压在树莓派的 GPIO 引脚顶部；只要所有引脚都能正确插入即可，方向并不重要。从 Ai 套件上断开排线电缆，并将另一端插入树莓派的 PCIe 端口。从两侧抬起排线电缆固定器，然后将带有铜接点朝向内部、朝向 USB 端口的电缆插入。确保排线电缆完全且均匀地插入 PCIe 端口，然后从两侧按下电缆固定器，将排线电缆牢固地固定在位。![ai kit installation 02](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-02.png)
 6. 将 AI 套件放在间隔物顶部，并使用剩下的四颗螺丝将其固定在位。![ai kit installation 03](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-03.png)
 7. 将排线插入 AI 套件上的插槽。从两侧抬起排线固定器，然后插入铜接点朝上的电缆。将排线完全均匀地插入端口，从两侧按下电缆固定器，牢固地固定排线电缆。![ai kit installation 04](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-04.png)
-8. 恭喜，您已成功安装 AI 套件。将您的 Raspberry Pi 连接到电源；Raspberry Pi OS 将自动检测到 AI 套件。![ai kit installation 05](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-05.png)
+8. 恭喜，您已成功安装 AI 套件。将您的树莓派连接到电源；Raspberry Pi OS 将自动检测到 AI 套件。![ai kit installation 05](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-05.png)
 
-| WARNING | 在连接或断开 M.2 插槽上的设备之前，务必先将您的 Raspberry Pi 从电源中断开。 |
-| --------- | ----------------------------------------------------------------------------- |
+>**警告**
+>
+>在连接或断开 M.2 插槽上的设备之前，务必先将您的树莓派从电源中断开。 
 
 ## 入门指南
 
-本指南将帮助您设置 Raspberry Pi 5 与 Raspberry Pi AI 套件配合使用。这将使您能够使用 Hailo AI 神经网络加速器运行 rpicam-apps 摄像头演示。
+本指南将帮助您设置树莓派 5 与树莓派 AI 套件配合使用。这将使您能够使用 Hailo AI 神经网络加速器运行 rpicam-apps 摄像头演示。
 
 ### 先决条件
 
 对于本指南，您将需要以下内容：
 
-* 一个 Raspberry Pi 5
-* 一个 Raspberry Pi Ai 套件，其中包括：
-
-  * 一个 M.2 HAT+
-  * 一个预装的 Hailo-8L Ai 模块
+* 树莓派 5
+* 树莓派 Ai 套件，其中包括：
+  * M.2 HAT+
+  * 预装的 Hailo-8L Ai 模块
 * 64 位 Raspberry Pi OS Bookworm 安装
-* 任何官方 Raspberry Pi 摄像头（例如 摄像头模块 3 或 高质量摄像头）
+* 任何官方的树莓派摄像头（例如 摄像头模块 3 或 高质量摄像头）
 
 ### 硬件设置
 
-1. 将摄像头连接到您的 Raspberry Pi 5 主板，按照在安装 Raspberry Pi 摄像头中的说明进行操作。您可以跳过重新连接 Raspberry Pi 到电源，因为您需要在下一步中断开 Raspberry Pi 的电源。
-2. 按照安装说明将您的 AI 套件硬件连接到您的 Raspberry Pi 5。
+1. 将摄像头连接到您的树莓派 5 主板，按照在安装树莓派摄像头中的说明进行操作。您可以跳过重新连接树莓派到电源，因为您需要在下一步中断开树莓派的电源。
+2. 按照安装说明将您的 AI 套件硬件连接到您的树莓派 5。
 3. 按照说明启用 PCIe Gen 3.0。这一步骤是可选的，但强烈建议为了使您的 AI 套件获得最佳性能。
 4. 安装使用 Ai 套件所需的依赖项。从终端窗口运行以下命令：
 
@@ -96,7 +96,7 @@
     * HailoRT 中间件软件
     * Hailo Tappas 核心后处理库
     * rpicam-apps Hailo 后处理软件演示阶段
-5. 最后，使用 sudo reboot 重新启动您的 Raspberry Pi，以使这些设置生效。
+5. 最后，使用 sudo reboot 重新启动您的树莓派，以使这些设置生效。
 6. 为确保一切正常运行，请运行以下命令：
 
     ```
@@ -159,12 +159,14 @@ rpicam-apps 摄像头应用套件实现了一个后处理框架。本节包含�
 $ git clone --depth 1 https://github.com/raspberrypi/rpicam-apps.git ~/rpicam-apps
 ```
 
-| TIP | 后续部分提供的命令使用此存储库中的 JSON 文件。为了便于引用这些文件，此命令在您的主文件夹中创建了克隆的 rpicam-apps 目录。如果您修改了此目录的位置，则还必须修改下面的演示命令，以引用 JSON 文件的新位置。 |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>后续部分提供的命令使用此存储库中的 JSON 文件。为了便于引用这些文件，此命令在您的主文件夹中创建了克隆的 rpicam-apps 目录。如果您修改了此目录的位置，则还必须修改下面的演示命令，以引用 JSON 文件的新位置。
+
 
 #### 目标检测
 
-此演示显示神经网络检测到的物体周围的边界框。要禁用取景器，请使用 -n 标志。要返回纯文本输出，描述检测到的物体，请添加 -v 2 选项。运行以下命令在您的 Raspberry Pi 上尝试演示：
+此演示显示神经网络检测到的物体周围的边界框。要禁用取景器，请使用 -n 标志。要返回纯文本输出，描述检测到的物体，请添加 -v 2 选项。运行以下命令在您的树莓派上尝试演示：
 
 ```
 $ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov6_inference.json --lores-width 640 --lores-height 640
@@ -192,7 +194,7 @@ $ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov5_person
 
 #### 图像分割
 
-此演示执行对象检测，并通过在取景器图像上绘制颜色掩模来对对象进行分割。运行以下命令在您的 Raspberry Pi 上尝试演示：
+此演示执行对象检测，并通过在取景器图像上绘制颜色掩模来对对象进行分割。运行以下命令在您的树莓派上尝试演示：
 
 ```
 $ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov5_segmentation.json --lores-width 640 --lores-height 640 --framerate 20
@@ -200,7 +202,7 @@ $ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov5_segmen
 
 #### 姿势估计
 
-此演示执行 17 点人体姿势估计，绘制连接检测点的线条。运行以下命令在您的 Raspberry Pi 上尝试演示：
+此演示执行 17 点人体姿势估计，绘制连接检测点的线条。运行以下命令在您的树莓派上尝试演示：
 
 ```
 $ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov8_pose.json --lores-width 640 --lores-height 640
@@ -208,7 +210,7 @@ $ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov8_pose.j
 
 ### 进一步资源
 
-Hailo 还创建了一组演示，您可以在 Raspberry Pi 5 上运行，可在 hailo-ai/hailo-rpi5-examples GitHub 存储库中找到。
+Hailo 还创建了一组演示，您可以在树莓派 5 上运行，可在 hailo-ai/hailo-rpi5-examples GitHub 存储库中找到。
 
 您可以在 hailo-ai/hailo_model_zoo GitHub 存储库中找到 Hailo 广泛的模型库，其中包含大量神经网络。
 
