@@ -6,11 +6,11 @@
 >
 >在 Bookworm 之前，Raspberry Pi OS 将引导分区存储在 /boot/。自从 Bookworm 以来，引导分区位于 /boot/firmware/。 
 
-树莓派使用一个配置文件，而不是您在传统 PC 上期望找到的 BIOS。系统配置参数，传统上会使用 BIOS 进行编辑和存储，现在存储在一个名为 config.txt 的可选文本文件中。这个文件在 ARM CPU 和 Linux 初始化之前由 GPU 读取。因此，它必须位于 SD 卡的第一个（引导）分区上，与 bootcode.bin 和 start.elf 一起。这个文件通常在 Linux 中作为 /boot/firmware/config.txt 访问，并且必须作为 root 用户进行编辑。在 Windows 或 OS X 中，它显示为卡片上唯一可访问部分中的一个文件。如果您需要应用下面的一些配置设置，但是您的引导分区上还没有 config.txt ，请将其创建为一个新的文本文件。
+树莓派使用一个配置文件，而不是您在传统 PC 上期望找到的 BIOS。在传统上会使用 BIOS 对系统配置参数进行编辑和存储，而现在存储在一个名为 config.txt 的可选文本文件中。这个文件在 ARM CPU 和 Linux 初始化之前由 GPU 读取。因此，它必须位于 SD 卡的第一个（引导）分区上，与 bootcode.bin 和 start.elf 一起。这个文件通常在 Linux 中作为 /boot/firmware/config.txt 访问，并且必须作为 root 用户进行编辑。在 Windows 或 OS X 中，它显示为卡片上唯一可访问部分中的一个文件。如果您需要应用下面的一些配置设置，但是您的引导分区上还没有 config.txt ，请将其创建为一个新的文本文件。
 
 任何更改只有在重启树莓派后才会生效。Linux 启动后，您可以使用以下命令查看当前的活动设置：
 
-* vcgencmd get_config <config> ：显示特定的配置值，例如 vcgencmd get_config arm_freq
+* `vcgencmd get_config <config>` ：显示特定的配置值，例如 vcgencmd get_config arm_freq
 * vcgencmd get_config int ：列出所有已设置的整数配置选项（非零）
 * vcgencmd get_config str ：列出所有已设置的字符串配置选项（非空）
 
@@ -50,7 +50,7 @@ dtoverlay=vc4-kms-v3d
 
 >**注意**
 >
->引用指令不受 bootcode.bin 或 EEPROM 引导加载程序支持。<br /><br /> 由引导加载程序处理的设置只有在 config.txt 中指定（而不是任何其他包含的文件）时才会生效：<br />* `bootcode_delay`,* `gpu_mem`, `gpu_mem_256`, `gpu_mem_512`, `gpu_mem_1024`,* `total_mem`,* `sdram_freq`,* `start_x`, `start_debug`, `start_file`, `fixup_file`,* `uart_2ndstage`. 
+>引用指令不受 bootcode.bin 或 EEPROM 引导加载程序支持。<br /><br /> 由引导加载程序处理的设置只有在 config.txt 中指定（而不是任何其他包含的文件）时才会生效：<br />*`bootcode_delay`,*`gpu_mem`, `gpu_mem_256`, `gpu_mem_512`, `gpu_mem_1024`,*`total_mem`,*`sdram_freq`,*`start_x`, `start_debug`, `start_file`, `fixup_file`,*`uart_2ndstage`. 
 
 #### 条件过滤
 
@@ -58,7 +58,7 @@ dtoverlay=vc4-kms-v3d
 
 ## `autoboot.txt`
 
-autoboot.txt 是一个可选的配置文件，可用于指定 boot_partition 号。
+autoboot.txt 是一个可选的配置文件，可用于指定 boot_partition 编号。
 
 这也可以与 tryboot 功能一起使用，实现用于 OS 升级的 A/B 引导。
 
@@ -76,7 +76,7 @@ autoboot.txt 限制为 512 字节，并支持 [all] ， [none] 和 [tryboot] 条
 
 ### [tryboot] 过滤器
 
-如果系统是使用 tryboot 标志引导的，则此过滤器通过。
+如果系统是使用 tryboot 参数引导的，则此过滤器通过。
 
 ```
 sudo reboot "0 tryboot"
@@ -110,9 +110,9 @@ boot_partition=3
 
 **提交或取消更新**
 
-* 系统从分区 3 启动，因为 [tryboot] 过滤器在 tryboot mode 中评估为 true
+* 系统从分区 3 启动，因为 `[tryboot]` 过滤器在 tryboot mode 中评估为 true
 * 如果 tryboot 处于活动状态（ /proc/device-tree/chosen/bootloader/tryboot == 1 ）
-  * 如果当前的引导分区 ( /proc/device-tree/chosen/bootloader/partition ) 与 autoboot.txt 的 [tryboot] 部分中的 boot_partition 匹配
+  * 如果当前的引导分区 ( /proc/device-tree/chosen/bootloader/partition ) 与 autoboot.txt 的 `[tryboot]` 部分中的 boot_partition 匹配
     * Update Service 验证系统以验证更新是否成功
     * 如果更新成功
       * 替换 autoboot.txt 交换 boot_partition 配置
@@ -136,7 +136,7 @@ boot_partition=2
 
 >**注意**
 >
->更新 autoboot.txt 后不必重新启动。但是， Update Service 必须小心，以避免覆盖当前分区，因为 autoboot.txt 已经被修改以提交最后的更新。另请参阅：设备树参数。 
+>更新 autoboot.txt 后不必重新启动。但是，Update Service 必须小心，以避免覆盖当前分区，因为 autoboot.txt 已经被修改以提交最后的更新。另请参阅：设备树参数。 
 
 ## 常见选项
 
@@ -144,11 +144,11 @@ boot_partition=2
 
 #### hdmi_enable_4kp60 （仅适用于树莓派 4）
 
-默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 的刷新率。使用此选项可允许选择 60Hz 的刷新率。
+默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 的刷新率。使用该参数可允许选择 60Hz 的刷新率。
 
 >**重要**
 >
->您树莓派 4 上的两个 micro HDMI 端口无法同时输出 4Kp60。 |
+>您树莓派 4 上的两个 micro HDMI 端口无法做到同时输出 4Kp60。 
 
 
 >**警告**
@@ -159,11 +159,11 @@ boot_partition=2
 
 #### `camera_auto_detect`
 
-启用此设置（在 Raspberry Pi OS 中默认启用），固件将自动为其识别的 CSI 摄像头加载叠加层。设置 camera_auto_detect=0 以禁用该设置。
+启用此设置（在 Raspberry Pi OS 中默认启用），固件将自动为其识别的 CSI 摄像头加载叠加层。设置 camera_auto_detect=0 可禁用该设置。
 
 #### `display_auto_detect`
 
-启用此设置（在 Raspberry Pi OS 中默认启用），固件将自动加载识别的 DSI 显示器的叠加层。将 display_auto_detect=0 设置为禁用。
+启用此设置（在 Raspberry Pi OS 中默认启用），固件将自动加载识别的 DSI 显示器的叠加层。将 display_auto_detect=0 可设置禁用。
 
 #### `dtoverlay`
 
@@ -217,7 +217,7 @@ pwm_sample_bits 命令调整模拟音频输出的位深度。默认位深度为 
 
 默认情况下，所有带 HDMI 输出的树莓派都启用了 HDMI 音频输出。
 
-要禁用 HDMI 音频输出，请在 /boot/firmware/config.txt 的 dtoverlay=vc4-kms-v3d 行末尾添加 ,noaudio ：
+要禁用 HDMI 音频输出，请在 /boot/firmware/config.txt 的 dtoverlay=vc4-kms-v3d 行末尾添加 `,noaudio` ：
 
 ```
 dtoverlay=vc4-kms-v3d,noaudio
@@ -247,9 +247,9 @@ cmdline 是在引导分区上用于读取内核命令行字符串的替代文件
 
 ### `kernel`
 
-kernel 是用于加载内核的引导分区上的替代文件名。在树莓派 1、Zero 和 Zero W 以及树莓派计算模块 1 上，默认值为 kernel.img 。在树莓派 2、3、3+ 和 Zero 2 W 以及树莓派计算模块 3 和 3+ 上，默认值为 kernel7.img 。在树莓派 4 和 400 以及树莓派计算模块 4 上，默认值为 kernel8.img ，如果 arm_64bit 设置为 0，则为 kernel7l.img 。
+kernel 是用于加载内核的引导分区上的替代文件名。在树莓派 1、Zero 和 Zero W 以及树莓派计算模块 1 上，默认值为 kernel.img 。在树莓派 2、3、3+ 和 Zero 2 W 以及树莓派计算模块 3 和 3+ 上，默认值为 kernel7.img 。在树莓派 4 和 400 以及树莓派计算模块 4 上，默认值为 kernel8.img（如 arm_64bit 设置为 0，则为 kernel7l.img ）。
 
-树莓派 5 固件默认加载 kernel_2712.img ，因为该映像包含针对树莓派 5 的优化（例如 16K 页大小）。如果不存在此文件，则将加载通用的 64 位内核（ kernel8.img ）。
+树莓派 5 固件默认加载 kernel_2712.img ，因为该映像包含了针对树莓派 5 的优化（例如 16K 页大小）。如果不存在此文件，则将加载通用的 64 位内核（ kernel8.img ）。
 
 ### `arm_64bit`
 
@@ -261,7 +261,7 @@ kernel 是用于加载内核的引导分区上的替代文件名。在树莓派 
 
 >**注意**
 >
->64 位内核可以是未压缩的镜像文件，也可以是镜像的 gzip 存档（仍然可以称为 kernel8.img；引导加载程序将通过开头的签名字节识别存档）。64 位内核仅适用于树莓派 3、3+、4、400、Zero 2 W 和 2B rev 1.2，以及树莓派计算模块 3、3+和 4。树莓派 5 仅支持 64 位内核，因此该参数已被移除。 
+>64 位内核可以是未压缩的映像文件，也可以是 gzip 压缩的映像文件（仍然可以命名为 kernel8.img；引导加载程序将通过开头的签名字节识别压缩文件）。64 位内核仅适用于树莓派 3、3+、4、400、Zero 2 W 和 2B rev 1.2，以及树莓派计算模块 3、3+和 4。树莓派 5 仅支持 64 位内核，因此该参数已被移除。 
 
 ### `ramfsfile`
 
@@ -269,7 +269,7 @@ ramfsfile 是在 ramfs 的引导分区上加载的可选文件名。
 
 >**注意**
 >
->较新的固件支持加载多个 ramfs 文件。您应该用逗号分隔多个文件名，注意不要超过 80 个字符的行长限制。所有加载的文件都会在内存中连接在一起，并被视为单个 ramfs blob。更多信息请参考论坛。
+>较新的固件支持加载多个 ramfs 文件。您应用逗号分隔多个文件名，注意不要超过 80 个字符的行长限制。所有加载的文件都会在内存中连接在一起，并被视为单个 ramfs blob。更多信息请参考论坛。
 
 ### `ramfsaddr`
 
@@ -307,7 +307,7 @@ enable_uart=1 （与 console=serial0 一起在 cmdline.txt 中）请求内核创
 
 os_prefix 是一个可选设置，允许您在同一卡上选择多个内核和设备树文件的版本。 os_prefix 中的任何值都会被添加到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”被定义为内核、initramfs、cmdline.txt、.dtbs 和叠加。前缀通常是目录名称，但也可以是文件名的一部分，例如“test-”。因此，目录前缀必须包括结尾的 / 字符。
 
-为了减少系统无法启动的几率，固件首先会测试提供的前缀值的可行性 - 除非新位置/名称中可以找到预期的内核和 .dtb，否则将忽略前缀（设置为“”）。这种可行性测试的特殊情况适用于叠加层，只有在存在 ${os_prefix}${overlay_prefix}README 时，叠加层才会从 ${os_prefix}${overlay_prefix} （默认值为 overlay_prefix 为“overlays/”）加载，否则将忽略 os_prefix 并将叠加层视为共享。
+为了减少系统无法启动的几率，固件首先会测试提供的前缀值的可行性 - 除非新位置/名称中可以找到预期的内核和 .dtb，否则将忽略前缀（设置为“”）。这种可行性测试的特殊情况适用于叠加层，只有在存在 `${os_prefix}${overlay_prefix}README` 时，叠加层才会从 |${os_prefix}${overlay_prefix}` （默认值为 overlay_prefix 为“overlays/”）加载，否则将忽略 os_prefix 并将叠加层视为共享。
 
 （固件在检查前缀时检查关键文件的存在而不是目录的原因有两个：前缀可能不是目录，并且并非所有引导方法都支持检查目录的存在。）
 
@@ -321,21 +321,21 @@ os_prefix 是一个可选设置，允许您在同一卡上选择多个内核和�
 
 USB On-The-Go（通常缩写为 OTG）是一项功能，允许使用适当的 OTG 电缆支持 USB 设备，将其配置为 USB 主机。在较旧的树莓派 上，单个 USB 2 控制器同时用于 USB 主机和设备模式。
 
-树莓派 4B 和 树莓派 400（非 CM4 或 CM4IO）添加了一个高性能的 USB 3 控制器，通过 PCIe 连接，用于驱动主 USB 端口。传统的 USB 2 控制器仍然可用于 USB-C 电源连接器，用作设备（ otg_mode=0 ，默认）。
+树莓派 4B 和 树莓派 400（非 CM4 或 CM4IO）添加了一个高性能的 USB 3 控制器（通过 PCIe 连接）用于驱动主 USB 端口。传统的 USB 2 控制器仍然可用于 USB-C 电源连接器，用作设备（ otg_mode=0 ，默认）。
 
 otg_mode=1 请求使用更强大的 XHCI USB 2 控制器作为 USB-C 连接器上的另一个主机控制器。
 
 >**注意**
 >
->由于 CM4 和 CM4IO 不包含外部 USB 3 控制器，Raspberry Pi OS 镜像在 CM4 上设置 otg_mode=1 以获得更好的性能。
+>由于 CM4 和 CM4IO 不包含外部 USB 3 控制器，Raspberry Pi OS 镜像在 CM4 上设置 otg_mode=1 可获得更好的性能。
 
 ### `overlay_prefix`
 
-指定从中加载叠加层的子目录/前缀，默认为 overlays/ （请注意末尾的 / ）。如果与 os_prefix 结合使用，则 os_prefix 在 overlay_prefix 之前出现，即 dtoverlay=disable-bt 将尝试加载 ${os_prefix}${overlay_prefix}disable-bt.dtbo 。
+指定从中加载叠加层的子目录/前缀，默认为 overlays/ （请注意末尾的 / ）。如果与 os_prefix 结合使用，则 os_prefix 在 overlay_prefix 之前出现，即 dtoverlay=disable-bt 将尝试加载 `${os_prefix}${overlay_prefix}disable-bt.dtbo` 。
 
 >**注意**
 >
->除非存在 ${os_prefix}${overlay_prefix}README ，否则叠加层将与主操作系统共享（即 os_prefix 将被忽略）。 
+>除非存在 `${os_prefix}${overlay_prefix}README` ，否则叠加层将与主操作系统共享（即 os_prefix 将被忽略）。 
 
 ## GPIO 控制
 
@@ -370,7 +370,7 @@ gpio=18,20=pu
 gpio=17-21=ip
 ```
 
-gpio 指令遵循 config.txt 中的"[...]"条件过滤器，因此可以根据型号、序列号和 EDID 使用不同的设置。
+gpio 指令遵循 config.txt 中的"`[...]`"条件过滤器，因此可以根据型号、序列号和 EDID 使用不同的设置。
 
 通过这种机制进行的 GPIO 更改不会直接影响内核。它们不会导致 GPIO 引脚导出到 sysfs 接口，并且可以被设备树中的 pinctrl 条目以及 pinctrl 等实用程序覆盖。
 
@@ -378,7 +378,7 @@ gpio 指令遵循 config.txt 中的"[...]"条件过滤器，因此可以根据�
 
 ## 超频选项
 
-内核具有默认启用节能管理器的 CPUFreq 驱动程序，在安装 raspi-config 时默认切换到 ondemand。使用 ondemand 管理器，CPU 频率将随处理器负载变化。您可以通过 *_min 配置选项调整最小值，或者通过应用静态缩放管理器（powersave 或 performance）或 force_turbo=1 来禁用动态时钟调整。
+内核具有默认启用节能管理器的 CPUFreq 驱动程序，在安装 raspi-config 时默认切换到 ondemand。使用 ondemand 管理器，CPU 频率将随处理器负载变化。您可以通过 `*_min` 配置选项调整最小值，或者通过应用静态缩放管理器（powersave 或 performance）或 force_turbo=1 来禁用动态时钟调整。
 
 当 SoC 达到 temp_limit （见下文）时，超频和超电压将在运行时禁用，默认值为 85°C，以降低 SoC 温度。使用树莓派 1 和树莓派 2 不太可能达到此限制，但在使用树莓派 3 及更新型号时更有可能。当检测到欠压情况时，也会禁用超频和超电压。
 
@@ -388,7 +388,7 @@ gpio 指令遵循 config.txt 中的"[...]"条件过滤器，因此可以根据�
 
 >**警告**
 >
->将任何超频参数设置为非 raspi-config 使用的值可能会在 SoC 内设置一个永久位，从而可能检测到您的树莓派已被超频。设置超频位的具体情况是，如果 force_turbo 设置为 1 ，并且任何 over_voltage_* 选项设置为大于 0 的值。有关更多信息，请参阅有关 Turbo 模式的博文。 
+>将任何超频参数设置为非 raspi-config 使用的值可能会在 SoC 内设置一个永久位，从而可能检测到您的树莓派已被超频。设置超频位的具体情况是，如果 force_turbo 设置为 `1` ，且任何 `over_voltage_*` 选项设置为大于 `0` 的值。有关更多信息，请参阅有关 Turbo 模式的博文。 
 
 ### 超频
 
@@ -480,7 +480,7 @@ gpio 指令遵循 config.txt 中的"[...]"条件过滤器，因此可以根据�
 
 默认情况下（ force_turbo=0 ），按需 CPU 频率驱动程序会在 ARM 核心繁忙时将时钟提升到最大频率，并在 ARM 核心空闲时将其降低到最低频率。
 
-force_turbo=1 覆盖了这种行为，即使 ARM 核心不忙，也会强制使用最大频率。
+force_turbo=1 覆盖了这种行为，即使 ARM 核心使用率不高，也会强制使用最大频率。
 
 ### 时钟关系
 
@@ -524,31 +524,31 @@ GPU 核心、CPU、SDRAM 和 GPU 每个都有自己的 PLL，并且可以具有�
 
 当 SD 卡（或卡片镜像）与树莓派和显示器一起使用时，很容易将 config.txt 设置为该特定组合所需的方式，并保持不变，只有在发生变化时才进行修改。
 
-然而，如果一个树莓派在不同的显示器之间交换，或者如果 SD 卡（或卡片镜像）在多个板之间交换，单一的设置可能不再足够。条件过滤器允许您定义配置文件的某些部分仅在特定情况下使用，允许单个 config.txt 在不同硬件读取时创建不同的配置。
+然而，如果一个树莓派在不同的显示器之间交换，或者如果 SD 卡（或存储卡镜像）在多个开发板之间交换，单一的设置可能不再足够。条件过滤器允许您定义配置文件的某些部分仅在特定情况下使用，允许单个 config.txt 在不同硬件读取时创建不同的配置。
 
-### [all] 过滤器
+### `[all]` 过滤器
 
-[all] 过滤器是最基本的过滤器。它重置所有先前设置的过滤器，并允许下面列出的任何设置应用于所有硬件。通常最好在过滤设置组的末尾添加一个 [all] 过滤器，以避免意外组合过滤器（见下文）。
+`[all]` 过滤器是最基本的过滤器。它重置所有先前设置的过滤器，并允许下面列出的任何设置应用于所有硬件。通常最好在过滤设置组的末尾添加一个 `[all]` 过滤器，以避免意外组合过滤器（见下文）。
 
 ### 模型过滤器
 
 条件模型过滤器根据以下表格应用。
 
-| 过滤器 | 适用模型(s)                                                                           |
+| 过滤器 | 适用型号                                                                          |
 | -------- | --------------------------------------------------------------------------------------- |
 | `[pi1]`       | 1A 型号，1B 型号，1A+型号，1B+型号，计算模块 1                                        |
 | `[pi2]`       | 2B 型号（基于 BCM2836 或 BCM2837）                                                    |
 | `[pi3]`       | 3B 型号，3B+型号，3A+型号，计算模块 3，计算模块 3+                                    |
-| `[pi3+]`       | 3A+型号，3B+型号（还看到 [pi3] 内容）                                                 |
+| `[pi3+]`       | 3A+型号，3B+型号（也识别 [pi3] 的内容）                                                 |
 | `[pi4]`       | 4B 型号，Pi 400，计算模块 4，计算模块 4S                                              |
 | `[pi5]`       | 树莓派 5                                                                              |
-| `[pi400]`       | Pi 400（也看到 [pi4] 内容）                                                           |
-| `[cm4]`       | 计算模块 4（也看到 [pi4] 内容）                                                       |
-| `[cm4s]`       | 计算模块 4S（也看到 [pi4] 内容）                                                      |
+| `[pi400]`       | Pi 400（也识别 [pi4] 的内容）                                                           |
+| `[cm4]`       | 计算模块 4（也识别 [pi4] 的内容）                                                       |
+| `[cm4s]`       | 计算模块 4S（也识别 [pi4] 的内容）                                                      |
 | `[pi0]`       | 零，零 W，零 2 W                                                                      |
-| `[pi0w]`       | 零 W（还看到 [pi0] 内容）                                                             |
-| `[pi02]`       | 零 2 W（还看到 [pi0w] 和 [pi0] 内容）                                                 |
-| `[board-type=Type]`       | 通过 Type 号进行筛选 - 查看树莓派修订代码 例如 [board-type=0x14] 将匹配 CM4。 |
+| `[pi0w]`       | 零 W（也识别 [pi0] 的内容）                                                             |
+| `[pi02]`       | 零 2 W（也识别 [pi0w] 和 [pi0] 的内容）                                                 |
+| `[board-type=Type]`       | 通过 Type 号进行筛选 - 查看树莓派修订代码 例如 `[board-type=0x14]` 将匹配 CM4。 |
 
 这些对于定义不同的 kernel 、 initramfs 和 cmdline 设置特别有用，因为树莓派 1 和树莓派 2 需要不同的内核。它们还可以用于定义不同的超频设置，因为树莓派 1 和树莓派 2 有不同的默认速度。例如，为每个定义单独的 initramfs 映像：
 
@@ -560,23 +560,23 @@ GPU 核心、CPU、SDRAM 和 GPU 每个都有自己的 PLL，并且可以具有�
  [all]
 ```
 
-记得在最后使用 [all] 过滤器，这样任何后续设置不仅限于仅限于树莓派 2 硬件。
+记得在最后使用 `[all]` 过滤器，这样任何后续设置不仅限于仅限于树莓派 2 硬件。
 
 >**注意**
 >
->一些型号的树莓派（Zero W、Zero 2 W、Model 3B+、Pi 400、计算模块 4 和计算模块 4S）可以查看多个滤波器的设置（如上表所列）。这意味着，如果您希望某个设置仅适用于（例如）Model 4B，而不希望将该设置应用于 Pi 400，则需要通过后续 [pi400] 部分中的替代设置来恢复 [pi4] 部分中的设置 - 此类部分的排序很重要。或者，您可以使用一个与不同硬件产品具有一对一映射的 [board-type=0x11] 滤波器。
+>一些型号的树莓派（Zero W、Zero 2 W、Model 3B+、Pi 400、计算模块 4 和计算模块 4S）可以查看多个滤波器的设置（如上表所列）。这意味着，如果您希望某个设置仅适用于（例如）Model 4B，而不希望将该设置应用于 Pi 400，则需要通过后续 `[pi400]` 部分中的替代设置来恢复 `[pi4]` 部分中的设置 - 此类部分的排序很重要。或者，您可以使用一个与不同硬件产品具有一对一映射的 `[board-type=0x11]` 滤波器。
 
-### [none] 滤波器
+### `[none]` 滤波器
 
-[none] 滤波器会阻止后续的任何设置应用于任何硬件。虽然没有什么是您不能在没有 [none] 的情况下做的，但这可以是一种在 config.txt 中保留未使用设置组的有用方式，而无需注释掉每一行。
+`[none]` 滤波器会阻止后续的任何设置应用于任何硬件。虽然没有什么是您不能在没有 `[none]` 的情况下做的，但这可以是一种在 config.txt 中保留未使用设置组的有用方式，而无需注释掉每一行。
 
-### [tryboot] 过滤器
+### `[tryboot]` 过滤器
 
 如果设置了 tryboot 重启标志，则此过滤器成功。
 
 旨在用于 autoboot.txt 中，以选择故障安全 OS 更新的不同 boot_partition 模式。
 
-### [EDID=*] 过滤器
+### `[EDID=*]` 过滤器
 
 当在树莓派上使用单个 SD 卡在多个显示器之间切换时，并且空白配置不足以自动选择每个显示器所需的分辨率时，可以根据显示器的 EDID 名称选择特定设置。
 
@@ -599,7 +599,7 @@ ls -1 /sys/class/drm/card?-HDMI-A-?/edid
 edid-decode /sys/class/drm/card1-HDMI-A-1/edid
 ```
 
-如果没有连接到特定输出设备的监视器，它会告诉您 EDID 为空；否则，它将为您提供有关您的监视器功能的大量信息。您需要查找指定 Manufacturer 和 Display Product Name 的行。然后，“EDID 名称” 是 <Manufacturer>-<Display Product Name> ，其中任一字符串中的空格都将替换为下划线。例如，如果您的 edid-decode 输出包括：
+如果没有连接到特定输出设备的监视器，它会告诉您 EDID 为空；否则，它将为您提供有关您的监视器功能的大量信息。您需要查找指定 Manufacturer 和 Display Product Name 的行。然后，“EDID 名称” 是 `<Manufacturer>-<Display Product Name>` ，其中任一字符串中的空格都将替换为下划线。例如，如果您的 edid-decode 输出包括：
 
 ```
 ....
@@ -622,7 +622,7 @@ cmdline=cmdline_U2422H.txt
 
 这些设置仅在启动时应用。显示器必须在启动时连接，并且树莓派必须能够读取其 EDID 信息以找到正确的名称。在启动后将不同的显示器热插拔到树莓派上将不会选择不同的设置。
 
-在树莓派 4 上，如果两个 HDMI 端口都在使用中，则将针对两个端口检查 EDID 过滤器，并将应用所有匹配条件过滤器的配置。
+在树莓派 4 上，如果两个 HDMI 都在使用中，则将针对两个端口检查 EDID 过滤器，并将应用所有匹配条件过滤器的配置。
 
 >**注意**
 >
@@ -645,7 +645,7 @@ cat /proc/cpuinfo
 Serial          : 0000000012345678
 ```
 
-序列号为 12345678 。
+序列号为 `12345678` 。
 
 >**注意**
 >
@@ -677,7 +677,7 @@ Serial          : 0000000012345678
 
 ### 结合条件过滤器
 
-相同类型的过滤器会相互替换，所以 [pi2] 会覆盖 [pi1] ，因为两者不可能同时为真。
+相同类型的过滤器会相互替换，所以 `[pi2]` 会覆盖 `[pi1]` ，因为两者不可能同时为真。
 
 不同类型的过滤器可以通过依次列出它们来组合，例如：
 
@@ -691,7 +691,7 @@ Serial          : 0000000012345678
  # settings here are applied to all hardware
 ```
 
-使用 [all] 过滤器重置所有先前的过滤器，避免意外地组合不同类型的过滤器。
+使用 `[all]` 过滤器重置所有先前的过滤器，避免意外地组合不同类型的过滤器。
 
 ## 内存选项
 
@@ -703,25 +703,25 @@ Serial          : 0000000012345678
 total_mem=1024
 ```
 
-此值将被夹在 128MB 的最小值和板上安装的总内存的最大值之间。
+此值可设置为最小值 128MB 至开发板上安装的总内存的最大值之间。
 
 ## 许可密钥和编解码器选项
 
-可以通过购买一个锁定到您的树莓派 CPU 序列号的许可证来启用树莓派 3 和早期型号的附加编解码器的硬件解码。
+可通过购买绑定到您的树莓派 CPU 序列号的许可证来启用树莓派 3 和早期型号的上附加编解码器来硬件解码。
 
 树莓派 4 已永久禁用了 MPEG2 和 VC1 的硬件解码器。这些编解码器无法启用，因此不需要硬件编解码器许可密钥。 MPEG2 和 VC1 文件的软件解码对于典型用例表现良好。
 
-树莓派 5 具有 H.265（HEVC）硬件解码功能。此解码默认启用，因此不需要硬件编解码器许可密钥。
+树莓派 5 具有 H.265（HEVC）硬件解码功能。此解码默认启用，因此也不需要硬件编解码器许可密钥。
 
 ### `decode_MPG2`
 
-decode_MPG2 是一个许可密钥，用于允许硬件 MPEG-2 解码，例如 decode_MPG2=0x12345678 。
+decode_MPG2 是用于允许硬件 MPEG-2 解码的许可密钥，例如 decode_MPG2=0x12345678 。
 
 ### `decode_WVC1`
 
-decode_WVC1 是一个许可密钥，用于允许硬件 VC-1 解码，例如 decode_WVC1=0x12345678 。
+decode_WVC1 是用于允许硬件 VC-1 解码的许可密钥，例如 decode_WVC1=0x12345678 。
 
-如果您有多个树莓派并为每个 Pi 购买了编解码器许可证，您可以在单个 config.txt 中列出最多八个许可证密钥，例如 decode_MPG2=0x12345678,0xabcdabcd,0x87654321 。这使您可以在不必每次编辑 config.txt 的情况下在不同的树莓派之间交换相同的 SD 卡。
+如果您有多个树莓派并为每个树莓派都购买了编解码器许可证，您可以在单个 config.txt 中列出最多八个许可证密钥，例如 decode_MPG2=0x12345678,0xabcdabcd,0x87654321 。这使您可以在不必每次编辑 config.txt 的情况下在不同的树莓派之间交换相同的 SD 卡。
 
 ## 视频选项
 
@@ -745,7 +745,7 @@ CEA 和 DMT 标准中只有一个不兼容的模式：DMT 模式 81，1366x768 @
 
 所有型号的树莓派计算机上都可以找到复合视频输出：
 
-| 模型              | 复合输出                |
+| 型号              | 复合输出                |
 | ------------------- | ------------------------- |
 | 树莓派 1 A 和 B   | RCA 插孔                |
 | 树莓派 Zero | 未焊接 TV 头部          |
@@ -769,7 +769,7 @@ CEA 和 DMT 标准中只有一个不兼容的模式：DMT 模式 81，1366x768 @
 
 除了树莓派 4 和 5 之外的所有型号，都需要禁用 HDMI 输出才能启用复合输出。 当未连接/检测到 HDMI 显示器时，HDMI 输出被禁用。 设置 enable_tvout=0 以防止在禁用 HDMI 时启用复合输出。
 
-要启用复合输出，请在 /boot/firmware/config.txt 的末尾附加 ,composite 到 dtoverlay=vc4-kms-v3d 行：
+要启用复合输出，请在 /boot/firmware/config.txt 的末尾附加 `,composite` 到 dtoverlay=vc4-kms-v3d 这一行：
 
 ```
 dtoverlay=vc4-kms-v3d,composite
@@ -781,7 +781,7 @@ dtoverlay=vc4-kms-v3d,composite
 vc4.tv_norm=<video_mode>
 ```
 
-用以下值之一替换 <video_mode> 占位符：
+用以下值之一替换 `<video_mode>` 占位符：
 
 * `NTSC`
 * `NTSC-J`
