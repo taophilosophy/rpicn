@@ -5,13 +5,13 @@
 
 ![four picos](https://www.raspberrypi.com/documentation/microcontrollers/images/four_picos.jpg)
 
-Raspberry Pi Pico 系列目前包括四款板卡；Raspberry Pi Pico（最左侧）、Pico H（左中）、Pico W（右中）和 Pico WH（最右侧）。
+树莓派 Pico 系列目前包括四款板卡；树莓派 Pico（最左侧）、Pico H（左中）、Pico W（右中）和 Pico WH（最右侧）。
 
-## Raspberry Pi Pico 和 Pico H
+## 树莓派 Pico 和 Pico H
 
-Raspberry Pi Pico 是一款价格低廉、性能卓越的微控制器板，具有灵活的数字接口。主要特点包括：
+树莓派 Pico 是一款价格低廉、性能卓越的微控制器板，具有灵活的数字接口。主要特点包括：
 
-* Raspberry Pi 在英国设计的 RP2040 微控制器芯片
+* 树莓派在英国设计的 RP2040 微控制器芯片
 * 双核 Arm Cortex M0+ 处理器，灵活时钟运行高达 133 MHz
 * 264KB 的 SRAM，和 2MB 的板载闪存存储器
 * USB 1.1，具备设备和主机支持
@@ -24,10 +24,11 @@ Raspberry Pi Pico 是一款价格低廉、性能卓越的微控制器板，具�
 * 芯片上的加速浮点库
 * 8 个可编程 I/O（PIO）状态机，用于自定义外围支持
 
-Raspberry Pi Pico 作为一个铸铁模块，可以直接焊接到载板上，而 Pico H 则带有预先焊接的引脚。
+树莓派 Pico 作为一个铸铁模块，可以直接焊接到载板上，而 Pico H 则带有预先焊接的引脚。
 
-| NOTE | 两个板都有一个三针串行线调试（SWD）头。但是，Pico H 将其拆分为一个小的，带有键的 3 针连接器，而 Pico 则有三个铸造过孔引脚，靠近板的边缘。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>两个板都有一个三针串行线调试（SWD）头。但是，Pico H 将其拆分为一个小的，带有键的 3 针连接器，而 Pico 则有三个铸造过孔引脚，靠近板的边缘。 
 
 ### 引脚分配和设计文件
 
@@ -36,21 +37,21 @@ Raspberry Pi Pico 作为一个铸铁模块，可以直接焊接到载板上，�
 * 下载引脚图（PDF）
 * 下载设计文件（Cadence Allegro）
 * 下载 STEP 文件
-* 下载用于 Raspberry Pi Pico 的 Fritzing 部件
-* 下载 Raspberry Pi Pico H 的 Fritzing 部件
+* 下载用于树莓派 Pico 的 Fritzing 部件
+* 下载树莓派 Pico H 的 Fritzing 部件
 
-| NOTE | 有关 Fritzing 的更多信息，请访问 fritzing.org 网站。 |
-| ------ | ------------------------------------------------------ |
+>**注意**
+>
+>有关 Fritzing 的更多信息，请访问 fritzing.org 网站。 |
 
-Raspberry Pi Pico W 和 Pico WH
+树莓派 Pico W 和 Pico WH
 
-Raspberry Pi Pico W 添加了内置的单频 2.4GHz 无线接口（802.11n），使用 Infineon CYW43439，同时保留了 Pico 的外形因素。内置的 2.4GHz 无线接口具有以下功能：
+树莓派 Pico W 添加了内置的单频 2.4GHz 无线接口（802.11n），使用 Infineon CYW43439，同时保留了 Pico 的外形因素。内置的 2.4GHz 无线接口具有以下功能：
 
 * 无线（802.11n），单频（2.4 GHz）
 * WPA3
 * 支持最多四个客户端的软接入点
 * 蓝牙 5.2
-
   * 支持蓝牙 LE 中心和外围角色
   * 支持蓝牙经典
 
@@ -60,15 +61,17 @@ Raspberry Pi Pico W 添加了内置的单频 2.4GHz 无线接口（802.11n），
 
 为获得最佳无线性能，天线应放置在自由空间中。例如，在天线下方或附近放置金属会降低其增益和带宽性能。在天线两侧添加接地金属可以提高天线的带宽。
 
-| NOTE | CYW43439 无线芯片通过 SPI 连接到 RP2040。CYW43439 支持通过此接口的 802.11 无线和蓝牙。 |
-| ------ | ---------------------------------------------------------------------------------------- |
+>**注意**
+>
+>CYW43439 无线芯片通过 SPI 连接到 RP2040。CYW43439 支持通过此接口的 802.11 无线和蓝牙。 
 
-| IMPORTANT | 默认情况下， libcyw43 获得非商业使用许可，但 Pico W 用户以及任何围绕 RP2040 和 CYW43439 构建其产品的用户都可以获得免费的商业使用许可。 |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+>**重要**
+>
+>默认情况下， libcyw43 获得非商业使用许可，但 Pico W 用户以及任何围绕 RP2040 和 CYW43439 构建其产品的用户都可以获得免费的商业使用许可。
 
-| IMPORTANT | 除了标准的 BTstack 许可条款外，还提供了一份补充许可，涵盖了在 Raspberry Pi Pico W 或 Raspberry Pi Pico WH 上商业使用 BTstack 的内容。 |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-
+>**重要**
+>
+> 除了标准的 BTstack 许可条款外，还提供了一份补充许可，涵盖了在树莓派 Pico W 或树莓派 Pico WH 上商业使用 BTstack 的内容。
 ### 引脚分配和设计文件
 
 ![picow pinout](https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg)
@@ -76,13 +79,12 @@ Raspberry Pi Pico W 添加了内置的单频 2.4GHz 无线接口（802.11n），
 * 下载引脚分配图（PDF）
 * 下载设计文件（Cadence Allegro）
 * 下载 STEP 文件
-* 下载适用于 Raspberry Pi Pico W 的 Fritzing 部件
+* 下载适用于树莓派 Pico W 的 Fritzing 部件
 
 ## 文档
 
 
-
-适用于 Raspberry Pi Pico 和其他基于 RP2040 的板的文档。
+适用于树莓派 Pico 和其他基于 RP2040 的板的文档。
 
 ### RP2040 设备
 
@@ -102,20 +104,21 @@ Raspberry Pi Pico W 添加了内置的单频 2.4GHz 无线接口（802.11n），
 
 [使用树莓派 Pico 入门](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 
-使用 Raspberry Pi Pico 和其他基于 RP2040 的微控制器开发 C/C++
+使用树莓派 Pico 和其他基于 RP2040 的微控制器开发 C/C++
 
-### Raspberry Pi Pico W
+### 树莓派 Pico W
 
 [Raspberry Pi Pico W 数据表](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
 
 使用基于 RP2040 的微控制器板进行无线连接
 
-[使用 Raspberry Pi Pico W 连接互联网](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
+[使用树莓派 Pico W 连接互联网](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
 
-使用 C/C++或 MicroPython 让 Raspberry Pi Pico W 联机
+使用 C/C++或 MicroPython 让树莓派 Pico W 联机
 
-| NOTE | 在《使用 C/C++ 或 MicroPython 在 Raspberry Pi Pico W 上使用 Wi-Fi 和蓝牙》一书中介绍了如何在 Raspberry Pi Pico W 上连接互联网。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在《使用 C/C++ 或 MicroPython 在树莓派 Pico W 上使用 Wi-Fi 和蓝牙》一书中介绍了如何在树莓派 Pico W 上连接互联网。 
 
 ### 软件开发
 
@@ -129,22 +132,21 @@ Raspberry Pi Pico W 添加了内置的单频 2.4GHz 无线接口（802.11n），
 
 Raspberry Pi Pico C/C++ SDK 的 API 级别 Doxygen 文档也可作为微型站点使用。
 
-| NOTE | 适用于 Windows 10 和 Windows 11 的 Pico C/C++ SDK 一键安装程序已经准备就绪。 |
-| ------ | ------------------------------------------------------------------------------ |
+>**注意**
+>
+>适用于 Windows 10 和 Windows 11 的 Pico C/C++ SDK 一键安装程序已经准备就绪。 
 
 ## 软件实用工具
 
-
-
 ### 你的 Pico 上有什么？
 
-如果您忘记了在您的 Raspberry Pi Pico 中编程的内容，并且该程序是使用我们的 Pico C/C++ SDK 构建的，通常会将名称和其他有用信息嵌入到二进制文件中。您可以使用 Picotool 命令行实用程序查找这些详细信息。如何使用 Picotool 执行此操作的完整说明可在我们的“入门”文档中找到。
+如果您忘记了在您的树莓派 Pico 中编程的内容，并且该程序是使用我们的 Pico C/C++ SDK 构建的，通常会将名称和其他有用信息嵌入到二进制文件中。您可以使用 Picotool 命令行实用程序查找这些详细信息。如何使用 Picotool 执行此操作的完整说明可在我们的“入门”文档中找到。
 
 * 转到 Picotool Github 存储库。
 
-### 使用另一个 Raspberry Pi Pico 进行调试
+### 使用另一个树莓派 Pico 进行调试
 
-您可以使用一个 Raspberry Pi Pico 来调试另一个 Pico。这是通过 debugprobe 可能的，该应用程序允许 Pico 充当 USB → SWD 和 UART 转换器。
+您可以使用一个树莓派 Pico 来调试另一个 Pico。这是通过 debugprobe 实现的，该应用程序允许 Pico 充当 USB → SWD 和 UART 转换器。
 
 您可以在 debugprobe GitHub 存储库中找到固件的最新版本。
 
@@ -156,5 +158,6 @@ Raspberry Pi Pico C/C++ SDK 的 API 级别 Doxygen 文档也可作为微型站�
 
 您的 Pico 将重新启动，现在运行更新版本的 debugprobe 固件。现在可以进行调试。
 
-| TIP | 有关如何使用调试器的说明，请参阅《Pico 入门指南》。 |
-| ----- | ----------------------------------------------------- |
+>**技巧**
+>
+>有关如何使用调试器的说明，请参阅《Pico 入门指南》。 
