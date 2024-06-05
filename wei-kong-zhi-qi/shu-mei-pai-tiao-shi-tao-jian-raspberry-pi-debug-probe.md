@@ -144,7 +144,7 @@ Serial Wire Debug (SWD)是一种两引脚接口（SWDIO 和 SWCLK），可替代
 
 Pico 调试探针将允许您通过 SWD 端口和 OpenOCD 加载二进制文件：您将不需要每次将新二进制文件推送到 Pico 时拔下，然后按住 BOOTSEL 按钮。使用调试探针上传新的二进制文件是完全无需干预的。
 
-一旦您构建了一个二进制文件：
+假如您构建了一个二进制文件：
 
 ```
 $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000" -c "program blink.elf verify reset exit"

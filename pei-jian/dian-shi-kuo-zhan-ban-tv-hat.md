@@ -50,7 +50,7 @@ $ sudo apt install tvheadend
 
 在您网络中的另一台计算机上，打开一个网络浏览器，然后在地址栏中输入以下内容： `http://raspberrypi.local:9981/extjs.html`
 
-这应该连接到运行在树莓派上的 tvheadend 。一旦通过浏览器连接到 tvheadend ，您将被提示使用您在安装 tvheadend 时选择的帐户名和密码进行登录。
+这应该连接到运行在树莓派上的 tvheadend 。在通过浏览器连接到 tvheadend 后，您将被提示使用您在安装 tvheadend 时选择的帐户名和密码进行登录。
 
 应该出现设置向导。
 
