@@ -3,7 +3,7 @@
 
 ## 介绍
 
-Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配树莓派的硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数使用需求，我们推荐在树莓派上使用 Raspberry Pi OS。
+Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配树莓派的硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数使用需求来说，我们推荐在树莓派上使用 Raspberry Pi OS。
 
 因为 Raspberry Pi OS 源自 Debian，因此基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
 
@@ -104,7 +104,7 @@ Description-md5: 19630c04463bfe7193152448b53d85a0
 
 #### 安装软件包
 
-要在您的 Raspberry Pi 上安装软件包，请将软件包的名称传递给以下命令：
+要在您的树莓派上安装软件包，请将软件包的名称传递给以下命令：
 
 ```
 $ sudo apt install <package-name>
@@ -114,7 +114,7 @@ apt 将显示软件包将占用的磁盘空间量。输入 Y 并按 Enter 键确
 
 #### 卸载软件包
 
-要从您的 Raspberry Pi 卸载软件包，请将软件包的名称传递给以下命令：
+要从您的树莓派卸载软件包，请将软件包的名称传递给以下命令：
 
 ```
 $ sudo apt remove <package-name>
@@ -146,7 +146,7 @@ $ sudo apt clean
 >
 >在尝试升级主要版本之前，请进行备份。 
 
-将操作系统更新到 Raspberry Pi 新的主要版本，请使用第二张 SD 卡写入新版本的镜像。使用 SD 读卡器或网络存储从当前安装中复制文件和配置到新 SD 卡。然后，将新 SD 卡插入树莓派上的插槽，并启动。
+将操作系统更新到树莓派新的主要版本，请使用第二张 SD 卡写入新版本的镜像。使用 SD 读卡器或网络存储从当前安装中复制文件和配置到新 SD 卡。然后，将新 SD 卡插入树莓派上的插槽，并启动。
 
 ### 升级固件
 
@@ -164,7 +164,7 @@ rpi-update 会下载最新的 Linux 内核预发布版本，和与其匹配的�
 
 所有 rpi-update 使用的源数据来自 rpi-firmware 存储库。该存储库包含来自官方固件存储库的数据子集。
 
-以 root 身份运行 rpi-update 以启动更新。更新完成后，重新启动您的 Raspberry Pi 以使这些更改生效：
+以 root 身份运行 rpi-update 以启动更新。更新完成后，重新启动您的树莓派以使这些更改生效：
 
 ```
 $ sudo rpi-update
@@ -247,7 +247,7 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
 ```
 
-为了下面的示例，我们使用了一个短音频剪辑。要从 Raspberry Pi 下载此剪辑，请运行以下命令：
+为了下面的示例，我们使用了一个短音频剪辑。要从树莓派下载此剪辑，请运行以下命令：
 
 ```
 $ wget --trust-server-names http://rptl.io/startup-music
@@ -272,7 +272,7 @@ $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startu
 | ALSA 设备 | 说明                                                              |
 | ----------- | ------------------------------------------------------------------- |
 | `sysdefault:CARD=Headphones`          | 耳机插孔                                                          |
-| `sysdefault:CARD=vc4hdmi`          | Raspberry Pi Zero 上的 HDMI 输出，或 Raspberry Pi Model 1、2 或 3 |
+| `sysdefault:CARD=vc4hdmi`          | 树莓派 Zero 上的 HDMI 输出，或 树莓派 Model 1、2 或 3 |
 | `sysdefault:CARD=vc4hdmi0`          | 树莓派 4、5、400 或计算模块 4 上的 HDMI0 输出                     |
 | `sysdefault:CARD=vc4hdmi1`          | 树莓派 4、5、400 或计算模块 4 上的 HDMI1 输出                     |
 
@@ -659,7 +659,7 @@ $ source ~/.env/bin/activate
 * 串行
   * TX（GPIO14）；RX（GPIO15）
 
-### 查看您的 Raspberry Pi 的 GPIO 引脚布局
+### 查看您树莓派的 GPIO 引脚布局
 
 通过打开终端窗口并运行命令 pinout ，可以访问 Raspberry Pi 上的 GPIO 参考。此工具由 GPIO Zero Python 库提供，默认情况下安装在 Raspberry Pi OS 中。
 
