@@ -1,8 +1,8 @@
 # 摄像头软件
 
-本文档描述如何使用我们的软件工具与支持的摄像头模块。所有 Raspberry Pi 摄像头都可以使用我们的软件工具录制高分辨率照片和全高清 1080p 视频（或更高）。
+本文档描述如何使用我们的软件工具与支持的摄像头模块。所有的树莓派摄像头都可以使用我们的软件工具录制高分辨率照片和全高清 1080p 视频（或更高）。
 
-Raspberry Pi 生产了几款官方摄像头模块，包括：
+树莓派生产了几款官方摄像头模块，包括：
 
 * 原始的 500 万像素摄像头模块 1（已停产）
 * 配备 8 百万像素相机模块 2，带或不带红外滤光片
@@ -16,17 +16,18 @@ Raspberry Pi 生产了几款官方摄像头模块，包括：
 
 ## `rpicam-apps`
 
-| NOTE | Raspberry Pi OS Bookworm 将相机捕获应用程序从 libcamera-* 重命名为 rpicam-* 。符号链接允许用户暂时使用旧名称。尽快采用新的应用程序名称。旧版之前的 Raspberry Pi OS 版本仍然使用 libcamera-* 名称。 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>Raspberry Pi OS Bookworm 将相机捕获应用程序从 libcamera-* 重命名为 rpicam-* 。符号链接允许用户暂时使用旧名称。尽快采用新的应用程序名称。旧版之前的 Raspberry Pi OS 版本仍然使用 libcamera-* 名称。 
 
-Raspberry Pi 提供了一小组示例 rpicam-apps 。这些 CLI 应用程序是建立在 libcamera 之上的，从相机捕获图像和视频。这些应用程序包括：
+树莓派提供了一小组示例 rpicam-apps 。这些 CLI 应用程序是建立在 libcamera 之上的，从相机捕获图像和视频。这些应用程序包括：
 
 * rpicam-hello ：相机的“hello world”版本，启动相机预览流并在屏幕上显示它。
 * rpicam-jpeg ：运行预览窗口，然后捕获高分辨率静止图像。
 * rpicam-still ：模拟原始 raspistill 应用程序的许多功能。
 * rpicam-vid ：捕获视频。
 * rpicam-raw ：直接从传感器捕获原始（未经处理的 Bayer）帧。
-* rpicam-detect ：默认情况下未构建，但如果用户在其 Raspberry Pi 上安装了 TensorFlow Lite，则可以构建它。当检测到特定对象时捕获 JPEG 图像。
+* rpicam-detect ：默认情况下未构建，但如果用户在其树莓派上安装了 TensorFlow Lite，则可以构建它。当检测到特定对象时捕获 JPEG 图像。
 
 Raspberry Pi OS 的最新版本包括五种基本 rpicam-apps ，因此即使在全新的 Raspberry Pi OS 安装上，您也可以使用摄像头记录图像和视频。
 
@@ -40,9 +41,9 @@ libcamera 提供了一个 C++ API，用于配置相机，然后允许应用程�
 
 您可以在官方 libcamera 存储库中找到源代码。Raspberry Pi OS 发行版使用一个分支来控制更新。
 
-在 libcamera 核心下，我们提供了一个自定义的流水线处理程序。 libcamera 使用这一层来驱动 Raspberry Pi 上的传感器和图像信号处理器（ISP）。 libcamera 包含了一系列图像处理算法（IPAs），包括自动曝光/增益控制（AEC/AGC）、自动白平衡（AWB）和自动镜头阴影校正（ALSC）。
+在 libcamera 核心下，我们提供了一个自定义的流水线处理程序。 libcamera 使用这一层来驱动树莓派上的传感器和图像信号处理器（ISP）。 libcamera 包含了一系列图像处理算法（IPAs），包括自动曝光/增益控制（AEC/AGC）、自动白平衡（AWB）和自动镜头阴影校正（ALSC）。
 
-Raspberry Pi 的 libcamera 实现支持以下摄像头：
+树莓派的 libcamera 实现支持以下摄像头：
 
 * 官方摄像头:
 
@@ -82,9 +83,9 @@ $ rpicam-hello --timeout 0
 
 如果您运行 X 窗口服务器并希望使用 X 转发，请传递 qt-preview 标志以在 Qt 窗口中渲染预览窗口。Qt 预览窗口比其他替代方案使用更多资源。
 
-| NOTE | 使用 Gtk2 的旧版系统在与 OpenCV 链接时，可能会产生 Glib-GObject 错误，并且无法显示 Qt 预览窗口。在这种情况下，请以 root 身份编辑文件 /etc/xdg/qt5ct/qt5ct.conf ，并将包含 style=gtk2 的行替换为 style=gtk3 。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
+>**注意**
+>
+>使用 Gtk2 的旧版系统在与 OpenCV 链接时，可能会产生 Glib-GObject 错误，并且无法显示 Qt 预览窗口。在这种情况下，请以 root 身份编辑文件 /etc/xdg/qt5ct/qt5ct.conf ，并将包含 style=gtk2 的行替换为 style=gtk3 。 
 要完全禁止预览窗口，请传递 nopreview 标志：
 
 ```
@@ -101,7 +102,7 @@ $ rpicam-hello --info-text "red gain %rg, blue gain %bg"
 
 ### `rpicam-jpeg`
 
-rpicam-jpeg 帮助您在 Raspberry Pi 设备上捕获图像。
+rpicam-jpeg 帮助您在树莓派设备上捕获图像。
 
 要捕获全分辨率 JPEG 图像并将其保存为名为 test.jpg 的文件，请运行以下命令：
 
@@ -119,7 +120,7 @@ $ rpicam-jpeg --output test.jpg --timeout 2000 --width 640 --height 480
 
 ### `rpicam-still`
 
-rpicam-still ，就像 rpicam-jpeg 一样，帮助您在 Raspberry Pi 设备上捕获图像。与 rpicam-jpeg 不同， rpicam-still 支持旧版应用程序中提供的许多选项。
+rpicam-still ，就像 rpicam-jpeg 一样，帮助您在树莓派设备上捕获图像。与 rpicam-jpeg 不同， rpicam-still 支持旧版应用程序中提供的许多选项。
 
 要捕获全分辨率的 JPEG 图像并将其保存到名为 test.jpg 的文件中，请运行以下命令：
 
@@ -214,7 +215,7 @@ Shutter Speed                   : 1/20
 $ rpicam-still -o long_exposure.jpg --shutter 100000000 --gain 1 --awbgains 1,1 --immediate
 ```
 
-要查找官方 Raspberry Pi 相机的最大曝光时间，请参阅相机硬件规格。
+要查找官方树莓派相机的最大曝光时间，请参阅相机硬件规格。
 
 #### 创建延时摄影视频
 
@@ -238,7 +239,7 @@ $ rpicam-still --timeout 30000 --timelapse 2000 -o timelapse/image%04d.jpg
 
 ##### 通过 cron
 
-您还可以使用 cron 自动化延时摄影。首先，创建脚本，命名为 timelapse.sh 包含以下命令。将 <username> 占位符替换为您的 Raspberry Pi 上的用户帐户名称：
+您还可以使用 cron 自动化延时摄影。首先，创建脚本，命名为 timelapse.sh 包含以下命令。将 <username> 占位符替换为您的树莓派上的用户账户名称：
 
 ```
 #!/bin/bash
@@ -264,7 +265,7 @@ $ mkdir timelapse
 $ crontab -e
 ```
 
-一旦您在编辑器中打开文件，请添加以下行以安排每分钟捕获图像，将 <username> 占位符替换为您的主用户帐户的用户名：
+一旦您在编辑器中打开文件，请添加以下行以安排每分钟捕获图像，将 <username> 占位符替换为您的主用户账户的用户名：
 
 ```
 * * * * * /home/<username>/timelapse.sh 2>&1
@@ -276,12 +277,13 @@ $ crontab -e
 crontab: installing new crontab
 ```
 
-| TIP | 停止录制图像以进行延时摄影，请再次运行 crontab -e 并从您的 crontab 中删除上述行。 |
-| ----- | ----------------------------------------------------------------------------------- |
+>**技巧**
+>
+>停止录制图像以进行延时摄影，请再次运行 crontab -e 并从您的 crontab 中删除上述行。 
 
 ##### 拼接图像
 
-一旦您拥有一系列延时摄影照片，您可能希望将它们合并成视频。在 Raspberry Pi 上使用 ffmpeg 来完成这个操作。
+一旦您拥有一系列延时摄影照片，您可能希望将它们合并成视频。在树莓派上使用 ffmpeg 来完成这个操作。
 
  首先，安装 ffmpeg ：
 
@@ -309,10 +311,11 @@ $ ffmpeg -r 10 -f image2 -pattern_type glob -i 'timelapse/*.jpg' -s 1280x720 -vc
 
 ### `rpicam-vid`
 
-rpicam-vid 帮助您在 Raspberry Pi 设备上捕获视频。 rpicam-vid 显示一个预览窗口并将编码比特流写入指定的输出。这会产生一个未打包的视频比特流，不包含任何容器（如 mp4 文件）格式。
+rpicam-vid 帮助您在树莓派设备上捕获视频。 rpicam-vid 显示一个预览窗口并将编码比特流写入指定的输出。这会产生一个未打包的视频比特流，不包含任何容器（如 mp4 文件）格式。
 
-| NOTE | 当可用时， rpicam-vid 使用硬件 H.264 编码。 |
-| ------ | --------------------------------------------- |
+>**注意**
+>
+>在可用时， rpicam-vid 使用硬件 H.264 编码。 
 
 例如，以下命令将十秒钟的视频写入名为 test.h264 的文件：
 
@@ -326,7 +329,7 @@ $ rpicam-vid -t 10s -o test.h264
 $ vlc test.h264
 ```
 
-在 Raspberry Pi 5 上，您可以通过为输出文件指定 mp4 文件扩展名，直接输出到 MP4 容器格式：
+在树莓派 5 上，您可以通过为输出文件指定 mp4 文件扩展名，直接输出到 MP4 容器格式：
 
 ```
 $ rpicam-vid  -t 10s -o test.mp4
@@ -361,7 +364,7 @@ $ rpicam-vid -t 10000 --codec mjpeg --segment 1 -o test%05d.jpeg
 * 使用 nopreview 禁用显示窗口，以释放一些额外的 CPU 循环。
 * 在 /boot/firmware/config.txt 中设置 force_turbo=1 以确保在视频捕获过程中 CPU 时钟不会降频。有关更多信息，请参阅 force_turbo 文档。
 * 使用 --width 1280 --height 720 或更低的分辨率调整 ISP 输出，以实现您的帧率目标。
-* 在 Raspberry Pi 4 上，您可以通过在 /boot/firmware/config.txt 中添加 gpu_freq=550 或更高的值来超频 GPU 以提高性能。有关更多详细信息，请参阅超频文档。
+* 在树莓派 4 上，您可以通过在 /boot/firmware/config.txt 中添加 gpu_freq=550 或更高的值来超频 GPU 以提高性能。有关更多详细信息，请参阅超频文档。
 
 以下命令演示了如何实现 1280×720 120fps 视频：
 
@@ -405,8 +408,9 @@ $ rpicam-raw -t 5000 --width 4056 --height 3040 -o test.raw --framerate 8
 
 ### `rpicam-detect`
 
-| NOTE | Raspberry Pi OS 不包括 rpicam-detect 。但是，如果您已安装了 TensorFlow Lite，可以构建 rpicam-detect 。有关更多信息，请参阅 rpicam-apps 构建说明。运行 cmake 时，请不要忘记传递 -DENABLE_TFLITE=1 。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>Raspberry Pi OS 不包括 rpicam-detect 。但是，如果您已安装了 TensorFlow Lite，可以构建 rpicam-detect 。有关更多信息，请参阅 rpicam-apps 构建说明。运行 cmake 时，请不要忘记传递 -DENABLE_TFLITE=1 。
 
 rpicam-detect 显示一个预览窗口，并使用经过训练的 Google MobileNet v1 SSD（Single Shot Detector）神经网络监视内容，以识别大约 80 种对象类别，使用 Coco 数据集。 rpicam-detect 可以识别人、汽车、猫和许多其他对象。
 
@@ -423,7 +427,7 @@ $ rpicam-detect -t 0 -o cat%04d.jpg --lores-width 400 --lores-height 300 --post-
 大多数用例可以自动工作，无需更改摄像头配置。但是，一些常见用例确实需要进行配置调整，包括：
 
 * 第三方摄像头（制造商的说明应解释必要的配置更改，如果有的话）
-* 使用官方 Raspberry Pi 摄像头的非标准驱动程序或叠加物
+* 使用官方树莓派摄像头的非标准驱动程序或叠加物
 
 Raspberry Pi OS 在 /boot/firmware/config.txt 中识别以下叠加层。
 
@@ -438,39 +442,41 @@ Raspberry Pi OS 在 /boot/firmware/config.txt 中识别以下叠加层。
 | IMX378                 | `dtoverlay=imx378`                                                                                                                                                                    |
 | OV9281                 | `dtoverlay=ov9281`                                                                                                                                                                    |
 
-要使用这些叠加层之一，您必须禁用自动摄像头检测。要禁用自动检测，请在 /boot/firmware/config.txt 中设置 camera_auto_detect=0 。如果 config.txt 已包含分配 camera_auto_detect 值的行，请将该值更改为 0 。使用 sudo reboot 重新启动您的 Raspberry Pi 以加载更改。
+要使用这些叠加层之一，您必须禁用自动摄像头检测。要禁用自动检测，请在 /boot/firmware/config.txt 中设置 camera_auto_detect=0 。如果 config.txt 已包含分配 camera_auto_detect 值的行，请将该值更改为 0 。使用 sudo reboot 重新启动您的树莓派以加载更改。
 
 #### 使用调整文件调整摄像头行为
 
-Raspberry Pi 的 libcamera 实现包括每个摄像头的调整文件。该文件控制算法和硬件以产生最佳图像质量。 libcamera 只能确定正在使用的传感器，而不能确定模块。因此，一些模块需要调整文件覆盖。使用 tuning-file 选项指定覆盖。您还可以复制和修改现有的调整文件以定制摄像头行为。
+树莓派的 libcamera 实现包括每个摄像头的调整文件。该文件控制算法和硬件以产生最佳图像质量。 libcamera 只能确定正在使用的传感器，而不能确定模块。因此，一些模块需要调整文件覆盖。使用 tuning-file 选项指定覆盖。您还可以复制和修改现有的调整文件以定制摄像头行为。
 
-例如，传感器的无红外滤光片（NoIR）版本使用与标准版本不同的自动白平衡（AWB）设置。在 Raspberry Pi 5 或更高版本上，您可以使用以下命令为 IMX219 传感器指定 NoIR 调整文件：
+例如，传感器的无红外滤光片（NoIR）版本使用与标准版本不同的自动白平衡（AWB）设置。在树莓派 5 或更高版本上，您可以使用以下命令为 IMX219 传感器指定 NoIR 调整文件：
 
 ```
 $ rpicam-hello --tuning-file /usr/share/libcamera/ipa/rpi/pisp/imx219_noir.json
 ```
 
-| NOTE | 旧版 Raspberry Pi 型号使用不同的调整文件。在这些设备上，请改用 /usr/share/libcamera/ipa/rpi/vc4/ 中存储的文件。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>旧版树莓派型号使用不同的调整文件。在这些设备上，请改用 /usr/share/libcamera/ipa/rpi/vc4/ 中存储的文件。 
 
 libcamera 维护着多种摄像头的调整文件，包括第三方型号。例如，您可以在 se327m12.json 找到 Soho Enterprises SE327M12 的调整文件。
 
 ### 使用多个摄像头
 
-rpicam-apps 对多个摄像头有基本支持。您可以通过以下方式将多个摄像头连接到 Raspberry Pi：
+rpicam-apps 对多个摄像头有基本支持。您可以通过以下方式将多个摄像头连接到树莓派：
 
-* 对于 Raspberry Pi Compute 模块，您可以直接连接两个摄像头到 Raspberry Pi Compute 模块 I/O 板。有关详细信息，请参阅 Compute 模块文档。使用此方法，您可以同时使用两个摄像头。
-* 对于 Raspberry Pi 5，您可以使用双 MIPI 连接器直接将两个摄像头连接到板上。
-* 对于带有摄像头端口的其他 Raspberry Pi 设备，您可以使用 Video Mux 板连接两个或更多摄像头，例如这种第三方产品。由于两个摄像头连接到单个 Unicam 端口，因此一次只能使用一个摄像头。
+* 对于树莓派计算模块，您可以直接连接两个摄像头到树莓派计算模块 I/O 板。有关详细信息，请参阅 Compute 模块文档。使用此方法，您可以同时使用两个摄像头。
+* 对于树莓派 5，您可以使用双 MIPI 连接器直接将两个摄像头连接到板上。
+* 对于带有摄像头端口的其他树莓派设备，您可以使用 Video Mux 板连接两个或更多摄像头，例如这种第三方产品。由于两个摄像头连接到单个 Unicam 端口，因此一次只能使用一个摄像头。
 
 要列出平台上所有可用的摄像头，请使用 list-cameras 选项。要选择要使用的摄像头，请将摄像头索引传递给 camera 选项。
 
-| NOTE | libcamera 尚不支持立体摄像头。当同时运行两个摄像头时，它们必须在单独的进程中运行。这意味着它们之间没有同步传感器帧或 3A 操作的方法。作为解决方法，您可以通过外部同步信号同步摄像头，对于 HQ（IMX477）摄像头，如果需要，将 3A 切换到手动模式。 |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>libcamera 尚不支持立体摄像头。当同时运行两个摄像头时，它们必须在单独的进程中运行。这意味着它们之间没有同步传感器帧或 3A 操作的方法。作为解决方法，您可以通过外部同步信号同步摄像头，对于 HQ（IMX477）摄像头，如果需要，将 3A 切换到手动模式。 
 
 ### 安装 libcamera 和 rpicam-apps
 
-Raspberry Pi 提供两个 rpicam-apps 包：
+树莓派提供两个 rpicam-apps 包：
 
 * rpicam-apps 包含完整的应用程序，支持使用桌面环境进行预览。此软件包已预装在 Raspberry Pi OS 中。
 * rpicam-apps-lite 不支持桌面环境，仅提供 DRM 预览。此软件包已预装在 Raspberry Pi OS Lite 中。
@@ -489,13 +495,13 @@ rpicam-apps 依赖于名为 library-name<n> 的库包，其中 <n> 是 ABI 版�
 
 ### UDP
 
-使用以下命令在 Raspberry Pi 作为服务器上通过 UDP 流式传输视频，替换 <ip-addr> 占位符为客户端的 IP 地址或组播地址，并替换 <port> 占位符为您想要用于流式传输的端口：
+使用以下命令在树莓派作为服务器上通过 UDP 流式传输视频，替换 <ip-addr> 占位符为客户端的 IP 地址或组播地址，并替换 <port> 占位符为您想要用于流式传输的端口：
 
 ```
 $ rpicam-vid -t 0 --inline -o udp://<ip-addr>:<port>
 ```
 
-使用以下命令在 Raspberry Pi 作为客户端上查看通过 UDP 流式传输的视频，替换 <port> 占位符为您想要从中流式传输的端口：
+使用以下命令在树莓派作为客户端上查看通过 UDP 流式传输的视频，替换 <port> 占位符为您想要从中流式传输的端口：
 
 ```
 $ vlc udp://@:<port> :demux=h264
@@ -509,13 +515,13 @@ $ ffplay udp://<ip-addr-of-server>:<port> -fflags nobuffer -flags low_delay -fra
 
 ### TCP
 
-您还可以通过 TCP 进行视频流传输。要将 Raspberry Pi 用作服务器：
+您还可以通过 TCP 进行视频流传输。要将树莓派用作服务器：
 
 ```
 $ rpicam-vid -t 0 --inline --listen -o tcp://0.0.0.0:<port>
 ```
 
-使用以下命令在 Raspberry Pi 作为客户端查看通过 TCP 流式传输的视频：
+使用以下命令在树莓派作为客户端查看通过 TCP 流式传输的视频：
 
 ```
 $ vlc tcp/h264://<ip-addr-of-server>:<port>
@@ -581,8 +587,9 @@ $ rpicam-vid -t 0 -n --inline -o - | gst-launch-1.0 fdsrc fd=0 ! udpsink host=<i
 $ gst-launch-1.0 udpsrc address=<ip-addr> port=<port> ! h264parse ! v4l2h264dec ! autovideosink
 ```
 
-| TIP | 要测试此配置，请在同一设备的不同终端上运行服务器和客户端命令，使用 localhost 作为地址。 |
-| ----- | ----------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>要测试此配置，请在同一设备的不同终端上运行服务器和客户端命令，使用 localhost 作为地址。 
 
 #### RTP
 
@@ -598,7 +605,7 @@ $ rpicam-vid -t 0 -n --inline -o - | gst-launch-1.0 fdsrc fd=0 ! h264parse ! rtp
 $ gst-launch-1.0 udpsrc address=<ip-addr> port=<port> caps=application/x-rtp ! rtph264depay ! h264parse ! v4l2h264dec ! autovideosink
 ```
 
-如果客户端不是 Raspberry Pi，则可能有不同的 GStreamer 元素可用。在运行 Linux 的 x86 设备上，您可能会运行以下命令：
+如果客户端不是树莓派，则可能有不同的 GStreamer 元素可用。在运行 Linux 的 x86 设备上，您可能会运行以下命令：
 
 ```
 $ gst-launch-1.0 udpsrc address=<ip-addr> port=<port> caps=application/x-rtp ! rtph264depay ! h264parse ! avdec_h264 ! autovideosink
@@ -643,7 +650,7 @@ libcamera build: v0.0.0+3058-c29143f7
 
 #### `list-cameras`
 
-列出连接到您的 Raspberry Pi 的检测到的摄像头及其可用的传感器模式。不接受值。
+列出连接到您的树莓派的检测到的摄像头及其可用的传感器模式。不接受值。
 
 传感器模式标识符具有以下形式： S<Bayer order><Bit-depth>_<Optional packing> : <Resolution list>
 
@@ -690,8 +697,9 @@ timeout=99000
 verbose=
 ```
 
-| TIP | 省略通常在命令行上传递的 -- 开头。对于缺少值的标志，例如上面示例中的 verbose ，必须包含尾随 = 。 |
-| ----- | -------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>省略通常在命令行上传递的 -- 开头。对于缺少值的标志，例如上面示例中的 verbose ，必须包含尾随 = 。 
 
 然后，您可以运行以下命令来指定超时时间为 99000 毫秒并输出详细信息：
 
@@ -802,12 +810,12 @@ $ rpicam-hello --config example_configuration.txt
 
 打包格式使用更少的存储空间来存储像素数据。
 
-在 Raspberry Pi 4 和早期设备上，打包格式使用 MIPI CSI-2 标准来打包像素。这意味着：
+在树莓派 4 和早期设备上，打包格式使用 MIPI CSI-2 标准来打包像素。这意味着：
 
 * 10 位相机模式将 4 个像素打包成 5 个字节。前 4 个字节包含每个像素的 8 个最高有效位（MSB），最后一个字节包含 4 对最低有效位（LSB）。
 * 12 位相机模式将 2 个像素打包成 3 个字节。前 2 个字节包含每个像素的 8 个最高有效位（MSB），最后一个字节包含两个像素的 4 个最低有效位（LSB）。
 
-在 Raspberry Pi 5 及更高版本设备上，打包格式使用视觉无损压缩方案将像素值压缩为每像素 8 位（1 字节）。
+在树莓派 5 及更高版本设备上，打包格式使用视觉无损压缩方案将像素值压缩为每像素 8 位（1 字节）。
 
 ##### 未打包格式详细信息
 
@@ -815,9 +823,9 @@ $ rpicam-hello --config example_configuration.txt
 
 在所有设备上，未打包格式每像素使用 2 字节。
 
-在 Raspberry Pi 4 和早期设备上，应用程序在最高有效端应用零填充。在未打包格式中，来自 10 位相机模式的像素不能超过值 1023。
+在树莓派 4 和早期设备上，应用程序在最高有效端应用零填充。在未打包格式中，来自 10 位相机模式的像素不能超过值 1023。
 
-在 Raspberry Pi 5 和更新设备上，应用程序在最低有效端应用零填充，因此图像使用传感器提供的像素深度的完整 16 位动态范围。
+在树莓派 5 和更新设备上，应用程序在最低有效端应用零填充，因此图像使用传感器提供的像素深度的完整 16 位动态范围。
 
 #### `viewfinder-mode`
 
@@ -875,7 +883,7 @@ $ rpicam-hello --config example_configuration.txt
 * auto - 在支持的设备上启用 HDR。如果可用，使用传感器的内置 HDR 模式。如果传感器缺乏内置 HDR 模式，则使用板载 HDR 模式（如果可用）。
 * single-exp - 使用板载 HDR 模式（如果可用），即使传感器具有内置 HDR 模式。如果板载 HDR 模式不可用，则禁用 HDR。
 
-Raspberry Pi 5 及更高版本设备具有内置的 HDR 模式。
+树莓派 5 及更高版本设备具有内置的 HDR 模式。
 
 要检查传感器中的内置 HDR 模式，请在 list-cameras 中添加此选项。
 
@@ -1252,7 +1260,7 @@ Raspberry Pi 5 及更高版本设备具有内置的 HDR 模式。
 
 不需要值，但您可以传递 1 以启用，传递 0 以禁用。不传递值相当于传递 1 。
 
-仅受某些摄像头模块支持（例如 Raspberry Pi 摄像头模块 3）。
+仅受某些摄像头模块支持（例如树莓派摄像头模块 3）。
 
 ### 视频选项
 
@@ -1317,8 +1325,9 @@ Raspberry Pi 5 及更高版本设备具有内置的 HDR 模式。
 
 #### `save-pts`
 
-| WARNING | Raspberry Pi 5 不支持 save-pts 选项。请改用 libav 自动生成时间戳以替代。 |
-| --------- | -------------------------------------------------------------------------- |
+>**警告**
+>
+>树莓派 5 不支持 save-pts 选项。请改用 libav 自动生成时间戳以替代。 
 
 启用帧时间戳输出，允许您使用类似 mkvmerge 的工具将比特流转换为容器格式。接受时间戳输出文件的纯文本文件名。
 
@@ -1508,9 +1517,9 @@ Sobel 阶段使用 OpenCV，因此具有 cv 后缀。它具有一个可由用户
 
 为了提高性能，图像分析通常使用降低的分辨率。 rpicam-apps 直接从 ISP 提供专用的低分辨率馈送。
 
-| NOTE | 使用 Raspberry Pi OS 附带的 rpicam-apps 不包括 OpenCV 和 TensorFlow Lite。因此，依赖于它们的某些后处理阶段被禁用。要使用这些阶段，请重新编译 rpicam-apps 。在运行 32 位内核的 Raspberry Pi 3 或 4 上，使用 -DENABLE_COMPILE_FLAGS_FOR_TARGET=armv8-neon 标志进行编译以加快某些阶段的速度。 |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
+>**注意**
+>
+>使用 Raspberry Pi OS 附带的 rpicam-apps 不包括 OpenCV 和 TensorFlow Lite。因此，依赖于它们的某些后处理阶段被禁用。要使用这些阶段，请重新编译 rpicam-apps 。在运行 32 位内核的树莓派 3 或 4 上，使用 -DENABLE_COMPILE_FLAGS_FOR_TARGET=armv8-neon 标志进行编译以加快某些阶段的速度。 
 ### 内置阶段
 
 #### negate 阶段
@@ -1562,7 +1571,7 @@ $ rpicam-hello --post-process-file negate.json
 
 控制处理强度，更改 global_tonemap_strength 和 local_tonemap_strength 参数。
 
-在 Raspberry Pi 4 上，处理单个图像需要 2 到 3 秒的时间。在累积多个帧时，此阶段仅将处理后的图像发送到应用程序。
+在树莓派 4 上，处理单个图像需要 2 到 3 秒的时间。在累积多个帧时，此阶段仅将处理后的图像发送到应用程序。
 
 DRC 的默认 drc.json 文件：
 
@@ -1693,8 +1702,9 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 
 ### 使用 OpenCV 进行后期处理
 
-| NOTE | 这些阶段需要安装 OpenCV。您可能需要重新构建带有 OpenCV 支持的 rpicam-apps 。 |
-| ------ | ------------------------------------------------------------------------------ |
+>**注意**
+>
+>这些阶段需要安装 OpenCV。您可能需要重新构建带有 OpenCV 支持的 rpicam-apps 。 
 
 #### sobel_cv 阶段
 
@@ -2072,7 +2082,7 @@ void applyResults() 使用此函数将模型的结果（可能是几帧旧的）
 为自己构建 libcamera 和 rpicam-apps 以获得以下好处：
 
 * 您可以获取最新的增强功能和特性。
-* rpicam-apps 可以针对运行 32 位操作系统的 Raspberry Pi 3 和 Raspberry Pi 4 设备进行额外优化编译。
+* rpicam-apps 可以针对运行 32 位操作系统的树莓派 3 和树莓派 4 设备进行额外优化编译。
 * 您可以包括可选的 OpenCV 和/或 TFLite 后处理阶段，或添加您自己的内容。
 * 您可以定制或添加从 rpicam-apps 派生的应用程序。
 
@@ -2084,8 +2094,9 @@ void applyResults() 使用此函数将模型的结果（可能是几帧旧的）
 $ sudo apt install -y libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng-dev
 ```
 
-| TIP | 如果您不需要支持 GLES/EGL 预览窗口，请省略 libepoxy-dev 。 |
-| ----- | ------------------------------------------------------------ |
+>**技巧**
+>
+>如果您不需要支持 GLES/EGL 预览窗口，请省略 libepoxy-dev 。
 
 要使用 Qt 预览窗口，请安装以下附加依赖项：
 
@@ -2109,8 +2120,9 @@ $ sudo apt install -y git
 
 #### 构建 libcamera
 
-| NOTE | 只有在您需要定制行为或最新功能尚未到达 apt 存储库时，才从头开始构建 libcamera 。 |
-| ------ | ---------------------------------------------------------------------------------- |
+>**注意**
+>
+>只有在您需要定制行为或最新功能尚未到达 apt 存储库时，才从头开始构建 libcamera 。
 
 ```
 $ sudo apt install -y python3-pip git python3-jinja2
@@ -2129,7 +2141,7 @@ $ sudo apt install -y libglib2.0-dev libgstreamer-plugins-base1.0-dev
 
 现在我们准备构建 libcamera 本身。
 
-从 GitHub 下载 Raspberry Pi 的 libcamera 本地副本：
+从 GitHub 下载树莓派的 libcamera 本地副本：
 
 ```
 $ git clone https://github.com/raspberrypi/libcamera.git
@@ -2147,8 +2159,9 @@ $ cd libcamera
 $ meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
 ```
 
-| NOTE | 在 meson 构建配置期间，您可以通过将 -Dgstreamer=enabled 替换为 -Dgstreamer=disabled 来禁用 gstreamer 插件。如果禁用 gstreamer ，则无需安装 libglib2.0-dev 和 libgstreamer-plugins-base1.0-dev 依赖项。 |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在 meson 构建配置期间，您可以通过将 -Dgstreamer=enabled 替换为 -Dgstreamer=disabled 来禁用 gstreamer 插件。如果禁用 gstreamer ，则无需安装 libglib2.0-dev 和 libgstreamer-plugins-base1.0-dev 依赖项。
 
 现在，您可以使用 ninja 构建 libcamera ：
 
@@ -2162,8 +2175,9 @@ $ ninja -C build
 $ sudo ninja -C build install
 ```
 
-| TIP | 在内存小于 1GB 的设备上，构建过程可能超出可用内存。在 ninja 命令中添加 -j 1 标志以将构建限制为单个进程。这应该可以防止在树莓派 Zero 和树莓派 3 等设备上超出可用内存。 |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>在内存小于 1GB 的设备上，构建过程可能超出可用内存。在 ninja 命令中添加 -j 1 标志以将构建限制为单个进程。这应该可以防止在树莓派 Zero 和树莓派 3 等设备上超出可用内存。
 
 libcamera 尚未具有稳定的二进制接口。始终在构建 libcamera 之后构建 rpicam-apps 。
 
@@ -2176,7 +2190,7 @@ $ sudo apt install -y cmake libboost-program-options-dev libdrm-dev libexif-dev
 $ sudo apt install -y meson ninja-build
 ```
 
-下载 Raspberry Pi 的 rpicam-apps GitHub 存储库的本地副本：
+下载树莓派的 rpicam-apps GitHub 存储库的本地副本：
 
 ```
 $ git clone https://github.com/raspberrypi/rpicam-apps.git
@@ -2200,8 +2214,9 @@ $ meson setup build -Denable_libav=enabled -Denable_drm=enabled -Denable_egl=ena
 $ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=disabled -Denable_qt=disabled -Denable_opencv=disabled -Denable_tflite=disabled
 ```
 
-| TIP | 使用 -Dneon_flags=armv8-neon 来启用树莓派 3 或树莓派 4 上 32 位操作系统的优化。如果已安装 OpenCV 并希望使用基于 OpenCV 的后处理阶段，请使用 -Denable_opencv=enabled 。如果已安装 TensorFlow Lite 并希望在后处理阶段中使用它，请使用 -Denable_tflite=enabled 。 |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>使用 -Dneon_flags=armv8-neon 来启用树莓派 3 或树莓派 4 上 32 位操作系统的优化。如果已安装 OpenCV 并希望使用基于 OpenCV 的后处理阶段，请使用 -Denable_opencv=enabled 。如果已安装 TensorFlow Lite 并希望在后处理阶段中使用它，请使用 -Denable_tflite=enabled 。
 
 现在可以使用以下命令构建 rpicam-apps ：
 
@@ -2209,9 +2224,9 @@ $ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=di
 $ meson compile -C build
 ```
 
-| TIP | 在内存为 1GB 或更少的设备上，构建可能超出可用内存。在 meson 命令中附加 -j 1 标志以将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。 |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
+>**技巧**
+>
+>在内存为 1GB 或更少的设备上，构建可能超出可用内存。在 meson 命令中附加 -j 1 标志以将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。 
 最后，运行以下命令安装您新构建的 rpicam-apps 二进制文件：
 
 ```
@@ -2387,14 +2402,15 @@ $ sudo apt install -y python3-picamera2
 $ sudo apt install -y python3-picamera2 --no-install-recommends
 ```
 
-| NOTE | 如果您之前使用 pip 安装了 Picamera2，请使用以下命令卸载： pip3 uninstall picamera2 。 |
-| ------ | --------------------------------------------------------------------------------------- |
+>**注意**
+>
+>如果您之前使用 pip 安装了 Picamera2，请使用以下命令卸载： pip3 uninstall picamera2 。
 
 ## 使用 USB 摄像头
 
-大多数 Raspberry Pi 设备都有专用端口用于摄像头模块。摄像头模块是高质量、高度可配置的摄像头，深受 Raspberry Pi 用户喜爱。
+大多数树莓派设备都有专用端口用于摄像头模块。摄像头模块是高质量、高度可配置的摄像头，深受树莓派用户喜爱。
 
-然而，对于许多用途，USB 网络摄像头具备您从 Raspberry Pi 记录图片和视频所需的一切。本节将解释如何在 Raspberry Pi 上使用 USB 网络摄像头。
+然而，对于许多用途，USB 网络摄像头具备您从树莓派记录图片和视频所需的一切。本节将解释如何在树莓派上使用 USB 网络摄像头。
 
 ### 安装依赖项
 
@@ -2588,8 +2604,9 @@ V4L2 软件接口是与 Unicam 外围设备通信的唯一方式。曾经还有�
 
 #### V4L2
 
-| NOTE | 仅在使用 libcamera 时，Unicam 的 V4L2 接口可用。 |
-| ------ | -------------------------------------------------- |
+>**注意**
+>
+>仅在使用 libcamera 时，Unicam 的 V4L2 接口可用。
 
 为 Unicam 块提供了一个完全开源的内核驱动程序；这个内核模块，称为 bcm2835-unicam ，与 V4L2 子设备驱动程序进行交互，传递原始帧。这个 bcm2835-unicam 驱动程序控制传感器并配置摄像头串行接口 2（CSI-2）接收器。外围设备将原始帧（经过 Debayer 处理）写入 SDRAM，以便 V4L2 传递给应用程序。在摄像头传感器捕获图像和 bcm2835-unicam 驱动程序将图像数据放入 SDRAM 之间，除了 Bayer 解包到 16 位/像素之外，没有图像处理。
 
@@ -2612,15 +2629,15 @@ ccp2  |             |
     |-----------------|
 ```
 
-主线 Linux 包含一系列现有驱动程序。Raspberry Pi 内核树具有一些额外的驱动程序和设备树叠加，用于配置它们：
+主线 Linux 包含一系列现有驱动程序。树莓派内核树具有一些额外的驱动程序和设备树叠加，用于配置它们：
 
 | 设备               | 类型                    | 笔记                          |
 | -------------------- | ------------------------- | ------------------------------- |
 | Omnivision OV5647  | 500 万像素摄像头        | 原装树莓派摄像头              |
-| 索尼 IMX219        | 800 万像素相机          | 旧版 Raspberry Pi 相机        |
-| 索尼 IMX477        | 1200 万像素相机         | Raspberry Pi HQ 相机          |
-| 索尼 IMX708        | 1200 万像素相机         | Raspberry Pi 相机模块 3       |
-| 索尼 IMX296        | 160 万像素相机          | Raspberry Pi 全局快门相机模块 |
+| 索尼 IMX219        | 800 万像素相机          | 旧版树莓派相机        |
+| 索尼 IMX477        | 1200 万像素相机         | 树莓派 HQ 相机          |
+| 索尼 IMX708        | 1200 万像素相机         | 树莓派相机模块 3       |
+| 索尼 IMX296        | 160 万像素相机          | 树莓派全局快门相机模块 |
 | Toshiba TC358743   | HDMI 到 CSI-2 桥接器    |                               |
 | 模拟设备 ADV728x-M | 模拟视频到 CSI-2 桥接器 | 不支持隔行扫描                |
 | Infineon IRS1125   | 飞行时间深度传感器      | 由第三方支持                  |
@@ -2631,10 +2648,13 @@ ccp2  |             |
 
 这是通过 Unicam 进行接口的推荐方法。
 
-当为打算与 bcm2835-unicam 模块一起使用的新设备开发驱动程序时，您需要驱动程序和相应的设备树叠加。理想情况下，应将驱动程序提交给 linux-media 邮件列表进行代码审查和合并到主线，然后移至 Raspberry Pi 内核树；但也可以对直接将驱动程序进行审查和合并到 Raspberry Pi 内核做出例外。
+当为打算与 bcm2835-unicam 模块一起使用的新设备开发驱动程序时，您需要驱动程序和相应的设备树叠加。理想情况下，应将驱动程序提交给 linux-media 邮件列表进行代码审查和合并到主线，然后移至内核树；但也可以对直接将驱动程序进行审查和合并到树莓派内核做出例外。
 
-| NOTE | 所有内核驱动程序均在 GPLv2 许可下授权，因此必须提供源代码。仅提供二进制模块违反了 Linux 内核所授权的 GPLv2 许可。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>所有内核驱动程序均在 GPLv2 许可下授权，因此必须提供源代码。仅提供二进制模块违反了 Linux 内核所授权的 GPLv2 许可。
+
+
 
 旧版 bcm2835-unicam 模块已经编写，以尝试适应当前在主线 Linux 内核中找到的所有类型的 CSI-2 源驱动程序。这些可以大致分为相机传感器和桥接芯片。桥接芯片允许在某些其他格式和 CSI-2 之间进行转换。
 
@@ -2655,7 +2675,7 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 
 在 IMX219 的情况下，许多这些控件直接映射到对传感器本身的寄存器写入。
 
-进一步的指导可在 libcamera 传感器驱动要求和 Raspberry Pi 摄像头调整指南第 3 章中找到。
+进一步的指导可在 libcamera 传感器驱动要求和树莓派摄像头调整指南第 3 章中找到。
 
 ##### 设备树
 
@@ -2689,7 +2709,7 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 
 ##### 目前支持的设备
 
-Raspberry Pi Linux 内核目前支持两种桥接芯片：用于模拟视频源的 Analog Devices ADV728x-M 和用于 HDMI 源的 Toshiba TC358743。
+树莓派的 Linux 内核目前支持两种桥接芯片：用于模拟视频源的 Analog Devices ADV728x-M 和用于 HDMI 源的 Toshiba TC358743。
 
 Analog Devices ADV728x(A)-M 模拟视频到 CSI2 桥接芯片将复合 S 视频(Y/C)或分量(YPrPb)视频转换为单通道 CSI-2 接口，并受 ADV7180 内核驱动程序支持。
 
@@ -2697,7 +2717,7 @@ Analog Devices ADV728x(A)-M 模拟视频到 CSI2 桥接芯片将复合 S 视频(
 
 由于当前核心 V4L2 实现中存在一些缺失的代码，选择源失败，因此树莓派内核版本添加了一个内核模块参数 dbg_input 到 ADV7180 内核驱动程序，每次调用 VIDIOC_S_STD 时设置输入源。在某个时候，主流将修复底层问题（内核 API 调用 s_routing 和用户空间调用 VIDIOC_S_INPUT 之间的不一致），并将删除此修改。
 
-不支持接收隔行视频，因此 ADV7281(A)-M 版本的芯片的用途有限，因为它没有必要的 I2P 去隔行块。在选择设备时，请确保指定-M 选项。如果没有，您将获得一个无法与 Raspberry Pi 接口的并行输出总线。
+不支持接收隔行视频，因此 ADV7281(A)-M 版本的芯片的用途有限，因为它没有必要的 I2P 去隔行块。在选择设备时，请确保指定-M 选项。如果没有，您将获得一个无法与树莓派接口的并行输出总线。
 
 目前没有已知商用板使用这些芯片，但此驱动程序已通过模拟器件 EVAL-ADV7282-M 评估板进行了测试。
 
@@ -2719,11 +2739,11 @@ HDMI 通过接收设备广告 EDID 来协商分辨率，其中包含其支持的
 
 如上所述，使用 DV_TIMINGS ioctl 配置驱动程序以匹配传入视频。这样做的最简单方法是使用命令 v4l2-ctl --set-dv-bt-timings query 。驱动程序确实支持生成 SOURCE_CHANGED 事件，如果您希望编写一个处理变化源的应用程序。通过设置输出像素格式来实现更改像素格式，但只有像素格式字段将被更新，因为分辨率是由 DV 定时配置的。
 
-有几块商用板可以将该芯片连接到 Raspberry Pi。Auvidea B101 和 B102 是最常见的，但也有其他等效的板可用。
+有几块商用板可以将该芯片连接到树莓派。Auvidea B101 和 B102 是最常见的，但也有其他等效的板可用。
 
 使用 config.txt dtoverlay tc358743 加载此驱动程序。
 
-该芯片还支持通过 I2S 捕获立体声 HDMI 音频。Auvidea 板将相关信号引出到一个标头，可连接到 Raspberry Pi 的 40 引脚标头。所需的接线是：
+该芯片还支持通过 I2S 捕获立体声 HDMI 音频。Auvidea 板将相关信号引出到一个标头，可连接到树莓派的 40 引脚标头。所需的接线是：
 
 | 信号     | B101 头 | 40 针头 | BCM GPIO |
 | ---------- | --------- | --------- | ---------- |
@@ -2773,15 +2793,15 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 * 在树莓派 3 及更早版本设备上运行 Raspberry Pi OS Bullseye 或更早版本：
 
   * 要启用硬件加速的摄像头预览，请启用 Glamor。要启用 Glamor，请在终端中输入 sudo raspi-config ，选择 Advanced Options > Glamor > Yes 。然后使用 sudo reboot 重新启动您的树莓派。
-  * 如果您看到与显示驱动程序相关的错误，请将 dtoverlay=vc4-fkms-v3d 或 dtoverlay=vc4-kms-v3d 添加到 /boot/config.txt 。然后使用 sudo reboot 重新启动您的 Raspberry Pi。
-* 在旧版 Raspberry Pi 3 及更早版本上，图形硬件只能支持最大尺寸为 2048×2048 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 2048 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
-* 在 Raspberry Pi 4 上，图形硬件只能支持最大尺寸为 4096×4096 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 4096 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
+  * 如果您看到与显示驱动程序相关的错误，请将 dtoverlay=vc4-fkms-v3d 或 dtoverlay=vc4-kms-v3d 添加到 /boot/config.txt 。然后使用 sudo reboot 重启您的树莓派。
+* 在旧版树莓派 3 及更早版本上，图形硬件只能支持最大尺寸为 2048×2048 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 2048 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
+* 在树莓派 4 上，图形硬件只能支持最大尺寸为 4096×4096 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 4096 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
 * 预览窗口可能在桌面环境中显示屏幕撕裂。这是一个已知的，无法修复的问题。
 * 检查 FFC（平面柔性电缆）是否牢固插入，完全插入，并且接触面朝向正确方向。FFC 应该均匀插入，不应倾斜。
-* 如果您在相机和您的 Raspberry Pi 之间使用连接器，请检查连接器上的端口是否牢固插入，完全插入，并且接触面朝向正确方向。
+* 如果您在相机和您的树莓派之间使用连接器，请检查连接器上的端口是否牢固插入，完全插入，并且接触面朝向正确方向。
 * 检查确保 FFC（平面柔性电缆）连接到 CSI（摄像头串行接口），而不是 DSI（显示串行接口）。连接器适配到任一端口，但只有 CSI 端口可以为摄像头供电和控制。在靠近端口的板上查找打印的 CSI 标签。
 * [更新到最新软件。](https://www.raspberrypi.com/documentation/computers/os.html#update-software)
-* 尝试不同的电源适配器。摄像头模块会给您的 Raspberry Pi 的电源需求增加约 200-250mA。如果您的电源适配器质量不高，您的 Raspberry Pi 可能无法为摄像头模块供电。
+* 尝试不同的电源适配器。摄像头模块会给您的树莓派的电源需求增加约 200-250mA。如果您的电源适配器质量不高，您的树莓派可能无法为摄像头模块供电。
 * 如果您已经检查了上述所有问题，但摄像头模块仍然无法按照您的期望工作，请尝试在我们的论坛上发帖以获取更多帮助。
 
 ## 获取帮助
@@ -2792,7 +2812,7 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 * 记下您的 libcamera 和 rpicam-apps 版本（ rpicam-hello --version ）。
 * 报告您正在使用的摄像头模块的制造商和型号。
 * 报告您正在尝试使用的软件。我们不支持第三方摄像头模块供应商的软件。
-* 报告您的 Raspberry Pi 型号，包括内存大小。
+* 报告您的树莓派型号，包括内存大小。
 * 包括应用程序控制台输出中的任何相关摘录。
 
 如果相机软件中存在特定问题（例如崩溃），请考虑在 GitHub 存储库中创建一个问题，包括上面列出的相同细节。
