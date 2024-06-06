@@ -107,4 +107,4 @@ RP3A0 是一款四核 64 位 Arm Cortex A53 CPU，主频为 1 GHz，但是如果
 
 >**注意**
 >
->旧版树莓派 Zero 使用系统级封装（PoP）DRAM，其中 DRAM 直接焊接在 BCM2835 芯片顶部。 
+>旧版树莓派 Zero 使用堆叠封装（PoP）DRAM，其中 DRAM 直接焊接在 BCM2835 芯片顶层。 
