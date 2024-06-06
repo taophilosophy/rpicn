@@ -3,12 +3,12 @@
 ## 开始使用您的树莓派
  
 
-要开始使用您的树莓派，您需要满足以下条件：
+要开始使用您的树莓派，您需要满足如下条件：
 
 * 电源供应
-* 引导介质（例如，存储空间足够大和速度足够快的 microSD 卡）
+* 启动介质（例如，存储空间足够大和速度足够快的 microSD 卡）
 
-您可以将树莓派设置为带有桌面的交互式计算机，也可以将其设置为仅通过网络访问的无头计算机。要无头设置您的树莓派，您无需任何额外的外部设备：您可以在安装操作系统时预先配置主机名、用户账号、网络连接和 SSH。如果要直接使用您的树莓派，您将需要以下额外配件：
+您可以将树莓派设置为带有桌面的交互式计算机，也可以将其设置为仅通过网络访问的无头计算机。要无头设置您的树莓派，您无需任何额外的外部设备：您可以在安装操作系统时预先配置主机名、用户账号、网络连接和 SSH。如果要直接使用您的树莓派，您需要以下额外配件：
 
 * 显示器
 * 用于将树莓派连接到显示器的线缆
@@ -17,7 +17,7 @@
 
 ### 电源供应
 
-以下表格显示了为各种类型的树莓派提供电源所需的 USB-PD 电源型号。您可以使用其他能提供符合电源要求的高质量电源。
+以下表格显示了为各种类型的树莓派提供电源所需的 USB-PD 电源型号。您可以使用其他能提供符合电源要求的高质量电源代替。
 
 | 型号                    | 推荐的电源适配器（电压/电流）     | 树莓派电源适配器 |
 | ------------------------- | ----------------------------------- | ------------------ |
@@ -30,21 +30,21 @@
 
 ![Plugging a power supply into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-power.png)
 
-将电源适配器插入标有 "POWER IN"、"PWR IN" 或 "PWR" 的接口。某些树莓派型号，如 Zero 系列，具有与电源接口相同外形尺寸的 USB 输出接口。请确保在树莓派上使用正确的接口！
+将电源适配器插入标有 "POWER IN"、"PWR IN" 或 "PWR" 的接口。某些树莓派型号（如 Zero 系列）具有与电源接口相同外形尺寸的 USB 输出接口。请确保在树莓派上使用了正确的接口！
 
-### 引导介质
+### 启动介质
 
-树莓派没有内置存储，因此需要您来提供它。您可以通过安装在受支持的介质上的操作系统来启动您的树莓派：通常使用 microSD 卡，但也可以使用 USB 存储设备、网络存储和通过 PCIe HAT 连接的存储设备。然而，只有最新型号的树莓派支持所有这些类型的介质。
+树莓派没有内置存储，因此需要您来提供它。您可以通过安装在受支持的介质上的操作系统来启动您的树莓派：通常使用 microSD 卡，但也可以使用 USB 存储设备、网络存储和通过 PCIe 扩展板转接的存储设备。然而，只有最新型号的树莓派支持所有这些类型的介质。
 
-自树莓派 1 Model A+ 以来的所有树莓派消费者型号都配备了 microSD 插槽。当插槽中插入了 microSD 时，您的树莓派会自动从 microSD 启动。
+自树莓派 1 Model A+ 以来的所有树莓派消费者型号都配备了 microSD 卡槽。当卡槽中插入了 microSD 时，您的树莓派会自动从 microSD 启动。
 
 ![Inserting a microSD card into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/sd-card.png)
 
 #### 推荐的 SD 卡
 
-我们建议在安装 Raspberry Pi OS 时使用的 SD 卡至少要拥有 32GB 存储空间。对于 Raspberry Pi OS Lite，我们建议至少 16GB。您可以使用任何容量小于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。与所有其他启动介质一样，读写速度更快的 SD 卡可提供更好的性能。
+我们建议，用于安装 Raspberry Pi OS 的 SD 卡至少要拥有 32GB 存储空间。对于 Raspberry Pi OS Lite，我们建议至少为 16GB。您可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。与所有其他启动介质一样，读写速度更快的 SD 卡能提供更好的性能。
 
-由于硬件限制，以下设备只能从 256GB 或更小的引导分区启动：
+由于硬件限制，以下设备只能从 256GB 或更小的启动分区启动：
 
 * 树莓派 Zero
 * 树莓派 1
@@ -54,19 +54,19 @@
 
 ### 键盘
 
-您可以使用树莓派上的任何 USB 端口连接有线键盘或 USB 蓝牙接收器。
+您可以使用树莓派上的任一 USB 接口来连接有线键盘或 USB 蓝牙接收器。
 
 ![Plugging a keyboard into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-key.png)
 
 ### 鼠标
 
-您可以使用树莓派上的任何 USB 接口连接有线鼠标或 USB 蓝牙接收器。
+您可以使用树莓派上的任一 USB 接口连接有线鼠标或 USB 蓝牙接收器。
 
 ![Plugging a mouse into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-mouse.png)
 
 ### 显示器
 
-树莓派具有以下显示连接功能：
+树莓派具有以下显示输出功能：
 
 | 型号                    | 显示输出                                             |
 | ------------------------- | ------------------------------------------------------ |
@@ -84,7 +84,7 @@
 
 如果您的树莓派有多个 HDMI 接口，请将主显示器插入标有 HDMI0 的接口。
 
-大多数显示器没有 micro 或 mini HDMI 接口。但是，您可以使用 micro-HDMI 至 HDMI 线缆或 mini-HDMI 至 HDMI 线缆将树莓派上的这些接口转接到 HDMI 显示器。对于不支持 HDMI 的显示器，请考虑使用转换器将 HDMI 输出转换为设备所支持的类型。
+大多数显示器不支持 micro HDMI 或 mini HDMI。但是，您可以使用 micro-HDMI 转 HDMI 转换线和 mini-HDMI 转 HDMI 转换线将树莓派上的这些接口转接到 HDMI 显示器。对于不支持 HDMI 的显示器，请考虑使用转换器将 HDMI 输出转换为设备所支持的类型。
 
 ![Plugging a micro HDMI cable into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-hdmi.png)
 
@@ -103,7 +103,7 @@
 * 树莓派 Zero W
 * 树莓派 Zero 2 W
 
-后缀“Model B”表示带以太网接口的变种；“Model A”表示没有以太网接口。如果您的树莓派没有以太网接口，您还可以使用 USB 转以太网适配器来连接有线互联网。
+后缀“Model B”表示带以太网接口的版本；“Model A”表示没有以太网接口。如果您的树莓派没有以太网接口，您还可以使用 USB 转以太网转换器来连接有线互联网。
 
 ![Plugging an Ethernet cable into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-net.png)
 
@@ -112,7 +112,7 @@
 
 要使用您的树莓派，您需要操作系统。默认情况下，树莓派会检查插入 SD 卡槽中的 SD 卡内是否有操作系统。
 
-根据您的树莓派型号，您还可以从其他存储设备引导操作系统，包括 USB 设备、通过 HAT 连接的存储设备和网络存储设备。
+根据您的树莓派型号，您还可以从其他存储设备引导操作系统，包括 USB 设备、通过扩展板连接的存储设备和网络存储设备。
 
 要为您的树莓派在存储设备上安装操作系统，您需要：
 
@@ -152,7 +152,7 @@
 
 >**警告**
 >
->如果您的计算机连接了多个存储设备，请务必选择正确的设备！通常可以通过大小识来别存储设备。如果不确定，请断开其他设备，直到确定要刻录镜像的设备。 
+>如果您的计算机连接了多个存储设备，请务必选择正确的设备！通常可以通过大小来识别存储设备。如不确定，请断开其他设备，直到确定要刻录镜像的设备。 
 
 ![Storage selection options in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
 
@@ -189,14 +189,14 @@
 
 服务选项卡包括帮助您远程连接到树莓派的设置。
 
-如果您计划通过网络远程使用您的树莓派，请勾选“启用 SSH”旁边的复选框。如果您计划运行一个无显示器的树莓派，您应该启用此选项。
+如果您计划通过网络远程使用您的树莓派，请勾选“启用 SSH”旁边的复选框。如果您计划运行无显示器的树莓派，您应该启用此选项。
 
 * 选择密码验证选项，使用您在 OS 定制的常规选项卡中提供的用户名和密码通过网络 SSH 到您的树莓派。
 * 选择仅允许公钥验证，为您的树莓派预配置无密码公钥 SSH 验证，使用您当前使用的计算机上的私钥。如果您的 SSH 配置中已经有 RSA 密钥，Imager 将使用该公钥。如果没有，您可以单击“运行 SSH-keygen”生成公/私钥对。Imager 将使用新生成的公钥。
 
 ![Services settings in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-services.png)
 
-系统定制还包括一个“选项”菜单，允许您在写入过程中配置 Imager 的行为。这些选项允许您在 Imager 完成验证图像时播放声音，自动在验证后卸载存储介质，并禁用遥测。
+系统定制还包括“选项”菜单，允许您在写入过程中配置 Imager 的行为。这些选项允许您在 Imager 完成验证图像时播放声音，自动在验证后卸载存储介质，并禁用遥测。
 
 ![Options in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-options.png)
 
@@ -234,7 +234,7 @@
 
 网络安装需要以下条件：
 
-* 受支持的树莓派型号且使用着支持网络安装的固件
+* 受支持的树莓派型号且安装了支持网络安装的固件
 * 显示器
 * 键盘
 * 有线网络连接
