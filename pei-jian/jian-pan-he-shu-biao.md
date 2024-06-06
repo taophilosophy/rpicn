@@ -4,7 +4,7 @@
 
 我们的官方键盘包括三个主机 USB 接口，用于连接外部设备，如 USB 鼠标，USB 存储设备和其他 USB 控制设备。
 
-该产品的 Micro USB 用于连接树莓派（通过键盘内置的 USB 集线器）可由树莓派控制并为键盘三个 USB Type A 接口提供电源。
+该产品的 Micro USB 用于连接树莓派（通过键盘内置的 USB 集线器），可由树莓派控制并为键盘三个 USB Type A 接口提供电源。
 
 ![back of keyboard](https://www.raspberrypi.com/documentation/accessories/images/back-of-keyboard.png)
 
