@@ -1,8 +1,8 @@
-# Build HAT
+# Build 扩展板（Build HAT）
 
-## Build HAT 简介
+## Build 扩展板（Build HAT）简介
 
-树莓派 Build HAT 是一个附加板，可连接到树莓派的 40 引脚 GPIO 标头，与 LEGO® Education 合作设计，可轻松使用树莓派计算机控制 LEGO® Technic™ 电机和传感器。
+树莓派 Build 扩展板是一个附加板，可连接到树莓派的 40 引脚 GPIO 标头，与 LEGO® Education 合作设计，可轻松使用树莓派计算机控制 LEGO® Technic™ 电机和传感器。
 
 ![build hat](https://www.raspberrypi.com/documentation/accessories/images/build-hat.jpg)
 
@@ -12,13 +12,13 @@
 
 它为 LEGO® Technic™ 电机和 SPIKE™ 组合中的传感器提供四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有各种尺寸，并包括集成编码器，可查询其位置。
 
-Build HAT 适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括通过连接排线或其他扩展设备的树莓派 400。连接的 LEGO® Technic™ 设备可以轻松在 Python 中进行控制，同时还可以连接标准的树莓派配件，如摄像头模块。
+Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括通过连接排线或其他扩展设备的树莓派 400。连接的 LEGO® Technic™ 设备可以轻松在 Python 中进行控制，同时还可以连接标准的树莓派配件，如摄像头模块。
 
-树莓派 Build HAT 电源适配器（PSU）单独出售，旨在为 Build HAT、树莓派计算机以及所有连接的 LEGO® Technic™ 设备供电。
+树莓派 Build 扩展板的电源适配器（PSU）单独出售，旨在为 Build HAT、树莓派计算机以及所有连接的 LEGO® Technic™ 设备供电。
 
 ![psu](https://www.raspberrypi.com/documentation/accessories/images/psu.jpg)
 
-从 LEGO® Education 经销商单独提供的 SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 中，包含一组由 Build HAT 支持的实用元件。
+从 LEGO® Education 经销商单独提供的 SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 中，包含一组由 Build 扩展板支持的实用元件。
 
 受支持设备的完整列表
 
@@ -30,29 +30,29 @@ Build HAT 适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括
 * 控制您的 LEGO® Technic™ 设备的易于使用的 Python 库
 * 适用于带有 40 针 GPIO 引脚的任何树莓派计算机
 * Onboard RP2040 微控制器管理 LEGO® Technic™设备的低级控制
-* 单独提供外部 8V PSU 以为 Build HAT 和树莓派供电
+* 单独提供外部 8V PSU 以为 Build 扩展板和树莓派供电
 
 >**注意**
 >
->由于不支持通过 GPIO 引脚供电，Build HAT 无法为树莓派 400 供电 。
+>由于不支持通过 GPIO 引脚供电，Build 扩展板不能为树莓派 400 供电 。
 
-## 准备您的 Build HAT
+## 准备您的 Build 扩展板
 
 >**注意**
 >
->在开始使用您的树莓派 Build HAT 之前，您应该设置您的树莓派，使用 Raspberry Pi Imager 安装最新版本的操作系统。
+>在开始使用您的树莓派 Build 扩展板之前，您应该设置您的树莓派，使用 Raspberry Pi Imager 安装最新版本的操作系统。
 
-将 9mm 的间隔柱连接到板的底部。将树莓派 Build HAT 安装到您的树莓派上。确保将其正确放置。与其他 HAT 不同，所有组件都在底部，为顶部的面包板或乐高® 元件留出空间。
+将 9mm 的间隔柱连接到板的底部。将树莓派 Build 扩展板安装到您的树莓派上。确保将其正确放置。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高® 元件留出空间。
 
 ![fitting build hat](https://www.raspberrypi.com/documentation/accessories/images/fitting-build-hat.gif)
 
 ### 访问 GPIO 引脚
 
-如果您想访问树莓派的 GPIO 引脚，您可以添加一个可选的高头并使用 15 毫米间隔柱。
+如果您想使用树莓派的 GPIO 引脚，您可以添加一个可选的高头并使用 15 毫米间隔柱。
 
 ![tall headers](https://www.raspberrypi.com/documentation/accessories/images/tall-headers.png)
 
-下面的引脚是 Build HAT 本身使用的，您不应该连接任何东西到它们。
+下面的引脚是 Build 扩展板本身使用的，您不应该连接其他东西到这些引脚上。
 
 | GPIO    | 使用      | 状态   |
 | --------- | ----------- | -------- |
@@ -85,7 +85,7 @@ Build HAT 适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括
 
 ![raspi config 3](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-3.png)
 
-并启用串行端口硬件。
+并启用串口。
 
 ![raspi config 4](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-4.png)
 
@@ -95,27 +95,27 @@ Build HAT 适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括
 
 如果您已经进行了任何更改，此时需要重新启动。
 
-### 供电 Build HAT
+### 为 Build 扩展板供电
 
-连接外部电源 — 推荐使用官方树莓派 Build HAT 电源 — 但是凡是可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build HAT 供电。除非您正在使用树莓派 400，否则不需要额外连接 USB 电源供应器到树莓派。
+连接外部电源 — 推荐使用官方树莓派 Build 扩展板电源 — 但是凡是可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build 扩展板供电。除非您正在使用树莓派 400，否则无需额外再将树莓派接入电源。
 
 >**注意**
 >
->旧版 HAT 无法为树莓派 400 供电，因为它不支持通过 GPIO 头部供电。 
+>旧版 HAT 无法为树莓派 400 供电，因为它不支持通过 GPIO 引脚取电。 
 
 ![powering build hat](https://www.raspberrypi.com/documentation/accessories/images/powering-build-hat.gif)
 
 >**注意**
 >
->乐高® Technic™ 电机非常强大；因此，为了驱动它们，您需要外部的 8V 电源。如果您想从电机编码器和 SPIKE™ 力传感器读取数据，您可以通过您树莓派的 USB 电源插座以通常的方式为您的树莓派 和 Build HAT 供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
+>乐高® Technic™ 电机非常强大；因此，为了驱动它们，您需要外部的 8V 电源。如果您想从电机编码器和 SPIKE™ 力传感器读取数据，您可以通过您树莓派的 USB 电源插座以通常的方式为您的树莓派 和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
 
-您可以选择使用 Python 或.NET 与 Build HAT 一起使用。
+您可以选择使用 Python 或 .NET 与 Build 扩展板一起使用。
 
-## 使用 Python 从 Build HAT。
+## 使用 Python 操作 Build 扩展板
 
 ### 安装 Python 库
 
-安装 Build HAT Python 库。打开一个终端窗口，然后输入，
+安装 Build HAT Python 库。打开终端，然后输入，
 
 ```
 $ sudo apt install python3-build-hat
@@ -125,17 +125,17 @@ $ sudo apt install python3-build-hat
 
 ### 使用 Python 控制电机
 
-有许多电机可以与 Build HAT 一起使用
+有许多电机可以与 Build 扩展板一起使用
 
 #### 连接电机
 
-将电机连接到 Build HAT 上的端口 A。 LPF2 连接器需要正确插入。 如果连接器无法轻松滑入，请旋转 180 度后重试。
+将电机连接到 Build HAT 上的接口 A。 LPF2 连接器需要正确插入。 如果连接器无法轻松滑入，请旋转 180 度后重试。
 
 ![connect motor](https://www.raspberrypi.com/documentation/accessories/images/connect-motor.gif)
 
 #### 使用电机
 
-启动 Thonny IDE。添加以下程序代码：
+启动 Thonny IDE。添加以下代码：
 
 ```
 from buildhat import Motor
@@ -145,7 +145,7 @@ motor_a = Motor('A')
 motor_a.run_for_seconds(5)
 ```
 
-通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来第一次运行 Build HAT 程序，那么在固件复制到板上时会有几秒钟的暂停。您应该看到红色 LED 熄灭，绿色 LED 点亮。以后执行 Python 程序将不需要这种暂停。
+通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，那么在固件复制到板上时会有几秒钟的暂停。您应该看到红色 LED 熄灭，绿色 LED 点亮。以后再执行 Python 程序就不会有这种暂停了。
 
 ![blinking light](https://www.raspberrypi.com/documentation/accessories/images/blinking-light.gif)
 
@@ -153,7 +153,7 @@ motor_a.run_for_seconds(5)
 
 ![turning motor](https://www.raspberrypi.com/documentation/accessories/images/turning-motor.gif)
 
-更改程序的最后一行并重新运行。
+更改代码的最后一行并重新运行。
 
 ```
 motor_a.run_for_seconds(5, speed=50)
@@ -182,11 +182,11 @@ while True:
 
 ### 使用 Python 中的传感器
 
-有许多传感器可与 Build HAT 一起使用。
+有许多传感器可与 Build 扩展板一起使用。
 
 #### 使用传感器
 
-将彩色传感器连接到 Build HAT 的 B 端口，将力传感器连接到 C 端口。
+将彩色传感器连接到 Build 扩展板的 B 接口，将力传感器连接到 C 端口。
 
 >**注意**
 >
@@ -219,17 +219,17 @@ pause()
 
 ### 安装.NET Framework
 
-从 Microsoft 获取的 .NET 框架无法在树莓派上通过 APT 进行安装。但是，您可以按照 Microsoft 的官方说明安装 .NET 框架。或者，这有一个简化的第三方途径可以将 .NET 工具链安装到您的树莓派上。
+在树莓派上无法用 APT 安装从 Microsoft 获取的 .NET 框架。但是，您可以按照 Microsoft 的官方说明来安装 .NET 框架。这还有一个简化的第三方途径可以将 .NET 工具链安装到您的树莓派上。
 
 >**警告**
 >
->安装脚本以 APT 运行。您应该先阅读它，并确保您理解它在做什么。如果您有任何疑问，应该手动按照官方说明操作。
+>安装脚本以 APT 运行。您应该先阅读它，并确保您理解它在做什么。如果您有任何疑问，应该按照官方说明手动操作。
 
 ```
 $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/install.sh | sudo bash
 ```
 
-安装.NET 框架后，您可以创建您的项目：
+安装 .NET 框架后，您可以创建您的项目：
 
 ```
 $ dotnet new console --name buildhat
@@ -265,9 +265,9 @@ Hello World!
 
 任何文本编辑器都可以用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。Visual Studio Code（通常称为 "VS Code"）也是一个流行的替代方案。
 
-### 使用.NET 从 Build HAT 进行操作
+### 使用.NET 从 Build 扩展板进行操作
 
-树莓派 Build HAT 在 LEGO®术语中被称为"Brick"，您可以使用 Build HAT 串行协议直接与之通信
+树莓派 Build 扩展板在 LEGO®术语中被称为"Brick"，您可以使用 Build 扩展板串行协议直接与之通信
 
 您可以按照以下方式创建一个 brick 对象
 
@@ -506,7 +506,7 @@ active.Float();
 
 您可以将电机放置在浮动位置，意味着它不再受任何约束。这是一种模式，您可以在将电机用作转速计时使用，移动它并读取位置。如果电机仍受约束，您可能无法移动它。
 
-### 使用.NET 中的传感器
+### 使用 .NET 中的传感器
 
 就像对于电机一样，您有主动和被动传感器。最近的传感器是主动的。被动的是灯光和简单按钮。主动传感器包括距离或颜色传感器，以及小型的 3x3 像素显示屏。
 
@@ -562,7 +562,7 @@ light.Off()
 
 #### 主动传感器
 
-主动传感器类是一个通用类，所有主动传感器都继承自它，包括主动马达。它们包含一组关于它们如何连接到 Build HAT、模式、详细组合模式、硬件、软件版本以及一个名为 ValueAsString 的特定属性。字符串值包含最后一次测量的字符串集合。测量到达时，枚举将包含 P0C0: ， +23 ， -42 和 0 。这样做是为了如果您正在使用高级模式并自行管理组合模式和命令，您将能够获得测量值。
+主动传感器类是一个通用类，所有主动传感器都继承自它，包括主动马达。它们包含一组关于它们如何连接到 Build 扩展板、模式、详细组合模式、硬件、软件版本以及一个名为 ValueAsString 的特定属性。字符串值包含最后一次测量的字符串集合。测量到达时，枚举将包含 `P0C0: ， +23 ， -42` 和 0 。这样做是为了如果您正在使用高级模式并自行管理组合模式和命令，您将能够获得测量值。
 
 所有活动传感器都可以运行特定的测量模式或组合模式。您可以通过高级模式使用 SelectModeAndRead 和 SelectCombiModesAndRead 功能设置一个您想要持续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。
 
@@ -729,7 +729,7 @@ while(!console.KeyAvailable)
 * [树莓派 Build HAT 串行协议](https://datasheets.raspberrypi.com/build-hat/build-hat-serial-protocol.pdf)
 * [树莓派 Build HAT Python 库](https://datasheets.raspberrypi.com/build-hat/build-hat-python-library.pdf)
 
-Python 库文档的详细信息也可以在 ReadTheDocs 上找到。您可以在.NET IoT Github 存储库中找到有关.NET 库的更多信息。
+Python 库文档的详细信息也可以在 ReadTheDocs 上找到。您可以在 .NET IoT Github 存储库中找到有关 .NET 库的更多信息。
 
 您还可以关注树莓派基金会的项目，
 
@@ -741,7 +741,7 @@ Python 库文档的详细信息也可以在 ReadTheDocs 上找到。您可以在
 
 ## 设备兼容性
 
-Build HAT 库支持 SPIKE™组合中包含的所有乐高® Technic™设备，以及来自乐高® Mindstorms 机器人发明家套件和其他使用 PoweredUp 连接器的设备。
+Build 扩展板库支持 SPIKE™组合中包含的所有乐高® Technic™设备，以及来自乐高® Mindstorms 机器人发明家套件和其他使用 PoweredUp 连接器的设备。
 
 >**重要**
 >
@@ -769,6 +769,6 @@ Build HAT 库支持 SPIKE™组合中包含的所有乐高® Technic™设备，
 
 ## 机械图纸
 
-树莓派 Build HAT 的机械图纸。
+树莓派 Build 扩展板的机械图纸。
 
 ![mech build hat](https://www.raspberrypi.com/documentation/accessories/images/mech-build-hat.png)
