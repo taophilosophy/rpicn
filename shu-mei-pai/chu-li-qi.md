@@ -12,7 +12,7 @@ BCM2835 是树莓派 1 型号 A、A+、B、B+、树莓派 Zero、树莓派 Zero 
 处理器的其他信息可以在以下文档中找到;
 
 * GPU 文档和开源驱动程序
-*[ARM1176JZF-S](https://developer.arm.com/documentation/ddi0301)
+* [ARM1176JZF-S](https://developer.arm.com/documentation/ddi0301)
 
 ## BCM2836
 
