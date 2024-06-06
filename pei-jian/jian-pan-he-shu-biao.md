@@ -30,7 +30,7 @@ Scroll Lock (ScrLk) 允许使用光标键浏览网页和电子表格，无需鼠
 
 ## 将所有东西连接起来
 
-这是我们推荐的配置，可同时使用您的树莓派、官方键盘和集线器以及官方鼠标。键盘上的集线器可确保轻松访问 USB 设备，鼠标线很整洁，足够长，可以让您左右手使用鼠标。
+这是我们推荐的配置，可同时使用您的树莓派、官方键盘和集线器以及官方鼠标。键盘上的集线器可确保轻松访问 USB 设备，鼠标线很长，足以让您的左右手使用鼠标。
 
 ![everything](https://www.raspberrypi.com/documentation/accessories/images/everything.png)
 
