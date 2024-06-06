@@ -14,7 +14,7 @@
 
 Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括通过连接排线或其他扩展设备的树莓派 400。连接的 LEGO® Technic™ 设备可以轻松在 Python 中进行控制，同时还可以连接标准的树莓派配件，如摄像头模块。
 
-树莓派 Build 扩展板的电源适配器（PSU）单独出售，旨在为 Build HAT、树莓派计算机以及所有连接的 LEGO® Technic™ 设备供电。
+树莓派 Build 扩展板的电源适配器（PSU）单独出售，旨在为 Build 扩展板、树莓派计算机以及所有连接的 LEGO® Technic™ 设备供电。
 
 ![psu](https://www.raspberrypi.com/documentation/accessories/images/psu.jpg)
 
@@ -107,7 +107,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 >**注意**
 >
->乐高® Technic™ 电机非常强大；因此，为了驱动它们，您需要外部的 8V 电源。如果您想从电机编码器和 SPIKE™ 力传感器读取数据，您可以通过您树莓派的 USB 电源插座以通常的方式为您的树莓派 和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
+>乐高® Technic™ 电机非常强大；因此，为了驱动它们，您需要外部的 8V 电源。如果您想从电机编码器和 SPIKE™ 力传感器读取数据，您可以通过您树莓派的 USB 电源接口以平常的方式为您的树莓派和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
 
 您可以选择使用 Python 或 .NET 与 Build 扩展板一起使用。
 
@@ -129,7 +129,7 @@ $ sudo apt install python3-build-hat
 
 #### 连接电机
 
-将电机连接到 Build HAT 上的接口 A。 LPF2 连接器需要正确插入。 如果连接器无法轻松滑入，请旋转 180 度后重试。
+将电机连接到 Build 扩展板上的接口 A。 LPF2 连接器需要正确插入。 如果连接器无法轻松滑入，请旋转 180 度后重试。
 
 ![connect motor](https://www.raspberrypi.com/documentation/accessories/images/connect-motor.gif)
 
@@ -190,7 +190,7 @@ while True:
 
 >**注意**
 >
->如果您不打算驱动电机，则不需要外部电源，可以使用标准 USB 电源为您的树莓派提供电源。 
+>如果您不打算驱动电机，则无需外部电源，可以使用标准 USB 电源为您的树莓派供电。 
 
 创建另一个新程序：
 
@@ -215,11 +215,11 @@ pause()
 
 运行它，并将一个彩色物体（LEGO®元素最理想）放在颜色传感器前，然后按下力传感器压杆。传感器的 LED 应该亮起，并且最接近的颜色名称应该显示在 thonny REPL 中。
 
-## 使用来自.NET 的 Build HAT
+## 使用来自 .NET 的 Build 扩展板
 
-### 安装.NET Framework
+### 安装 .NET 框架
 
-在树莓派上无法用 APT 安装从 Microsoft 获取的 .NET 框架。但是，您可以按照 Microsoft 的官方说明来安装 .NET 框架。这还有一个简化的第三方途径可以将 .NET 工具链安装到您的树莓派上。
+在树莓派上无法用 APT 安装从微软获取的 .NET 框架。但是，您可以参照微软的官方说明来安装 .NET 框架。这还有一个简化的第三方途径可以将 .NET 工具链安装到您的树莓派上。
 
 >**警告**
 >
@@ -265,9 +265,9 @@ Hello World!
 
 任何文本编辑器都可以用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。Visual Studio Code（通常称为 "VS Code"）也是一个流行的替代方案。
 
-### 使用.NET 从 Build 扩展板进行操作
+### 使用 .NET 从 Build 扩展板进行操作
 
-树莓派 Build 扩展板在 LEGO®术语中被称为"Brick"，您可以使用 Build 扩展板串行协议直接与之通信
+树莓派 Build 扩展板在 LEGO® 术语中被称为"Brick"，您可以使用 Build 扩展板串行协议直接与之通信
 
 您可以按照以下方式创建一个 brick 对象
 
@@ -283,7 +283,7 @@ brick.Dispose();
 
 >**警告**
 >
->如果您不调用 `brick.Dispose()` ，您的程序将不会终止。 
+>如果您不调用 `brick.Dispose()` ，您的程序将不会停止。 
 
 如果您想避免在最后调用 brick.Dispose ，那么请使用 using 语句创建您的模块：
 
@@ -376,7 +376,7 @@ brick.WaitForSensorToConnect(SensorPort.PortB);
 
 如果要实现诸如在一段时间后警告用户并重试等高级功能，也需要一段 CancellationToken 时间。
 
-### 使用.NET 中的电机
+### 使用 .NET 中的电机
 
 有两种类型的电机，被动电机和主动电机。主动电机将提供详细位置、绝对位置和速度，而被动电机只能通过速度来控制。
 
