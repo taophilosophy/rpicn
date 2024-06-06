@@ -71,22 +71,22 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要您移除盖子和附�
 6. 把 M.2 HAT+ 放在螺柱上面，并使用剩下的四颗螺丝将其固定在位。
 7. 把排线插入 M.2 HAT+ 上的插槽。从两侧抬起排线固定器，然后插入铜接点朝上的电缆。将排线完全均匀地插入端口，从两侧向下推动电缆固定器，将排线牢固地固定在位。
 8. 通过逆时针旋转螺丝来取下驱动附件螺丝。将您的 M.2 SSD 插入 M.2 key 接口，将 SSD 以轻微向上的角度滑入插槽。不要强行将 SSD 插入插槽：而应轻轻地滑入。
-9. 将驱动附件螺丝上的凹口推入 M.2 驱动器末端的插槽中。将驱动器平放在 M.2 HAT+ 上，并顺时针旋转螺丝，直到 SSD 固定。不要过紧拧螺丝。
-10. 恭喜，您已成功安装 M.2 HAT+。将您的树莓派连接到电源；Raspberry Pi OS 将自动检测到 M.2 HAT+。如果您使用 Raspberry Pi Desktop，您应该在桌面上看到代表驱动器的图标。如果您不使用桌面版，您可以在 /dev/nvme0n1 找到驱动器。要使驱动器自动可用于文件访问，请考虑配置自动挂载。![m2 hat plus installation 07](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-07.png)
+9. 将 SSD 附件螺丝上的凹口推入 M.2 SSD 尾部的插槽中。将 SSD 平放在 M.2 HAT+ 上，并顺时针旋转螺丝，直到 SSD 固定。不要太过紧拧螺丝。
+10. 恭喜，您已成功的安装了 M.2 HAT+。现在把您的树莓派接入电源；Raspberry Pi OS 可自动检测到 M.2 HAT+。如果您使用 Raspberry Pi Desktop，您应该在桌面上看到代表硬盘的图标。如果您不使用桌面版，您可以在 /dev/nvme0n1 找到硬盘。要使硬盘自动可用于文件访问，请考虑配置自动挂载。![m2 hat plus installation 07](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-07.png)
 
 >**警告**
 >
->在连接或断开 M.2 插槽上的设备之前，务必将树莓派从电源中断开连接。 
+>在连接或断开 M.2 插槽上的设备之前，务必将树莓派断开电源。 
 
 ## 从 NVMe 启动
 
-要从连接到 M.2 HAT+的 NVMe 驱动器启动，请完成以下步骤：
+要从连接到 M.2 HAT+ 的 NVMe 存储设备启动，请完成以下步骤：
 
-1. 使用 Raspberry Pi Imager 格式化您的 NVMe 驱动器。如果您已经有带有 Raspberry Pi OS 映像的 SD 卡，可以在您的树莓派上执行此操作。
-2. 使用 SD 卡或 USB 驱动器将树莓派引导到 Raspberry Pi OS，以更改持久性板载 EEPROM 配置中的引导顺序。
-3. 在树莓派上的终端中运行 sudo raspi-config 以打开树莓派配置 CLI。
+1. 使用 Raspberry Pi Imager 格式化您的 NVMe 存储设备。如果您已经有带有 Raspberry Pi OS 镜像的 SD 卡，可以在您的树莓派上执行此操作。
+2. 使用 SD 卡或 USB 存储设备将树莓派启动到 Raspberry Pi OS，以持久性更改板载 EEPROM 配置中的引导顺序。
+3. 在树莓派终端上运行 sudo raspi-config 以打开树莓派配置 CLI。
 4. 在 Advanced Options > Boot Order 下，选择 NVMe/USB boot 。然后，使用 Finish 或 Esc 键退出 raspi-config 。
-5. 使用 sudo reboot 重新启动您的树莓派。
+5. 使用 sudo reboot 重启您的树莓派。
 
 要获取更多信息，请参阅 NVMe 启动。
 
@@ -94,7 +94,7 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要您移除盖子和附�
 
 >**警告**
 >
->树莓派 5 不具备 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。 
+>树莓派 5 未经 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。 
 
 要启用 PCIe Gen 3 速度，请按照在启用 PCIe Gen 3.0 中的说明操作。
 
@@ -104,7 +104,7 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要您移除盖子和附�
 
 树莓派 M.2 HAT+ 的原理图
 
-原理图也可作为 PDF 文件获得。
+原理图也以 PDF 文件格式提供。
 
 ## 产品简介
 
