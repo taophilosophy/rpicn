@@ -77,7 +77,7 @@ Found services: 172
 
 >**注意**
 >
->tvheadend 受许多应用程序支持，例如 iOS 的 TvhClient，可播放树莓派上的电视。
+> 许多应用程序都支持 tvheadend，例如 iOS 上的 TvhClient，可播放树莓派上的电视。
 
 ## 机械图纸
 
