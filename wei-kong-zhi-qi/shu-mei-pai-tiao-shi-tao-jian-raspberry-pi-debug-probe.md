@@ -4,9 +4,9 @@
 
 ![debug probe](https://www.raspberrypi.com/documentation/microcontrollers/images/debug-probe.jpg)
 
-树莓派调试器是一种 USB 设备，提供 UART 串行端口和标准 Arm 串行线调试（SWD）接口。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
+树莓派调试器是一种 USB 设备，提供了 UART 串行端口和标准 Arm 串行线调试（SWD）接口。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
 
-* USB 到 ARM 串行线调试（SWD）端口
+* USB 到 ARM 串行线调试（SWD）接口
 * USB 到 UART 桥接器
 * 兼容 CMSIS-DAP 标准
 * 与支持 CMSIS-DAP 的 OpenOCD 和其他工具配合使用
@@ -16,7 +16,7 @@
 >
 >有关树莓派三针调试连接器的更多信息，请参阅规格书。 
 
-这使得在 Windows、macOS 和 Linux 等缺少 GPIO 引脚头直接连接到 Pico 的串行 UART 或 SWD 端口的平台上轻松使用树莓派 Pico。
+这使得在 Windows、macOS 和 Linux 等没有 GPIO 引脚头来直连 Pico 串口或 SWD 接口的设备也可轻松使用树莓派 Pico。
 
 ### 调试器
 
@@ -24,7 +24,7 @@
 
 ![the probe](https://www.raspberrypi.com/documentation/microcontrollers/images/the-probe.png)
 
-调试器附带一个 USB 电源电缆和三根调试电缆：
+调试器附带一根 USB 线和三根调试线：
 
 * 三针 JST-SH 连接器到 3 针 JST-SH 连接器电缆
 * 三针 JST-SH 连接器到 0.1 英寸排针（母）
@@ -40,7 +40,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 带有三针 JST-SH 连接器的电缆旨在与较新的树莓派主板用于 SWD 调试端口和 UART 连接器的标准三针连接器一起使用。
 
-调试器有五个 LED 灯，一个红色 LED 指示电源，另外四个活动指示灯。
+调试器有五个 LED 灯：一个是红色 LED 电源指示灯，另外四个是状态指示灯。
 
 ![debug leds](https://www.raspberrypi.com/documentation/microcontrollers/images/debug-leds.png)
 
@@ -52,25 +52,25 @@ YellowRX/SD（输入到调试器或 I/O）
 
 ![labelled wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/labelled-wiring.jpg)
 
-根据您的设置，有几种方法可以将调试器连接到树莓派 Pico。在下面的示例中，我们将调试器连接到具有更新的三针 JST-SH 连接器用于 SWD 的树莓派 Pico H。
+根据您的设置，有不同的方法可以将调试器连接到树莓派 Pico。在下面的示例中，我们将调试器连接到具有更新的三针 JST-SH 连接器用于 SWD 的树莓派 Pico H。
 
  连接以下内容：
 
-* 将调试器“D”端口连接到 Pico H SWD JST-SH 连接器
-* 将调试器“U”端口，带有三针 JST-SH 连接器连接到 0.1 英寸排针（公头）:
+* 将调试器“D”接口连接到 Pico H SWD JST-SH 连接器
+* 将调试器“U”接口，带有三针 JST-SH 连接器连接到 0.1 英寸排针（公头）:
   * 调试器 RX 连接到 Pico H TX 引脚
   * 调试器 TX 连接到 Pico H RX 引脚
   * 调试器 GND 连接到 Pico H GND 引脚
 
 >**注意**
 >
->如果您有一个非 H Pico 或 Pico W（没有 JST-SH 连接器），您仍然可以将其连接到调试器。在板上的 SWCLK ， GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK ， GND 和 SWDIO 连接到调试器上的 SC ， GND 和 SD 引脚。
+>如果您有非 H Pico 或 Pico W（没有 JST-SH 连接器），您仍然可以将其连接到调试器。在板上的 SWCLK ， GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK ， GND 和 SWDIO 连接到调试器上的 SC ， GND 和 SD 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
 ## 安装工具
 
-要使用调试器，请安装以下工具。
+要使用调试器，需安装以下工具。
 
 ### 安装 OpenOCD
 
@@ -86,7 +86,7 @@ $ sudo apt install openocd
 
 #### 在 macOS 上安装 OpenOCD
 
-首先，安装 Homebrew 软件包管理器：
+首先，安装包管理器 Homebrew：
 
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -124,7 +124,7 @@ $ brew install gdb
 
 >**重要**
 >
->GDB 不支持 gdb Arm-based Macs。因此，要么从源代码安装 gdb，要么使用 lldb 来代替 gdb 。开发者没有为在 Arm-based Macs 上运行 GDB 提供官方支持。可以在 Sourceware.org 的 GDB 邮件列表中找到有关 GDB 的支持。 lldb 作为 Xcode 命令行工具的一部分安装。
+>GDB 不支持 gdb Arm-based Macs。因此，要么从源代码编译 `gdb`，要么使用 `lldb` 来代替 `gdb`。开发者没有为在 Arm-based Macs 上运行 GDB 提供官方支持。可以在 Sourceware.org 的 GDB 邮件列表中找到有关 GDB 的支持。 lldb 可作为 Xcode 命令行工具的一部分进行安装。
 
 #### MS Windows
 
@@ -142,7 +142,7 @@ Serial Wire Debug (SWD)是一种两引脚接口（SWDIO 和 SWCLK），可替代
 
 ### 将新程序上传到您的 Pico
 
-Pico 调试探针将允许您通过 SWD 端口和 OpenOCD 加载二进制文件：您将不需要每次将新二进制文件推送到 Pico 时拔下，然后按住 BOOTSEL 按钮。使用调试探针上传新的二进制文件是完全无需干预的。
+Pico 调试器可使您通过 SWD 接口和 OpenOCD 来加载二进制文件：从而无需在每次将新二进制文件推送到 Pico 后拔下，然后按住 BOOTSEL 按钮这些操作。使用调试器上传新的二进制文件是完全自动化的。
 
 假如您构建了一个二进制文件：
 
@@ -188,14 +188,14 @@ $ gdb blink.elf
 > continue
 ```
 
-GDB 不适用于所有平台。根据您的操作系统和设备，使用以下替代方案之一而不是 gdb ：
+GDB 不适用于所有平台。根据您的操作系统和设备，请使用以下替代方案取代 gdb ：
 
-* 在非树莓派设备上使用 gdb-multiarch 。
-* 在基于 Arm 的 macOS 设备上使用 lldb 。
+* 在非树莓派设备上使用 `gdb-multiarch`。
+* 在基于 Arm 的 macOS 设备上使用 `lldb`。
 
 ## 串行连接
 
-确保调试器连接到您的树莓派 Pico 的 UART 引脚。
+确保调试器连接到了您树莓派 Pico 的 UART 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
@@ -207,7 +207,7 @@ GDB 不适用于所有平台。根据您的操作系统和设备，使用以下�
 | UART0_TX   | 1        | GP0       |
 | UART0_RX   | 2        | GP1       |
 
-在连接以后，树莓派 Pico 的 UART 上的流量将通过调试器中继到您的计算机，并显示为 CDC UART。在树莓派上，这将显示为 /dev/ttyACM0 ；在其他平台上，此串行端口将以不同方式显示（例如，在 macOS 上，它将显示为 /dev/cu.usbmodemXXXX ）。
+在连接后，树莓派 Pico 的 UART 上的流量将通过调试器中继到您的计算机，并显示为 CDC UART。在树莓派上，显示为 /dev/ttyACM0 ；在其他平台上，此串口将以不同方式显示（例如，在 macOS 上，显示为 /dev/cu.usbmodemXXXX ）。
 
 如果您尚未安装 minicom，请执行以下操作：
 
@@ -215,7 +215,7 @@ GDB 不适用于所有平台。根据您的操作系统和设备，使用以下�
 $ sudo apt install minicom
 ```
 
-并打开串行端口：
+并打开串口：
 
 ```
 $ minicom -b 115200 -o -D /dev/ttyACM0
@@ -247,23 +247,23 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 ![description](https://www.raspberrypi.com/documentation/microcontrollers/images/description.jpg)
 
-此描述中的唯一序列号意味着在 Windows 上，您的 COM 端口编号是"粘性"的每个设备，并且将允许您编写 udev 规则以将命名设备节点与特定的调试器关联起来。
+此描述中的唯一序列号意味着在 Windows 上，您的 COM 端口编号是"粘性"的每个设备，并且将允许您编写 udev 规则以将命名设备节点与特定的调试器绑定起来。
 
 ## 更新调试器固件
 
 调试器固件以 UF2 文件的形式由树莓派分发。
 
-调试器固件的最新版本是版本 2。如果您正在运行旧版，或者如果您意外地覆盖了调试器的固件，您可以在 debugprobe GitHub 存储库中找到固件的最新版本。
+调试器固件的最新版本是版本 2。如果您正在运行旧版，或者如果您意外地覆盖了调试器的固件，您可以在 debugprobe GitHub 存储库中找到最新版本的固件。
 
 从最新版本下载 debugprobe.uf2 。
 
-捏住调试探针外壳顶部以拆除。
+捏住调试器外壳顶部以拆除。
 
-在将调试探针插入计算机时按住 BOOTSEL 按钮，以挂载名为“RPI-RP2”的卷。
+在将调试器插入计算机时按住 BOOTSEL 按钮，以挂载名为“RPI-RP2”的卷。
 
-将 debugprobe.uf2 复制到 "RPI-RP2" 卷。文件复制到设备后，卷将自动卸载。
+将 debugprobe.uf2 复制到 "RPI-RP2" 卷。文件复制到设备后，将自动卸载设备。
 
-您的调试器将重新启动，现在运行更新版本的调试器固件。现在已准备好进行调试。
+您的调试器将重启，现在运行更新版本的调试器固件。现在已准备好进行调试了。
 
 ## 框图
 
