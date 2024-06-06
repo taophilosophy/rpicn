@@ -9,7 +9,7 @@
 树莓派 AI 套件将树莓派 M.2 HAT+ 与 Hailo AI 加速模块捆绑在一起，可用于树莓派 5。该套件包含以下内容：
 
 * Hailo AI 模块包含神经处理单元（NPU）
-* 树莓派 M.2 HAT+，用于将 AI 模块连接到您的树莓派 5
+* 树莓派 M.2 HAT+，用于将 AI 模块接入您的树莓派 5
 * 模块和 M.2 HAT+ 之间预装了导热垫
 * 安装硬件套件
 * 16 毫米堆叠 GPIO 引脚
@@ -54,15 +54,15 @@
 
     然后，使用 sudo reboot 重新启动。
 3. 在开始安装前，请断开树莓派的电源。
-4. 为了获得最佳性能，我们建议使用 Ai 套件与树莓派主动散热器一起使用。如果您有主动散热器，请在安装 Ai 套件之前安装它。![ai kit installation 01](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-01.png)
-5. 使用提供的四颗螺丝安装间隔柱。牢固地将 GPIO 堆叠排针压在树莓派的 GPIO 引脚顶部；只要所有引脚都能正确插入即可，方向并不重要。从 Ai 套件上断开排线电缆，并将另一端插入树莓派的 PCIe 端口。从两侧抬起排线电缆固定器，然后将带有铜接点朝向内部、朝向 USB 端口的电缆插入。确保排线电缆完全且均匀地插入 PCIe 端口，然后从两侧按下电缆固定器，将排线电缆牢固地固定在位。![ai kit installation 02](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-02.png)
+4. 为了获得最佳性能，我们建议将 Ai 套件与树莓派主动散热器一起使用。如果您有主动散热器，请在安装 Ai 套件之前安装它。![ai kit installation 01](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-01.png)
+5. 使用提供的四颗螺丝安装间隔柱。牢固地将 GPIO 堆叠排针压在树莓派的 GPIO 引脚顶部；只要所有引脚都能正确插入即可，方向无所谓。从 Ai 套件上断开排线电缆，并将另一端插入树莓派的 PCIe 接口。从两侧抬起排线电缆固定器，然后将带有铜接点朝向内部、朝向 USB 接口的线缆插入。确保排线电缆完全且均匀地插入 PCIe 接口，然后从两侧按下电缆固定器，将排线电缆牢固地固定在位。![ai kit installation 02](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-02.png)
 6. 将 AI 套件放在间隔物顶部，并使用剩下的四颗螺丝将其固定在位。![ai kit installation 03](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-03.png)
-7. 将排线插入 AI 套件上的插槽。从两侧抬起排线固定器，然后插入铜接点朝上的电缆。将排线完全均匀地插入端口，从两侧按下电缆固定器，牢固地固定排线电缆。![ai kit installation 04](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-04.png)
-8. 恭喜，您已成功安装 AI 套件。将您的树莓派连接到电源；Raspberry Pi OS 将自动检测到 AI 套件。![ai kit installation 05](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-05.png)
+7. 将排线插入 AI 套件上的插槽。从两侧抬起排线固定器，然后插入铜接点朝上的电缆。将排线完全均匀地插入接口，从两侧按下电缆固定器，牢固地固定排线电缆。![ai kit installation 04](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-04.png)
+8. 恭喜，现在您已成功的安装 AI 套件了。将您的树莓派接入电源；Raspberry Pi OS 可自动检测 AI 套件。![ai kit installation 05](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-05.png)
 
 >**警告**
 >
->在连接或断开 M.2 插槽上的设备之前，务必先将您的树莓派从电源中断开。 
+>在连接或断开 M.2 插槽上的设备之前，务必先将您的树莓派断开电源。 
 
 ## 入门指南
 
@@ -76,15 +76,15 @@
 * 树莓派 Ai 套件，其中包括：
   * M.2 HAT+
   * 预装的 Hailo-8L Ai 模块
-* 64 位 Raspberry Pi OS Bookworm 安装
-* 任何官方的树莓派摄像头（例如 摄像头模块 3 或 高质量摄像头）
+* 64 位 Raspberry Pi OS Bookworm 系统
+* 官方树莓派摄像头（例如摄像头模块 3 或高质量摄像头）
 
 ### 硬件设置
 
-1. 将摄像头连接到您的树莓派 5 主板，按照在安装树莓派摄像头中的说明进行操作。您可以跳过重新连接树莓派到电源，因为您需要在下一步中断开树莓派的电源。
+1. 将摄像头连接到您的树莓派 5 主板，按照在安装树莓派摄像头中的说明进行操作。您可以跳过电源连接，因为您需要在下一步中断开树莓派的电源。
 2. 按照安装说明将您的 AI 套件硬件连接到您的树莓派 5。
-3. 按照说明启用 PCIe Gen 3.0。这一步骤是可选的，但强烈建议为了使您的 AI 套件获得最佳性能。
-4. 安装使用 Ai 套件所需的依赖项。从终端窗口运行以下命令：
+3. 按照说明启用 PCIe Gen 3.0。这一步骤是可选的，但为了使您的 AI 套件获得最佳性能，强烈建议启用它。
+4. 安装使用 Ai 套件所需的依赖包。在终端运行以下命令：
 
     ```
     $ sudo apt install hailo-all
@@ -96,14 +96,14 @@
     * HailoRT 中间件软件
     * Hailo Tappas 核心后处理库
     * rpicam-apps Hailo 后处理软件演示阶段
-5. 最后，使用 sudo reboot 重新启动您的树莓派，以使这些设置生效。
+5. 最后，使用 sudo reboot 重启您的树莓派，以使这些设置生效。
 6. 为确保一切正常运行，请运行以下命令：
 
     ```
     $ hailortcli fw-control identify
     ```
 
-    如果您看到类似以下内容的输出，则已成功安装了 Ai 套件及其软件依赖项：
+    如果您看到类似以下内容的输出，则已成功安装了 Ai 套件及其软件依赖包：
 
     ```
     Executing on device: 0000:01:00.0
@@ -118,7 +118,7 @@
     Product Name: HAILO-8L AI ACC M.2 B+M KEY MODULE EXT TMP
     ```
 
-    另外，您可以运行 dmesg | grep -i hailo 来检查内核日志，应该会产生类似以下的输出：
+    另外，您可以运行 `dmesg | grep -i hailo` 来查看内核日志，应该会产生类似以下的输出：
 
     ```
     [    3.049657] hailo: Init module. driver version 4.17.0
@@ -143,7 +143,7 @@
     $ rpicam-hello -t 10s
     ```
 
-    这将启动摄像头并显示一个预览窗口十秒钟。如果您已经验证一切安装正确，就该运行一些演示了。
+    这将启动摄像头并显示一个十秒钟的预览窗口。如果您已经验证一切安装正确，就该运行一些演示了。
 
 ### 演示
 
@@ -153,7 +153,7 @@ rpicam-apps 摄像头应用套件实现了一个后处理框架。本节包含�
 
 要开始，请下载演示所需的后处理 JSON 文件。这些文件确定要运行的后处理阶段，并配置每个阶段的行为。例如，您可以在对象检测演示中启用、禁用、加强或减弱时间滤波的强度。或者您可以在分割演示中启用或禁用输出蒙版绘制。
 
-要下载完整的后处理 JSON 文件集合，请克隆 rpicam-apps 存储库。运行以下命令仅克隆存储库中最近的提交，节省空间：
+要下载完整的后处理 JSON 文件集合，请克隆 rpicam-apps 存储库。运行以下命令仅拉取存储库中最新的提交，以节省空间：
 
 ```
 $ git clone --depth 1 https://github.com/raspberrypi/rpicam-apps.git ~/rpicam-apps
@@ -166,7 +166,7 @@ $ git clone --depth 1 https://github.com/raspberrypi/rpicam-apps.git ~/rpicam-ap
 
 #### 目标检测
 
-此演示显示神经网络检测到的物体周围的边界框。要禁用取景器，请使用 -n 标志。要返回纯文本输出，描述检测到的物体，请添加 -v 2 选项。运行以下命令在您的树莓派上尝试演示：
+此演示显示神经网络检测到的物体周围的边界框。要禁用取景器，请使用参数 `-n`。要返回纯文本输出，说明检测到的物体，请添加参数 `-v 2`。运行以下命令在您的树莓派上尝试演示：
 
 ```
 $ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov6_inference.json --lores-width 640 --lores-height 640
