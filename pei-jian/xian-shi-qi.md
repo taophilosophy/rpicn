@@ -80,9 +80,10 @@
 
 如果选择使用 Mirco USB 供电，请不要把树莓派的 GPIO 引脚连接到显示器上。两个板之间唯一的连接应该是扁平柔性电缆。
 
+
 >**警告**
 >
->使用 micro USB 电缆为显示器供电时，将其安装在一个机箱内，在使用过程中阻止访问显示器的 PCB。
+>若使用 micro USB 线为显示器供电，并将其安装在机箱内，在使用时会无法触及显示器的 PCB 板。
 
 ### 使用屏幕键盘
 
@@ -94,7 +95,7 @@ $ sudo apt install wvkbd
 
 >**技巧**
 >
->在旧版 Raspberry Pi OS 发行版中，您可以使用 matchbox-keyboard 代替。 
+>在旧版 Raspberry Pi OS 发行版中，您可以使用 `matchbox-keyboard` 来代替。 
 
 ### 更改屏幕方向
 
@@ -131,7 +132,7 @@ video=DSI-1:800x480@60,rotate=<rotation-value>
 
 >**警告**
 >
->通过设备树旋转触摸输入可能会与您的输入库发生冲突。在可能的情况下，请在您的输入库或桌面中配置触摸事件旋转。
+>通过设备树旋转触摸输入可能会与您的输入库发生冲突。请尽可能在您的输入库或桌面中配置触摸事件旋转。
 
 
 
@@ -141,7 +142,7 @@ video=DSI-1:800x480@60,rotate=<rotation-value>
 dtoverlay=vc4-kms-dsi-7inch,invx,invy
 ```
 
-然后，通过从 config.txt 中删除以下行（如果存在）来禁用自动显示检测：
+然后，在 config.txt 中删除以下行（如果有）来禁用自动显示检测：
 
 ```
 display_auto_detect=1
@@ -170,15 +171,15 @@ dtoverlay=vc4-kms-dsi-7inch,sizex=400,invx,invy
 
 >**警告**
 >
->这些说明仅适用于最初的树莓派、Model A 和 B 版本的板卡。要识别最初的树莓派，请检查 GPIO 头连接器。只有原始型号有一个 26 引脚的 GPIO 头连接器；后续型号有 40 个引脚。
+>这些说明仅适用于最老的树莓派、Model A 和 B 版本的主卡。要识别最老的树莓派，请检查 GPIO 头连接器。只有原始型号有一个 26 引脚的 GPIO 头连接器；后续型号有 40 个引脚。
 
 
 树莓派 1 Model A 和 B 版本上的 DSI 连接器没有与触摸屏控制器和 DSI 控制器通信所需的 I2C 连接。为了解决这个问题，请使用显示套件附带的额外一组跳线。将 GPIO 头上的 SCL/SDA 连接到显示板上标有 SCL/SDA 的水平引脚。使用跳线电缆通过 GPIO 引脚为 Model A/B 供电。
 
-这些板卡上默认禁用了 DSI 显示自动检测。要启用检测，请在 /boot/firmware/config.txt 文件中添加以下行：
+这些主板上默认禁用了 DSI 显示自动检测。要启用检测，请在 /boot/firmware/config.txt 文件中添加以下行：
 
 ```
 ignore_lcd=0
 ```
 
-通过显示板上的 PWR IN Mirco USB 连接器为设置供电。不要通过树莓派的 Mirco USB 为设备供电。这将超过经过保险丝的最大电流额定值，因为显示屏的消耗大约为 400mA。
+请用 Mirco USB 电源适配器连接到显示屏上的 PWR IN 来供电。不要通过树莓派的 Mirco USB 为设备供电。这将超过流过保险丝的最大电流额定值，因为显示屏的消耗大约为 400mA。
