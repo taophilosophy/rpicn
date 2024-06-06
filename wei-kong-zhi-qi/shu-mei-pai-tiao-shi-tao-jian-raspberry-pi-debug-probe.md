@@ -4,7 +4,7 @@
 
 ![debug probe](https://www.raspberrypi.com/documentation/microcontrollers/images/debug-probe.jpg)
 
-树莓派调试器是一种 USB 设备，提供了 UART 串行端口和标准 Arm 串行线调试（SWD）接口。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
+树莓派调试器是一种提供了 UART 串口和标准 Arm 串行线调试（SWD）接口的 USB 设备。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
 
 * USB 到 ARM 串行线调试（SWD）接口
 * USB 到 UART 桥接器
