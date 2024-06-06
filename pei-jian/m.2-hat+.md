@@ -10,11 +10,11 @@
 
 M.2 HAT+ 扩展板可把树莓派 5 上的 PCIe 接口同单个 M.2 M key 接口的设备进行转接。您可以连接使用 2230 或 2242 外形尺寸的设备。M.2 HAT+ 可提供高达 3A 的功率。
 
-M.2 HAT+ 使用树莓派的 HAT+ 规范，允许 Raspberry Pi OS 自动检测 HAT+ 和任何连接的设备。
+M.2 HAT+ 使用树莓派的 HAT+ 规范，Raspberry Pi OS 可自动检测 HAT+ 及其连接的设备。
 
-包含的螺纹间隔柱提供充足的空间，以便在 M.2 HAT+ 下安装树莓派 Active Cooler。
+包含的螺纹间隔柱提供充足的空间，以便在 M.2 HAT+ 下安装树莓派主动散热器。
 
-M.2 HAT+仅与 Raspberry Pi 5 的 Raspberry Pi Case 兼容，如果您移除盖子和附带的风扇。
+M.2 HAT+ 仅与树莓派 5 的 Raspberry Pi Case 兼容（需要您移除盖子和附带的风扇）。
 
 ## 特点
 
