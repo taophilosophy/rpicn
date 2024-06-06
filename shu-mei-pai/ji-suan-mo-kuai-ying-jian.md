@@ -3,11 +3,11 @@
 
 ## 计算模块
 
-树莓派计算模块是旗舰树莓派型号的系统级模块变体。计算模块在工业和商业应用中特别受欢迎，包括数字标牌、瘦客户机和自动化流程。一些应用程序使用旗舰树莓派设计，但许多用户希望拥有更紧凑的设计或内置 eMMC 存储。
+树莓派计算模块是旗舰树莓派的系统级模块变体。计算模块在工业和商业应用中特别受欢迎，如数字标牌、瘦客户机和自动化流程。上述程序有设计用于旗舰树莓派的，但许多用户希望拥有更紧凑的设计或内置 eMMC 存储。
 
-计算模块有多种变体，内存和嵌入式多媒体卡（eMMC）闪存容量各不相同。eMMC 类似于 SD 卡，但焊接在主板上。与 SD 卡不同，eMMC 被专门设计用作磁盘，并包含额外功能以提高可靠性。Lite 型号没有内置存储，并且有时用简写后缀 L 来表示，例如“CM3L”。
+计算模块有多种变体，内存和嵌入式多媒体卡（eMMC）闪存容量各不相同。eMMC 类似于 SD 卡，但焊接在主板上。与 SD 卡不同，eMMC 专门设计用作磁盘，并包含额外功能以提高可靠性。Lite 型号没有内置存储，并且有时用简写后缀 L 来表示，例如“CM3L”。
 
-计算模块使用以下的树莓派 SoCs:
+计算模块使用以下树莓派 SoC:
 
 * CM1 采用 BCM2835
 * CM3, CM3+ 采用 BCM2837
@@ -15,7 +15,7 @@
 
 ### 计算模块 4
 
-计算模块的最新版本是计算模块 4（CM4）。我们建议未来所有开发使用 CM4。
+计算模块的最新版本是计算模块 4（CM4）。我们建议未来所有的开发都使用 CM4。
 
 ![Compute Module 4](https://www.raspberrypi.com/documentation/computers/images/cm4.jpg)
 
@@ -23,9 +23,9 @@
 
 计算模块 4（CM4）包含了树莓派 4 的内部（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存。
 
-与 CM1、CM3 和 CM3+不同，CM4 不使用 DDR2 SODIMM 形式因子。相反，CM4 使用了两个 100 针高密度连接器，占用更小的物理空间。这种改变帮助增加了以下接口：
+与 CM1、CM3 和 CM3+ 不同，CM4 不使用 DDR2 SODIMM 形式因子。相反，CM4 使用了两个 100 针高密度连接器，占用更小的物理空间。这种改变帮助增加了以下接口：
 
-* 额外的第二个 HDMI 端口
+* 额外的第二个 HDMI
 * PCIe
 * 以太网
 
@@ -78,11 +78,11 @@ IO 板是旨在开发的分支板；在生产中，您应该使用一个更小�
 计算模块 4 IO 板提供以下接口：
 
 * 带有 40 针 GPIO 连接器和 PoE 标头的 HAT 印记
-* 两个 HDMI 端口
-* 两个 USB 2.0 端口
+* 两个 HDMI 接口
+* 两个 USB 2.0 接口
 * 带 PoE 支持的千兆以太网 RJ45
 * MicroSD 卡槽（仅适用于没有 eMMC 的 Lite 变体）
-* PCIe Gen 2 插槽
+* PCIe Gen 2 接口
 * 通过桶形插孔输入 12V（如果未使用 PCIe，支持最高达 26V）
 * 2 x MIPI DSI 显示 FPC 连接器（22 引脚 0.5 毫米间距电缆）
 * 2 x MIPI CSI-2 摄像头 FPC 连接器（22 引脚 0.5 毫米间距电缆）
@@ -97,8 +97,8 @@ IO 板是旨在开发的分支板；在生产中，您应该使用一个更小�
 计算模块 IO 板提供以下接口：
 
 * 120 个 GPIO 引脚
-* 一个 HDMI 端口
-* 一个 USB-A 端口
+* 一个 HDMI 接口
+* 一个 USB-A 接口
 * 2 x MIPI DSI 显示器 FPC 连接器（22 针 0.5 毫米间距电缆）
 * 2 x MIPI CSI-2 相机 FPC 连接器（22 针 0.5 毫米间距电缆）
 
@@ -118,7 +118,7 @@ IO 板是旨在开发的分支板；在生产中，您应该使用一个更小�
 
 计算模块配备了连接到主要 SD 卡接口的内置 eMMC 设备。本指南解释了如何将操作系统映像刷写到单个计算模块的 eMMC 存储器。
 
-当向多个计算模块刷写图像时，请考虑使用计算模块配置工具：
+当向多个计算模块刷写镜像时，请考虑使用计算模块配置工具：
 
 ##### [使用计算模块配置器进行大规模配置](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003468-WP/Using-the-Compute-Module-Provisioner.pdf)
 
@@ -134,7 +134,7 @@ IO 板是旨在开发的分支板；在生产中，您应该使用一个更小�
 
 * 本指南中称为主机设备的另一台计算机。您可以使用 Linux（Raspberry Pi OS 或 Ubuntu）、Windows 或 macOS。
 * 与您的计算模块型号对应的计算模块 IO 板。
-* 一根 Micro USB 电缆。
+* 一根 Micro USB 线。
 
 ### 设置 IO 板
 
@@ -175,7 +175,7 @@ IO 板是旨在开发的分支板；在生产中，您应该使用一个更小�
     ```
     $ sudo rpiboot
     ```
-4. 几秒钟后，计算模块应该会出现为一个大容量存储设备。检查 /dev/ 目录，可能是 /dev/sda 或 /dev/sdb ，查找该设备。或者，运行 lsblk 并搜索一个存储容量与您的计算模块容量相匹配的设备。
+4. 几秒钟后，计算模块应该会显示成一个大容量存储设备。检查 /dev/ 目录，可能是 /dev/sda 或 /dev/sdb ，查找该设备。或者，运行 lsblk 并搜索一个存储容量与您的计算模块容量相匹配的设备。
 
 >**技巧**
 >
@@ -192,7 +192,7 @@ IO 板是旨在开发的分支板；在生产中，您应该使用一个更小�
     ```
     $ sudo ./rpiboot
     ```
-4. 当命令运行完成时，您应该会看到一条消息，指出“您插入的磁盘无法被此计算机读取。” 点击“忽略”。您的计算模块现在应该显示为一个大容量存储设备。
+4. 当命令运行完成时，您应该会看到一条消息，指出“您插入的磁盘无法被此计算机读取。” 点击“忽略”。您的计算模块现在应该显示成了一个大容量存储设备。
 
 #### 在 Windows 上
 
@@ -243,7 +243,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 ### 已知问题
 
-* 小部分 CM3 存在启动问题。我们已经追踪到这些问题与创建 FAT32 分区的方法有关；我们认为问题是由于 CPU 和 eMMC 之间的时序差异导致的。如果您在启动 CM3 时遇到问题，请使用以下命令手动创建分区：
+* 小部分 CM3 存在启动问题。我们已经发现到这些问题与创建 FAT32 分区的方法有关；我们认为问题是由于 CPU 和 eMMC 之间的时序差异导致的。如果您在启动 CM3 时遇到问题，请使用以下命令手动创建分区：
 
   ```
   $ sudo parted /dev/<device>
@@ -252,7 +252,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
   $ sudo mkfs.vfat -F32 /dev/<device>
   $ sudo cp -r <files>/* <mountpoint>
   ```
-* CM1 引导加载程序向主机返回一个略有不正确的 USB 数据包。大多数 USB 主机会忽略它，但由于这个错误，一些 USB 端口无法工作。CM3 修复了这个错误。
+* CM1 引导加载程序会向主机返回一个略有不正确的 USB 数据包。大多数 USB 主机会忽略它，但由于该错误，某些 USB 接口无法工作。CM3 修复了该错误。
 
 ### 计算模块 4 引导加载程序
 
@@ -264,8 +264,7 @@ CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上�
 
 >**注意**
 >
->计算模块 4 ROM 从未从 SD/EMMC 运行 recovery.bin ， rpi-eeprom-update 服务默认情况下未启用。这是必要的，因为 EMMC 不可移动，无效的 recovery.bin 文件将阻止系统启动。这可以被覆盖并与 self-update 模式一起使用，其中引导加载程序可以从 USB MSD 或网络引导进行更新。但是，在更新 EEPROM 时发生断电时， self-update 模式不是原子更新，因此不安全。
-
+>计算模块 4 ROM 不从 SD/EMMC 运行 recovery.bin ， rpi-eeprom-update 服务默认情况下未启用。这是必要的，因为 EMMC 不可拆卸，无效的 recovery.bin 文件将妨碍系统启动。这可以被覆盖并与 self-update 模式一起使用，其中引导加载程序可以从 USB MSD 或网络引导进行更新。但是，在更新 EEPROM 时发生断电时， self-update 模式不是原子更新，所以不安全。
 
 
 #### 除 SD 卡之外的闪存设备
@@ -281,13 +280,12 @@ CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上�
 * 导航到 usbboot/recovery 目录
 * 如果需要特定的引导加载程序版本，请替换 pieeprom.original.bin
 * 编辑默认的 boot.conf 引导加载程序配置文件；通常至少需要更新 BOOT_ORDER：
-
   * 用于网络引导，请使用 BOOT_ORDER=0xf2
   * 用于 SD/EMMC 引导，请使用 BOOT_ORDER=0xf1
   * 用于 USB 引导失败后切换到 EMMC，请使用 BOOT_ORDER=0xf15
 * 运行 ./update-pieeprom.sh 以更新 EEPROM 图像 pieeprom.bin 图像文件
 * 如果需要 EEPROM 写保护，请编辑 config.txt 并添加 eeprom_write_protect=1 。硬件写保护必须通过软件启用，然后通过将 EEPROM_nWP 引脚拉低进行锁定
-* 运行 ../rpiboot -d . 以使用更新的 EEPROM 图像 pieeprom.bin 更新引导加载程序
+* 运行 ../rpiboot -d . 以使用更新的 EEPROM 映像 pieeprom.bin 更新引导加载程序
 
 pieeprom.bin 文件现在已准备好刷写到计算模块 4。
 
@@ -317,8 +315,8 @@ SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示�
 * 为模块供电
 * 将 GPIO 引线连接到引脚排
 * 将摄像头和显示接口引线连接到 FFC 连接器
-* 将 HDMI 引线连接到 HDMI 端口
-* 将 USB 线连接到 USB 端口
+* 将 HDMI 引线连接到 HDMI 接口
+* 将 USB 线连接到 USB 接口
 * 将活动监视器连接到“ACT” LED
 * 通过 USB 进行 eMMC 编程
 
@@ -368,7 +366,7 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 
 使用 dtoverlay 参数在 config.txt 中加载设备树叠加层。Raspberry Pi OS 假定所有叠加层位于 /overlays 目录中，并使用后缀 -overlay.dtb 。例如， dtoverlay=myoverlay 行加载叠加层 /overlays/myoverlay-overlay.dtb 。
 
-要将外围设备连接到计算模块，请在覆盖中描述连接到 BANK0 和 BANK1 GPIO 的所有硬件。这样您就可以使用标准的 Raspberry Pi OS 映像，因为覆盖已合并到标准基础设备树中。或者，您可以为您的应用程序定义自定义设备树，但您将无法使用标准的 Raspberry Pi OS 映像。相反，您必须创建一个包含您自定义设备树的修改后的 Raspberry Pi OS 映像，以便分发您希望分发的每个操作系统更新。如果基础覆盖发生更改，则可能需要更新您的定制设备树。
+要将外围设备连接到计算模块，请在覆盖中描述连接到 BANK0 和 BANK1 GPIO 的所有硬件。这样您就可以使用标准的 Raspberry Pi OS 镜像，因为覆盖已合并到标准基础设备树中。或者，您可以为您的应用程序定义自定义设备树，但您将无法使用标准的 Raspberry Pi OS 镜像。相反，您必须创建一个包含您自定义设备树的修改后的 Raspberry Pi OS 镜像，以便分发您希望分发的每个操作系统更新。如果基础覆盖发生更改，则可能需要更新您的定制设备树。
 
 ### `dt-blob.bin`
 
@@ -406,7 +404,7 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 在 start.elf 读取 dt-blob.bin 并设置初始引脚状态和时钟之后，它会读取 config.txt ，其中包含许多其他系统设置选项。
 
-阅读完 config.txt 后， start.elf 会读取一个特定于模型的设备树文件。例如，计算模块 3 使用 bcm2710-rpi-cm.dtb 。该文件是一个标准的 Arm Linux 设备树文件，详细说明连接到处理器的硬件。它枚举：
+阅读完 config.txt 后， start.elf 会读取一个特定于模型的设备树文件。例如，计算模块 3 使用 bcm2710-rpi-cm.dtb 。该文件是一个标准的 Arm Linux 设备树文件，详细说明连接到处理器的硬件。它枚举了：
 
 * 外围设备的种类和位置
 * 使用了哪些 GPIO
@@ -419,11 +417,11 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 ### 设备树源码和编译
 
-Raspberry Pi OS 镜像提供已编译的 dtb 文件，但源 dts 文件位于树莓派 Linux 内核分支中。在文件名中查找 rpi 。
+Raspberry Pi OS 镜像提供了预编译的 dtb 文件，但源 dts 文件位于树莓派 Linux 内核分支中。在文件名中查找 rpi 。
 
 默认叠加 dts 文件位于 arch/arm/boot/dts/overlays 。这些叠加文件是创建自己的叠加的好起点。要将这些 dts 文件编译为 dtb 文件，请使用设备树编译器 dtc 。
 
-在构建自己的内核时，构建主机需要 scripts/dtc 中的设备树编译器。要自动构建叠加，请将它们添加到 dtbs 中的 make 目标中 arch/arm/boot/dts/overlays/Makefile 。
+在编译自己的内核时，构建主机需要 scripts/dtc 中的设备树编译器。要自动构建叠加，请将它们添加到 dtbs 中的 make 目标中 arch/arm/boot/dts/overlays/Makefile 。
 
 ### 设备树调试
 
@@ -555,7 +553,7 @@ $ sudo apt full-upgrade
 要将单个摄像头连接到计算模块，请完成以下步骤：
 
 1. 断开计算模块的电源。
-2. 使用 RPI-CAMERA 板或树莓派 Zero 摄像头电缆将摄像头模块连接到 CAM1 端口。![Connecting the adapter board](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-Adapter.jpg)
+2. 使用 RPI-CAMERA 板或树莓派 Zero 摄像头电缆将摄像头模块连接到 CAM1 接口。![Connecting the adapter board](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-Adapter.jpg)
 3. （仅限 CM1、CM3、CM3+ 和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
 
     * 0 到 CD1_SDA
@@ -605,7 +603,7 @@ $ sudo apt full-upgrade
 
 1. 按照上述单摄像头说明操作。
 2. 断开计算模块的电源。
-3. 使用 RPI-CAMERA 板或树莓派 Zero 摄像头电缆将摄像头模块连接到 CAM0 端口。![Connect the adapter board](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-Adapter.jpg)
+3. 使用 RPI-CAMERA 板或树莓派 Zero 摄像头电缆将摄像头模块连接到 CAM0 接口。![Connect the adapter board](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-Adapter.jpg)
 4. (仅适用于 CM1、CM3、CM3+和 CM4S)：使用跳线连接以下 GPIO 引脚：
 
     * 28 到 CD0_SDA
@@ -749,12 +747,12 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
 
 >**注意**
 >
->树莓派 Zero 相机电缆不能作为 RPI-DISPLAY 适配器的替代品。这两根电缆有不同的布线。 
+>树莓派 Zero 相机线不能作为 RPI-DISPLAY 适配器的替代品。这两根线的布线不同。 
 
 要连接显示器到 DISP1：
 
 1. 断开计算模块的电源。
-2. 通过 22W 至 15W 显示适配器，将显示器连接到计算模块 IO 板上的 DISP1 端口。
+2. 通过 22W 至 15W 显示适配器，将显示器连接到计算模块 IO 板上的 DISP1 接口。
 3. （仅限 CM1、CM3、CM3+和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
     * 0 到 CD1_SDA
     * 1 到 CD1_SCL
@@ -770,7 +768,7 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
 
 连接显示器到 DISP0：
 
-1. 通过 22W 至 15W 显示适配器将显示器连接到计算模块 IO 板上的 DISP0 端口。
+1. 通过 22W 至 15W 显示适配器将显示器连接到计算模块 IO 板上的 DISP0 接口。
 2. （仅适用于 CM1、CM3、CM3+和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
     * 28 到 CD0_SDA
     * 29 到 CD0_SCL
@@ -869,6 +867,6 @@ ignore_lcd=1
 
 ### 欠压检测
 
-以下原理图描述了一个欠压检测电路，用于老型号的树莓派：
+以下原理图描述了一个用于老型号树莓派的欠压检测电路：
 
 ![Under-voltage detect](https://www.raspberrypi.com/documentation/computers/images/under_voltage_detect.png)
