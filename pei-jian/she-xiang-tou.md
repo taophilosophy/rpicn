@@ -371,7 +371,7 @@ echo 1 > /sys/module/imx296/parameters/trigger_mode
 exit
 ```
 
-#### 树莓派 Pico  Python 代码
+#### 树莓派 Pico Mirco Python 代码
 
 ```
 from machine import Pin, PWM
