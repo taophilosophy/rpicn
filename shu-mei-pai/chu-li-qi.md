@@ -92,13 +92,13 @@ BCM2711 的数据表包含更多细节。
 
 ## RP3A0
 
-树莓派 RP3A0 是我们的第一个 System-in-Package（SiP），包含了博通 BCM2710A1 — 这是封装在博通 BCM2837 芯片内部的硅芯片，该芯片用于树莓派 3 — 以及 512MB 的 DRAM。
+我们首次采用系统级封装（SiP）的是树莓派 RP3A0，它包含了博通 BCM2710A1 — 这是封装在博通 BCM2837 芯片内部的硅芯片，该芯片用于树莓派 3 — 以及 512MB 的 DRAM。
 
 它被树莓派 Zero 2 W 使用。
 
 ![RP3A0 crosssection](https://www.raspberrypi.com/documentation/computers/images/RP3A0-crosssection.png)
 
-RP3A0 是一款四核 64 位 Arm Cortex A53 CPU，主频为 1 GHz，但是如果安装了散热片或其他冷却解决方案，该芯片的潜在超频频率可达 1.2 GHz。
+RP3A0 是一款四核 64 位 Arm Cortex A53 CPU，主频为 1 GHz，但是如果安装了散热片或使用其他冷却解决方案，该芯片的潜在超频频率可达 1.2 GHz。
 
 请参考 BCM2836 文档，了解 ARM 外围设备规格的详细信息，该规格也适用于 BCM2837 和 RP3A0。
 
@@ -107,4 +107,4 @@ RP3A0 是一款四核 64 位 Arm Cortex A53 CPU，主频为 1 GHz，但是如果
 
 >**注意**
 >
->旧版树莓派 Zero 使用 Package-on-Package（PoP）DRAM，其中 DRAM 直接焊接在 BCM2835 芯片顶部。 
+>旧版树莓派 Zero 使用系统级封装（PoP）DRAM，其中 DRAM 直接焊接在 BCM2835 芯片顶部。 
