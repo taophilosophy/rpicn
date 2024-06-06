@@ -3,9 +3,9 @@
 
 ## 创建 Raspberry Pi ID
 
-要使用 Raspberry Pi 服务，您必须首先创建一个 Raspberry Pi ID。
+要使用 Raspberry Pi 服务，您必须首先创建个 Raspberry Pi ID。
 
-在浏览器中，导航到 id.raspberrypi.com。
+在浏览器中，打开 <id.raspberrypi.com>。
 
 输入电子邮件和密码。单击“注册”按钮以创建您的帐户。
 
@@ -19,7 +19,7 @@
 
 ![signed in identity](https://www.raspberrypi.com/documentation/services/images/signed_in_identity.png)
 
-创建 Raspberry Pi ID 后，您可以使用“使用 Raspberry Pi ID 登录”按钮登录 Raspberry Pi 服务。
+创建 Raspberry Pi ID 后，您就可以使用“使用 Raspberry Pi ID 登录”按钮登录 Raspberry Pi 服务了。
 
 ## 启用双因素身份验证
 
@@ -33,9 +33,9 @@
 >
 >Raspberry Pi ID 支持 macOS 和 iOS iCloud 钥匙串集成。在您的 Mac 或 iPhone 上右键单击 QR 码，以获取“设置验证代码”选项。
 
-### 安装一个 2FA 应用程序
+### 安装 2FA 应用程序
 
-首先，在手机上下载一个生成 TOTP 的应用程序。安装任何 2FA 应用程序，如 Authy 或 Google Authenticator。
+首先，在手机上下载一个生成 TOTP 的应用程序。即安装一个 2FA 应用程序，如 Authy 或 Google Authenticator。
 
 ### 启用 2FA
 
@@ -51,13 +51,13 @@
 
 ![authenticate](https://www.raspberrypi.com/documentation/services/images/authenticate.png)
 
-输入您的 2FA 应用程序生成的六位数字 TOTP，以注册 2FA 应用程序与您的 Raspberry Pi ID 关联。
+输入您的 2FA 应用程序生成的六位数字 TOTP，以注册 2FA 应用程序与您的 Raspberry Pi ID 绑定。
 
-将显示确认屏幕，其中包含恢复代码。将恢复代码存储在安全位置。这是唯一的绕过 2FA 的方法，如果您丢失手机和 2FA 应用程序。
+将显示确认提示，其中包含恢复代码。将恢复代码存储在安全位置。如果您丢失手机和 2FA 应用程序，这将是唯一绕过 2FA 的方法。
 
 ![totp enabled](https://www.raspberrypi.com/documentation/services/images/totp_enabled.png)
 
-您现在已配置您的 Raspberry Pi ID 需要 2FA。从现在开始，登录需要在手机上的 2FA 应用程序生成的 TOTP。
+您现在已为您的 Raspberry Pi ID 配置为需要 2FA。从现在开始，需要通过手机上的 2FA 应用程序生成的 TOTP 才能登陆。
 
 >**技巧**
 >
