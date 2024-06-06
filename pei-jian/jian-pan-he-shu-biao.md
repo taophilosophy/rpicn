@@ -4,11 +4,11 @@
 
 我们的官方键盘包括三个主机 USB 接口，用于连接外部设备，如 USB 鼠标，USB 存储设备和其他 USB 控制设备。
 
-该产品的 Micro USB 用于连接树莓派。通过键盘内置的 USB 集线器，由树莓派控制并为键盘三个 USB Type A 接口提供电源。
+该产品的 Micro USB 用于连接树莓派（通过键盘内置的 USB 集线器）可由树莓派控制并为键盘三个 USB Type A 接口提供电源。
 
 ![back of keyboard](https://www.raspberrypi.com/documentation/accessories/images/back-of-keyboard.png)
 
-### 键盘功能
+### 按键功能
 
 树莓派键盘有三个锁定键: Num Lock , Caps Lock , 和 Scroll Lock . 顶部右侧有三个 LED 指示灯，指示哪些锁定已启用。
 
@@ -26,7 +26,7 @@ Scroll Lock (ScrLk) 允许使用光标键浏览网页和电子表格，无需鼠
 
 ![the mouse](https://www.raspberrypi.com/documentation/accessories/images/the-mouse.png)
 
-使用鼠标时，始终将其放在平坦稳定的表面上。鼠标在放置的表面上光学检测移动。在无特征的表面上，例如 PVC 或亚克力桌面，鼠标无法检测移动。当您在这样的表面上工作时，请将鼠标放在鼠标垫上。
+使用鼠标时，请始终将其放在平坦稳定的表面上。鼠标在放置的表面上光学检测移动。在无特征的表面上，例如 PVC 或亚克力桌面，鼠标无法检测到移动。当您在这样的平面上工作时，请把鼠标放在鼠标垫上。
 
 ## 将所有内容连接在一起
 
