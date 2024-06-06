@@ -23,7 +23,7 @@
 
 计算模块 4（CM4）包含了树莓派 4 的内部（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存。
 
-与 CM1、CM3 和 CM3+ 不同，CM4 不使用 DDR2 SODIMM 形式因子。相反，CM4 使用了两个 100 针高密度连接器，占用更小的物理空间。这种改变帮助增加了以下接口：
+与 CM1、CM3 和 CM3+ 不同，CM4 不使用 DDR2 SODIMM 外形规格。相反，CM4 使用了两个 100 针高密度连接器，占用更小的物理空间。这种改变帮助增加了以下接口：
 
 * 额外的第二个 HDMI
 * PCIe
@@ -37,7 +37,7 @@
 
  计算模块 4S
 
-计算模块 4S（CM4S）包含了树莓派 4 的内部部件（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存存储。与 CM4 不同，CM4S 采用与 CM1、CM3 和 CM3+ 相同的 DDR2 SODIMM 外形尺寸。
+计算模块 4S（CM4S）包含了树莓派 4 的内部部件（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存存储。与 CM4 不同，CM4S 采用与 CM1、CM3 和 CM3+ 相同的 DDR2 SODIMM 外形规格。
 
 ### 计算模块 3+
 
@@ -252,7 +252,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
   $ sudo mkfs.vfat -F32 /dev/<device>
   $ sudo cp -r <files>/* <mountpoint>
   ```
-* CM1 引导加载程序会向主机返回一个略有不正确的 USB 数据包。大多数 USB 主机会忽略它，但由于该错误，某些 USB 接口无法工作。CM3 修复了该错误。
+* CM1 引导加载程序会向主机返回一个略有不正确的 USB 数据包。大多数 USB 主机会忽略它，但由于该问题，某些 USB 接口无法工作。CM3 修复了该错误。
 
 ### 计算模块 4 引导加载程序
 
@@ -303,7 +303,7 @@ $ ./rpiboot -d recovery
 
 SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示接口、HDMI 等）可用于连接。通常可以将未使用的引脚保持未连接状态。
 
-具有 DDR2 SODIMM 形式因子的计算模块可以使用任何 DDR2 SODIMM 插槽。但是，引脚分配与 SODIMM 内存模块不同。
+具有 DDR2 SODIMM 外形规格的计算模块可以使用任何 DDR2 SODIMM 插槽。但是，引脚分配与 SODIMM 内存模块不同。
 
 要使用计算模块，用户设计的主板必须满足：
 
@@ -570,12 +570,12 @@ $ sudo apt full-upgrade
     ```
     dtparam=i2c_arm=on
     ```
-6. (仅适用于 CM1、CM3、CM3+和 CM4S)：向 /boot/firmware/config.txt 添加以下指令，以适应 I/O 板上 GPIO 引脚分配的交换：
+6. (仅适用于 CM1、CM3、CM3+ 和 CM4S)：向 /boot/firmware/config.txt 添加以下指令，以适应 I/O 板上 GPIO 引脚分配的交换：
 
     ```
     dtoverlay=cm-swap-i2c0
     ```
-7. (仅适用于 CM1、CM3、CM3+和 CM4S)：向 /boot/firmware/config.txt 添加以下指令，将 GPIO 3 分配为 CAM1 稳压器：
+7. (仅适用于 CM1、CM3、CM3+ 和 CM4S)：向 /boot/firmware/config.txt 添加以下指令，将 GPIO 3 分配为 CAM1 稳压器：
 
     ```
     dtparam=cam1_reg
@@ -768,7 +768,7 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
 
 连接显示器到 DISP0：
 
-1. 通过 22W 至 15W 显示适配器将显示器连接到计算模块 IO 板上的 DISP0 接口。
+1. 通过 22W 至 15W 电源适配器将显示器连接到计算模块 IO 板上的 DISP0 接口。
 2. （仅适用于 CM1、CM3、CM3+和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
     * 28 到 CD0_SDA
     * 29 到 CD0_SCL
@@ -867,6 +867,6 @@ ignore_lcd=1
 
 ### 欠压检测
 
-以下原理图描述了一个用于老型号树莓派的欠压检测电路：
+以下原理图描述了用于老型号树莓派的欠压检测电路：
 
 ![Under-voltage detect](https://www.raspberrypi.com/documentation/computers/images/under_voltage_detect.png)
