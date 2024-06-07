@@ -1043,7 +1043,7 @@ sudo apt install apache2 -y
 
 在树莓派上或网络中的另一台计算机上浏览到默认网页，您应该看到以下内容：
 
-![Apache success message](https://www.raspberrypi.com/documentation/computers/images/apache-it-works.png)
+![Apache success message](../.gitbook/assets/apache-it-works.png)
 
 这意味着 Apache 正在运行！
 
