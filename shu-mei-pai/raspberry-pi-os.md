@@ -310,7 +310,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果您有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，您可以通过将流放入诸如 MP4 之类的容器格式中来提高 VLC 中的播放性能。您可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令可把名为 video.h264 的流转换成 30fps 的 MP4 文件，命名为 video.mp4 ：
+如果您有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，您可以通过将流放入诸如 MP4 之类的文件格式中来提升在 VLC 上的播放性能。您可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令可把名为 video.h264 的流转换成 30fps 的 MP4 文件，命名为 video.mp4 ：
 
 ```
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -323,7 +323,7 @@ Raspberry Pi OS 中预装了几个有用的命令行实用程序。
 
 ### `kmsprint`
 
-kmsprint 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。您可以在 Github 上找到 kmsprint 实用程序的源代码。
+`kmsprint` 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。您可以在 Github 上找到 kmsprint 实用程序的源代码。
 
 ### `vclog`
 
@@ -365,11 +365,11 @@ vcos 命令有两个有用的子命令：
 
 #### `measure_temp`
 
-返回 SoC 的温度，由其内部温度传感器测量。在树莓派 4 上， measure_temp pmic 将返回 PMIC 的温度。
+`measure_temp` 可返回 SoC 的温度，这由其内部温度传感器测量。在树莓派 4 上， `measure_temp pmic` 可返回 PMIC 的温度。
 
 #### `measure_clock [clock]`
 
-返回指定时钟的当前频率。接受以下时钟值：
+它返回指定时钟的当前频率。接受以下时钟值：
 
 | 时钟 | 说明                  |
 | ------ | ------------------------ |
@@ -390,7 +390,7 @@ vcos 命令有两个有用的子命令：
 
 #### `measure_volts [block]`
 
-显示特定块使用的当前电压。接受以下块值：
+它可显示特定块使用的当前电压。接受以下块值：
 
 | 区块 | 说明          |
 | ------ | ---------------- |
@@ -401,11 +401,11 @@ vcos 命令有两个有用的子命令：
 
 #### `otp_dump`
 
-显示 SoC 内部 OTP（一次性可编程）存储器中的内容。这些是 32 位值，从 8 到 64 进行索引。有关更多详细信息，请参阅 OTP 位页面。
+它显示 SoC 内部 OTP（一次性可编程）存储器中的内容。这些是 32 位值，从 8 到 64 进行索引。有关更多详细信息，请参阅 OTP 位页面。
 
 #### `get_config [configuration item|int|str]`
 
-显示指定配置设置的值：或者，指定 int （整数）或 str （字符串）以查看给定类型的所有配置项。例如，以下命令返回设备上的总内存（以兆字节为单位）：
+它显示指定配置设置的值：或者，指定 int （整数）或 str （字符串）以查看给定类型的所有配置项。例如，以下命令返回设备上的总内存（以兆字节为单位）：
 
 ```
 $ vcgencmd get_config total_mem
@@ -413,7 +413,7 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem type`
 
-报告 Arm 和 GPU 可寻址内存的数量。要显示 Arm 可寻址内存的数量，请使用 vcgencmd get_mem arm ；要显示 GPU 可寻址内存的数量，请使用 vcgencmd get_mem gpu 。在具有超过 1GB 内存的设备上， arm 参数将始终返回 1GB 减去 gpu 内存值，因为 GPU 固件仅获取前 1GB 内存。要准确报告设备上的总内存，请参阅 total_mem 配置项和上述 get_config 部分。
+`get_mem type` 可报告 Arm 和 GPU 可寻址内存的数量。要显示 Arm 可寻址内存的数量，请使用 vcgencmd get_mem arm ；要显示 GPU 可寻址内存的数量，请使用 vcgencmd get_mem gpu 。在具有超过 1GB 内存的设备上， arm 参数将始终返回 1GB 减去 gpu 内存值，因为 GPU 固件仅获取前 1GB 内存。要准确报告设备上的总内存，请参阅 total_mem 配置项和上述 get_config 部分。
 
 ##### `codec_enabled [type]`
 
@@ -429,10 +429,9 @@ $ vcgencmd get_config total_mem
 
 ##### `read_ring_osc`
 
-返回环振荡器的当前速度、电压和温度。
+用于返回环振荡器的当前速度、电压和温度。
 
 ## 辅助功能选项
-
 
 ### 视觉辅助
 
@@ -517,23 +516,23 @@ $ python -m venv <env-name>
 
 >**技巧**
 >
->在虚拟环境中将当前安装的所有软件包预加载到系统级 Python 安装中的文件夹名称时需使用参数 --system-site-packages。
+>在虚拟环境中将当前安装的所有软件包预加载到系统级 Python 安装中的文件夹时需使用参数 `--system-site-packages`。
 
-然后，在虚拟环境配置文件夹中执行 bin/activate 脚本以进入虚拟环境：
+然后，在虚拟环境配置文件夹中执行命令 bin/activate 以进入虚拟环境：
 
 ```
 $ source <env-name>/bin/activate
 ```
 
-然后，您应该看到类似以下内容的提示：
+然后，您应该看到类似如下提示，内容为：
 
 ```
 (<env-name>) $
 ```
 
-(<env-name>) 命令提示符前缀表示当前终端会话在名为 <env-name> 的虚拟环境中。
+`(<env-name>)` 命令提示符前缀代表当前终端会话位于名为 `<env-name>` 的虚拟环境中。
 
-要检查是否在虚拟环境中，请使用 pip list 查看已安装软件包的列表：
+要查看是否位于虚拟环境中，请使用 pip list 查看已安装软件包的列表：
 
 ```
 (<env-name>) $ pip list
@@ -543,7 +542,7 @@ pip        23.0.1
 setuptools 66.1.1
 ```
 
-列表应该比系统 Python 中安装的软件包列表要短得多。您现在可以安全地使用 pip 安装软件包。在虚拟环境中，使用 pip 安装的任何软件包都只安装到该虚拟环境中。在虚拟环境中， python 或 python3 命令会自动使用虚拟环境的 Python 版本和已安装的软件包，而非系统 Python。
+输出列表应该比系统 Python 中安装的软件包列表要短得多。您现在可以安全地使用 pip 安装软件包。在虚拟环境中，使用 pip 安装的任何软件包都只安装到该虚拟环境中。在虚拟环境中， python 或 python3 命令会自动使用虚拟环境的 Python 版本和已安装的软件包，而非系统 Python。
 
 离开虚拟环境，请运行以下命令：
 
@@ -559,19 +558,19 @@ setuptools 66.1.1
 $ python -m venv env
 ```
 
-在您开始项目工作之前，请从项目根目录运行以下命令以开始使用虚拟环境：
+在您开始项目工作之前，请在项目根目录下运行以下命令以开始使用虚拟环境：
 
 ```
 $ source env/bin/activate
 ```
 
-然后，您应该看到类似以下内容的提示：
+然后，您应该看到类似如下提示，内容为：
 
 ```
 (env) $
 ```
 
-当您完成项目工作后，请从任何目录运行以下命令以退出虚拟环境：
+当您完成项目工作后，请在任意目录运行以下命令来退出虚拟环境：
 
 ```
 (env) $ deactivate
@@ -618,7 +617,7 @@ $ source ~/.env/bin/activate
 ## GPIO 和 40 针排针
 
  
-树莓派的一个强大功能是板子顶部沿边的 GPIO（通用输入/输出）引脚排列。所有当前的树莓派板子上都有一个 40 针的 GPIO 引脚排针（尽管在树莓派 Zero、树莓派 Zero W 和树莓派 Zero 2 W 上是未焊接的）。所有板子上的 GPIO 引脚排针的引脚间距都是 0.1 英寸（2.54 毫米）。
+树莓派的一个强大功能是主板顶部沿边的 GPIO（通用输入/输出）引脚排针。所有当前的树莓派开发板上都有一个 40 针的 GPIO 引脚排针（尽管在树莓派 Zero、树莓派 Zero W 和树莓派 Zero 2 W 上是未焊接的）。所有板子上的 GPIO 引脚排针的引脚间距都是 0.1 英寸（2.54 毫米）。
 
 ![GPIO pins](https://www.raspberrypi.com/documentation/computers/images/GPIO-Pinout-Diagram-2.png)
 
@@ -632,7 +631,7 @@ $ source ~/.env/bin/activate
 
 ### 电压
 
-板上有两个 5V 引脚和两个 3.3V 引脚，以及若干接地引脚（GND），这些引脚无法重新配置。其余引脚都是通用的 3.3V 引脚，意味着输出设置为 3.3V，输入为 3.3V 容忍（Tolerant）。
+开发板上有两个 5V 引脚和两个 3.3V 引脚，以及若干接地引脚（GND），这些引脚无法重新配置。其余引脚都是通用的 3.3V 引脚，意味着输出设置为 3.3V，输入为 3.3V 容忍（Tolerant）。
 
 ### 输出
 
@@ -664,11 +663,11 @@ $ source ~/.env/bin/activate
 
 >**警告**
 >
->将简单组件连接到 GPIO 引脚是安全的，但要小心如何连接它们。LED 应该有电阻器来限制通过它们的电流。不要让 3.3V 组件使用 5V。不要直接将电机连接到 GPIO 引脚，而应该使用 H 桥电路或电机控制板。 
+>将小组件连接到 GPIO 引脚是安全的，但要小心如何连接它们。LED 应该有电阻器来限制通过它们的电流。不要让 3.3V 组件使用 5V。不要直接把电机连接到 GPIO 引脚，而应使用 H 桥电路或电机控制板。 
 
 ### 权限
 
-为了使用 GPIO，您的用户必须是 gpio 组的成员。默认用户账户默认是成员，但您必须使用以下命令手动添加其他用户。
+您的用户必须是 gpio 组的成员，然后才能使用 GPIO。默认用户账户默认就是其成员，但您必须使用以下命令手动添加其他用户为其组成员。
 
 ```
 $ sudo usermod -a -G gpio <username>
@@ -680,7 +679,7 @@ $ sudo usermod -a -G gpio <username>
 
 #### LED
 
-以下示例代码控制连接到 GPIO17 的 LED：
+以下示例代码可控制连接到 GPIO17 的 LED：
 
 ```
 from gpiozero import LED
@@ -701,7 +700,7 @@ LED 方法包括 on() ， off() ， toggle() 和 blink() 。
 
 #### 按钮
 
-以下示例代码读取连接到 GPIO2 的按钮的状态：
+以下示例代码可读取连接到 GPIO2 的按钮的状态：
 
 ```
 from gpiozero import Button
@@ -721,7 +720,7 @@ while True:
 
 #### 按钮和 LED
 
-以下示例代码读取连接到 GPIO2 的按钮的状态，并在按下按钮时点亮连接到 GPIO17 的 LED：
+以下示例代码可读取连接到 GPIO2 的按钮的状态，并在按下按钮时点亮连接到 GPIO17 的 LED：
 
 ```
 from gpiozero import LED, Button
