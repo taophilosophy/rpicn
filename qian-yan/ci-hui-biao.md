@@ -4,6 +4,7 @@
 | English          | 翻译           |
 |:------------------:|:---------------:|
 | Raspberry Pi OS | Raspberry Pi OS |
+|HAT|扩展板|
 |Raspberry Pi OS Lite|Raspberry Pi OS Lite|
 | APT              | APT           |
 |ports |接口/端口/通道/port/省略该词|
