@@ -17,7 +17,7 @@ $ sudo raspi-config
 您应该看到在灰色框中出现了一个带有选项的蓝色屏幕：
 
 
-![raspi-config main screen](https://www.raspberrypi.com/documentation/computers/images/raspi-config.png)
+![raspi-config main screen](../.gitbook/assets/raspi-config.png)
 
 使用上下箭头键在可用选项之间移动突出显示的选择。
 
@@ -33,7 +33,7 @@ raspi-config 可自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文
 
 系统选项子菜单可让您对引导、登录和网络过程的各个部分进行配置更改，以及一些其他系统级别的更改。
 
-![raspi-config system options](https://www.raspberrypi.com/documentation/computers/images/raspi-system.png)
+![raspi-config system options](../.gitbook/assets/raspi-system.png)
 
 #### 无线局域网
 
@@ -75,7 +75,7 @@ raspi-config 可自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文
 
 ### 显示选项
 
-![raspi-config display options](https://www.raspberrypi.com/documentation/computers/images/raspi-display.png)
+![raspi-config display options](../.gitbook/assets/raspi-display.png)
 
 #### Underscan（欠扫描）
 
@@ -105,7 +105,7 @@ raspi-config 可自动编辑 /boot/firmware/config.txt 和各种 Linux 配置文
 
 启用和禁用各种物理和虚拟接口。
 
-![raspi-config interface options](https://www.raspberrypi.com/documentation/computers/images/raspi-interface.png)
+![raspi-config interface options](../.gitbook/assets/raspi-interface.png)
 
 #### SSH
 
@@ -139,7 +139,7 @@ SSH 允许您从另一台计算机远程访问树莓派的命令行。默认情�
 
 ### 性能选项
 
-![raspi-config performance options](https://www.raspberrypi.com/documentation/computers/images/raspi-perf.png)
+![raspi-config performance options](../.gitbook/assets/raspi-perf.png)
 
 #### 超频
 
@@ -165,7 +165,7 @@ SSH 允许您从另一台计算机远程访问树莓派的命令行。默认情�
 
 配置位置和与国家相关的选项。
 
-![raspi-config localisation options](https://www.raspberrypi.com/documentation/computers/images/raspi-l18n.png)
+![raspi-config localisation options](../.gitbook/assets/raspi-l18n.png)
 
 #### 语言环境
 
@@ -185,7 +185,7 @@ SSH 允许您从另一台计算机远程访问树莓派的命令行。默认情�
 
 ### 高级选项
 
-![raspi-config advanced options](https://www.raspberrypi.com/documentation/computers/images/raspi-adv.png)
+![raspi-config advanced options](../.gitbook/assets/raspi-adv.png)
 
 #### 扩展文件系统
 
@@ -1645,7 +1645,7 @@ $ openssl passwd -6
 
 在下面的图表中，请注意笔记本电脑存在于与路由器和有线客户端分开的 IP 块中：
 
-![host a network](https://www.raspberrypi.com/documentation/computers/images/host-a-network.png)
+![host a network](../.gitbook/assets/host-a-network.png)
 
 在这种网络配置下，无线客户端可以通过树莓派路由器彼此通信。但是，无线网络上的客户端不能直接与有线网络上的客户端进行交互，除了树莓派之外；无线客户端存在于一个与为有线客户端提供服务的网络分开的私有网络中。
 
@@ -1687,7 +1687,7 @@ $ sudo nmcli device up wlan0
 
 在下面的图表中，笔记本电脑存在于与路由器和有线客户端相同的 IP 块中：
 
-![bridge network](https://www.raspberrypi.com/documentation/computers/images/bridge-network.png)
+![bridge network](../.gitbook/assets/bridge-network.png)
 
 以下步骤描述了如何在您的树莓派上设置网络桥接，以实现无线客户端和父网络之间的通信。
 
