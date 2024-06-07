@@ -1,9 +1,10 @@
 # 词汇表
 
 
-| English          | 中文           |
+| English          | 翻译           |
 |:------------------:|:---------------:|
 | Raspberry Pi OS | Raspberry Pi OS |
+|Raspberry Pi OS Lite|Raspberry Pi OS Lite|
 | APT              | APT           |
 | Legacy           | 旧版           |
 | Hz               | Hz            |
@@ -24,7 +25,9 @@
 | Probe            | 调试器        |
 | MicroPython      | MicroPython   |
 | SDK              | SDK           |
-
+|peripherals |外设/外部设备|
+|models|型号或不翻译或省略|
+|form factor|外形尺寸|
 
 
 `The Raspberry Pi OS to Raspberry Pi OS.  The APT to APT. The Legacy to 旧版. The Hz to Hz. The remote access to 远程访问.The Model to Model .The Zero to Zero. The Compute Modules to 计算模块. The Camera Modules to 摄像头模块. The Build HAT to Build HAT. The Sense HAT to 传感器扩展板. The TV HAT to 电视扩展板. The AI Kit to Ai 套件. The M.2 HAT+ to M.2 HAT+. The Audio Board to 音频扩展板. The Pico to Pico. The Pico W to Pico W. The Debug Probe to 调试器. The Probe to 调试器. The MicroPython to MicroPython. The SDK to SDK.`
