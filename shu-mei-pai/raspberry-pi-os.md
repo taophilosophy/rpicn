@@ -3,7 +3,7 @@
 
 ## 介绍
 
-Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配树莓派的硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数使用需求来说，我们建议在树莓派上使用 Raspberry Pi OS。
+Raspberry Pi OS 是一款基于 Debian 的免费操作系统，针对树莓派的硬件进行了适配与优化。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求来说，我们建议使用 Raspberry Pi OS。
 
 因为 Raspberry Pi OS 源自 Debian，因此 Raspberry Pi OS 基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
 
