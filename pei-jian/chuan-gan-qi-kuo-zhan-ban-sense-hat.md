@@ -6,9 +6,9 @@
 
 ![Sense HAT](https://www.raspberrypi.com/documentation/accessories/images/Sense-HAT.jpg)
 
-传感器扩展板最初是为国际空间站开发的，作为由 Raspberry Pi 基金会与欧洲航天局（ESA）合作，开展的 Astro Pi 教育计划的一部分。它非常适合许多需要位置、运动、方向或环境感知的项目。传感器扩展板从连接的树莓派上取电。
+传感器扩展板最初是为国际空间站开发的：作为由 Raspberry Pi 基金会与欧洲航天局（ESA）合作，开展的 Astro Pi 教育计划的一部分。它非常适合许多需要位置、运动、方向或环境感知的项目。传感器扩展板从连接的树莓派上取电。
 
-官方支持的 Python 库提供对所有板载传感器、LED 矩阵和操纵杆的访问。传感器扩展板兼容带有 40 针 GPIO 引脚排针型号的树莓派计算机。
+由官方支持的 Python 库提供了对所有板载传感器、LED 矩阵和操纵杆的控制。传感器扩展板兼容带有 40 针 GPIO 引脚排针型号的树莓派计算机。
 
 ## 安装
 
@@ -84,7 +84,7 @@ LED 点阵是一个带有 id“RPi-Sense FB”的 RGB565 帧缓冲区。适当�
 
 ### 操纵杆
 
-操纵杆显示为名为“Raspberry Pi Sense HAT Joystick”的输入事件设备，映射到箭头键和 Enter 。它应该受到任何能够处理输入的库的支持，或直接通过 evdev 接口。适用的库包括 SDL、pygame 和 python-evdev。包含的“snake”示例显示了如何直接访问操纵杆。
+操纵杆显示为名为“Raspberry Pi Sense HAT Joystick”的输入事件设备，映射到箭头键和`回车键`。它应该受到任何能够处理输入的库的支持，或直接通过 evdev 接口。适用的库包括 SDL、pygame 和 python-evdev。包含的“snake”示例显示了如何直接访问操纵杆。
 
 ## 硬件校准
 
