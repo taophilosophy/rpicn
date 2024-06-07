@@ -9,7 +9,7 @@ Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以�
 
 最新版本的 Raspberry Pi OS 基于 Debian Bookworm。之前的版本基于 Debian Bullseye。
 
-您可以在 <raspberrypi.com/software/operating-systems/> 找到 Raspberry Pi OS 的镜像。
+您可在 <raspberrypi.com/software/operating-systems/> 找到 Raspberry Pi OS 的镜像。
 
 ## 更新软件
 
@@ -207,25 +207,25 @@ Raspberry Pi OS 预装了 VLC 媒体播放器。您可以使用 VLC 播放视频
 
 #### vlc 命令行界面
 
-您还可以从命令行启动 VLC。在下面的示例中，我们使用了来自大型雄兔的短片段。要从树莓派下载此片段，请运行以下命令：
+您还可以从命令行启动 VLC。在下面的示例中，我们使用了来自《大雄兔》（Big Buck Bunny）的短片。要从树莓派下载此片段，请运行以下命令：
 
 ```
 $ wget --trust-server-names http://rptl.io/big-buck-bunny
 ```
 
-要从命令行中的 VLC 播放片段，请运行以下命令：
+要从命令行中的 VLC 播放视频，请运行以下命令：
 
 ```
 $ vlc big-buck-bunny-1080p.mp4
 ```
 
-为了在文件播放完成后关闭 VLC 图形界面，请添加 --play-and-exit 标志：
+为了在文件播放完成后关闭 VLC 图形界面，请添加参数 `--play-and-exit`：
 
 ```
 $ vlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
-要在全屏模式下播放视频（在某些情况下可能会使播放更流畅），请添加参数 --fullscreen：
+要在全屏模式下播放视频（在某些情况下可能会使播放更流畅），请添加参数 `--fullscreen`：
 
 ```
 $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
@@ -233,7 +233,7 @@ $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 
 #### 使用 cvlc 来播放没有图形界面的媒体
 
-如果您在任何这些命令中使用 cvlc 而不是 vlc ，那么 VLC GUI 将不会显示：
+如果您在以上这些命令中使用 cvlc 来代替 vlc ，那么 VLC GUI 将不会显示：
 
 ```
 $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
@@ -241,19 +241,19 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 
 ### 在 Raspberry Pi OS Lite 上播放音频和视频
 
-与完整版本的 Raspberry Pi OS 不同，在 Raspberry Pi OS Lite 上没有预装 VLC 。要在 Raspberry Pi OS Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
+与完整版本的 Raspberry Pi OS 不同，在 Raspberry Pi OS Lite 上并未预装 VLC 。要在 Raspberry Pi OS Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
 
 ```
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
 ```
 
-为了下面的示例，我们使用了一个短音频剪辑。要从树莓派下载此剪辑，请运行以下命令：
+为了下面的示例，我们使用了一个短音频剪辑片段。要从树莓派下载此剪辑前段，请运行以下命令：
 
 ```
 $ wget --trust-server-names http://rptl.io/startup-music
 ```
 
-要从命令行中的 VLC 播放剪辑，请运行以下命令：
+要从命令行中的 VLC 播放片段，请运行以下命令：
 
 ```
 $ cvlc --play-and-exit computer-startup-music.mp3
@@ -261,13 +261,13 @@ $ cvlc --play-and-exit computer-startup-music.mp3
 
 ### 指定音频输出设备
 
-强制音频输出到特定设备，请将 alsa 值传递给 -A 选项以使用 ALSA 音频输出，并使用 --alsa-audio-device 选项指定音频输出设备：
+强制音频输出到特定设备，请将 alsa 值传递给 -A 选项以使用 ALSA 音频输出，并使用参数 `--alsa-audio-device` 指定音频输出设备：
 
 ```
 $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startup-music.mp3
 ```
 
-用以下选项之一替换 <alsa-device> 占位符：
+用以下选项来替换 `<alsa-device>` 占位符：
 
 | ALSA 设备 | 说明                                                              |
 | ----------- | ------------------------------------------------------------------- |
@@ -282,13 +282,13 @@ $ aplay -L | grep sysdefault
 
 ### 指定视频输出设备
 
-为了强制视频输出到特定设备，请使用 --drm-vout-display 选项来指定视频输出设备：
+为了强制视频输出到特定设备，请使用参数 `--drm-vout-display` 来指定视频输出设备：
 
 ```
 $ cvlc --play-and-exit --drm-vout-display <drm-device> big-buck-bunny-1080p.mp4
 ```
 
-用以下选项之一替换文本 <drm-device> ：
+用以下选项来替换文本 `<drm-device>` ：
 
 | DRM 设备 | 说明                                                                              |
 | ---------- | ------------------------------------------------------------------------------------ |
@@ -310,7 +310,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果您有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，您可以通过将流放入诸如 MP4 之类的容器格式中来提高 VLC 中的播放性能。您可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令将名为 video.h264 的流转换为一个以 30fps 为速率的 MP4 容器，命名为 video.mp4 ：
+如果您有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，您可以通过将流放入诸如 MP4 之类的容器格式中来提高 VLC 中的播放性能。您可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令可把名为 video.h264 的流转换成 30fps 的 MP4 文件，命名为 video.mp4 ：
 
 ```
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -323,13 +323,13 @@ Raspberry Pi OS 中预装了几个有用的命令行实用程序。
 
 ### `kmsprint`
 
-kmsprint 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 kmsprint -m 查看每个显示器支持的所有显示模式的列表。您可以在 Github 上找到 kmsprint 实用程序的源代码。
+kmsprint 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。您可以在 Github 上找到 kmsprint 实用程序的源代码。
 
 ### `vclog`
 
 vclog 显示来自运行在 Arm 上的 Linux 上的 VideoCore GPU 的日志消息。它需要以 root 权限运行。
 
-sudo vclog --msg 打印出消息日志，而 sudo vclog --assert 打印出断言日志。
+`sudo vclog --msg` 打印出消息日志，而 sudo vclog --assert 打印出断言日志。
 
 ### `vcgencmd`
 
@@ -413,11 +413,11 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem type`
 
-报告 Arm 和 GPU 可寻址内存的数量。要显示 Arm 可寻址内存的数量，请使用 vcgencmd get_mem arm ；要显示 GPU 可寻址内存的数量，请使用 vcgencmd get_mem gpu 。在具有超过 1GB 内存的设备上， arm 参数将始终返回 1GB 减去 gpu 内存值，因为 GPU 固件仅知道前 1GB 内存。要准确报告设备上的总内存，请参阅 total_mem 配置项和上述 get_config 部分。
+报告 Arm 和 GPU 可寻址内存的数量。要显示 Arm 可寻址内存的数量，请使用 vcgencmd get_mem arm ；要显示 GPU 可寻址内存的数量，请使用 vcgencmd get_mem gpu 。在具有超过 1GB 内存的设备上， arm 参数将始终返回 1GB 减去 gpu 内存值，因为 GPU 固件仅获取前 1GB 内存。要准确报告设备上的总内存，请参阅 total_mem 配置项和上述 get_config 部分。
 
 ##### `codec_enabled [type]`
 
-报告指定编解码器类型是否已启用。可用的类型选项包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于树莓派 4 和 400 上的 H.265 硬件块不是 VideoCore GPU 的一部分，因此其状态不能通过此命令查看。
+报告指定编解码器类型是否已启用。支持的类型选项包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4 和 400 上的 H.265 硬件块不是 VideoCore GPU 的一部分，因此其状态不能通过此命令查看。
 
 ##### `mem_oom`
 
@@ -436,22 +436,21 @@ $ vcgencmd get_config total_mem
 
 ### 视觉辅助
 
-使用 Raspberry Pi OS 的视障用户可以在“推荐软件”菜单中找到有用的工具。
+视障用户可以在 Raspberry Pi OS 的“推荐软件”菜单中找到有用的工具。
 
-我们提供 Orca 屏幕阅读器来简化树莓派桌面的导航。此外，我们还提供屏幕放大器来增加用户界面和屏幕元素的可读性。
+我们提供了 Orca 屏幕阅读器来简化树莓派桌面的导航。此外，我们还提供屏幕放大器来增加用户界面和屏幕元素的可读性。
 
 #### Orca 屏幕阅读器
 
 您可以从主树莓派菜单的推荐软件部分安装 Orca 屏幕阅读器。或者，按 Ctrl + Alt + Space 自动安装 Orca。
 
-在安装新镜像后首次启动 Raspberry Pi OS 时，将在 30 秒后播放自动语音提醒。此提醒提供有关如何安装 Orca 的说明。
+在安装新系统后首次启动 Raspberry Pi OS 时，将在 30 秒后播放自动语音提醒。此提醒提供有关如何安装 Orca 的说明。
 
 ## 在树莓派上使用 Python
 
+Raspberry Pi OS 预装了 Python 3。破坏系统安装的 Python 可能会导致操作系统故障。安装第三方 Python 库时，请始终使用正确的软件包管理工具。
 
-Raspberry Pi OS 预装了 Python 3。破坏系统安装的 Python 可能会导致操作系统出现问题。安装第三方 Python 库时，请始终使用正确的软件包管理工具。
-
-在 Linux 上，您可以通过两种方式安装 python 依赖项：
+在 Linux 上，您可以通过两种方式安装 python 依赖包：
 
 * 使用 apt 来安装预配置的系统软件包
 * 使用 pip 在虚拟环境中使用 Python 的依赖管理器安装库
@@ -463,8 +462,8 @@ Raspberry Pi OS 预装了 Python 3。破坏系统安装的 Python 可能会导�
 
 ### 使用 apt 安装 Python 软件包
 
-通过 apt 安装的软件包专门为 Raspberry Pi OS 打包。这些软件包通常是预编译的，因此安装速度更快。由于 apt 管理所有软件包的依赖关系，使用此方法安装将包括运行软件包所需的所有子依赖项。而 apt 确保您在卸载时不会破坏其他软件包
-例如，要安装支持树莓派 Build HAT 的 Python 3 库，请运行以下命令：
+通过 apt 安装的软件包是专为 Raspberry Pi OS 打包的。这些软件包通常是预编译的，因此安装速度更快。由于 apt 管理所有软件包的依赖关系，使用此方法安装会包括运行软件包所需的所有子依赖包。而 apt 能确保您在卸载时免于破坏其他软件包
+例如，要安装支持树莓派 Build 扩展板的 Python 3 库，请运行以下命令：
 
 ```
 $ sudo apt install python3-build-hat
@@ -476,11 +475,11 @@ $ sudo apt install python3-build-hat
 
 #### Bookworm 改为使用 pip 安装
 
-在旧版本的 Raspberry Pi OS 中，您可以直接将库安装到系统版本的 Python 中使用 pip 。自从 Raspberry Pi OS Bookworm 以来，用户无法直接将库安装到系统版本的 Python。
+在旧版本的 Raspberry Pi OS 中，您可以直接将库安装到系统级的 Python 中使用 pip 。自从 Raspberry Pi OS Bookworm 以来，用户无法直接将库安装到系统级的 Python。
 
-应该将库安装到虚拟环境（ venv ）。要为所有用户在系统级别安装库，请使用 apt 安装。
+应该把库安装到虚拟环境（ venv ）。要为所有用户在系统级别安装库，请使用 apt 安装。
 
-尝试在系统范围内安装 Python 软件包会输出类似以下错误：
+尝试在系统级安装 Python 软件包会输出类似以下错误：
 
 ```
 $ pip install buildhat
@@ -502,13 +501,13 @@ note: If you believe this is a mistake, please contact your Python installation 
 hint: See PEP 668 for the detailed specification.
 ```
 
-Python 用户长期以来一直处于处理操作系统软件包管理器（ apt ）和 Python 特定软件包管理工具（ pip ）之间的冲突。这些冲突包括 Python 级别的 API 不兼容性以及文件所有权方面的冲突。
+Python 用户长期以来一直面对着处理操作系统软件包管理器（ apt ）和 Python 特定软件包管理工具（ pip ）之间的冲突。这些冲突包括 Python 级别的 API 不兼容性以及文件所有权方面的冲突。
 
-从 Raspberry Pi OS Bookworm 开始，通过 pip 安装的软件包必须安装到 Python 虚拟环境（ venv ）中。虚拟环境是一个容器，在这里您可以安全地安装第三方模块，以免干扰系统 Python。
+从 Raspberry Pi OS Bookworm 开始，通过 pip 安装的软件包必须安装到 Python 虚拟环境（ venv ）中。虚拟环境是个容器，在这里您可以安全地安装第三方模块，以免干扰系统 Python。
 
 #### 使用 pip 与虚拟环境
 
-要使用虚拟环境，请创建一个容器来存储环境。根据您希望如何使用 Python，有几种不同的方法可以做到这一点。
+要使用虚拟环境，请创建容器来存储环境。根据您希望如何使用 Python，有多种方法可以做到这一点。
 
 运行以下命令以创建一个虚拟环境配置文件夹，将 `<env-name>` 替换为您想要用于虚拟环境的名称（例如 env ）:
 
@@ -518,7 +517,7 @@ $ python -m venv <env-name>
 
 >**技巧**
 >
->在虚拟环境中将当前安装的所有软件包预加载到系统 Python 安装中的文件夹名称之前需使用参数 --system-site-packages。
+>在虚拟环境中将当前安装的所有软件包预加载到系统级 Python 安装中的文件夹名称时需使用参数 --system-site-packages。
 
 然后，在虚拟环境配置文件夹中执行 bin/activate 脚本以进入虚拟环境：
 
