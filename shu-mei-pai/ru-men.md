@@ -4,12 +4,6 @@
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1905690119&bvid=BV1TS411N7Fs&cid=1574129121&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" width="100%" height="600">
 
-
-作者: Junpengzhou
-链接: https://www.junpengzhou.top/article/eeaa9f96.html
-来源: AlphaDog
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</iframe>
-
 要开始使用您的树莓派，您需要满足如下条件：
 
 * 电源供应
