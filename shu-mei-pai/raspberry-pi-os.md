@@ -3,32 +3,32 @@
 
 ## 介绍
 
-Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配树莓派的硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数使用需求来说，我们推荐在树莓派上使用 Raspberry Pi OS。
+Raspberry Pi OS 是一款基于 Debian 的免费操作系统，经过优化以适配树莓派的硬件。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数使用需求来说，我们建议在树莓派上使用 Raspberry Pi OS。
 
 因为 Raspberry Pi OS 源自 Debian，因此 Raspberry Pi OS 基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
 
 最新版本的 Raspberry Pi OS 基于 Debian Bookworm。之前的版本基于 Debian Bullseye。
 
-您可以在 raspberrypi.com/software/operating-systems/ 找到 Raspberry Pi OS 的镜像。
+您可以在 <raspberrypi.com/software/operating-systems/> 找到 Raspberry Pi OS 的镜像。
 
 ## 更新软件
 
 
-请始终保持您的在 Raspberry Pi 上运行的软件更新到了最新版本。这可以使您的设备免受漏洞的影响，并确保您获得最新的错误修复。
+请始终保持您在 Raspberry Pi OS 上运行的软件更新到了最新版本。这可以使您的设备免受漏洞的影响，并确保您能得到最新的错误修复。
 
 ### 使用 APT 管理软件包
 
-高级软件包工具 (APT) 是在 Raspberry Pi OS 中安装、更新和删除软件的推荐方法。您可以通过命令 apt 使用 APT。
+高级软件包工具 (APT) 是在 Raspberry Pi OS 中安装、更新和卸载软件的推荐方法。您可以通过命令 apt 使用 APT。
 
 #### 安装更新
 
-apt 在 /etc/apt/sources.list 的文件中存储软件源列表。在安装软件之前，请运行以下命令，使用 /etc/apt/sources.list 刷新本地软件包列表：
+apt 在 /etc/apt/sources.list 的文件中存储软件源列表。在安装软件之前，请运行以下命令，使用 /etc/apt/sources.list 刷新本地软件源：
 
 ```
 $ sudo apt update
 ```
 
-运行以下命令，将所有已安装的软件包升级到它们的最新版本：
+运行以下命令，将所有已安装的软件包升级至最新版本：
 
 ```
 $ sudo apt full-upgrade
@@ -36,15 +36,15 @@ $ sudo apt full-upgrade
 
 >**技巧**
 >
->与 Debian 不同，Raspberry Pi OS 处于持续开发状态。因此，软件包依赖关系有时会发生变化，因此您应始终使用 full-upgrade 而非标准的 upgrade 。 
+>与 Debian 不同，Raspberry Pi OS 处于持续开发状态。因此，软件包的依赖关系有时会发生改变，因此您应始终使用 `full-upgrade` 而非标准的 `upgrade`。 
 
-请定期运行这些命令，以保持软件是最新的。使用 apt 来确保 Raspberry Pi OS 是最新的，也会使您的 Linux 内核和固件保持最新状态，因为树莓派将它们作为 Debian 软件包进行分发。
+请定期运行这些命令，以确保软件是最新状态。在使用 apt 来确保 Raspberry Pi OS 是最新状态时，也会同时使您的 Linux 内核和固件保持最新状态（因为树莓派将其作为 Debian 软件包进行分发）。
 
-当树莓派发布 Raspberry Pi OS 新的主要版本时，上述命令将不会将您的操作系统升级到该新主要版本。要升级到新的主要版本，请按照我们的操作系统升级说明进行操作。
+在树莓派发布 Raspberry Pi OS 新的主要版本后，上述命令也不会将您的操作系统升级到该新的主要版本。要升级到新的主要版本，请按照我们的操作系统升级说明进行操作。
 
 #### 搜索软件
 
-要搜索软件包，请将搜索关键字传递给 apt-cache search ：
+要搜索软件包，请将搜索关键字传参给 `apt-cache search` ：
 
 ```
 $ apt-cache search <keyword>
@@ -77,7 +77,7 @@ raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 $ apt-cache show <package-name>
 ```
 
-例如，设想对“raspi-config”软件包进行以下查询：
+例如，设想对“raspi-config”软件包进行以下搜索：
 
 ```
 $ apt-cache show raspi-config
@@ -100,21 +100,21 @@ Description: Raspberry Pi configuration tool
 Description-md5: 19630c04463bfe7193152448b53d85a0
 ```
 
-使用此命令验证维护者、版本和大小是否符合您对软件包的期望。
+使用此命令验证维护者、版本和大小是否满足您对软件包的要求。
 
 #### 安装软件包
 
-要在您的树莓派上安装软件包，请将软件包的名称传递给以下命令：
+要在您的树莓派上安装软件包，请将软件包的名称传参给以下命令：
 
 ```
 $ sudo apt install <package-name>
 ```
 
-apt 将显示软件包将占用的磁盘空间量。输入 Y 并按 Enter 键确认安装软件包。您可以通过在上述命令中添加 -y 标志来跳过此确认步骤。
+`apt` 将显示软件包将占用的磁盘空间量。输入 Y 并按`回车键`键确认安装软件包。您可以通过在上述命令中添加 -y 标志来跳过此确认步骤。
 
 #### 卸载软件包
 
-要从您的树莓派卸载软件包，请将软件包的名称传递给以下命令：
+要在树莓派上卸载软件包，请将软件包的名称传参给以下命令：
 
 ```
 $ sudo apt remove <package-name>
@@ -122,19 +122,19 @@ $ sudo apt remove <package-name>
 
 >**技巧**
 >
->要彻底删除软件包的所有痕迹，包括配置文件，请使用 purge 而非 remove 。 
+>要彻底删除软件包的所有痕迹（包括配置文件），请用 purge  来代替 remove 。 
 
-apt 将显示卸载软件包后将释放的磁盘空间量。输入 Y 并按 Enter 键确认安装该软件包。您可以通过在上述命令中添加 -y 标志来跳过此确认步骤。
+`apt` 将显示卸载软件包后将释放的磁盘空间量。输入 Y 并按`回车键`键确认安装该软件包。您可以通过在上述命令中添加 -y 参数来跳过此确认步骤（即默认确认）。
 
 #### 管理 apt 磁盘使用情况
 
-在运行之前， sudo apt full-upgrade 显示您需要下载和存储在磁盘上以完成升级的数据量。要检查您是否有足够的可用磁盘空间，请运行以下命令：
+在运行之前，`sudo apt full-upgrade` 会显示您需要下载和存储在磁盘上以完成升级的文件大小。要查看您是否有足够的可用磁盘空间，请运行以下命令：
 
 ```
 $ df -h
 ```
 
-apt 在 /var/cache/apt/archives 中存储下载的软件包（ .deb ）文件。在安装过程中， apt 会下载这些软件包，然后将文件从软件包复制到正确的安装位置。根据您安装的软件，软件包文件可能占用大量空间。要删除任何残留的软件包文件，请运行以下命令：
+`apt` 会把下载的软件包（ .deb ）文件存储到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到正确的安装位置。根据您安装的软件，软件包本身可能会占用大量空间。要删除所有遗留的软件包本身，请运行以下命令：
 
 ```
 $ sudo apt clean
@@ -144,9 +144,9 @@ $ sudo apt clean
 
 >**警告**
 >
->在尝试升级主要版本之前，请进行备份。 
+>在尝试升级到主要版本之前，请进行备份。 
 
-将操作系统更新到树莓派新的主要版本，请使用第二张 SD 卡写入新版本的镜像。使用 SD 读卡器或网络存储从当前安装中复制文件和配置到新 SD 卡。然后，将新 SD 卡插入树莓派上的插槽，并启动。
+要将操作系统更新到树莓派新的主要版本，请使用另一张 SD 卡写入新版本的镜像。使用 SD 读卡器或网络存储从当前安装中复制文件和配置到新 SD 卡。然后，将新 SD 卡插入树莓派上的插槽，并启动。
 
 ### 升级固件
 
@@ -156,15 +156,15 @@ $ sudo apt clean
 
 >**警告**
 >
->软件的预发布版本不能保证正常工作。除非得到了树莓派工程师的推荐，否则不要在任何系统上使用 rpi-update 。这可能导致您的系统不稳定或损坏。不要将 rpi-update 作为常规更新过程的一部分。 
+>软件的预发布版本不能保证正常工作。除非得到了树莓派工程师的推荐，否则不要在任何系统上使用 `rpi-update`。这可能导致您的系统不稳定或损坏。不要将 `rpi-update` 视为常规更新过程的一部分。 
 
-要将您的树莓派固件更新到最新版本，请使用 rpi-update 。
+要把您树莓派的固件更新到最新版本，请使用 `rpi-update`。
 
-rpi-update 会下载最新的 Linux 内核预发布版本，和与其匹配的模块，设备树文件及最新版本的 VideoCore 固件。然后将这些文件安装到现有的 Raspberry Pi OS。
+`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块，设备树文件及最新版本的 VideoCore 固件。然后将这些文件安装到 Raspberry Pi OS 中。
 
-所有 rpi-update 使用的源数据来自 rpi-firmware 存储库。该存储库包含来自官方固件存储库的数据子集。
+所有 rpi-update 使用的源数据均来自 rpi-firmware 存储库。该存储库包含来自官方固件存储库的数据子集。
 
-以 root 身份运行 rpi-update 以启动更新。更新完成后，重新启动您的树莓派以使这些更改生效：
+要开始更新，请以 root 身份运行 rpi-update。更新完成后，需重启您的树莓派以使这些更改生效：
 
 ```
 $ sudo rpi-update
@@ -179,7 +179,7 @@ $ sudo reboot
 
 ### 将固件降级到最新稳定版本。
 
-如果您在将固件更新到最新版本后遇到问题，请使用以下命令退回到上一个稳定版固件：
+如果您在把固件更新到最新版本后遇到问题，请使用以下命令退回到上个稳定版固件：
 
 ```
 $ sudo apt-get update
@@ -190,12 +190,12 @@ $ sudo apt install --reinstall raspi-firmware
 $ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
 ```
 
-使用 sudo reboot 重新启动您的树莓派以使这些更改生效。
+最后，使用 `sudo reboot` 重启您的树莓派以使这些更改生效。
 
 ## 播放音频和视频
 
 
-Raspberry Pi OS 预装了 VLC 媒体播放器。您可以使用 VLC 播放视频和音频文件。VLC 在 Raspberry Pi OS 中使用硬件加速，并支持许多流行的音频和视频文件格式。
+Raspberry Pi OS 预装了 VLC 媒体播放器。您可以使用 VLC 播放视频和音频文件。VLC 在 Raspberry Pi OS 中使用硬件加速，并支持多种常见的音频和视频文件格式。
 
 ### VLC 媒体播放器
 
@@ -203,11 +203,11 @@ Raspberry Pi OS 预装了 VLC 媒体播放器。您可以使用 VLC 播放视频
 
 从树莓派桌面播放音频或视频文件，请在文件管理器中双击文件。这将自动启动 VLC 播放文件。或者，从“声音和视频”菜单中启动 VLC 媒体播放器。然后，从“媒体”菜单中选择“打开文件...”，并导航到要播放的文件。
 
-默认情况下，Raspberry Pi OS 通过 HDMI 将音频发送到您的显示器。要将音频输出到其他接口（如耳机插孔或 USB 扬声器），请右键单击系统托盘中的扬声器图标，然后选择选项。
+默认情况下，Raspberry Pi OS 通过 HDMI 将音频输出到您的显示器。要将音频输出到其他接口（如耳机插孔或 USB 扬声器），请右键单击系统托盘中的扬声器图标，然后选择选项。
 
 #### vlc 命令行界面
 
-您还可以从命令行启动 VLC。对于下面的示例，我们使用了来自大型雄兔的短片段。要从树莓派下载此片段，请运行以下命令：
+您还可以从命令行启动 VLC。在下面的示例中，我们使用了来自大型雄兔的短片段。要从树莓派下载此片段，请运行以下命令：
 
 ```
 $ wget --trust-server-names http://rptl.io/big-buck-bunny
