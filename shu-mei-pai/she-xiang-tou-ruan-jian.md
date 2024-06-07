@@ -4,7 +4,7 @@
 
 树莓派生产了几款官方摄像头模块，包括：
 
-* 最开始的 500 万像素摄像头模块 1（已停产）
+* 最早的 500 万像素摄像头模块 1（已停产）
 * 配备 8 百万像素相机模块 2，带或不带红外滤光片
 * 配备 12 百万像素相机模块 3，带标准和广角镜头，带或不带红外滤光片
 * 配备 12 百万像素高质量相机，CS 和 M12 安装变种，可用于外部镜头
@@ -725,7 +725,7 @@ $ rpicam-hello --config example_configuration.txt
 
  示例： rpicam-hello --preview 100,100,500,500
 
-![Letterboxed preview image](https://www.raspberrypi.com/documentation/computers/images/preview_window.jpg)
+![Letterboxed preview image](../.gitbook/assets/preview_window.jpg)
 
 #### `fullscreen`
 
@@ -762,7 +762,7 @@ $ rpicam-hello --config example_configuration.txt
 | `%lp`     | 以屈光度表示的当前镜头位置（1 / 米数）。                      |
 | `%afstate`     | 自动对焦算法状态（ idle ， scanning ， focused 或 failed ）。 |
 
-![Image showing focus measure](https://www.raspberrypi.com/documentation/computers/images/focus.jpg)
+![Image showing focus measure](../.gitbook/assets/focus.jpg)
 
 #### width 和 height
 
@@ -1507,7 +1507,7 @@ $ rpicam-hello --post-process-file negate.json
 
 Sobel 阶段使用 OpenCV，因此具有 cv 后缀。它具有一个可由用户配置的参数， ksize ，指定要使用的滤波器的内核大小。在这种情况下，Sobel 滤波器在黑色背景上产生明亮边缘，否定阶段将其转换为白色背景上的暗边缘。
 
-![A negated Sobel filter](https://www.raspberrypi.com/documentation/computers/images/sobel_negate.jpg)
+![A negated Sobel filter](../.gitbook/assets/sobel_negate.jpg)
 
 一个否定的 Sobel 滤波器。
 
@@ -1542,7 +1542,7 @@ $ rpicam-hello --post-process-file negate.json
 
  示例输出：
 
-![A negated image](https://www.raspberrypi.com/documentation/computers/images/negate.jpg)
+![A negated image](../.gitbook/assets/negate.jpg)
 
  一个否定的图像。
 
@@ -1596,7 +1596,7 @@ DRC 的默认 drc.json 文件：
 
  示例：
 
-![Image without DRC processing](https://www.raspberrypi.com/documentation/computers/images/nodrc.jpg)
+![Image without DRC processing](../.gitbook/assets/nodrc.jpg)
 
 没有 DRC 处理的图像
 
@@ -1606,7 +1606,7 @@ DRC 的默认 drc.json 文件：
 $ rpicam-still -o test.jpg --post-process-file drc.json
 ```
 
-![Image with DRC processing](https://www.raspberrypi.com/documentation/computers/images/drc.jpg)
+![Image with DRC processing](../.gitbook/assets/drc.jpg)
 
 具有 DRC 处理的图像
 
@@ -1635,7 +1635,7 @@ HDR 的默认 hdr.json 文件：
 
  例子:
 
-![Image without HDR processing](https://www.raspberrypi.com/documentation/computers/images/nohdr.jpg)
+![Image without HDR processing](../.gitbook/assets/nohdr.jpg)
 
 没有 HDR 处理的图像
 
@@ -1645,7 +1645,7 @@ HDR 的默认 hdr.json 文件：
 $ rpicam-still -o test.jpg --ev -2 --denoise cdn_off --post-process-file hdr.json
 ```
 
-![Image with DRC processing](https://www.raspberrypi.com/documentation/computers/images/hdr.jpg)
+![Image with DRC processing](../.gitbook/assets/hdr.jpg)
 
 带有 HDR 处理的图像
 
@@ -1725,7 +1725,7 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 
  例子：
 
-![Using a Sobel filter to emphasise edges](https://www.raspberrypi.com/documentation/computers/images/sobel.jpg)
+![Using a Sobel filter to emphasise edges](../.gitbook/assets/sobel.jpg)
 
 使用 Sobel 滤波器来强调边缘。
 
@@ -1764,7 +1764,7 @@ face_detect_cv 阶段仅在预览和视频捕获期间运行。它会忽略静�
 
  示例：
 
-![Drawing detected faces onto an image](https://www.raspberrypi.com/documentation/computers/images/face_detect.jpg)
+![Drawing detected faces onto an image](../.gitbook/assets/face_detect.jpg)
 
 在图像上检测到的面部绘制。
 
@@ -1809,7 +1809,7 @@ face_detect_cv 阶段仅在预览和视频捕获期间运行。它会忽略静�
 
  示例：
 
-![Writing camera and date information onto an image with annotations](https://www.raspberrypi.com/documentation/computers/images/annotate.jpg)
+![Writing camera and date information onto an image with annotations](../.gitbook/assets/annotate.jpg)
 
 使用注释将相机和日期信息写入图像。
 
@@ -1869,7 +1869,7 @@ object_classify_tf 使用 Google MobileNet v1 模型对摄像头图像中的对�
 $ rpicam-hello --post-process-file object_classify_tf.json --lores-width 224 --lores-height 224
 ```
 
-![Object classification of a desktop computer and monitor](https://www.raspberrypi.com/documentation/computers/images/classify.jpg)
+![Object classification of a desktop computer and monitor](../.gitbook/assets/classify.jpg)
 
 桌面电脑和显示器的对象分类。
 
@@ -1915,7 +1915,7 @@ pose_estimation_tf 使用 Google MobileNet v1 模型来检测姿势信息。
 $ rpicam-hello --post-process-file pose_estimation_tf.json --lores-width 258 --lores-height 258
 ```
 
-![Pose estimation of an adult human male](https://www.raspberrypi.com/documentation/computers/images/pose.jpg)
+![Pose estimation of an adult human male](../.gitbook/assets/pose.jpg)
 
 成年男性人体姿势估计。
 
@@ -1968,7 +1968,7 @@ object_detect_tf 使用 Google MobileNet v1 SSD（Single Shot Detector）模型�
 $ rpicam-hello --post-process-file object_detect_tf.json --lores-width 400 --lores-height 300
 ```
 
-![Detecting apple and cat objects](https://www.raspberrypi.com/documentation/computers/images/detection.jpg)
+![Detecting apple and cat objects](../.gitbook/assets/detection.jpg)
 
 检测苹果和猫对象。
 
@@ -2013,7 +2013,7 @@ segmentation_tf 使用 Google MobileNet v1 模型。此阶段需要一个标签�
 $ rpicam-hello --post-process-file segmentation_tf.json --lores-width 258 --lores-height 258 --viewfinder-width 1024 --viewfinder-height 1024
 ```
 
-![Running segmentation and displaying the results on a map in the bottom right](https://www.raspberrypi.com/documentation/computers/images/segmentation.jpg)
+![Running segmentation and displaying the results on a map in the bottom right](../.gitbook/assets/segmentation.jpg)
 
 在地图的右下角运行分割并显示结果。
 
@@ -2449,7 +2449,7 @@ Captured frame in 0.00 seconds.
 Writing JPEG image to 'image.jpg'.
 ```
 
-![By default](https://www.raspberrypi.com/documentation/computers/images/webcam-image.jpg)
+![By default](../.gitbook/assets/webcam-image.jpg)
 
 默认情况下， fswebcam 使用低分辨率，并添加显示时间戳的横幅。
 
@@ -2473,7 +2473,7 @@ Captured frame in 0.00 seconds.
 Writing JPEG image to 'image2.jpg'.
 ```
 
-![Specify a resolution to capture a higher quality image](https://www.raspberrypi.com/documentation/computers/images/webcam-image-high-resolution.jpg)
+![Specify a resolution to capture a higher quality image](../.gitbook/assets/webcam-image-high-resolution.jpg)
 
 指定分辨率以捕获更高质量的图像。
 
@@ -2500,7 +2500,7 @@ Disabling banner.
 Writing JPEG image to 'image3.jpg'.
 ```
 
-![Specify ](https://www.raspberrypi.com/documentation/computers/images/webcam-image-no-banner.jpg)
+![Specify ](../.gitbook/assets/webcam-image-no-banner.jpg)
 
 指定 --no-banner 以保存图像而不带有时间戳横幅。
 
