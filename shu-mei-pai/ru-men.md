@@ -36,7 +36,7 @@
 
 ### 启动介质
 
-树莓派没有内置存储，因此需要你来提供。你可以通过安装在受支持的介质上的操作系统来启动你的树莓派：一般用 microSD 卡，但也可以使用 USB 存储设备、网络存储设备及通过 PCIe 扩展板转接的存储设备。然而，只有最新型号的树莓派才能支持上以上所有类型的介质。
+树莓派没有内置存储，因此需要你来提供启动介质。你可以通过安装在受支持的介质上的操作系统来启动你的树莓派：一般用 microSD 卡，但也可以使用 USB 存储设备、网络存储设备及通过 PCIe 扩展板转接的存储设备。然而，只有最新型号的树莓派才能支持上以上所有类型的介质。
 
 自树莓派 1 Model A+ 以来的所有的消费者型号树莓派都配备了 microSD 卡槽。当卡槽中插入了 microSD 时，你的树莓派会自动从 microSD 启动。
 
@@ -119,17 +119,17 @@
 要在用于树莓派的存储设备上安装操作系统，你需要：
 
 * 可以用来把镜像写入到该存储设备的计算机
-* 将你的存储设备插入该计算机的方法
+* 将你的存储设备连接到该计算机的手段
 
-大多数树莓派用户选择 microSD 卡作为他们的启动设备。
+大多数树莓派用户选择用 microSD 卡作为他们的启动设备。
 
-我们建议使用 Raspberry Pi Imager 来安装操作系统。
+我们建议用 Raspberry Pi Imager 来安装操作系统。
 
-Raspberry Pi Imager 是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。镜像工具包含许多流行的树莓派操作系统镜像。Raspberry Pi Imager 还支持加载直接从[树莓派](https://ubuntu.com/download/raspberry-pi)或第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）下载的镜像。你可以使用 Raspberry Pi Imager 预配置树莓派的凭据和远程访问设置。
+Raspberry Pi Imager 是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。Raspberry Pi Imager 包含了许多流行的树莓派操作系统镜像。Raspberry Pi Imager 还支持加载直接从[树莓派](https://ubuntu.com/download/raspberry-pi)或第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）下载的镜像。你可以使用 Raspberry Pi Imager 预配置树莓派的凭据和远程访问设置。
 
 Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩格式。
 
-如果你没有能把镜像写入到存储设备的计算机，你可以通过互联网在你的树莓派上直接安装操作系统。
+如果你没有能把镜像写入到存储设备的计算机，你可以通过互联网直接在你的树莓派上安装操作系统。
 
 ### 使用 Raspberry Pi Imager 安装
 
