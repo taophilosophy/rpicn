@@ -28,7 +28,7 @@
 * [摄像头](pei-jian/she-xiang-tou.md)
 * [显示器](pei-jian/xian-shi-qi.md)
 * [键盘和鼠标](pei-jian/jian-pan-he-shu-biao.md)
-* [Build HAT](pei-jian/build-hat.md)
+* [Build 扩展板（Build HAT）](pei-jian/build-hat.md)
 * [传感器扩展板（Sense HAT）](pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md)
 * [电视扩展板（TV HAT）](pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md)
 * [M.2 HAT+](pei-jian/m.2-hat+.md)
