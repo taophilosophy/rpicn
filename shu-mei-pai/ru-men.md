@@ -8,63 +8,63 @@
 要开始使用你的树莓派，你需要满足如下条件：
 
 * 电源供应
-* 启动介质（例如，存储空间足够大和速度足够快的 microSD 卡）
+* 启动介质（如存储空间足够大和速度足够快的 microSD 卡）
 
-你可以将树莓派设置为带有桌面的交互式计算机，也可以将其设置为仅通过网络访问的无头计算机。要无头设置你的树莓派，你无需任何额外的外部设备：你可以在安装操作系统时预先配置主机名、用户账号、网络连接和 SSH。如果要直接使用你的树莓派，你需要以下额外配件：
+你可以将树莓派设置为带有桌面的交互式计算机，也可以将其设置为仅通过网络访问的无头系统（headless）。你无需任何额外的外部设备即可无头设置你的树莓派：你可以在安装操作系统时预先配置主机名、用户账号、网络连接和 SSH。如果要直接使用你的树莓派，你需要以下额外配件：
 
 * 显示器
-* 用于将树莓派连接到显示器的线缆
+* 用于将树莓派连接到显示器的连接线
 * 键盘
 * 鼠标
 
 ### 电源供应
 
-以下表格显示了为各种类型的树莓派提供电源所需的 USB-PD 电源型号。你可以使用其他能提供符合电源要求的高质量电源代替。
+下面的表格列出了为各种类型的树莓派提供电源所需的 USB-PD 电源型号。你可使用其他能提供符合电源功率要求的高质量电源适配器代替。
 
 | 型号                    | 推荐的电源适配器（电压/电流）     | 树莓派电源适配器 |
-| ------------------------- | ----------------------------------- | ------------------ |
-| 树莓派 5                | 5V/5A，5V/3A（将限制外围设备为 600mA） | [27W USB-C 电源适配器](https://www.raspberrypi.com/products/27w-power-supply/)                 |
-| 树莓派 4 型 B           | 5V/3A                             | [15W USB-C 电源适配器](https://www.raspberrypi.com/products/type-c-power-supply/)                 |
+| :-------------------------: | :-----------------------------------: | :------------------: |
+| 树莓派 5                | 5V/5A，5V/3A（将限制外部设备至 600mA） | [27W USB-C 电源适配器](https://www.raspberrypi.com/products/27w-power-supply/)                 |
+| 树莓派 4 Model B        | 5V/3A                             | [15W USB-C 电源适配器](https://www.raspberrypi.com/products/type-c-power-supply/)                 |
 | 树莓派 3（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 | 树莓派 2（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 | 树莓派 1（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 | 树莓派 Zero（所有型号） | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 
-![Plugging a power supply into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-power.png)
+![将电源插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-power.png)
 
-将电源适配器插入标有 "POWER IN"、"PWR IN" 或 "PWR" 的接口。某些树莓派型号（如 Zero 系列）具有与电源接口相同外形尺寸的 USB 输出接口。请确保在树莓派上使用了正确的接口！
+请将电源适配器插入标有“POWER IN”、“PWR IN”或“PWR”的接口。某些型号的树莓派（如 Zero 系列）的 USB 输出接口的外形尺寸与电源接口相同。请确保在树莓派上使用了正确的接口！
 
 ### 启动介质
 
-树莓派没有内置存储，因此需要你来提供它。你可以通过安装在受支持的介质上的操作系统来启动你的树莓派：通常使用 microSD 卡，但也可以使用 USB 存储设备、网络存储和通过 PCIe 扩展板转接的存储设备。然而，只有最新型号的树莓派支持所有这些类型的介质。
+树莓派没有内置存储，因此需要你来提供。你可以通过安装在受支持的介质上的操作系统来启动你的树莓派：一般用 microSD 卡，但也可以使用 USB 存储设备、网络存储设备及通过 PCIe 扩展板转接的存储设备。然而，只有最新型号的树莓派才能支持上述所有这些类型的介质。
 
-自树莓派 1 Model A+ 以来的所有树莓派消费者型号都配备了 microSD 卡槽。当卡槽中插入了 microSD 时，你的树莓派会自动从 microSD 启动。
+自树莓派 1 Model A+ 以来的所有消费者型号的树莓派都配备了 microSD 卡槽。当卡槽中插入了 microSD 时，你的树莓派会自动从 microSD 启动。
 
-![Inserting a microSD card into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/sd-card.png)
+![将 microSD 卡插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/sd-card.png)
 
 #### 推荐的 SD 卡
 
 我们建议，用于安装 Raspberry Pi OS 的 SD 卡至少要拥有 32GB 存储空间。对于 Raspberry Pi OS Lite，我们建议至少为 16GB。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。与所有其他启动介质一样，读写速度更快的 SD 卡能提供更好的性能。
 
-由于硬件限制，以下设备只能从 256GB 或更小的启动分区启动：
+由于硬件限制，以下设备只能从 256GB（或更小）的启动分区启动：
 
 * 树莓派 Zero
 * 树莓派 1
 * 基于 BCM2836 SoC 的早期树莓派 Model 2 
 
-其他操作系统有不同的要求。请查阅你操作系统的文档以获取容量要求。
+其他操作系统可能有不同的需求。请查阅你使用的操作系统文档以了解容量需求。
 
 ### 键盘
 
-你可以使用树莓派上的任一 USB 接口来连接有线键盘或 USB 蓝牙接收器。
+你可以使用树莓派上的任意 USB 接口来连接[有线键盘](https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/)或 USB 蓝牙接收器。
 
-![Plugging a keyboard into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-key.png)
+![将键盘插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-key.png)
 
 ### 鼠标
 
-你可以使用树莓派上的任一 USB 接口连接有线鼠标或 USB 蓝牙接收器。
+你可以使用树莓派上的任意 USB 接口来连接[有线鼠标](https://www.raspberrypi.com/products/raspberry-pi-mouse/)或 USB 蓝牙接收器。
 
-![Plugging a mouse into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-mouse.png)
+![将鼠标插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-mouse.png)
 
 ### 显示器
 
@@ -72,31 +72,31 @@
 
 | 型号                    | 显示输出                                             |
 | ------------------------- | ------------------------------------------------------ |
-| 树莓派 5                | 2× micro HDMI                                        |
-| 树莓派 4（所有型号）    | 2× micro HDMI，音频和通过 3.5 毫米 TRRS 插孔复合输出通过 |
-| 树莓派 3（所有型号）    | HDMI，音频和通过 3.5 毫米 TRRS 插孔复合输出          |
-| 树莓派 2 (所有型号)     | 通过 3.5 毫米 TRRS 插孔进行 HDMI、音频和复合输出     |
-| 树莓派 1 Model B+       | 通过 3.5 毫米 TRRS 插孔进行 HDMI、音频和复合输出     |
-| 树莓派 1 型 A+          | 通过 3.5 毫米 TRRS 插孔进行 HDMI、音频和复合输出     |
+| 树莓派 5                | micro HDMI ×2                                       |
+| 树莓派 4（所有型号）    | micro HDMI ×2，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出 |
+| 树莓派 3（所有型号）    | HDMI，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出          |
+| 树莓派 2 (所有型号)     | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
+| 树莓派 1 Model B+       | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
+| 树莓派 1 型 A+          | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
 | 树莓派 Zero（所有型号） | mini HDMI                                            |
 
 >**注意**
 >
->所有型号的树莓派都不支持通过 USB-C 进行视频传输（即不支持 DisplayPort alt mode）。 
+>所有型号的树莓派都不支持 USB-C 视频传输（即不支持 DisplayPort alt mode）。 
 
-如果你的树莓派有多个 HDMI 接口，请将主显示器插入标有 HDMI0 的接口。
+如果你的树莓派有多个 HDMI 接口，请将主显示器插入标有 `HDMI0` 的那个接口。
 
-大多数显示器不支持 micro HDMI 或 mini HDMI。但是，你可以使用 micro-HDMI 转 HDMI 转换线和 mini-HDMI 转 HDMI 转换线将树莓派上的这些接口转接到 HDMI 显示器。对于不支持 HDMI 的显示器，请考虑使用转换器将 HDMI 输出转换为设备所支持的类型。
+常见的显示器不支持 micro HDMI 或 mini HDMI。但是，你可以使用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 或 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)将树莓派上的这些接口转接到 HDMI 显示器。如果显示器不支持 HDMI，请考虑使用转换器将 HDMI 输出转换为该设备所支持的类型。
 
 ![Plugging a micro HDMI cable into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-hdmi.png)
 
 ### 音频
 
-所有型号的树莓派都支持通过 HDMI、micro HDMI 或 mini HDMI 输出音频。并且都支持通过 USB 输出音频。所有配备了蓝牙的树莓派都支持蓝牙音频。树莓派 1、2、3 和 4 的所有变种都有一个 3.5 毫米的 TRRS 耳机插孔，可能需要放大器才能获得足够的输出音量。
+所有型号的树莓派都支持通过 HDMI、micro HDMI 或 mini HDMI 进行音频输出，且都支持通过 USB 进行音频输出。所有配备了蓝牙的树莓派都支持蓝牙音频。所有基于树莓派 1、2、3 和 4 的型号都有一个 3.5 mm 的 [TRRS](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards) AUX 耳机插孔，但可能需要用放大器才能获得足够的输出音量。
 
 ### 网络
 
-以下型号的树莓派配备了 Wi-Fi 和蓝牙连接功能：
+如下型号的树莓派配备了 Wi-Fi 和蓝牙连接功能：
 
 * 树莓派 5
 * 树莓派 4
@@ -105,62 +105,62 @@
 * 树莓派 Zero W
 * 树莓派 Zero 2 W
 
-后缀“Model B”表示带以太网接口的版本；“Model A”表示没有以太网接口。如果你的树莓派没有以太网接口，你还可以使用 USB 转以太网转换器来连接有线互联网。
+后缀“Model B”代表带以太网接口的版本；“Model A”代表没有以太网接口。如果你的树莓派没有以太网接口，你还可以使用 USB 转以太网转换器来连接有线互联网。
 
-![Plugging an Ethernet cable into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-net.png)
+![把以太网线接入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-net.png)
 
 ## 安装操作系统
 
 
-要使用你的树莓派，你需要操作系统。默认情况下，树莓派会检查插入 SD 卡槽中的 SD 卡内是否有操作系统。
+要使用你的树莓派，你需要一个操作系统。在默认情况下，树莓派会查找插入 SD 卡槽中的 SD 卡内是否有操作系统。
 
-根据你的树莓派型号，你还可以从其他存储设备引导操作系统，包括 USB 设备、通过扩展板连接的存储设备和网络存储设备。
+取决于你的树莓派型号，你还可以通过其他存储设备启动操作系统，包括 USB 设备、网络存储和通过扩展板连接的存储设备。
 
-要为你的树莓派在存储设备上安装操作系统，你需要：
+要在用于树莓派的存储设备上安装操作系统，你需要：
 
-* 可以用来将存储设备镜像到写入设备中的计算机
+* 可以用来把镜像写入到该存储设备的计算机
 * 将你的存储设备插入该计算机的方法
 
-大多数树莓派用户选择 microSD 卡作为他们的引导设备。
+大多数树莓派用户选择 microSD 卡作为他们的启动设备。
 
-我们建议使用树莓派镜像工具来安装操作系统。
+我们建议使用 Raspberry Pi Imager 来安装操作系统。
 
-树莓派镜像工具是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。镜像工具包含许多流行的树莓派操作系统镜像。镜像工具还支持加载直接从树莓派或第三方供应商（如 Ubuntu）下载的镜像。你可以使用镜像工具预配置树莓派的凭据和远程访问设置。
+Raspberry Pi Imager 是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。镜像工具包含许多流行的树莓派操作系统镜像。Raspberry Pi Imager 还支持加载直接从[树莓派](https://ubuntu.com/download/raspberry-pi)或第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）下载的镜像。你可以使用 Raspberry Pi Imager 预配置树莓派的凭据和远程访问设置。
 
-镜像工具支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩格式。
+Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩格式。
 
-如果你没有能把镜像写入启动设备的计算机，你可以在你的树莓派上通过互联网直接安装操作系统。
+如果你没有能把镜像写入到存储设备的计算机，你可以通过互联网在你的树莓派上直接安装操作系统。
 
-### 使用 Imager 安装
+### 使用 Raspberry Pi Imager 安装
 
-你可以通过以下方式安装 Imager：
+你可以通过以下方式安装 Raspberry Pi Imager：
 
 * 从树莓派官网 [raspberrypi.com/software](https://www.raspberrypi.com/software/) 下载最新版本并运行安装程序。
-* 通过终端使用你的软件包管理器安装，例如 `sudo apt install rpi-imager` 。
+* 通过终端使用包管理器安装，如 `sudo apt install rpi-imager`。
 
-安装 Imager 后，通过单击树莓派 Imager 图标或执行 `rpi-imager` 启动应用程序。
+安装 Raspberry Pi Imager 后，通过单击 Raspberry Pi Imager 图标或执行 `rpi-imager` 启动应用程序。
 
-![Raspberry Pi Imager main window.](https://www.raspberrypi.com/documentation/computers/images/imager/welcome.png)
+![Raspberry Pi Imager 主窗口](https://www.raspberrypi.com/documentation/computers/images/imager/welcome.png)
 
-单击“选择设备（Choose device）”，然后从列表中选择你的树莓派型号。
+单击“**选择设备（Choose device）**”，然后从列表中选择你的树莓派型号。
 
-![Raspberry Pi model selections in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/choose-model.png)
+![在 Raspberry Pi Imager 中选择树莓派型号](https://www.raspberrypi.com/documentation/computers/images/imager/choose-model.png)
 
-接下来，单击“选择操作系统（Choose OS）”，然后选择要安装的操作系统。Imager 始终在列表顶部显示推荐版本的 Raspberry Pi OS 供你的型号选择。
+接下来，单击“**选择操作系统（Choose OS）**”，然后选择要安装的操作系统。Raspberry Pi Imager 将始终在列表最上面显示适用于你的型号，推荐版本的 Raspberry Pi OS。
 
-![Operating system selections in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/choose-os.png)
+![在 Raspberry Pi Imager 中选择操作系统](https://www.raspberrypi.com/documentation/computers/images/imager/choose-os.png)
 
-将首选存储设备连接到计算机。例如，使用外部或内置 SD 卡读卡器插入 microSD 卡。然后，单击“选择存储（Choose storage）”，选择你的存储设备。
+将首选存储设备连接到计算机。例如，使用外部或内置 SD 卡读卡器插入 microSD 卡。然后，单击“**选择存储设备（Choose storage）**”，选择你的存储设备。
 
 >**警告**
 >
->如果你的计算机连接了多个存储设备，请务必选择正确的设备！通常可以通过大小来识别存储设备。如不确定，请断开其他设备，直到确定要刻录镜像的设备。 
+>如果你的计算机连接了多个存储设备，*请务必选择正确的设备！* 通常可以通过大小来识别存储设备。如不确定，请断开其他设备，直到确定要刻录镜像的设备。 
 
-![Storage selection options in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
+![在 Raspberry Pi Imager 中选择存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
 
- 接下来，点击“下一步（Next）”。
+ 接下来，点击“**下一步（Next）**。
 
-![Imager prompt to open OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-prompt.png)
+![在 Raspberry Pi Imager 中打开 OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-prompt.png)
 
 在弹出窗口中，Imager 将要求你应用操作系统设置。我们强烈建议通过操作系统定制设置配置你的树莓派。单击“编辑设置（Edit Settings）”按钮打开操作系统定制（ OS customisation）。
 
