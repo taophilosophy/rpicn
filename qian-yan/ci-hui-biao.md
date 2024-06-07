@@ -6,6 +6,7 @@
 | Raspberry Pi OS | Raspberry Pi OS |
 |Raspberry Pi OS Lite|Raspberry Pi OS Lite|
 | APT              | APT           |
+|ports |接口/端口/通道/port/省略该词|
 | Legacy           | 旧版           |
 | Hz               | Hz            |
 | remote access    | 远程访问       |
@@ -26,7 +27,7 @@
 | MicroPython      | MicroPython   |
 | SDK              | SDK           |
 |peripherals |外设/外部设备|
-|models|型号或不翻译或省略|
+|models|型号/models/省略该词|
 |form factor|外形尺寸|
 
 
