@@ -619,11 +619,11 @@ $ source ~/.env/bin/activate
  
 树莓派的一个强大功能是主板顶部沿边的 GPIO（通用输入/输出）引脚排针。所有当前的树莓派开发板上都有一个 40 针的 GPIO 引脚排针（尽管在树莓派 Zero、树莓派 Zero W 和树莓派 Zero 2 W 上是未焊接的）。所有板子上的 GPIO 引脚排针的引脚间距都是 0.1 英寸（2.54 毫米）。
 
-![GPIO pins](https://www.raspberrypi.com/documentation/computers/images/GPIO-Pinout-Diagram-2.png)
+![GPIO pins](../.gitbook/assets/GPIO-Pinout-Diagram-2.png)
 
 所有 GPIO 引脚都可以在软件中指定为输入或输出引脚，并用于各种用途。
 
-![GPIO layout](https://www.raspberrypi.com/documentation/computers/images/GPIO.png)
+![GPIO layout](../.gitbook/assets/GPIO.png)
 
 >**注意**
 >
