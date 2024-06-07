@@ -2,7 +2,7 @@
 
 ## 开始使用您的树莓派
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1905690119&bvid=BV1TS411N7Fs&cid=1574129121&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" width="100%" height="600">
+{% embed url="player.bilibili.com/player.html?isOutside=true&aid=1905690119&bvid=BV1TS411N7Fs&cid=1574129121&p=1" %}
 
 要开始使用您的树莓派，您需要满足如下条件：
 
