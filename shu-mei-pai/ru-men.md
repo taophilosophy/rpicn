@@ -30,7 +30,7 @@
 | 树莓派 1（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 | 树莓派 Zero（所有型号） | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 
-![将电源插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-power.png)
+![将电源插入树莓派](../.gitbook/assets/cable-power.png)
 
 请将电源适配器插入标有“POWER IN”、“PWR IN”或“PWR”的接口。某些型号的树莓派（如 Zero 系列）的 USB 输出接口的外形尺寸与电源接口相同。请确保在树莓派上使用了正确的接口！
 
@@ -40,7 +40,7 @@
 
 自树莓派 1 Model A+ 以来的所有消费者型号的树莓派都配备了 microSD 卡槽。当卡槽中插入了 microSD 时，你的树莓派会自动从 microSD 启动。
 
-![将 microSD 卡插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/sd-card.png)
+![将 microSD 卡插入树莓派](../.gitbook/assets/sd-card.png)
 
 #### 推荐的 SD 卡
 
@@ -58,13 +58,13 @@
 
 你可以使用树莓派上的任意 USB 接口来连接[有线键盘](https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/)或 USB 蓝牙接收器。
 
-![将键盘插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-key.png)
+![将键盘插入树莓派](../.gitbook/assets/cable-key.png)
 
 ### 鼠标
 
 你可以使用树莓派上的任意 USB 接口来连接[有线鼠标](https://www.raspberrypi.com/products/raspberry-pi-mouse/)或 USB 蓝牙接收器。
 
-![将鼠标插入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-mouse.png)
+![将鼠标插入树莓派](../.gitbook/assets/cable-mouse.png)
 
 ### 显示器
 
@@ -88,7 +88,7 @@
 
 常见的显示器不支持 micro HDMI 或 mini HDMI。但是，你可以使用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 或 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)将树莓派上的这些接口转接到 HDMI 显示器。如果显示器不支持 HDMI，请考虑使用转换器将 HDMI 输出转换为该设备所支持的类型。
 
-![Plugging a micro HDMI cable into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-hdmi.png)
+![Plugging a micro HDMI cable into a Raspberry Pi.](../.gitbook/assets/cable-hdmi.png)
 
 ### 音频
 
@@ -107,7 +107,7 @@
 
 后缀“Model B”代表带以太网接口的版本；“Model A”代表没有以太网接口。如果你的树莓派没有以太网接口，你还可以使用 USB 转以太网转换器来连接有线互联网。
 
-![把以太网线接入树莓派](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-net.png)
+![把以太网线接入树莓派](../.gitbook/assets/cable-net.png)
 
 ## 安装操作系统
 
@@ -247,17 +247,17 @@ Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip`
 * 连接键盘
 * 连接兼容的存储设备，如 SD 卡或 USB 存储设备
 
-![The Network Install screen.](https://www.raspberrypi.com/documentation/computers/images/network-install-1.png)
+![The Network Install screen.](../.gitbook/assets/network-install-1.png)
 
 如果你尚未将树莓派连接到互联网，请使用网线进行连接。
 
-![Starting Network Install.](https://www.raspberrypi.com/documentation/computers/images/network-install-2.png)
+![Starting Network Install.](../.gitbook/assets/network-install-2.png)
 
 连接到互联网后，你的树莓派将下载树莓派安装程序。如果下载失败，你可以重复该过程再试一次。
 
-![Downloading Imager using Network Install.](https://www.raspberrypi.com/documentation/computers/images/network-install-3.png)
+![Downloading Imager using Network Install.](../.gitbook/assets/network-install-3.png)
 
-在你完成下载树莓派安装程序后，你的树莓派将自动启动树莓派镜像工具。有关运行树莓派镜像工具的更多信息，请参阅安装操作系统。
+在完成下载树莓派安装程序后，你的树莓派将自动启动树莓派镜像工具。有关运行树莓派镜像工具的更多信息，请参阅安装操作系统。
 
 ![Choose a storage device.](https://www.raspberrypi.com/documentation/computers/images/network-install-4.png)
 
@@ -270,11 +270,11 @@ Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip`
 
 首先，拔掉树莓派的电源适配器，确保在连接外围设备时树莓派已关机。如果你在 microSD 卡上安装了操作系统，现在可以将其插入树莓派的卡槽。如果你在其他存储设备上安装了操作系统，现在可以将其连接到树莓派。
 
-![Inserting a microSD card into a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/sd-card.png)
+![Inserting a microSD card into a Raspberry Pi.](../.gitbook/assets/sd-card.png)
 
 然后，插入所需的其他外围设备，如鼠标、键盘和显示器。
 
-![Attaching the power supply to a Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/peripherals/cable-all.png)
+![Attaching the power supply to a Raspberry Pi.](../.gitbook/assets/cable-all.png)
 
 最后，将电源连接到你的树莓派。当你的树莓派开机时，你应该看到 LED 状态亮起。如果你的树莓派接入了显示器，你应该在几分钟内看到启动屏幕。
 
@@ -290,7 +290,7 @@ Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip`
 
 如果你选择在 Imager 中跳过系统定制，则你的树莓派将在首次启动时运行配置向导。你需要一个显示器和键盘来浏览向导（如果没有鼠标也可以进行）。
 
-![Click Next to get started with configuration.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/start.png)
+![Click Next to get started with configuration.](../.gitbook/assets/start.png)
 
 ### 蓝牙
 
