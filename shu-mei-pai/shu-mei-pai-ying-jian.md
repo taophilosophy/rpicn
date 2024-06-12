@@ -9,7 +9,7 @@
 
 所有 GPIO 引脚都可以在软件中指定为输入或输出引脚，并用于各种用途。
 
-![GPIO layout](https://www.raspberrypi.com/documentation/computers/images/GPIO.png)
+![GPIO layout](../.gitbook/assets/GPIO.png)
 
 >**注意**
 >
