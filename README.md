@@ -6,7 +6,18 @@
 
 ## 版本说明
 
-当前版本指向 <https://github.com/raspberrypi/documentation/commit/f0511a225236d2defc8c12010c315827cb3baf7d>
+当前版本指向 2024.7.10 <https://github.com/raspberrypi/documentation/commit/b68a629c7212e668fdfba94d227cc9ec32d9bfbb>
+
+## 对于想要更新树莓派文档以追踪上游的人的建议
+
+**树莓派官方文档实际上基本上不会变化，只有在每个版本发行后的半年内才会经常变动。如果你看到他有很多提交甚至有几千个，那都是在刷 KPI，实际上他一个字也没动，就是把顺序改了。而且每次只改几个字。**
+
+为了对付这种刷 KPI 行为对译者的影响，建议你使用以下方法追踪上游更新：
+
+- **原文从哪获取？** 首先，文档原文来源应该来自[官方文档页面](https://www.raspberrypi.com/documentation/)，而非直接对着 [Github](https://github.com/raspberrypi/documentation) 的 adoc 文档进行翻译，那样你是对付不了他的，他一天能提交上百次，你能吗？而且他默认分支是 `develop`，你翻译该分支也是错误的，应该是翻译 `master`，因为根据官方构建指南，官方文档页面是从 `master` 分支生成的。
+- **如何追踪或同步上游更新？** 最简单的办法是，直接复制网页，粘贴到 Markdown 软件里，本项目使用的是思源笔记，如果表格错乱，你可以用 Marktext 代替之。对于该操作，Typora、Obsidian 均表现不佳，对于该项目应该优先选用思源笔记，少部分项目必须使用 Marktext 才能达到效果。然后将每个页面存起来，下次需要对比的时候，再次生成覆盖原文即可，在线对比信息会由 Github 自动生成，简单明了。为什么不直接对比 Github adoc 原文？因为他将一个文档每个小节都拆成了单独的 adoc，多达数百个，笔者个人认为这是多余的行为。且不利于他人对树莓派文档进行更新。如果你按原文对比，会发现他提交了几千次更改，但实际上你会发现，他其实一个字也没改，完全是在刷 KPI。
+- 本项目基于的 Markdown 英文原文存档位于 <https://github.com/taophilosophy/rpi-documentation-diff/>
+
 
 ## 版权说明
 
