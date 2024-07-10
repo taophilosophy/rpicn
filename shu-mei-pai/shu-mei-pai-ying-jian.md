@@ -1618,13 +1618,13 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 如果启动网络安装或 HTTP 引导，则会从此服务器下载 boot.img 和 boot.sig 。
 
-无效的主机名将被忽略。它们应仅包含小写字母数字字符和 - 或 . 。如果设置了 HTTP_HOST ，则将禁用 HTTPS 并改用普通的 HTTP。您可以指定 IP 地址以避免 DNS 查找的需要。在主机名中不要包含 HTTP 方案或任何正斜杠。
+无效的主机名将被忽略。它们应仅包含小写字母数字字符和 - 或 . 。如果设置了 HTTP_HOST ，则将禁用 HTTPS 并改用普通的 HTTP。您可以指定 IP 地址以避免 DNS 查找的需要。在主机名中不要包含 HTTP 方案及正斜杠。
 
  默认: fw-download-alias1.raspberrypi.com
 
 #### `HTTP_PORT`
 
-您可以使用此属性更改用于网络安装和 HTTP 引导的 port . 使用默认主机 fw-download-alias1.raspberrypi.com 时启用 HTTPS . 如果 HTTP_HOST 被更改，则禁用 HTTPS 并改用普通 HTTP .
+您可以使用此属性更改用于网络安装和 HTTP 引导的 port . 使用默认主机 fw-download-alias1.raspberrypi.com 时启用 HTTPS . 如果修改了 HTTP_HOST，则会禁用 HTTPS 并改用普通 HTTP .
 
 当禁用 HTTPS 时，即使 HTTP_PORT 被更改为 443 ，仍将使用普通 HTTP .
 
@@ -1650,7 +1650,7 @@ Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and 
 
 #### `NET_INSTALL_ENABLED`
 
-当启用网络安装时，如果检测到键盘，引导加载程序会在启动时显示网络安装屏幕。
+当启用网络安装时，如果检测到了键盘，引导加载程序会在启动时显示网络安装界面。
 
 为了启用网络安装，请添加 NET_INSTALL_ENABLED=1 ，或者为了禁用网络安装，请添加 NET_INSTALL_ENABLED=0 。
 
@@ -1664,10 +1664,10 @@ Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and 
 
 如果启用了网络安装，则引导加载程序会尝试检测键盘和按 SHIFT 键以启动网络安装。您可以使用此属性更改此等待时间的长度（以毫秒为单位）。
 
-将此设置为 0 将禁用键盘等待，尽管如果找不到引导文件且 USB 引导模式为 4 且处于 BOOT_ORDER 中，则仍可以启动网络安装。
+将此设置为 0 将禁用对键盘的等待，尽管如果找不到引导文件且 USB 引导模式为 4 且处于 BOOT_ORDER 中，则仍可以启动网络安装。
 
-| NOTE | 测试表明键盘和 SHIFT 检测至少需要 750 毫秒。 |
-| ------ | ---------------------------------------------- |
+| NOTE | 测试表明检测键盘和 SHIFT 至少需要 750 毫秒。 |
+| ------ | ------------------------------------ |
 
  默认: 900
 
@@ -1725,7 +1725,7 @@ PARTITION=2
 
 仅适用于 Raspberry Pi 5。
 
-如果设置，该属性指示固件跳过 USB 供电谈判，并假定连接到具有给定电流评级的电源。通常，这通常设置为 3000 或 5000 ，即低或高电流能力的电源。
+如果设置，该参数指示固件跳过 USB 供电握手，并假定连接到了具有给定电流等级的电源。通常设置为 3000（小电流电源） 或 5000（大电流电源）。
 
  默认: ""
 
@@ -1747,7 +1747,7 @@ PARTITION=2
 
 #### `USB_MSD_LUN_TIMEOUT`
 
-在前进到下一个 LUN 之前等待的毫秒数，例如多槽 SD-CARD 读卡器。这仍在调整中，但可能有助于加快启动速度，如果连接了旧/慢设备以及包含 OS 的快速 USB-MSD 设备。
+在前进到下一个 LUN 之前等待的毫秒数，例如多槽 SD-CARD 读卡器。这仍在调整中，但可能有助于加快启动速度，如果连接了旧、慢设备以及包含 OS 的快速 USB-MSD 设备。
 
  最小值: 100
 
