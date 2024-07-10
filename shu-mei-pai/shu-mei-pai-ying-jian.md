@@ -961,19 +961,19 @@ GPIO 针脚的默认上拉电阻为 50KΩ，详见 BCM2835 ARM 外围设备数�
 
 ## NVMe 固态硬盘引导
 
-NVMe（非易失性内存）是通过 PCIe 总线进行外部存储访问的标准。您可以通过 Compute Module 4（CM4）IO 板或树莓派 5 上的 PCIe 槽连接 NVMe 驱动器。通过一些额外配置，您可以从 NVMe 驱动器启动。
+NVMe（高速非易失性内存）是通过 PCIe 总线进行外部存储访问的标准。您可以通过 Compute Module 4（CM4）IO 板或树莓派 5 上的 PCIe 槽连接 NVMe 驱动器。再通过一些额外配置，您就可以从 NVMe 驱动器启动了。
 
 ### 先决条件
 
 #### 硬件
 
 * NVMe M.2 固态硬盘
-* 一种从 PCIe 转换到 M.2 标准的适配器。
+* 一款从 PCIe 转标准 M.2 的转接器
 
-  * 对于 Raspberry Pi 5，我们推荐使用 M.2 HAT+，它将 Raspberry Pi 的 PCIe FFC 槽转换为 M Key 接口。
-  * 对于 CM4，搜索一个 "PCI-E 3.0 ×1 线路到 M.2 NGFF M-Key SSD NVMe PCI Express 适配器卡"
+  * 对于 Raspberry Pi 5，我们推荐使用 M.2 HAT+，它能把 Raspberry Pi 的 PCIe FFC 槽转换为 M Key 接口。
+  * 对于 CM4，可搜索 "PCIe 3.0 ×1 转 M.2 NGFF M-Key SSD NVMe PCIe 转接器"
 
-要检查您的 NVMe 驱动器是否正确连接，请从另一个存储设备（如 SD 卡）引导您的 Raspberry Pi，并运行 ls -l /dev/nvme* 。示例输出如下所示。
+要检查您的 NVMe 驱动器是否正确连接，请从其他存储设备（如 SD 卡）引导您的 Raspberry Pi，并运行 ls -l /dev/nvme* 。示例输出如下所示。
 
 ```
 crw------- 1 root root 245, 0 Mar  9 14:58 /dev/nvme0
@@ -988,9 +988,9 @@ brw-rw---- 1 root disk 259, 0 Mar  9 14:58 /dev/nvme0n1
 $ sudo rpi-eeprom-update
 ```
 
-对于树莓派 5，您需要使用 2023 年 12 月 6 日或之后发布的固件。
+对于树莓派 5，您需要使用 2023 年 12 月 6 日及之后发布的固件。
 
-为了 CM4，NVMe 引导支持于 2021 年 7 月引入。您需要自那时起发布的以下软件版本：
+为了 CM4，NVMe 引导支持于 2021 年 7 月引入。您需要自那时起发布的以下版本的软件：
 
 * 引导加载程序
 * VideoCore 固件
