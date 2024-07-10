@@ -1,4 +1,4 @@
-# 树莓派硬件
+， # 树莓派硬件
 
 ## 介绍
 
@@ -26,7 +26,7 @@ Model B 代表其带有以太网口。 Model A 代表低成本产品线。他们
 | ![Raspberry Pi 3 Model A+](https://www.raspberrypi.com/documentation/computers/images/3-model-a-plus.jpg?hash=e8035ce9e2c7f5d1c8050e039aaacbaa)<br />树莓派 3 型 A+    | [BCM2837b0](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837b0)                                       | 512 MB                   | 40 针 GPIO 母座   | * HDMI * USB 2.0 * CSI 相机接口 * DSI 显示接口 * 3.5 毫米 AV 插孔 * 2.4/5GHz 双频段 802.11ac Wi-Fi (100Mb/s) * 蓝牙 4.2、低功耗蓝牙 (BLE) * microSD 卡槽 * micro USB 电源                                                                                                                                                                     |
 | ![Raspberry Pi 4 Model B](https://www.raspberrypi.com/documentation/computers/images/4-model-b.jpg?hash=f56bee1ea763677368e20dbc59574c85)<br />Raspberry Pi 4 Model B  | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)                                       | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 40 针 GPIO 母座 | * 2 × micro HDMI * 2 × USB 2.0* 2 × USB 3.0* CSI 摄像头接口* DSI 显示屏接口* 3.5 毫米音视频插孔* PoE 支持的千兆以太网 (1Gb/s)* 2.4/5GHz 双频 802.11ac Wi-Fi (120Mb/s)* 蓝牙 5, 低功耗蓝牙 (BLE)* microSD 卡槽* USB-C 电源 (5V, 3A (15W))                                                                                                       |
 | ![Raspberry Pi 400](https://www.raspberrypi.com/documentation/computers/images/400.jpg?hash=59a07dc791fc54f56c2416f42ced88e3)<br />Raspberry Pi 400                    | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)                                       | 4GB                      | 40 针 GPIO 母座 | * 2× micro HDMI * USB 2.0 * 2× USB 3.0 * 千兆以太网（1Gb/s） * 2.4/5GHz 双频 802.11ac 无线网络（120Mb/s） * 蓝牙 5，蓝牙低功耗（BLE） * microSD 卡槽 * USB-C 电源（5V，3A（15W））                                                                                                                                                            |
-| ![Raspberry Pi 5](https://www.raspberrypi.com/documentation/computers/images/5.jpg?hash=b888dab3bb8bcb8dd4e0541c99238eec)<br />树莓派 5                                | [BCM2712](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2712)                                       | 4GB<br /><br />8GB               | 40 针 GPIO 母座 | * 2 × micro HDMI* 2 × USB 2.0* 2 × USB 3.0* 2 × CSI 摄像头/DSI 显示接口* 单通道 PCIe FFC 连接器* UART 连接器* RTC 电池连接器* 四针 JST-SH PWM 风扇连接器* 支持 PoE+ 的千兆以太网（1Gb/s）* 2.4/5GHz 双频段 802.11ac Wi-Fi 5（300Mb/s）* 蓝牙 5，低功耗蓝牙（BLE）* microSD 卡槽* USB-C 电源（5V 5A（25W），支持 5V 3A（15W），但会将外设限制到 600mA）|
+| ![Raspberry Pi 5](https://www.raspberrypi.com/documentation/computers/images/5.jpg?hash=b888dab3bb8bcb8dd4e0541c99238eec)<br />树莓派 5                                | [BCM2712](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2712)                                       | 4GB<br /><br />8GB | 40 针 GPIO 母座 | * 2 × micro HDMI* 2 × USB 2.0* 2 × USB 3.0* 2 × CSI 摄像头/DSI 显示接口* 单通道 PCIe FFC 连接器* UART 连接器* RTC 电池连接器* 四针 JST-SH PWM 风扇连接器* 支持 PoE+ 的千兆以太网（1Gb/s）* 2.4/5GHz 双频段 802.11ac Wi-Fi 5（300Mb/s）* 蓝牙 5，低功耗蓝牙（BLE）* microSD 卡槽* USB-C 电源（5V 5A（25W），支持 5V 3A（15W），但会将外设限制到 600mA）|
 
 更多有关旗舰系列树莓派接口的信息，请参阅原理图和机械图。
 
@@ -37,7 +37,7 @@ Model B 代表其带有以太网口。 Model A 代表低成本产品线。他们
 所有零系列型号具有以下连接功能：
 
 * 一个 microSD 卡槽
-* 一个 CSI 摄像头接口 (早期的 Zero 的第 1.3 版引入了该接口)
+* 一个 CSI 摄像头接口 (早期的 Zero 1.3 版引入了该接口)
 * 一个 mini HDMI 接口
 * 2 × micro USB 接口（一个用于电源输入，一个用于外部设备）
 
@@ -59,7 +59,7 @@ Model B 代表其带有以太网口。 Model A 代表低成本产品线。他们
 | ![树莓派计算模块 4](https://www.raspberrypi.com/documentation/computers/images/compute-module-4.jpg?hash=989dcf3efb7c9d59f463fe404a5e3820)<br />树莓派计算模块 4        | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)    | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 0GB (精简)<br /><br />8GB<br /><br />16GB<br /><br />32GB    | 双 100 引脚高密度连接器 | 可选:<br />* 2.4/5GHz 双频 802.11ac Wi-Fi 5 (300Mb/s)* 蓝牙 5, 低功耗蓝牙 (BLE) |
 
 | NOTE | 几个计算模块外形尺寸与物理 DDR2 SO-DIMM 兼容，但与 DDR2 SO-DIMM 电气规格不兼容。 |
-| ------ | ---------------------------------- |
+| ------ | ----------------------------- |
 
 有关树莓派计算模块的更多信息，请参阅计算模块文档。
 
@@ -135,7 +135,7 @@ Model B 代表其带有以太网口。 Model A 代表低成本产品线。他们
 
 #### 测试点
 
-Raspberry Pi Zero 2 W 在生产过程中使用了许多测试垫位置。
+树莓派 Zero 2 W 在生产过程中使用了许多测试垫位置。
 
 ![zero2 pad diagram](https://www.raspberrypi.com/documentation/computers/images/zero2-pad-diagram.png?hash=2e74c93201a0f4ee0c22848ce2cfa382)
 
@@ -209,13 +209,13 @@ Raspberry Pi Zero 2 W 在生产过程中使用了许多测试垫位置。
 
 当核心温度在 80°C 和 85°C 之间时，Arm 核心将逐渐降频。如果温度达到 85°C，那么 Arm 核心和 GPU 都将开始降频。
 
-树莓派 3 B+ 采用了新的 PCB 技术，以提供更好的散热性能和增加热量质量。此外，引入了软温度限制，旨在最大化设备在达到硬限制 85°C 之前的 "冲刺" 时间。当达到软限制时，时钟速度从 1.4GHz 降至 1.2GHz，并略微降低操作电压。这减缓了温度升高的速率：我们以短暂的 1.4GHz 时间换取了更长时间的 1.2GHz 运行。默认情况下，软限制为 60°C，可以通过 config.txt 中的 temp_soft_limit 设置进行更改。
+树莓派 3 B+ 采用了新的 PCB 技术，以提供更好的散热性能和增加热量质量。此外，引入了软温度限制，旨在最大化延长设备在达到硬限制 85°C 之前的 "冲刺" 时间。当达到软限制时，时钟速度从 1.4GHz 降至 1.2GHz，并略微降低操作电压。这减缓了温度升高的速率：我们以短暂的 1.4GHz 时间换取了更长时间的 1.2GHz 运行。默认情况下，软限制为 60°C，可以通过 config.txt 中的 temp_soft_limit 参数进行更改。
 
-树莓派 4 Model B 继续采用与树莓派 3 Model B+ 相同的 PCB 技术，以帮助散热。目前尚未定义软限制。
+树莓派 4 B 继续采用与树莓派 3 B+ 相同的 PCB 技术，以帮助散热。目前尚未进行软限制。
 
 ### 使用 DVFS
 
-| NOTE | 仅适用于 Raspberry Pi 4 Model B、Raspberry Pi 400 和 Compute Module 4 的 DVFS 讨论。 |
+| NOTE | 仅适用于树莓派 4 B、Raspberry Pi 400 和 Compute Module 4 的 DVFS 讨论。 |
 | ------ | -------------------------------------------------------------------------------------- |
 
 树莓派 4 实现了动态电压和频率调节（DVFS）。这种技术使得 树莓派 4 设备能在保持相同性能的同时运行在较低温度下。
