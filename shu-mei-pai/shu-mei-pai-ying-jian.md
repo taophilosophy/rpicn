@@ -1065,17 +1065,17 @@ nvme0n1     259:0    0 232.9G  0 disk
 
 ### 故障排除
 
-如果引导过程失败，请在 rpi-eeprom GitHub 存储库上提交问题，确保附上控制台副本以及引导过程中屏幕显示的任何内容。
+如果引导过程失败，请在 rpi-eeprom GitHub 存储库上提交问题，确保附上控制台输出以及引导过程中所有屏幕显示的内容。
 
 ## HTTP 引导
 
-网络安装功能使用以太网上的 HTTP 引导树莓派进入嵌入式树莓派 Imager。
+网络安装功能使用以太网上的 HTTP 引导树莓派进入嵌入式树莓派启动盘制作工具。
 
-除了网络安装，您还可以使用通过 HTTP 下载的文件显式地引导设备启动，即使已禁用引导时的网络安装也可以使用。
+除了网络安装，您还可能用 HTTP 下载的文件显式引导设备启动，即使禁用引导，网络安装也能用。
 
 例如，您可以将这添加到您的 BOOT_ORDER 作为备用引导方法，或者将其放在 GPIO 条件后，在 GPIO 引脚拉低时从您自己的服务器启动 HTTP 引导。
 
-例如，如果将以下内容添加到你的 EEPROM 配置中，且 GPIO 8（默认状态为 1 或高电平）被拉低，文件 http://downloads.raspberrypi.org:80/net_install/boot.img 和 http://downloads.raspberrypi.org:80/net_install/boot.sig 将被下载。如果启用了开机网络安装，则会使用相同的网址。如果 GPIO 8 未被拉低，则行为将保持不变。
+例如，如果将以下内容添加到你的 EEPROM 配置中，且 GPIO 8（默认状态为 1 或高电平）被拉低，将下载文件 http://downloads.raspberrypi.org:80/net_install/boot.img 、http://downloads.raspberrypi.org:80/net_install/boot.sig。如果启用开机网络安装，则会使用相同的网址。如果 GPIO 8 未被拉低，则行为将保持不变。
 
 ```
 [gpio8=0]
@@ -1084,15 +1084,15 @@ HTTP_HOST=downloads.raspberrypi.org
 NET_INSTALL_ENABLED=0
 ```
 
-boot.img 和 boot.sig 签名文件是一个包含引导文件系统的内存盘。详情请参阅 boot_ramdisk。
+boot.img 和签名文件 boot.sig 是个包含引导文件系统的内存盘。详情请参阅 boot_ramdisk。
 
-如果启用了安全启动并且未设置 HTTP_HOST，则将忽略 BOOT_ORDER 中的 HTTP。
+如果启用安全启动并且未设置 HTTP_HOST，则将忽略 BOOT_ORDER 中的 HTTP。
 
 ### 要求
 
-要使用 HTTP 引导，请更新至 2022 年 3 月 10 日或更晚发布的引导程序。HTTP 引导需要有线以太网连接。
+要使用 HTTP 引导，请更新至 2022 年 3 月 10 日及更新版本的引导程序。HTTP 引导需要有线以太网连接。
 
-要使用定制 CA 证书，请更新至 2024 年 4 月 5 日或更晚发布的引导程序。只有运行 BCM2712 CPU 的设备支持定制 CA 证书。
+要使用定制 CA 证书，请更新至 2024 年 4 月 5 日及更新版本的引导程序。只有运行 BCM2712 CPU 的设备支持定制 CA 证书。
 
 ### 键
 
