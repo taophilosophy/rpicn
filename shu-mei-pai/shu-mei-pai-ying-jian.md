@@ -261,7 +261,7 @@ $ vcgencmd measure_temp
 * [主动散热器](https://www.raspberrypi.com/products/active-cooler/)
 * [用于树莓派 5 的外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)
 
-这两款均应插入至主板右上方的风扇接口（四针 JST-SH PWM），位于 40 针 GPIO 母座和 USB 2 之间。风扇接口与 USB 外围设备一同受电流限额。我们为超频用户使用主动散热器外壳，因为它有更好的散热能力。
+这两款均应插入至主板右上方的风扇连接器（四针 JST-SH PWM），位于 40 针 GPIO 母座和 USB 2 之间。风扇连接器与 USB 外围设备一同受电流限额。我们为超频用户使用主动散热器外壳，因为它有更好的散热能力。
 
 以上两种可选官方配件都由树莓派固件主动管理。随着树莓派的温度升高，风扇的反应如下：
 
@@ -281,46 +281,46 @@ $ vcgencmd measure_temp
 
 | 引脚 | 功能 | 电线颜色 |
 | ------ | ------ | ---------- |
-| 1    | +5V  | 红色     |
-| 2    | PWM  | 蓝色     |
-| 3    | GND  | 黑色     |
-| 4    | Tach | 黄色     |
+| 1    | +5V  | 红     |
+| 2    | PWM  | 蓝     |
+| 3    | GND  | 黑     |
+| 4    | Tach | 黄     |
 
-## Raspberry Pi 启动 EEPROM
+### 树莓派启动 EEPROM
 
-Raspberry Pi 5、Raspberry Pi 4、400、Compute Module 4 和 Compute Module 4S 计算机使用 EEPROM 启动系统。其他型号的 Raspberry Pi 计算机使用位于启动文件系统中的 bootcode.bin 文件。
+树莓派 5、Raspberry Pi 4、400、Compute Module 4 和 Compute Module 4S 计算机使用 EEPROM 启动系统。其他型号的 Raspberry Pi 计算机使用位于启动文件系统中的 bootcode.bin 文件。
 
-| NOTE | 在 rpi-eeprom GitHub 仓库中，您可以找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。 |
+| NOTE | 在 rpi-eeprom GitHub 存储库中，您可以找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。 |
 | ------ | ----------------------------------------------------------------------------------------- |
 
 ### 引导诊断
 
-如果在引导过程中发生错误，则会通过绿色 LED 显示错误代码。更新版本的引导加载程序将在 HDMI 显示器上显示诊断消息。
+如果在引导过程中出现错误，则会通过绿色的 LED 灯传递故障信息。更新版本的引导加载程序将在 HDMI 显示器上显示诊断消息。
 
 ### 更新引导程序
 
-有多种方法可以更新您的树莓派引导程序。
+有很多方法可以对你树莓派的引导程序进行更新。
 
 #### 树莓派 5、树莓派 4 和树莓派 400
 
-树莓派操作系统会自动更新引导加载程序以进行重要的错误修复。要手动更新引导加载程序或更改启动顺序，请使用 raspi-config。
+树莓派操作系统会自动更新引导加载程序来进行重要的错误修复。要手动更新引导加载程序或更改启动顺序，请使用 raspi-config。
 
-#### 使用树莓派 Imager 更新引导加载程序
+#### 使用树莓派启动盘制作工具来更新引导加载程序
 
-树莓派 Imager 提供了一个图形界面，用于更新引导加载程序并选择引导模式。
+树莓派启动盘制作器提供了一个图形界面，用于更新引导加载程序并选择引导模式。
 
-1. 下载 Raspberry Pi 镜像制作工具
-2. 选择一个空闲的 SD 卡（引导加载程序图像会覆盖整个卡）
-3. 启动 Raspberry Pi 镜像制作工具
+1. 下载树莓派启动盘制作工具
+2. 选择一个未使用的 SD 卡（引导加载程序镜像会格式化整个卡）
+3. 启动树莓派镜像制作工具
 4. 选择 Choose OS
 5. 选择 Misc utility images ![Select Misc utility images](https://www.raspberrypi.com/documentation/computers/images/misc-utility-images.png?hash=662b949f2e370649419c8efc7fc522f4)
-6. 为您的树莓派版本选择 Bootloader (Pi 400 是 4 系列的一部分)![Choose a family for your bootloader](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png?hash=26cda00ff3f46580eac44af916437614)
+6. 为你的树莓派选择 Bootloader (Pi 400 是 4 系列的一部分)![Choose a family for your bootloader](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png?hash=26cda00ff3f46580eac44af916437614)
 7. 选择引导模式： SD （推荐）， USB 或 Network ![Choose the storage from which you’d like to boot](https://www.raspberrypi.com/documentation/computers/images/bootloader-storage-select.png?hash=08b572c18e189ab4dd7688838fc0a97b)
 8. 选择 SD card 然后 Write
 9. 单击 Yes 继续
 10. 使用新的镜像引导树莓派，并等待至少十秒钟
-11. 当绿色活动指示灯以稳定的模式闪烁，HDMI 显示屏显示绿色屏幕时，您已成功写入引导程序
-12. 关闭树莓派的电源并拔出 SD 卡
+11. 当绿色活动指示有规律的闪烁，HDMI 显示器绿屏时，您已成功写入引导程序了
+12. 断开树莓派的电源并拔出 SD 卡
 
 #### 使用 raspi-config 来更新引导加载程序
 
@@ -337,7 +337,7 @@ Raspberry Pi 5、Raspberry Pi 4、400、Compute Module 4 和 Compute Module 4S �
 
 引导加载程序的 default 版本代表最新的出厂默认固件镜像。它会提供关键的错误修复、硬件支持，并在特性在 latest 版本中经过测试后定期更新。 latest 引导加载程序更频繁地更新，以包含最新的修复和改进。
 
-高级用户可以切换到 latest 引导加载程序以获得最新功能。
+专业用户可以切换到 latest 引导加载程序以获得最新功能。
 
 运行以下命令以启动 raspi-config 。
 
