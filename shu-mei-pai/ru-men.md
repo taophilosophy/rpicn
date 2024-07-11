@@ -178,58 +178,58 @@
 
 当你首次打开系统自定义菜单时，你可能会看到一个提示，询问你是否允许从计算机加载 Wi-Fi 凭据。如果你回答“确认”，启动盘制作工具将从你当前连接的网络预填 Wi-Fi 凭据。如果你回答“否”，你可手动输入 Wi-Fi 凭据。
 
-主机名参数设定了你的树莓派在网络上广播的主机名（使用 mDNS）。当你把树莓派接入网络后，网络上的其他设备就可以使用 `<你的主机名>.local` 或 `<你的主机名>.lan` 与你的树莓派进行通信。
+**主机名（hostname）** 参数设定了你的树莓派在网络上广播的主机名（使用 [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS)）。当你把树莓派接入网络后，网络上的其他设备就可以使用 `<你的主机名>.local` 或 `<你的主机名>.lan` 与你的树莓派进行通信。
 
-用户名和密码选项设定了树莓派上管理员用户账户的用户名和密码。
+**用户名（username）和密码（password）** 参数设定了树莓派上管理员用户账户的用户名和密码。
 
-无线局域网选项允许你输入无线网络的 SSID（名称）和密码。如果你的网络不公开广播 SSID，则应启用“隐藏 SSID”设置。默认情况下，Imager 使用你当前所在的国家作为“无线局域网国家”。此设置控制树莓派使用的 Wi-Fi 广播频率。如果你计划运行无头树莓派，请为无线局域网选项输入凭据。
+**无线局域网（wireless LAN）** 参数能让你输入无线网络的 SSID（网络名称）和密码。如果你的网络不公开广播 SSID，则应启用“隐藏 SSID”设置。默认情况下，制作工具使用你当前所在的国家作为“无线局域网国家”。此设置控制树莓派使用的 Wi-Fi 广播频率。如果你计划运行无头树莓派，请为无线局域网选项输入凭据。
 
-区域设置选项允许你为你的树莓派定义时区和默认键盘布局。
+**区域设置（ locale settings）** 参数允许你为你的树莓派定义时区和默认键盘布局。
 
 ![General settings in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-general.png)
 
-服务选项卡包括帮助你远程连接到树莓派的设置。
+选项 **服务（Services）** 涉及帮助你远程连接到树莓派的设置。
 
-如果你计划通过网络远程使用你的树莓派，请勾选“启用 SSH”旁边的复选框。如果你计划运行无显示器的树莓派，你应该启用此选项。
+如果你打算用网络远程使用你的树莓派，请勾选“启用 SSH（Enable SSH）”旁边的方框。或者说，如果你想要不依赖显示器直接运行树莓派，请启用该功能。
 
-* 选择密码验证选项，使用你在 OS 定制的常规选项卡中提供的用户名和密码通过网络 SSH 到你的树莓派。
-* 选择仅允许公钥验证，为你的树莓派预配置无密码公钥 SSH 验证，使用你当前使用的计算机上的私钥。如果你的 SSH 配置中已经有 RSA 密钥，Imager 将使用该公钥。如果没有，你可以单击“运行 SSH-keygen”生成公/私钥对。Imager 将使用新生成的公钥。
+* 选择 **密码验证（password authentication）** 参数，可使用你在 OS 定制的常规选项卡中提供的用户名和密码通过网络 SSH 到你的树莓派。
+* 选择 **仅允许公钥验证（Allow public-key authentication only ）**，可为你的树莓派预配置无密码，仅公钥的 SSH 验证，默认会使用你当前计算机上的私钥。如果你的 SSH 配置中已经有 RSA 密钥，制作工具将使用该公钥。如果没有，你可以单击“**运行 SSH-keygen（Run SSH-keygen）**”来生成公、私钥对。制作工具会使用新生成的公钥。
 
 ![Services settings in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-services.png)
 
-系统定制还包括“选项”菜单，允许你在写入过程中配置 Imager 的行为。这些选项允许你在 Imager 完成验证图像时播放声音，自动在验证后卸载存储介质，并禁用遥测。
+系统定制还包括“**选项（Options）**”菜单，能让你在写入过程中配置制作工具的操作。这些选项能让你在制作工具完成镜像校验时播放声音，在校验后自动卸载存储介质，及禁用遥测。
 
 ![Options in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-options.png)
 
 #### 写入
 
-当你完成输入系统定制设置后，请单击“保存”以保存你的定制。
+当你完成输入系统定制设置后，可单击“**保存（Save）**”来保存你的定制选项。
 
-然后，在将镜像写入存储设备时，单击“是”应用系统自定义设置。
+然后，在将镜像写入存储设备时，可单击“**确认（Yes）**”应用系统自定义设置。
 
-最后，回答“你确定要继续吗？”弹出窗口中的“是”，开始向存储设备写入数据。
+最后，回答“你确定要继续吗？（`Are you sure you want to continue?`）”弹出窗口中的“**确认（Yes）**”，开始向存储设备写入数据。
 
 ![Confirming a reimage of a storage device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
 
-如果看到要求管理员权限以读取和写入存储介质的提示，请授予 Imager 权限以继续。
+如果看到要求管理员权限以读取和写入存储介质的提示，要继续，请授予制作工具权限。
 
 ![Writing an image to a device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
 
-去喝杯咖啡或散散步。这可能需要几分钟。
+>去喝杯咖啡或者散散步。这可能需要几分钟。
 
 ![Verifying an image on a device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
 
-如果你想要冒险一下，可以点击取消验证来跳过验证过程。
+>如果你想要找刺激，可以点击 **取消校验（cancel verify）** 来跳过校验过程。
 
 当你看到“写入成功”弹出窗口时，表示镜像已完全写入和验证。现在你可以从存储设备启动树莓派了！
 
-![The screen Imager shows when it finishes writing an image to a storage device.](https://www.raspberrypi.com/documentation/computers/images/imager/finished.png)
+![当向存储设备的镜像写入完成时，屏幕上会显示制作工具。](https://www.raspberrypi.com/documentation/computers/images/imager/finished.png)
 
-接下来，继续进行首次启动配置说明，让你的树莓派运行起来。
+接下来，继续进行首次启动配置说明，让你的树莓派跑起来。
 
 ### 通过网络安装
 
-网络安装使树莓派能够使用通过网络下载的树莓派 Imager 版本在存储设备上安装操作系统。通过网络安装，你可以在树莓派上安装操作系统，从而无需单独的 SD 卡读卡器及除树莓派之外的计算机。你可以在任何兼容的存储设备上运行网络安装，包括 SD 卡和 USB 存储设备。
+网络安装使树莓派能够使用通过网络下载的树莓派制作工具版本在存储设备上安装操作系统。通过网络安装，你可以在树莓派上安装操作系统，从而无需单独的 SD 卡读卡器及除树莓派之外的计算机。你可以在任何兼容的存储设备上运行网络安装，包括 SD 卡和 USB 存储设备。
 
 网络安装仅适用于树莓派 4、400 和 5。如果你的树莓派使用较旧的引导加载程序，你可能需要更新引导加载程序以使用网络安装。
 
@@ -254,7 +254,7 @@
 
 连接到互联网后，你的树莓派将下载树莓派安装程序。如果下载失败，你可以重复该过程再试一次。
 
-![Downloading Imager using Network Install.](../.gitbook/assets/network-install-3.png)
+![Downloading制作工具using Network Install.](../.gitbook/assets/network-install-3.png)
 
 在完成下载树莓派安装程序后，你的树莓派将自动启动树莓派镜像工具。有关运行树莓派镜像工具的更多信息，请参阅安装操作系统。
 
@@ -279,15 +279,15 @@
 
 ## 首次启动配置
 
-如果你在 Imager 中使用了系统自定义来预配置你的树莓派，恭喜！你的设备已经准备就绪。继续下一步，了解如何充分利用你的树莓派。
+如果你在制作工具中使用了系统自定义来预配置你的树莓派，恭喜！你的设备已经准备就绪。继续下一步，了解如何充分利用你的树莓派。
 
 如果你的树莓派在 5 分钟内无法启动，请检查 LED 状态灯。如果 LED 在闪烁，请查看 LED 警告闪烁代码以获取更多信息。如果你的树莓派拒绝启动，请尝试以下缓解措施：
 
 * 如果你使用的是除 SD 卡以外的启动设备，请尝试从 SD 卡启动
-* 重新为你的 SD 卡写入镜像; 确保在 Imager 中完成了完整的校验步骤
+* 重新为你的 SD 卡写入镜像; 确保在制作工具中完成了完整的校验步骤
 * 更新你的树莓派上的引导加载程序，然后重新为你的 SD 卡重新写入镜像
 
-如果你选择在 Imager 中跳过系统定制，则你的树莓派将在首次启动时运行配置向导。你需要一个显示器和键盘来浏览向导（如果没有鼠标也可以进行）。
+如果你选择在制作工具中跳过系统定制，则你的树莓派将在首次启动时运行配置向导。你需要一个显示器和键盘来浏览向导（如果没有鼠标也可以进行）。
 
 ![Click Next to get started with configuration.](../.gitbook/assets/start.png)
 
