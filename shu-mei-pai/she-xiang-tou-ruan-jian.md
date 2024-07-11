@@ -55,6 +55,7 @@ libcamera 提供了 C++ API，用于配置相机，然后能让应用程序请�
   * IMX290
   * IMX327
   * IMX378
+  * IMX519
   * OV9281
 
 要增加对新传感器的支持，请贡献至 libcamera 。
