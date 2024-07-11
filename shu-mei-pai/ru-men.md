@@ -44,7 +44,7 @@
 
 #### 推荐的 SD 卡
 
-我们建议，用于安装 Raspberry Pi OS 的 SD 卡，至少要拥有 32GB 存储空间（对于 Raspberry Pi OS Lite 建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。和所有其他启动介质一样，读写速度更快的 SD 卡性能也更佳。
+我们建议，用于安装 树莓派系统 的 SD 卡，至少要拥有 32GB 存储空间（对于 树莓派系统 Lite 建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。和所有其他启动介质一样，读写速度更快的 SD 卡性能也更佳。
 
 出于硬件限制，以下设备只能从 256GB（及更小）的启动分区上启动：
 
@@ -122,48 +122,48 @@
 
 大多数树莓派用户会选择把 microSD 卡用作他们的启动设备。
 
-我们建议用 Raspberry Pi Imager 来安装操作系统。
+我们建议用树莓派启动盘制作工具来安装操作系统。
 
-Raspberry Pi Imager 是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。Raspberry Pi Imager 包含了许多流行的树莓派操作系统镜像。Raspberry Pi Imager 还支持加载直接从[树莓派](https://ubuntu.com/download/raspberry-pi)或第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）下载的镜像。你可以使用 Raspberry Pi Imager 预配置树莓派的凭据和远程访问设置。
+树莓派启动盘制作工具是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。树莓派启动盘制作工具包含了许多流行的树莓派操作系统镜像。树莓派启动盘制作工具还支持加载直接从[树莓派](https://ubuntu.com/download/raspberry-pi)或第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）下载的镜像。你可以使用树莓派启动盘制作工具预配置树莓派的凭据和远程访问设置。
 
-Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩格式。
+树莓派启动盘制作工具也支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩格式。
 
 如果你没有能把镜像写入到存储设备的计算机，你可以通过互联网直接在你的树莓派上安装操作系统。
 
-### 使用 Raspberry Pi Imager 安装
+### 使用树莓派启动盘制作工具安装
 
 你可以通过以下方式安装 Raspberry Pi Imager：
 
 * 从树莓派官网 [raspberrypi.com/software](https://www.raspberrypi.com/software/) 下载最新版本并运行安装程序。
 * 通过终端使用包管理器安装，如 `sudo apt install rpi-imager`。
 
-安装 Raspberry Pi Imager 后，通过单击 Raspberry Pi Imager 图标或执行 `rpi-imager` 启动应用程序。
+树莓派启动盘制作工具安装完成后，通过单击树莓派启动盘制作工具图标或执行 `rpi-imager` 启动应用程序。
 
-![Raspberry Pi Imager 主窗口](https://www.raspberrypi.com/documentation/computers/images/imager/welcome.png)
+![树莓派启动盘制作工具主窗口](https://www.raspberrypi.com/documentation/computers/images/imager/welcome.png)
 
-单击“**选择设备（Choose device）**”，然后从列表中选择你的树莓派型号。
+单击“**选择设备（Choose device）**”，然后从列表中选择你的树莓派类型。
 
-![在 Raspberry Pi Imager 中选择树莓派型号](https://www.raspberrypi.com/documentation/computers/images/imager/choose-model.png)
+![在树莓派启动盘制作工具中选择树莓派的型号](https://www.raspberrypi.com/documentation/computers/images/imager/choose-model.png)
 
-接下来，单击“**选择操作系统（Choose OS）**”，然后选择要安装的操作系统。Raspberry Pi Imager 将始终在列表最上面显示适用于你的型号，推荐版本的 Raspberry Pi OS。
+接下来，单击“**选择操作系统（Choose OS）**”，然后选择要安装的操作系统。树莓派启动盘制作工具将始终在列表最上方显示树莓派系统（Raspberry Pi OS），那是适用于你树莓派型号的推荐版本。
 
-![在 Raspberry Pi Imager 中选择操作系统](https://www.raspberrypi.com/documentation/computers/images/imager/choose-os.png)
+![在树莓派启动盘制作工具中选择操作系统](https://www.raspberrypi.com/documentation/computers/images/imager/choose-os.png)
 
-将首选存储设备连接到计算机。例如，使用外部或内置 SD 卡读卡器插入 microSD 卡。然后，单击“**选择存储设备（Choose storage）**”，选择你的存储设备。
+将所选存储设备接入计算机。如果使用外部或内置 SD 卡读卡器，请插入 microSD 卡。然后，单击“**选择存储设备（Choose storage）**”，选择你的存储设备。
 
 >**警告**
 >
->如果你的计算机连接了多个存储设备，*请务必选择正确的设备！* 通常可以通过大小来识别存储设备。如不确定，请断开其他设备，直到确定要刻录镜像的设备。 
+>如果你的计算机连接了多个存储设备，**请务必选择正确的设备！** 通常可以通过大小来识别存储设备。如不确定，请断开其他设备，直到确定要刻录镜像的设备。 
 
-![在 Raspberry Pi Imager 中选择存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
+![在树莓派启动盘制作工具中选择存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
 
  接下来，点击“**下一步（Next）**。
 
-![在 Raspberry Pi Imager 中打开 OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-prompt.png)
+![在树莓派启动盘制作工具中打开 OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-prompt.png)
 
-在弹出窗口中，Imager 将要求你应用操作系统设置。我们强烈建议通过操作系统定制设置配置你的树莓派。单击“编辑设置（Edit Settings）”按钮打开操作系统定制（ OS customisation）。
+在弹出窗口中，树莓派启动盘制作工具将要求你应用操作系统设置。我们强烈建议通过操作系统定制设置配置你的树莓派。单击“编辑设置（Edit Settings）”按钮打开操作系统定制（ OS customisation）。
 
-如果你没有通过操作系统定制设置配置你的树莓派，Raspberry Pi OS 将在首次启动期间的配置向导中要求你提供相同的信息。你可以单击选项“否（No）”来跳过操作系统自定义。
+如果你没有通过操作系统定制设置配置你的树莓派，树莓派系统 将在首次启动期间的配置向导中要求你提供相同的信息。你可以单击选项“否（No）”来跳过操作系统自定义。
 
 #### 操作系统定制
 
@@ -233,7 +233,7 @@ Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip`
 
 网络安装仅适用于树莓派 4、400 和 5。如果你的树莓派使用较旧的引导加载程序，你可能需要更新引导加载程序以使用网络安装。
 
-网络安装需要以下条件：
+网络安装需要满足以下条件：
 
 * 受支持的树莓派型号且安装了支持网络安装的固件
 * 显示器
@@ -307,7 +307,7 @@ Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip`
 
 此页面可帮助你配置默认用户帐户的用户名和密码。
 
-在默认情况下，旧版的 Raspberry Pi OS 将用户名设置为"pi"。如果你使用用户名"pi"，请避免使用旧的默认密码"raspberry"，以保持你的树莓派安全。
+在默认情况下，旧版的 树莓派系统 将用户名设置为"pi"。如果你使用用户名"pi"，请避免使用旧的默认密码"raspberry"，以保持你的树莓派安全。
 
 ![Create your username and password.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/user.png)
 
@@ -352,7 +352,7 @@ Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip`
 
 树莓派操作系统预装许多基本应用程序，因此你可以立即开始使用它们。如果你想利用我们认为有用的其他应用程序，请单击屏幕左上角的树莓图标。选择首选项 > 推荐软件，你将找到软件包管理器。你可以在此免费安装各种推荐软件。
 
-![Opening the package manager GUI in Raspberry Pi OS](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
+![Opening the package manager GUI in 树莓派系统](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
 
 例如，如果你计划将树莓派用作家用电脑，你可能会发现 LibreOffice 用于编写和编辑文档和电子表格非常有用。你还可以通过诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序使树莓派更易于访问，这些应用程序位于通用访问下。
 
@@ -379,7 +379,7 @@ Raspberry Pi Imager 也支持打包为 `.img` 格式的镜像，以及像 `.zip`
 第五版的新内容：
 
 * 针对最新的树莓派计算机进行更新：树莓派 5 和树莓派 Zero 2 W。
-* 覆盖最新的 Raspberry Pi OS。
+* 覆盖最新的 树莓派系统。
 * 包含关于树莓派 Pico 的新章节！
 
 你可以在树莓派出版社的网站上购买这本书。
