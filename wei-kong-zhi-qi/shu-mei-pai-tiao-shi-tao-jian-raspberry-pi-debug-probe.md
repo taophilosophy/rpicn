@@ -52,7 +52,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 ![labelled wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/labelled-wiring.jpg)
 
-根据您的设置，有不同的方法可以将调试器连接到树莓派 Pico。在下面的示例中，我们将调试器连接到具有更新的三针 JST-SH 连接器用于 SWD 的树莓派 Pico H。
+根据你的设置，有不同的方法可以将调试器连接到树莓派 Pico。在下面的示例中，我们将调试器连接到具有更新的三针 JST-SH 连接器用于 SWD 的树莓派 Pico H。
 
  连接以下内容：
 
@@ -64,7 +64,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 >**注意**
 >
->如果您有非 H Pico 或 Pico W（没有 JST-SH 连接器），您仍然可以将其连接到调试器。在板上的 SWCLK ， GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK ， GND 和 SWDIO 连接到调试器上的 SC ， GND 和 SD 引脚。
+>如果你有非 H Pico 或 Pico W（没有 JST-SH 连接器），你仍然可以将其连接到调试器。在板上的 SWCLK ， GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK ， GND 和 SWDIO 连接到调试器上的 SC ， GND 和 SD 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
@@ -74,7 +74,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 ### 安装 OpenOCD
 
-您需要安装 OpenOCD。
+你需要安装 OpenOCD。
 
 要安装 OpenOCD，请在终端中运行以下命令：
 
@@ -120,7 +120,7 @@ $ sudo apt install gdb-multiarch
 $ brew install gdb
 ```
 
-您可以安全地忽略安装过程中关于“特殊权限”请求的消息。
+你可以安全地忽略安装过程中关于“特殊权限”请求的消息。
 
 >**重要**
 >
@@ -130,7 +130,7 @@ $ brew install gdb
 
 GDB 包含在我们的 Pico Windows 安装程序中。它也包含在 Arm GNU Toolchain Downloads 中。
 
-或者，您可以在我们的《树莓派 Pico 入门指南》第 9 章和附录 A 中找到有关手动安装的信息。
+或者，你可以在我们的《树莓派 Pico 入门指南》第 9 章和附录 A 中找到有关手动安装的信息。
 
 >**注意**
 >
@@ -140,11 +140,11 @@ GDB 包含在我们的 Pico Windows 安装程序中。它也包含在 Arm GNU To
 
 Serial Wire Debug (SWD)是一种两引脚接口（SWDIO 和 SWCLK），可替代 JTAG 四或五引脚调试接口标准。
 
-### 将新程序上传到您的 Pico
+### 将新程序上传到你的 Pico
 
-Pico 调试器可使您通过 SWD 接口和 OpenOCD 来加载二进制文件：从而无需在每次将新二进制文件推送到 Pico 后拔下，然后按住 BOOTSEL 按钮这些操作。使用调试器上传新的二进制文件是完全自动化的。
+Pico 调试器可使你通过 SWD 接口和 OpenOCD 来加载二进制文件：从而无需在每次将新二进制文件推送到 Pico 后拔下，然后按住 BOOTSEL 按钮这些操作。使用调试器上传新的二进制文件是完全自动化的。
 
-假如您构建了一个二进制文件：
+假如你构建了一个二进制文件：
 
 ```
 $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000" -c "program blink.elf verify reset exit"
@@ -152,11 +152,11 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 >**注意**
 >
->当您使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是您在拖放时使用的 UF2 文件。
+>当你使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是你在拖放时使用的 UF2 文件。
 
 ### 使用 SWD 进行调试
 
-它还将让您在服务器模式下使用 openocd ，并连接 GDB，这将为您提供断点和“正确”的调试。
+它还将让你在服务器模式下使用 openocd ，并连接 GDB，这将为你提供断点和“正确”的调试。
 
 ```
 $ cd ~/pico/pico-examples/
@@ -169,7 +169,7 @@ $ cd blink
 $ make -j4
 ```
 
-在调试构建中，当您在调试器下运行时，您将获得更多信息，因为编译器会使用信息构建您的程序，以告诉 GDB 您的程序正在做什么。
+在调试构建中，当你在调试器下运行时，你将获得更多信息，因为编译器会使用信息构建你的程序，以告诉 GDB 你的程序正在做什么。
 
  有关更多信息，请参阅《树莓派 Pico 入门指南》第 6 章。
 
@@ -179,7 +179,7 @@ $ make -j4
 $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000"
 ```
 
-然后打开第二个终端窗口，切换到包含您构建的二进制文件的目录，并启动调试器以将其附加到 OpenOCD 服务器：
+然后打开第二个终端窗口，切换到包含你构建的二进制文件的目录，并启动调试器以将其附加到 OpenOCD 服务器：
 
 ```
 $ gdb blink.elf
@@ -188,14 +188,14 @@ $ gdb blink.elf
 > continue
 ```
 
-GDB 不适用于所有平台。根据您的操作系统和设备，请使用以下替代方案取代 gdb ：
+GDB 不适用于所有平台。根据你的操作系统和设备，请使用以下替代方案取代 gdb ：
 
 * 在非树莓派设备上使用 `gdb-multiarch`。
 * 在基于 Arm 的 macOS 设备上使用 `lldb`。
 
 ## 串行连接
 
-确保调试器连接到了您树莓派 Pico 的 UART 引脚。
+确保调试器连接到了你树莓派 Pico 的 UART 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
@@ -207,9 +207,9 @@ GDB 不适用于所有平台。根据您的操作系统和设备，请使用以�
 | UART0_TX   | 1        | GP0       |
 | UART0_RX   | 2        | GP1       |
 
-在连接后，树莓派 Pico 的 UART 上的流量将通过调试器中继到您的计算机，并显示为 CDC UART。在树莓派上，显示为 /dev/ttyACM0 ；在其他平台上，此串口将以不同方式显示（例如，在 macOS 上，显示为 /dev/cu.usbmodemXXXX ）。
+在连接后，树莓派 Pico 的 UART 上的流量将通过调试器中继到你的计算机，并显示为 CDC UART。在树莓派上，显示为 /dev/ttyACM0 ；在其他平台上，此串口将以不同方式显示（例如，在 macOS 上，显示为 /dev/cu.usbmodemXXXX ）。
 
-如果您尚未安装 minicom，请执行以下操作：
+如果你尚未安装 minicom，请执行以下操作：
 
 ```
 $ sudo apt install minicom
@@ -225,9 +225,9 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 >
 >要退出 minicom ，请按 CTRL-A，然后按 X 键。 
 
-要测试串行通信，您可以构建并上传“Hello World”示例应用程序。
+要测试串行通信，你可以构建并上传“Hello World”示例应用程序。
 
-进入 pico-examples 树中的 hello_world 目录，并运行 make 。之后，您可以使用 openocd 将其上传到您的树莓派 Pico。要了解构建 hello_serial 示例程序的完整步骤，请参阅《开始使用树莓派 Pico》第 4 章。
+进入 pico-examples 树中的 hello_world 目录，并运行 make 。之后，你可以使用 openocd 将其上传到你的树莓派 Pico。要了解构建 hello_serial 示例程序的完整步骤，请参阅《开始使用树莓派 Pico》第 4 章。
 
 ```
 $ cd pico-examples
@@ -247,13 +247,13 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 ![description](https://www.raspberrypi.com/documentation/microcontrollers/images/description.jpg)
 
-此描述中的唯一序列号意味着在 Windows 上，您的 COM 端口编号是"粘性"的每个设备，并且将允许您编写 udev 规则以将命名设备节点与特定的调试器绑定起来。
+此描述中的唯一序列号意味着在 Windows 上，你的 COM 端口编号是"粘性"的每个设备，并且将允许你编写 udev 规则以将命名设备节点与特定的调试器绑定起来。
 
 ## 更新调试器固件
 
 调试器固件以 UF2 文件的形式由树莓派分发。
 
-调试器固件的最新版本是版本 2。如果您正在运行旧版，或者如果您意外地覆盖了调试器的固件，您可以在 debugprobe GitHub 存储库中找到最新版本的固件。
+调试器固件的最新版本是版本 2。如果你正在运行旧版，或者如果你意外地覆盖了调试器的固件，你可以在 debugprobe GitHub 存储库中找到最新版本的固件。
 
 从最新版本下载 debugprobe.uf2 。
 
@@ -263,7 +263,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 将 debugprobe.uf2 复制到 "RPI-RP2" 卷。文件复制到设备后，将自动卸载设备。
 
-您的调试器将重启，现在运行更新版本的调试器固件。现在已准备好进行调试了。
+你的调试器将重启，现在运行更新版本的调试器固件。现在已准备好进行调试了。
 
 ## 框图
 

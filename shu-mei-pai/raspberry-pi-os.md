@@ -1,24 +1,24 @@
-# Raspberry Pi OS
+#树莓派系统
 
 
 ## 介绍
 
-Raspberry Pi OS 是一款基于 Debian 的免费操作系统，针对树莓派的硬件进行了适配和优化。Raspberry Pi OS 支持超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求来说，我们建议使用 Raspberry Pi OS。
+树莓派系统是一款基于 Debian 的免费操作系统，针对树莓派的硬件进行了适配和优化。树莓派系统支持超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求来说，我们建议使用树莓派系统。
 
-因为 Raspberry Pi OS 源自 Debian，因此 Raspberry Pi OS 基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
+因为树莓派系统源自 Debian，因此树莓派系统基于 Debian 发行周期的阶段版本。大约每 2 年发布一次。
 
-最新版本的 Raspberry Pi OS 基于 Debian Bookworm。之前的版本基于 Debian Bullseye。
+最新版本的树莓派系统基于 Debian Bookworm。之前的版本基于 Debian Bullseye。
 
-您可在 <raspberrypi.com/software/operating-systems/> 下载 Raspberry Pi OS 的镜像。
+你可在 <raspberrypi.com/software/operating-systems/> 下载树莓派系统的镜像。
 
 ## 更新软件
 
 
-请始终保持您在 Raspberry Pi OS 上运行的软件更新到了最新版本。这可以使您的设备免受漏洞的影响，并确保您能得到最新的错误修复。
+请始终保持你在树莓派系统上运行的软件更新到了最新版本。这可以使你的设备免受漏洞的影响，并确保你能得到最新的错误修复。
 
 ### 使用 APT 管理软件包
 
-高级软件包工具 (APT) 是在 Raspberry Pi OS 中安装、更新和卸载软件的推荐方法。您可以通过命令 apt 使用 APT。
+高级软件包工具 (APT) 是在树莓派系统中安装、更新和卸载软件的推荐方法。你可以通过命令 apt 使用 APT。
 
 #### 安装更新
 
@@ -36,11 +36,11 @@ $ sudo apt full-upgrade
 
 >**技巧**
 >
->与 Debian 不同，Raspberry Pi OS 处于持续开发状态。因此，软件包的依赖关系有时会发生改变，因此您应始终使用 `full-upgrade` 而非标准的 `upgrade`。 
+>与 Debian 不同，树莓派系统处于持续开发状态。因此，软件包的依赖关系有时会发生改变，因此你应始终使用 `full-upgrade` 而非标准的 `upgrade`。 
 
-请定期运行这些命令，以确保软件是最新状态。在使用 apt 来确保 Raspberry Pi OS 是最新状态时，也会同时使您的 Linux 内核和固件保持最新状态（因为树莓派将其作为 Debian 软件包进行分发）。
+请定期运行这些命令，以确保软件是最新状态。在使用 apt 来确保树莓派系统是最新状态时，也会同时使你的 Linux 内核和固件保持最新状态（因为树莓派将其作为 Debian 软件包进行分发）。
 
-在树莓派发布 Raspberry Pi OS 新的主要版本后，上述命令也不会将您的操作系统升级到该新的主要版本。要升级到新的主要版本，请按照我们的操作系统升级说明进行操作。
+在树莓派发布树莓派系统新的主要版本后，上述命令也不会将你的操作系统升级到该新的主要版本。要升级到新的主要版本，请按照我们的操作系统升级说明进行操作。
 
 #### 搜索软件
 
@@ -100,17 +100,17 @@ Description: Raspberry Pi configuration tool
 Description-md5: 19630c04463bfe7193152448b53d85a0
 ```
 
-使用此命令验证维护者、版本和大小是否满足您对软件包的要求。
+使用此命令验证维护者、版本和大小是否满足你对软件包的要求。
 
 #### 安装软件包
 
-要在您的树莓派上安装软件包，请将软件包的名称传参给以下命令：
+要在你的树莓派上安装软件包，请将软件包的名称传参给以下命令：
 
 ```
 $ sudo apt install <package-name>
 ```
 
-`apt` 将显示软件包将占用的磁盘空间量。输入 Y 并按`回车键`键确认安装软件包。您可以通过在上述命令中添加 -y 标志来跳过此确认步骤。
+`apt` 将显示软件包将占用的磁盘空间量。输入 Y 并按`回车键`键确认安装软件包。你可以通过在上述命令中添加 -y 标志来跳过此确认步骤。
 
 #### 卸载软件包
 
@@ -124,23 +124,23 @@ $ sudo apt remove <package-name>
 >
 >要彻底删除软件包的所有痕迹（包括配置文件），请用 purge  来代替 remove 。 
 
-`apt` 将显示卸载软件包后将释放的磁盘空间量。输入 Y 并按`回车键`键确认安装该软件包。您可以通过在上述命令中添加 -y 参数来跳过此确认步骤（即默认确认）。
+`apt` 将显示卸载软件包后将释放的磁盘空间量。输入 Y 并按`回车键`键确认安装该软件包。你可以通过在上述命令中添加 -y 参数来跳过此确认步骤（即默认确认）。
 
 #### 管理 apt 磁盘使用情况
 
-在运行之前，`sudo apt full-upgrade` 会显示您需要下载和存储在磁盘上以完成升级的文件大小。要查看您是否有足够的可用磁盘空间，请运行以下命令：
+在运行之前，`sudo apt full-upgrade` 会显示你需要下载和存储在磁盘上以完成升级的文件大小。要查看你是否有足够的可用磁盘空间，请运行以下命令：
 
 ```
 $ df -h
 ```
 
-`apt` 会把下载的软件包（ .deb ）文件存储到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到正确的安装位置。根据您安装的软件，软件包本身可能会占用大量空间。要删除所有遗留的软件包本身，请运行以下命令：
+`apt` 会把下载的软件包（ .deb ）文件存储到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到正确的安装位置。根据你安装的软件，软件包本身可能会占用大量空间。要删除所有遗留的软件包本身，请运行以下命令：
 
 ```
 $ sudo apt clean
 ```
 
-### 将您的操作系统升级到新的主要版本
+### 将你的操作系统升级到新的主要版本
 
 >**警告**
 >
@@ -156,15 +156,15 @@ $ sudo apt clean
 
 >**警告**
 >
->软件的预发布版本不能保证正常工作。除非得到了树莓派工程师的推荐，否则不要在任何系统上使用 `rpi-update`。这可能导致您的系统不稳定或损坏。不要将 `rpi-update` 视为常规更新过程的一部分。 
+>软件的预发布版本不能保证正常工作。除非得到了树莓派工程师的推荐，否则不要在任何系统上使用 `rpi-update`。这可能导致你的系统不稳定或损坏。不要将 `rpi-update` 视为常规更新过程的一部分。 
 
-要把您树莓派的固件更新到最新版本，请使用 `rpi-update`。
+要把你树莓派的固件更新到最新版本，请使用 `rpi-update`。
 
-`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块，设备树文件及最新版本的 VideoCore 固件。然后将这些文件安装到 Raspberry Pi OS 中。
+`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块，设备树文件及最新版本的 VideoCore 固件。然后将这些文件安装到树莓派系统中。
 
 所有 rpi-update 使用的源数据均来自 rpi-firmware 存储库。该存储库包含来自官方固件存储库的数据子集。
 
-要开始更新，请以 root 身份运行 rpi-update。更新完成后，需重启您的树莓派以使这些更改生效：
+要开始更新，请以 root 身份运行 rpi-update。更新完成后，需重启你的树莓派以使这些更改生效：
 
 ```
 $ sudo rpi-update
@@ -175,11 +175,11 @@ $ sudo reboot
 
 更新树莓派固件
 
-本白皮书记录了如何在 Raspberry Pi OS 中更新 VideoCore 固件。
+本白皮书记录了如何在树莓派系统中更新 VideoCore 固件。
 
 ### 将固件降级到最新稳定版本。
 
-如果您在把固件更新到最新版本后遇到问题，请使用以下命令退回到上个稳定版固件：
+如果你在把固件更新到最新版本后遇到问题，请使用以下命令退回到上个稳定版固件：
 
 ```
 $ sudo apt-get update
@@ -190,12 +190,12 @@ $ sudo apt install --reinstall raspi-firmware
 $ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
 ```
 
-最后，使用 `sudo reboot` 重启您的树莓派以使这些更改生效。
+最后，使用 `sudo reboot` 重启你的树莓派以使这些更改生效。
 
 ## 播放音频和视频
 
 
-Raspberry Pi OS 预装了 VLC 媒体播放器。您可以使用 VLC 播放视频和音频文件。VLC 在 Raspberry Pi OS 中使用硬件加速，并支持多种常见的音频和视频文件格式。
+树莓派系统预装了 VLC 媒体播放器。你可以使用 VLC 播放视频和音频文件。VLC 在树莓派系统中使用硬件加速，并支持多种常见的音频和视频文件格式。
 
 ### VLC 媒体播放器
 
@@ -203,11 +203,11 @@ Raspberry Pi OS 预装了 VLC 媒体播放器。您可以使用 VLC 播放视频
 
 从树莓派桌面播放音频或视频文件，请在文件管理器中双击文件。这将自动启动 VLC 播放文件。或者，从“声音和视频”菜单中启动 VLC 媒体播放器。然后，从“媒体”菜单中选择“打开文件...”，并导航到要播放的文件。
 
-默认情况下，Raspberry Pi OS 通过 HDMI 将音频输出到您的显示器。要将音频输出到其他接口（如耳机插孔或 USB 扬声器），请右键单击系统托盘中的扬声器图标，然后选择选项。
+默认情况下，树莓派系统通过 HDMI 将音频输出到你的显示器。要将音频输出到其他接口（如耳机插孔或 USB 扬声器），请右键单击系统托盘中的扬声器图标，然后选择选项。
 
 #### vlc 命令行界面
 
-您还可以从命令行启动 VLC。在下面的示例中，我们使用了来自《大雄兔》（Big Buck Bunny）的短片。要从树莓派下载此片段，请运行以下命令：
+你还可以从命令行启动 VLC。在下面的示例中，我们使用了来自《大雄兔》（Big Buck Bunny）的短片。要从树莓派下载此片段，请运行以下命令：
 
 ```
 $ wget --trust-server-names http://rptl.io/big-buck-bunny
@@ -233,15 +233,15 @@ $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 
 #### 使用 cvlc 来播放没有图形界面的媒体
 
-如果您在以上这些命令中使用 cvlc 来代替 vlc ，那么 VLC GUI 将不会显示：
+如果你在以上这些命令中使用 cvlc 来代替 vlc ，那么 VLC GUI 将不会显示：
 
 ```
 $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
-### 在 Raspberry Pi OS Lite 上播放音频和视频
+### 在树莓派系统Lite 上播放音频和视频
 
-与完整版本的 Raspberry Pi OS 不同，在 Raspberry Pi OS Lite 上并未预装 VLC 。要在 Raspberry Pi OS Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
+与完整版本的树莓派系统不同，在树莓派系统Lite 上并未预装 VLC 。要在树莓派系统Lite 上使用 VLC 播放视频和音频，请安装所需的用于无需桌面播放的软件包：
 
 ```
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
@@ -302,7 +302,7 @@ $ kmsprint | grep Connector
 
 ### 指定音频和视频输出设备
 
-您可以组合音频和视频输出选项。例如，要将视频输出定向到触摸屏，将音频输出定向到耳机插孔，请使用上述命令的以下组合：
+你可以组合音频和视频输出选项。例如，要将视频输出定向到触摸屏，将音频输出定向到耳机插孔，请使用上述命令的以下组合：
 
 ```
 $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audio-device sysdefault:CARD=Headphones your_video.mp4
@@ -310,7 +310,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果您有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，您可以通过将流放入诸如 MP4 之类的文件格式中来提升在 VLC 上的播放性能。您可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令可把名为 video.h264 的流转换成 30fps 的 MP4 文件，命名为 video.mp4 ：
+如果你有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，你可以通过将流放入诸如 MP4 之类的文件格式中来提升在 VLC 上的播放性能。你可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令可把名为 video.h264 的流转换成 30fps 的 MP4 文件，命名为 video.mp4 ：
 
 ```
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -319,11 +319,11 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 ## 实用工具
 
 
-Raspberry Pi OS 中预装了几个有用的命令行实用程序。
+树莓派系统中预装了几个有用的命令行实用程序。
 
 ### `kmsprint`
 
-`kmsprint` 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。您可以在 Github 上找到 kmsprint 实用程序的源代码。
+`kmsprint` 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。你可以在 Github 上找到 kmsprint 实用程序的源代码。
 
 ### `vclog`
 
@@ -333,7 +333,7 @@ vclog 显示来自运行在 Arm 上的 Linux 上的 VideoCore GPU 的日志消�
 
 ### `vcgencmd`
 
-vcgencmd 工具用于输出树莓派上 VideoCore GPU 的信息。您可以在 GitHub 上找到 vcgencmd 实用程序的源代码。
+vcgencmd 工具用于输出树莓派上 VideoCore GPU 的信息。你可以在 GitHub 上找到 vcgencmd 实用程序的源代码。
 
 要获取 vcgencmd 支持的所有命令列表，请使用 vcgencmd commands 。下面列出了一些有用的命令及其所需参数。
 
@@ -435,46 +435,46 @@ $ vcgencmd get_config total_mem
 
 ### 视觉辅助
 
-视障用户可以在 Raspberry Pi OS 的“推荐软件”菜单中找到有用的工具。
+视障用户可以在树莓派系统的“推荐软件”菜单中找到有用的工具。
 
 我们提供了 Orca 屏幕阅读器来简化树莓派桌面的导航。此外，我们还提供屏幕放大器来增加用户界面和屏幕元素的可读性。
 
 #### Orca 屏幕阅读器
 
-您可以从主树莓派菜单的推荐软件部分安装 Orca 屏幕阅读器。或者，按 Ctrl + Alt + Space 自动安装 Orca。
+你可以从主树莓派菜单的推荐软件部分安装 Orca 屏幕阅读器。或者，按 Ctrl + Alt + Space 自动安装 Orca。
 
-在安装新系统后首次启动 Raspberry Pi OS 时，将在 30 秒后播放自动语音提醒。此提醒提供有关如何安装 Orca 的说明。
+在安装新系统后首次启动树莓派系统时，将在 30 秒后播放自动语音提醒。此提醒提供有关如何安装 Orca 的说明。
 
 ## 在树莓派上使用 Python
 
-Raspberry Pi OS 预装了 Python 3。破坏系统安装的 Python 可能会导致操作系统故障。安装第三方 Python 库时，请始终使用正确的软件包管理工具。
+树莓派系统预装了 Python 3。破坏系统安装的 Python 可能会导致操作系统故障。安装第三方 Python 库时，请始终使用正确的软件包管理工具。
 
-在 Linux 上，您可以通过两种方式安装 python 依赖包：
+在 Linux 上，你可以通过两种方式安装 python 依赖包：
 
 * 使用 apt 来安装预配置的系统软件包
 * 使用 pip 在虚拟环境中使用 Python 的依赖管理器安装库
 
 >**重要**
 >
->从 Raspberry Pi OS Bookworm 开始，您只能使用 pip 安装到 Python 虚拟环境（ venv ）。这一变化是由 Python 社区引入的，而非树莓派：有关更多信息，请参阅 PEP 668。
+>从树莓派系统Bookworm 开始，你只能使用 pip 安装到 Python 虚拟环境（ venv ）。这一变化是由 Python 社区引入的，而非树莓派：有关更多信息，请参阅 PEP 668。
 
 
 ### 使用 apt 安装 Python 软件包
 
-通过 apt 安装的软件包是专为 Raspberry Pi OS 打包的。这些软件包通常是预编译的，因此安装速度更快。由于 apt 管理所有软件包的依赖关系，使用此方法安装会包括运行软件包所需的所有子依赖包。而 apt 能确保您在卸载时免于破坏其他软件包
+通过 apt 安装的软件包是专为树莓派系统打包的。这些软件包通常是预编译的，因此安装速度更快。由于 apt 管理所有软件包的依赖关系，使用此方法安装会包括运行软件包所需的所有子依赖包。而 apt 能确保你在卸载时免于破坏其他软件包
 例如，要安装支持树莓派 Build 扩展板的 Python 3 库，请运行以下命令：
 
 ```
 $ sudo apt install python3-build-hat
 ```
 
-要查找使用 apt 分发的 Python 包，请使用 apt search 。在大多数情况下，Python 包使用前缀 python- 或 python3- ：例如，您可以在名称为 python3-numpy 下找到 numpy 包。
+要查找使用 apt 分发的 Python 包，请使用 apt search 。在大多数情况下，Python 包使用前缀 python- 或 python3- ：例如，你可以在名称为 python3-numpy 下找到 numpy 包。
 
 ### 使用 pip 安装 Python 库
 
 #### Bookworm 改为使用 pip 安装
 
-在旧版本的 Raspberry Pi OS 中，您可以直接将库安装到系统级的 Python 中使用 pip 。自从 Raspberry Pi OS Bookworm 以来，用户无法直接将库安装到系统级的 Python。
+在旧版本的树莓派系统中，你可以直接将库安装到系统级的 Python 中使用 pip 。自从树莓派系统Bookworm 以来，用户无法直接将库安装到系统级的 Python。
 
 应该把库安装到虚拟环境（ venv ）。要为所有用户在系统级别安装库，请使用 apt 安装。
 
@@ -502,13 +502,13 @@ hint: See PEP 668 for the detailed specification.
 
 Python 用户长期以来一直面对着处理操作系统软件包管理器（ apt ）和 Python 特定软件包管理工具（ pip ）之间的冲突。这些冲突包括 Python 级别的 API 不兼容性以及文件所有权方面的冲突。
 
-从 Raspberry Pi OS Bookworm 开始，通过 pip 安装的软件包必须安装到 Python 虚拟环境（ venv ）中。虚拟环境是个容器，在这里您可以安全地安装第三方模块，以免干扰系统 Python。
+从树莓派系统Bookworm 开始，通过 pip 安装的软件包必须安装到 Python 虚拟环境（ venv ）中。虚拟环境是个容器，在这里你可以安全地安装第三方模块，以免干扰系统 Python。
 
 #### 使用 pip 与虚拟环境
 
-要使用虚拟环境，请创建容器来存储环境。根据您希望如何使用 Python，有多种方法可以做到这一点。
+要使用虚拟环境，请创建容器来存储环境。根据你希望如何使用 Python，有多种方法可以做到这一点。
 
-运行以下命令以创建一个虚拟环境配置文件夹，将 `<env-name>` 替换为您想要用于虚拟环境的名称（例如 env ）:
+运行以下命令以创建一个虚拟环境配置文件夹，将 `<env-name>` 替换为你想要用于虚拟环境的名称（例如 env ）:
 
 ```
 $ python -m venv <env-name>
@@ -524,7 +524,7 @@ $ python -m venv <env-name>
 $ source <env-name>/bin/activate
 ```
 
-然后，您应该看到类似如下提示，内容为：
+然后，你应该看到类似如下提示，内容为：
 
 ```
 (<env-name>) $
@@ -542,7 +542,7 @@ pip        23.0.1
 setuptools 66.1.1
 ```
 
-输出列表应该比系统 Python 中安装的软件包列表要短得多。您现在可以安全地使用 pip 安装软件包。在虚拟环境中，使用 pip 安装的任何软件包都只安装到该虚拟环境中。在虚拟环境中， python 或 python3 命令会自动使用虚拟环境的 Python 版本和已安装的软件包，而非系统 Python。
+输出列表应该比系统 Python 中安装的软件包列表要短得多。你现在可以安全地使用 pip 安装软件包。在虚拟环境中，使用 pip 安装的任何软件包都只安装到该虚拟环境中。在虚拟环境中， python 或 python3 命令会自动使用虚拟环境的 Python 版本和已安装的软件包，而非系统 Python。
 
 离开虚拟环境，请运行以下命令：
 
@@ -558,19 +558,19 @@ setuptools 66.1.1
 $ python -m venv env
 ```
 
-在您开始项目工作之前，请在项目根目录下运行以下命令以开始使用虚拟环境：
+在你开始项目工作之前，请在项目根目录下运行以下命令以开始使用虚拟环境：
 
 ```
 $ source env/bin/activate
 ```
 
-然后，您应该看到类似如下提示，内容为：
+然后，你应该看到类似如下提示，内容为：
 
 ```
 (env) $
 ```
 
-当您完成项目工作后，请在任意目录运行以下命令来退出虚拟环境：
+当你完成项目工作后，请在任意目录运行以下命令来退出虚拟环境：
 
 ```
 (env) $ deactivate
@@ -578,9 +578,9 @@ $ source env/bin/activate
 
 #### 为每个用户使用单独的环境
 
-与为每个 Python 项目创建虚拟环境不同，您可以为您的用户帐户创建一个单独的虚拟环境。在运行任何 Python 代码之前激活该虚拟环境。这种方法对于在项目之间共享许多库的工作流可能更方便。
+与为每个 Python 项目创建虚拟环境不同，你可以为你的用户账户创建一个单独的虚拟环境。在运行任何 Python 代码之前激活该虚拟环境。这种方法对于在项目之间共享许多库的工作流可能更方便。
 
-当为整个用户帐户跨多个项目创建虚拟环境时，请考虑将虚拟环境配置文件放在您的主目录中。将配置存储在一个以句点开头的文件夹中，以便默认情况下隐藏该文件夹，防止它在主目录中混乱。
+当为整个用户账户跨多个项目创建虚拟环境时，请考虑将虚拟环境配置文件放在你的主目录中。将配置存储在一个以句点开头的文件夹中，以便默认情况下隐藏该文件夹，防止它在主目录中混乱。
 
 使用以下命令在当前用户的主目录中的隐藏文件夹中创建虚拟环境：
 
@@ -594,7 +594,7 @@ $ python -m venv ~/.env
 $ source ~/.env/bin/activate
 ```
 
-然后您应该看到类似以下内容的提示：
+然后你应该看到类似以下内容的提示：
 
 ```
 (.env) $
@@ -610,7 +610,7 @@ $ source ~/.env/bin/activate
 
 我们推荐使用 Thonny 来编辑树莓派上的 Python 代码。
 
-默认情况下，Thonny 使用系统 Python。但是，您可以通过单击 Thonny 窗口右下角的解释器菜单来切换到使用 Python 虚拟环境。选择一个配置好的环境或使用 Configure interpreter… 配置一个新的虚拟环境。
+默认情况下，Thonny 使用系统 Python。但是，你可以通过单击 Thonny 窗口右下角的解释器菜单来切换到使用 Python 虚拟环境。选择一个配置好的环境或使用 Configure interpreter… 配置一个新的虚拟环境。
 
 ![thonny venv](https://www.raspberrypi.com/documentation/computers/images/thonny-venv.png)
 
@@ -657,9 +657,9 @@ $ source ~/.env/bin/activate
 * 串行
   * TX（GPIO14）；RX（GPIO15）
 
-### 查看您树莓派的 GPIO 引脚布局
+### 查看你树莓派的 GPIO 引脚布局
 
-通过打开终端窗口并运行命令 pinout ，可以访问 Raspberry Pi 上的 GPIO 参考。此工具由 GPIO Zero Python 库提供，默认情况下安装在 Raspberry Pi OS 中。
+通过打开终端窗口并运行命令 pinout ，可以访问 Raspberry Pi 上的 GPIO 参考。此工具由 GPIO Zero Python 库提供，默认情况下安装在树莓派系统中。
 
 >**警告**
 >
@@ -667,7 +667,7 @@ $ source ~/.env/bin/activate
 
 ### 权限
 
-您的用户必须是 gpio 组的成员，然后才能使用 GPIO。默认用户账户默认就是其成员，但您必须使用以下命令手动添加其他用户为其组成员。
+你的用户必须是 gpio 组的成员，然后才能使用 GPIO。默认用户账户默认就是其成员，但你必须使用以下命令手动添加其他用户为其组成员。
 
 ```
 $ sudo usermod -a -G gpio <username>
@@ -766,6 +766,6 @@ button.when_released = led.off
 
 ![](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)
 
-您可以在由树莓派出版的书籍《使用 GPIO Zero 的简单电子学》中找到有关如何使用 GPIO Zero Python 库编程连接到您的树莓派的更多信息。该书籍通过 GPIO Zero 库帮助您入门，并通过构建一系列项目来指导您如何使用它。
+你可以在由树莓派出版的书籍《使用 GPIO Zero 的简单电子学》中找到有关如何使用 GPIO Zero Python 库编程连接到你的树莓派的更多信息。该书籍通过 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
 
-您可以免费下载这本书的 PDF 文件，它是根据知识共享署名-非商业性使用-相同方式共享 3.0 国际许可发布的。
+你可以免费下载这本书的 PDF 文件，它是根据知识共享署名-非商业性使用-相同方式共享 3.0 国际许可发布的。

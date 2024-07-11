@@ -2,7 +2,7 @@
 
 ## 传感器扩展板（Sense HAT）简介
 
-树莓派传感器扩展板（Sense HAT）可为您的树莓派提供一系列传感功能。板载传感器可让您监测压力、湿度、温度、颜色、方向和运动。明亮的 8×8 RGB LED 矩阵可使传感器数据可视化，五个按钮的摇杆能让用户与您的项目进行交互。
+树莓派传感器扩展板（Sense HAT）可为你的树莓派提供一系列传感功能。板载传感器可让你监测压力、湿度、温度、颜色、方向和运动。明亮的 8×8 RGB LED 矩阵可使传感器数据可视化，五个按钮的摇杆能让用户与你的项目进行交互。
 
 ![Sense HAT](https://www.raspberrypi.com/documentation/accessories/images/Sense-HAT.jpg)
 
@@ -14,7 +14,7 @@
 
 为了正确工作，传感器扩展板需要最新的内核，启用 I2C，并准备一些库来继续。
 
-确保您的 APT 软件源是最新的：
+确保你的 APT 软件源是最新的：
 
 ```
  sudo apt update
@@ -40,9 +40,9 @@
 
 ![](https://www.raspberrypi.com/documentation/accessories/images/experiment-with-the-sense-hat.png)
 
-您可以在由树莓派出版的《Experiment with the Sense HAT》一书中找到有关如何使用传感器扩展板的更多信息。由 Raspberry Pi 基金会的教育团队编写，这本书是由 Raspberry Pi Press 出版的 MagPi Essentials 系列的一部分。该书涵盖了 Astro Pi 项目的背景，并指导您如何使用 Python 库利用所有传感器扩展板的功能。
+你可以在由树莓派出版的《Experiment with the Sense HAT》一书中找到有关如何使用传感器扩展板的更多信息。由 Raspberry Pi 基金会的教育团队编写，这本书是由 Raspberry Pi Press 出版的 MagPi Essentials 系列的一部分。该书涵盖了 Astro Pi 项目的背景，并指导你如何使用 Python 库利用所有传感器扩展板的功能。
 
-您可以以 PDF 格式免费下载这本书，它已根据知识共享署名-非商业性使用-相同方式共享 3.0 未本地化（CC BY NC-SA）许可发布。
+你可以以 PDF 格式免费下载这本书，它已根据知识共享署名-非商业性使用-相同方式共享 3.0 未本地化（CC BY NC-SA）许可发布。
 
 ### 使用 Python 与传感器扩展板
 
@@ -52,7 +52,7 @@ sense-hat 是传感器扩展板的官方支持库；它提供对所有板载传�
 
 ### 使用 C++ 与传感器扩展板
 
-RTIMULib 是一个 C++ 和 Python 库，可使嵌入式 Linux 系统与 9 自由度和 10 自由度 IMU 的使用变得更加容易。 /etc/RTIMULib.ini 中提供了一个预校准的设置文件，也被 sense-hat 复制并使用。包含的示例在当前工作目录中查找 RTIMULib.ini ，因此您可能希望将文件复制到那里以获得更准确的数据。
+RTIMULib 是一个 C++ 和 Python 库，可使嵌入式 Linux 系统与 9 自由度和 10 自由度 IMU 的使用变得更加容易。 /etc/RTIMULib.ini 中提供了一个预校准的设置文件，也被 sense-hat 复制并使用。包含的示例在当前工作目录中查找 RTIMULib.ini ，因此你可能希望将文件复制到那里以获得更准确的数据。
 
 RTIMULibDrive11 示例已经被预编译，以确保一切按预期工作。可以通过运行 RTIMULibDrive11 启动，并通过按 Ctrl C 停止。
 
@@ -99,7 +99,7 @@ $ cd RTEllipsoidFit
 $ RTIMULibCal
 ```
 
-然后您将看到此菜单：
+然后你将看到此菜单：
 
 ```
 Options are:
@@ -125,7 +125,7 @@ Enter option:
     Press any key to start...
 ```
 
-启动后，您将看到屏幕上滚动的类似内容：
+启动后，你将看到屏幕上滚动的类似内容：
 
 ```
  Min x:  51.60  min y:  69.39  min z:  65.91
@@ -136,13 +136,13 @@ Enter option:
 
 现在，拿起树莓派和传感器扩展板，以尽可能多的方式移动它。最好拔掉所有非必要的电缆，以避免混乱。
 
-尝试在俯仰、横滚和偏航轴上各获得一个完整的圆圈。在执行此操作时，请注意不要意外弹出 SD 卡。花几分钟移动传感器扩展板，当您发现数字不再变化时停止。
+尝试在俯仰、横滚和偏航轴上各获得一个完整的圆圈。在执行此操作时，请注意不要意外弹出 SD 卡。花几分钟移动传感器扩展板，当你发现数字不再变化时停止。
 
-现在按小写 s 然后小写 x 退出程序。如果现在运行 ls 命令，您会看到已创建一个新的 RTIMULib.ini 文件。
+现在按小写 s 然后小写 x 退出程序。如果现在运行 ls 命令，你会看到已创建一个新的 RTIMULib.ini 文件。
 
-除了这些步骤，您还可以通过执行上述步骤，但按 m 键而不是 e 键来执行椭球拟合。
+除了这些步骤，你还可以通过执行上述步骤，但按 m 键而不是 e 键来执行椭球拟合。
 
-当您完成后，将生成的 RTIMULib.ini 复制到 /etc/ 并删除 `~/.config/sense_hat/` 中的本地副本：
+当你完成后，将生成的 RTIMULib.ini 复制到 /etc/ 并删除 `~/.config/sense_hat/` 中的本地副本：
 
 ```
 $ rm ~/.config/sense_hat/RTIMULib.ini
@@ -214,4 +214,4 @@ $ sudo ./eepflash.sh -f=sense.eep -t=24c32 -w
 
 >**警告**
 >
->此操作不会损坏您的树莓派或传感器扩展板，但如果发生错误，扩展板可能不能被自动检测到。上述步骤仅供调试目的。
+>此操作不会损坏你的树莓派或传感器扩展板，但如果发生错误，扩展板可能不能被自动检测到。上述步骤仅供调试目的。

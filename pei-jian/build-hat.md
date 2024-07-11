@@ -27,7 +27,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 >该 HAT 与所有 40 针 GPIO 树莓派板块兼容，包括树莓派 4 和树莓派 Zero。通过添加排线电缆或其他延伸设备，也可与树莓派 400 一起使用。 
 
 * 控制 SPIKE™ Portfolio 中包含的 4 个 LEGO® Technic™ 电机和传感器。
-* 控制您的 LEGO® Technic™ 设备的易于使用的 Python 库
+* 控制你的 LEGO® Technic™ 设备的易于使用的 Python 库
 * 适用于带有 40 针 GPIO 引脚的任何树莓派计算机
 * Onboard RP2040 微控制器管理 LEGO® Technic™设备的低级控制
 * 单独提供外部 8V PSU 以为 Build 扩展板和树莓派供电
@@ -36,23 +36,23 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 >
 >由于不支持通过 GPIO 引脚供电，Build 扩展板不能为树莓派 400 供电 。
 
-## 准备您的 Build 扩展板
+## 准备你的 Build 扩展板
 
 >**注意**
 >
->在开始使用您的树莓派 Build 扩展板之前，您应该设置您的树莓派，使用 Raspberry Pi Imager 安装最新版本的操作系统。
+>在开始使用你的树莓派 Build 扩展板之前，你应该设置你的树莓派，使用 Raspberry Pi Imager 安装最新版本的操作系统。
 
-将 9mm 的间隔柱连接到板的底部。将树莓派 Build 扩展板安装到您的树莓派上。确保将其正确放置。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高® 元件留出空间。
+将 9mm 的间隔柱连接到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保将其正确放置。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高® 元件留出空间。
 
 ![fitting build hat](https://www.raspberrypi.com/documentation/accessories/images/fitting-build-hat.gif)
 
 ### 访问 GPIO 引脚
 
-如果您想使用树莓派的 GPIO 引脚，您可以添加一个可选的高头并使用 15 毫米间隔柱。
+如果你想使用树莓派的 GPIO 引脚，你可以添加一个可选的高头并使用 15 毫米间隔柱。
 
 ![tall headers](https://www.raspberrypi.com/documentation/accessories/images/tall-headers.png)
 
-下面的引脚是 Build 扩展板本身使用的，您不应该连接其他东西到这些引脚上。
+下面的引脚是 Build 扩展板本身使用的，你不应该连接其他东西到这些引脚上。
 
 | GPIO    | 使用      | 状态   |
 | --------- | ----------- | -------- |
@@ -63,7 +63,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 | GPIO16  | RTS       | 未使用 |
 | GPIO17  | CTS       | 未使用 |
 
-### 设置您的树莓派
+### 设置你的树莓派
 
 树莓派启动后，通过单击 Raspberry 菜单按钮，然后选择“首选项”，再选择“Raspberry Pi 配置”来打开 Raspberry Pi 配置工具。
 
@@ -71,9 +71,9 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 ![setting up](https://www.raspberrypi.com/documentation/accessories/images/setting-up.png)
 
-#### 使用您的无头树莓派
+#### 使用你的无头树莓派
 
-如果您正在无头运行您的树莓派并使用 raspi-config ，请从第一个菜单中选择“接口选项”。
+如果你正在无头运行你的树莓派并使用 raspi-config ，请从第一个菜单中选择“接口选项”。
 
 ![raspi config 1](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-1.png)
 
@@ -93,11 +93,11 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 ![raspi config 5](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-5.png)
 
-如果您已经进行了任何更改，此时需要重新启动。
+如果你已经进行了任何更改，此时需要重新启动。
 
 ### 为 Build 扩展板供电
 
-连接外部电源 — 推荐使用官方树莓派 Build 扩展板电源 — 但是凡是可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build 扩展板供电。除非您正在使用树莓派 400，否则无需额外再将树莓派接入电源。
+连接外部电源 — 推荐使用官方树莓派 Build 扩展板电源 — 但是凡是可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build 扩展板供电。除非你正在使用树莓派 400，否则无需额外再将树莓派接入电源。
 
 >**注意**
 >
@@ -107,9 +107,9 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 >**注意**
 >
->乐高® Technic™ 电机非常强大；因此，为了驱动它们，您需要外部的 8V 电源。如果您想从电机编码器和 SPIKE™ 力传感器读取数据，您可以通过您树莓派的 USB 电源接口以平常的方式为您的树莓派和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
+>乐高® Technic™ 电机非常强大；因此，为了驱动它们，你需要外部的 8V 电源。如果你想从电机编码器和 SPIKE™ 力传感器读取数据，你可以通过你树莓派的 USB 电源接口以平常的方式为你的树莓派和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
 
-您可以选择使用 Python 或 .NET 与 Build 扩展板一起使用。
+你可以选择使用 Python 或 .NET 与 Build 扩展板一起使用。
 
 ## 使用 Python 操作 Build 扩展板
 
@@ -145,11 +145,11 @@ motor_a = Motor('A')
 motor_a.run_for_seconds(5)
 ```
 
-通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，那么在固件复制到板上时会有几秒钟的暂停。您应该看到红色 LED 熄灭，绿色 LED 点亮。以后再执行 Python 程序就不会有这种暂停了。
+通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，那么在固件复制到板上时会有几秒钟的暂停。你应该看到红色 LED 熄灭，绿色 LED 点亮。以后再执行 Python 程序就不会有这种暂停了。
 
 ![blinking light](https://www.raspberrypi.com/documentation/accessories/images/blinking-light.gif)
 
-您的电机应该顺时针转动 5 秒钟。
+你的电机应该顺时针转动 5 秒钟。
 
 ![turning motor](https://www.raspberrypi.com/documentation/accessories/images/turning-motor.gif)
 
@@ -178,7 +178,7 @@ while True:
     print("Position: ", motor_a.get_aposition())
 ```
 
-运行程序。拿起电机并转动轴。您应该看到在 Thonny REPL 中打印的数字在变化。
+运行程序。拿起电机并转动轴。你应该看到在 Thonny REPL 中打印的数字在变化。
 
 ### 使用 Python 中的传感器
 
@@ -190,7 +190,7 @@ while True:
 
 >**注意**
 >
->如果您不打算驱动电机，则无需外部电源，可以使用标准 USB 电源为您的树莓派供电。 
+>如果你不打算驱动电机，则无需外部电源，可以使用标准 USB 电源为你的树莓派供电。 
 
 创建另一个新程序：
 
@@ -219,17 +219,17 @@ pause()
 
 ### 安装 .NET 框架
 
-在树莓派上无法用 APT 安装从微软获取的 .NET 框架。但是，您可以参照微软的官方说明来安装 .NET 框架。这还有一个简化的第三方途径可以将 .NET 工具链安装到您的树莓派上。
+在树莓派上无法用 APT 安装从微软获取的 .NET 框架。但是，你可以参照微软的官方说明来安装 .NET 框架。这还有一个简化的第三方途径可以将 .NET 工具链安装到你的树莓派上。
 
 >**警告**
 >
->安装脚本以 APT 运行。您应该先阅读它，并确保您理解它在做什么。如果您有任何疑问，应该按照官方说明手动操作。
+>安装脚本以 APT 运行。你应该先阅读它，并确保你理解它在做什么。如果你有任何疑问，应该按照官方说明手动操作。
 
 ```
 $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/install.sh | sudo bash
 ```
 
-安装 .NET 框架后，您可以创建您的项目：
+安装 .NET 框架后，你可以创建你的项目：
 
 ```
 $ dotnet new console --name buildhat
@@ -241,7 +241,7 @@ $ dotnet new console --name buildhat
 $ cd buildhat
 ```
 
-您现在需要安装以下 NuGet 软件包：
+你现在需要安装以下 NuGet 软件包：
 
 ```
 $ dotnet add package System.Device.Gpio --version 2.1.0
@@ -250,32 +250,32 @@ $ dotnet add package Iot.Device.Bindings --version 2.1.0
 
 ### 运行 C# 代码
 
-您可以使用 dotnet run 命令运行程序。现在让我们试一下，确保一切正常。它应该打印出 "Hello World!"
+你可以使用 dotnet run 命令运行程序。现在让我们试一下，确保一切正常。它应该打印出 "Hello World!"
 
 ```
 $ dotnet run
 Hello World!
 ```
 
-(在接下来的说明中，当指示“运行程序”时，您只需重新运行 dotnet run )
+(在接下来的说明中，当指示“运行程序”时，你只需重新运行 dotnet run )
 
 ### 编辑 C# 代码
 
-在下面的说明中，您将编辑生成的 C# 程序文件 buildhat/Program.cs ，该文件是在运行上述命令时生成的。
+在下面的说明中，你将编辑生成的 C# 程序文件 buildhat/Program.cs ，该文件是在运行上述命令时生成的。
 
 任何文本编辑器都可以用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。Visual Studio Code（通常称为 "VS Code"）也是一个流行的替代方案。
 
 ### 使用 .NET 从 Build 扩展板进行操作
 
-树莓派 Build 扩展板在 LEGO® 术语中被称为"Brick"，您可以使用 Build 扩展板串行协议直接与之通信
+树莓派 Build 扩展板在 LEGO® 术语中被称为"Brick"，你可以使用 Build 扩展板串行协议直接与之通信
 
-您可以按照以下方式创建一个 brick 对象
+你可以按照以下方式创建一个 brick 对象
 
 ```
 Brick brick = new("/dev/serial0");
 ```
 
-但是您需要记住在代码结尾处处理 brick 。
+但是你需要记住在代码结尾处处理 brick 。
 
 ```
 brick.Dispose();
@@ -283,19 +283,19 @@ brick.Dispose();
 
 >**警告**
 >
->如果您不调用 `brick.Dispose()` ，您的程序将不会停止。 
+>如果你不调用 `brick.Dispose()` ，你的程序将不会停止。 
 
-如果您想避免在最后调用 brick.Dispose ，那么请使用 using 语句创建您的模块：
+如果你想避免在最后调用 brick.Dispose ，那么请使用 using 语句创建你的模块：
 
 ```
 using Brick brick = new("/dev/serial0");
 ```
 
-在这种情况下，当程序结束时，您的砖将被自动处理。
+在这种情况下，当程序结束时，你的砖将被自动处理。
 
 #### 显示信息
 
-您可以收集各种软件版本、签名和输入电压：
+你可以收集各种软件版本、签名和输入电压：
 
 ```
 var info = brick.BuildHatInformation;
@@ -310,14 +310,14 @@ Console.WriteLine($"Vin = {brick.InputVoltage.Volts} V");
 
 #### 获取传感器和电机详细信息
 
-函数 GetSensorType ， GetSensor 将允许您检索连接传感器上的任何信息。
+函数 GetSensorType ， GetSensor 将允许你检索连接传感器上的任何信息。
 
 ```
 SensorType sensor = brick.GetSensorType((SensorPort)i);
 Console.Write($"Port: {i} {(Brick.IsMotor(sensor) ? "Sensor" : "Motor")} type: {sensor} Connected: ");
 ```
 
-在这个例子中，您也可以使用 IsMotor 静态函数来检查连接的元素是传感器还是电机。
+在这个例子中，你也可以使用 IsMotor 静态函数来检查连接的元素是传感器还是电机。
 
 ```
 if (Brick.IsActiveSensor(sensor))
@@ -331,13 +331,13 @@ else
 }
 ```
 
-ActiveSensor 具有一系列高级属性和功能，可以帮助理解传感器的每个元素。还可以从砖块中调用原始功能。这将允许您选择特定模式并执行高级场景。虽然这是可能的，但电机和传感器类已经被创建，以使您的生活更轻松。
+ActiveSensor 具有一系列高级属性和功能，可以帮助理解传感器的每个元素。还可以从砖块中调用原始功能。这将允许你选择特定模式并执行高级场景。虽然这是可能的，但电机和传感器类已经被创建，以使你的生活更轻松。
 
 #### 事件
 
-大多数传感器在其特殊属性上实现事件。您可以简单地订阅 PropertyChanged 和 PropertyUpdated 。当值发生变化时，将触发更改的事件，而在成功更新属性时将触发更新的事件。根据使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
+大多数传感器在其特殊属性上实现事件。你可以简单地订阅 PropertyChanged 和 PropertyUpdated 。当值发生变化时，将触发更改的事件，而在成功更新属性时将触发更新的事件。根据使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
 
-当颜色变化或电机位置变化时，您可能只对此感兴趣，将其用作转速表。在这种情况下， PropertyChanged 就是您需要的！
+当颜色变化或电机位置变化时，你可能只对此感兴趣，将其用作转速表。在这种情况下， PropertyChanged 就是你需要的！
 
 ```
 Console.WriteLine("Move motor on Port A to more than position 100 to stop this test.");
@@ -428,7 +428,7 @@ train.Stop();
 
 >**注意**
 >
->在火车启动后，您可以调整速度，电机会相应调整。 
+>在火车启动后，你可以调整速度，电机会相应调整。 
 
 #### 活动电机
 
@@ -467,9 +467,9 @@ active2.Stop();
 
 >**注意**
 >
->在需要时不要忘记启停您的马达。
+>在需要时不要忘记启停你的马达。
 
-高级功能适用于活动电机。您可以请求移动几秒钟，到特定位置，到特定绝对位置。以下是一些示例：
+高级功能适用于活动电机。你可以请求移动几秒钟，到特定位置，到特定绝对位置。以下是一些示例：
 
 ```
 // From the previous example, this will turn the motors back to their initial position:
@@ -481,7 +481,7 @@ active.MoveToPosition(0, true);
 active2.MoveToPosition(0, true);
 ```
 
-每个功能都允许您阻塞或不阻塞线程，直到操作完成。请注意，对于绝对位置和相对位置移动，存在几度的容差。
+每个功能都允许你阻塞或不阻塞线程，直到操作完成。请注意，对于绝对位置和相对位置移动，存在几度的容差。
 
 ```
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -504,11 +504,11 @@ active.MoveToAbsolutePosition(-180, PositionWay.Shortest, true);
 active.Float();
 ```
 
-您可以将电机放置在浮动位置，意味着它不再受任何约束。这是一种模式，您可以在将电机用作转速计时使用，移动它并读取位置。如果电机仍受约束，您可能无法移动它。
+你可以将电机放置在浮动位置，意味着它不再受任何约束。这是一种模式，你可以在将电机用作转速计时使用，移动它并读取位置。如果电机仍受约束，你可能无法移动它。
 
 ### 使用 .NET 中的传感器
 
-就像对于电机一样，您有主动和被动传感器。最近的传感器是主动的。被动的是灯光和简单按钮。主动传感器包括距离或颜色传感器，以及小型的 3x3 像素显示屏。
+就像对于电机一样，你有主动和被动传感器。最近的传感器是主动的。被动的是灯光和简单按钮。主动传感器包括距离或颜色传感器，以及小型的 3x3 像素显示屏。
 
 #### 按钮/触摸被动传感器
 
@@ -545,7 +545,7 @@ void ButtonPropertyEvent(object? sender, PropertyChangedEventArgs e)
 
 被动光，来自 Bricklink 的图像
 
-被动光是火车灯。它们可以打开，您可以控制它们的亮度。
+被动光是火车灯。它们可以打开，你可以控制它们的亮度。
 
 ```
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -562,11 +562,11 @@ light.Off()
 
 #### 主动传感器
 
-主动传感器类是一个通用类，所有主动传感器都继承自它，包括主动马达。它们包含一组关于它们如何连接到 Build 扩展板、模式、详细组合模式、硬件、软件版本以及一个名为 ValueAsString 的特定属性。字符串值包含最后一次测量的字符串集合。测量到达时，枚举将包含 `P0C0: ， +23 ， -42` 和 0 。这样做是为了如果您正在使用高级模式并自行管理组合模式和命令，您将能够获得测量值。
+主动传感器类是一个通用类，所有主动传感器都继承自它，包括主动马达。它们包含一组关于它们如何连接到 Build 扩展板、模式、详细组合模式、硬件、软件版本以及一个名为 ValueAsString 的特定属性。字符串值包含最后一次测量的字符串集合。测量到达时，枚举将包含 `P0C0: ， +23 ， -42` 和 0 。这样做是为了如果你正在使用高级模式并自行管理组合模式和命令，你将能够获得测量值。
 
-所有活动传感器都可以运行特定的测量模式或组合模式。您可以通过高级模式使用 SelectModeAndRead 和 SelectCombiModesAndRead 功能设置一个您想要持续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。
+所有活动传感器都可以运行特定的测量模式或组合模式。你可以通过高级模式使用 SelectModeAndRead 和 SelectCombiModesAndRead 功能设置一个你想要持续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。
 
-可以在组合模式中组合的模式列在 CombiModes 属性中。当您设置其中一个模式时，传感器的所有属性将自动更新。
+可以在组合模式中组合的模式列在 CombiModes 属性中。当你设置其中一个模式时，传感器的所有属性将自动更新。
 
 #### WeDo Tilt Sensor
 
@@ -576,7 +576,7 @@ WeDo Tilt sensor，来自 Bricklink 的图像
 
 WeDo Tilt Sensor 具有特殊 Tilt 属性。类型是一个点，其中 X 是 X 倾斜，Y 是 Y 倾斜。数值范围从 -45 到 +45，它们被限制在这些值并表示度数。
 
-您可以使用 ContinuousMeasurement 属性为该传感器设置连续测量。
+你可以使用 ContinuousMeasurement 属性为该传感器设置连续测量。
 
 ```
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -675,7 +675,7 @@ SPIKE 颜色传感器，来自 Bricklink 的图像
 
 颜色距离传感器，来自 Bricklink 的图像
 
-这些颜色传感器具有多种属性和功能。您可以获得 Color ， ReflectedLight 和 AmbiantLight 。
+这些颜色传感器具有多种属性和功能。你可以获得 Color ， ReflectedLight 和 AmbiantLight 。
 
 除此之外，颜色和距离传感器可以测量 Distance ，并具有物体 Counter 。它将自动计算进出范围的物体数量。这可以用来计算通过传感器前方的物体。距离限制在 0 到 10 厘米之间。
 
@@ -701,7 +701,7 @@ while (!Console.KeyAvailable)
 
 >**注意**
 >
->为了更好地测量，不建议以非常快的方式更改测量模式，颜色集成可能无法正确完成。此示例为您展示了可以使用传感器做什么。此类不实现连续测量模式。您可以通过高级模式使用 SelectModeAndRead 函数设置一个连续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。 
+>为了更好地测量，不建议以非常快的方式更改测量模式，颜色集成可能无法正确完成。此示例为你展示了可以使用传感器做什么。此类不实现连续测量模式。你可以通过高级模式使用 SelectModeAndRead 函数设置一个连续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。 
 
 #### SPIKE Prime 超声波距离传感器
 
@@ -724,14 +724,14 @@ while(!console.KeyAvailable)
 
 ## 更多资源
 
-您可以下载有关文档
+你可以下载有关文档
 
 * [树莓派 Build HAT 串行协议](https://datasheets.raspberrypi.com/build-hat/build-hat-serial-protocol.pdf)
 * [树莓派 Build HAT Python 库](https://datasheets.raspberrypi.com/build-hat/build-hat-python-library.pdf)
 
-Python 库文档的详细信息也可以在 ReadTheDocs 上找到。您可以在 .NET IoT Github 存储库中找到有关 .NET 库的更多信息。
+Python 库文档的详细信息也可以在 ReadTheDocs 上找到。你可以在 .NET IoT Github 存储库中找到有关 .NET 库的更多信息。
 
-您还可以关注树莓派基金会的项目，
+你还可以关注树莓派基金会的项目，
 
 * [ 乐高® 游戏控制器](https://projects.raspberrypi.org/en/projects/lego-game-controller)
 * [ 乐高® 机器人车](https://projects.raspberrypi.org/en/projects/lego-robot-car)

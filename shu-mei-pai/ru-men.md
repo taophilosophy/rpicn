@@ -145,7 +145,7 @@
 
 ![在树莓派启动盘制作工具中选择树莓派的型号](https://www.raspberrypi.com/documentation/computers/images/imager/choose-model.png)
 
-接下来，单击“**选择操作系统（Choose OS）**”，然后选择要安装的操作系统。树莓派启动盘制作工具将始终在列表最上方显示树莓派系统（Raspberry Pi OS），那是适用于你树莓派型号的推荐版本。
+接下来，单击“**选择操作系统（Choose OS）**”，然后选择要安装的操作系统。树莓派启动盘制作工具将始终在列表最上方显示树莓派系统（树莓派系统），那是适用于你树莓派型号的推荐版本。
 
 ![在树莓派启动盘制作工具中选择操作系统](https://www.raspberrypi.com/documentation/computers/images/imager/choose-os.png)
 

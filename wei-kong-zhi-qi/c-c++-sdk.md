@@ -2,11 +2,11 @@
 
 ## 配置 SDK 
 
-对于如何开始使用 C/C++ SDK 的完整演示，请阅读我们的“入门”文档。但是，如果您打算在树莓派上开发 Pico，那么您可以通过从命令行运行我们的设置脚本来快速配置 C/C++ 工具链。
+对于如何开始使用 C/C++ SDK 的完整演示，请阅读我们的“入门”文档。但是，如果你打算在树莓派上开发 Pico，那么你可以通过从命令行运行我们的设置脚本来快速配置 C/C++ 工具链。
 
 >**注意**
 >
->在运行配置脚本之前，请确保您树莓派上的操作系统是最新的。
+>在运行配置脚本之前，请确保你树莓派上的操作系统是最新的。
 
 ## 树莓派 Pico C/C++ SDK
 
@@ -15,7 +15,7 @@
 * SDK Github 仓库
 * 示例 Github 存储库
 
-您可以在这里找到关于 C/C++ SDK 的文档;
+你可以在这里找到关于 C/C++ SDK 的文档;
 
 使用树莓派 Pico 和其他基于 RP2040 的微控制器板开始进行树莓派 Pico C/C++ 开发
 
@@ -27,7 +27,7 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 
 >**注意**
 >
->如果您正在使用 C/C++ SDK 构建应用程序，并且目标开发板不是树莓派 Pico，则需要将 -DPICO_BOARD=boardname 传递给 CMake。这里 boardname 是您的主板名称，例如，假设是 Adafruit Feather RP2040，您应该传参 -DPICO_BOARD=adafruit_feather_rp2040 。有关更多信息，请参阅树莓派 Pico SDK 中的 boards/ 目录和论坛。 
+>如果你正在使用 C/C++ SDK 构建应用程序，并且目标开发板不是树莓派 Pico，则需要将 -DPICO_BOARD=boardname 传递给 CMake。这里 boardname 是你的主板名称，例如，假设是 Adafruit Feather RP2040，你应该传参 -DPICO_BOARD=adafruit_feather_rp2040 。有关更多信息，请参阅树莓派 Pico SDK 中的 boards/ 目录和论坛。 
 
 >**注意**
 >
@@ -35,13 +35,13 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 
 >**注意**
 >
->如果您正在使用 C/C++ SDK 为树莓派 Pico W 构建应用程序，并且要连接到网络，则需要把 -DPICO_BOARD=pico_w -DWIFI_SSID="WIFI 名" -DWIFI_PASSWORD="WIFI 密码" 传参给 CMake。如果只需要启用蓝牙支持，则无需传参 SSID 和密码，但仍需要将 -DPICO_BOARD=pico_w 字符串传参给 CMake。
+>如果你正在使用 C/C++ SDK 为树莓派 Pico W 构建应用程序，并且要连接到网络，则需要把 -DPICO_BOARD=pico_w -DWIFI_SSID="WIFI 名" -DWIFI_PASSWORD="WIFI 密码" 传参给 CMake。如果只需要启用蓝牙支持，则无需传参 SSID 和密码，但仍需要将 -DPICO_BOARD=pico_w 字符串传参给 CMake。
 
-## 您的第一个二进制文件
+## 你的第一个二进制文件
 
 >**警告**
 >
->如果您使用的是 Apple Mac，并且运行着 macOS Ventura，则由于 Finder 的工作方式发生了变化，导致拖放操作失败。请查看我们的博客文章以获取完整解释及解决方法，以及我们的 Github 问题跟踪的实时状态。 
+>如果你使用的是 Apple Mac，并且运行着 macOS Ventura，则由于 Finder 的工作方式发生了变化，导致拖放操作失败。请查看我们的博客文章以获取完整解释及解决方法，以及我们的 Github 问题跟踪的实时状态。 
 
 ### 点亮 LED
 
@@ -49,16 +49,16 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 
 ![Blink an LED 640x360 v2](https://www.raspberrypi.com/documentation/microcontrollers/images/Blink-an-LED-640x360-v2.gif)
 
-您可以通过以下方式让其闪烁。
+你可以通过以下方式让其闪烁。
 
 1. 下载适用于树莓派 Pico 或 Pico W 的 Blink UF2。
-2. 按住 BOOTSEL 按钮并将您的 Pico 插入树莓派或其他计算机的 USB 接口。
+2. 按住 BOOTSEL 按钮并将你的 Pico 插入树莓派或其他计算机的 USB 接口。
 3. 它将被挂载成一个名为 RPI-RP2 的大容量存储设备。
 4. 将 Blink UF2 二进制文件拖放到 RPI-RP2 卷上。Pico 将重启。
 
 你应该看到了板载 LED 在闪烁。
 
-您可以在 Github 上查看树莓派 Pico 和 Pico W 版本的代码。
+你可以在 Github 上查看树莓派 Pico 和 Pico W 版本的代码。
 
 ### 说“Hello World”
 
@@ -67,7 +67,7 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 ![Hello World 640x360 v2](https://www.raspberrypi.com/documentation/microcontrollers/images/Hello-World-640x360-v2.gif)
 
 1. 下载“Hello World” UF2。
-2. 按住 BOOTSEL 按钮，然后将您的 Pico 插入树莓派或其他计算机的 USB 接口。
+2. 按住 BOOTSEL 按钮，然后将你的 Pico 插入树莓派或其他计算机的 USB 接口。
 3. 它将作成名为 RPI-RP2 的大容量存储设备挂载。
 4. 将“Hello World” UF2 二进制文件拖放到 RPI-RP2 卷上。Pico 将重新启动。
 5. 打开一个终端窗口，然后输入：
@@ -77,11 +77,11 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
     minicom -b 115200 -o -D /dev/ttyACM0
     ```
 
-您应该看到“Hello, world!”打印到终端。
+你应该看到“Hello, world!”打印到终端。
 
-您可以在 Github 上查看代码
+你可以在 Github 上查看代码
 
-## 快速启动您自己的项目
+## 快速启动你自己的项目
 
 >**注意**
 >
@@ -99,9 +99,9 @@ $ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm
 $ git clone https://github.com/raspberrypi/pico-sdk.git
 ```
 
-将 `external/pico_sdk_import.cmake` 从 SDK 复制到您的项目目录中
+将 `external/pico_sdk_import.cmake` 从 SDK 复制到你的项目目录中
 
-将 PICO_SDK_PATH 设置为您环境中的 SDK 位置，或稍后将其 ( -DPICO_SDK_PATH= ) 传递给 cmake
+将 PICO_SDK_PATH 设置为你环境中的 SDK 位置，或稍后将其 ( -DPICO_SDK_PATH= ) 传递给 cmake
 
  设置类似于 CMakeLists.txt 的内容：
 
@@ -120,7 +120,7 @@ pico_sdk_init()
 # rest of your project
 ```
 
-继续编写您的代码，查看 pico-examples 或树莓派 Pico C/C++ SDK 书籍，了解更多相关信息。
+继续编写你的代码，查看 pico-examples 或树莓派 Pico C/C++ SDK 书籍，了解更多相关信息。
 
 最简单的方法是一个单一的源文件（例如 hello_world.c ）
 
@@ -135,7 +135,7 @@ int main() {
 }
 ```
 
-并将以下内容添加到您的 CMakeLists.txt：
+并将以下内容添加到你的 CMakeLists.txt：
 
 ```
 add_executable(hello_world
@@ -162,16 +162,16 @@ $ cd build
 $ cmake ..
 ```
 
-当为树莓派 Pico 之外的主板构建时，您应该将 -DPICO_BOARD=board_name 传递给上面的 cmake 命令，例如，cmake -DPICO_BOARD=pico_w .. 以相应地为该特定板卡配置 SDK 和构建选项。
+当为树莓派 Pico 之外的主板构建时，你应该将 -DPICO_BOARD=board_name 传递给上面的 cmake 命令，例如，cmake -DPICO_BOARD=pico_w .. 以相应地为该特定板卡配置 SDK 和构建选项。
 
 这样做会设置各种编译器定义（例如，默认的 UART 和其他硬件的引脚编号），在某些情况下还会启用使用附加库（例如，在构建 PICO_BOARD=pico_w 时无法构建不提供必要功能的板）。
 
 要查看 SDK 本身定义的主板列表，请查看此目录，其中为每个命名板都有一个标题。
 
-从您创建的构建目录中制作目标。
+从你创建的构建目录中制作目标。
 
 ```
 $ make hello_world
 ```
 
-您现在可以通过调试器加载 hello_world.elf ，或者通过拖放安装并在您的树莓派 Pico 上运行 hello_world.uf2 。
+你现在可以通过调试器加载 hello_world.elf ，或者通过拖放安装并在你的树莓派 Pico 上运行 hello_world.uf2 。
