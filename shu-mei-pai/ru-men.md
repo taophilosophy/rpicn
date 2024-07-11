@@ -88,7 +88,7 @@
 
 常见显示器都不支持 micro HDMI、mini HDMI。但是，你可以使用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 和 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)来将树莓派上的这些接口转接至 HDMI 显示器。如果显示器不支持 HDMI，请考虑用转换器将 HDMI 输出转换为该设备所支持的类型。
 
-![Plugging a micro HDMI cable into a Raspberry Pi.](../.gitbook/assets/cable-hdmi.png)
+![Plugging a micro HDMI cable into a Raspberry Pi](../.gitbook/assets/cable-hdmi.png)
 
 ### 音频
 
@@ -186,7 +186,7 @@
 
 **区域设置（ locale settings）** 参数允许你为你的树莓派定义时区和默认键盘布局。
 
-![General settings in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-general.png)
+![General settings in the OS customisation menu](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-general.png)
 
 选项 **服务（Services）** 涉及帮助你远程连接到树莓派的设置。
 
@@ -195,11 +195,11 @@
 * 选择 **密码验证（password authentication）** 参数，可使用你在 OS 定制的常规选项卡中提供的用户名和密码通过网络 SSH 到你的树莓派。
 * 选择 **仅允许公钥验证（Allow public-key authentication only ）**，可为你的树莓派预配置无密码，仅公钥的 SSH 验证，默认会使用你当前计算机上的私钥。如果你的 SSH 配置中已经有 RSA 密钥，制作工具将使用该公钥。如果没有，你可以单击“**运行 SSH-keygen（Run SSH-keygen）**”来生成公、私钥对。制作工具会使用新生成的公钥。
 
-![Services settings in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-services.png)
+![Services settings in the OS customisation menu](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-services.png)
 
 系统定制还包括“**选项（Options）**”菜单，能让你在写入过程中配置制作工具的操作。这些选项能让你在制作工具完成镜像校验时播放声音，在校验后自动卸载存储介质，及禁用遥测。
 
-![Options in the OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-options.png)
+![Options in the OS customisation menu](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-options.png)
 
 #### 写入
 
@@ -209,15 +209,15 @@
 
 最后，回答“你确定要继续吗？（`Are you sure you want to continue?`）”弹出窗口中的“**确认（Yes）**”，开始向存储设备写入数据。
 
-![Confirming a reimage of a storage device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
+![Confirming a reimage of a storage device in Imager](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
 
 如果看到要求管理员权限以读取和写入存储介质的提示，要继续，请授予制作工具权限。
 
-![Writing an image to a device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
+![Writing an image to a device in Imager](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
 
 >去喝杯咖啡或者散散步。这可能需要几分钟。
 
-![Verifying an image on a device in Imager.](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
+![Verifying an image on a device in Imager](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
 
 >如果你想要找刺激，可以点击 **取消校验（cancel verify）** 来跳过校验过程。
 
@@ -227,9 +227,9 @@
 
 接下来，继续进行[首次启动配置说明](https://www.raspberrypi.com/documentation/computers/getting-started.html#configuration-on-first-boot)，让你的树莓派跑起来。
 
-### 通过网络安装
+### 网络安装
 
-网络安装使树莓派能够使用通过树莓派制作工具以网络下载，并存储在设备上的镜像，来安装操作系统。使用网络安装，你可以在树莓派上安装操作系统，从而无需任何 SD 卡读卡器及除树莓派之外的计算机。你可以在所有受支持的存储设备上运行网络安装——比如 SD 卡和 USB 存储设备。
+网络安装能让树莓派使用来自树莓派制作工具以网络下载，并存储在设备上面的镜像，进行操作系统的安装。使用网络安装，你可以在树莓派上安装操作系统，从而无需任何 SD 卡读卡器及除树莓派之外的计算机。你可以在所有受支持的存储设备上运行网络安装——比如 SD 卡和 USB 存储设备。
 
 网络安装仅适用于树莓派 4、400 和 5。如果你的树莓派的引导加载程序比较旧，你可能需要[更新引导加载程序](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#bootloader_update_stable)才能使用网络安装。
 
@@ -240,146 +240,146 @@
 * 键盘
 * 有线网络连接
 
-要启动网络安装，请在以下配置的基础上，按住 *SHIFT* 键并打开你的树莓派电源：
+要启动网络安装，请在以下配置的基础上，按住 ***SHIFT*** 键，同时打开你的树莓派电源：
 
-* 存储设备没有被写入镜像
-* 连接键盘
-* 连接兼容的存储设备，如 SD 卡或 USB 存储设备
+* 存储设备尚未被写入镜像
+* 已接入键盘
+* 已接入兼容的存储设备，如 SD 卡、USB 存储设备
 
-![The Network Install screen.](../.gitbook/assets/network-install-1.png)
+![网络安装界面](../.gitbook/assets/network-install-1.png)
 
 如果你尚未将树莓派连接到互联网，请使用网线进行连接。
 
-![Starting Network Install.](../.gitbook/assets/network-install-2.png)
+![开始网络安装](../.gitbook/assets/network-install-2.png)
 
-连接到互联网后，你的树莓派将下载树莓派安装程序。如果下载失败，你可以重复该过程再试一次。
+连接到互联网后，你的树莓派会下载树莓派安装程序。如果下载失败，你可以重复该过程，再试一次。
 
-![Downloading制作工具using Network Install.](../.gitbook/assets/network-install-3.png)
+![使用网络安装进行下载树莓派启动盘制作工具](../.gitbook/assets/network-install-3.png)
 
-在完成下载树莓派安装程序后，你的树莓派将自动启动树莓派镜像工具。有关运行树莓派镜像工具的更多信息，请参阅安装操作系统。
+在树莓派启动盘制作工具下载完成后，你的树莓派将自动运行启动盘制作工具。有关运行启动盘制作工具的更多信息，请参阅[安装操作系统](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)。
 
-![Choose a storage device.](https://www.raspberrypi.com/documentation/computers/images/network-install-4.png)
+![选择存储设备](https://www.raspberrypi.com/documentation/computers/images/network-install-4.png)
 
-有关网络安装配置的更多信息，请参阅 HTTP 引导。
+有关网络安装配置的更多信息，请参阅 [HTTP 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#http-boot)。
 
 ## 设置你的树莓派
 
 
-安装操作系统镜像后，将存储设备连接到你的树莓派。
+操作系统镜像写入完成后，将存储设备接入至你的树莓派。
 
-首先，拔掉树莓派的电源适配器，确保在连接外围设备时树莓派已关机。如果你在 microSD 卡上安装了操作系统，现在可以将其插入树莓派的卡槽。如果你在其他存储设备上安装了操作系统，现在可以将其连接到树莓派。
+首先，拔掉树莓派的电源适配器插头，确保在连接外部设备时树莓派已关机。如果你在 microSD 卡上安装了操作系统，现在就可以将其插入树莓派的卡槽。如果你在其他存储设备上安装了操作系统，现在可以将其接入树莓派。
 
-![Inserting a microSD card into a Raspberry Pi.](../.gitbook/assets/sd-card.png)
+![将 microSD 卡插入树莓派](../.gitbook/assets/sd-card.png)
 
-然后，插入所需的其他外围设备，如鼠标、键盘和显示器。
+然后，插入所需的其他外部设备，如鼠标、键盘和显示器。
 
-![Attaching the power supply to a Raspberry Pi.](../.gitbook/assets/cable-all.png)
+![将电源连接到树莓派](../.gitbook/assets/cable-all.png)
 
-最后，将电源连接到你的树莓派。当你的树莓派开机时，你应该看到 LED 状态亮起。如果你的树莓派接入了显示器，你应该在几分钟内看到启动屏幕。
+最后，把电源连接到你的树莓派。当你的树莓派开机时，你应该看到 LED 状态亮起。如果你的树莓派接入了显示器，你应该在几分钟内就能看到启动屏幕。
 
 ## 首次启动配置
 
-如果你在制作工具中使用了系统自定义来预配置你的树莓派，恭喜！你的设备已经准备就绪。继续下一步，了解如何充分利用你的树莓派。
+如果你在启动盘制作工具中使用了系统自定义来预配置你的树莓派，**恭喜！** 你的设备已经准备就绪。可继续[下一步](https://www.raspberrypi.com/documentation/computers/getting-started.html#next-steps)，了解如何充分发挥你的树莓派。
 
-如果你的树莓派在 5 分钟内无法启动，请检查 LED 状态灯。如果 LED 在闪烁，请查看 LED 警告闪烁代码以获取更多信息。如果你的树莓派拒绝启动，请尝试以下缓解措施：
+如果你的树莓派在 5 分钟内仍无法启动，请检查 LED 状态灯。如果 LED 在闪烁，请查看 [LED 告警闪烁的代码以获取更多信息](https://www.raspberrypi.com/documentation/computers/configuration.html#led-warning-flash-codes)。如果你的树莓派不能启动，请尝试以下解决方案：
 
-* 如果你使用的是除 SD 卡以外的启动设备，请尝试从 SD 卡启动
-* 重新为你的 SD 卡写入镜像; 确保在制作工具中完成了完整的校验步骤
-* 更新你的树莓派上的引导加载程序，然后重新为你的 SD 卡重新写入镜像
+* 如果你的启动设备使用的不是 SD 卡，请先试试用 SD 卡启动
+* [重新为你的 SD 卡写入镜像](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system); 确保在启动盘制作工具中进行了完整的校验步骤
+* [更新你的树莓派上的引导加载程序](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#bootloader_update_stable)，然后[为你的 SD 卡再次写入镜像](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)
 
-如果你选择在制作工具中跳过系统定制，则你的树莓派将在首次启动时运行配置向导。你需要一个显示器和键盘来浏览向导（如果没有鼠标也可以进行）。
+如果你选择在启动盘制作工具中跳过了系统定制，则你的树莓派会在首次启动时运行配置向导。你需要显示器和键盘来设置向导（没有鼠标也能完成）。
 
-![Click Next to get started with configuration.](../.gitbook/assets/start.png)
+![单击“下一步”开始配置](../.gitbook/assets/start.png)
 
 ### 蓝牙
 
-如果你正在使用蓝牙键盘或鼠标，此步骤将引导你完成设备配对。你的树莓派将扫描可配对的设备，并连接到找到的第一个设备。
+如果你正在使用蓝牙键盘、蓝牙鼠标，此步骤将引导你完成设备配对。你的树莓派将扫描可配对的设备，并连接至第一个被扫描到的设备。
 
-此过程适用于内置或外部 USB 蓝牙适配器。如果你使用 USB 适配器，请在启动树莓派之前插入。
+此过程适用于内、外置 USB 蓝牙适配器。如果你使用 USB 适配器，请在启动树莓派之前插入。
 
 ### 语言环境
 
-此页面可帮助你配置国家、语言、时区和键盘布局。
+此页可帮助你配置国家、语言、时区和键盘布局。
 
-![Adjust country, language, time zone, and keyboard layout.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/locale.png)
+![调整国家/地区、语言、时区和键盘布局](https://www.raspberrypi.com/documentation/computers/images/initial-setup/locale.png)
 
 ### 用户
 
-此页面可帮助你配置默认用户账户的用户名和密码。
+此页可帮助你配置默认用户账户的用户名和密码。
 
-在默认情况下，旧版的树莓派系统将用户名设置为"pi"。如果你使用用户名"pi"，请避免使用旧的默认密码"raspberry"，以保持你的树莓派安全。
+在默认情况下，旧版的树莓派系统会把用户名设置为“pi”。如果你使用的用户名是“pi”，请不要使用在旧系统中的默认密码，即“raspberry”，以确保你的树莓派是安全的。
 
-![Create your username and password.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/user.png)
+![配置你的用户名和密码](https://www.raspberrypi.com/documentation/computers/images/initial-setup/user.png)
 
 ### 无线网络
 
-这个页面可以帮助你连接到 Wi-Fi 网络。从列表中选择你喜欢的网络。
+该页可以帮助你连接到 Wi-Fi 网络。从列表中选择你需要的网络。
 
-![Selecting a wireless network.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/network.png)
+![选择你的网络](https://www.raspberrypi.com/documentation/computers/images/initial-setup/network.png)
 
-如果你的网络需要密码，你可以在这里输入。
+如果你的网络需要密码验证，你可以在这里输入。
 
-![Entering a password for a wireless network.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/network_password.png)
+![输入无线网络密码](https://www.raspberrypi.com/documentation/computers/images/initial-setup/network_password.png)
 
 ### 浏览器
 
-此页面允许你选择将 Firefox 或 Chromium 作为默认的互联网浏览器。你可以选择卸载你未设置为默认的浏览器。
+此页面能让你选择把默认互联网浏览器设置为 Firefox（火狐浏览器）还是 Chromium（开源的 Chrome）。对于不是你默认设置的那个浏览器，你可以选择卸载。
 
-![The Choose Browser page.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/browser.png)
+![选择浏览器](https://www.raspberrypi.com/documentation/computers/images/initial-setup/browser.png)
 
 ### 软件更新
 
-在你的树莓派连接到互联网后，此页面将帮助你将操作系统和软件更新到最新版本。在软件更新过程中，向导将删除非默认浏览器（如果你选择在浏览器选择步骤中卸载它）。更新可能需要几分钟时间。
+在你的树莓派接入互联网后，此页能帮助你把操作系统和软件更新到最新版本。在软件更新过程中，向导会删除非默认浏览器（如果你选择了在浏览器步骤中卸载它）。可能需要几分钟时间才能完成更新。
 
-![You can download the latest software updates during the wizard before you boot for the first time.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/update.png)
+![在首次启动前，您可以通过向导下载最新的软件更新](https://www.raspberrypi.com/documentation/computers/images/initial-setup/update.png)
 
-![You can download the latest software updates during the wizard before you boot for the first time.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/download.png)
+![在首次启动前，您可以通过向导下载最新的软件更新](https://www.raspberrypi.com/documentation/computers/images/initial-setup/download.png)
 
-当你看到弹出窗口指示系统已经更新，请点击“确定”继续下一步。
+当你看到弹出窗口指示系统已经更新，请点击“**确定（OK）**”继续下一步。
 
 ### 完成
 
-在配置向导结束时，点击“重新启动”来重启你的树莓派。你的树莓派将应用你的配置并启动到桌面。
+在配置向导结束时，点击“**重新启动（Restart）**”来重启你的树莓派。你的树莓派将应用个性化并启动至桌面。
 
-![The Setup Complete dialogue prompts to restart your Raspberry Pi.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/restart.png)
+![设置完成对话框，提示重启树莓派](https://www.raspberrypi.com/documentation/computers/images/initial-setup/restart.png)
 
 ## 下一步
  
 
 树莓派已设置并准备就绪，接下来做什么？
 
-### 推荐软件
+### 软件推荐
 
-树莓派操作系统预装许多基本应用程序，因此你可以立即开始使用它们。如果你想利用我们认为有用的其他应用程序，请单击屏幕左上角的树莓图标。选择首选项 > 推荐软件，你将找到软件包管理器。你可以在此免费安装各种推荐软件。
+树莓派操作系统预装了许多基本应用程序，因此可以开箱即用。如果你想使用我们认为有用的其他软件，请单击屏幕左上角的树莓派图标。选择 **首选项（Preferences）** > **推荐软件（Recommended Software）**，你将找到软件包管理器。你可以在此免费安装各种推荐软件。
 
 ![Opening the package manager GUI in树莓派系统](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
 
-例如，如果你计划将树莓派用作家用电脑，你可能会发现 LibreOffice 用于编写和编辑文档和电子表格非常有用。你还可以通过诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序使树莓派更易于访问，这些应用程序位于通用访问下。
+具体来说，如果你打算把树莓派当家用电脑用，你可能会需要 LibreOffice，它对于撰写和编辑文档和电子表格非常有用。你还可以通过诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序使树莓派更易于使用，这些应用程序位于通用访问下。
 
 ### 教程
 
-我们的教程展示了你可以如何使用你的新计算机的各种方式。你可以通过跟随激发你兴趣的教程来学习编码、控制外部设备，并构建令人兴奋的新项目。
+[我们的教程](https://www.raspberrypi.com/tutorials/)向你介绍了各种方式，都是有关你的新树莓派如何使用的。你可以跟随那些能激发你兴趣的教程，来学习编程、控制外部设备，并构建令人兴奋的新项目。
 
 ### 支持
 
-对于官方树莓派产品的支持，或者与其他树莓派用户联系，请访问树莓派论坛。
+对于官方树莓派产品的支持，及与其他树莓派用户交流，请访问[树莓派论坛](https://forums.raspberrypi.com/?_gl=1*j1etrl*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDY5NTU5OC4xOC4wLjE3MjA2OTU1OTguMC4wLjA.)。
 
 ### 进一步阅读
 
 ![](https://www.raspberrypi.com/documentation/computers/images/fifth-editon-cover.png)
 
-你可以在 Gareth Halfacree 的最新版《官方树莓派初学者指南》中找到有关如何开始使用树莓派的更多信息。
+你可以在由 Gareth Halfacree 撰写的最新版《[树莓派官方初学者指南](https://store.rpipress.cc/collections/latest-releases/products/the-official-raspberry-pi-beginners-guide-5th-edition)》中找到有关如何开始使用树莓派的更多信息。
 
- 学习如何：
+ 可学习如何：
 
 * 配置你的树莓派，为其安装操作系统，并开始使用这台功能齐全的计算机。
-* 使用 Scratch 3、Python 和 MicroPython 编程语言，通过逐步指南开始编码项目。
+* 使用编程语言 Scratch 3、Python 和 MicroPython，通过逐步指南开始编程项目。
 * 尝试连接电子元件，并乐在其中创造令人惊叹的项目。
 
-第五版的新内容：
+第五版的新增内容：
 
 * 针对最新的树莓派计算机进行更新：树莓派 5 和树莓派 Zero 2 W。
-* 覆盖最新的树莓派系统。
-* 包含关于树莓派 Pico 的新章节！
+* 涉及最新的树莓派系统。
+* 涉及树莓派 Pico 的新章节！
 
-你可以在树莓派出版社的网站上购买这本书。
+你可以在树莓派出版社的网站上[购买这本书](https://store.rpipress.cc/products/the-official-raspberry-pi-beginners-guide-5th-edition)。
