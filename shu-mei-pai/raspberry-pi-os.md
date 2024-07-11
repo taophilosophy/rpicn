@@ -365,11 +365,11 @@ vcos 命令有两个有用的子命令：
 
 #### `measure_temp`
 
-`measure_temp` 可返回 SoC 的温度，由其内部温度传感器测量。在树莓派 4 上， `measure_temp pmic` 可返回 PMIC 的温度。
+`measure_temp` 可返回 SoC 的温度，由其内部温度传感器测量。在树莓派 4 上， `measure_temp pmic` 可返回电源管理的温度。
 
 #### `measure_clock [clock]`
 
-它返回指定时钟的当前频率。接受以下时钟值：
+它将返回指定时钟的实时频率。可返回以下时钟值：
 
 | 时钟 | 说明                  |
 | ------ | ------------------------ |
@@ -390,22 +390,22 @@ vcos 命令有两个有用的子命令：
 
 #### `measure_volts [block]`
 
-它可显示特定块使用的当前电压。接受以下块值：
+它可显示特定区域使用的当前电压。可接受以下值：
 
 | 区块 | 说明          |
 | ------ | ---------------- |
-| `core`     | VC4 核电压     |
+| `core`     | VC4 核心电压     |
 | `sdram_c`     | SDRAM 核心电压 |
 | `sdram_i`     | SDRAM I/O 电压 |
 | `sdram_p`     | SDRAM 物理电压 |
 
 #### `otp_dump`
 
-它显示 SoC 内部 OTP（一次性可编程）存储器中的内容。这些是 32 位值，从 8 到 64 进行索引。有关更多详细信息，请参阅 OTP 位页面。
+它将显示 SoC 内部 OTP（一次性可编程）存储器中的内容。这些是 32 位值，从 8 到 64 进行索引。有关更多详细信息，请参阅 OTP 位页面。
 
 #### `get_config [configuration item|int|str]`
 
-它显示指定配置设置的值：或者，指定 int （整数）或 str （字符串）以查看给定类型的所有配置项。例如，以下命令返回设备上的总内存（以兆字节为单位）：
+它将显示指定配置设置的值：或者指定 int （整数）、str （字符串）以查看给定类型的所有配置项。例如，以下命令返回设备上的总内存（以 Mb 为单位）：
 
 ```
 $ vcgencmd get_config total_mem
@@ -413,11 +413,11 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem type`
 
-`get_mem type` 可报告 Arm 和 GPU 可寻址内存的数量。要显示 Arm 可寻址内存的数量，请使用 vcgencmd get_mem arm ；要显示 GPU 可寻址内存的数量，请使用 vcgencmd get_mem gpu 。在具有超过 1GB 内存的设备上， arm 参数将始终返回 1GB 减去 gpu 内存值，因为 GPU 固件仅获取前 1GB 内存。要准确报告设备上的总内存，请参阅 total_mem 配置项和上述 get_config 部分。
+`get_mem type` 能报告 Arm 和 GPU 可寻址内存的数量。要显示 Arm 可寻址内存的数量，请使用 vcgencmd get_mem arm ；要显示 GPU 可寻址内存的数量，请使用 vcgencmd get_mem gpu 。在如果设备内存大于 1GB，arm 参数将始终返回使用 1GB 减去 gpu 内存的值，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 total_mem 配置项和上述 get_config 部分。
 
 ##### `codec_enabled [type]`
 
-报告指定编解码器类型是否已启用。支持的类型选项包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4 和 400 上的 H.265 硬件块不是 VideoCore GPU 的一部分，因此其状态不能通过此命令查看。
+报告是否已启用指定类型的解码器。支持的类型参数包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4 和 400 上的 H.265 硬件模块不属于 VideoCore GPU，因此其状态无法用此命令查看。
 
 ##### `mem_oom`
 
