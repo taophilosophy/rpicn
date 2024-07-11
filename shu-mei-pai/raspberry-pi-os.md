@@ -456,7 +456,7 @@ $ vcgencmd get_config total_mem
 
 >**重要**
 >
->自树莓派系统 Bookworm 以降，若使用 pip，你只能将其安装至 Python 虚拟环境（venv）。该变化是由 Python 社区引入的，而非树莓派：有关更多信息，请参阅 PEP 668。
+>自树莓派系统 Bookworm 以降，若使用 pip，你只能将其安装至 Python 虚拟环境（venv）。该变化是由 Python 社区引入的，与树莓派无关：有关更多信息，请参阅 PEP 668。
 
 
 ### 使用 apt 安装 Python 软件包
