@@ -36,7 +36,7 @@ $ sudo apt full-upgrade
 
 >**技巧**
 >
->与 Debian 不同，树莓派系统处于持续开发状态。因此，软件包的依赖关系有时会发生修改，因此你应始终使用 `full-upgrade` 而非标准的 `upgrade`。 
+>与 Debian 不同，树莓派系统一直处于开发状态。因此，软件包的依赖关系有时会发生修改，因此你应始终使用 `full-upgrade` 而非标准的 `upgrade`。 
 
 请定期运行这些命令，以确保软件保持最新状态。在使用 apt 来让树莓派系统是最新状态时，也会同时把你的 Linux 内核和固件变成最新状态（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
 
@@ -201,7 +201,7 @@ $ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} rasp
 
 #### VLC 图形界面
 
-要从树莓派桌面播放音频和视频文件，请在文件管理器中双击文件。这将自动启动 VLC 播放文件。或者，从“声音和视频”菜单中启动 VLC 媒体播放器。然后，从“媒体”菜单中选择“打开文件...”，并找到到要播放的文件。
+要在树莓派桌面播放音频和视频文件，请在文件管理器中双击文件。这将自动启动 VLC 播放文件。或者，从“声音和视频”菜单中启动 VLC 媒体播放器。然后，从“媒体”菜单中选择“打开文件...”，并找到到要播放的文件。
 
 默认情况下，树莓派系统通过 HDMI 将音频输出至你的显示器。要将音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选择。
 
@@ -323,11 +323,11 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 ### `kmsprint`
 
-工具 `kmsprint` 能列出接入树莓派的显示器所支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。你可以在 Github 上找到 kmsprint 实用程序的源代码。
+工具 `kmsprint` 能列出已接入树莓派的显示器所支持的显示模式。使用 kmsprint 可查看已接入树莓派的显示器的详细信息，使用 `kmsprint -m` 可查看显示器所支持的全部分辨率的列表。你可以在 Github 上找到 kmsprint 实用程序的源代码。
 
 ### `vclog`
 
-vclog 显示来自运行在 Arm 上的 Linux 上的 VideoCore GPU 的日志消息。它需要以 root 权限运行。
+vclog 可显示运行在基于 Arm 的 Linux 上，有关 VideoCore GPU 的日志消息。它需要以 root 权限执行。
 
 `sudo vclog --msg` 打印出消息日志，而 sudo vclog --assert 打印出断言日志。
 
