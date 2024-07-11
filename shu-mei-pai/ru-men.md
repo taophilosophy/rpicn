@@ -124,7 +124,7 @@
 
 我们建议用树莓派启动盘制作工具来安装操作系统。
 
-树莓派启动盘制作工具是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。树莓派启动盘制作工具包含了许多常见的树莓派操作系统镜像。树莓派启动盘制作工具还能直接加载已下载的镜像，比如[树莓派](https://ubuntu.com/download/raspberry-pi)和第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）。你可以使用树莓派启动盘制作工具预配置树莓派的凭据和远程访问设置。
+树莓派启动盘制作工具是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的软件。树莓派启动盘制作工具包含了许多常见的树莓派操作系统镜像。树莓派启动盘制作工具还能直接加载已下载的镜像，比如[树莓派](https://ubuntu.com/download/raspberry-pi)和第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）。你可以使用树莓派启动盘制作工具预配置树莓派的凭据和远程访问设置。
 
 树莓派启动盘制作工具也支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩文件。
 
@@ -215,7 +215,7 @@
 
 ![在启动盘制作工具中向设备写入镜像](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
 
->去喝杯咖啡或者散散步。这可能需要几分钟。
+>去喝杯茶或者散散步。这可能需要几分钟。
 
 ![在启动盘制作工具中校验设备上的镜像](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
 
