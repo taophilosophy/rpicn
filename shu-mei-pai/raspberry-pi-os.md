@@ -302,7 +302,7 @@ $ kmsprint | grep Connector
 
 ### 指定音频和视频输出设备
 
-你可以组合音频和视频输出选项。例如，要将视频输出定向到触摸屏，将音频输出定向到耳机插孔，请使用上述命令的以下组合：
+你可以对音频和视频输出选项进行组合。例如，要将视频定向输出到触摸屏，将音频定向输出到耳机插孔，根据上述内容，应执行命令组合为：
 
 ```
 $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audio-device sysdefault:CARD=Headphones your_video.mp4
@@ -310,7 +310,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果你有原始的 H.264 流，比如从树莓派摄像头模块捕获的流，你可以通过将流放入诸如 MP4 之类的文件格式中来提升在 VLC 上的播放性能。你可以使用 ffmpeg 将流内容转换为容器文件。例如，以下命令可把名为 video.h264 的流转换成 30fps 的 MP4 文件，命名为 video.mp4 ：
+如果你有原始的 H.264 流，比如用树莓派摄像头模块捕获的流，你可以通过把流放入诸如 MP4 之类的文件格式中，来提升在 VLC 上的播放性能。你可以使用 ffmpeg 把流内容转成容器文件。例如，以下命令可把名为 video.h264 的流转成 30fps 的 MP4 文件，并命名为 video.mp4 ：
 
 ```
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -319,11 +319,11 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 ## 实用工具
 
 
-树莓派系统中预装了几个有用的命令行实用程序。
+树莓派系统中预装了几个有用的命令行程序。
 
 ### `kmsprint`
 
-`kmsprint` 工具可用于列出连接到树莓派的显示器支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。你可以在 Github 上找到 kmsprint 实用程序的源代码。
+工具 `kmsprint` 能列出接入树莓派的显示器所支持的显示模式。使用 kmsprint 查看连接到树莓派的显示器的详细信息，使用 `kmsprint -m` 查看每个显示器支持的所有显示模式的列表。你可以在 Github 上找到 kmsprint 实用程序的源代码。
 
 ### `vclog`
 
