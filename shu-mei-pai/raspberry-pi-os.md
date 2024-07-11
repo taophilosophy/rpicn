@@ -329,20 +329,20 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 vclog 可显示运行在基于 Arm 的 Linux 上，有关 VideoCore GPU 的日志消息。它需要以 root 权限执行。
 
-`sudo vclog --msg` 打印出消息日志，而 sudo vclog --assert 打印出断言日志。
+`sudo vclog --msg` 可打印出消息日志，而 sudo vclog --assert 则打印出断言日志。
 
 ### `vcgencmd`
 
-vcgencmd 工具用于输出树莓派上 VideoCore GPU 的信息。你可以在 GitHub 上找到 vcgencmd 实用程序的源代码。
+vcgencmd 工具用于输出有关树莓派上 VideoCore GPU 的信息。你可以在 GitHub 上找到工具 vcgencmd 的源代码。
 
-要获取 vcgencmd 支持的所有命令列表，请使用 vcgencmd commands 。下面列出了一些有用的命令及其所需参数。
+要获取 vcgencmd 支持的所有命令列表，请使用 vcgencmd commands。下面列出了一些有用的命令及其所需参数。
 
 #### `vcos`
 
 vcos 命令有两个有用的子命令：
 
-* version 可显示 VideoCore 上固件的构建日期和版本。
-* log status 可显示各个 VideoCore 固件区域的错误日志状态
+* version 可显示 VideoCore 固件的构建日期和版本。
+* log status 可显示 VideoCore 每个固件部分的错误日志状态
 
 #### `version`
 
@@ -354,18 +354,18 @@ vcos 命令有两个有用的子命令：
 
 | 位 | 十六进制值 | 意义              |
 | ---- | ------------ | ------------------- |
-| 0  | `0x1`           | 检测到欠压        |
-| 1  | `0x2`           | Arm 频率被限制    |
+| 0  | `0x1`           | 已检测到欠压        |
+| 1  | `0x2`           | Arm 频率已受限   |
 | 2  | `0x4`           | 当前被节流        |
-| 3  | `0x8`           | 软温度限制已激活  |
-| 16 | `0x10000`           | 发生欠压          |
-| 17 | `0x20000`           | 发生 Arm 频率限制 |
-| 18 | `0x40000`           | 发生了节流        |
-| 19 | `0x80000`           | 发生了软温度限制  |
+| 3  | `0x8`           | 已激活软温度限制  |
+| 16 | `0x10000`           | 发生过欠压          |
+| 17 | `0x20000`           | 发生过 Arm 频率限制 |
+| 18 | `0x40000`           | 发生过节流        |
+| 19 | `0x80000`           | 发生过软温度限制  |
 
 #### `measure_temp`
 
-`measure_temp` 可返回 SoC 的温度，这由其内部温度传感器测量。在树莓派 4 上， `measure_temp pmic` 可返回 PMIC 的温度。
+`measure_temp` 可返回 SoC 的温度，由其内部温度传感器测量。在树莓派 4 上， `measure_temp pmic` 可返回 PMIC 的温度。
 
 #### `measure_clock [clock]`
 
