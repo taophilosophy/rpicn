@@ -14,7 +14,7 @@
 
 首先安装你的摄像头模块。然后，依本部分的指南，使用摄像头模块。
 
-## `rpicam-apps`
+## `rpicam-软件`
 
 >**注意**
 >
@@ -62,13 +62,13 @@ libcamera 提供了 C++ API，用于配置相机，然后能让应用程序请�
 
 ### `rpicam-hello`
 
-rpicam-hello 简要显示包含来自连接摄像头的视频源的预览窗口。要使用 rpicam-hello 在终端中显示五秒钟的预览窗口，请运行以下命令：
+rpicam-hello 简要显示预览窗口，来自接入摄像头的视频源。要使用 rpicam-hello 在终端中，显示五秒钟的预览窗口，请运行以下命令：
 
 ```
 $ rpicam-hello
 ```
 
-你可以使用 timeout 选项传递可选的持续时间（以毫秒为单位）。值为 0 会无限期运行预览：
+你可以使用 timeout 选项指定可选的持续时间（以毫秒为单位）。值为 0 会无限期运行预览：
 
 ```
 $ rpicam-hello --timeout 0
@@ -78,20 +78,20 @@ $ rpicam-hello --timeout 0
 
 #### 显示图像传感器预览
 
-大多数 rpicam-apps 在窗口中显示预览图像。如果没有活动的桌面环境，则预览直接使用 Linux Direct Rendering Manager (DRM)绘制到显示器。否则， rpicam-apps 尝试使用桌面环境。这两种路径都使用零拷贝 GPU 缓冲区共享：结果是不支持 X 转发。
+大多数 rpicam-软件都在窗口中显示预览图像。如果没有运行中的桌面环境，则将直接使用 Linux Direct Rendering Manager (DRM) 把预览绘制到显示器。如果都没有，rpicam-软件会尝试使用桌面环境。这两种路径都使用零拷贝 GPU 缓冲区共享：结果是不支持 X 转发。
 
-如果你运行 X 窗口服务器并希望使用 X 转发，请传递 qt-preview 标志以在 Qt 窗口中渲染预览窗口。Qt 预览窗口比其他替代方案使用更多资源。
+如果你运行着 X 窗口服务器，并希望使用 X 转发，请使用 qt-preview 参数在 Qt 窗口中渲染预览窗口。与其他方案相比，用 Qt 预览窗口会消耗更多资源。
 
 >**注意**
 >
->使用 Gtk2 的旧版系统在与 OpenCV 链接时，可能会产生 Glib-GObject 错误，并且无法显示 Qt 预览窗口。在这种情况下，请以 root 身份编辑文件 /etc/xdg/qt5ct/qt5ct.conf ，并将包含 style=gtk2 的行替换为 style=gtk3 。 
-要完全禁止预览窗口，请使用 nopreview 参数：
+>使用 Gtk2 的旧版系统在与 OpenCV 链接时，可能会产生 Glib-GObject 错误，并且无法显示 Qt 预览窗口。在这种情况下，请以 root 身份，编辑文件 /etc/xdg/qt5ct/qt5ct.conf，把 style=gtk2 这一行改成 style=gtk3 。 
+要彻底禁止预览窗口，请使用 nopreview 参数：
 
 ```
 $ rpicam-hello -n
 ```
 
-info-text 选项使用 `%` 指令在窗口标题栏上显示图像信息。例如，以下命令显示当前的红色和蓝色增益值：
+info-text 选项使用 `%` 指令在窗口标题栏上显示图像信息。例如，以下命令会显示当前的红色和蓝色增益值：
 
 ```
 $ rpicam-hello --info-text "red gain %rg, blue gain %bg"
@@ -101,7 +101,7 @@ $ rpicam-hello --info-text "red gain %rg, blue gain %bg"
 
 ### `rpicam-jpeg`
 
-rpicam-jpeg 帮助你在树莓派设备上捕获图像。
+rpicam-jpeg 可帮助你在树莓派设备上捕获图像。
 
 要捕获全分辨率 JPEG 图像并将其保存为名为 test.jpg 的文件，请运行以下命令：
 
@@ -109,9 +109,9 @@ rpicam-jpeg 帮助你在树莓派设备上捕获图像。
 $ rpicam-jpeg --output test.jpg
 ```
 
-你应该在五秒钟内看到预览窗口。然后， rpicam-jpeg 捕获全分辨率 JPEG 图像并保存。
+你会在五秒钟内看到预览窗口。然后， rpicam-jpeg 会捕获全分辨率 JPEG 图像并保存。
 
-使用 timeout 选项来更改预览窗口的显示时间。 width 和 height 选项更改保存图像的分辨率。例如，以下命令显示预览窗口 2 秒，然后捕获并保存分辨率为 640×480 像素的图像：
+可使用 timeout 选项来修改预览窗口的显示时间。 width 和 height 选项更改保存图像的分辨率。例如，以下命令显示预览窗口 2 秒，然后捕获并保存分辨率为 640×480 像素的图像：
 
 ```
 $ rpicam-jpeg --output test.jpg --timeout 2000 --width 640 --height 480
@@ -119,7 +119,7 @@ $ rpicam-jpeg --output test.jpg --timeout 2000 --width 640 --height 480
 
 ### `rpicam-still`
 
-rpicam-still ，就像 rpicam-jpeg 一样，帮助你在树莓派设备上捕获图像。与 rpicam-jpeg 不同， rpicam-still 支持旧版应用程序中提供的许多选项。
+rpicam-still ，就和 rpicam-jpeg 一样，帮助你在树莓派设备上捕获图像。与 rpicam-jpeg 不同， rpicam-still 兼容许多旧版应用程序中提供的参数。
 
 要捕获全分辨率的 JPEG 图像并将其保存到名为 test.jpg 的文件中，请运行以下命令：
 
@@ -129,9 +129,9 @@ $ rpicam-still --output test.jpg
 
 #### 编码器
 
-rpicam-still 可以以多种格式保存图像，包括 png ， bmp ，以及 RGB 和 YUV 二进制像素转储。要读取这些二进制转储，任何读取文件的应用程序都必须了解像素排列。
+rpicam-still 可以多种格式保存图像，包括 png、bmp 、RGB 和 YUV 二进制像素转储。要读取这些二进制转储，用于读取文件的应用程序都必须兼容像素排列。
 
-使用 encoding 选项指定输出格式。传递给 output 的文件名不会影响输出文件类型。
+使用 encoding 选项能指定输出格式。传递给 output 的文件名不会影响输出文件类型。
 
 要捕获全分辨率的 PNG 图像并将其保存到名为 test.png 的文件中，请运行以下命令：
 
@@ -143,17 +143,17 @@ $ rpicam-still --encoding png --output test.png
 
 #### 捕获原始图像
 
-原始图像是由图像传感器直接产生的图像，在图像信号处理器（ISP）或 CPU 对其进行任何处理之前。彩色图像传感器通常使用 Bayer 格式。使用 raw 选项来捕获原始图像。
+原始图像是直接由图像传感器生成的图像，未经任何图像信号处理器（ISP）和 CPU 的处理。彩色图像传感器通常使用 Bayer 格式。使用 raw 参数来捕获原始图像。
 
-要捕获图像，将其保存到名为 test.jpg 的文件中，并将图像的原始版本保存到名为 test.dng 的文件中，请运行以下命令：
+要捕获图像，并将其保存到名为 test.jpg 的文件中，再把图像的原始版本保存到名为 test.dng 的文件中，请运行以下命令：
 
 ```
 $ rpicam-still --raw --output test.jpg
 ```
 
-rpicam-still 以 DNG（Adobe 数字负片）格式保存原始图像。要确定原始图像的文件名， rpicam-still 使用与输出文件相同的名称，将扩展名更改为 .dng 。要处理 DNG 图像，请使用类似 Dcraw 或 RawTherapee 的应用程序。
+rpicam-still 以 DNG（Adobe 数字负片）格式保存原始图像。要确定原始图像的文件名，rpicam-still 使用与输出文件相同的文件名，并将其扩展名更改为 .dng 。要处理 DNG 图像，请使用类似于 Dcraw、RawTherapee 的应用程序。
 
-DNG 文件包含有关图像捕获的元数据，包括黑电平、白平衡信息以及 ISP 用于生成 JPEG 的色彩矩阵。使用 ExifTool 查看 DNG 元数据。以下输出显示了通过使用 HQ 相机捕获的原始图像中存储的典型元数据：
+DNG 文件包含了有关图像捕获的元数据，包括黑电平、白平衡信息以及 ISP 用于生成 JPEG 的色彩矩阵。使用 ExifTool 查看 DNG 元数据。以下输出显示了通过使用 HQ 相机捕获的原始图像中存储的典型元数据：
 
 ```
 File Name                       : test.dng
@@ -222,7 +222,7 @@ $ rpicam-still -o long_exposure.jpg --shutter 100000000 --gain 1 --awbgains 1,1 
 
 ##### 通过 rpicam-still 延时模式
 
-要使用 rpicam-still 的内置延时模式，请使用 timelapse 选项。此选项接受一个值，表示你希望树莓派在捕获之间等待的时间间隔，单位为毫秒。
+要使用 rpicam-still 的内置延时模式，请使用 timelapse 功能。此参数需要一个值，代表你希望树莓派在捕获之间等待的时间间隔，单位为毫秒。
 
 首先，创建一个目录，用于存储你的延时摄影照片：
 
@@ -230,7 +230,7 @@ $ rpicam-still -o long_exposure.jpg --shutter 100000000 --gain 1 --awbgains 1,1 
 $ mkdir timelapse
 ```
 
-运行以下命令，创建一个 30 秒的延时摄影，每两秒记录一张照片，将输出保存到 image0001.jpg 至 image0014.jpg ：
+运行以下命令，会创建一个 30 秒的延时摄影，每两秒记录一张照片，将输出保存为 image0001.jpg 至 image0014.jpg ：
 
 ```
 $ rpicam-still --timeout 30000 --timelapse 2000 -o timelapse/image%04d.jpg
@@ -304,13 +304,13 @@ $ ffmpeg -r 10 -f image2 -pattern_type glob -i 'timelapse/*.jpg' -s 1280x720 -vc
 * -i 'timelapse/*.jpg' ：指定要匹配 timelapse 目录中的 JPG 文件的输入文件
 * -s 1280x720 ：缩放至 720p
 * -vcodec libx264 使用软件 x264 编码器
-* timelapse.mp4 输出视频文件的名称。
+* timelapse.mp4 输出视频文件的文件名。
 
 要了解有关 ffmpeg 选项的更多信息，请在终端中运行 ffmpeg --help 。
 
 ### `rpicam-vid`
 
-rpicam-vid 帮助你在树莓派设备上捕获视频。 rpicam-vid 显示一个预览窗口并将编码比特流写入指定的输出。这会产生一个未打包的视频比特流，不包含任何容器（如 mp4 文件）格式。
+rpicam-vid 可帮助你在树莓派设备上捕获视频。 rpicam-vid 将显示一个预览窗口并将编码比特流写入指定的输出。这会产生未打包的视频比特流，不含任何容器（如 mp4 文件）格式。
 
 >**注意**
 >
@@ -363,7 +363,7 @@ $ rpicam-vid -t 10000 --codec mjpeg --segment 1 -o test%05d.jpeg
 * 使用 nopreview 禁用显示窗口，以释放一些额外的 CPU 循环。
 * 在 /boot/firmware/config.txt 中设置 force_turbo=1 以确保在视频捕获过程中 CPU 时钟不会降频。有关更多信息，请参阅 force_turbo 文档。
 * 使用 --width 1280 --height 720 或更低的分辨率调整 ISP 输出，以实现你的帧率目标。
-* 在树莓派 4 上，你可以通过在 /boot/firmware/config.txt 中添加 gpu_freq=550 或更高的值来超频 GPU 以提高性能。有关更多详细信息，请参阅超频文档。
+* 在树莓派 4 上，你可以在 /boot/firmware/config.txt 中添加 gpu_freq=550 及更高的值来超频 GPU ，提高性能。有关更多详细信息，请参阅超频文档。
 
 以下命令演示了如何实现 1280×720 120fps 视频：
 
@@ -375,7 +375,7 @@ $ rpicam-vid --level 4.2 --framerate 120 --width 1280 --height 720 --save-pts ti
 
 rpicam-vid 可以使用 ffmpeg / libav 编解码后端来对音频和视频流进行编码。你可以将这些流保存到文件，也可以通过网络进行流传输。当存在时， libav 使用硬件 H.264 视频编码。
 
-要启用 libav 后端，请将 libav 传递给 codec 选项：
+要启用 libav 后端，请将 libav 传参给 codec 选项：
 
 ```
 $ rpicam-vid --codec libav --libav-format avi --libav-audio --output example.avi
@@ -430,7 +430,7 @@ $ rpicam-detect -t 0 -o cat%04d.jpg --lores-width 400 --lores-height 300 --post-
 
 树莓派系统在 /boot/firmware/config.txt 中识别以下叠加层。
 
-| Camera Module          | 在 /boot/firmware/config.txt                                                                                                                                        |
+| 摄像头模块         |  /boot/firmware/config.txt                                                                                                                                        |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | V1 相机 (OV5647)       | `dtoverlay=ov5647`                                                                                                                                                                    |
 | V2 相机 (IMX219)       | `dtoverlay=imx219`                                                                                                                                                                    |
@@ -455,7 +455,7 @@ $ rpicam-hello --tuning-file /usr/share/libcamera/ipa/rpi/pisp/imx219_noir.json
 
 >**注意**
 >
->旧版树莓派型号使用不同的调整文件。在这些设备上，请改用 /usr/share/libcamera/ipa/rpi/vc4/ 中存储的文件。 
+>旧版树莓派型号使用其他的调整文件。在这些设备上，请改用 /usr/share/libcamera/ipa/rpi/vc4/ 中存储的文件。 
 
 libcamera 维护着多种摄像头的调整文件，包括第三方型号。例如，你可以在 se327m12.json 找到 Soho Enterprises SE327M12 的调整文件。
 
@@ -463,26 +463,26 @@ libcamera 维护着多种摄像头的调整文件，包括第三方型号。例�
 
 rpicam-apps 对多个摄像头有基本支持。你可以通过以下方式将多个摄像头连接到树莓派：
 
-* 对于树莓派计算模块，你可以直接连接两个摄像头到树莓派计算模块 I/O 板。有关详细信息，请参阅 Compute 模块文档。使用此方法，你可以同时使用两个摄像头。
-* 对于树莓派 5，你可以使用双 MIPI 连接器直接将两个摄像头连接到板上。
-* 对于带有摄像头端口的其他树莓派设备，你可以使用 Video Mux 板连接两个或更多摄像头，例如这种第三方产品。由于两个摄像头连接到单个 Unicam 端口，因此一次只能使用一个摄像头。
+* 对于树莓派计算模块，你可以直接连接两个摄像头到树莓派计算模块 I/O 板。有关详细信息，请参阅摄像头模块文档。使用此方法，你可以同时使用两个摄像头。
+* 对于树莓派 5，你可以使用双 MIPI 连接器直接将两个摄像头连接到主板上。
+* 对于带有摄像头接口的其余树莓派设备，你可以使用 Video Mux 板连接两个或更多摄像头，例如这种第三方产品。由于两个摄像头连接到单个 Unicam 端口，因此一次只能使用一个摄像头。
 
-要列出平台上所有可用的摄像头，请使用 list-cameras 选项。要选择要使用的摄像头，请将摄像头索引传递给 camera 选项。
+要列出平台上所有可用的摄像头，请使用参数 list-cameras。要选择要使用的摄像头，请将摄像头索引传递给 camera 选项。
 
 >**注意**
 >
->libcamera 尚不支持立体摄像头。当同时运行两个摄像头时，它们必须在单独的进程中运行。这意味着它们之间没有同步传感器帧或 3A 操作的方法。作为解决方法，你可以通过外部同步信号同步摄像头，对于 HQ（IMX477）摄像头，如果需要，将 3A 切换到手动模式。 
+>libcamera 尚不支持立体摄像头。当同时运行两个摄像头时，它们必须在单独的进程中运行。这意味着它们之间没有同步传感器帧及 3A 操作的方法。一种解决方法是，你可以通过外部同步信号同步摄像头，对于 HQ（IMX477）摄像头，如果需要，就将 3A 切换到手动模式。 
 
 ### 安装 libcamera 和 rpicam-apps
 
 树莓派提供两个 rpicam-apps 包：
 
 * rpicam-apps 包含完整的应用程序，支持使用桌面环境进行预览。此软件包已预装在树莓派系统中。
-* rpicam-apps-lite 不支持桌面环境，仅提供 DRM 预览。此软件包已预装在树莓派系统Lite 中。
+* rpicam-apps-lite 不支持桌面环境，仅提供 DRM 预览。此软件包已预装在精简版树莓派系统中。
 
 #### 依赖关系
 
-rpicam-apps 依赖于名为 `library-name<n>` 的库包，其中 `<n>` 是 ABI 版本。你的软件包管理器应自动安装这些。
+rpicam-apps 依赖于名为 `library-name<n>` 的库，其中 `<n>` 是 ABI 版本。这些你的软件包管理器应能自动安装。
 
 #### 开发包
 
@@ -490,7 +490,7 @@ rpicam-apps 依赖于名为 `library-name<n>` 的库包，其中 `<n>` 是 ABI �
 
 ## 使用 rpicam-apps 在网络上进行视频流传输
 
-本节描述了从 rpicam-vid 进行本地流传输。你还可以使用 libav 后端进行网络流传输。
+本节说明了使用 rpicam-vid 进行本地流传输。你还可以使用 libav 后端进行网络流传输。
 
 ### UDP
 
@@ -750,7 +750,7 @@ $ rpicam-hello --config example_configuration.txt
 
 将提供的字符串设置为在桌面环境中运行时预览窗口的标题。支持以下图像元数据替换：
 
-| 指令 | 替换                                                          |
+| 指令 | 意义                                                         |
 | ------ | --------------------------------------------------------------- |
 | `%frame`     | 帧的序列号。                                                  |
 | `%fps`     | 瞬时帧速率。                                                  |
