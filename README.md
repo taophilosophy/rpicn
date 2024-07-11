@@ -4,6 +4,14 @@
 
 我们是树莓派爱好者基地的子部门，如有问题请加入 QQ 群 893333927。
 
+微信公众号: rpicn2025 （扫码关注）
+
+![](./.gitbook/assets/qr.png)
+
+微信公众号: 树莓派爱好者基地 （可能已不再更新）
+
+![](./.gitbook/assets/logo1.jpg)
+
 ## 版本说明
 
 当前版本指向 2024.7.10 <https://github.com/raspberrypi/documentation/commit/b68a629c7212e668fdfba94d227cc9ec32d9bfbb>
