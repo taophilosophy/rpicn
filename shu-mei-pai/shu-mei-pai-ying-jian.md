@@ -117,8 +117,8 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 ### 树莓派 1 B+
 
 * [原理图，修订版 1.2](https://datasheets.raspberrypi.com/rpi/raspberry-pi-b-plus-reduced-schematics.pdf)
-* [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi/raspberry-pi-b-plus-mecahnical-drawing.pdf)
-* [机械图纸，DXF](https://datasheets.raspberrypi.com/rpi/raspberry-pi-b-plus-mecahnical-drawing.dxf)
+* [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi/raspberry-pi-b-plus-mechanical-drawing.pdf)
+* [机械图纸，DXF](https://datasheets.raspberrypi.com/rpi/raspberry-pi-b-plus-mechanical-drawing.dxf)
 
 ### 树莓派 1 A+
 
