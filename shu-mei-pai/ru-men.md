@@ -8,20 +8,20 @@
 要开始使用你的树莓派，你需要准备以下物品：
 
 * [电源适配器](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply)
-* 启动介质（例如[大容量、高速的 microSD 卡](https://www.raspberrypi.com/documentation/computers/getting-started.html#recommended-sd-cards)）
+* 启动介质（比如[大容量、高速 microSD 卡](https://www.raspberrypi.com/documentation/computers/getting-started.html#recommended-sd-cards)）
 
-你可以将树莓派配置为带桌面的交互式计算机，也可以将其配置为仅通过网络访问的无头设备（headless）。你不需要其他任何外部设备，就能无头设置你的树莓派：你可以[在安装操作系统时](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)预先设置主机名、用户账号、网络连接和 SSH。但如果要直接使用你的树莓派，你还需要以下其余配件：
+你可以将树莓派配置成带桌面的交互式计算机，也可以将其配置为仅通过网络访问的无头设备（headless）。不需要其他任何外部设备，你就能无头设置树莓派：你可以[在安装操作系统](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)时预先设置主机名、用户账户、网络连接和 SSH。但如果你要直接使用树莓派，还需要以下其余配件：
 
 * 显示器
-* 用于将树莓派连接到显示器的连接线
+* 用于将树莓派接入显示器的连接线
 * 键盘
 * 鼠标
 
 ### 电源适配器
 
-下面的表格列出了为各种型号的树莓派提供电源所需的 USB-PD 电源适配器型号。你可使用其他能提供符合电源功率要求的高品质电源适配器来代替。
+以下的表格列出了为各种型号的树莓派供电所需的 USB-PD 电源适配器类型。你可使用其他能提供符合供电功率要求的高品质电源适配器来代替。
 
-| 型号                    | 推荐的电源适配器（电压/电流）     | 树莓派电源适配器 |
+| 型号                    | 推荐供电（电压/电流）     | 树莓派官方电源适配器 |
 | :-------------------------: | :-----------------------------------: | :------------------: |
 | 树莓派 5                | 5V/5A、5V/3A（会把外部设备限制至 600mA） | [27W USB Type-C 电源适配器](https://www.raspberrypi.com/products/27w-power-supply/)                 |
 | 树莓派 4B        | 5V/3A                             | [15W USB Type-C 电源适配器](https://www.raspberrypi.com/products/type-c-power-supply/)                 |
@@ -32,25 +32,25 @@
 
 ![将电源插入树莓派](../.gitbook/assets/cable-power.png)
 
-请将电源适配器插入标有“POWER IN”、“PWR IN”或“PWR”的接口。某些型号的树莓派（如 Zero 系列） USB 输出接口的规格与电源接口是一样的。请确保在树莓派上使用的接口是正确的！
+请将电源适配器插入标有“POWER IN”、“PWR IN”或“PWR”的接口。某些型号的树莓派（如 Zero 系列），其 USB 输出接口的规格与电源接口相同。请确保你在树莓派上所使用的接口是正确的！
 
 ### 启动介质
 
-树莓派不带内置存储，因此需要你来提供启动介质。你可以用安装在受支持的介质上的操作系统来启动你的树莓派：一般用 microSD 卡，但也可以使用 USB 存储设备、网络存储设备及用 PCIe 扩展板转接的存储设备。但是，只有最新款的树莓派才能支持以上这些所有类型。
+树莓派不自带内置存储，故需要你来提供启动介质。你可以用安装在受支持的介质上的操作系统，来启动你的树莓派：一般用 microSD 卡，亦可使用 USB 存储设备、网络存储设备及 PCIe 扩展板转接的存储设备。但是，只有最新款的树莓派才能支持以上这些所有类型。
 
-自树莓派 1A+ 以来的所有消费者款的树莓派都搭载了 microSD 卡槽。在卡槽中插入 microSD 后，你的树莓派会 就能自动从 microSD 启动。
+自树莓派 1A+ 以来的所有消费者型号的树莓派都搭载了 microSD 卡槽。在卡槽中插入 microSD 后，你的树莓派就能自动从 microSD 启动。
 
 ![将 microSD 卡插入树莓派](../.gitbook/assets/sd-card.png)
 
 #### 推荐的 SD 卡
 
-我们建议，用于安装树莓派系统的 SD 卡，至少要拥有 32GB 存储空间（对于树莓派系统Lite 建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。和所有其他启动介质一样，读写速度更快的 SD 卡性能也更佳。
+我们建议，用于安装树莓派系统（Raspberry Pi OS）的 SD 卡，存储容量至少为 32GB（对于精简版树莓派系统（Raspberry Pi OS Lite），建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持大于 2TB 的容量。和所有其他启动介质一样，读写速度更快的 SD 卡性能也更佳。
 
-出于硬件限制，以下设备只能从 256GB（及更小）的启动分区上启动：
+由于硬件所限，以下设备只能从 256GB（及更小）的启动分区上启动：
 
 * 树莓派 Zero
 * 树莓派 1
-* 早期基于 BCM2836 SoC 的树莓派 Model 2 
+* 早期基于 BCM2836 SoC 的树莓派 2 
 
 其他操作系统可能需求各异。请查阅你使用的操作系统文档以了解容量需求。
 
@@ -73,7 +73,7 @@
 | 型号                    | 显示输出                                             |
 | ------------------------- | ------------------------------------------------------ |
 | 树莓派 5                | micro HDMI ×2                                       |
-| 树莓派 4（所有型号）    | micro HDMI ×2，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频、复合输出 |
+| 树莓派 4（所有型号）    | micro HDMI ×2，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出 |
 | 树莓派 3（所有型号）    | HDMI，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出          |
 | 树莓派 2 (所有型号)     | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
 | 树莓派 1B+       | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
@@ -84,15 +84,15 @@
 >
 >所有型号的树莓派都不能进行 USB-C 视频传输（DisplayPort alt mode）。 
 
-如果你的树莓派有多个 HDMI 接口，请将主显示器插入标有 `HDMI0` 的那个口。
+如果你的树莓派有多个 HDMI 接口，请将主显示器插入到那个标有 `HDMI0` 的口。
 
-常见显示器都不支持 micro HDMI、mini HDMI。但是，你可以使用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 和 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)来将树莓派上的这些接口转接至 HDMI 显示器。如果显示器不支持 HDMI，请考虑用转换器将 HDMI 输出转换为该设备所支持的类型。
+常见显示器都不支持 micro HDMI 和 mini HDMI。但是，你可以用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 和 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)来把树莓派上的这些接口转接至 HDMI 显示器。如果显示器不支持 HDMI，请考虑用转换器将 HDMI 输出转为该设备所支持的类型。
 
 ![把 micro HDMI 线插入树莓派](../.gitbook/assets/cable-hdmi.png)
 
 ### 音频
 
-所有型号的树莓派都能通过 HDMI、micro HDMI 或 mini HDMI 进行音频输出，且都支持通过 USB 进行音频输出。所有搭载了蓝牙的树莓派都支持蓝牙音频。所有基于树莓派 1、2、3 和 4 的型号都有一个 3.5 mm 的 [TRRS](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards) AUX 耳机插孔，但可能需要用放大器才能听到足够大的音量输出。
+所有型号的树莓派都能通过 HDMI、micro HDMI（或 mini HDMI）进行音频输出，且都支持通过 USB 进行音频输出。所有搭载了蓝牙的树莓派都支持蓝牙音频。所有基于树莓派 1、2、3 和 4 的型号都有一个 3.5 mm 的 [TRRS](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards) AUX 耳机插孔，但可能需要用放大器才能得到足够大的音量输出。
 
 ### 网络
 
@@ -111,9 +111,9 @@
 
 ## 安装操作系统
 
-如果你要使用树莓派，你还需要操作系统。在默认情况下，树莓派会在 SD 卡槽里的 SD 卡上进行查找，看是否有操作系统。
+如果你要使用树莓派，还需要操作系统。在默认情况下，树莓派会在 SD 卡槽里的 SD 卡上进行查找，看是否有操作系统。
 
-视你的树莓派型号而定，你也许还能用别的存储设备来启动操作系统，包括 USB 设备、网络存储及与扩展板连接的存储设备。
+视你的树莓派型号而定，也许你还能用别的存储设备来启动操作系统，比如 USB 设备、网络存储及与扩展板连接的存储设备。
 
 要在存储设备上为树莓派安装操作系统，你需要：
 
@@ -124,15 +124,15 @@
 
 我们建议用树莓派启动盘制作工具来安装操作系统。
 
-树莓派启动盘制作工具是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。树莓派启动盘制作工具包含了许多流行的树莓派操作系统镜像。树莓派启动盘制作工具还支持加载直接从[树莓派](https://ubuntu.com/download/raspberry-pi)或第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）下载的镜像。你可以使用树莓派启动盘制作工具预配置树莓派的凭据和远程访问设置。
+树莓派启动盘制作工具是一个帮助你在 macOS、Windows 和 Linux 上下载和写入镜像的工具。树莓派启动盘制作工具包含了许多常见的树莓派操作系统镜像。树莓派启动盘制作工具还能直接加载已下载的镜像，比如[树莓派](https://ubuntu.com/download/raspberry-pi)和第三方供应商（如 [Ubuntu](https://ubuntu.com/download/raspberry-pi)）。你可以使用树莓派启动盘制作工具预配置树莓派的凭据和远程访问设置。
 
-树莓派启动盘制作工具也支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩格式。
+树莓派启动盘制作工具也支持打包为 `.img` 格式的镜像，以及像 `.zip` 这样的压缩文件。
 
 如果你没有能把镜像写入到存储设备的计算机，你可以通过互联网直接在你的树莓派上安装操作系统。
 
-### 使用树莓派启动盘制作工具安装
+### 使用树莓派启动盘制作工具
 
-你可以通过以下方式安装 Raspberry Pi Imager：
+你可以通过以下方式安装树莓派启动盘制作工具：
 
 * 从树莓派官网 [raspberrypi.com/software](https://www.raspberrypi.com/software/) 下载最新版本并运行安装程序。
 * 通过终端使用包管理器安装，如 `sudo apt install rpi-imager`。
@@ -153,7 +153,7 @@
 
 >**警告**
 >
->如果你的计算机连接了多个存储设备，**请务必选择正确的设备！** 通常可以用大小来识别存储设备。如不确定，请断开其他设备，直到能确认要刻录镜像的设备。 
+>如果你的计算机接入了多个存储设备，**请务必选择那个正确的设备！** 通常可以用大小来识别存储设备。如不确定，请断开其他设备，直到能确定要刻录镜像的设备。 
 
 ![在树莓派启动盘制作工具中选择存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
 
@@ -163,11 +163,11 @@
 
 在弹出窗口中，树莓派启动盘制作工具将要求你应用操作系统设置。我们强烈建议通过操作系统定制设置配置你的树莓派。单击“编辑设置（Edit Settings）”按钮打开操作系统定制（ OS customisation）。
 
-如果你没有用操作系统定制这个功能来配置你的树莓派，树莓派系统会在首次启动时的配置向导中，要求你提供相同的信息。你可以单击选项“否（No）”来跳过操作系统自定义。
+如果你没有用操作系统定制这个功能来配置你的树莓派，树莓派系统会在首次启动时的配置向导中，要求你再次提供。你可以单击选项“否（No）”来跳过操作系统自定义。
 
 #### 操作系统定制
 
-操作系统定制菜单允许你在首次开机之前，对你的树莓派进行设置。你可以预先配置：
+操作系统定制菜单能让你在首次开机之前，对你的树莓派进行设置。你可以预先配置：
 
 * 用户名和密码
 * Wi-Fi 凭据
@@ -182,9 +182,9 @@
 
 **用户名（username）和密码（password）** 参数设定了树莓派上管理员用户账户的用户名和密码。
 
-**无线局域网（wireless LAN）** 参数能让你输入无线网络的 SSID（网络名称）和密码。如果你的网络不公开广播 SSID，则应启用“隐藏 SSID”设置。默认情况下，制作工具使用你当前所在的国家作为“无线局域网国家”。此设置控制树莓派使用的 Wi-Fi 广播频率。如果你计划运行无头树莓派，请为无线局域网选项输入凭据。
+**无线局域网（wireless LAN）** 参数能让你输入无线网络的 SSID（网络名称）和密码。如果你的网络不公开广播 SSID，则应启用“隐藏 SSID”设置。默认情况下，制作工具使用你当前所在的国家作为“无线局域网国家/区域”。此设置控制树莓派使用的 Wi-Fi 广播频率。如果你打算运行无头树莓派，请为无线局域网选项输入凭据。
 
-**区域设置（ locale settings）** 参数允许你为你的树莓派定义时区和默认键盘布局。
+**区域设置（ locale settings）** 参数能为你的树莓派设定时区和默认键盘布局。
 
 ![操作系统自定义菜单的常规设置](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-general.png)
 
