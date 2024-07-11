@@ -2,7 +2,7 @@
 
 ## Build 扩展板（Build HAT）简介
 
-树莓派 Build 扩展板是一个附加板，可连接到树莓派的 40 引脚 GPIO 标头，与 LEGO® Education 合作设计，可轻松使用树莓派计算机控制 LEGO® Technic™ 电机和传感器。
+树莓派 Build 扩展板是一个附加板，可连接到树莓派的 40 针 GPIO 母座，与 LEGO® Education 合作设计，可轻松使用树莓派计算机控制 LEGO® Technic™ 电机和传感器。
 
 ![build hat](https://www.raspberrypi.com/documentation/accessories/images/build-hat.jpg)
 

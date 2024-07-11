@@ -37,7 +37,7 @@ Aux out 双 Phono/RCA 连接器或 3.5 毫米插孔。提供高达 1V RMS 的模
 
 ![DAC Pro Board Diagram](https://www.raspberrypi.com/documentation/accessories/images/DAC_Pro_Board_Diagram.jpg)
 
-使用 Texas Instruments PCM5242，DAC Pro 提供出色的信噪比（SNR），支持平衡/差分输出，并与留声机/RCA 线级输出并行。它还包括专用耳机放大器。DAC Pro 由树莓派通过 GPIO 标头供电。
+使用 Texas Instruments PCM5242，DAC Pro 提供出色的信噪比（SNR），支持平衡/差分输出，并与留声机/RCA 线级输出并行。它还包括专用耳机放大器。DAC Pro 由树莓派通过 GPIO 排针供电。
 
 作为 DAC Pro 的一部分，两个三针标头（P7/P9）位于树莓派的 USB 和以太网接口上方，供可选的 XLR 板使用，允许差分/平衡输出。
 
