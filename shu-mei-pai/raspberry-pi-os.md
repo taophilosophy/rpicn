@@ -609,9 +609,9 @@ $ source ~/.env/bin/activate
 
 ### 使用 Thonny 编辑器
 
-我们推荐使用 Thonny，用以编辑树莓派上的 Python 代码。
+我们推荐使用 Thonny，来编辑树莓派上的 Python 代码。
 
-默认情况下，Thonny 使用系统 Python。但是，你可以通过单击 Thonny 窗口右下角的解释器菜单来切换到使用 Python 虚拟环境。选择一个配置好的环境或使用 Configure interpreter… 配置一个新的虚拟环境。
+在默认情况下，Thonny 使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的解释器菜单来切换使用 Python 虚拟环境。选择配置好的环境或使用 Configure interpreter… 配置一个新的虚拟环境。
 
 ![thonny venv](https://www.raspberrypi.com/documentation/computers/images/thonny-venv.png)
 
@@ -632,7 +632,7 @@ $ source ~/.env/bin/activate
 
 ### 电压
 
-开发板上有两个 5V 引脚、两个 3.3V 引脚，以及若干接地引脚（GND），这些引脚无法复用。其余引脚都是通用的 3.3V 引脚，意味着输出设置为 3.3V，输入为 3.3V 容忍（Tolerant）。
+开发板上有两个 5V 引脚、两个 3.3V 引脚，和若干接地引脚（GND），这些引脚无法复用。其余引脚都是通用 3.3V 引脚，意味着输出设置为 3.3V，输入为 3.3V 容忍（Tolerant）。
 
 ### 输出
 
@@ -640,11 +640,11 @@ $ source ~/.env/bin/activate
 
 ### 输入
 
-将作为输入引脚指定的 GPIO 引脚可以读取为高电平（3.3V）或低电平（0V）。使用内部上拉或下拉电阻器可以更轻松地实现这一点。GPIO2 和 GPIO3 引脚具有固定的上拉电阻器，但对于其他引脚，可以在软件中进行配置。
+要让作为输入引脚指定的 GPIO 引脚能够被读取为高电平（3.3V）或低电平（0V）。使用内部上拉或下拉电阻器可以更为轻松地实现这一点。GPIO2 和 GPIO3 引脚具有固定的上拉电阻器，但对于其他引脚，可在软件中进行配置。
 
 ### 其他 GPIO 功能
 
-除了简单的输入和输出设备外，GPIO 引脚还可以与各种替代功能一起使用。一些功能适用于所有引脚，而另一些功能适用于特定引脚：
+除了简单的输入和输出设备外，GPIO 引脚还可以与各种可选功能一起使用。某些功能适用于所有引脚，而某些功能仅适用于特定引脚：
 
 * PWM（脉冲宽度调制）
   * 所有引脚上都可用的软件 PWM
@@ -658,17 +658,17 @@ $ source ~/.env/bin/activate
 * 串行
   * TX（GPIO14）；RX（GPIO15）
 
-### 查看你树莓派的 GPIO 引脚布局
+### 查看你的树莓派 GPIO 引脚布局
 
-通过打开终端窗口并运行命令 pinout ，可以访问 Raspberry Pi 上的 GPIO 参考。此工具由 GPIO Zero Python 库提供，默认情况下安装在树莓派系统中。
+打开终端窗口，运行命令 pinout，可以查看树莓派上的 GPIO 示例。此工具由 GPIO Zero Python 库提供，默认情况下内置在树莓派系统中。
 
 >**警告**
 >
->将小组件连接到 GPIO 引脚是安全的，但要小心如何连接它们。LED 应该有电阻器来限制通过它们的电流。不要让 3.3V 组件使用 5V。不要直接把电机连接到 GPIO 引脚，而应使用 H 桥电路或电机控制板。 
+>将小的组件连接到 GPIO 引脚是安全的，但要小心如何连接它们。应该用电阻来限制通过 LED 的电流。不要让 3.3V 组件使用 5V。不要直接把电机接入 GPIO 引脚，而应使用 H 桥电路、电机控制板。 
 
 ### 权限
 
-你的用户必须是 gpio 组的成员，然后才能使用 GPIO。默认用户账户默认就是其成员，但你必须使用以下命令手动添加其他用户为其组成员。
+你的用户必须是 gpio 组的成员，然后才能使用 GPIO。默认用户账户就是其成员，但对于其他用户，你必须使用以下命令，手动将他添加到 gpio 组。
 
 ```
 $ sudo usermod -a -G gpio <username>
@@ -676,11 +676,11 @@ $ sudo usermod -a -G gpio <username>
 
 ### 用 Python 控制 GPIO
 
-使用 GPIO Zero 库可以轻松控制 GPIO 设备。该库在 gpiozero.readthedocs.io 上有全面的文档。
+使用 GPIO Zero 库能轻松地控制 GPIO 设备。该库在 gpiozero.readthedocs.io 上有全面的文档。
 
 #### LED
 
-以下示例代码可控制连接到 GPIO17 的 LED：
+以下示例代码用于控制接入到 GPIO17 的 LED：
 
 ```
 from gpiozero import LED
@@ -695,13 +695,13 @@ while True:
     sleep(1)
 ```
 
-在类似 Thonny 的 IDE 中运行，LED 将不断地闪烁。
+可在类似 Thonny 的 IDE 中运行，LED 会不断地闪烁。
 
 LED 方法包括 on() ， off() ， toggle() 和 blink() 。
 
 #### 按钮
 
-以下示例代码可读取连接到 GPIO2 的按钮的状态：
+以下示例代码可读取接入到 GPIO2 按钮的状态：
 
 ```
 from gpiozero import Button
@@ -721,7 +721,7 @@ while True:
 
 #### 按钮和 LED
 
-以下示例代码可读取连接到 GPIO2 的按钮的状态，并在按下按钮时点亮连接到 GPIO17 的 LED：
+以下示例代码可读取接入 GPIO2 按钮的状态，并在按下按钮时，点亮接入到 GPIO17 的 LED：
 
 ```
 from gpiozero import LED, Button
@@ -751,7 +751,7 @@ while True:
     led.off()
 ```
 
- 或者：
+ 又或者：
 
 ```
 from gpiozero import LED, Button
@@ -767,6 +767,6 @@ button.when_released = led.off
 
 ![](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)
 
-你可以在由树莓派出版的书籍《使用 GPIO Zero 的简单电子学》中找到有关如何使用 GPIO Zero Python 库编程连接到你的树莓派的更多信息。该书籍通过 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
+你可以在由树莓派出版社出版的书籍《使用 GPIO Zero 的简单电子学》中，找到有关如何使用 GPIO Zero Python 库编程，连接到你的树莓派的更多信息。该书通过 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
 
 你可以免费下载这本书的 PDF 文件，它是根据知识共享署名-非商业性使用-相同方式共享 3.0 国际许可发布的。
