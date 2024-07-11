@@ -45,7 +45,7 @@
 
  计算模块 3+
 
-计算模块 3+（CM3+）包含了树莓派 3 Model B+（BCM2837 处理器和 1GB 内存）的内部，以及可选的 0GB（Lite）、8GB、16GB 或 32GB eMMC 闪存存储。
+计算模块 3+（CM3+）包含了树莓派 3B+（BCM2837 处理器和 1GB 内存）的内部，以及可选的 0GB（Lite）、8GB、16GB 或 32GB eMMC 闪存存储。
 
 ### 计算模块 3
 
@@ -353,10 +353,10 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 引导分区包含两种不同类型的设备树文件。一种仅供 GPU 使用；其余是针对每个基于 BCM283x 的树莓派产品的标准 Arm 设备树文件：
 
 * dt-blob.bin （供 GPU 使用）
-* bcm2708-rpi-b.dtb （用于树莓派 1 Model A 和 B）
-* bcm2708-rpi-b-plus.dtb （用于树莓派i 1 Model B+ 和 A+）
-* bcm2709-rpi-2-b.dtb （用于树莓派 2 Model B）
-* bcm2710-rpi-3-b.dtb （用于树莓派 3 Model B）
+* bcm2708-rpi-b.dtb （用于树莓派 1B 和 B）
+* bcm2708-rpi-b-plus.dtb （用于树莓派i 1B+ 和 A+）
+* bcm2709-rpi-2-b.dtb （用于树莓派 2B）
+* bcm2710-rpi-3-b.dtb （用于树莓派 3B）
 * bcm2708-rpi-cm.dtb （用于树莓派 计算模块 1）
 * bcm2710-rpi-cm3.dtb （用于树莓派计算模块 3）
 
