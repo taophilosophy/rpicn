@@ -8,7 +8,7 @@
 要开始使用你的树莓派，你需要准备以下物品：
 
 * [电源适配器](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply)
-* 启动介质（例如[存储空间足够大、速度足够快的 microSD 卡](https://www.raspberrypi.com/documentation/computers/getting-started.html#recommended-sd-cards)）
+* 启动介质（例如[大容量、高速的 microSD 卡](https://www.raspberrypi.com/documentation/computers/getting-started.html#recommended-sd-cards)）
 
 你可以将树莓派配置为带桌面的交互式计算机，也可以将其配置为仅通过网络访问的无头设备（headless）。你不需要其他任何外部设备，就能无头设置你的树莓派：你可以[在安装操作系统时](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)预先设置主机名、用户账号、网络连接和 SSH。但如果要直接使用你的树莓派，你还需要以下其余配件：
 
@@ -44,7 +44,7 @@
 
 #### 推荐的 SD 卡
 
-我们建议，用于安装 树莓派系统 的 SD 卡，至少要拥有 32GB 存储空间（对于 树莓派系统 Lite 建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。和所有其他启动介质一样，读写速度更快的 SD 卡性能也更佳。
+我们建议，用于安装树莓派系统的 SD 卡，至少要拥有 32GB 存储空间（对于树莓派系统Lite 建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。和所有其他启动介质一样，读写速度更快的 SD 卡性能也更佳。
 
 出于硬件限制，以下设备只能从 256GB（及更小）的启动分区上启动：
 
@@ -137,11 +137,11 @@
 * 从树莓派官网 [raspberrypi.com/software](https://www.raspberrypi.com/software/) 下载最新版本并运行安装程序。
 * 通过终端使用包管理器安装，如 `sudo apt install rpi-imager`。
 
-树莓派启动盘制作工具安装完成后，通过单击树莓派启动盘制作工具图标或执行 `rpi-imager` 启动应用程序。
+树莓派启动盘制作工具安装完成后，通过单击树莓派启动盘制作工具图标或执行 `rpi-imager` 来启动应用程序。
 
 ![树莓派启动盘制作工具主窗口](https://www.raspberrypi.com/documentation/computers/images/imager/welcome.png)
 
-单击“**选择设备（Choose device）**”，然后从列表中选择你的树莓派类型。
+单击“**选择设备（Choose device）**”，然后从列表中选择你的树莓派型号。
 
 ![在树莓派启动盘制作工具中选择树莓派的型号](https://www.raspberrypi.com/documentation/computers/images/imager/choose-model.png)
 
@@ -153,21 +153,21 @@
 
 >**警告**
 >
->如果你的计算机连接了多个存储设备，**请务必选择正确的设备！** 通常可以通过大小来识别存储设备。如不确定，请断开其他设备，直到确定要刻录镜像的设备。 
+>如果你的计算机连接了多个存储设备，**请务必选择正确的设备！** 通常可以用大小来识别存储设备。如不确定，请断开其他设备，直到能确认要刻录镜像的设备。 
 
 ![在树莓派启动盘制作工具中选择存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
 
  接下来，点击“**下一步（Next）**。
 
-![在树莓派启动盘制作工具中打开 OS customisation menu.](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-prompt.png)
+![在树莓派启动盘制作工具中打开操作系统定制](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-prompt.png)
 
 在弹出窗口中，树莓派启动盘制作工具将要求你应用操作系统设置。我们强烈建议通过操作系统定制设置配置你的树莓派。单击“编辑设置（Edit Settings）”按钮打开操作系统定制（ OS customisation）。
 
-如果你没有通过操作系统定制设置配置你的树莓派，树莓派系统 将在首次启动期间的配置向导中要求你提供相同的信息。你可以单击选项“否（No）”来跳过操作系统自定义。
+如果你没有用操作系统定制这个功能来配置你的树莓派，树莓派系统会在首次启动时的配置向导中，要求你提供相同的信息。你可以单击选项“否（No）”来跳过操作系统自定义。
 
 #### 操作系统定制
 
-操作系统定制菜单允许你在首次启动之前设置你的树莓派。你可以预先配置：
+操作系统定制菜单允许你在首次开机之前，对你的树莓派进行设置。你可以预先配置：
 
 * 用户名和密码
 * Wi-Fi 凭据
@@ -176,11 +176,11 @@
 * 键盘布局
 * 远程连接
 
-当你首次打开系统自定义菜单时，你可能会看到一个提示，询问是否允许从主机计算机加载 Wi-Fi 凭据。如果你回答“是”，Imager 将从你当前连接的网络预填 Wi-Fi 凭据。如果你回答“否”，你可以手动输入 Wi-Fi 凭据。
+当你首次打开系统自定义菜单时，你可能会看到一个提示，询问你是否允许从计算机加载 Wi-Fi 凭据。如果你回答“确认”，启动盘制作工具将从你当前连接的网络预填 Wi-Fi 凭据。如果你回答“否”，你可手动输入 Wi-Fi 凭据。
 
-主机名选项定义了你的树莓派使用 mDNS 在网络上广播的主机名。当你将树莓派连接到网络时，网络上的其他设备可以使用 `<hostname>.local` 或 `<hostname>.lan` 与你的计算机通信。
+主机名参数设定了你的树莓派在网络上广播的主机名（使用 mDNS）。当你把树莓派接入网络后，网络上的其他设备就可以使用 `<你的主机名>.local` 或 `<你的主机名>.lan` 与你的树莓派进行通信。
 
-用户名和密码选项定义了树莓派上管理员用户帐户的用户名和密码。
+用户名和密码选项设定了树莓派上管理员用户账户的用户名和密码。
 
 无线局域网选项允许你输入无线网络的 SSID（名称）和密码。如果你的网络不公开广播 SSID，则应启用“隐藏 SSID”设置。默认情况下，Imager 使用你当前所在的国家作为“无线局域网国家”。此设置控制树莓派使用的 Wi-Fi 广播频率。如果你计划运行无头树莓派，请为无线局域网选项输入凭据。
 
@@ -305,9 +305,9 @@
 
 ### 用户
 
-此页面可帮助你配置默认用户帐户的用户名和密码。
+此页面可帮助你配置默认用户账户的用户名和密码。
 
-在默认情况下，旧版的 树莓派系统 将用户名设置为"pi"。如果你使用用户名"pi"，请避免使用旧的默认密码"raspberry"，以保持你的树莓派安全。
+在默认情况下，旧版的树莓派系统将用户名设置为"pi"。如果你使用用户名"pi"，请避免使用旧的默认密码"raspberry"，以保持你的树莓派安全。
 
 ![Create your username and password.](https://www.raspberrypi.com/documentation/computers/images/initial-setup/user.png)
 
@@ -352,7 +352,7 @@
 
 树莓派操作系统预装许多基本应用程序，因此你可以立即开始使用它们。如果你想利用我们认为有用的其他应用程序，请单击屏幕左上角的树莓图标。选择首选项 > 推荐软件，你将找到软件包管理器。你可以在此免费安装各种推荐软件。
 
-![Opening the package manager GUI in 树莓派系统](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
+![Opening the package manager GUI in树莓派系统](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
 
 例如，如果你计划将树莓派用作家用电脑，你可能会发现 LibreOffice 用于编写和编辑文档和电子表格非常有用。你还可以通过诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序使树莓派更易于访问，这些应用程序位于通用访问下。
 
@@ -379,7 +379,7 @@
 第五版的新内容：
 
 * 针对最新的树莓派计算机进行更新：树莓派 5 和树莓派 Zero 2 W。
-* 覆盖最新的 树莓派系统。
+* 覆盖最新的树莓派系统。
 * 包含关于树莓派 Pico 的新章节！
 
 你可以在树莓派出版社的网站上购买这本书。
