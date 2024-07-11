@@ -88,7 +88,7 @@
 
 常见显示器都不支持 micro HDMI、mini HDMI。但是，你可以使用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 和 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)来将树莓派上的这些接口转接至 HDMI 显示器。如果显示器不支持 HDMI，请考虑用转换器将 HDMI 输出转换为该设备所支持的类型。
 
-![Plugging a micro HDMI cable into a Raspberry Pi](../.gitbook/assets/cable-hdmi.png)
+![把 micro HDMI 线插入树莓派](../.gitbook/assets/cable-hdmi.png)
 
 ### 音频
 
@@ -186,7 +186,7 @@
 
 **区域设置（ locale settings）** 参数允许你为你的树莓派定义时区和默认键盘布局。
 
-![General settings in the OS customisation menu](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-general.png)
+![操作系统自定义菜单的常规设置](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-general.png)
 
 选项 **服务（Services）** 涉及帮助你远程连接到树莓派的设置。
 
@@ -195,11 +195,11 @@
 * 选择 **密码验证（password authentication）** 参数，可使用你在 OS 定制的常规选项卡中提供的用户名和密码通过网络 SSH 到你的树莓派。
 * 选择 **仅允许公钥验证（Allow public-key authentication only ）**，可为你的树莓派预配置无密码，仅公钥的 SSH 验证，默认会使用你当前计算机上的私钥。如果你的 SSH 配置中已经有 RSA 密钥，制作工具将使用该公钥。如果没有，你可以单击“**运行 SSH-keygen（Run SSH-keygen）**”来生成公、私钥对。制作工具会使用新生成的公钥。
 
-![Services settings in the OS customisation menu](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-services.png)
+![操作系统定制菜单中的服务设置](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-services.png)
 
 系统定制还包括“**选项（Options）**”菜单，能让你在写入过程中配置制作工具的操作。这些选项能让你在制作工具完成镜像校验时播放声音，在校验后自动卸载存储介质，及禁用遥测。
 
-![Options in the OS customisation menu](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-options.png)
+![操作系统自定义菜单选项](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-options.png)
 
 #### 写入
 
@@ -209,15 +209,15 @@
 
 最后，回答“你确定要继续吗？（`Are you sure you want to continue?`）”弹出窗口中的“**确认（Yes）**”，开始向存储设备写入数据。
 
-![Confirming a reimage of a storage device in Imager](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
+![在启动盘制作工具中再次确认要写入镜像的存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
 
 如果看到要求管理员权限以读取和写入存储介质的提示，要继续，请授予制作工具权限。
 
-![Writing an image to a device in Imager](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
+![在启动盘制作工具中向设备写入镜像](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
 
 >去喝杯咖啡或者散散步。这可能需要几分钟。
 
-![Verifying an image on a device in Imager](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
+![在启动盘制作工具中校验设备上的镜像](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
 
 >如果你想要找刺激，可以点击 **取消校验（cancel verify）** 来跳过校验过程。
 
@@ -352,7 +352,7 @@
 
 树莓派操作系统预装了许多基本应用程序，因此可以开箱即用。如果你想使用我们认为有用的其他软件，请单击屏幕左上角的树莓派图标。选择 **首选项（Preferences）** > **推荐软件（Recommended Software）**，你将找到软件包管理器。你可以在此免费安装各种推荐软件。
 
-![Opening the package manager GUI in树莓派系统](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
+![在树莓派系统中打开图形界面的软件包管理器](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
 
 具体来说，如果你打算把树莓派当家用电脑用，你可能会需要 LibreOffice，它对于撰写和编辑文档和电子表格非常有用。你还可以通过诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序使树莓派更易于使用，这些应用程序位于通用访问下。
 
@@ -366,7 +366,7 @@
 
 ### 进一步阅读
 
-![](https://www.raspberrypi.com/documentation/computers/images/fifth-editon-cover.png)
+![树莓派官方初学者指南](https://www.raspberrypi.com/documentation/computers/images/fifth-editon-cover.png)
 
 你可以在由 Gareth Halfacree 撰写的最新版《[树莓派官方初学者指南](https://store.rpipress.cc/collections/latest-releases/products/the-official-raspberry-pi-beginners-guide-5th-edition)》中找到有关如何开始使用树莓派的更多信息。
 
