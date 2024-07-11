@@ -225,13 +225,13 @@
 
 ![当向存储设备的镜像写入完成时，屏幕上会显示制作工具。](https://www.raspberrypi.com/documentation/computers/images/imager/finished.png)
 
-接下来，继续进行首次启动配置说明，让你的树莓派跑起来。
+接下来，继续进行[首次启动配置说明](https://www.raspberrypi.com/documentation/computers/getting-started.html#configuration-on-first-boot)，让你的树莓派跑起来。
 
 ### 通过网络安装
 
-网络安装使树莓派能够使用通过网络下载的树莓派制作工具版本在存储设备上安装操作系统。通过网络安装，你可以在树莓派上安装操作系统，从而无需单独的 SD 卡读卡器及除树莓派之外的计算机。你可以在任何兼容的存储设备上运行网络安装，包括 SD 卡和 USB 存储设备。
+网络安装使树莓派能够使用通过树莓派制作工具以网络下载，并存储在设备上的镜像，来安装操作系统。使用网络安装，你可以在树莓派上安装操作系统，从而无需任何 SD 卡读卡器及除树莓派之外的计算机。你可以在所有受支持的存储设备上运行网络安装——比如 SD 卡和 USB 存储设备。
 
-网络安装仅适用于树莓派 4、400 和 5。如果你的树莓派使用较旧的引导加载程序，你可能需要更新引导加载程序以使用网络安装。
+网络安装仅适用于树莓派 4、400 和 5。如果你的树莓派的引导加载程序比较旧，你可能需要[更新引导加载程序](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#bootloader_update_stable)才能使用网络安装。
 
 网络安装需要满足以下条件：
 
