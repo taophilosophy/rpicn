@@ -5,26 +5,26 @@
 {% embed url="https://www.bilibili.com/video/BV1TS411N7Fs" %}
 
  
-要开始使用你的树莓派，你需要满足如下条件：
+要开始使用你的树莓派，你需要准备以下物品：
 
-* 电源供应
-* 启动介质（如存储空间足够大和速度足够快的 microSD 卡）
+* [电源适配器](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply)
+* 启动介质（例如[存储空间足够大、速度足够快的 microSD 卡](https://www.raspberrypi.com/documentation/computers/getting-started.html#recommended-sd-cards)）
 
-你可以将树莓派配置为带有桌面的交互式计算机，也可以将其配置为仅通过网络访问的无头系统（headless）。你无需任何额外的外部设备即可无头设置你的树莓派：你可以在安装操作系统时预先设置主机名、用户账号、网络连接和 SSH。但如果要直接使用你的树莓派，你还需要以下额外的配件：
+你可以将树莓派配置为带桌面的交互式计算机，也可以将其配置为仅通过网络访问的无头设备（headless）。你不需要其他任何外部设备，就能无头设置你的树莓派：你可以[在安装操作系统时](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)预先设置主机名、用户账号、网络连接和 SSH。但如果要直接使用你的树莓派，你还需要以下其余配件：
 
 * 显示器
 * 用于将树莓派连接到显示器的连接线
 * 键盘
 * 鼠标
 
-### 电源供应
+### 电源适配器
 
 下面的表格列出了为各种型号的树莓派提供电源所需的 USB-PD 电源适配器型号。你可使用其他能提供符合电源功率要求的高品质电源适配器来代替。
 
 | 型号                    | 推荐的电源适配器（电压/电流）     | 树莓派电源适配器 |
 | :-------------------------: | :-----------------------------------: | :------------------: |
-| 树莓派 5                | 5V/5A，5V/3A（将限制外部设备至 600mA） | [27W USB-C 电源适配器](https://www.raspberrypi.com/products/27w-power-supply/)                 |
-| 树莓派 4 Model B        | 5V/3A                             | [15W USB-C 电源适配器](https://www.raspberrypi.com/products/type-c-power-supply/)                 |
+| 树莓派 5                | 5V/5A、5V/3A（会把外部设备限制至 600mA） | [27W USB Type-C 电源适配器](https://www.raspberrypi.com/products/27w-power-supply/)                 |
+| 树莓派 4B        | 5V/3A                             | [15W USB Type-C 电源适配器](https://www.raspberrypi.com/products/type-c-power-supply/)                 |
 | 树莓派 3（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 | 树莓派 2（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
 | 树莓派 1（所有型号）    | 5V/2.5A                           | [12.5W Mirco USB 电源适配器](https://www.raspberrypi.com/products/micro-usb-power-supply/)                 |
@@ -32,67 +32,67 @@
 
 ![将电源插入树莓派](../.gitbook/assets/cable-power.png)
 
-请将电源适配器插入标有“POWER IN”、“PWR IN”或“PWR”的接口。某些型号的树莓派（如 Zero 系列）的 USB 输出接口的规格与电源接口相同。请确保在树莓派上使用的接口是正确的！
+请将电源适配器插入标有“POWER IN”、“PWR IN”或“PWR”的接口。某些型号的树莓派（如 Zero 系列） USB 输出接口的规格与电源接口是一样的。请确保在树莓派上使用的接口是正确的！
 
 ### 启动介质
 
-树莓派没有内置存储，因此需要你来提供启动介质。你可以通过安装在受支持的介质上的操作系统来启动你的树莓派：一般用 microSD 卡，但也可以使用 USB 存储设备、网络存储设备及通过 PCIe 扩展板转接的存储设备。然而，只有最新型号的树莓派才能支持上以上所有类型的介质。
+树莓派不带内置存储，因此需要你来提供启动介质。你可以用安装在受支持的介质上的操作系统来启动你的树莓派：一般用 microSD 卡，但也可以使用 USB 存储设备、网络存储设备及用 PCIe 扩展板转接的存储设备。但是，只有最新款的树莓派才能支持以上这些所有类型。
 
-自树莓派 1 Model A+ 以来的所有的消费者型号树莓派都配备了 microSD 卡槽。当卡槽中插入了 microSD 时，你的树莓派会自动从 microSD 启动。
+自树莓派 1A+ 以来的所有消费者款的树莓派都搭载了 microSD 卡槽。在卡槽中插入 microSD 后，你的树莓派会 就能自动从 microSD 启动。
 
 ![将 microSD 卡插入树莓派](../.gitbook/assets/sd-card.png)
 
 #### 推荐的 SD 卡
 
-我们建议，用于安装 Raspberry Pi OS 的 SD 卡至少要拥有 32GB 存储空间（对于 Raspberry Pi OS Lite 建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。与所有其他启动介质一样，读写速度更快的 SD 卡能提供更好的性能。
+我们建议，用于安装 Raspberry Pi OS 的 SD 卡，至少要拥有 32GB 存储空间（对于 Raspberry Pi OS Lite 建议至少为 16GB）。你可以使用任何容量不大于 2TB 的 SD 卡。由于 MBR 的限制，目前不支持超过 2TB 的容量。和所有其他启动介质一样，读写速度更快的 SD 卡性能也更佳。
 
-由于硬件限制，以下设备只能从 256GB（或更小）的启动分区上启动：
+出于硬件限制，以下设备只能从 256GB（及更小）的启动分区上启动：
 
 * 树莓派 Zero
 * 树莓派 1
-* 基于 BCM2836 SoC 的早期树莓派 Model 2 
+* 早期基于 BCM2836 SoC 的树莓派 Model 2 
 
-其他操作系统可能有不同的需求。请查阅你使用的操作系统文档以了解容量需求。
+其他操作系统可能需求各异。请查阅你使用的操作系统文档以了解容量需求。
 
 ### 键盘
 
-你可以使用树莓派上的任意 USB 接口来连接[有线键盘](https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/)或 USB 蓝牙接收器。
+你可以使用树莓派上的任意 USB 接口来连接[有线键盘](https://www.raspberrypi.com/products/raspberry-pi-keyboard-and-hub/)及 USB 蓝牙接收器。
 
 ![将键盘插入树莓派](../.gitbook/assets/cable-key.png)
 
 ### 鼠标
 
-你可以使用树莓派上的任意 USB 接口来连接[有线鼠标](https://www.raspberrypi.com/products/raspberry-pi-mouse/)或 USB 蓝牙接收器。
+你可以使用树莓派上的任意 USB 接口来连接[有线鼠标](https://www.raspberrypi.com/products/raspberry-pi-mouse/)及 USB 蓝牙接收器。
 
 ![将鼠标插入树莓派](../.gitbook/assets/cable-mouse.png)
 
 ### 显示器
 
-树莓派具有以下显示输出功能：
+树莓派支持以下显示输出功能：
 
 | 型号                    | 显示输出                                             |
 | ------------------------- | ------------------------------------------------------ |
 | 树莓派 5                | micro HDMI ×2                                       |
-| 树莓派 4（所有型号）    | micro HDMI ×2，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出 |
+| 树莓派 4（所有型号）    | micro HDMI ×2，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频、复合输出 |
 | 树莓派 3（所有型号）    | HDMI，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出          |
 | 树莓派 2 (所有型号)     | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
-| 树莓派 1 Model B+       | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
-| 树莓派 1 型 A+          | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
+| 树莓派 1B+       | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
+| 树莓派 1A+          | 可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现 HDMI、音频和复合输出     |
 | 树莓派 Zero（所有型号） | mini HDMI                                            |
 
 >**注意**
 >
->所有型号的树莓派都不支持 USB-C 视频传输（DisplayPort alt mode）。 
+>所有型号的树莓派都不能进行 USB-C 视频传输（DisplayPort alt mode）。 
 
-如果你的树莓派有多个 HDMI 接口，请将主显示器插入标有 `HDMI0` 的那个接口。
+如果你的树莓派有多个 HDMI 接口，请将主显示器插入标有 `HDMI0` 的那个口。
 
-常见的显示器不支持 micro HDMI 和 mini HDMI。但是，你可以使用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 和 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)来将树莓派上的这些接口转接到 HDMI 显示器。如果显示器不支持 HDMI，请考虑用转换器将 HDMI 输出转换为该设备所支持的类型。
+常见显示器都不支持 micro HDMI、mini HDMI。但是，你可以使用 [micro-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/micro-hdmi-to-standard-hdmi-a-cable/) 和 [mini-HDMI-to-HDMI 转换线](https://www.raspberrypi.com/products/standard-hdmi-a-male-to-mini-hdmi-c-male-cable/)来将树莓派上的这些接口转接至 HDMI 显示器。如果显示器不支持 HDMI，请考虑用转换器将 HDMI 输出转换为该设备所支持的类型。
 
 ![Plugging a micro HDMI cable into a Raspberry Pi.](../.gitbook/assets/cable-hdmi.png)
 
 ### 音频
 
-所有型号的树莓派都支持通过 HDMI、micro HDMI 或 mini HDMI 进行音频输出，且都支持通过 USB 进行音频输出。所有配备了蓝牙的树莓派都支持蓝牙音频。所有基于树莓派 1、2、3 和 4 的型号都有一个 3.5 mm 的 [TRRS](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards) AUX 耳机插孔，但可能需要用放大器才能获得足够的输出音量。
+所有型号的树莓派都能通过 HDMI、micro HDMI 或 mini HDMI 进行音频输出，且都支持通过 USB 进行音频输出。所有搭载了蓝牙的树莓派都支持蓝牙音频。所有基于树莓派 1、2、3 和 4 的型号都有一个 3.5 mm 的 [TRRS](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards) AUX 耳机插孔，但可能需要用放大器才能听到足够大的音量输出。
 
 ### 网络
 
@@ -105,7 +105,7 @@
 * 树莓派 Zero W
 * 树莓派 Zero 2 W
 
-后缀“Model B”代表带以太网接口的版本；“Model A”代表无以太网接口。如果你的树莓派没有以太网接口，你还可以使用 USB 转以太网转换器来连接有线互联网。
+后缀“B”代表带以太网接口的版本；“Model A”代表无以太网接口。如果你的树莓派没有以太网接口，你还可以使用 USB 转以太网转换器来连接有线互联网。
 
 ![把以太网线接入树莓派](../.gitbook/assets/cable-net.png)
 
