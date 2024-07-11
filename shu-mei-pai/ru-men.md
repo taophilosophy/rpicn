@@ -215,7 +215,7 @@
 
 ![在启动盘制作工具中向设备写入镜像](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
 
->去喝杯茶或者散散步。这可能需要几分钟。
+>这可能需要几分钟。去喝杯咖啡，散散步吧。
 
 ![在启动盘制作工具中校验设备上的镜像](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
 
