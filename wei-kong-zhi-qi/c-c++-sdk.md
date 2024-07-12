@@ -2,29 +2,29 @@
 
 ## 设置 SDK
 
-要全面了解如何使用 C/C++ SDK，请阅读我们的[入门指南 ](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)文档。然而，如果你打算在 [树莓派 ](https://www.raspberrypi.com/documentation/computers/os.html) 上开发 Pico，可以通过命令行快速设置 C/C++ 工具链，只需运行我们的 [设置脚本 ](https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh)。
+要全面了解如何使用 C/C++ SDK，请阅读我们的[入门指南 ](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)文档。然而，如果你打算在 [树莓派 ](https://www.raspberrypi.com/documentation/computers/os.html) 上开发 Pico，可以通过命令行快速设置 C/C++ 工具链，只需运行我们的[设置脚本](https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh)。
 
-| 注意 | 在运行设置脚本之前，请确保你的树莓派操作系统已经 [更新到最新版本 ](https://www.raspberrypi.com/documentation/computers/os.html#update-software)。 |
+| 注意 | 在运行设置脚本之前，请确保你的树莓派操作系统已经[更新到最新版本](https://www.raspberrypi.com/documentation/computers/os.html#update-software)。 |
 | ------ | --------------------------------------------------------------------------------------- |
 
 ## 树莓派 Pico C/C++ SDK
 
-我们的官方 C SDK 可以从命令行使用，也可以与 Visual Studio Code、Eclipse 和 CLion 等流行的集成开发环境一起使用。要开始，请下载我们的 C/C++ SDK 和示例，并查看我们的 '[入门指南 ](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)'。或者，可以查看下一节进行快速设置。
+我们的官方 C SDK 可以从命令行使用，也可以与 Visual Studio Code、Eclipse 和 CLion 等流行的集成开发环境一起使用。要开始，请下载我们的 C/C++ SDK 和示例，并查看我们的[入门指南](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)'。或者，可以查看下一节进行快速设置。
 
-* SDK [Github 仓库 ](https://github.com/raspberrypi/pico-sdk)
-* 示例 [Github 仓库 ](https://github.com/raspberrypi/pico-examples)
+* SDK [Github 仓库](https://github.com/raspberrypi/pico-sdk)
+* 示例 [Github 仓库](https://github.com/raspberrypi/pico-examples)
 
 你可以在以下位置找到有关 C/C++ SDK 的文档：
 
-[使用 Raspberry Pi Pico 入门 ](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) 与基于 RP2040 的微控制器板的 C/C++ 开发
+[Raspberry Pi Pico 使用入门](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)与基于 RP2040 的微控制器板的 C/C++ 开发
 
-[使用 Raspberry Pi Pico W 连接互联网 ](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf) 使用 C/C++ 或 MicroPython 将 Raspberry Pi Pico W 连接到互联网
+[使用 Raspberry Pi Pico W 连接互联网](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf) 使用 C/C++ 或 MicroPython 将 Raspberry Pi Pico W 连接到互联网
 
 [Raspberry Pi Pico C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf) 用于 RP2040 微控制器的库和工具的 C/C++ 开发
 
-[API 级文档 ](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html) Raspberry Pi Pico C/C++ SDK 的文档
+[API 级文档](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html)Raspberry Pi Pico C/C++ SDK 的文档
 
-| 注意 | 如果你正在使用 C/C++ SDK 构建应用程序，并且目标板不仅限于 Raspberry Pi Pico，你需要在 CMake 中传递 `-DPICO_BOARD=boardname`。这里的 `boardname` 是你的开发板名称，例如，对于 Adafruit Feather RP2040，你应该传递 `-DPICO_BOARD=adafruit_feather_rp2040`。更多信息请参考 Raspberry Pi Pico SDK 中的 [`boards/`](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards) 目录和 [论坛 ](https://forums.raspberrypi.com/viewtopic.php?f=147&t=304393)。 |
+| 注意 | 如果你正在使用 C/C++ SDK 构建应用程序，并且目标板不仅限于 Raspberry Pi Pico，你需要在 CMake 中传递 `-DPICO_BOARD=boardname`。这里的 `boardname` 是你的开发板名称，例如，对于 Adafruit Feather RP2040，你应该传递 `-DPICO_BOARD=adafruit_feather_rp2040`。更多信息请参考 Raspberry Pi Pico SDK 中的 [`boards/`](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards) 目录和[论坛](https://forums.raspberrypi.com/viewtopic.php?f=147&t=304393)。 |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 | 注意 | 关于在 Raspberry Pi Pico W 上使用 C/C++ SDK 构建应用程序并连接到网络，你需要在 CMake 中传递 `-DPICO_BOARD=pico_w -DWIFI_SSID="你的网络" -DWIFI_PASSWORD="你的密码"`。如果只需启用蓝牙支持，则无需传递 SSID 和密码，但仍需传递 `-DPICO_BOARD=pico_w` 字符串至 CMake。 |
@@ -68,7 +68,7 @@
 
 你应该在终端看到 'Hello, world!' 的输出。
 
-你可以在 Github 上查看 [代码 ](https://github.com/raspberrypi/pico-examples/blob/master/hello_world/usb/hello_usb.c)。
+你可以在 Github 上查看[代码](https://github.com/raspberrypi/pico-examples/blob/master/hello_world/usb/hello_usb.c)。
 
 ## 快速启动你的项目
 
@@ -76,7 +76,7 @@
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 
-安装 CMake（至少版本 3.13）和 GCC 交叉编译器
+安装 CMake（版本不低于 3.13）和 GCC 交叉编译器
 
 ```
 $ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
@@ -98,7 +98,7 @@ $ git clone https://github.com/raspberrypi/pico-sdk.git
 cmake_minimum_required(VERSION 3.13)
 
 # 基于 PICO_SDK_PATH 初始化 SDK
-# 注意：这必须在 project() 之前发生
+# 注意：它必须位于 project() 之前
 include(pico_sdk_import.cmake)
 
 project(my_project)
@@ -153,7 +153,7 @@ $ cmake ..
 
 这样做会设置各种编译器定义（例如 UART 和其他硬件的默认引脚号），在某些情况下还会启用其他库的使用（例如在构建 `PICO_BOARD=pico_w` 时启用无线支持），这些库在没有提供所需功能的板子上无法构建。
 
-有关 SDK 自身定义的板子列表，请查看 [此目录](https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards) 中每个命名板子的头文件。
+有关 SDK 自身定义的板子列表，请查看[此目录](https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards)中每个命名板子的头文件。
 
 从你创建的构建目录中制作你的目标。
 
