@@ -703,7 +703,7 @@ $ sudo raspi-config nonint do_wayland <W1/W2>
 
 #### 音频配置
 
-使用此选项在 PulseAudio 和 PipeWire 音频后端之间切换。在树莓派 OS Bookworm 之前，树莓派 OS 使用了 PulseAudio。
+使用此选项在 PulseAudio 和 PipeWire 音频后端之间切换。在树莓派系统 Bookworm 之前，树莓派系统使用了 PulseAudio。
 
 ```
 $ sudo raspi-config nonint do_audioconf <1/2>
