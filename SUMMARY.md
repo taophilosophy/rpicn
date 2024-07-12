@@ -47,4 +47,4 @@
 ## 服务
 
 * [树莓派账号（Raspberry Pi ID）](fu-wu/shu-mei-pai-zhang-hao-raspberry-pi-id.md)
-* [树莓派远程访问（Raspberry Pi Connect）Beta](fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)
+* [树莓派远程访问（Raspberry Pi Connect）Beta 版](fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)
