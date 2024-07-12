@@ -1,8 +1,6 @@
 # 树莓派账号（Raspberry Pi ID）
 
-## 创建树莓派 ID
-
-在 GitHub 上编辑此文档：[点击此处 ](https://github.com/raspberrypi/documentation/blob/develop/documentation/asciidoc/services/id/signing_up.adoc)
+## 创建树莓派账号
 
 要使用树莓派服务，您首先需要创建一个[树莓派 ID](https://id.raspberrypi.com/)。
 
