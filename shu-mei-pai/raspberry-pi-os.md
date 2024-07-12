@@ -73,7 +73,7 @@ raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 使用以下命令查看其详细信息：
 
 ```
-$ apt-cache show <package-name>
+$ apt-cache show <软件包名>
 ```
 
 例如，假设要查询“raspi-config”这个软件包，结果如下：
@@ -103,20 +103,20 @@ Description-md5: 19630c04463bfe7193152448b53d85a0
 
 #### 安装软件包
 
-要在你的树莓派上安装软件包，请把软件包的名称传给以下命令：
+要在你的树莓派上安装软件包，请把软件包名传给以下命令：
 
 ```
-$ sudo apt install <软件包名称>
+$ sudo apt install <软件包名>
 ```
 
 `apt` 将显示软件包将占用的磁盘空间量。输入 **Y** 并按 **回车键** 来确认安装。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
 
 #### 卸载软件包
 
-要在树莓派上卸载软件包，请将软件包的名称传给以下命令：
+要在树莓派上卸载软件包，请将软件包名传给以下命令：
 
 ```
-$ sudo apt remove <package-name>
+$ sudo apt remove <软件包名>
 ```
 
 >**技巧**
