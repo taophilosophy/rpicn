@@ -201,7 +201,7 @@ $ sudo apt install --reinstall raspi-firmware
 ## 播放音频和视频
 
 
-树莓派系统预装了 [VLC 媒体播放器](https://www.videolan.org/)。你可以它播放音视频文件。VLC 在树莓派系统上能使用硬件加速，并支持多种常见的音视频文件格式。
+树莓派系统预装了 [VLC 媒体播放器](https://www.videolan.org/)。你可以它播放音视频文件。在树莓派系统上，VLC 支持硬件加速，并兼容多种常见的音视频文件格式。
 
 ### VLC 媒体播放器
 
