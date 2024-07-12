@@ -331,7 +331,7 @@ $ vcgencmd measure_temp
 3. 选择 Advanced Options 。
 4. 选择 Bootloader Version 。
 5. 选择 Default 可恢复出厂设置、选择 Latest 可获取最新发布的引导程序。
-6. 使用 sudo reboot 重新启动。
+6. 使用 sudo reboot 重启。
 
 ### 更新引导程序配置
 
@@ -345,7 +345,7 @@ $ vcgencmd measure_temp
 $ sudo raspi-config
 ```
 
-转到 Advanced Options ，然后选择 Bootloader Version 。选择 Latest 并选择 Yes 确认。选择 Finish 并确认要重新启动。重新启动后，再次打开命令提示符并更新你的系统：
+转到 Advanced Options ，然后选择 Bootloader Version 。选择 Latest 并选择 Yes 确认。选择 Finish 并确认要重启。重启后，再次打开命令提示符并更新你的系统：
 
 ```
 $ sudo apt update
@@ -374,7 +374,7 @@ $ sudo rpi-eeprom-update -a
 $ sudo reboot
 ```
 
-重新启动，然后运行 sudo rpi-eeprom-update 。现在你应该看到 CURRENT 日期已更新为引导程序的最新版本。
+重启，然后运行 sudo rpi-eeprom-update 。现在你应该看到 CURRENT 日期已更新为引导程序的最新版本。
 
 ```
 BOOTLOADER: up to date
@@ -407,7 +407,7 @@ $ rpi-eeprom-config pieeprom.bin
 
 #### 编辑当前的引导加载程序配置
 
-执行以下命令以将当前引导加载程序配置加载到文本编辑器中。当编辑器关闭时， rpi-eeprom-config 将更新后的配置应用于最新的可用引导加载程序版本，并使用 rpi-eeprom-update 在系统重新启动时安排更新：
+执行以下命令以将当前引导加载程序配置加载到文本编辑器中。当编辑器关闭时， rpi-eeprom-config 将更新后的配置应用于最新的可用引导加载程序版本，并使用 rpi-eeprom-update 在系统重启时安排更新：
 
 ```
 $ sudo -E rpi-eeprom-config --edit
@@ -420,7 +420,7 @@ $ sudo reboot
 
 #### 应用已保存的配置
 
-以下命令将 boot.conf 应用于最新的可用引导加载程序镜像，并使用 rpi-eeprom-update 安排在系统重新启动时更新。
+以下命令将 boot.conf 应用于最新的可用引导加载程序镜像，并使用 rpi-eeprom-update 安排在系统重启时更新。
 
 ```
 $ sudo rpi-eeprom-config --apply boot.conf
@@ -542,7 +542,7 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 ## 树莓派 4 的启动诊断
 
-从树莓派 4 引导加载程序的 2020-04-16 版本开始，诊断信息会出现在 HDMI 显示器上。要查看诊断信息，请关机树莓派 4，移除 SD 卡，然后重新启动。在连接的显示器上应该会出现类似如下的诊断显示。
+从树莓派 4 引导加载程序的 2020-04-16 版本开始，诊断信息会出现在 HDMI 显示器上。要查看诊断信息，请关机树莓派 4，移除 SD 卡，然后重启。在连接的显示器上应该会出现类似如下的诊断显示。
 
 ![Boot diagnostics screen](https://www.raspberrypi.com/documentation/computers/images/bootloader-diagnostics.png?hash=474195e522544fb421403622e269ab1b)
 
@@ -716,7 +716,7 @@ USB 大容量存储启动能让你从 USB 大容量存储设备（如闪存驱�
 program_usb_boot_mode=1
 ```
 
-然后使用 sudo reboot 重新启动你的 Raspberry Pi。要检查 OTP 是否已正确编程，请运行以下命令：
+然后使用 sudo reboot 重启你的 Raspberry Pi。要检查 OTP 是否已正确编程，请运行以下命令：
 
 ```
 $ vcgencmd otp_dump | grep 17:
@@ -794,7 +794,7 @@ $ vcgencmd otp_dump | grep 17:
 
 ### 调试网络引导模式
 
-首先要检查的是 OTP 位是否被正确编程。为此，你需要将 program_usb_boot_mode=1 添加到 config.txt ，然后重新启动（使用可以正确引导到 树莓派 OS 的标准 SD 卡）。完成后，你应该可以执行以下操作：
+首先要检查的是 OTP 位是否被正确编程。为此，你需要将 program_usb_boot_mode=1 添加到 config.txt ，然后重启（使用可以正确引导到 树莓派 OS 的标准 SD 卡）。完成后，你应该可以执行以下操作：
 
 ```
 $ vcgencmd otp_dump | grep 17:
@@ -920,7 +920,7 @@ DHCP UUID 设置为常量值。
 program_gpio_bootmode=n
 ```
 
-其中 n 是你希望使用的 GPIO 的 bank。然后重新启动 树莓派 一次，以使用此设置编程 OTP。Bank 1 是 GPIO 22-26，Bank 2 是 GPIO 39-43。除非你有一个计算模块，否则必须使用 bank 1：Bank 2 上的 GPIO 仅在计算模块上可用。由于 OTP 位的排列方式，如果你首先为 Bank 1 编程 GPIO 引导模式，那么稍后可以选择 Bank 2。反之不成立：一旦选择 Bank 2 作为 GPIO 引导模式，就无法选择 Bank 1。
+其中 n 是你希望使用的 GPIO 的 bank。然后重启 树莓派 一次，以使用此设置编程 OTP。Bank 1 是 GPIO 22-26，Bank 2 是 GPIO 39-43。除非你有一个计算模块，否则必须使用 bank 1：Bank 2 上的 GPIO 仅在计算模块上可用。由于 OTP 位的排列方式，如果你首先为 Bank 1 编程 GPIO 引导模式，那么稍后可以选择 Bank 2。反之不成立：一旦选择 Bank 2 作为 GPIO 引导模式，就无法选择 Bank 1。
 
 一旦启用了 GPIO 引导模式，树莓派将不再启动。你必须拉高至少有关一个引导模式的 GPIO 引脚，才能启动树莓派。
 
@@ -1016,7 +1016,7 @@ $ sudo raspi-config
 $ sudo rpi-eeprom-update -a
 ```
 
-然后，使用 sudo reboot 重新启动。你的 树莓派 5 应该从 NVMe 启动。
+然后，使用 sudo reboot 重启。你的 树莓派 5 应该从 NVMe 启动。
 
 对于 CM4，请使用 rpiboot 更新引导加载程序。你可以在 USB 启动 GitHub 存储库中找到构建 rpiboot 并配置 IO 板切换 ROM 到 usbboot 模式的说明。
 
@@ -1322,7 +1322,7 @@ ROM（第一阶段）的引导流程如下：
 
 * 电源按钮用于从 PMIC STANDBY、HALT 唤醒，而非 GPIO 3 。
 * 固件加载 start.elf 而不是 start.elf。实际上，引导加载程序内置了嵌入版本的 start.elf 。
-* 连接到 3A 电源时，默认禁用 USB 启动。在 /boot/firmware/config.txt 中设置 usb_max_current_enable=1 可启用 USB 启动。或者你可以在 USB 启动失败时，按一下电源按钮来临时启用 usb_max_current_enable 并继续引导。但是，如果是按电源按钮启用的，该设置在重新启动后将失效。
+* 连接到 3A 电源时，默认禁用 USB 启动。在 /boot/firmware/config.txt 中设置 usb_max_current_enable=1 可启用 USB 启动。或者你可以在 USB 启动失败时，按一下电源按钮来临时启用 usb_max_current_enable 并继续引导。但是，如果是按电源按钮启用的，该设置在重启后将失效。
 
 ### 引导加载程序更新
 
@@ -1425,7 +1425,7 @@ BOOT_ORDER 属性定义了不同引导模式的顺序。它是从右到左读取
 | `0x6`   | `NVME`     | 仅限于 CM4 和 Pi 5：从连接到 PCIe 接口的 NVMe SSD 启动。有关更多详细信息，请参阅 NVMe 启动。 |
 | `0x7`   | `HTTP`     | 通过以太网上的 HTTP 引导。有关更多详细信息，请参阅 HTTP 引导。                               |
 | `0xe`   | `STOP`     | 停止并显示错误模式。需要电源循环以退出此状态。                                               |
-| `0xf`   | `RESTART`     | 从 BOOT_ORDER 字段中的第一个引导模式重新启动，即循环。                                       |
+| `0xf`   | `RESTART`     | 从 BOOT_ORDER 字段中的第一个引导模式重启，即循环。                                       |
 
 RPIBOOT 与计算模块 4 同时使用，加载自定义调试镜像（例如，Linux RAM-disk）而不是正常的引导。这应该是最后的引导选项，因为它目前不支持超时或重试。
 
@@ -1757,11 +1757,11 @@ PARTITION=2
 
 仅适用于树莓派 4。
 
-当树莓派重新启动时，硬件会关闭 USB 电源。短暂的断电时间可能会导致某些 USB 设备出现问题，因此可以使用此参数强制执行较长的断电时间，就像在物理上拔掉电线一样。
+当树莓派重启时，硬件会关闭 USB 电源。短暂的断电时间可能会导致某些 USB 设备出现问题，因此可以使用此参数强制执行较长的断电时间，就像在物理上拔掉电线一样。
 
 在 RaspberryPi 4 版本 1.3 及更早版本上，要配置/长关机需要启用 XHCI 控制器，因此实际上会先进行短关机，然后是较长的可配置关机。通过将此参数设置为零，可以跳过较长的可配置关机。
 
-在更新的版本中，硬件确保 USB 电源在重新启动后关闭，引导加载程序只在此超时经过后才启用电源。这是在内存初始化后发生的，确保 USB 电源至少关闭两秒。因此，此参数通常对新的硬件版本没有影响。
+在更新的版本中，硬件确保 USB 电源在重启后关闭，引导加载程序只在此超时经过后才启用电源。这是在内存初始化后发生的，确保 USB 电源至少关闭两秒。因此，此参数通常对新的硬件版本没有影响。
 
  最小值： 0
 
@@ -2523,7 +2523,7 @@ $ vcgencmd otp_dump
 dtparam=pciex1
 ```
 
-使用 sudo reboot 重新启动以使配置更改生效。
+使用 sudo reboot 重启以使配置更改生效。
 
 | NOTE | 你还可以使用别名 nvme 。 |
 | ------ | -------------------------- |
@@ -2548,7 +2548,7 @@ BOOT_ORDER=0xf416
 PCIE_PROBE=1
 ```
 
-保存更改后，使用 sudo reboot 重新启动你的树莓派以更新 EEPROM。
+保存更改后，使用 sudo reboot 重启你的树莓派以更新 EEPROM。
 
 ### PCIe 3.0
 
@@ -2563,7 +2563,7 @@ PCIE_PROBE=1
 dtparam=pciex1_gen=3
 ```
 
-重新启动你的 Raspberry Pi，并使用 sudo reboot 使这些设置生效。
+重启你的 Raspberry Pi，并使用 sudo reboot 使这些设置生效。
 
 #### 通过 raspi-config
 
@@ -2580,7 +2580,7 @@ $ sudo raspi-config
 3. 选择 Yes 以启用 PCIe Gen 3 模式。
 4. 选择 Finish 以退出。
 
-使用 sudo reboot 重新启动你的 Raspberry Pi，以使这些设置生效。
+使用 sudo reboot 重启你的 Raspberry Pi，以使这些设置生效。
 
 ## 电源按钮
 
@@ -2596,11 +2596,11 @@ $ sudo raspi-config
 | NOTE | 如果你运行着桌面版树莓派，则可以通过连续快速地按两下电源按钮来关闭计算机。如果你运行着无桌面界面的树莓派操作系统精简版，则按一下电源按钮即可触发关机流程。 |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-### 重新启动
+### 重启
 
-如果树莓派主板已关闭但仍接入电源，按下电源按钮可重新启动。
+如果树莓派主板已关闭但仍接入电源，按下电源按钮可重启。
 
-| NOTE | 重置电源管理集成电路（PMIC）也可以重新启动。连接 HAT 会重置 PMIC。在连接 HAT 之前，应始终断开设备与电源的连接。 |
+| NOTE | 重置电源管理集成电路（PMIC）也可以重启。连接 HAT 会重置 PMIC。在连接 HAT 之前，应始终断开设备与电源的连接。 |
 | ------ | --------------------------------------------------------------------------------------------------------------------- |
 
 ### 硬关机
@@ -2628,7 +2628,7 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 | NOTE | 所有 树莓派 型号都不支持 USB-PPS。 |
 | ------ | -------------------------------------- |
 
-| NOTE | 如果你使用第三方多接口的 USB-PD 电源适配器，在连接树莓派时，再插入其他设备会导致电源适配器与树莓派之间的重新协商。如果树莓派已开机，可无缝进行。但如果树莓派已关机，该协商可能造成树莓派重新启动。 |
+| NOTE | 如果你使用第三方多接口的 USB-PD 电源适配器，在连接树莓派时，再插入其他设备会导致电源适配器与树莓派之间的重新协商。如果树莓派已开机，可无缝进行。但如果树莓派已关机，该协商可能造成树莓派重启。 |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ### 以太网供电（PoE）连接器
@@ -2781,7 +2781,7 @@ $ echo +600 | sudo tee /sys/class/rtc/rtc0/wakealarm
 $ sudo halt
 ```
 
-将会使板进入极低功耗状态，然后在 10 分钟后唤醒并重新启动。
+将会使板进入极低功耗状态，然后在 10 分钟后唤醒并重启。
 
 RTC 还提供了启动时的时间，例如 dmesg ，适用于缺乏 NTP 访问权限的用例：
 
@@ -2824,7 +2824,7 @@ RTC 配备了恒流（3mA）恒压充电器。
 dtparam=rtc_bbat_vchg=3000000
 ```
 
-重新启动以使用新的电压设置。检查 sudo reboot 文件，确保充电电压已正确设置。
+重启以使用新的电压设置。检查 sudo reboot 文件，确保充电电压已正确设置。
 
 ### 禁用电池充电
 

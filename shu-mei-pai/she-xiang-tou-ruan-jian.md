@@ -441,7 +441,7 @@ $ rpicam-detect -t 0 -o cat%04d.jpg --lores-width 400 --lores-height 300 --post-
 | IMX378                 | `dtoverlay=imx378`                                                                                                                                                                    |
 | OV9281                 | `dtoverlay=ov9281`                                                                                                                                                                    |
 
-要使用这些叠加层之一，你必须禁用自动摄像头检测。要禁用自动检测，请在 /boot/firmware/config.txt 中设置 camera_auto_detect=0 。如果 config.txt 已包含分配 camera_auto_detect 值的行，请将该值更改为 0 。使用 sudo reboot 重新启动你的树莓派以加载更改。
+要使用这些叠加层之一，你必须禁用自动摄像头检测。要禁用自动检测，请在 /boot/firmware/config.txt 中设置 camera_auto_detect=0 。如果 config.txt 已包含分配 camera_auto_detect 值的行，请将该值更改为 0 。使用 sudo reboot 重启你的树莓派以加载更改。
 
 #### 使用调整文件调整摄像头行为
 
@@ -2103,7 +2103,7 @@ $ sudo apt install -y qtbase5-dev libqt5core5a libqt5gui5 libqt5widgets5
 $ sudo apt install libavcodec-dev libavdevice-dev libavformat-dev libswresample-dev
 ```
 
-如果你使用树莓派系统Lite，请安装 git ：
+如果你使用精简版树莓派系统，请安装 git ：
 
 ```
 $ sudo apt install -y git
@@ -2201,7 +2201,7 @@ $ cd rpicam-apps
 $ meson setup build -Denable_libav=enabled -Denable_drm=enabled -Denable_egl=enabled -Denable_qt=enabled -Denable_opencv=disabled -Denable_tflite=disabled
 ```
 
-对于像树莓派系统Lite 这样的无头操作系统，使用以下 meson 命令配置 rpicam-apps 构建：
+对于像精简版树莓派系统这样的无头操作系统，使用以下 meson 命令配置 rpicam-apps 构建：
 
 ```
 $ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=disabled -Denable_qt=disabled -Denable_opencv=disabled -Denable_tflite=disabled
@@ -2381,7 +2381,7 @@ Picamera2 库是基于 rpicam 的替代品，用于取代 Picamera，后者是 P
 
 #### 安装
 
-最近的树莓派系统映像包含了 Picamera2 以及所有 GUI（Qt 和 OpenGL）依赖项。最近的树莓派系统Lite 映像包含了 Picamera2 但不包含 GUI 依赖项，尽管可以使用 DRM/KMS 来显示预览图像。
+最近的树莓派系统映像包含了 Picamera2 以及所有 GUI（Qt 和 OpenGL）依赖项。最近的精简版树莓派系统映像包含了 Picamera2 但不包含 GUI 依赖项，尽管可以使用 DRM/KMS 来显示预览图像。
 
 如果你的映像不包含 Picamera2，请运行以下命令安装包含所有 GUI 依赖项的 Picamera2：
 
@@ -2783,7 +2783,7 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 如果你的摄像头模块不像你期望的那样工作，请尝试以下一些修复方法：
 
 * 在树莓派 3 及更老版本的设备上运行树莓派系统Bullseye 或更老的版本：
-  * 要启用硬件加速的摄像头预览，请启用 Glamor。要启用 Glamor，请在终端中输入 `sudo raspi-config` ，选择 Advanced Options > Glamor > Yes 。然后使用 `sudo reboot` 重新启动你的树莓派。
+  * 要启用硬件加速的摄像头预览，请启用 Glamor。要启用 Glamor，请在终端中输入 `sudo raspi-config` ，选择 Advanced Options > Glamor > Yes 。然后使用 `sudo reboot` 重启你的树莓派。
   * 如果你看到与显示驱动程序相关的错误，请将 `dtoverlay=vc4-fkms-v3d` 或 `dtoverlay=vc4-kms-v3d` 添加到 `/boot/config.txt` 。然后使用 `sudo reboot` 重启你的树莓派。
 * 在旧版树莓派 3 及更早版本上，图形硬件只能支持最大尺寸为 2048×2048 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 2048 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
 * 在树莓派 4 上，图形硬件只能支持最大尺寸为 4096×4096 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 4096 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。

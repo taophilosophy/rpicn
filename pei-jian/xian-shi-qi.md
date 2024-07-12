@@ -87,7 +87,7 @@
 
 ### 使用屏幕键盘
 
-在树莓派系统Bookworm 及更高版本中，你可以将 wvkbd 屏幕键盘用作输入设备。要安装 wvkbd ，请运行以下命令：
+在树莓派系统 Bookworm 及更高版本中，你可以将 wvkbd 屏幕键盘用作输入设备。要安装 wvkbd ，请运行以下命令：
 
 ```
 $ sudo apt install wvkbd

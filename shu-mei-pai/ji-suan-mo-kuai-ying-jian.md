@@ -239,7 +239,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 #### 启动
 
-断开 USB 从属端口。重新启动 IO 板，从你刚刚写入 eMMC 的新镜像引导计算模块。
+断开 USB 从属端口。重启 IO 板，从你刚刚写入 eMMC 的新镜像引导计算模块。
 
 ### 已知问题
 
@@ -447,7 +447,7 @@ $ sudo vclog --msg
 
 ### 例子
 
-以下示例使用带有通过跳线连接的外围设备的 IO 板。我们假设使用旧版的树莓派系统Lite 运行 CM1+CMIO 或 CM3+CMIO3。这里的示例需要互联网连接，因此我们建议将 USB 集线器、键盘和无线局域网或以太网转接器插入 IO 板的 USB 端口。
+以下示例使用带有通过跳线连接的外围设备的 IO 板。我们假设使用旧版的精简版树莓派系统运行 CM1+CMIO 或 CM3+CMIO3。这里的示例需要互联网连接，因此我们建议将 USB 集线器、键盘和无线局域网或以太网转接器插入 IO 板的 USB 端口。
 
 #### 将 I2C RTC 连接到 BANK1 引脚
 
@@ -497,9 +497,9 @@ $ sudo dtc -@ -I dts -O dtb -o /boot/firmware/overlays/example1.dtbo /boot/firmw
 dtoverlay=example1
 ```
 
-最后，使用 sudo reboot 重新启动。
+最后，使用 sudo reboot 重启。
 
-重新启动后，你应该在 /dev 中看到一个 rtc0 条目。运行以下命令查看硬件时钟时间：
+重启后，你应该在 /dev 中看到一个 rtc0 条目。运行以下命令查看硬件时钟时间：
 
 ```
 $ sudo hwclock
@@ -515,7 +515,7 @@ $ sudo hwclock
 dtoverlay=enc28j60
 ```
 
- 使用 sudo reboot 重新启动。
+ 使用 sudo reboot 重启。
 
 你现在应该在 /dev 中看到一个 rtc0 条目。运行以下命令查看硬件时钟时间：
 
@@ -588,7 +588,7 @@ $ sudo apt full-upgrade
     | v3 相机                                                                   | `dtoverlay=imx708,cam1` |
     | HQ 相机                                                                   | `dtoverlay=imx477,cam1` |
     | GS 相机                                                                   | `dtoverlay=imx296,cam1` |
-9. 使用 sudo reboot 重新启动你的计算模块。
+9. 使用 sudo reboot 重启你的计算模块。
 10. 运行以下命令以检查检测到的相机列表：
 
      ```
@@ -625,7 +625,7 @@ $ sudo apt full-upgrade
     | v3 相机                                                                   | `dtoverlay=imx708,cam0` |
     | HQ 相机                                                                   | `dtoverlay=imx477,cam0` |
     | GS 相机                                                                   | `dtoverlay=imx296,cam0` |
-9. 使用 sudo reboot 重新启动你的计算模块。
+9. 使用 sudo reboot 重启你的计算模块。
 10. 运行以下命令以检查检测到的相机列表：
 
      ```
@@ -762,7 +762,7 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
     ```
     dtoverlay=vc4-kms-dsi-7inch
     ```
-6. 使用 sudo reboot 重新启动你的计算模块。你的设备应该检测到并开始向显示器显示输出。
+6. 使用 sudo reboot 重启你的计算模块。你的设备应该检测到并开始向显示器显示输出。
 
 ### 将显示器连接到 DISP0
 
@@ -778,7 +778,7 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
     ```
     dtoverlay=vc4-kms-dsi-7inch
     ```
-5. 使用 sudo reboot 重新启动你的计算模块。你的设备应该检测到并开始在显示器上显示输出。
+5. 使用 sudo reboot 重启你的计算模块。你的设备应该检测到并开始在显示器上显示输出。
 
 ### 禁用触摸屏
 

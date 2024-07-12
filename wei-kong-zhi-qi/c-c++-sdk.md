@@ -69,7 +69,7 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 1. 下载“Hello World” UF2。
 2. 按住 BOOTSEL 按钮，然后将你的 Pico 插入树莓派或其他计算机的 USB 接口。
 3. 它将作成名为 RPI-RP2 的大容量存储设备挂载。
-4. 将“Hello World” UF2 二进制文件拖放到 RPI-RP2 卷上。Pico 将重新启动。
+4. 将“Hello World” UF2 二进制文件拖放到 RPI-RP2 卷上。Pico 将重启。
 5. 打开一个终端窗口，然后输入：
 
     ```

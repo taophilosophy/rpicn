@@ -11,7 +11,7 @@
 
 你可以直接从你的树莓派系统安装中编辑 config.txt 。你还可以移除存储设备并从另一台计算机编辑启动分区中的文件，包括 config.txt 。
 
-对 config.txt 的更改只有在重新启动后才会生效。你可以使用以下命令查看当前活动设置：
+对 config.txt 的更改只有在重启后才会生效。你可以使用以下命令查看当前活动设置：
 
 vcgencmd get_config <config> 显示特定的配置数值，例如 vcgencmd get_config arm_freq
 
@@ -111,7 +111,7 @@ boot_partition=3
 
 * 系统已启动并默认引导到分区 2
 * Update service 下载 OS 的下一个版本到分区 3
-* 通过重新启动到 tryboot 模式 reboot "0 tryboot" 来测试更新，其中 0 表示默认分区
+* 通过重启到 tryboot 模式 reboot "0 tryboot" 来测试更新，其中 0 表示默认分区
 
 **提交或取消更新**
 
@@ -128,7 +128,7 @@ boot_partition=3
     * 否则
 
       * Update Service 将更新标记为失败，例如删除更新文件。
-      * 正常重新启动 - 分区 2 仍然是默认的启动分区，因为 tryboot 标志会自动清除。
+      * 正常重启 - 分区 2 仍然是默认的启动分区，因为 tryboot 标志会自动清除。
     * 结束如果。
   * 结束 如果
 * 结束 如果

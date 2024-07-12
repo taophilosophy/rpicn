@@ -93,7 +93,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 ![raspi config 5](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-5.png)
 
-如果你已经进行了任何更改，此时需要重新启动。
+如果你已经进行了任何更改，此时需要重启。
 
 ### 为 Build 扩展板供电
 

@@ -158,7 +158,7 @@ $ sudo cp RTIMULib.ini /etc
  dtparam=i2c_arm=on
 ```
 
-输入以下命令以重新启动：
+输入以下命令以重启：
 
 ```
  sudo systemctl reboot

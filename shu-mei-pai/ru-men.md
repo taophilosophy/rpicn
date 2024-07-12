@@ -339,7 +339,7 @@
 
 ### 完成
 
-在配置向导结束时，点击“**重新启动（Restart）**”来重启你的树莓派。你的树莓派将应用个性化并启动至桌面。
+在配置向导结束时，点击“**重启（Restart）**”来重启你的树莓派。你的树莓派将应用个性化并启动至桌面。
 
 ![设置完成对话框，提示重启树莓派](https://www.raspberrypi.com/documentation/computers/images/initial-setup/restart.png)
 

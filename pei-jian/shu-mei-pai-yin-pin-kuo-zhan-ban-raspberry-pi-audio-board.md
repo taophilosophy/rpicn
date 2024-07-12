@@ -149,7 +149,7 @@ $ sudo nano /boot/firmware/config.txt
 #dtparam=audio=on
 ```
 
-按下 Ctrl+X 键，然后按 Y 键，最后按 Enter 保存。最后，重新启动你的树莓派以使设置生效。
+按下 Ctrl+X 键，然后按 Y 键，最后按 Enter 保存。最后，重启你的树莓派以使设置生效。
 
 ```
 $ sudo reboot
@@ -243,7 +243,7 @@ sudo alsactl restore -f /home/<username>/Pi-Codec/Codec_Zero_OnboardMIC_record_a
 exit 0
 ```
 
-按 Ctrl+X ，然后按 Y 键，然后按 Enter 键保存。重新启动以使设置生效：
+按 Ctrl+X ，然后按 Y 键，然后按 Enter 键保存。重启以使设置生效：
 
 ```
 $ sudo reboot
@@ -264,7 +264,7 @@ pcm.!default {
 }
 ```
 
-按 Ctrl+X ，然后按 Y 键，然后按 Enter 键保存。重新启动一次以完成配置：
+按 Ctrl+X ，然后按 Y 键，然后按 Enter 键保存。重启一次以完成配置：
 
 ```
 $ sudo reboot
@@ -338,7 +338,7 @@ $ sudo sh -c "echo 0 >/sys/class/gpio/gpio22/value"
 
 ### 设置你的树莓派
 
-在此示例中，我们使用树莓派系统Lite。有关更多详细信息，请参考我们的安装树莓派系统指南。
+在此示例中，我们使用精简版树莓派系统。有关更多详细信息，请参考我们的安装树莓派系统指南。
 
 在继续之前，请确保更新你的操作系统，并按照提供的 Codec Zero 配置说明进行操作，包括启用板载麦克风和扬声器输出的命令。
 
@@ -439,7 +439,7 @@ $ crontab -e
 @reboot python /home/<username>/chatter_box.py
 ```
 
-按 Ctrl X、Y 和 Enter 保存，然后重新启动你的设备。
+按 Ctrl X、Y 和 Enter 保存，然后重启你的设备。
 
 ### 操作你的设备
 

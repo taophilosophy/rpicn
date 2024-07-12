@@ -243,7 +243,7 @@ Fing 应用程序是一款免费的智能手机网络扫描器。它适用于 An
     ```
     $ sudo touch /boot/firmware/ssh
     ```
-2. 重新启动计算机：
+2. 重启计算机：
 
     ```
     $ sudo reboot
@@ -277,7 +277,7 @@ $ ssh <username>@<ip address>
 
 >**注意**
 >
->在树莓派 4 和 5 上，树莓派系统Bookworm 默认使用 Wayland 窗口服务器。只有在使用 X 窗口服务器时才能转发 X11。要在 X11 上启用窗口转发，请在 Raspberry Pi Configuration 中将桌面切换到 X 窗口服务器。
+>在树莓派 4 和 5 上，树莓派系统 Bookworm 默认使用 Wayland 窗口服务器。只有在使用 X 窗口服务器时才能转发 X11。要在 X11 上启用窗口转发，请在 Raspberry Pi Configuration 中将桌面切换到 X 窗口服务器。
 
 >**注意**
 >
@@ -688,7 +688,7 @@ rpcbind mountd nfsd statd lockd rquotad : <list of IPv4s>
 
 请确保授权 IP 地址列表包括 localhost 地址（ 127.0.0.1 ），因为 Ubuntu 的最新版本中的启动脚本使用 rpcinfo 命令来发现 NFSv3 支持，如果 localhost 无法连接，这将被禁用。
 
-最后，要使更改生效，请重新启动服务：
+最后，要使更改生效，请重启服务：
 
 ```
 $ sudo systemctl restart nfs-kernel-server
@@ -840,9 +840,9 @@ $ sudo exportfs -ra
 
 每当修改 /etc/exports 时，你都需要运行此命令。
 
-#### 重新启动服务
+#### 重启服务
 
-重新启动 rpcbind 和 NFS 以使更改生效：
+重启 rpcbind 和 NFS 以使更改生效：
 
 ```
 $ sudo systemctl restart rpcbind
@@ -1133,13 +1133,13 @@ sudo nano index.php
 
 在树莓派 3B 进行网络启动之前，需要从带有配置选项的 SD 卡启动，以启用 USB 启动模式。 这将在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。 完成此操作后，树莓派 3B 将尝试从 USB 和网络启动，如果无法从 SD 卡启动。
 
-以通常方式在 SD 卡上安装树莓派系统Lite 或带桌面的树莓派系统。 接下来，使用以下命令启用 USB 启动模式：
+以通常方式在 SD 卡上安装精简版树莓派系统或带桌面的树莓派系统。 接下来，使用以下命令启用 USB 启动模式：
 
 ```
 $ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
 ```
 
-将 program_usb_boot_mode=1 添加到 /boot/firmware/config.txt 的末尾。使用 sudo reboot 重新启动树莓派。在客户端树莓派重新启动后，请检查 OTP 是否已编程为：
+将 program_usb_boot_mode=1 添加到 /boot/firmware/config.txt 的末尾。使用 sudo reboot 重启树莓派。在客户端树莓派重启后，请检查 OTP 是否已编程为：
 
 ```
 $ vcgencmd otp_dump | grep 17:
@@ -1164,7 +1164,7 @@ $ sudo nano /boot/firmware/config.txt
 $ sudo raspi-config
 ```
 
-在 raspi-config 中，选择 Advanced Options ，然后选择 Boot Order ，最后选择 Network Boot 。然后必须重新启动设备，以便将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重新启动后，请检查启动顺序是否现在为 0xf21 ：
+在 raspi-config 中，选择 Advanced Options ，然后选择 Boot Order ，最后选择 Network Boot 。然后必须重启设备，以便将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重启后，请检查启动顺序是否现在为 0xf21 ：
 
 ```
 $ vcgencmd bootloader_config
@@ -1292,7 +1292,7 @@ DNS=10.42.0.1
 #FallbackDNS=
 ```
 
-启用 systemd-networkd ，然后重新启动以使更改生效：
+启用 systemd-networkd ，然后重启以使更改生效：
 
 ```
 $ sudo systemctl enable systemd-networkd
@@ -1363,7 +1363,7 @@ raspberrypi dnsmasq-tftp[1903]: file /tftpboot/bootcode.bin not found
 $ cp -r /boot/firmware/* /tftpboot
 ```
 
-由于 tftp 位置已更改，请重新启动 dnsmasq :
+由于 tftp 位置已更改，请重启 dnsmasq :
 
 ```
 $ sudo systemctl restart dnsmasq
@@ -1381,7 +1381,7 @@ $ echo "/nfs/client1 *(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /
 $ echo "/tftpboot *(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
 ```
 
-重新启动 RPC-Bind 和 NFS 服务器，以便它们检测到新文件。
+重启 RPC-Bind 和 NFS 服务器，以便它们检测到新文件。
 
 ```
 $ sudo systemctl enable rpcbind

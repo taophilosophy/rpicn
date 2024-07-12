@@ -52,7 +52,7 @@
     $ sudo rpi-eeprom-update -a
     ```
 
-    然后，使用 sudo reboot 重新启动。
+    然后，使用 sudo reboot 重启。
 3. 在开始安装前，请断开树莓派的电源。
 4. 为了获得最佳性能，我们建议将 Ai 套件与树莓派主动散热器一起使用。如果你有主动散热器，请在安装 Ai 套件之前安装它。![ai kit installation 01](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-01.png)
 5. 使用提供的四颗螺丝安装间隔柱。牢固地将 GPIO 堆叠排针压在树莓派的 GPIO 引脚顶部；只要所有引脚都能正确插入即可，方向无所谓。从 Ai 套件上断开排线电缆，并将另一端插入树莓派的 PCIe 接口。从两侧抬起排线电缆固定器，然后将带有铜接点朝向内部、朝向 USB 接口的线缆插入。确保排线电缆完全且均匀地插入 PCIe 接口，然后从两侧按下电缆固定器，将排线电缆牢固地固定在位。![ai kit installation 02](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-02.png)
@@ -76,7 +76,7 @@
 * 树莓派 Ai 套件，其中包括：
   * M.2 HAT+
   * 预装的 Hailo-8L Ai 模块
-* 64 位树莓派系统Bookworm 系统
+* 64 位树莓派系统 Bookworm 系统
 * 官方树莓派摄像头（例如摄像头模块 3 或高质量摄像头）
 
 ### 硬件设置
