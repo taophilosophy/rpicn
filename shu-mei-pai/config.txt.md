@@ -2,7 +2,7 @@
 
 ## 什么是 config.txt ?
 
- 在 GitHub 上编辑此内容
+ 
 
 树莓派设备使用一个名为 config.txt 的配置文件，而不是常规 PC 上的 BIOS。GPU 在 Arm CPU 和 Linux 初始化之前读取 config.txt。树莓派 OS 在引导分区中查找此文件，该分区位于 /boot/firmware/ 处。
 
@@ -61,13 +61,13 @@ dtoverlay=vc4-kms-v3d
 
 ## `autoboot.txt`
 
- 在 GitHub 上编辑此内容
+ 
 
 autoboot.txt 是一个可选的配置文件，可用于指定 boot_partition 数量。
 
 这也可以与 tryboot 功能一起使用，实现用于 OS 升级的 A/B 引导。
 
-autoboot.txt 限制为 512 字节，支持 [all]、[none] 和 [tryboot] 条件过滤器。
+autoboot.txt 限制为 512 B，支持 [all]、[none] 和 [tryboot] 条件过滤器。
 
 查看 TRYBOOT 启动流程。
 
@@ -148,7 +148,7 @@ boot_partition=2
 
 ## 常见选项
 
- 在 GitHub 上编辑
+ 
 
 ### 常见显示选项
 
@@ -188,15 +188,15 @@ dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可�
 
 使用 3V3 电源时强制 PWM。设置 power_force_3v3_pwm=0 以禁用。
 
-## 在板载模拟音频（3.5 毫米插孔）
+## 在板载模拟音频（3.5 mm插孔）
 
- 在 GitHub 上编辑此内容
+ 
 
 板载音频输出使用配置选项来改变模拟音频驱动的方式，以及是否启用某些固件功能。
 
 ### `audio_pwm_mode`
 
-audio_pwm_mode=1 选择来自 3.5 毫米 AV 插孔的传统低质量模拟音频。
+audio_pwm_mode=1 选择来自 3.5 mm AV 插孔的传统低质量模拟音频。
 
 audio_pwm_mode=2 （默认）使用先进的调制方案选择高质量模拟音频。
 
@@ -227,7 +227,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ## 启动选项
 
- 在 GitHub 上编辑此内容
+ 
 
 ### `start_file`, `fixup_file`
 
@@ -261,7 +261,7 @@ Raspberry Pi 5 固件默认加载 kernel_2712.img，因为此镜像针对 Raspbe
 
 在 Pi 4s（Pi 4B、Pi 400、CM4 和 CM4S）上默认为 1，在所有其他平台上默认为 0。但是，如果显式 kernel 选项中给定的名称与已知的内核之一匹配，则 arm_64bit 将相应设置。
 
-| NOTE | 64 位内核可以是未压缩的镜像文件或图像的 gzip 存档（仍可称为 kernel8.img；引导加载程序将从开头的签名字节识别存档）。64 位内核仅适用于树莓派 3、3+、4、400、Zero 2 W 和 2B rev 1.2，以及树莓派计算模块 3、3+ 和 4。树莓派 5 仅支持 64 位内核，因此对于该设备已删除此参数。|
+| NOTE | 64 位内核可以是未压缩的镜像文件或图像的 gzip 存档（仍可称为 kernel8.img；引导加载程序将从开头的签名 B识别存档）。64 位内核仅适用于树莓派 3、3+、4、400、Zero 2 W 和 2B rev 1.2，以及树莓派计算模块 3、3+ 和 4。树莓派 5 仅支持 64 位内核，因此对于该设备已删除此参数。|
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### `ramfsfile`
@@ -277,7 +277,7 @@ ramfsaddr 是应将 ramfsfile 加载到的内存地址。
 
 ### `initramfs`
 
-initramfs 命令同时指定 ramfs 文件名和需要加载到的内存地址。它在一个参数中执行了 ramfsfile 和 ramfsaddr 的操作。地址也可以是 followkernel （或 0 ），将其放在内核映像后的内存中。示例值为： initramfs initramf.gz 0x00800000 或 initramfs init.gz followkernel。与 ramfsfile 一样，更新的固件允许通过逗号分隔它们的名称加载多个文件。
+initramfs 命令同时指定 ramfs 文件名和需要加载到的内存地址。它在一个参数中执行了 ramfsfile 和 ramfsaddr 的操作。地址也可以是 followkernel （或 0 ），将其放在内核镜像后的内存中。示例值为： initramfs initramf.gz 0x00800000 或 initramfs init.gz followkernel。与 ramfsfile 一样，更新的固件允许通过逗号分隔它们的名称加载多个文件。
 
 | NOTE | 此选项使用与所有其他选项不同的语法，你不应在此处使用 = 字符。|
 | ------ | --------------------------------------------------------------- |
@@ -428,7 +428,7 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 本白皮书描述了如何在基于 Raspberry Pi 4 的设备上实现安全启动。有关我们实施安全启动方法的概述，请参阅 Raspberry Pi 4 启动安全白皮书。安全启动系统旨在与 buildroot -based OS 镜像一起使用；不建议或支持将其与树莓派系统一起使用。
 
-以下 config.txt 属性用于编程 secure-boot OTP 设置。这些更改是不可逆的，只能在刷写引导加载程序 EEPROM 镜像时通过 RPIBOOT 进行编程。这确保了 secure-boot 无法远程设置或通过意外插入陈旧的 SD 卡映像。
+以下 config.txt 属性用于编程 secure-boot OTP 设置。这些更改是不可逆的，只能在刷写引导加载程序 EEPROM 镜像时通过 RPIBOOT 进行编程。这确保了 secure-boot 无法远程设置或通过意外插入陈旧的 SD 卡镜像。
 
 有关启用 secure-boot 的更多信息，请参阅 Secure Boot 自述文件和 USBBOOT 存储库中的 Secure Boot 教程。
 
@@ -469,7 +469,7 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 ## GPIO 控制
 
- 在 GitHub 上编辑
+ 
 
 ### `gpio`
 
@@ -512,7 +512,7 @@ gpio=17-21=ip
 
 ## 超频选项
 
- 在 GitHub 上编辑此内容
+ 
 
 内核默认启用了 CPUFreq 驱动程序，并在启动时将 powersave 调度程序切换为 ondemand，安装 raspi-config 后。使用 ondemand 调度程序，CPU 频率将随处理器负载变化。你可以通过 *_min 配置选项调整最小值，或者通过应用静态缩放调度程序（powersave 或 performance）或使用 force_turbo=1 来禁用动态时钟调整。
 
@@ -531,9 +531,9 @@ gpio=17-21=ip
 | `arm_freq`     | ARM CPU 的频率，以 MHz 为单位。                                                                                                                                                                                                                                                                                                                                      |
 | `arm_boost`     | 将 arm_freq 增加到板型和固件支持的最高频率。设置为 1 以启用。                                                                                                                                                                                                                                                                                                        |
 | `gpu_freq`     | 将 core_freq、h264_freq、isp_freq、v3d_freq 和 hevc_freq 一起设置。                                                                                                                                                                                                                                                                                            |
-| `core_freq`     | GPU 处理器核心的频率，以兆赫为单位。影响 CPU 性能，因为它驱动 L2 缓存和内存总线；只有树莓派 Zero / 树莓派 Zero W / 树莓派 1 受益于 L2 缓存；对树莓派 2 和树莓派 3 上的 SDRAM 有一点益处。请参见下面关于在树莓派 4 上使用的部分。                                                                                                                                     |
-| `h264_freq`     | 硬件视频块的频率，以兆赫为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                         |
-| `isp_freq`     | 图像传感器管道块的频率，以兆赫为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                   |
+| `core_freq`     | GPU 处理器核心的频率，以 MHz 为单位。影响 CPU 性能，因为它驱动 L2 缓存和内存总线；只有树莓派 Zero / 树莓派 Zero W / 树莓派 1 受益于 L2 缓存；对树莓派 2 和树莓派 3 上的 SDRAM 有一点益处。请参见下面关于在树莓派 4 上使用的部分。                                                                                                                                     |
+| `h264_freq`     | 硬件视频块的频率，以 MHz 为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                         |
+| `isp_freq`     | 图像传感器管道块的频率，以 MHz 为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                   |
 | `v3d_freq`     | 在 MHz 中的 3D 块的频率；gpu_freq 设置的个别覆盖。在 Raspberry Pi 5 上，V3D 与 core_freq、isp_freq 和 hevc_freq 独立。                                                                                                                                                                                                                                            |
 | `hevc_freq`     | 高效视频编解码器块的频率，单位为 MHz；gpu_freq 设置的个别覆盖。仅适用于 Raspberry Pi 4。                                                                                                                                                                                                                                                                            |
 | `sdram_freq`     | SDRAM 的频率，单位为 MHz。不支持在 Raspberry Pi 4 或更新版本上超频 SDRAM。                                                                                                                                                                                                                                                                                           |
@@ -553,9 +553,9 @@ gpio=17-21=ip
 | `hevc_freq_min`     | 用于动态频率时钟的最小值 hevc_freq。                                                                                                                                                                                                                                                                                                                                |
 | `sdram_freq_min`     | 用于动态频率时钟的最小值 sdram_freq。                                                                                                                                                                                                                                                                                                                               |
 | `over_voltage_min`     | 动态频率时钟的最小值 over_voltage。该值应在[-16,8]范围内，等同于[0.8V,1.4V]范围，每 0.025V 一步。换句话说，指定-16 将使 CPU/GPU 核心空闲电压为 0.8V，指定 8 将使最低电压为 1.4V。在树莓派 4 和树莓派 5 上，此设置已被弃用。                                                                                                                                         |
-| `over_voltage_delta`     | 在树莓派 4 和树莓派 5 上，over_voltage_delta 参数会将给定的偏移量（以微伏计算）添加到 DVFS 算法计算的数字中。                                                                                                                                                                                                                                                        |
-| `temp_limit`     | 过热保护。当 SoC 达到摄氏度设定值时，将时钟和电压设置为默认值。超过 85 的值将被限制为 85。                                                                                                                                                                                                                                                                           |
-| `temp_soft_limit`     | 仅适用于 3A+/3B+. CPU 速度节流控制。这将设置 CPU 时钟速度节流系统激活的温度。在此温度下，时钟速度从 1400MHz 降至 1200MHz。默认为 60，最多可提高至 70，但这可能会导致不稳定。                                                                                                                                                                                       |
+| `over_voltage_delta`     | 在树莓派 4 和树莓派 5 上，over_voltage_delta 参数会将给定的偏移量（以微V计算）添加到 DVFS 算法计算的数字中。                                                                                                                                                                                                                                                        |
+| `temp_limit`     | 过热保护。当 SoC 达到°C设定值时，将时钟和电压设置为默认值。超过 85 的值将被限制为 85。                                                                                                                                                                                                                                                                           |
+| `temp_soft_limit`     | 仅适用于 3A+/3B+. CPU 速度限流控制。这将设置 CPU 时钟速度限流系统激活的温度。在此温度下，时钟速度从 1400MHz 降至 1200MHz。默认为 60，最多可提高至 70，但这可能会导致不稳定。                                                                                                                                                                                       |
 
 该表提供了各种树莓派型号选项的默认值，所有频率均以 MHz 表示。
 
@@ -585,9 +585,9 @@ gpio=17-21=ip
 | `over_voltage`     | 0（1.35V，树莓派 1 上的 1.2V） |
 | `over_voltage_min`     | 0（1.2V）                      |
 | `over_voltage_sdram`     | 0（1.2V）                      |
-| `over_voltage_sdram_c`     | 0 (1.2 伏特)                   |
-| `over_voltage_sdram_i`     | 0 (1.2 伏特)                   |
-| `over_voltage_sdram_p`     | 0 (1.2 伏特)                   |
+| `over_voltage_sdram_c`     | 0 (1.2 V)                   |
+| `over_voltage_sdram_i`     | 0 (1.2 V)                   |
+| `over_voltage_sdram_p`     | 0 (1.2 V)                   |
 
 固件使用自适应电压调整（AVS）来确定在 over_voltage 和 over_voltage_min 定义的范围内的最佳 CPU/GPU 核心电压。
 
@@ -636,7 +636,7 @@ GPU 核心、CPU、SDRAM 和 GPU 各自拥有自己的 PLL，并且可以具有�
 $ cat /sys/class/thermal/thermal_zone0/temp
 ```
 
-通过将结果除以 1000 来找到摄氏度的值。或者，你可以使用 vcgencmd measure_temp 来报告 GPU 温度。
+通过将结果除以 1000 来找到°C的值。或者，你可以使用 vcgencmd measure_temp 来报告 GPU 温度。
 
 达到温度极限对 SoC 并不有害，但会导致 CPU 降频。散热器可以帮助控制核心温度，从而提高性能。如果树莓派安装在外壳内，则特别有用。散热器上的空气流动会使冷却效果更好。
 
@@ -664,7 +664,7 @@ $ vcgencmd pmic_read_adc EXT5V_V
 
 ## 条件过滤器
 
- 在 GitHub 上编辑此内容
+ 
 
 当一个 Raspberry Pi 和一台显示器使用单个 SD 卡（或卡镜像）时，很容易将 config.txt 设置为该特定组合所需的方式，并仅在发生更改时进行修改。
 
@@ -682,16 +682,16 @@ $ vcgencmd pmic_read_adc EXT5V_V
 | -------- | -------------------------------------------------------------------------- |
 | `[pi1]`       | 1A 型号，1B 型号，1A+型号，1B+型号，计算模块 1                           |
 | `[pi2]`       | 2B 型号（基于 BCM2836 或 BCM2837）                                       |
-| `[pi3]`       | Model 3B, Model 3B+, Model 3A+, Compute Module 3, Compute Module 3+      |
-| `[pi3+]`       | Model 3A+, Model 3B+（还可以看到 [pi3] 内容）                            |
-| `[pi4]`       | Model 4B, Pi 400, Compute Module 4, Compute Module 4S                    |
+| `[pi3]`       | Model 3B, 3B+, 3A+,计算模块 3,计算模块 3+      |
+| `[pi3+]`       | 3A+, 3B+（还可以看到 [pi3] 内容）                            |
+| `[pi4]`       | 4B, Pi 400,计算模块 4,计算模块 4S                    |
 | `[pi5]`       | 树莓派 5                                                                 |
 | `[pi400]`       | Pi 400（也看到 [pi4] 内容）                                              |
-| `[cm4]`       | 计算模块 4（也看到 [pi4] 内容）                                          |
-| `[cm4s]`       | 计算模块 4S（也查看 [pi4] 内容）                                         |
+| `[cm4]`       |计算模块 4（也看到 [pi4] 内容）                                          |
+| `[cm4s]`       |计算模块 4S（也查看 [pi4] 内容）                                         |
 | `[pi0]`       | Zero，Zero W，Zero 2 W                                                   |
 | `[pi0w]`       | Zero W（也查看 [pi0] 内容）                                              |
-| `[pi02]`       | 零 2W（还可以查看 [pi0w] 和 [pi0] 的内容）                               |
+| `[pi02]`       | Zero 2W（还可以查看 [pi0w] 和 [pi0] 的内容）                               |
 | `[board-type=Type]`       | 按 Type 号筛选 - 查看树莓派修订代码，例如 [board-type=0x14] 将匹配 CM4。|
 
 这些对于定义不同的 kernel、initramfs 和 cmdline 设置特别有用，因为树莓派 1 和树莓派 2 需要不同的内核。它们还可以用于定义不同的超频设置，因为树莓派 1 和树莓派 2 有不同的默认速度。例如，为每个定义单独的 initramfs 镜像：
@@ -706,7 +706,7 @@ initramfs initrd.img-3.18.7-v7+ followkernel
 
 记得在最后使用 [all] 过滤器，这样任何后续设置不仅限于 Raspberry Pi 2 硬件。
 
-| NOTE | 一些 Raspberry Pi 的型号（Zero W，Zero 2 W，Model 3B+，Pi 400，Compute Module 4 和 Compute Module 4S）查看多个过滤器的设置（如上表所列）。这意味着如果你想让一个设置只适用于（例如）4B 型号，而不会将该设置应用于 Pi 400，那么 [pi4] 部分中的设置需要在随后的 [pi400] 部分中通过替代设置来恢复 - 这些部分的顺序很重要。或者，你可以使用 [board-type=0x11] 过滤器，这个过滤器与不同的硬件产品之间有一对一的映射关系。|
+| NOTE | 一些 Raspberry Pi 的型号（Zero W，Zero 2 W，3B+，Pi 400，计算模块 4 和计算模块 4S）查看多个过滤器的设置（如上表所列）。这意味着如果你想让一个设置只适用于（例如）4B 型号，而不会将该设置应用于 Pi 400，那么 [pi4] 部分中的设置需要在随后的 [pi400] 部分中通过替代设置来恢复 - 这些部分的顺序很重要。或者，你可以使用 [board-type=0x11] 过滤器，这个过滤器与不同的硬件产品之间有一对一的映射关系。|
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### [none] 过滤器
@@ -839,11 +839,11 @@ Serial          : 0000000012345678
 
 ## 存储器选项
 
- 在 GitHub 上编辑此项
+ 此项
 
 ### `total_mem`
 
-此参数可用于强制限制树莓派的内存容量：指定你希望树莓派使用的总 RAM 量（以兆字节为单位）。例如，要使 4GB 的树莓派 4B 表现为 1GB 型号，请使用以下内容：
+此参数可用于强制限制树莓派的内存容量：指定你希望树莓派使用的总 RAM 量（以 MB 为单位）。例如，要使 4GB 的树莓派 4B 表现为 1GB 型号，请使用以下内容：
 
 ```
 total_mem=1024
@@ -853,7 +853,7 @@ total_mem=1024
 
 ## 许可证密钥和编解码器选项
 
- 在 GitHub 上编辑此内容
+ 
 
 可以通过购买一个许可证来激活树莓派 3 及其早期型号上的额外编解码器的硬件解码，该许可证将锁定到你的树莓派的 CPU 序列号。
 
@@ -873,7 +873,7 @@ decode_WVC1 是一个许可密钥，用于允许硬件 VC-1 解码，例如 deco
 
 ## 视频选项
 
- 在 GitHub 上编辑此内容
+ 
 
 ### HDMI 模式
 
@@ -903,9 +903,9 @@ CEA 和 DMT 标准中只有一个不兼容模式：DMT 模式 81，1366x768 @ 60
 | ----------------- | ----------------------- |
 | 树莓派 1 A 和 B | RCA 接头              |
 | 树莓派 Zero     | 未焊接的 TV 接头      |
-| 树莓派 Zero 2 W | 板卡底部的测试垫      |
-| 树莓派 5        | HDMI 插口旁边的 J7 垫 |
-| 所有其他型号    | 3.5 毫米 AV 插孔      |
+| 树莓派 Zero 2 W | 板卡底部的测试点      |
+| 树莓派 5        | HDMI 插口旁边的 J7 触点 |
+| 所有其他型号    | 3.5 mm AV 插孔      |
 
 | NOTE | 树莓派 400 上不提供复合视频输出。|
 | ------ | ----------------------------------- |
@@ -967,7 +967,7 @@ disable_touchscreen=1 禁用官方树莓派触摸显示屏的触摸屏组件。
 
 ## 相机设置
 
- 在 GitHub 上编辑此内容
+ 
 
 ### `disable_camera_led`
 

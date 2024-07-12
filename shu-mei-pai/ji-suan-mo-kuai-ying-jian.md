@@ -17,9 +17,9 @@
 
 计算模块的最新版本是计算模块 4（CM4）。我们建议未来所有的开发都使用 CM4。
 
-![Compute Module 4](https://www.raspberrypi.com/documentation/computers/images/cm4.jpg)
+![计算模块 4](https://www.raspberrypi.com/documentation/computers/images/cm4.jpg)
 
- 计算模块 4
+计算模块 4
 
 计算模块 4（CM4）包含了树莓派 4 的内部（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存。
 
@@ -33,25 +33,25 @@
 
 ### 计算模块 4S
 
-![Compute Module 4S](https://www.raspberrypi.com/documentation/computers/images/cm4s.jpg)
+![计算模块 4S](https://www.raspberrypi.com/documentation/computers/images/cm4s.jpg)
 
- 计算模块 4S
+计算模块 4S
 
 计算模块 4S（CM4S）包含了树莓派 4 的内部部件（BCM2711 处理器和 1GB、2GB、4GB 或 8GB 的 RAM），以及可选的 0GB（Lite）、8GB、16GB 或 32GB 的 eMMC 闪存存储。与 CM4 不同，CM4S 采用与 CM1、CM3 和 CM3+ 相同的 DDR2 SODIMM 外形规格。
 
 ### 计算模块 3+
 
-![Compute Module 3+](https://www.raspberrypi.com/documentation/computers/images/cm3-plus.jpg)
+![计算模块 3+](https://www.raspberrypi.com/documentation/computers/images/cm3-plus.jpg)
 
- 计算模块 3+
+计算模块 3+
 
 计算模块 3+（CM3+）包含了树莓派 3B+（BCM2837 处理器和 1GB 内存）的内部，以及可选的 0GB（Lite）、8GB、16GB 或 32GB eMMC 闪存存储。
 
 ### 计算模块 3
 
-![Compute Module 3](https://www.raspberrypi.com/documentation/computers/images/cm3.jpg)
+![计算模块 3](https://www.raspberrypi.com/documentation/computers/images/cm3.jpg)
 
- 计算模块 3
+计算模块 3
 
 计算模块 3（CM3）包含了树莓派 3 的内部部件（BCM2837 处理器和 1GB 的 RAM），以及可选的 4GB eMMC 闪存。
 
@@ -59,7 +59,7 @@
 
 ![Compute Module 1](https://www.raspberrypi.com/documentation/computers/images/cm1.jpg)
 
- 计算模块 1
+计算模块 1
 
 计算模块 1（CM1）包含了树莓派的内部部件（BCM2835 处理器和 512MB 内存），以及可选的 4GB eMMC 闪存存储。
 
@@ -71,7 +71,7 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 
 ### 计算模块 4 IO 板
 
-![Compute Module 4 IO Board](https://www.raspberrypi.com/documentation/computers/images/cm4io.jpg)
+![计算模块 4 IO Board](https://www.raspberrypi.com/documentation/computers/images/cm4io.jpg)
 
 计算模块 4 IO 板
 
@@ -84,8 +84,8 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 * MicroSD 卡槽（仅适用于没有 eMMC 的 Lite 变体）
 * PCIe Gen 2 接口
 * 通过桶形插孔输入 12V（如果未使用 PCIe，支持最高达 26V）
-* 2 x MIPI DSI 显示 FPC 连接器（22 引脚 0.5 毫米间距电缆）
-* 2 x MIPI CSI-2 摄像头 FPC 连接器（22 引脚 0.5 毫米间距电缆）
+* 2 x MIPI DSI 显示 FPC 连接器（22 引脚 0.5 mm间距电缆）
+* 2 x MIPI CSI-2 摄像头 FPC 连接器（22 引脚 0.5 mm间距电缆）
 * 带电池插座的实时时钟
 
 ### 计算模块 IO 板
@@ -99,8 +99,8 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 * 120 个 GPIO 引脚
 * 一个 HDMI 接口
 * 一个 USB-A 接口
-* 2 x MIPI DSI 显示器 FPC 连接器（22 针 0.5 毫米间距电缆）
-* 2 x MIPI CSI-2 相机 FPC 连接器（22 针 0.5 毫米间距电缆）
+* 2 x MIPI DSI 显示器 FPC 连接器（22 针 0.5 mm间距电缆）
+* 2 x MIPI CSI-2 相机 FPC 连接器（22 针 0.5 mm间距电缆）
 
 计算模块 IO 板有两个变体：版本 1 和版本 3。版本 1 仅兼容 CM1。版本 3 兼容 CM1、CM3、CM3+和 CM4S。计算模块 IO 板版本 3 有时被简写为 CMIO3。
 
@@ -110,13 +110,13 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 
 | IO 板                               | 兼容的计算模块                                |
 | ------------------------------------- | ----------------------------------------------- |
-| 计算模块 IO 板版本 1 (CMIO)/(CMIO1) | * CM1                                         |
-| 计算模块 IO 板版本 3 (CMIO)/(CMIO3) | 计算模块 1 计算模块 3 计算模块 3+ 计算模块 4S |
-| 计算模块 4 IO 板 (CM4IO)            | 计算模块 4                                    |
+|计算模块 IO 板版本 1 (CMIO)/(CMIO1) | * CM1                                         |
+|计算模块 IO 板版本 3 (CMIO)/(CMIO3) |计算模块 1计算模块 3计算模块 3+计算模块 4S |
+|计算模块 4 IO 板 (CM4IO)            |计算模块 4                                    |
 
 ## 将图像刷写到计算模块
 
-计算模块配备了连接到主要 SD 卡接口的内置 eMMC 设备。本指南解释了如何将操作系统映像刷写到单个计算模块的 eMMC 存储器。
+计算模块配备了连接到主要 SD 卡接口的内置 eMMC 设备。本指南解释了如何将操作系统镜像刷写到单个计算模块的 eMMC 存储器。
 
 当向多个计算模块刷写镜像时，请考虑使用计算模块配置工具：
 
@@ -126,7 +126,7 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 
 计算模块配置器是一个 Web 应用程序，可帮助开发人员同时为多个计算模块设备编程。
 
-它提供了内核映像数据库和在闪存过程中运行脚本的能力，以及自动标签打印和固件更新。
+它提供了内核镜像数据库和在闪存过程中运行脚本的能力，以及自动标签打印和固件更新。
 
 ### 先决条件
 
@@ -211,13 +211,13 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 
 你可以使用 Raspberry Pi Imager 刷写操作系统镜像到计算模块。
 
-或者，使用 dd 来将原始操作系统映像（例如树莓派系统）写入你的计算模块。运行以下命令，将 /dev/sdX 替换为你的计算模块的质量存储设备表示形式的路径，将 raw_os_image.img 替换为你的原始操作系统映像的路径：
+或者，使用 dd 来将原始操作系统镜像（例如树莓派系统）写入你的计算模块。运行以下命令，将 /dev/sdX 替换为你的计算模块的质量存储设备表示形式的路径，将 raw_os_image.img 替换为你的原始操作系统镜像的路径：
 
 ```
 $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 ```
 
-映像写入后，断开并重新连接计算模块。现在应该看到两个分区（用于树莓派系统）：
+镜像写入后，断开并重新连接计算模块。现在应该看到两个分区（用于树莓派系统）：
 
 ```
 /dev/sdX    <- Device
@@ -229,7 +229,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 ### 从 eMMC 启动
 
-#### 使用 计算模块 4 IO 板
+#### 使用计算模块 4 IO 板
 
 从 IO 板跳线上的 J2 ( disable eMMC Boot ) 断开 nRPI_BOOT。
 
@@ -285,11 +285,11 @@ CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上�
   * 用于 USB 引导失败后切换到 EMMC，请使用 BOOT_ORDER=0xf15
 * 运行 ./update-pieeprom.sh 以更新 EEPROM 图像 pieeprom.bin 图像文件
 * 如果需要 EEPROM 写保护，请编辑 config.txt 并添加 eeprom_write_protect=1。硬件写保护必须通过软件启用，然后通过将 EEPROM_nWP 引脚拉低进行锁定
-* 运行 ../rpiboot -d . 以使用更新的 EEPROM 映像 pieeprom.bin 更新引导加载程序
+* 运行 ../rpiboot -d . 以使用更新的 EEPROM 镜像 pieeprom.bin 更新引导加载程序
 
 pieeprom.bin 文件现在已准备好刷写到计算模块 4。
 
-#### 刷写引导加载程序 EEPROM - 计算模块 4
+#### 刷写引导加载程序 EEPROM -计算模块 4
 
 要刷写引导加载程序 EEPROM，请遵循与刷写 EMMC 相同的硬件设置，但还要确保 EEPROM_nWP 未被拉低。完成后，EEPROM_nWP 可以再次被拉低。运行以下命令将 recovery/pieeprom.bin 写入引导加载程序 EEPROM：
 
@@ -357,7 +357,7 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 * bcm2708-rpi-b-plus.dtb （用于树莓派i 1B+ 和 A+）
 * bcm2709-rpi-2-b.dtb （用于树莓派 2B）
 * bcm2710-rpi-3-b.dtb （用于树莓派 3B）
-* bcm2708-rpi-cm.dtb （用于树莓派 计算模块 1）
+* bcm2708-rpi-cm.dtb （用于树莓派计算模块 1）
 * bcm2710-rpi-cm3.dtb （用于树莓派计算模块 3）
 
 在启动过程中，用户可以通过 device_tree 参数在 config.txt 中指定要使用的特定 Arm 设备树。例如，config.txt 中的 device_tree=mydt.dtb 行指定了一个名为 mydt.dtb 的文件中的 Arm 设备树。
@@ -700,7 +700,7 @@ $ rpicam-hello --camera 1
 | I/O 板型号                                              | i2c-10 引脚 | i2c-0 引脚 |
 | --------------------------------------------------------- | ------------- | ------------ |
 | CM4 I/O 板                                              | GPIOs 44,45 | GPIOs 0,1  |
-| 计算模块 1, 计算模块 3, 计算模块 3+, 计算模块 4S I/O 板 | GPIO 0,1    | GPIO 28,29 |
+|计算模块 1,计算模块 3,计算模块 3+,计算模块 4S I/O 板 | GPIO 0,1    | GPIO 28,29 |
 
 要连接相机到计算模块 1、计算模块 3、计算模块 3+和计算模块 4S I/O 板，添加以下指令到 /boot/firmware/config.txt 以适应交换的引脚分配:
 
@@ -838,7 +838,7 @@ ignore_lcd=1
 
 ### 计算模块 1 和计算模块 3 数据表
 
-树莓派计算模块 1 (CM1) 和 计算模块 3 (CM3) 是支持的产品，其终止生命周期 (EOL) 日期不早于 2026 年 1 月。要了解有关 CM1 和 CM3 的更多信息，请参阅以下文档：
+树莓派计算模块 1 (CM1) 和计算模块 3 (CM3) 是支持的产品，其终止生命周期 (EOL) 日期不早于 2026 年 1 月。要了解有关 CM1 和 CM3 的更多信息，请参阅以下文档：
 
 * [CM1 和 CM3 数据表](https://datasheets.raspberrypi.com/cm/cm1-and-cm3-datasheet.pdf)
 * [ CM1 的原理图](https://datasheets.raspberrypi.com/cm/cm1-schematics.pdf)

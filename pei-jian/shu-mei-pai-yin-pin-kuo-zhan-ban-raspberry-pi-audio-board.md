@@ -23,13 +23,13 @@
 
 单声道扬声器一个单独的 1.2W 扬声器的螺钉端子，如晶体管收音机或类似产品中所找到的。
 
-一个 3.5 毫米插孔插座，为一副耳机提供立体声音频。树莓派 DAC 板上的耳机放大器可驱动高达 80/90Ω 的阻抗耳机。
+一个 3.5 mm插孔插座，为一副耳机提供立体声音频。树莓派 DAC 板上的耳机放大器可驱动高达 80/90Ω 的阻抗耳机。
 
-Aux in 双 Phono/RCA 连接器或 3.5 毫米插孔。可接受高达 1V RMS 的模拟音频输入。这可用于从可变模拟源（如手机，MP3 播放器或类似设备）录制音频。
+Aux in 双 Phono/RCA 连接器或 3.5 mm插孔。可接受高达 1V RMS 的模拟音频输入。这可用于从可变模拟源（如手机，MP3 播放器或类似设备）录制音频。
 
-Aux out 双 Phono/RCA 连接器或 3.5 毫米插孔。提供高达 1V RMS 的模拟音频输出。这可用于将音频馈送到放大器中，与 Line out 相比音量降低。
+Aux out 双 Phono/RCA 连接器或 3.5 mm插孔。提供高达 1V RMS 的模拟音频输出。这可用于将音频馈送到放大器中，与 Line out 相比音量降低。
 
-用于与外部电容麦克风配合使用的外部麦克风 3.5 毫米插孔。当使用外部麦克风插座时，会自动禁用 Codec Zero 上的内置 MEMS 麦克风。
+用于与外部电容麦克风配合使用的外部麦克风 3.5 mm插孔。当使用外部麦克风插座时，会自动禁用 Codec Zero 上的内置 MEMS 麦克风。
 
 ### 树莓派 DAC Pro
 
@@ -115,7 +115,7 @@ DigiAMP+ 旨在同时并联为树莓派和 DigiAMP+ 提供电源，通过 GPIO �
 
 ![Codec Zero Board Diagram](https://www.raspberrypi.com/documentation/accessories/images/Codec_Zero_Board_Diagram.jpg)
 
-Codec Zero 内置了 EEPROM，必要时可用于自动配置 Linux 环境。它具有集成的 MEMS 麦克风，并可通过 3.5 毫米插孔与立体声麦克风输入和单声道扬声器（1.2 W/8Ω）一起使用。
+Codec Zero 内置了 EEPROM，必要时可用于自动配置 Linux 环境。它具有集成的 MEMS 麦克风，并可通过 3.5 mm插孔与立体声麦克风输入和单声道扬声器（1.2 W/8Ω）一起使用。
 
 除了绿色（GPIO23）和红色（GPIO24）LED 灯外，还提供了一个可编程的触觉按钮（GPIO27）。
 
@@ -334,7 +334,7 @@ $ sudo sh -c "echo 0 >/sys/class/gpio/gpio22/value"
 
 ![Chatterbox Labels](https://www.raspberrypi.com/documentation/accessories/images/Chatterbox_Labels.png)
 
-使用小型扁头螺丝刀将扬声器连接到螺丝端子。对于额外的按钮，根据指示将按钮线焊接到 Codec Zero 垫片上，使用 GPIO 引脚 27 和地线作为开关，如果需要，使用 +3.3V 和地线作为 LED。
+使用小型扁头螺丝刀将扬声器连接到螺丝端子。对于额外的按钮，根据指示将按钮线焊接到 Codec Zero 触点片上，使用 GPIO 引脚 27 和地线作为开关，如果需要，使用 +3.3V 和地线作为 LED。
 
 ### 设置你的树莓派
 
@@ -454,10 +454,10 @@ $ crontab -e
  硬件信息：
 
 * PCB 螺丝全部为 M2.5。
-* PCB 支架（用于机箱）为 5mm 公/母。
+* PCB 支架（用于外壳）为 5mm 公/母。
 * PCB 支架（用于树莓派到音频扩展板）为 9mm 母/母。
 * PCB 支架（用于 XLR 到 DAC PRO）为 8mm 母/公。
-* PCB 支架（用于官方树莓派 7 英寸显示屏）为 5 毫米公母。
+* PCB 支架（用于官方树莓派 7 英寸显示屏）为 5 mm公母。
 * 我们使用和测试过的旋转编码器包括 Alpha 三针旋转编码器 RE160F-40E3-20A-24P，ALPS EC12E2430804（RS：729-5848），和 Bourns ECW0JB24-AC0006L（RS：263-2839）。
 * 用于为 DigiAMP+ 供电的圆筒连接器为 2.5mm 内径，5.5mm 外径，11mm。
 * DigiAMP+ 设计为与 12V 至 24V、3A 供应配合使用，例如 XPPower VEC65US19 或类似产品。

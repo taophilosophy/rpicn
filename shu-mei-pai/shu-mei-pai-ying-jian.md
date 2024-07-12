@@ -16,15 +16,15 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 | Model                                                                                                                                                             | SoC                                    | 存储                     | GPIO              | 外设接口                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------- | ---------------------------------------- | -------------------------- | ------------------- | -------------------------------------- |
-| ![树莓派 B](https://www.raspberrypi.com/documentation/computers/images/model-b.jpg?hash=caa7985f73e4fb3af8fb7b0a614d88b3)<br />树莓派 A                | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB<br /><br />512MB           | 26 针 GPIO 母座 | * HDMI* 2 × USB 2.0* CSI 相机接口* DSI 显示器接口 * 3.5 毫米音频插孔 * RCA 复合视频* 以太网（100Mb/s）* SD 卡插槽 * micro USB 电源                                                                                                                                                                                                                 |
-| ![树莓派 A](https://www.raspberrypi.com/documentation/computers/images/model-a.jpg?hash=9b8ad338273f437641f74eb13a32adc1)<br />树莓派 A        | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB                    | 26 针 GPIO 母座 | * HDMI* USB 2.0* CSI 摄像头接口* DSI 显示接口* 3.5 毫米音频插孔* RCA 复合视频* SD 卡插槽* micro USB 电源                                                                                                                                                                                                                                         |
-| ![树莓派 B+](https://www.raspberrypi.com/documentation/computers/images/model-b-plus.jpg?hash=83f51a836116f3df1378346158d6e148)<br />树莓派 A+ | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 512MB                    | 40 针 GPIO 母座   | * HDMI* 4 × USB 2.0* CSI 摄像头接口* DSI 显示器 port* 3.5 毫米 AV 插孔* 以太网(100Mb/s)* microSD 卡槽* micro USB 电源                                                                                                                                                                                                                           |
-| ![树莓派 A+](https://www.raspberrypi.com/documentation/computers/images/model-a-plus.jpg?hash=e0df62b537945082df16ff45f453d2ad)<br />树莓派 A+         | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB<br /><br />512MB           | 40 针 GPIO  母座    | * HDMI* USB 2.0* CSI 摄像头接口* DSI 显示器接口 * 3.5 毫米音视频插孔* microSD 卡槽* micro USB 供电                                                                                                                                                                                                                                                |
-| ![树莓派 2 A](https://www.raspberrypi.com/documentation/computers/images/2-model-b.jpg?hash=f7ccdaf24be1e125198d6ef11a7d3258)<br />树莓派 2 型 B           | BCM2836（在 1.2 版中切换到 BCM2837） | 1 GB                     | 40 针 GPIO 母座   | * HDMI * 4 × USB 2.0 * CSI 摄像头接口 * DSI 显示接口 * 3.5 毫米 AV 插孔 * 以太网 (100Mb/s)* microSD 卡插槽 * micro USB 电源                                                                                                                                                                                                                           |
-| ![树莓派 3 A](https://www.raspberrypi.com/documentation/computers/images/3-model-b.jpg?hash=26b673f0b2c427e9e29fada4336a3569)<br />树莓派 3 A        | [BCM2837](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837)                                       | 1 GB                     | 40 针 GPIO 母座    | * HDMI * 4 × USB 2.0 * CSI 摄像头 port * DSI 显示器接口* 3.5 毫米 AV 插孔* 以太网（100Mb/s）* 2.4GHz 单频段 802.11n Wi-Fi（35Mb/s）* 蓝牙 4.1，蓝牙低功耗（BLE）* microSD 卡槽* micro USB 电源                                                                                                                                                      |
-| ![树莓派 3 A+](https://www.raspberrypi.com/documentation/computers/images/3-model-b-plus.jpg?hash=55357b0ece66311f90f82db2dc09f3d2)<br />树莓派 3B+    | [BCM2837b0](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837b0)                                       | 1GB                      | 40 针 GPIO 母座 | * HDMI* 4 × USB 2.0* CSI 相机接口 * DSI 显示接口 * 3.5 毫米 AV 插孔* 支持 PoE 的以太网（300Mb/s）* 2.4/5GHz 双频 802.11ac Wi-Fi（100Mb/s）* 蓝牙 4.2，蓝牙低功耗（BLE）* microSD 卡槽* micro USB 电源                                                                                                                                             |
-| ![树莓派 3 A+](https://www.raspberrypi.com/documentation/computers/images/3-model-a-plus.jpg?hash=e8035ce9e2c7f5d1c8050e039aaacbaa)<br />树莓派 3A+    | [BCM2837b0](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837b0)                                       | 512 MB                   | 40 针 GPIO 母座   | * HDMI * USB 2.0 * CSI 相机接口 * DSI 显示接口 * 3.5 毫米 AV 插孔 * 2.4/5GHz 双频段 802.11ac Wi-Fi (100Mb/s) * 蓝牙 4.2、低功耗蓝牙 (BLE) * microSD 卡槽 * micro USB 电源                                                                                                                                                                     |
-| ![树莓派 4 A](https://www.raspberrypi.com/documentation/computers/images/4-model-b.jpg?hash=f56bee1ea763677368e20dbc59574c85)<br />树莓派 4 A  | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)                                       | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 40 针 GPIO 母座 | * 2 × micro HDMI * 2 × USB 2.0* 2 × USB 3.0* CSI 摄像头接口* DSI 显示屏接口* 3.5 毫米音视频插孔* PoE 支持的千兆以太网 (1Gb/s)* 2.4/5GHz 双频 802.11ac Wi-Fi (120Mb/s)* 蓝牙 5, 低功耗蓝牙 (BLE)* microSD 卡槽* USB-C 电源 (5V, 3A (15W))                                                                                                       |
+| ![树莓派 B](https://www.raspberrypi.com/documentation/computers/images/model-b.jpg?hash=caa7985f73e4fb3af8fb7b0a614d88b3)<br />树莓派 A                | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB<br /><br />512MB           | 26 针 GPIO 母座 | * HDMI* 2 × USB 2.0* CSI 相机接口* DSI 显示器接口 * 3.5 mm音频插孔 * RCA 复合视频* 以太网（100Mb/s）* SD 卡插槽 * micro USB 电源                                                                                                                                                                                                                 |
+| ![树莓派 A](https://www.raspberrypi.com/documentation/computers/images/model-a.jpg?hash=9b8ad338273f437641f74eb13a32adc1)<br />树莓派 A        | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB                    | 26 针 GPIO 母座 | * HDMI* USB 2.0* CSI 摄像头接口* DSI 显示接口* 3.5 mm音频插孔* RCA 复合视频* SD 卡插槽* micro USB 电源                                                                                                                                                                                                                                         |
+| ![树莓派 B+](https://www.raspberrypi.com/documentation/computers/images/model-b-plus.jpg?hash=83f51a836116f3df1378346158d6e148)<br />树莓派 A+ | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 512MB                    | 40 针 GPIO 母座   | * HDMI* 4 × USB 2.0* CSI 摄像头接口* DSI 显示器 port* 3.5 mm AV 插孔* 以太网(100Mb/s)* microSD 卡槽* micro USB 电源                                                                                                                                                                                                                           |
+| ![树莓派 A+](https://www.raspberrypi.com/documentation/computers/images/model-a-plus.jpg?hash=e0df62b537945082df16ff45f453d2ad)<br />树莓派 A+         | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB<br /><br />512MB           | 40 针 GPIO  母座    | * HDMI* USB 2.0* CSI 摄像头接口* DSI 显示器接口 * 3.5 mm音视频插孔* microSD 卡槽* micro USB 供电                                                                                                                                                                                                                                                |
+| ![树莓派 2 A](https://www.raspberrypi.com/documentation/computers/images/2-model-b.jpg?hash=f7ccdaf24be1e125198d6ef11a7d3258)<br />树莓派 2 型 B           | BCM2836（在 1.2 版中切换到 BCM2837） | 1 GB                     | 40 针 GPIO 母座   | * HDMI * 4 × USB 2.0 * CSI 摄像头接口 * DSI 显示接口 * 3.5 mm AV 插孔 * 以太网 (100Mb/s)* microSD 卡插槽 * micro USB 电源                                                                                                                                                                                                                           |
+| ![树莓派 3 A](https://www.raspberrypi.com/documentation/computers/images/3-model-b.jpg?hash=26b673f0b2c427e9e29fada4336a3569)<br />树莓派 3 A        | [BCM2837](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837)                                       | 1 GB                     | 40 针 GPIO 母座    | * HDMI * 4 × USB 2.0 * CSI 摄像头 port * DSI 显示器接口* 3.5 mm AV 插孔* 以太网（100Mb/s）* 2.4GHz 单频段 802.11n Wi-Fi（35Mb/s）* 蓝牙 4.1，蓝牙低功耗（BLE）* microSD 卡槽* micro USB 电源                                                                                                                                                      |
+| ![树莓派 3 A+](https://www.raspberrypi.com/documentation/computers/images/3-model-b-plus.jpg?hash=55357b0ece66311f90f82db2dc09f3d2)<br />树莓派 3B+    | [BCM2837b0](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837b0)                                       | 1GB                      | 40 针 GPIO 母座 | * HDMI* 4 × USB 2.0* CSI 相机接口 * DSI 显示接口 * 3.5 mm AV 插孔* 支持 PoE 的以太网（300Mb/s）* 2.4/5GHz 双频 802.11ac Wi-Fi（100Mb/s）* 蓝牙 4.2，蓝牙低功耗（BLE）* microSD 卡槽* micro USB 电源                                                                                                                                             |
+| ![树莓派 3 A+](https://www.raspberrypi.com/documentation/computers/images/3-model-a-plus.jpg?hash=e8035ce9e2c7f5d1c8050e039aaacbaa)<br />树莓派 3A+    | [BCM2837b0](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837b0)                                       | 512 MB                   | 40 针 GPIO 母座   | * HDMI * USB 2.0 * CSI 相机接口 * DSI 显示接口 * 3.5 mm AV 插孔 * 2.4/5GHz 双频段 802.11ac Wi-Fi (100Mb/s) * 蓝牙 4.2、低功耗蓝牙 (BLE) * microSD 卡槽 * micro USB 电源                                                                                                                                                                     |
+| ![树莓派 4 A](https://www.raspberrypi.com/documentation/computers/images/4-model-b.jpg?hash=f56bee1ea763677368e20dbc59574c85)<br />树莓派 4 A  | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)                                       | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 40 针 GPIO 母座 | * 2 × micro HDMI * 2 × USB 2.0* 2 × USB 3.0* CSI 摄像头接口* DSI 显示屏接口* 3.5 mm音视频插孔* PoE 支持的千兆以太网 (1Gb/s)* 2.4/5GHz 双频 802.11ac Wi-Fi (120Mb/s)* 蓝牙 5, 低功耗蓝牙 (BLE)* microSD 卡槽* USB-C 电源 (5V, 3A (15W))                                                                                                       |
 | ![树莓派 400](https://www.raspberrypi.com/documentation/computers/images/400.jpg?hash=59a07dc791fc54f56c2416f42ced88e3)<br />树莓派 400                    | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)                                       | 4GB                      | 40 针 GPIO 母座 | * 2× micro HDMI * USB 2.0 * 2× USB 3.0 * 千兆以太网（1Gb/s） * 2.4/5GHz 双频 802.11ac 无线网络（120Mb/s） * 蓝牙 5，蓝牙低功耗（BLE） * microSD 卡槽 * USB-C 电源（5V，3A（15W））                                                                                                                                                            |
 | ![树莓派 5](https://www.raspberrypi.com/documentation/computers/images/5.jpg?hash=b888dab3bb8bcb8dd4e0541c99238eec)<br />树莓派 5                                | [BCM2712](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2712)                                       | 4GB<br /><br />8GB | 40 针 GPIO 母座 | * 2 × micro HDMI* 2 × USB 2.0* 2 × USB 3.0* 2 × CSI 摄像头/DSI 显示接口* 单通道 PCIe FFC 连接器* UART 连接器* RTC 电池连接器* 四针 JST-SH PWM 风扇连接器* 支持 PoE+ 的千兆以太网（1Gb/s）* 2.4/5GHz 双频段 802.11ac Wi-Fi 5（300Mb/s）* 蓝牙 5，低功耗蓝牙（BLE）* microSD 卡槽* USB-C 电源（5V 5A（25W），支持 5V 3A（15W），但会将外设限制到 600mA）|
 
@@ -53,8 +53,8 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 | Model                                                                                                                                                                           | SoC | 存储器                   | 存储                                 | 外形尺寸                | 无线连接                                                                    |
 |---------------------------------------------- | ----- | -------------------------- | -------------------------------------- | ------------------------- | ----------------------------------------------------------------------------- |
 | ![树莓派 Compute Module 1](https://www.raspberrypi.com/documentation/computers/images/compute-module-1.jpg?hash=725d6ee61d958098dc68dc7739deab88)<br />树莓派计算模块 1 | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)    | 512MB                    | 0GB（精简版）<br /><br />4GB                 | DDR2 SO-DIMM            | none                                                                        |
-| ![树莓派 Compute Module 3](https://www.raspberrypi.com/documentation/computers/images/compute-module-3.jpg?hash=3a5ff7c853190d7a07c51bf67c1082b8)<br />树莓派计算模块 3        | [BCM2837](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837)    | 1GB                      | 0GB（精简版）<br /><br />4GB                 | DDR2 SO-DIMM            | 无                                                                          |
-| ![树莓派 Compute Module 3+](https://www.raspberrypi.com/documentation/computers/images/compute-module-3-plus.jpg?hash=352ed6d3402586078299193abe8ba754)<br />树莓派计算模块 3+ | [BCM2837b0](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837b0)    | 1GB                      | 0GB（Lite）<br /><br />8GB<br /><br />16GB<br /><br />32GB   | DDR2 SO-DIMM            | 无                                                                          |
+| ![树莓派计算模块 3](https://www.raspberrypi.com/documentation/computers/images/compute-module-3.jpg?hash=3a5ff7c853190d7a07c51bf67c1082b8)<br />树莓派计算模块 3        | [BCM2837](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837)    | 1GB                      | 0GB（精简版）<br /><br />4GB                 | DDR2 SO-DIMM            | 无                                                                          |
+| ![树莓派计算模块 3+](https://www.raspberrypi.com/documentation/computers/images/compute-module-3-plus.jpg?hash=352ed6d3402586078299193abe8ba754)<br />树莓派计算模块 3+ | [BCM2837b0](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837b0)    | 1GB                      | 0GB（Lite）<br /><br />8GB<br /><br />16GB<br /><br />32GB   | DDR2 SO-DIMM            | 无                                                                          |
 | ![树莓派计算模块 4S](https://www.raspberrypi.com/documentation/computers/images/compute-module-4s.jpg?hash=4ec9821548515598adfe5a3cdc14789d)<br />树莓派计算模块 4S     | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)    | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 0GB（精简版）<br /><br />8GB<br /><br />16GB<br /><br />32GB | DDR2 SO-DIMM            | 无                                                                          |
 | ![树莓派计算模块 4](https://www.raspberrypi.com/documentation/computers/images/compute-module-4.jpg?hash=989dcf3efb7c9d59f463fe404a5e3820)<br />树莓派计算模块 4        | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)    | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 0GB (精简)<br /><br />8GB<br /><br />16GB<br /><br />32GB    | 双 100 引脚高密度连接器 | 可选:<br />* 2.4/5GHz 双频 802.11ac Wi-Fi 5 (300Mb/s)* 蓝牙 5, 低功耗蓝牙 (BLE) |
 
@@ -69,10 +69,10 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 | Model                                                                                                                                                   | SoC | 存储       | 存储空间 | GPIO                      | 无线连接                                                             |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------ | ---------- | --------------------------- | ---------------------------------------------------------------------- |
-| ![树莓派 Pico](https://www.raspberrypi.com/documentation/computers/images/pico.png?hash=950c52fb95a01a3eec3b225e71a14bc9)<br />树莓派 Pico             | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264 千字节 | 2MB      | 40 针 GPIO 母座（未焊接） | 无                                                                   |
-| ![树莓派 Pico H](https://www.raspberrypi.com/documentation/computers/images/pico-h.png?hash=26d4f02827ffd2c911119d36da30bb27)<br />树莓派 Pico H       | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264 千字节 | 2MB      | 40 针 GPIO 母座（未焊接） | 无                                                                   |
-| ![树莓派 Pico W](https://www.raspberrypi.com/documentation/computers/images/pico-w.png?hash=ab356bc12db87ee6d8d3d62388baf4bd)<br />树莓派 Pico W | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264 千字节 | 2MB      | 40 针 GPIO 母座（未焊接） | * 2.4GHz 单频段 802.11n Wi-Fi（10Mb/s）* 蓝牙 5.2，蓝牙低功耗（BLE） |
-| ![树莓派 Pico WH](https://www.raspberrypi.com/documentation/computers/images/pico-wh.png?hash=a6be966c70758bbcd9f5115c4096cf2c)<br />树莓派 Pico WH    | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264 千字节 | 2MB      | 40 针 GPIO 母座        | * 2.4GHz 单频 802.11n Wi-Fi（10Mb/s）* 蓝牙 5.2，蓝牙低功耗（BLE） |
+| ![树莓派 Pico](https://www.raspberrypi.com/documentation/computers/images/pico.png?hash=950c52fb95a01a3eec3b225e71a14bc9)<br />树莓派 Pico             | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 针 GPIO 母座（未焊接） | 无                                                                   |
+| ![树莓派 Pico H](https://www.raspberrypi.com/documentation/computers/images/pico-h.png?hash=26d4f02827ffd2c911119d36da30bb27)<br />树莓派 Pico H       | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 针 GPIO 母座（未焊接） | 无                                                                   |
+| ![树莓派 Pico W](https://www.raspberrypi.com/documentation/computers/images/pico-w.png?hash=ab356bc12db87ee6d8d3d62388baf4bd)<br />树莓派 Pico W | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 针 GPIO 母座（未焊接） | * 2.4GHz 单频段 802.11n Wi-Fi（10Mb/s）* 蓝牙 5.2，蓝牙低功耗（BLE） |
+| ![树莓派 Pico WH](https://www.raspberrypi.com/documentation/computers/images/pico-wh.png?hash=a6be966c70758bbcd9f5115c4096cf2c)<br />树莓派 Pico WH    | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 针 GPIO 母座        | * 2.4GHz 单频 802.11n Wi-Fi（10Mb/s）* 蓝牙 5.2，蓝牙低功耗（BLE） |
 
 有关各种型号树莓派 Pico 的更多信息，请参阅 Pico 文档。
 
@@ -102,7 +102,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 * [方案图，版本 1.0](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-mechanical-drawing.pdf)
-* [ 机箱图纸，PDF](https://datasheets.raspberrypi.com/case/raspberry-pi-3-a-plus-case-mechanical-drawing.pdf)
+* [ 外壳图纸，PDF](https://datasheets.raspberrypi.com/case/raspberry-pi-3-a-plus-case-mechanical-drawing.pdf)
 
 ### 树莓派 3 B
 
@@ -135,11 +135,11 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 #### 测试点
 
-树莓派 Zero 2 W 在生产过程中使用了许多测试垫位置。
+树莓派 Zero 2 W 在生产过程中使用了许多测试点位置。
 
 ![zero2 pad diagram](https://www.raspberrypi.com/documentation/computers/images/zero2-pad-diagram.png?hash=2e74c93201a0f4ee0c22848ce2cfa382)
 
-| 标签           | 功能                        | X（距离原点的毫米） | 距原点 Y（毫米） |
+| 标签           | 功能                        | X（距离原点的 mm） | 距原点 Y（ mm） |
 | ---------------- | ----------------------------- | --------------------- | -------------------- |
 | STATUS\_LED | LED 的电源状态（低 = 打开） | 5.15                | 8.8                |
 | CORE           | 处理器电源                  | 6.3                 | 18.98              |
@@ -215,7 +215,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 ### 使用 DVFS
 
-| NOTE | 仅适用于树莓派 4 B、树莓派 400 和 Compute Module 4 的 DVFS 讨论。|
+| NOTE | 仅适用于树莓派 4 B、树莓派 400 和计算模块 4 的 DVFS 讨论。|
 | ------ | -------------------------------------------------------------------------------------- |
 
 树莓派 4 实现了动态电压和频率调节（DVFS）。这种技术使得 树莓派 4 设备能在保持性能不变的同时降低运行温度。
@@ -233,7 +233,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 | NOTE | 该参数已在树莓派 5 上移除，并将处于模式 3。|
 | ------ | -------------------------------------------------------- |
 
-此外，还使用了更细粒度的 CPU 调度器，用来更精细地控制 ARM 核频率，这意味着 DVFS 更有用。现在的步进频率为 1500MHz、1000MHz、750MHz 和 600MHz。这些步进可以在 SoC 节流时有益，意味着几乎不会完全降至 600MHz，从而大大提高了全负载时的性能。
+此外，还使用了更细粒度的 CPU 调度器，用来更精细地控制 ARM 核频率，这意味着 DVFS 更有用。现在的步进频率为 1500MHz、1000MHz、750MHz 和 600MHz。这些步进可以在 SoC 限流时有益，意味着几乎不会完全降至 600MHz，从而大大提高了全负载时的性能。
 
 默认的 CPU 调度器是 ondemand。可以使用 cpufrequtils 软件包中的 cpufreq-set 命令手动更改调度器以减少空闲功耗：
 
@@ -252,7 +252,7 @@ $ vcgencmd measure_temp
 
 ### 添加散热片
 
-由于内置节流功能，不用散热片也不会造成 SoC 过热损坏。不过，安装散热片和小型风扇可以缓解发热节流并提高性能。要获得最佳气流，并略微改善散热效果，可考虑将树莓派竖着放。
+由于内置限流功能，不用散热片也不会造成 SoC 过热损坏。不过，安装散热片和小型风扇可以缓解发热限流并提高性能。要获得最佳气流，并略微改善散热效果，可考虑将树莓派竖着放。
 
 ### 风扇套件
 
@@ -277,7 +277,7 @@ $ vcgencmd measure_temp
 
 #### 风扇连接器引脚图
 
-风扇连接器是一个 1 毫米间距的 JST-SH 插座，包含以下四个引脚：
+风扇连接器是一个 1 mm间距的 JST-SH 插座，包含以下四个引脚：
 
 | 引脚 | 功能 | 电线颜色 |
 | ------ | ------ | ---------- |
@@ -288,7 +288,7 @@ $ vcgencmd measure_temp
 
 ### 树莓派启动 EEPROM
 
-树莓派 5、树莓派 4、400、Compute Module 4 和 Compute Module 4S 计算机使用 EEPROM 启动系统。其他型号的 树莓派 计算机使用位于启动文件系统中的 bootcode.bin 文件。
+树莓派 5、树莓派 4、400、计算模块 4 和计算模块 4S 计算机使用 EEPROM 启动系统。其他型号的 树莓派 计算机使用位于启动文件系统中的 bootcode.bin 文件。
 
 | NOTE | 在 rpi-eeprom GitHub 存储库中，你可以找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。|
 | ------ | ----------------------------------------------------------------------------------------- |
@@ -672,7 +672,7 @@ USB 主机引导模式采用以下逻辑:
 
 ## USB 大容量存储引导
 
-| NOTE | 自 Compute Module 3 起，Zero 2 W 起的 Zero 系列，以及自 树莓派 2B（版本 1.2）起的所有旗舰系列设备均可使用。|
+| NOTE | 自计算模块 3 起，Zero 2 W 起的 Zero 系列，以及自 树莓派 2B（版本 1.2）起的所有旗舰系列设备均可使用。|
 | ------ | ------------------------------------------------------------------------------------------------------------------- |
 
 USB 大容量存储启动能让你从 USB 大容量存储设备（如闪存驱动器、USB 磁盘）启动 Raspberry Pi。连接 USB 设备时（尤其是硬盘和 SSD），需要注意它们的功耗要求。接入多个磁盘通常需要额外的外部电源，可以是带电源的硬盘盒、带供电的 USB 集线器。
@@ -687,7 +687,7 @@ USB 大容量存储启动能让你从 USB 大容量存储设备（如闪存驱�
 | NOTE | 早期版本的 树莓派 4 可能需要更新引导加载程序才能从 USB 启动。|
 | ------ | --------------------------------------------------------------------- |
 
-| NOTE | Compute Module 4 的早期版本可能需要更新引导加载程序才能从 USB 启动。|
+| NOTE |计算模块 4 的早期版本可能需要更新引导加载程序才能从 USB 启动。|
 | ------ | ---------------------------------------------------------------------- |
 
 ### 树莓派 3B+
@@ -696,7 +696,7 @@ USB 大容量存储启动能让你从 USB 大容量存储设备（如闪存驱�
 
 ### 树莓派 2B，3A+，3B，CM3，CM3+，Zero 2 W
 
-在树莓派 2B v1.2，3A+，3B，Zero 2 W 和 Compute Module 3 和 3+ 上，必须先启用 USB 主机启动模式。才能从 USB 大容量存储启动和网络启动。
+在树莓派 2B v1.2，3A+，3B，Zero 2 W 和计算模块 3 和 3+ 上，必须先启用 USB 主机启动模式。才能从 USB 大容量存储启动和网络启动。
 
 | NOTE | 树莓派 3A+ 和 Zero 2 W 不支持网络启动。|
 | ------ | ----------------------------------------- |
@@ -781,8 +781,8 @@ $ vcgencmd otp_dump | grep 17:
 * ARP 回复包含 tftpboot 服务器以太网地址
 * TFTP RRQ `bootcode.bin`
   * 服务器响应 TFTP 错误响应，并附带文本错误消息，文件未找到
-  * 服务器会回复包含文件头部块编号的数据块（512 字节）中的第一个块，文件已存在
-    * 树莓派回复 TFTP ACK 数据包，包含块编号，并重复直到最后一个非 512 字节块
+  * 服务器会回复包含文件头部块编号的数据块（512 B）中的第一个块，文件已存在
+    * 树莓派回复 TFTP ACK 数据包，包含块编号，并重复直到最后一个非 512 B块
 * TFTP RRQ bootsig.bin 下载请求
   * 这通常会产生错误 file not found。这是预料之中的，TFTP 引导服务器应该能够处理它。
 
@@ -854,7 +854,7 @@ Vendor-Option Option 43 包含了回复的重要部分。这个部分必须包�
 
 #### TFTP 文件读取
 
-当供应商参数被正确指定时，你将看到随后发送的 TFTP RRQ 数据包。RRQ 可以通过第一个数据块或错误消息来回复，表明文件未找到。在少数情况下，他们甚至会收到第一个数据包，然后由 树莓派 中止传输（当检查文件是否存在时会发生这种情况）。下面的示例仅包括三个数据包：原始读取请求、第一个数据块（始终是包含一个标头和 512 字节数据的 516 字节，尽管最后一个块始终少于 512 字节且可能为零长度），以及第三个数据包（包含与数据块中帧编号匹配的确认帧号）。
+当供应商参数被正确指定时，你将看到随后发送的 TFTP RRQ 数据包。RRQ 可以通过第一个数据块或错误消息来回复，表明文件未找到。在少数情况下，他们甚至会收到第一个数据包，然后由 树莓派 中止传输（当检查文件是否存在时会发生这种情况）。下面的示例仅包括三个数据包：原始读取请求、第一个数据块（始终是包含一个标头和 512 B数据的 516 B，尽管最后一个块始终少于 512 B且可能为零长度），以及第三个数据包（包含与数据块中帧编号匹配的确认帧号）。
 
 ```
 16:44:41.224964 IP (tos 0x0, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 49)
@@ -926,7 +926,7 @@ program_gpio_bootmode=n
 
 ### 引脚分配
 
-#### 树莓派 3B 和 Compute Module 3
+#### 树莓派 3B 和计算模块 3
 
 | 引脚 1 | 引脚 2 | 启动类型                 |
 | -------- | -------- | -------------------------- |
@@ -1408,7 +1408,7 @@ $ sudo -E rpi-eeprom-config --edit
 
 #### `BOOT_ORDER`
 
-BOOT_ORDER 设置允许对不同启动模式的优先级进行灵活配置。它表示为一个 32 位无符号整数，其中每个半字节代表一个启动模式。启动模式按照从最低有效半字节到最高有效半字节的顺序尝试。
+BOOT_ORDER 设置允许对不同启动模式的优先级进行灵活配置。它表示为一个 32 位无符号整数，其中每个半 B代表一个启动模式。启动模式按照从最低有效半 B到最高有效半 B的顺序尝试。
 
 ##### BOOT_ORDER 字段
 
@@ -1522,9 +1522,9 @@ DHCP DISCOVER 或 DHCP REQ 重试之前的超时时间（毫秒）。
 
 #### `DHCP_OPTION97`
 
-在之前的版本中，客户端 GUID（Option97）只是将序列号重复四次。默认情况下，新的 GUID 格式为四字符码（FourCC）的串联（ RPi4 0x34695052 适用于 树莓派 4 或 RPi5 0x35695052 适用于 树莓派 5），板子版本（例如 0x00c03111 或 0x00d04170 ）（4 字节），MAC 地址的最低有效 4 字节以及 4 字节的序列号。这旨在是独一无二的，同时也向 DHCP 服务器提供结构化信息，使得可以识别 树莓派 4 和 5 计算机，而无需依赖以太网 MAC OUID。
+在之前的版本中，客户端 GUID（Option97）只是将序列号重复四次。默认情况下，新的 GUID 格式为四字符码（FourCC）的串联（ RPi4 0x34695052 适用于 树莓派 4 或 RPi5 0x35695052 适用于 树莓派 5），板子版本（例如 0x00c03111 或 0x00d04170 ）（4 B），MAC 地址的最低有效 4 B以及 4 B的序列号。这旨在是独一无二的，同时也向 DHCP 服务器提供结构化信息，使得可以识别 树莓派 4 和 5 计算机，而无需依赖以太网 MAC OUID。
 
-指定 DHCP_OPTION97=0 以恢复旧行为，或指定非零十六进制值以指定自定义的 4 字节前缀。
+指定 DHCP_OPTION97=0 以恢复旧行为，或指定非零十六进制值以指定自定义的 4 B前缀。
 
  默认值： 0x34695052
 
@@ -1644,7 +1644,7 @@ Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and 
 
 嵌入式 树莓派 制造者应用程序会在启动时下载一个 JSON 文件进行配置。
 
-你可以更改内嵌的 树莓派 制作程序应用程序使用的 JSON 文件的网址，以便提供你自己的映像。你可以通过 --repo 参数传递网址来测试标准的 树莓派 制作程序应用程序。
+你可以更改内嵌的 树莓派 制作程序应用程序使用的 JSON 文件的网址，以便提供你自己的镜像。你可以通过 --repo 参数传递网址来测试标准的 树莓派 制作程序应用程序。
 
  默认： http://downloads.raspberrypi.org/os_list_imagingutility_v3.json
 
@@ -1733,7 +1733,7 @@ PARTITION=2
 
 一个包含最多四个 VID/PID 对的列表，指定引导加载程序应忽略的设备。如果这与 HUB 匹配，则该 HUB 不会被枚举，导致所有下游设备被排除。这旨在允许在引导枚举期间忽略有问题的设备（例如，枚举速度非常慢）。这是引导加载程序特有的，并不传递给操作系统。
 
-格式是一个以 VID 为最高有效半字节的十六进制值的逗号分隔列表。不允许有空格。例如 034700a0,a4231234
+格式是一个以 VID 为最高有效半 B的十六进制值的逗号分隔列表。不允许有空格。例如 034700a0,a4231234
 
  默认值： ""
 
@@ -1953,8 +1953,6 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 | `vsync-invert`     | 垂直同步低电平                                     |
 | `de-invert`     | 数据使能低电平                                     |
 | `pixclk-invert`     | 负边沿像素时钟                                     |
-| `width-mm`     | 定义屏幕宽度（毫米）                               |
-| `height-mm`     | 以毫米表示屏幕高度                                 |
 | `rgb565`     | 在 GPIO 0-19 上改变为 RGB565 输出                  |
 | `rgb666-padhi`     | 在 GPIO 0-9，12-17 和 20-25 上改变为 RGB666 输出   |
 | `rgb888`     | 在 GPIOs 0-27 上更改为 RGB888 输出                 |
@@ -2100,14 +2098,13 @@ GPIO 驱动强度并不表示最大电流，仅表示在此电流下 pad 仍将�
 
 当前值不是垫片将提供的电流，也不是电流限制。
 
-垫片输出是一个电压源：
+触点片输出是一个电压源：
 
-* 如果设置为高电平，垫片将尝试将输出驱动到电源电压（3.3V）
-* 如果设置较低，该垫将尝试将输出引至地线（0V）
+* 如果设置为高电平，触点片将尝试将输出驱动到电源电压（3.3V）
 
-该垫将尝试将输出引至高电平或低电平。成功取决于所连接设备的要求。如果该垫短接至地线，则无法输出高电平。它将尽可能输送尽可能多的电流，电流仅受内部电阻限制。
+该触点将尝试将输出引至高电平或低电平。成功取决于所连接设备的要求。如果该触点短接至地线，则无法输出高电平。它将尽可能输送尽可能多的电流，电流仅受内部电阻限制。
 
-如果该垫输出高电平且短接至地线，在一段时间后将损坏。如果你将其连接至 3.3V 并输出低电平同样也是如此。
+如果该触点输出高电平且短接至地线，在一段时间后将损坏。如果你将其连接至 3.3V 并输出低电平同样也是如此。
 
 符合规格是由保证的电压水平确定的。由于引脚是数字的，因此有两个电压级别，高电平和低电平。I/O接口有两个处理输出电平的参数：
 
@@ -2143,7 +2140,7 @@ GPIO 引脚的物理特性有更多信息。
 | 3     | HYST     | 启用输入滞后; 0 = 禁用; 1 = 启用           | RW   | 1    |
 | 2:0   | DRIVE    | 驱动强度，请参见下面的详细列表             | RW   | 3    |
 
-当心同时切换输出（SSO）限制，这些限制取决于设备以及 PCB 的质量和布局，去耦电容器的数量和质量，垫子上的负载类型（电阻，电容）以及树莓派无法控制的其他因素。
+当心同时切换输出（SSO）限制，这些限制取决于设备以及 PCB 的质量和布局，去耦电容器的数量和质量，触点子上的负载类型（电阻，电容）以及树莓派无法控制的其他因素。
 
 ### 驱动强度列表
 
@@ -2201,7 +2198,7 @@ $ vcmailbox 0x00010004 8 8 0 0
 0x00000020 0x80000000 0x00010004 0x00000008 0x800000008 0xnnnnnnnn 0x00000000 0x00000000
 ```
 
-以上使用邮箱属性接口 GET_BOARD_SERIAL，请求大小为 8 字节，响应大小为 8 字节（发送两个整数作为请求 0,0）。对此的响应将是两个整数（0x00000020 和 0x80000000），后跟标签代码、请求长度、响应长度（第 31 位设为 1 表示它是响应），然后是 64 位序列号（其中最高 32 位始终为 0）。
+以上使用邮箱属性接口 GET_BOARD_SERIAL，请求大小为 8 B，响应大小为 8 B（发送两个整数作为请求 0,0）。对此的响应将是两个整数（0x00000020 和 0x80000000），后跟标签代码、请求长度、响应长度（第 31 位设为 1 表示它是响应），然后是 64 位序列号（其中最高 32 位始终为 0）。
 
 ### 编写和读取客户 OTP 值
 
@@ -2325,7 +2322,7 @@ rpi-otp-private-key 脚本包装设备私钥 vcmailbox API，使得更容易以 
 | NOTE | usbboot 库包含你需要的所有工具，包括 rpi-eeprom 作为 Git 子模块。|
 | ------ | ------------------------------------------------------------------- |
 
-把这个 32 字节的密钥读取为 64 个字符的十六进制数：
+把这个 32 B的密钥读取为 64 个字符的十六进制数：
 
 ```
 $ cd usbboot/tools
@@ -2338,7 +2335,7 @@ $ rpi-otp-private-key
 f8dbc7b0a4fcfb1d706e298ac9d0485c2226ce8df7f7596ac77337bd09fbe160
 ```
 
-将 32 字节的随机生成数字写入设备私钥。
+将 32 B的随机生成数字写入设备私钥。
 
 | WARNING | 此操作无法撤销。|
 | --------- | ------------------ |
@@ -2418,11 +2415,11 @@ $ vcgencmd otp_dump
 30 修订代码 ^1^
 33 电路板修订扩展 - 意义取决于电路板型号。这通过设备树在 /proc/device-tree/chosen/rpi-boardrev-ext 中提供，并且可以通过在 config.txt 中设置 board_rev_ext 来临时覆盖测试目的中的 OTP 值。
 
-* 计算模块 4
+*计算模块 4
   * 位 30：计算模块是否安装了 Wi-Fi 模块
     * 0 - Wi-Fi
     * 1 - 没有 Wi-Fi
-  * Bit 31: 计算模块是否安装了 EMMC 模块
+  * Bit 31:计算模块是否安装了 EMMC 模块
     * 0 - EMMC
     * 1 - 无 EMMC（Lite）
 
@@ -2691,9 +2688,9 @@ $ vcgencmd get_config usb_max_current_enable
 | NOTE | 这些测量基于标准的 树莓派 OS 镜像（截至 2016 年 2 月 26 日或 2019 年 6 月对于 树莓派 4），室温，树莓派 连接到了 HDMI 显示器、USB 键盘和 USB 鼠标。树莓派 3 A 连接到了无线局域网接入点，树莓派 4 连接到了以太网。所有这些功耗测量均为近似值，并未考虑来自额外 USB 设备的功耗；如果连接了多个额外 USB 设备或 HAT，功耗很容易超过这些测量值。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
-##### [树莓派 4 和 Compute Module 4 上的额外 PMIC 功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
+##### [树莓派 4 和计算模块 4 上的额外 PMIC 功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
 
-树莓派 4 和 Compute Module 4 上的额外 PMIC 功能
+树莓派 4 和计算模块 4 上的额外 PMIC 功能
 
 树莓派 4 和 CM4 上使用了多种不同的 PMIC 设备。所有这些 PMIC 都提供了额外的功能，除了电压供应之外。本文档描述了如何在软件中访问这些功能。
 
@@ -2798,7 +2795,7 @@ RTC 还提供了启动时的时间，例如 dmesg，适用于缺乏 NTP 访问�
 
 锂锰可充电 RTC 电池
 
-官方电池部件是一枚可充电的锂锰硬币电池，配有预装的两针 JST-SH 插头和粘性安装垫。适用于在主板的主电源断开时为 RTC 供电。由于关机时的电流吸收为个位数µA，可保持时间为几个月。
+官方电池部件是一枚可充电的锂锰硬币电池，配有预装的两针 JST-SH 插头和粘性安装触点。适用于在主板的主电源断开时为 RTC 供电。由于关机时的电流吸收为个位数µA，可保持时间为几个月。
 
 | NOTE | 不建议把大部分（非可充电）锂电池用作 RTC 的备用电源。RTC 的备用电流消耗要高于大多数专用 RTC 模块，使用寿命将非常短暂。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------ |
@@ -2842,7 +2839,7 @@ dtparam=rtc_bbat_vchg=3000000
 * U 盘，在除早期 树莓派 1 A 和 A 之外的所有 树莓派 型号上都有三个硬件芯片选择信号。
 * SPI2，也具有三个硬件芯片选择器，仅在计算模块 1、3 和 3+ 上可用。
 
-在 树莓派 4、400 和 Compute Module 4 上，还有四个额外的 SPI 总线：SPI3 到 SPI6，每个总线都有两个硬件芯片选择器。这些额外的 SPI 总线可通过某些 GPIO 引脚的替代功能分配来使用。有关更多信息，请参阅 BCM2711 Arm 外围设备数据表。
+在 树莓派 4、400 和计算模块 4 上，还有四个额外的 SPI 总线：SPI3 到 SPI6，每个总线都有两个硬件芯片选择器。这些额外的 SPI 总线可通过某些 GPIO 引脚的替代功能分配来使用。有关更多信息，请参阅 BCM2711 Arm 外围设备数据表。
 
 BCM2835 Arm 外围设备数据表的第 10 章介绍了主控制器。第 2.3 章说明了辅助控制器。
 
@@ -2858,7 +2855,7 @@ BCM2835 Arm 外围设备数据表的第 10 章介绍了主控制器。第 2.3 �
 | `CE0`         | 24       | `GPIO08`                  | `SPI0_CE0_N`                  |
 | `CE1`         | 26       | `GPIO07`                  | `SPI0_CE1_N`                  |
 
-##### SPI0 备用映像（仅限计算模块，不包括 CM4）
+##### SPI0 备用镜像（仅限计算模块，不包括 CM4）
 
 | SPI 功能 | 博通引脚名称 | 博通引脚功能 |
 | ---------- | ------------------- | ------------------- |
@@ -2954,7 +2951,7 @@ MOMI 主在主出
 
 ##### 低速串行接口（LoSSI）模式
 
-LoSSI 标准允许向外围设备（LCD）发出命令并在它们之间传输数据。LoSSI 命令和参数均为 8 位长，但额外的一位用于指示字节是命令还是参数/数据。数据时此额外位设置为高位，命令时设置为低位。最终的 9 位值被串行化输出。LoSSI 常与 MIPI DBI 类型 C 兼容的 LCD 控制器一起使用。
+LoSSI 标准允许向外围设备（LCD）发出命令并在它们之间传输数据。LoSSI 命令和参数均为 8 位长，但额外的一位用于指示 B是命令还是参数/数据。数据时此额外位设置为高位，命令时设置为低位。最终的 9 位值被串行化输出。LoSSI 常与 MIPI DBI 类型 C 兼容的 LCD 控制器一起使用。
 
 | NOTE | 某些命令会触发 SPI 控制器自动读取，因此该模式不能用作多功能的 9 位 SPI。|
 | ------ | -------------------------------------------------------------------------- |
@@ -2979,7 +2976,7 @@ SCLK 核心时钟 / CDIV
 
 在 DMA 模式下操作时，与 CS 线的自动断言和取消断言相关的建立时间和保持时间如下：
 
-* CS 线将在传输的第一个字节的 msb 之前至少提前三个核心时钟周期。
+* CS 线将在传输的第一个 B的 msb 之前至少提前三个核心时钟周期。
 * CS 线将在最后的时钟脉冲的下降沿后至少延迟一个核心时钟周期取消断言。
 
 ### SPI 软件
@@ -3308,7 +3305,7 @@ NOQuuuWuFMMMCCCCPPPPTTTTTTTTRRRR
 | b03140 | CM4                | 1.0  | 2GB   | 索尼英国 |
 | c03140 | CM4                | 1.0  | 4GB   | 索尼英国 |
 | d03140 | CM4                | 1.0  | 8GB   | 索尼英国 |
-| 902120 | 零 2 W             | 1.0  | 512MB | 索尼英国 |
+| 902120 | Zero 2 W             | 1.0  | 512MB | 索尼英国 |
 | c04170 | 5                  | 1.0  | 4GB   | 索尼英国 |
 | d04170 | 5                  | 1.0  | 8GB   | 索尼英国 |
 

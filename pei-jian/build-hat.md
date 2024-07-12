@@ -48,7 +48,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 ### 访问 GPIO 引脚
 
-如果你想使用树莓派的 GPIO 引脚，你可以添加一个可选的高头并使用 15 毫米间隔柱。
+如果你想使用树莓派的 GPIO 引脚，你可以添加一个可选的高头并使用 15 mm间隔柱。
 
 ![tall headers](https://www.raspberrypi.com/documentation/accessories/images/tall-headers.png)
 
@@ -709,7 +709,7 @@ while (!Console.KeyAvailable)
 
 钉距传感器，来自 Bricklink 的图像
 
-这是一个距离传感器，它实现了一个 Distance 属性，可以提供毫米距离。这个还有一个 ContinuousMeasurement 模式可用。
+这是一个距离传感器，它实现了一个 Distance 属性，可以提供 mm距离。这个还有一个 ContinuousMeasurement 模式可用。
 
 ```
 brick.WaitForSensorToConnect(SensorPort.PortA);
