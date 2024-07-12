@@ -50,7 +50,7 @@
 
 输入你的 2FA 应用程序生成的六位数字 TOTP 以注册 2FA 应用程序与你的树莓派 ID。
 
-将出现确认屏幕，包含恢复代码。请将恢复代码存储在安全的地方。**这是唯一的方法在你丢失手机和 2FA 应用程序时绕过 2FA**。
+将出现确认屏幕，其包含恢复代码。请将恢复代码存储到安全的地方。**这是在你丢失手机及 2FA 软件后，唯一能绕过 2FA的方法**。
 
 ![已启用 TOTP](https://www.raspberrypi.com/documentation/services/images/totp_enabled.png?hash=b2448ab2aa08b20103aa24050e46497a)
 
