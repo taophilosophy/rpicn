@@ -1,34 +1,34 @@
 # 树莓派系统（Raspberry Pi OS）
 
 
-## 介绍
+## 简介
 
-树莓派系统是一款免费操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求而言，我们都建议使用树莓派系统。
+树莓派系统是一款免费操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
 
-因为树莓派系统源自 Debian，因此树莓派系统基于 Debian 发行周期的周期版本。大约每 2 年发布一次。
+因为树莓派系统源自 Debian，因此树莓派系统基于 Debian [发行周期](https://wiki.debian.org/DebianReleases)的阶段版本。大约每 2 年发布一次。
 
-最新版本的树莓派系统基于 Debian Bookworm。先前版本基于 Debian Bullseye。
+最新版本的树莓派系统基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。先前版本基于 [Debian Bullseye](https://www.raspberrypi.com/news/raspberry-pi-os-debian-bullseye/)。
 
 你可在 <raspberrypi.com/software/operating-systems/> 下载树莓派系统的镜像。
 
 ## 更新软件
 
 
-请始终保持你在树莓派系统上运行的软件版本已更新至最新。这可以使你的设备免受漏洞的影响，并确保你能及时收到最新的问题修复。
+请始终确保你在树莓派系统上运行的软件，其版本已更至最新。这可以使你的设备免受[漏洞](https://cve.mitre.org/index.html)的影响，并确保你能及时收到最新的问题修复。
 
 ### 使用 APT 管理软件包
 
-高级软件包工具 (APT) 是在树莓派系统中安装、更新和卸载软件的推荐方法。你可以以命令 apt 来调用 APT。
+在树莓派系统中，我们推荐使用 [APT （Advanced Package Tool，高级软件包工具）](https://en.wikipedia.org/wiki/APT_(software)) 安装、更新和卸载软件。你可以用命令行 `apt` 来调用 APT。
 
 #### 安装更新
 
-apt 把软件源列表存储在文件 /etc/apt/sources.list 中。在安装软件之前，请运行以下命令，来刷新 /etc/apt/sources.list 中存储的本地软件源：
+apt 把软件源列表存放在文件 `/etc/apt/sources.list` 中。在安装软件之前，请运行以下命令，来 **刷新（update）** `/etc/apt/sources.list`` 中存储的本地软件源：
 
 ```
 $ sudo apt update
 ```
 
-运行以下命令，能把所有已安装的软件包升级至最新版本：
+运行以下命令，能把所有已安装的软件包 **更新（upgrade）** 至最新版本：
 
 ```
 $ sudo apt full-upgrade
@@ -36,11 +36,11 @@ $ sudo apt full-upgrade
 
 >**技巧**
 >
->与 Debian 不同，树莓派系统一直处于开发状态。因此，软件包的依赖关系有时会发生修改，因此你应始终使用 `full-upgrade` 而非标准的 `upgrade`。 
+>与 Debian 不同，树莓派系统一直处于开发状态。因此，软件包的依赖关系有时会发生变更，因此你应始终使用 `full-upgrade`，而不要用标准的 `upgrade`。 
 
-请定期运行这些命令，以确保软件保持最新状态。在使用 apt 来让树莓派系统是最新状态时，也会同时把你的 Linux 内核和固件变成最新状态（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
+请定期运行这些命令，以确保软件保持最新状态。在使用 `apt` 来维持树莓派系统保持最新状态时，也会同时把你的 Linux 内核和固件变成最新版本（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
 
-在树莓派发布新的树莓派系统主要版本后，执行上述命令也不会把你的操作系统升级到这个最新的主要版本。要升级到最新的主要版本，请按照我们的操作系统升级说明进行操作。
+在树莓派官方发布大版本的树莓派系统更新后，执行上述命令也不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
 
 #### 搜索软件
 
@@ -140,13 +140,13 @@ $ df -h
 $ sudo apt clean
 ```
 
-### 将你的操作系统升级至最新的主要版本
+### 将你的操作系统更新至最新的大版本
 
 >**警告**
 >
->在尝试进行主要版本更新之前，请先备份。 
+>在尝试进行大版本更新之前，请先备份。 
 
-要将操作系统更新到树莓派最新的主要版本，请使用另外一张 SD 卡写入新版本的镜像。使用 SD 卡读卡器或者网络存储从先前安装的旧系统中复制文件和配置到新的 SD 卡。然后，将新的 SD 卡插入树莓派上的插槽，再启动。
+要将操作系统更新到树莓派最新的大版本，请使用另外一张 SD 卡写入新版本的镜像。使用 SD 卡读卡器或者网络存储从先前安装的旧系统中复制文件和配置到新的 SD 卡。然后，将新的 SD 卡插入树莓派上的插槽，再启动。
 
 ### 更新固件
 
