@@ -3,13 +3,13 @@
 
 ## 简介
 
-树莓派系统是一款免费操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
+树莓派系统（Raspberry Pi OS）是一款免费操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
 
 因为树莓派系统源自 Debian，因此树莓派系统基于 Debian [发行周期](https://wiki.debian.org/DebianReleases)的阶段版本。大约每 2 年发布一次。
 
 最新版本的树莓派系统基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。先前版本基于 [Debian Bullseye](https://www.raspberrypi.com/news/raspberry-pi-os-debian-bullseye/)。
 
-你可在 <raspberrypi.com/software/operating-systems/> 下载树莓派系统的镜像。
+你可在 [raspberrypi.com/software/operating-systems/](https://raspberrypi.com/software/operating-systems/) 下载树莓派系统的镜像。
 
 ## 更新软件
 
