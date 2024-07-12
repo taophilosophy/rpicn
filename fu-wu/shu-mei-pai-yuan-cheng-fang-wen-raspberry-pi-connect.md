@@ -6,81 +6,83 @@
 
 ![hero](https://www.raspberrypi.com/documentation/services/images/hero.png?hash=abae19beca53f018d9c434ddee214cd9)
 
-要使用 Connect，请在你的树莓派上[安装 Connect 软件 ](https://www.raspberrypi.com/documentation/services/connect.html#install-connect)。然后访问[connect.raspberrypi.com](https://connect.raspberrypi.com/)，在浏览器窗口中访问运行在你的树莓派上的桌面或 Shell。
+要使用树莓派远程访问，请在你的树莓派上[安装软件 Connect](https://www.raspberrypi.com/documentation/services/connect.html#install-connect)。然后打开 [connect.raspberrypi.com](https://connect.raspberrypi.com/)，即可在浏览器窗口中访问，运行在你的树莓派上的桌面或 Shell。
 
-Connect 使用安全的加密连接。默认情况下，Connect 在你的树莓派和浏览器之间直接通信。然而，当 Connect 无法在树莓派和浏览器之间建立直接连接时，我们会使用中继服务器。在这种情况下，树莓派仅保留操作 Connect 所需的元数据。
+Connect 使用安全的加密连接。在默认情况下，Connect 会直接在你的树莓派和浏览器之间进行通信。但是，当 Connect 无法在树莓派和浏览器间建立直接连接时，我们会使用中继服务器。在这种情况下，树莓派官方服务器也仅保留操作 Connect 所需的元数据。
 
-Connect 目前处于开发的测试阶段。
+Connect 目前处于 BETA 开发阶段。
 
-| 注意 | 要使用 Connect，你的树莓派必须运行[Raspberry Pi OS Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/) 或更新版本。 |
-| ------ | ------------------------------------------------------- |
+>**注意**
+>
+>要使用 Connect，你的树莓派必须运行着[树莓派系统 Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/) 及更新版本。
 
 ## 安装
 
 
-要开始安装，请打开一个终端窗口。运行以下命令来更新你的系统和软件包：
+要开始安装，请打开终端。运行以下命令，更新你的系统和软件包：
 
 ```
 $ sudo apt update
 $ sudo apt upgrade
 ```
 
-在你的树莓派上运行以下命令来安装 Connect：
+在你的树莓派上，运行以下命令安装 Connect：
 
 ```
 $ sudo apt install rpi-connect
 ```
 
-安装完成后，请重新启动你的树莓派或[手动启动 Connect 服务 ](https://www.raspberrypi.com/documentation/services/connect.html#manually-start-connect) 来使用 Connect：
+安装完成后，请重启你的树莓派或[手动启动 Connect 服务](https://www.raspberrypi.com/documentation/services/connect.html#manually-start-connect) 以使用 Connect：
 
 ```
 $ sudo reboot
 ```
 
-下次登录树莓派时，Connect 将会自动启动。
+在下次登录树莓派时，Connect 就会自动启动。
 
-### Connect Lite
+### 精简版 Connect（Connect Lite）
 
-我们提供了 Connect 的替代 **Lite** 版本，仅支持远程 Shell 访问，无法进行屏幕共享。
+我们提供了 Connect 的替代 **精简（Lite）** 版本，仅支持远程 Shell 访问，无法进行屏幕共享。
 
-在你的树莓派上运行以下命令来安装 Connect Lite：
+在你的树莓派上，运行以下命令，来安装精简版 Connect：
 
 ```
 $ sudo apt install rpi-connect-lite
 ```
 
-重新启动你的树莓派或[手动启动 Connect 服务 ](https://www.raspberrypi.com/documentation/services/connect.html#manually-start-connect) 来使用 Connect。
+重启你的树莓派或[手动启动 Connect 服务](https://www.raspberrypi.com/documentation/services/connect.html#manually-start-connect) 来使用 Connect。
 
-考虑[启用用户持久登录 ](https://www.raspberrypi.com/documentation/services/connect.html#enable-remote-shell-at-all-times)，即使你的用户账户未登录，也可以访问你的设备。
+考虑[启用用户持久化登录](https://www.raspberrypi.com/documentation/services/connect.html#enable-remote-shell-at-all-times)，即使你的用户账户未登录，也可访问你的设备。
 
-| 提示 | Lite 版本命令使用与完整版本 Connect 相同的`rpi-connect`名称。`rpi-connect-lite`只是一个软件包名称。 |
-| ----- | ------------------------------------------------------------------------------------------- |
+>**技巧**
+>
+>精简版命令与完整版 Connect 相同，都叫 `rpi-connect`。`rpi-connect-lite`只是一个软件包名称而已。 
 
 ### 手动启动 Connect
 
-| 注意 | 默认情况下，Connect 会在登录时自动启动。除非你从登录项中移除它，否则第一次启动后无需手动启动 Connect。 |
+| 注意 | 在默认情况下，Connect 会在登录时自动启动。除非你从登录项中移除了它，否则第一次启动后，无需手动启动 Connect。 |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-要从命令行手动启动服务，请运行以下命令：
+要用命令行手动启动服务，请运行以下命令：
 
 ```
 $ systemctl --user start rpi-connect
 ```
 
-## 将树莓派与树莓派 ID 关联
+## 将树莓派绑定到树莓派 ID 
 
 
-现在你已在树莓派上安装了 Connect，你必须将你的树莓派与你的树莓派 ID 关联起来才能使用 Connect。
+现在你已在树莓派上安装了 Connect，你必须把你的树莓派绑定你的树莓派 ID，才能使用 Connect。
 
-如果你没有树莓派 ID，[创建一个 ](https://www.raspberrypi.com/documentation/services/id.html#create-a-raspberry-pi-id)。
+如果你没有树莓派 ID，[创建一个](https://www.raspberrypi.com/documentation/services/id.html#create-a-raspberry-pi-id)。
 
-要将你的树莓派与树莓派 ID 关联，使用 Connect 生成一个验证 URL。访问该 URL 并登录你的树莓派 ID，将你的树莓派添加到你的账户中。
+要把你的树莓派绑定树莓派 ID，需要使用 Connect 生成一个验证网址。访问该链接并登录你的树莓派 ID，将你的树莓派添加到你的账户中。
 
-你可以使用树莓派桌面上的 Connect 图标或`rpi-connect`命令行工具生成验证 URL。
+你可以使用树莓派桌面上的 Connect 图标或命令 `rpi-connect`生成验证网址。
 
-### 通过树莓派桌面
+### 使用树莓派桌面
 
-一旦`rpi-connect`服务开始运行，Connect 图标将出现在系统托盘中。
+`rpi-connect` 服务开始运行后，在系统托盘中将出现Connect 的图标。
 
 ![just installed](https://www.raspberrypi.com/documentation/services/images/just_installed.png?hash=692f34b6fd6ffda725743c0b13fe39d4)
 
@@ -88,11 +90,11 @@ $ systemctl --user start rpi-connect
 
 ![sign in](https://www.raspberrypi.com/documentation/services/images/sign-in.png?hash=503e210239051b7f27465e633e19b811)
 
-这将打开一个验证 URL，你可以使用它将你的树莓派关联到你的树莓派 ID 上。
+这将打开一个验证网址，你可以用它把你的树莓派绑定到你的树莓派 ID 上。
 
 ### 通过命令行
 
-使用以下命令生成一个链接，将你的树莓派与你的树莓派 ID 连接起来：
+使用以下命令生成一个链接，将你的树莓派绑定到你的树莓派 ID上：
 
 ```
 $ rpi-connect signin
@@ -104,61 +106,61 @@ $ rpi-connect signin
 通过访问 https://connect.raspberrypi.com/verify/XXXX-XXXX 完成登录
 ```
 
-在任何设备上访问生成的验证 URL，并使用你的树莓派 ID 登录，将你的树莓派与树莓派 ID 关联起来。
+在其他任意设备上访问生成的验证网址，并使用你的树莓派 ID 登录，将你的树莓派绑定到树莓派 ID。
 
 ### 完成树莓派连接
 
 访问上一步生成的验证 URL。
 
-使用你的[树莓派 ID](https://www.raspberrypi.com/documentation/services/id.html) 登录到 Connect。
+使用你的[树莓派 ID](https://www.raspberrypi.com/documentation/services/id.html) 登录 Connect。
 
 ![使用 ID 登录 ](https://www.raspberrypi.com/documentation/services/images/login-with-id.png?hash=4767d1f31e88c81aa3a89b1a5dba11b9)
 
-认证后，为你的树莓派分配一个名称。选择一个能帮助你识别设备的名称。点击“创建设备并登录”按钮继续。
+认证后，为你的树莓派起个名。请选择一个能帮助你辨识设备的名字。点击“创建设备并登录”按钮可继续。
 
 ![创建设备 ](https://www.raspberrypi.com/documentation/services/images/create-device.png?hash=23e46f4bc2cfdeb6de2d3c3bc2c2e790)
 
-你现在可以远程连接到你的树莓派了。Connect 系统托盘图标会变成蓝色，表示你的树莓派已经与 Connect 服务连接。你会收到一封新设备登录 Connect 的电子邮件通知。
+现在你就可以远程连接到你的树莓派了。Connect 系统托盘图标会变成蓝色，代表你的树莓派已经连接至 Connect 服务。你将会收到一封电子邮件，通知你有新设备登录 Connect。
 
-![登录邮件 ](https://www.raspberrypi.com/documentation/services/images/sign-in-email.png?hash=ef25669d6e5d66866d3ab09b653e7561)
+![登录邮件](https://www.raspberrypi.com/documentation/services/images/sign-in-email.png?hash=ef25669d6e5d66866d3ab09b653e7561)
 
-| 警告 | 如果你收到一封未识别设备登录 Connect 的电子邮件，请立即更改你的树莓派 ID 密码。[从 Connect 中移除设备 ](https://www.raspberrypi.com/documentation/services/connect.html#manage-devices) 来永久解除与你账户的关联。考虑[启用双因素身份验证 ](https://www.raspberrypi.com/documentation/services/id.html#enable-two-factor-authentication) 来保护你的账户安全。 |
+| 警告 | 如果你收到了一封未知设备登录 Connect 的电子邮件，请立即修改你的树莓派 ID 密码。并[从 Connect 中删除设备](https://www.raspberrypi.com/documentation/services/connect.html#manage-devices)来永久解除与你账户的绑定。考虑[启用双因素身份验证](https://www.raspberrypi.com/documentation/services/id.html#enable-two-factor-authentication)来确保你的账户安全。 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-点击 Connect 系统托盘图标以打开 Connect 菜单。该菜单显示你的当前登录状态，登出选项，以及启用或禁用远程访问方法的选项。
+点击 Connect 系统托盘图标，打开 Connect 菜单。该菜单会显示你的当前登录状态、登出选项，以及启用或禁用远程访问方法的选项。
 
-| 提示 | Connect 会使用你的设备序列号对通信进行签名。将 SD 卡移动到其他设备会导致你从 Connect 中注销。 |
+| 提示 | Connect 会使用你的设备序列号对通信进行签名。把 SD 卡移动到其他设备会导致你从 Connect 中注销。 |
 | ----- | ------------------------------------------------------------------------------------------------------------------------------- |
 
 ## 访问你的树莓派
 
-现在你的树莓派出现在 Connect 仪表板上，你可以通过浏览器从任何地方访问你的树莓派。Connect 提供多种远程交互方式。
+现在你的树莓派会出现在 Connect 仪表板上，你可以通过浏览器在任何地方访问你的树莓派。Connect 提供了多种远程交互方式。
 
 ### 屏幕共享
 
-Connect 包含在浏览器中共享你的树莓派屏幕的功能。使用以下说明共享你的树莓派屏幕。
+Connect 能在浏览器中共享你树莓派的屏幕。使用以下说明来共享你树莓派的屏幕。
 
-| 注意 | 屏幕共享需要**Wayland**窗口服务器。默认情况下，树莓派 OS 仅在树莓派 5、4 或 400 上使用 **64 位** 发行版的 Raspberry Pi OS **Bookworm**才使用 Wayland。屏幕共享与树莓派 OS Lite 或使用 X 窗口服务器的系统 **不兼容**。 |
+| 注意 | 屏幕共享需要 **Wayland** 窗口服务器。默认情况下，树莓派设备仅在树莓派 5、4 或 400 上使用 **64 位** 发行版的树莓派系统 **Bookworm**才使用 Wayland。屏幕共享 **不支持** 精简版树莓派系统和使用 X 窗口服务器的系统。 |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-在任何计算机上访问[connect.raspberrypi.com](https://connect.raspberrypi.com/)。
+在任意计算机上访问[connect.raspberrypi.com](https://connect.raspberrypi.com/)。
 
-Connect 将你重定向到树莓派 ID 服务进行登录。登录后，Connect 会显示已连接设备的列表。支持屏幕共享的设备在设备名称下方显示灰色的 **屏幕共享** 徽章。
+Connect 会将你重定向至树莓派 ID 服务进行登录。登录后，Connect 会显示已连接设备的列表。支持屏幕共享的设备在设备名称下方显示灰色的 **屏幕共享** 徽章。
 
-![设备列表 ](https://www.raspberrypi.com/documentation/services/images/list-of-devices.png?hash=e6b8b984af50f0a6a2bf598fd93196f7)
+![设备列表](https://www.raspberrypi.com/documentation/services/images/list-of-devices.png?hash=e6b8b984af50f0a6a2bf598fd93196f7)
 
 点击你想访问的设备右侧的 **通过 Connect** 按钮。从菜单中选择 **屏幕共享** 选项。这将打开一个浏览器窗口，显示你树莓派的桌面。
 
-![屏幕共享连接中 ](https://www.raspberrypi.com/documentation/services/images/screen-sharing-connecting.png?hash=1635bce768aa5cee5af4471cd6797c06)
+![屏幕共享连接中](https://www.raspberrypi.com/documentation/services/images/screen-sharing-connecting.png?hash=1635bce768aa5cee5af4471cd6797c06)
 
 现在你可以像本地使用你的树莓派一样使用它。要了解更多连接信息，请将鼠标悬停在 **断开连接** 按钮右侧的挂锁图标上。
 
-![屏幕共享开始 ](https://www.raspberrypi.com/documentation/services/images/screen-sharing-start.png?hash=76e29e56e835ec5c22b99f7ddd725200)
+![屏幕共享开始](https://www.raspberrypi.com/documentation/services/images/screen-sharing-start.png?hash=76e29e56e835ec5c22b99f7ddd725200)
 
 | 提示 | 使用桌面上方的 **从远程复制** 和 **粘贴到远程** 按钮在本地和远程剪贴板之间传输文本。 |
 | ----- | ----------------------------------------------------------------------------------------------------- |
 
-连接后，Connect 仪表板中**屏幕共享**徽章旁边会出现绿色圆点，表示有活动的屏幕共享会话。悬停以查看当前的屏幕共享会话数。
+连接后，Connect 仪表板中 **屏幕共享** 徽章旁边会出现绿色圆点，表示有活动的屏幕共享会话。悬停以查看当前的屏幕共享会话数。
 
 ![屏幕共享活动 ](https://www.raspberrypi.com/documentation/services/images/screen-sharing-active.png?hash=ebd9ed1debe009f1c908ab50456033c2)
 
@@ -174,7 +176,7 @@ Connect 将你重定向到树莓派 ID 服务进行登录。登录后，Connect 
 
 #### 禁用屏幕共享
 
-要关闭屏幕共享，请点击 Connect 系统托盘图标并取消选择 **允许屏幕共享**。你的树莓派仍然登录到 Connect，但你将无法从 Connect 仪表板创建屏幕共享会话。
+要关闭屏幕共享，请点击 Connect 系统托盘图标并取消选择  **允许屏幕共享**。你的树莓派仍然登录到 Connect，但你将无法从 Connect 仪表板创建屏幕共享会话。
 
 ![禁用屏幕共享桌面 ](https://www.raspberrypi.com/documentation/services/images/screen-sharing-disabled-desktop.png?hash=fd904d7f45f9d31d199812b7fb0ceb23)
 
