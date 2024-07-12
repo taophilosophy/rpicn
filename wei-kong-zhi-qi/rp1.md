@@ -20,6 +20,6 @@ RP1 是一款 12×12mm，间距为 0.65mm 的 BGA 南桥芯片，它为树莓派
 * 视频 DAC（3 通道，支持 PAL/NTSC 和 VGA）
   * 树莓派 5 上仅使用了单通道（复合）
 * 低速外围设备（SPI、UART、I2C、PWM、GPIO、I2S）
-* Delta-sigma PWM 音频输出
+* Delta-sigma（Σ-Δ）PWM 音频输出
 
 可以在 RP1 外围设备文档中找到更多关于 RP1 的信息。
