@@ -17,7 +17,7 @@
 
 ### 使用 APT 管理软件包
 
-在树莓派系统中，我们推荐使用 [APT （Advanced Package Tool，高级软件包工具）](https://en.wikipedia.org/wiki/APT_(software)) 来安装、更新和卸载软件。你可以用命令行 `apt` 来调用 APT。
+在树莓派系统中，我们推荐使用 [APT（Advanced Package Tool，高级软件包工具）](https://en.wikipedia.org/wiki/APT_(software)) 来安装、更新和卸载软件。你可以用命令行 `apt` 来调用 APT。
 
 #### 安装更新
 
