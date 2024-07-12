@@ -44,13 +44,13 @@ $ sudo apt full-upgrade
 
 #### 搜索软件
 
-要搜索软件包，请将搜索关键字传参给 `apt-cache search` ：
+要搜索软件包，请用 `apt-cache search` 搜索（search）关键字：
 
 ```
-$ apt-cache search <keyword>
+$ apt-cache search <关键字>
 ```
 
-例如，设想搜索以下关键字“raspi”：
+例如，下面是关键字“raspi”的搜索结果：
 
 ```
 $ apt-cache search raspi
@@ -69,7 +69,7 @@ raspi-copies-and-fills - ARM-accelerated versions of selected functions from str
 raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 ```
 
-搜索返回了多个关键字相关的名称和描述的软件包。
+搜索返回了多个关键字相关的名称和说明的软件包。
 
 使用以下命令查看其详细信息：
 
@@ -77,7 +77,7 @@ raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 $ apt-cache show <package-name>
 ```
 
-例如，假设要对“raspi-config”软件包进行如下搜索：
+例如，假设要对“raspi-config”软件包进行以下搜索：
 
 ```
 $ apt-cache show raspi-config
@@ -104,17 +104,17 @@ Description-md5: 19630c04463bfe7193152448b53d85a0
 
 #### 安装软件包
 
-要在你的树莓派上安装软件包，请将软件包的名称传参给以下命令：
+要在你的树莓派上安装软件包，请将软件包的名称传给以下命令：
 
 ```
-$ sudo apt install <package-name>
+$ sudo apt install <软件包名称>
 ```
 
-`apt` 将显示软件包将占用的磁盘空间量。输入 Y 并按`回车键`键可确认该安装软件包。你可以在上述命令中添加参数 -y，来跳过这个确认步骤。
+`apt` 将显示软件包将占用的磁盘空间量。输入 **Y** 并按 **回车键** 来确认安装。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
 
 #### 卸载软件包
 
-要在树莓派上卸载软件包，请将软件包的名称传参给以下命令：
+要在树莓派上卸载软件包，请将软件包的名称传给以下命令：
 
 ```
 $ sudo apt remove <package-name>
@@ -122,11 +122,11 @@ $ sudo apt remove <package-name>
 
 >**技巧**
 >
->要彻底删除软件包的所有痕迹（包括配置文件），请把 remove 换成 purge 。 
+>要彻底删除软件包的所有痕迹（包括配置文件），请把 `remove` 换成 `purge`。 
 
-`apt` 会显示在卸载软件包后，可释放的磁盘容量。输入 Y 并按`回车键`键确认卸载该软件包。你可以通过在上述命令中添加 -y 参数来跳过这个确认步骤（即默认确认）。
+`apt` 会显示在卸载软件包后，可释放的磁盘容量。输入 **Y** 并按 **回车键** 来确认卸载。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
 
-#### 管理 apt 磁盘使用情况
+#### 管理 `apt` 磁盘使用情况
 
 在执行之前，`sudo apt full-upgrade`会显示要完成更新所需的下载和存储会占用的磁盘容量。要查看你的剩余磁盘空间是否充足，请运行以下命令：
 
@@ -134,7 +134,7 @@ $ sudo apt remove <package-name>
 $ df -h
 ```
 
-`apt` 会把已下载的软件包（ .deb ）文件存储到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到对应的安装位置。视你安装的软件而定，软件包自身可能会占用大量空间。要删除所有遗留的软件包本体，请运行以下命令：
+`apt` 会把已下载的软件包（ `.deb` 文件）存放到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到对应的安装位置。视你安装的软件而定，软件包自身可能会占用大量空间。要删除所有遗留的软件包本体，请运行以下命令：
 
 ```
 $ sudo apt clean
@@ -144,9 +144,10 @@ $ sudo apt clean
 
 >**警告**
 >
->在尝试进行大版本更新之前，请先备份。 
+>请在尝试大版本更新之前先备份。 
 
-要将操作系统更新到树莓派最新的大版本，请使用另外一张 SD 卡写入新版本的镜像。使用 SD 卡读卡器或者网络存储从先前安装的旧系统中复制文件和配置到新的 SD 卡。然后，将新的 SD 卡插入树莓派上的插槽，再启动。
+
+要将操作系统更新到树莓派最新大版本，请使用另外一张 SD 卡写入新版本的镜像。使用 SD 卡读卡器或者网络存储从先前安装的旧系统中复制文件和配置到新的 SD 卡。然后，将新的 SD 卡插入树莓派上的插槽，再启动。
 
 ### 更新固件
 
@@ -156,26 +157,28 @@ $ sudo apt clean
 
 >**警告**
 >
->无法保证软件的预发布版本是否正常工作。除非得到了树莓派工程师的推荐，否则不要在任何系统上使用 `rpi-update`。这可能导致你的系统变得不稳定，甚至损坏。不要把 `rpi-update` 视为常规更新过程的一部分。 
+>无法保证预发布版本软件能否正常工作。除非得到了树莓派工程师的建议，否则不要在任何系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为常规更新过程的一部分。 
 
-要把你树莓派的固件更新到最新版本，请使用 `rpi-update`。
+要把你树莓派的固件更至最新版本，请使用 `rpi-update`。
 
-`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块、设备树文件和最新版本的 VideoCore 固件。然后将这些文件安装到树莓派系统中。
+`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块、设备树文件和最新版的 VideoCore 固件。然后将这些文件安装到树莓派系统中。
 
-所有 rpi-update 使用的源数据均来自 rpi-firmware 存储库。该存储库包含来自官方固件存储库的数据子集。
+`rpi-update` 使用的所有源数据均来自 [rpi-firmware 存储库](https://github.com/raspberrypi/rpi-firmware)。该存储库包含来自[官方固件存储库](https://github.com/raspberrypi/firmware)的数据子集。
 
-要开始更新，请以 root 身份运行 rpi-update。更新完成后，需重启你的树莓派以使这些变更生效：
+要进行更新，请以 root 身份运行 `rpi-update`。更新完成后，需重启你的树莓派以使这些变更生效：
 
 ```
 $ sudo rpi-update
 $ sudo reboot
 ```
 
-##### [更新树莓派固件](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003476-WP/Updating-Pi-firmware.pdf)
+**[白皮书](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003476-WP/Updating-Pi-firmware.pdf)**
 
-更新树莓派固件
-
-本白皮书记录了如何在树莓派系统中更新 VideoCore 固件。
+>![树莓派固件更新白皮书](../.gitbook/assets/Updating-Pi-firmware.png)
+>
+>[树莓派固件更新白皮书](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003476-WP/Updating-Pi-firmware.pdf?_gl=1*1hyn2fi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDc2MTQ4OS4yMi4xLjE3MjA3NjE2MDIuMC4wLjA.)
+>
+>这本白皮书记录了如何在树莓派系统中更新 VideoCore 固件。
 
 ### 把固件降级到最新稳定版本。
 
