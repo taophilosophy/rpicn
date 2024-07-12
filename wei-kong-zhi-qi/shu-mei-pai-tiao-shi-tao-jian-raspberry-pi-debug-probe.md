@@ -14,7 +14,7 @@
 
 >**注意**
 >
->有关树莓派三针调试连接器的更多信息，请参阅规格书。
+> 有关树莓派三针调试连接器的更多信息，请参阅规格书。
 
 这使得在 Windows、macOS 和 Linux 等没有 GPIO 引脚头来直连 Pico 串口或 SWD 接口的设备也可轻松使用树莓派 Pico。
 
@@ -46,7 +46,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 >**注意**
 >
->当目标连接时，OpenOCD 会同时打开 DAP 的两个 LED，并在调用 DAP_DISCONNECT 时将它们关闭。
+> 当目标连接时，OpenOCD 会同时打开 DAP 的两个 LED，并在调用 DAP_DISCONNECT 时将它们关闭。
 
 ## 入门指南
 
@@ -64,7 +64,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 >**注意**
 >
->如果你有非 H Pico 或 Pico W（没有 JST-SH 连接器），你仍然可以将其连接到调试器。在板上的 SWCLK，GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK，GND 和 SWDIO 连接到调试器上的 SC，GND 和 SD 引脚。
+> 如果你有非 H Pico 或 Pico W（没有 JST-SH 连接器），你仍然可以将其连接到调试器。在板上的 SWCLK，GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK，GND 和 SWDIO 连接到调试器上的 SC，GND 和 SD 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
@@ -138,7 +138,7 @@ GDB 包含在我们的 Pico Windows 安装程序中。它也包含在 Arm GNU To
 
 ## 串行线调试（SWD）
 
-Serial Wire Debug (SWD)是一种两引脚接口（SWDIO 和 SWCLK），可替代 JTAG 四或五引脚调试接口标准。
+串行线调试（Serial Wire Debug，SWD）是一种两引脚接口（SWDIO 和 SWCLK），可替代 JTAG 四或五引脚调试接口标准。
 
 ### 将新程序上传到你的 Pico
 
@@ -152,7 +152,7 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 >**注意**
 >
->当你使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是你在拖放时使用的 UF2 文件。
+> 当你使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是你在拖放时使用的 UF2 文件。
 
 ### 使用 SWD 进行调试
 
@@ -223,7 +223,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 >**技巧**
 >
->要退出 minicom，请按 **CTRL**-**A**，然后按 **X** 键。
+> 要退出 minicom，请按 **CTRL**-**A**，然后按 **X** 键。
 
 要测试串行通信，你可以构建并上传“Hello World”示例应用程序。
 
