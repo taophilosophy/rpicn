@@ -869,13 +869,13 @@ Vendor-Option Option 43 包含了回复的重要部分。这个部分必须包�
 
 以太网引导模式存在一些已知问题。由于引导模式的实现在芯片本身，除了使用仅包含 bootcode.bin 文件的 SD 卡外，没有其他解决方法。
 
-#### DHCP 请求尝试五次后超时
+#### DHCP 请求在五次尝试后超时
 
-The 树莓派 will attempt a DHCP request five times with five seconds in between, for a total period of 25 seconds. If the server is not available to respond in this time, then the 树莓派 will drop into a low-power state. There is no workaround for this other than bootcode.bin on an SD card. 重试  错误原因
+Raspberry Pi 将尝试进行五次 DHCP 请求，每次间隔五秒，总共持续 25 秒。如果服务器在此期间无法响应，Raspberry Pi 将进入低功耗状态。除非使用 SD 卡上的 bootcode.bin，否则没有解决办法。
 
-#### TFTP server on separate subnet not supported 重试  错误原因
+#### 不支持在不同子网上的 TFTP 服务器
 
-Fixed in 树莓派 3 A+ (BCM2837B0). 重试  错误原因
+在 Raspberry Pi 3 Model B+ (BCM2837B0) 中已修复。
 
 #### DHCP 中继故障
 
@@ -1207,10 +1207,10 @@ HTTP: GET request for https://yourserver.org:443/path/to/files/boot.img
 
 当 BCM2837 引导时，它使用两个不同的来源来确定要启用哪些引导模式。首先，会检查一次性可编程（OTP）存储器块，看哪些引导模式已启用。如果启用了 GPIO 引导模式设置，则会测试相关的 GPIO 线，以选择应尝试哪个已在 OTP 中启用的引导模式。请注意，GPIO 引导模式仅可用于选择已在 OTP 中启用的引导模式。有关配置 GPIO 引导模式的详细信息，请参阅 GPIO 引导模式。默认情况下，GPIO 引导模式已禁用。
 
-Next, the boot ROM checks each of the boot sources for a file called `bootcode.bin`; if it is successful it will load the code into the local 128K cache and jump to it. The overall boot mode process is as follows: 重试  错误原因
+接下来，启动 ROM 会在每个启动源中检查名为`bootcode.bin`的文件；如果找到，它会将代码加载到本地 128K 缓存并跳转到该代码。总体启动模式过程如下：
 
-* BCM2837 boots 重试  错误原因
-* Read OTP to determine which boot modes to enable 重试  错误原因
+* BCM2837 启动
+* 读取 OTP 以确定启用哪些启动模式
 * 如果启用了 GPIO 启动模式，请使用 GPIO 启动模式来细化启用的启动模式列表
 * 如果启用：检查 GPIO 48-53 上的主 SD 是否存在 bootcode.bin
   * 成功 - 启动
@@ -1256,69 +1256,69 @@ USB 设备引导模式在出厂时默认启用，但 USB 主机引导模式只�
 ROM（第一阶段）的引导流程如下：
 
 * SoC 上电
-* 读取 OTP 以确定 nRPIBOOT GPIO 是否已配置
-* 如果 nRPIBOOT GPIO 为高电平或 OTP 未定义 nRPIBOOT GPIO
-  * 检查 OTP，看看是否可以从 SD/EMMC 加载 recovery.bin
-    * 如果启用了 SD recovery.bin，则检查主 SD/EMMC 是否存在 recovery.bin
-      * 成功 - 运行 recovery.bin 并更新 SPI EEPROM
-      * Fail - continue 重试  错误原因
-  * Check SPI EEPROM for second stage loader 重试  错误原因
-    * Success - run second stage bootloader 重试  错误原因
+* 读取 OTP（一次性可编程存储器）以确定是否配置了 `nRPIBOOT` GPIO
+* 如果 `nRPIBOOT` GPIO 为高电平或 OTP 未定义 `nRPIBOOT` GPIO
+  * 检查 OTP 以查看是否可以从 SD/EMMC 加载 `recovery.bin`
+    * 如果启用了 SD `recovery.bin`，则检查主 SD/EMMC 中的 `recovery.bin`
+      * 成功 - 运行 `recovery.bin` 并更新 SPI EEPROM
+      * 失败 - 继续
+  * 检查 SPI EEPROM 中的第二阶段加载程序
+    * 成功 - 运行第二阶段启动加载程序
     * 失败 - 继续
-* 当真
-  * 尝试从 U 盘引导装载 recovery.bin
-    * 成功 - 运行 recovery.bin 并更新 SPI EEPROM 或切换到 USB 大容量存储设备模式
-    * 失败 - 重试 USB 设备引导
+* 如果成功
+  * 尝试从 [USB 设备启动](https://www.raspberrypi.com/documentation/computers/compute-module.html#flash-compute-module-emmc) 加载 `recovery.bin`
+    * 成功 - 运行 `recovery.bin` 并更新 SPI EEPROM 或切换到 USB 大容量存储设备模式
+    * 失败 - 重试 USB 设备启动
 
 | NOTE | recovery.bin 是一个用于更新引导加载程序 SPI EEPROM 镜像的最小第二阶段程序。|
 | ------ | ----------------------------------------------------------------------------- |
 
-### 第二阶段引导加载程序
+### 第二阶段引导程序
 
-本部分描述了第二阶段引导加载程序的高级流程。
+本节介绍了第二阶段引导程序的高级流程。
 
-有关每个引导模式的更多信息，请参阅引导加载程序配置页面，有关此阶段加载的 GPU 固件文件的描述，请参阅引导文件夹页面。
+请参阅[引导程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)页面以获取有关每种引导模式的更多信息，以及[引导文件夹](https://www.raspberrypi.com/documentation/computers/configuration.html#boot-folder-contents)页面以了解此阶段加载的 GPU 固件文件的描述。
 
 * 初始化时钟和 SDRAM
 * 读取 EEPROM 配置文件
-* 检查 PM_RSTS 寄存器以确定是否请求 HALT
-  * 检查 POWER_OFF_ON_HALT 和 WAKE_ON_GPIO EEPROM 配置设置
-  * 如果 POWER_OFF_ON_HALT 是 1 并且 WAKE_ON_GPIO 是 0 那么
-    * 使用 PMIC 关机系统
-  * 否则，如果 WAKE_ON_GPIO 是 1
-    * 在 GPIO3 上启用下降沿中断，以便在 GPIO3 被拉低时唤醒
-  * 休眠
-* 当真
-  * 从 EEPROM 配置文件中的 BOOT_ORDER 参数中读取下一个引导模式。
-  * 如果引导模式 == RESTART
-    * 回到 BOOT_ORDER 字段中的第一个启动模式
-  * 或者如果启动模式等于 STOP
-    * 显示 start.elf 未找到的错误模式并永远等待。
-  * 否则，如果引导模式 == SD CARD
+* 检查`PM_RSTS`寄存器以确定是否请求 HALT
+  * 检查`POWER_OFF_ON_HALT`和`WAKE_ON_GPIO`的 EEPROM 配置设置
+  * 如果`POWER_OFF_ON_HALT`为`1`且`WAKE_ON_GPIO`为`0`，则
+    * 使用 PMIC 关闭系统电源
+  * 否则，如果`WAKE_ON_GPIO`为`1`，则
+    * 启用 GPIO3 的下降沿中断以便在 GPIO3 被拉低时唤醒
+  * 进入休眠
+* While True
+  * 从 EEPROM 配置文件中的 BOOT_ORDER 参数读取下一个引导模式
+  * 如果引导模式为`RESTART`，则
+    * 跳回到`BOOT_ORDER`字段中的第一个引导模式
+  * 否则如果引导模式为`STOP`，则
+    * 显示 start.elf 未找到的[错误模式](https://www.raspberrypi.com/documentation/computers/configuration.html#led-warning-flash-codes)并永久等待。
+  * 否则如果引导模式为`SD CARD`，则
     * 尝试从 SD 卡加载固件
       * 成功 - 运行固件
       * 失败 - 继续
-  * 否则如果引导模式 == NETWORK 则
+  * 否则如果引导模式为`NETWORK`，则
     * 使用 DHCP 协议请求 IP 地址
     * 从 DHCP 或静态定义的 TFTP 服务器加载固件
-    * 如果找不到固件，或发生超时或网络错误，则继续
-  * 否则，如果引导模式 == USB-MSD 或引导模式 == BCM-USB-MSD then
+    * 如果未找到固件或发生超时或网络错误，则继续
+  * 否则如果引导模式为`USB-MSD`或引导模式为`BCM-USB-MSD`，则
     * 当 USB 发现未超时时
       * 检查 USB 大容量存储设备
-      * 如果发现新的大容量存储设备
-        * 对每个驱动器（逻辑单元号）
+      * 如果找到新的大容量存储设备，则
+        * 对每个驱动器（LUN）
           * 尝试加载固件
-            * 成功-运行固件
-            * 失败 - 转至下一个 LUN
-  * 否则如果 boot-mode == NVME，那么
-    * 扫描 PCIe 以查找 NVMe 设备，如果找到，则
+            * 成功 - 运行固件
+            * 失败 - 前进到下一个 LUN
+  * 否则如果引导模式为`NVME`，则
+    * 扫描 PCIe 以查找 NVMe 设备，如果找到
       * 尝试从 NVMe 设备加载固件
         * 成功 - 运行固件
         * 失败 - 继续
-  * Else if boot-mode == `RPIBOOT` then 重试  错误原因
-    * Attempt to load firmware using USB device mode from the USB OTG port - see [USB boot](https://github.com/raspberrypi/usbboot). There is no timeout for `RPIBOOT` mode. 重试  错误原因
+  * 否则如果引导模式为`RPIBOOT`，则
+    * 尝试使用 USB 设备模式从 USB OTG 端口加载固件 - 参见[USB 引导](https://github.com/raspberrypi/usbboot)。`RPIBOOT`模式没有超时。
 
-#### Differences on 树莓派 5 重试  错误原因
+#### Raspberry Pi 5 的不同
 
 * 电源按钮用于从 PMIC STANDBY、HALT 唤醒，而非 GPIO 3。
 * 固件加载 start.elf 而不是 start.elf。实际上，引导加载程序内置了嵌入版本的 start.elf。
@@ -1624,21 +1624,21 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 #### `HTTP_PORT`
 
-你可以使用此属性更改用于网络安装和 HTTP 引导的 port . 使用默认主机 fw-download-alias1.raspberrypi.com 时启用 HTTPS . 如果修改了 HTTP_HOST，则会禁用 HTTPS 并改用普通 HTTP .
+您可以使用此属性来更改用于网络安装和 HTTP 引导的端口。当使用默认主机 `fw-download-alias1.raspberrypi.com` 时，启用 HTTPS。如果更改了 `HTTP_HOST`，则禁用 HTTPS 并使用普通 HTTP。
 
-当禁用 HTTPS 时，即使 HTTP_PORT 被更改为 443，仍将使用普通 HTTP .
+当禁用 HTTPS 时，即使将 `HTTP_PORT` 更改为 `443`，仍将使用普通 HTTP。
 
-Default: `443` if HTTPS is enabled otherwise `80` 重试  错误原因
+默认值：如果启用 HTTPS，则为`443`，否则为`80`
 
 #### `HTTP_PATH`
 
-The path used for network install and HTTP boot. 重试  错误原因
+用于网络安装和 HTTP 引导的路径。
 
-Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and trailing forward slashes are not required. 重试  错误原因
+区分大小写。路径分隔符使用正斜杠（Linux 样式）。前导和尾部的正斜杠不是必需的。
 
-如果未设置 HTTP_HOST，将忽略 HTTP_PATH，并且 URL 将为 https://fw-download-alias1.raspberrypi.com:443/net_install/boot.img。如果设置了 HTTP_HOST，URL 将为 http://<HTTP_HOST>:<HTTP_PORT>/<HTTP_PATH>/boot.img
+如果未设置 `HTTP_HOST`，则忽略 `HTTP_PATH`，URL 将为 `https://fw-download-alias1.raspberrypi.com:443/net_install/boot.img`。如果设置了 `HTTP_HOST`，URL 将为 `http://<HTTP_HOST>:<HTTP_PORT>/<HTTP_PATH>/boot.img`
 
- 默认： net_install
+默认值：`net_install`
 
 #### `IMAGER_REPO_URL`
 
