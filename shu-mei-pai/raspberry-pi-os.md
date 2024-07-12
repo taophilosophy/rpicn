@@ -68,7 +68,7 @@ raspi-copies-and-fills - ARM-accelerated versions of selected functions from str
 raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 ```
 
-搜索返回了多个软件包，他们的名称或简介中包含了关键词（raspi）。
+搜索返回了多个软件包，他们的名称或简介中均包含了关键词（raspi）。
 
 使用以下命令查看其详细信息：
 
@@ -76,7 +76,7 @@ raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 $ apt-cache show <package-name>
 ```
 
-例如，假设要对“raspi-config”软件包进行以下搜索：
+例如，假设要查询“raspi-config”这个软件包，其显示如下：
 
 ```
 $ apt-cache show raspi-config
