@@ -106,7 +106,7 @@ $ rpi-connect signin
 通过访问 https://connect.raspberrypi.com/verify/XXXX-XXXX 完成登录
 ```
 
-在其他任意设备上访问生成的验证网址，并使用你的树莓派 ID 登录，将你的树莓派绑定到树莓派 ID。
+在任意设备上访问生成的验证网址，并使用你的树莓派 ID 登录，将你的树莓派绑定到树莓派 ID。
 
 ### 完成树莓派连接
 
