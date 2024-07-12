@@ -39,7 +39,7 @@ $ sudo apt full-upgrade
 
 请定期运行这些命令，以确保软件保持最新状态。在使用 `apt` 维持树莓派系统最新状态时，也会同时把你的 Linux 内核和固件变成最新版本（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
 
-在树莓派官方发布大版本的树莓派系统更新后，执行上述命令也不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
+在树莓派官方发布树莓派系统大版本更新后，执行上述命令也不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
 
 #### 搜索软件
 
