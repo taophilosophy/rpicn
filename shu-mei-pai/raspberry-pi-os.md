@@ -267,7 +267,7 @@ $ cvlc --play-and-exit computer-startup-music.mp3
 
 ### 指定音频输出设备
 
-要强制把音频输出到特定设备，请将 alsa 值传参给参数 -A 以使用 ALSA 音频输出，并使用参数 `--alsa-audio-device` 指定音频输出设备：
+要强制把音频输出到特定设备，请使用 [ALSA](https://www.alsa-project.org/wiki/Main_Page) 音频输出：把 `alsa` 值传给参数 `-A`。同时使用参数 `--alsa-audio-device` 来指定音频输出设备：
 
 ```
 $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startup-music.mp3
@@ -276,39 +276,47 @@ $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startu
 用以下选项来替换占位符 `<alsa-device>` ：
 
 | ALSA 设备 | 说明                                                              |
-| ----------- | ------------------------------------------------------------------- |
+| :-----------: | :-------------------------------------------------------------------: |
 | `sysdefault:CARD=Headphones`          | 耳机插孔                                                          |
-| `sysdefault:CARD=vc4hdmi`          | 树莓派 Zero，树莓派 1、2、3 上的 HDMI 输出|
-| `sysdefault:CARD=vc4hdmi0`          | 树莓派 4、5、400，计算模块 4 上的 HDMI0 输出                     |
-| `sysdefault:CARD=vc4hdmi1`          | 树莓派 4、5、400，计算模块 4 上的 HDMI1 输出                     |
+| `sysdefault:CARD=vc4hdmi`          | 树莓派 Zero，树莓派 1、2、3 上的 HDMI 输出              |
+| `sysdefault:CARD=vc4hdmi0`          | 树莓派 4、5、400 和计算模块 4 上的 HDMI0 输出                     |
+| `sysdefault:CARD=vc4hdmi1`          | 树莓派 4、5、400 和计算模块 4 上的 HDMI1 输出                     |
 
-```
-$ aplay -L | grep sysdefault
-```
+>**技巧**
+>
+>使用以下命令，可获取树莓派上所有 ALSA 设备列表：
+> 
+>```
+>$ aplay -L | grep sysdefault
+>```
 
 ### 指定视频输出设备
 
-为了强制视频输出到特定设备，请使用参数 `--drm-vout-display` 来指定视频输出设备：
+为了强制视频输出到特定设备，即指定视频输出设备，请使用参数 `--drm-vout-display`：
 
 ```
-$ cvlc --play-and-exit --drm-vout-display <drm-device> big-buck-bunny-1080p.mp4
+$ cvlc --play-and-exit --drm-vout-display <drm-设备> big-buck-bunny-1080p.mp4
 ```
 
-用以下参数来替换文本 `<drm-device>` ：
+请把其中的文本 `<drm-设备>` 改成以下某设备：
 
 | DRM 设备 | 说明                                                                              |
 | ---------- | ------------------------------------------------------------------------------------ |
-| `HDMI-A-1`         | 树莓派 Zero、树莓派 1、2、3 上的 HDMI 输出；或树莓派 4、5、400 上的 HDMI0 输出 |
+| `HDMI-A-1`         | 树莓派 Zero、1、2、3 上的 HDMI 输出；树莓派 4、5、400 上的 HDMI0 输出 |
 | `HDMI-A-2`         | 树莓派 4、5、400 上的 HDMI1 输出                                                 |
 | `DSI-1`         | 树莓派触摸显示屏                                                                   |
 
-```
-$ kmsprint | grep Connector
-```
+>**技巧**
+>
+>使用以下命令，可获取树莓派上所有 DRM 设备列表：
+>
+>```
+>$ kmsprint | grep Connector
+>```
 
-### 指定音频和视频输出设备
+### 指定音视频输出设备
 
-你可以对音频和视频输出选项进行组合。例如，要将视频定向输出到触摸屏，将音频定向输出到耳机插孔，根据上述内容，应执行命令组合为：
+你可以对音频和视频输出选项进行组合。例如，要把视频定向输出到触摸屏，而把音频定向输出到耳机插孔，根据上述需求，应执行的命令组合为：
 
 ```
 $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audio-device sysdefault:CARD=Headphones your_video.mp4
@@ -316,7 +324,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果你有原始的 H.264 流，比如用树莓派摄像头模块捕获的流，你可以通过把流放入诸如 MP4 之类的文件格式中，来提升在 VLC 上的播放性能。你可以使用 ffmpeg 把流内容转成容器文件。例如，以下命令可把名为 video.h264 的流转成 30fps 的 MP4 文件，并命名为 video.mp4 ：
+如果你有 H.264 原始码流（裸流，raw H.264 stream），比如用树莓派摄像头模块捕获的码流，你可以通过把码流封装成诸如 MP4 之类的文件格式，来提升在 VLC 上的播放性能。你可以使用 ffmpeg 把码流内容转成容器文件。例如，以下命令可把名为 video.h264 的码流，转成 MP4 文件（30fps），同时命名为 video.mp4 ：
 
 ```
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -325,55 +333,55 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 ## 实用工具
 
 
-树莓派系统中预装了几个有用的命令行程序。
+树莓派系统中预装了几个有用的命令行工具。
 
 ### `kmsprint`
 
-工具 `kmsprint` 能列出已接入树莓派的显示器所支持的显示模式。使用 kmsprint 可查看已接入树莓派的显示器的详细信息，使用 `kmsprint -m` 可查看显示器所支持的全部分辨率的列表。你可以在 Github 上找到 kmsprint 实用程序的源代码。
+工具 `kmsprint` 能列出已接入树莓派的显示器所支持的分辨率。使用 `kmsprint` 可查看已接入树莓派的显示器的详细信息，使用 `kmsprint -m` 能查看显示器支持的所有分辨率列表。你可以在 [Github 上](https://github.com/tomba/kmsxx)找到实用程序 `kmsprint` 的源代码。
 
 ### `vclog`
 
-vclog 可显示运行在基于 Arm 的 Linux 上，有关 VideoCore GPU 的日志消息。它需要以 root 权限执行。
+`vclog` 能运行在基于 Arm 的 Linux 上，可输出 VideoCore GPU 的日志消息。它需要以 root 权限执行。
 
-`sudo vclog --msg` 可打印出消息日志，而 sudo vclog --assert 则打印出断言日志。
+`sudo vclog --msg` 可打印出消息日志，而 `sudo vclog --assert` 则打印出断言日志。
 
 ### `vcgencmd`
 
-vcgencmd 工具用于输出树莓派上 VideoCore GPU 的有关信息。你可以在 GitHub 上找到工具 vcgencmd 的源代码。
+`vcgencmd` 工具用于输出树莓派上有关 VideoCore GPU 的信息。你可以在 [GitHub 上](https://github.com/raspberrypi/utils/tree/master/vcgencmd)找到工具 vcgencmd 的源代码。
 
-要获取 vcgencmd 支持的所有命令列表，请使用 vcgencmd commands。下面列出了一些有用的命令及其所需参数。
+要获取 `vcgencmd` 支持的所有命令列表，请使用 `vcgencmd commands`。下面列出了一些实用命令及其所需参数。
 
 #### `vcos`
 
-vcos 命令有两个有用的子命令：
+命令 `vcos` 有两个有用的子命令：
 
-* version 可显示 VideoCore 固件的构建日期和版本。
-* log status 可显示 VideoCore 每个固件部分的错误日志状态
+* `version` 可显示 VideoCore 固件的构建日期和版本
+* `log status` 可显示 VideoCore 固件所有部分的错误日志状态
 
 #### `version`
 
-显示 VideoCore 固件的构建日期和版本。
+可显示 VideoCore 固件的构建日期和版本。
 
 #### `get_throttled`
 
-返回系统的节流状态。这是一个位模式。设置位表示以下含义：
+返回系统的限流状态。这是个位模式。设置位表示以下含义：
 
 | 位 | 十六进制值 | 意义              |
 | ---- | ------------ | ------------------- |
 | 0  | `0x1`           | 已检测到欠压        |
 | 1  | `0x2`           | Arm 频率已受限   |
-| 2  | `0x4`           | 当前被节流        |
-| 3  | `0x8`           | 已启用软温度限制  |
+| 2  | `0x4`           | 当前被限流        |
+| 3  | `0x8`           | 已启用温度软限制  |
 | 16 | `0x10000`           | 曾发生过欠压          |
 | 17 | `0x20000`           | 曾发生 Arm 频率限制 |
-| 18 | `0x40000`           | 曾发生节流        |
-| 19 | `0x80000`           | 曾发生软温度限制  |
+| 18 | `0x40000`           | 曾发生限流        |
+| 19 | `0x80000`           | 曾发生温度软限制  |
 
 #### `measure_temp`
 
-`measure_temp` 可返回 SoC 的温度，由其内部温度传感器测量。在树莓派 4 上， `measure_temp pmic` 可返回电源管理的温度。
+`measure_temp` 可返回 SoC 的温度，数据来自其内部温度传感器。在树莓派 4 上， `measure_temp pmic` 可返回电源管理（PMIC）的温度。
 
-#### `measure_clock [clock]`
+#### `measure_clock [时钟]`
 
 它将返回指定时钟的实时频率。可返回以下时钟值：
 
@@ -381,9 +389,9 @@ vcos 命令有两个有用的子命令：
 | ------ | ------------------------ |
 | `arm`     | ARM 核心               |
 | `core`     | GPU 核心               |
-| `h264`     | H.264 块               |
+| `h264`     | H.264 区域               |
 | `isp`     | 图像传感器管道         |
-| `v3d`     | 3D 块                  |
+| `v3d`     | 3D 区域                  |
 | `uart`     | UART                   |
 | `pwm`     | PWM 块（模拟音频输出） |
 | `emmc`     | SD 卡接口              |
@@ -392,13 +400,13 @@ vcos 命令有两个有用的子命令：
 | `hdmi`     | HDMI                   |
 | `dpi`     | 显示并行接口           |
 
- 例如 vcgencmd measure_clock arm
+ 例如 `vcgencmd measure_clock arm`
 
-#### `measure_volts [block]`
+#### `measure_volts [区域]`
 
 它可显示特定区域使用的当前电压。可接受以下值：
 
-| 区块 | 说明          |
+| 区域 | 说明          |
 | ------ | ---------------- |
 | `core`     | VC4 核心电压     |
 | `sdram_c`     | SDRAM 核心电压 |
@@ -407,27 +415,27 @@ vcos 命令有两个有用的子命令：
 
 #### `otp_dump`
 
-它将显示 SoC 内部 OTP（一次性可编程）存储器中的内容。这些是 32 位值，从 8 到 64 进行索引。有关更多详细信息，请参阅 OTP 位页面。
+它将显示 SoC 内部 OTP（一次性可编程，one-time programmable）存储器中的内容。这些是 32 位值，索引范围是 8 到 64。有关更多详细信息，请参阅 [OTP 位页面](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#otp-register-and-bit-definitions)。
 
-#### `get_config [configuration item|int|str]`
+#### `get_config [配置项目|int|str]`
 
-它将显示指定配置设置的值：或者指定 int （整数）、str （字符串）以查看给定类型的所有配置项。例如，以下命令返回设备上的总内存（以 Mb 为单位）：
+它将显示指定配置项目的值：或者指定 `int` （整数）、`str` （字符串），以查看给定类型的所有配置项。例如，以下命令会返回设备上的所有内存（单位为 Mb）：
 
 ```
 $ vcgencmd get_config total_mem
 ```
 
-#### `get_mem type`
+#### `get_mem 类型`
 
-`get_mem type` 能报告 Arm 和 GPU 可寻址内存的数量。要显示 Arm 可寻址内存的数量，请使用 vcgencmd get_mem arm ；要显示 GPU 可寻址内存的数量，请使用 vcgencmd get_mem gpu 。在如果设备内存大于 1GB，arm 参数将始终返回使用 1GB 减去 gpu 内存的值，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 total_mem 配置项和上述 get_config 部分。
+`get_mem 类型` 能报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu` 。如果设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
 
-##### `codec_enabled [type]`
+##### `codec_enabled [类型]`
 
-可报告是否已启用指定类型的解码器。支持的类型参数包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4 和 400 上的 H.265 硬件模块不属于 VideoCore GPU，因此其状态无法用此命令查看。
+可报告指定类型的解码器是否已启用。支持的类型参数包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块不属于 VideoCore GPU，因此无法用此命令查看其状态。
 
 ##### `mem_oom`
 
-将显示在 VideoCore 内存空间中发生过的所有 OOM（内存不足）事件的统计信息。
+将显示在 VideoCore 内存空间中发生过的所有 OOM（Out of memory，内存溢出）事件的统计信息。
 
 ##### `mem_reloc_stats`
 
@@ -435,55 +443,55 @@ $ vcgencmd get_config total_mem
 
 ##### `read_ring_osc`
 
-用于返回环振荡器的实时速度、电压和温度。
+用于返回环形振荡器的实时速度、电压和温度。
 
 ## 辅助功能选项
 
 ### 视觉辅助
 
-视障用户能在树莓派系统的“推荐软件”菜单中找到有用的工具。
+视障用户能在树莓派系统菜单中“**推荐软件（Recommended Software）**”找到有用的工具。
 
-我们还提供了 Orca 屏幕阅读器来简化树莓派桌面的导航。此外，我们还提供了屏幕放大器来放大用户界面，提高屏幕内容的可读性。
+我们还提供了 [Orca 屏幕阅读器](https://help.gnome.org/users/orca/stable/introduction.html.en)来简化树莓派桌面的导航。此外，我们还提供了屏幕放大器来放大用户界面，提高屏幕内容的可读性。
 
 #### Orca 屏幕阅读器
 
-你可以从树莓派主菜单的推荐软件处安装 Orca 屏幕阅读器。或者，按 Ctrl + Alt + Space 自动安装 Orca。
+你可以从树莓派主菜单的 **推荐软件（Recommended Software）** 处安装 Orca 屏幕阅读器。或者，按 **Ctrl** + **Alt** + **空格键** 自动安装 Orca。
 
-在安装新系统后首次启动树莓派系统时，将在 30 秒后播放自动语音提醒。此提醒提供有关如何安装 Orca 的说明。
+在安装新系统后，首次启动树莓派系统时，将在 30 秒时播放自动语音提醒。此提醒提供了有关如何安装 Orca 的说明。
 
 ## 在树莓派上使用 Python
 
-树莓派系统预装了 Python 3。对系统级安装的 Python 进行破坏，可能会引发操作系统故障。安装第三方 Python 库时，请始终正确使用软件包管理工具。
+树莓派系统预装了 Python 3。对已安装的系统级 Python 进行破坏，可能会引发操作系统故障。安装第三方 Python 库时，请始终正确使用软件包管理工具。
 
-在 Linux 上，你可以用两种方式来安装 python 依赖包：
+在 Linux 上，你可以用两种方式来安装 `python` 依赖包：
 
-* 使用 apt 来安装预配置系统软件包
-* 在虚拟环境中，使用 pip，即使用 Python 的依赖管理器安装库
+* 使用 `apt` 来安装预配置系统软件包
+* 在 **虚拟环境中**，使用 `pip``，即使用 Python 的依赖管理器安装库
 
 >**重要**
 >
->自树莓派系统 Bookworm 以降，若使用 pip，你只能将其安装至 Python 虚拟环境（venv）。该变化是由 Python 社区引入的，与树莓派无关：有关更多信息，请参阅 PEP 668。
+>自树莓派系统 *Bookworm* 以降，若使用 `pip`，你只能将其安装至 Python 虚拟环境（`venv`）。该变更是由 Python 社区引入的，与树莓派无关：有关更多信息，请参阅 [PEP 668](https://peps.python.org/pep-0668/)。
 
 
-### 使用 apt 安装 Python 软件包
+### 使用 `apt` 安装 Python 软件包
 
-用 apt 安装的软件包是专为树莓派系统打包的。这些软件包大都是预编译的，因此安装速度更快。由于 apt 管理能所有软件包的依赖关系，使用此方法，会同时安装运行软件包所需的所有子依赖包。而 apt 能确保你在卸载时免于对其他软件包造成破坏。
+用 `apt` 安装的软件包，是专为树莓派系统打包的。这些软件包大都是预编译的，因此安装速度更快。由于 `apt` 管理能所有软件包的依赖关系，使用此方法，会同时安装运行软件包所需的所有子依赖包。而 `apt` 能确保你在卸载时免于对其他软件包造成破坏。
 
-例如，要安装用户树莓派 Build 扩展板的 Python 3 库，请运行以下命令：
+例如，要安装使用树莓派 [Build 扩展板](https://www.raspberrypi.com/documentation/accessories/build-hat.html)的 Python 3 库，请运行以下命令：
 
 ```
 $ sudo apt install python3-build-hat
 ```
 
-要查找使用 apt 分发的 Python 包，请使用 apt search 。在大多数情况下，Python 包使用前缀 python- 和 python3-：比如，你会发现，名为 python3-numpy 的包，它就是 numpy。
+要查找使用 `apt` 分发的 Python 包，请[使用 `apt search`](https://www.raspberrypi.com/documentation/computers/os.html#search-for-software)。在大多数情况下，Python 包使用前缀 `python-` 和 `python3-`：比如，你会发现，名为 `python3-numpy` 的包，它就是 `numpy`。
 
-### 使用 pip 安装 Python 库
+### 使用 `pip` 安装 Python 库
 
-#### Bookworm 改为使用 pip 安装
+#### Bookworm 改为使用 `pip` 安装
 
-在旧版本的树莓派系统中，你可以使用 pip 直接把库安装到系统级 Python 中。自树莓派系统 Bookworm 以降，用户无法直接把库安装到系统级 Python。
+在旧版本的树莓派系统中，你可以使用 `pip` 直接把库安装到系统级 Python 中。自树莓派系统 Bookworm 以降，用户无法直接把库安装到系统级 Python。
 
-应该把库安装到虚拟环境（venv）。要为所有用户把库安装成系统级，请用 apt 来安装。
+应该[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户把库安装成系统级，[请用 `apt`` 来安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
 
 若尝试在系统级安装 Python 软件包，将会输出类似以下报错：
 
@@ -507,77 +515,77 @@ note: If you believe this is a mistake, please contact your Python installation 
 hint: See PEP 668 for the detailed specification.
 ```
 
-长期以来，Python 用户一直需要解决操作系统软件包管理器（ apt ）和 Python 特定软件包管理工具（ pip ）之间的冲突。这些冲突包括 Python 的 API 不兼容性、文件所有权。
+长期以来，Python 用户一直需要解决操作系统软件包管理器（`apt`）和 Python 特定软件包管理工具（`pip`）之间的冲突。这些冲突包括 Python 的 API 不兼容性、文件所有权。
 
-从树莓派系统 Bookworm 开始，用 pip 安装的软件包，只能安装到 Python 虚拟环境（ venv ）里面。虚拟环境是个容器，在这儿，你能安全地安装第三方模块，不会干扰系统级 Python。
+从树莓派系统 *Bookworm* 开始，用 `pip` 安装的软件包，**只能安装到 Python 虚拟环境（`venv`）里面**。虚拟环境是个容器，在这儿，你能安全地安装第三方模块，不会干扰系统级 Python。
 
 #### pip 和虚拟环境的使用
 
 要使用虚拟环境，请创建容器来存储环境。根据你使用 Python 的打算，有多种方法可以实现这一点。
 
-运行以下命令可创建一个虚拟环境配置文件夹，将 `<env-name>` 改成你想要用于虚拟环境的名称（例如 env ）:
+运行以下命令可创建一个虚拟环境配置文件夹，把 `<环境名>` 改成你想要的虚拟环境名称（例如 `env`）:
 
 ```
-$ python -m venv <env-name>
+$ python -m venv <环境名>
 ```
 
 >**技巧**
 >
->要在虚拟环境中，将当前系统级 Python 已安装的，所有软件包所在的文件夹预加载至虚拟环境，请使用参数 `--system-site-packages`。
+>要在虚拟环境中，将当前已安装的系统级 Python，所有软件包所在的文件夹，预加载至虚拟环境，请使用参数 `--system-site-packages`。
 
-然后，在虚拟环境配置文件夹中执行命令 bin/activate 以进入虚拟环境：
+然后，在虚拟环境配置文件夹中执行命令 `bin/activate` 以进入虚拟环境：
 
 ```
-$ source <env-name>/bin/activate
+$ source <环境名>/bin/activate
 ```
 
 然后，你应该会看到类似如下提示，其内容为：
 
 ```
-(<env-name>) $
+(<环境名>) $
 ```
 
-命令提示符前缀 `(<env-name>)` 代表当前终端会话位于名为 `<env-name>` 的虚拟环境中。
+命令提示符前缀 `(<环境名>)` 代表当前终端会话位于名为 `<环境名>` 的虚拟环境中。
 
-要查看当前是否位于虚拟环境，请使用 pip list 查看已安装软件包的列表：
+要查看当前是否位于虚拟环境，请使用 `pip list`，查看已安装软件包的列表：
 
 ```
-(<env-name>) $ pip list
+(<环境名>) $ pip list
 Package    Version
 ---------- -------
 pip        23.0.1
 setuptools 66.1.1
 ```
 
-虚拟环境中已安装的输出列表应该要比系统级的 Python 要短得多。你现在可以安全地使用 pip 来安装软件包。在虚拟环境中，使用 pip 安装的所有软件包都只安装到该虚拟环境中。在虚拟环境中，python 和 python3 命令会自动调用虚拟环境中的 Python 版本和已安装的软件包，而非系统级 Python。
+虚拟环境中已安装的输出列表应该要比系统级的 Python 要短得多。你现在可以放心地使用 `pip` 来安装软件包了。在虚拟环境中，使用 `pip` 安装的所有软件包都只会安装到这个虚拟环境中。在虚拟环境中，命令 `python` 和 `python3` 会自动调用虚拟环境中的 Python 版本和已安装的软件包，而非系统级 Python。
 
 要退出虚拟环境，请运行以下命令：
 
 ```
-(<env-name>) $ deactivate
+(<环境名>) $ deactivate
 ```
 
-#### 为所有项目使用一个环境
+#### 为每个项目使用独立的环境
 
-许多用户会为所有 Python 项目，创建一个公用的独立虚拟环境。即把虚拟环境放在所有项目的根文件夹下，通常使用类似于 env 的共享名称。在所有项目的根文件夹下，运行以下命令来创建虚拟环境配置的文件夹：
+许多用户会为每个 Python 项目都创建一个单独的虚拟环境。然后将虚拟环境放置在每个项目的根目录中（通常使用名称 `env`）。在每个项目的根目录下，运行以下命令可创建虚拟环境配置文件夹。
 
 ```
 $ python -m venv env
 ```
 
-在你开始项目工作之前，请在项目根目录下运行以下命令，以开始使用虚拟环境：
+在开始你的项目工作之前，请在项目根目录下运行以下命令，以开始使用虚拟环境：
 
 ```
 $ source env/bin/activate
 ```
 
-然后，你应该会看到类似如下提示，其内容为：
+然后，你应该会看到类似提示如下，内容为：
 
 ```
 (env) $
 ```
 
-当你完成项目工作后，可在任意目录，运行以下命令来退出虚拟环境：
+当你完成项目工作后，可在任意目录下运行命令，来退出虚拟环境：
 
 ```
 (env) $ deactivate
@@ -585,23 +593,23 @@ $ source env/bin/activate
 
 #### 为每个用户使用独立的环境
 
-与为每个 Python 项目创建虚拟环境不同，你可以为你的用户账户，创建一个单独的虚拟环境。在运行其他 Python 代码之前，先激活这个虚拟环境。这种方法对于在项目之间共享许多库的工作流可能更方便。
+与为每个 Python 项目都创建一个虚拟环境有所不同，你可以为你的用户账户，创建一个单独的虚拟环境。在运行其他 Python 程序之前，先激活这个虚拟环境。这种方法对于在项目之间共享许多库的工作流可能更方便。
 
 当为整个用户账户，跨多个项目创建虚拟环境时，可考虑将虚拟环境配置文件放在你的主目录下。可将其配置存储在一个以点开头的文件夹中，以便在默认情况下，隐藏该文件夹，防止在主目录里弄混。
 
-使用以下命令，在当前用户的主目录中的隐藏文件夹中创建虚拟环境：
+使用以下命令，在当前用户的主目录中，隐藏文件夹下，创建虚拟环境：
 
 ```
 $ python -m venv ~/.env
 ```
 
-在其他目录，运行以下命令，以开始使用虚拟环境：
+在其他目录，运行命令，即可开始使用虚拟环境：
 
 ```
 $ source ~/.env/bin/activate
 ```
 
-然后你应该会看到类似如下内容的提示：
+然后你应该会看到类似如下提示信息：
 
 ```
 (.env) $
@@ -615,74 +623,17 @@ $ source ~/.env/bin/activate
 
 ### 使用 Thonny 编辑器
 
-我们推荐使用 Thonny，来编辑树莓派上的 Python 代码。
+我们推荐使用 [Thonny](https://thonny.org/)，来编辑树莓派上的 Python 代码。
 
-在默认情况下，Thonny 使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的解释器菜单来切换使用 Python 虚拟环境。选择配置好的环境或使用 Configure interpreter… 配置一个新的虚拟环境。
+在默认情况下，Thonny 使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的 **解释器菜单（interpreter menu）** 来切换使用 Python 虚拟环境。可选择配置好的环境或使用 `Configure interpreter…` 来配置一个新的虚拟环境。
 
 ![thonny venv](https://www.raspberrypi.com/documentation/computers/images/thonny-venv.png)
 
-## GPIO 和 40 引脚排针
-
- 
-树莓派的 GPIO（通用输入/输出）引脚排针是一个强大的功能，其位于主板顶部边沿。当前所有树莓派开发板上，都有一个 40 针的 GPIO 引脚排针（尽管在树莓派 Zero、树莓派 Zero W 和树莓派 Zero 2 W 上未焊接）。所有主板上 GPIO 引脚排针的引脚间距都是 0.1 英寸（2.54 毫米）。
-
-![GPIO pins](../.gitbook/assets/GPIO-Pinout-Diagram-2.png)
-
-所有 GPIO 引脚都可以在软件中被指定为输入、输出引脚，以用于各种用途。
-
-![GPIO layout](../.gitbook/assets/GPIO.png)
-
->**注意**
->
->GPIO 引脚编号方案不是按照数字顺序排列的。GPIO 引脚 0 和 1 位于主板上（物理引脚 27 和 28），但被保留，用于高级用途。 
-
-### 电压
-
-开发板上有两个 5V 引脚、两个 3.3V 引脚，和若干接地引脚（GND），这些引脚无法复用。其余引脚都是通用 3.3V 引脚，意味着输出设置为 3.3V，输入为 3.3V 容忍（Tolerant）。
-
-### 输出
-
-将作为输出引脚指定的 GPIO 引脚设置为高电平（3.3V）或低电平（0V）。
-
-### 输入
-
-要让作为输入引脚指定的 GPIO 引脚能够被读取为高电平（3.3V）或低电平（0V）。使用内部上拉或下拉电阻器可以更为轻松地实现这一点。GPIO2 和 GPIO3 引脚具有固定的上拉电阻器，但对于其他引脚，可在软件中进行配置。
-
-### 其他 GPIO 功能
-
-除了简单的输入和输出设备外，GPIO 引脚还可以与各种可选功能一起使用。某些功能适用于所有引脚，而某些功能仅适用于特定引脚：
-
-* PWM（脉冲宽度调制）
-  * 所有引脚上都可用的软件 PWM
-  * GPIO12、GPIO13、GPIO18、GPIO19 上可用的硬件 PWM
-* SPI
-  * SPI0：MOSI（GPIO10）；MISO（GPIO9）；SCLK（GPIO11）；CE0（GPIO8），CE1（GPIO7）
-  * SPI1：MOSI（GPIO20）；MISO（GPIO19）；SCLK（GPIO21）；CE0（GPIO18）；CE1（GPIO17）；CE2（GPIO16）
-* I2C
-  * 数据：（GPIO2）；时钟（GPIO3）
-  * EEPROM 数据：（GPIO0）；EEPROM 时钟（GPIO1）
-* 串行
-  * TX（GPIO14）；RX（GPIO15）
-
-### 查看你的树莓派 GPIO 引脚布局
-
-打开终端窗口，运行命令 pinout，可以查看树莓派上的 GPIO 示例。此工具由 GPIO Zero Python 库提供，默认情况下内置在树莓派系统中。
-
->**警告**
->
->将小的组件连接到 GPIO 引脚是安全的，但要小心如何连接它们。应该用电阻来限制通过 LED 的电流。不要让 3.3V 组件使用 5V。不要直接把电机接入 GPIO 引脚，而应使用 H 桥电路、电机控制板。 
-
-### 权限
-
-你的用户必须是 gpio 组的成员，然后才能使用 GPIO。默认用户账户就是其成员，但对于其他用户，你必须使用以下命令，手动将他添加到 gpio 组。
-
-```
-$ sudo usermod -a -G gpio <username>
-```
-
 ### 用 Python 控制 GPIO
 
-使用 GPIO Zero 库能轻松地控制 GPIO 设备。该库在 gpiozero.readthedocs.io 上有全面的文档。
+使用 [GPIO Zero](https://gpiozero.readthedocs.io/) 库能轻松地控制 GPIO 设备。该库在 [gpiozero.readthedocs.io](https://gpiozero.readthedocs.io/) 上有全面的文档。
+
+关于 GPIO 硬件的信息，请参见 [GPIO 硬件](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio)。
 
 #### LED
 
