@@ -331,9 +331,9 @@
 
 在你的树莓派接入互联网后，此页能帮助你把操作系统和软件更新到最新版本。在软件更新过程中，向导会删除非默认浏览器（如果你选择了在浏览器步骤中卸载它）。可能需要几分钟时间才能完成更新。
 
-![在首次启动前，您可以通过向导下载最新的软件更新](https://www.raspberrypi.com/documentation/computers/images/initial-setup/update.png)
+![在首次启动前，你可以通过向导下载最新的软件更新](https://www.raspberrypi.com/documentation/computers/images/initial-setup/update.png)
 
-![在首次启动前，您可以通过向导下载最新的软件更新](https://www.raspberrypi.com/documentation/computers/images/initial-setup/download.png)
+![在首次启动前，你可以通过向导下载最新的软件更新](https://www.raspberrypi.com/documentation/computers/images/initial-setup/download.png)
 
 当你看到弹出窗口指示系统已经更新，请点击“**确定（OK）**”继续下一步。
 

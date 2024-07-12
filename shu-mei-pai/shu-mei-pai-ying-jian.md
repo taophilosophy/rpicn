@@ -1624,7 +1624,7 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 #### `HTTP_PORT`
 
-您可以使用此属性来更改用于网络安装和 HTTP 引导的端口。当使用默认主机 `fw-download-alias1.raspberrypi.com` 时，启用 HTTPS。如果更改了 `HTTP_HOST`，则禁用 HTTPS 并使用普通 HTTP。
+你可以使用此属性来更改用于网络安装和 HTTP 引导的端口。当使用默认主机 `fw-download-alias1.raspberrypi.com` 时，启用 HTTPS。如果更改了 `HTTP_HOST`，则禁用 HTTPS 并使用普通 HTTP。
 
 当禁用 HTTPS 时，即使将 `HTTP_PORT` 更改为 `443`，仍将使用普通 HTTP。
 

@@ -88,9 +88,9 @@ $ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm
 $ git clone https://github.com/raspberrypi/pico-sdk.git
 ```
 
-从 SDK 中将 `external/pico_sdk_import.cmake` 复制到您的项目目录中
+从 SDK 中将 `external/pico_sdk_import.cmake` 复制到你的项目目录中
 
-在您的环境中设置 `PICO_SDK_PATH` 为 SDK 的路径，或者稍后通过 `-DPICO_SDK_PATH=` 选项传递给 `cmake`。
+在你的环境中设置 `PICO_SDK_PATH` 为 SDK 的路径，或者稍后通过 `-DPICO_SDK_PATH=` 选项传递给 `cmake`。
 
 设置一个 `CMakeLists.txt` 如下：
 
@@ -106,10 +106,10 @@ project(my_project)
 # 初始化树莓派 Pico SDK
 pico_sdk_init()
 
-# 您的项目的其余部分
+# 你的项目的其余部分
 ```
 
-接着编写您的代码，参见 [pico-examples](https://github.com/raspberrypi/pico-examples) 或 [Raspberry Pi Pico C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf) 书籍获取更多信息。
+接着编写你的代码，参见 [pico-examples](https://github.com/raspberrypi/pico-examples) 或 [Raspberry Pi Pico C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf) 书籍获取更多信息。
 
 最简单的例子可以是一个单一源文件（例如 `hello_world.c`）：
 
@@ -124,7 +124,7 @@ int main() {
 }
 ```
 
-并将以下内容添加到您的 CMakeLists.txt 中：
+并将以下内容添加到你的 CMakeLists.txt 中：
 
 ```
 add_executable(hello_world
@@ -149,16 +149,16 @@ $ cd build
 $ cmake ..
 ```
 
-当为树莓派 Pico 以外的板子构建时，您应该将 `-DPICO_BOARD=board_name` 传递给上述 cmake 命令，例如 `cmake -DPICO_BOARD=pico_w ..`，以相应地配置 SDK 和构建选项。
+当为树莓派 Pico 以外的板子构建时，你应该将 `-DPICO_BOARD=board_name` 传递给上述 cmake 命令，例如 `cmake -DPICO_BOARD=pico_w ..`，以相应地配置 SDK 和构建选项。
 
 这样做会设置各种编译器定义（例如 UART 和其他硬件的默认引脚号），在某些情况下还会启用其他库的使用（例如在构建 `PICO_BOARD=pico_w` 时启用无线支持），这些库在没有提供所需功能的板子上无法构建。
 
 有关 SDK 自身定义的板子列表，请查看 [此目录](https://github.com/raspberrypi/pico-sdk/blob/master/src/boards/include/boards) 中每个命名板子的头文件。
 
-从您创建的构建目录中制作您的目标。
+从你创建的构建目录中制作你的目标。
 
 ```
 $ make hello_world
 ```
 
-现在您有了 `hello_world.elf`，可以通过调试器加载，或者有了 `hello_world.uf2`，可以通过拖放安装并在树莓派 Pico 上运行。
+现在你有了 `hello_world.elf`，可以通过调试器加载，或者有了 `hello_world.uf2`，可以通过拖放安装并在树莓派 Pico 上运行。
