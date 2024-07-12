@@ -68,7 +68,7 @@ raspi-copies-and-fills - ARM-accelerated versions of selected functions from str
 raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 ```
 
-搜索返回了多个关键字相关的名称和说明的软件包。
+搜索返回了多个软件包，他们的名称或简介中包含了关键词（raspi）。
 
 使用以下命令查看其详细信息：
 
