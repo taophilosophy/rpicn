@@ -2782,7 +2782,7 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 
 如果你的摄像头模块不像你期望的那样工作，请尝试以下一些修复方法：
 
-* 在树莓派 3 及更老版本的设备上运行树莓派系统Bullseye 或更老的版本：
+* 在树莓派 3 及更老版本的设备上运行树莓派系统 Bullseye 或更老的版本：
   * 要启用硬件加速的摄像头预览，请启用 Glamor。要启用 Glamor，请在终端中输入 `sudo raspi-config`，选择 Advanced Options > Glamor > Yes。然后使用 `sudo reboot` 重启你的树莓派。
   * 如果你看到与显示驱动程序相关的错误，请将 `dtoverlay=vc4-fkms-v3d` 或 `dtoverlay=vc4-kms-v3d` 添加到 `/boot/config.txt`。然后使用 `sudo reboot` 重启你的树莓派。
 * 在旧版树莓派 3 及更早版本上，图形硬件只能支持最大尺寸为 2048×2048 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 2048 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
