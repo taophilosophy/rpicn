@@ -21,7 +21,7 @@
 
 #### 安装更新
 
-apt 把软件源列表存放在文件 `/etc/apt/sources.list` 中。在安装软件之前，请运行以下命令，来 **刷新（update）** `/etc/apt/sources.list` 中存储的本地软件源：
+apt 把软件源列表存放在文件 `/etc/apt/sources.list` 中。在安装软件之前，请运行以下命令，来 **刷新（update）** 位于 `/etc/apt/sources.list` 的本地软件源：
 
 ```
 $ sudo apt update
