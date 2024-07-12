@@ -8,21 +8,19 @@
 
 输入电子邮件和密码。点击 **注册** 按钮来创建您的账户。
 
-![创建账户 ](https://www.raspberrypi.com/documentation/services/images/create_account_identity.png?hash=b7d11456c6e8e284a9b5cd9b91e1de77)
+![创建账户](https://www.raspberrypi.com/documentation/services/images/create_account_identity.png?hash=b7d11456c6e8e284a9b5cd9b91e1de77)
 
 创建账户后，您将收到一封验证电子邮件。
 
-![验证身份 ](https://www.raspberrypi.com/documentation/services/images/verify_identity.png?hash=fae9bdb9ea173de1bb1175ce2eb6d51e)
+![验证身份](https://www.raspberrypi.com/documentation/services/images/verify_identity.png?hash=fae9bdb9ea173de1bb1175ce2eb6d51e)
 
 在邮件中点击 **验证电子邮件** 按钮以验证您的电子邮件地址并完成账户创建。
 
-![已登录身份 ](https://www.raspberrypi.com/documentation/services/images/signed_in_identity.png?hash=75b76927f5b2e4cc641bfdbfc13b31d3)
+![已登录身份](https://www.raspberrypi.com/documentation/services/images/signed_in_identity.png?hash=75b76927f5b2e4cc641bfdbfc13b31d3)
 
 创建树莓派账号后，您可以使用 **使用树莓派账号登录** 按钮登录树莓派服务。
 
 ## 启用双因素身份验证
-
-在 GitHub 上编辑此文档：[点击此处 ](https://github.com/raspberrypi/documentation/blob/develop/documentation/asciidoc/services/id/2fa.adoc)
 
 与大多数现代网络服务类似，树莓派账号支持使用基于时间的一次性密码 (TOTP) 的双因素身份验证 (2FA)。
 
@@ -48,7 +46,7 @@
 | 注意 | 请查看您的 2FA 应用程序的文档，了解如何扫描 QR 码生成令牌。 |
 | ------ | ----------------------------------------------------------------------------------------------- |
 
-![认证 ](https://www.raspberrypi.com/documentation/services/images/authenticate.png?hash=cf3423489e85d64e8aeafd30eee67eb7)
+![认证](https://www.raspberrypi.com/documentation/services/images/authenticate.png?hash=cf3423489e85d64e8aeafd30eee67eb7)
 
 输入您的 2FA 应用程序生成的六位数字 TOTP 以注册 2FA 应用程序与您的树莓派 ID。
 
