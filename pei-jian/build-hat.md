@@ -8,7 +8,7 @@
 
 >**注意**
 >
->可在设备兼容性部分找到受支持设备的完整列表。 
+>可在设备兼容性部分找到受支持设备的完整列表。
 
 它为 LEGO® Technic™ 电机和 SPIKE™ 组合中的传感器提供四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有各种尺寸，并包括集成编码器，可查询其位置。
 
@@ -24,7 +24,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 >**注意**
 >
->该 HAT 与所有 40 针 GPIO 树莓派板块兼容，包括树莓派 4 和树莓派 Zero。通过添加排线电缆或其他延伸设备，也可与树莓派 400 一起使用。 
+>该 HAT 与所有 40 针 GPIO 树莓派板块兼容，包括树莓派 4 和树莓派 Zero。通过添加排线电缆或其他延伸设备，也可与树莓派 400 一起使用。
 
 * 控制 SPIKE™ Portfolio 中包含的 4 个 LEGO® Technic™ 电机和传感器。
 * 控制你的 LEGO® Technic™ 设备的易于使用的 Python 库
@@ -34,7 +34,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 >**注意**
 >
->由于不支持通过 GPIO 引脚供电，Build 扩展板不能为树莓派 400 供电 。
+>由于不支持通过 GPIO 引脚供电，Build 扩展板不能为树莓派 400 供电。
 
 ## 准备你的 Build 扩展板
 
@@ -73,7 +73,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 #### 使用你的无头树莓派
 
-如果你正在无头运行你的树莓派并使用 raspi-config ，请从第一个菜单中选择“接口选项”。
+如果你正在无头运行你的树莓派并使用 raspi-config，请从第一个菜单中选择“接口选项”。
 
 ![raspi config 1](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-1.png)
 
@@ -101,13 +101,13 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 >**注意**
 >
->旧版 HAT 无法为树莓派 400 供电，因为它不支持通过 GPIO 引脚取电。 
+>旧版 HAT 无法为树莓派 400 供电，因为它不支持通过 GPIO 引脚取电。
 
 ![powering build hat](https://www.raspberrypi.com/documentation/accessories/images/powering-build-hat.gif)
 
 >**注意**
 >
->乐高® Technic™ 电机非常强大；因此，为了驱动它们，你需要外部的 8V 电源。如果你想从电机编码器和 SPIKE™ 力传感器读取数据，你可以通过你树莓派的 USB 电源接口以平常的方式为你的树莓派和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。 
+>乐高® Technic™ 电机非常强大；因此，为了驱动它们，你需要外部的 8V 电源。如果你想从电机编码器和 SPIKE™ 力传感器读取数据，你可以通过你树莓派的 USB 电源接口以平常的方式为你的树莓派和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。
 
 你可以选择使用 Python 或 .NET 与 Build 扩展板一起使用。
 
@@ -129,7 +129,7 @@ $ sudo apt install python3-build-hat
 
 #### 连接电机
 
-将电机连接到 Build 扩展板上的接口 A。 LPF2 连接器需要正确插入。 如果连接器无法轻松滑入，请旋转 180 度后重试。
+将电机连接到 Build 扩展板上的接口 A。LPF2 连接器需要正确插入。如果连接器无法轻松滑入，请旋转 180 度后重试。
 
 ![connect motor](https://www.raspberrypi.com/documentation/accessories/images/connect-motor.gif)
 
@@ -190,7 +190,7 @@ while True:
 
 >**注意**
 >
->如果你不打算驱动电机，则无需外部电源，可以使用标准 USB 电源为你的树莓派供电。 
+>如果你不打算驱动电机，则无需外部电源，可以使用标准 USB 电源为你的树莓派供电。
 
 创建另一个新程序：
 
@@ -261,7 +261,7 @@ Hello World!
 
 ### 编辑 C# 代码
 
-在下面的说明中，你将编辑生成的 C# 程序文件 buildhat/Program.cs ，该文件是在运行上述命令时生成的。
+在下面的说明中，你将编辑生成的 C# 程序文件 buildhat/Program.cs，该文件是在运行上述命令时生成的。
 
 任何文本编辑器都可以用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。Visual Studio Code（通常称为 "VS Code"）也是一个流行的替代方案。
 
@@ -275,7 +275,7 @@ Hello World!
 Brick brick = new("/dev/serial0");
 ```
 
-但是你需要记住在代码结尾处处理 brick 。
+但是你需要记住在代码结尾处处理 brick。
 
 ```
 brick.Dispose();
@@ -283,9 +283,9 @@ brick.Dispose();
 
 >**警告**
 >
->如果你不调用 `brick.Dispose()` ，你的程序将不会停止。 
+>如果你不调用 `brick.Dispose()`，你的程序将不会停止。
 
-如果你想避免在最后调用 brick.Dispose ，那么请使用 using 语句创建你的模块：
+如果你想避免在最后调用 brick.Dispose，那么请使用 using 语句创建你的模块：
 
 ```
 using Brick brick = new("/dev/serial0");
@@ -306,11 +306,11 @@ Console.WriteLine($"Vin = {brick.InputVoltage.Volts} V");
 
 >**注意**
 >
->输入电压仅在启动时读取一次，之后就不再读取。 
+>输入电压仅在启动时读取一次，之后就不再读取。
 
 #### 获取传感器和电机详细信息
 
-函数 GetSensorType ， GetSensor 将允许你检索连接传感器上的任何信息。
+函数 GetSensorType，GetSensor 将允许你检索连接传感器上的任何信息。
 
 ```
 SensorType sensor = brick.GetSensorType((SensorPort)i);
@@ -335,9 +335,9 @@ ActiveSensor 具有一系列高级属性和功能，可以帮助理解传感器�
 
 #### 事件
 
-大多数传感器在其特殊属性上实现事件。你可以简单地订阅 PropertyChanged 和 PropertyUpdated 。当值发生变化时，将触发更改的事件，而在成功更新属性时将触发更新的事件。根据使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
+大多数传感器在其特殊属性上实现事件。你可以简单地订阅 PropertyChanged 和 PropertyUpdated。当值发生变化时，将触发更改的事件，而在成功更新属性时将触发更新的事件。根据使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
 
-当颜色变化或电机位置变化时，你可能只对此感兴趣，将其用作转速表。在这种情况下， PropertyChanged 就是你需要的！
+当颜色变化或电机位置变化时，你可能只对此感兴趣，将其用作转速表。在这种情况下，PropertyChanged 就是你需要的！
 
 ```
 Console.WriteLine("Move motor on Port A to more than position 100 to stop this test.");
@@ -399,9 +399,9 @@ train.SetBias(0.2);
 
 训练电机，来自 Bricklink 的图像
 
-典型的被动电机是火车和较旧的 Powered Up 电机。 Speed 属性可以设置和读取。它既是目标，也是同时测量速度的传感器，因为这些传感器没有测量它们的方法。该值范围为 -100 到 +100。
+典型的被动电机是火车和较旧的 Powered Up 电机。Speed 属性可以设置和读取。它既是目标，也是同时测量速度的传感器，因为这些传感器没有测量它们的方法。该值范围为 -100 到 +100。
 
-控制 Start 、 Stop 和 SetSpeed 的功能也可用。以下是如何使用它的示例：
+控制 Start、Stop 和 SetSpeed 的功能也可用。以下是如何使用它的示例：
 
 ```
 Console.WriteLine("This will run the motor for 20 secondes incrementing the PWM");
@@ -428,7 +428,7 @@ train.Stop();
 
 >**注意**
 >
->在火车启动后，你可以调整速度，电机会相应调整。 
+>在火车启动后，你可以调整速度，电机会相应调整。
 
 #### 活动电机
 
@@ -436,7 +436,7 @@ train.Stop();
 
 活动电机，来自 Bricklink 的图片
 
-活动马达具有 Speed ， AbsolutePosition ， Position 和 TargetSpeed 作为特殊属性。即使马达停止运行，它们也会持续读取。
+活动马达具有 Speed，AbsolutePosition，Position 和 TargetSpeed 作为特殊属性。即使马达停止运行，它们也会持续读取。
 
 代码片段显示了如何获取马达，启动它们并读取属性：
 
@@ -512,7 +512,7 @@ active.Float();
 
 #### 按钮/触摸被动传感器
 
-按钮/触摸被动传感器具有一个特定属性 IsPressed 。当按钮被按下时，该属性设置为 true。这里是一个带有事件的完整示例：
+按钮/触摸被动传感器具有一个特定属性 IsPressed。当按钮被按下时，该属性设置为 true。这里是一个带有事件的完整示例：
 
 ```
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -562,7 +562,7 @@ light.Off()
 
 #### 主动传感器
 
-主动传感器类是一个通用类，所有主动传感器都继承自它，包括主动马达。它们包含一组关于它们如何连接到 Build 扩展板、模式、详细组合模式、硬件、软件版本以及一个名为 ValueAsString 的特定属性。字符串值包含最后一次测量的字符串集合。测量到达时，枚举将包含 `P0C0: ， +23 ， -42` 和 0 。这样做是为了如果你正在使用高级模式并自行管理组合模式和命令，你将能够获得测量值。
+主动传感器类是一个通用类，所有主动传感器都继承自它，包括主动马达。它们包含一组关于它们如何连接到 Build 扩展板、模式、详细组合模式、硬件、软件版本以及一个名为 ValueAsString 的特定属性。字符串值包含最后一次测量的字符串集合。测量到达时，枚举将包含 `P0C0:，+23，-42` 和 0。这样做是为了如果你正在使用高级模式并自行管理组合模式和命令，你将能够获得测量值。
 
 所有活动传感器都可以运行特定的测量模式或组合模式。你可以通过高级模式使用 SelectModeAndRead 和 SelectCombiModesAndRead 功能设置一个你想要持续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。
 
@@ -675,9 +675,9 @@ SPIKE 颜色传感器，来自 Bricklink 的图像
 
 颜色距离传感器，来自 Bricklink 的图像
 
-这些颜色传感器具有多种属性和功能。你可以获得 Color ， ReflectedLight 和 AmbiantLight 。
+这些颜色传感器具有多种属性和功能。你可以获得 Color，ReflectedLight 和 AmbiantLight。
 
-除此之外，颜色和距离传感器可以测量 Distance ，并具有物体 Counter 。它将自动计算进出范围的物体数量。这可以用来计算通过传感器前方的物体。距离限制在 0 到 10 厘米之间。
+除此之外，颜色和距离传感器可以测量 Distance，并具有物体 Counter。它将自动计算进出范围的物体数量。这可以用来计算通过传感器前方的物体。距离限制在 0 到 10 厘米之间。
 
 ```
 brick.WaitForSensorToConnect(SensorPort.PortC);
@@ -701,7 +701,7 @@ while (!Console.KeyAvailable)
 
 >**注意**
 >
->为了更好地测量，不建议以非常快的方式更改测量模式，颜色集成可能无法正确完成。此示例为你展示了可以使用传感器做什么。此类不实现连续测量模式。你可以通过高级模式使用 SelectModeAndRead 函数设置一个连续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。 
+>为了更好地测量，不建议以非常快的方式更改测量模式，颜色集成可能无法正确完成。此示例为你展示了可以使用传感器做什么。此类不实现连续测量模式。你可以通过高级模式使用 SelectModeAndRead 函数设置一个连续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。
 
 #### SPIKE Prime 超声波距离传感器
 
@@ -745,7 +745,7 @@ Build 扩展板库支持 SPIKE™组合中包含的所有乐高® Technic™设�
 
 >**重要**
 >
->包含 Maker Plate 的 SPIKE™ Prime Expansion Set 的产品代码为 45681。原始 Expansion Set 为 45680，不包括 Maker Plate。 
+>包含 Maker Plate 的 SPIKE™ Prime Expansion Set 的产品代码为 45681。原始 Expansion Set 为 45680，不包括 Maker Plate。
 
 | 说明               | 颜色      | 乐高物品编号                     | 在固件中支持 | 在 Python 中支持 | 替代编号       | BrickLink | 可用于                                                                                  | 设置数字            | 类             | 类型   | 设备标识 |
 | --------------------- | ----------- | ---------------------------------- | -------------- | ------------------ | ---------------- | ----------- | ----------------------------------------------------------------------------------------- | --------------------- | ---------------- | -------- | ---------- |

@@ -47,7 +47,7 @@
 
 >**技巧**
 >
->查看你的双因素认证应用文档，了解如何扫描 QR 码以生成令牌。 
+>查看你的双因素认证应用文档，了解如何扫描 QR 码以生成令牌。
 
 ![authenticate](https://www.raspberrypi.com/documentation/services/images/authenticate.png)
 

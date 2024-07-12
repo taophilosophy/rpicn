@@ -27,11 +27,11 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 
 >**注意**
 >
->如果你正在使用 C/C++ SDK 构建应用程序，并且目标开发板不是树莓派 Pico，则需要将 -DPICO_BOARD=boardname 传递给 CMake。这里 boardname 是你的主板名称，例如，假设是 Adafruit Feather RP2040，你应该传参 -DPICO_BOARD=adafruit_feather_rp2040 。有关更多信息，请参阅树莓派 Pico SDK 中的 boards/ 目录和论坛。 
+>如果你正在使用 C/C++ SDK 构建应用程序，并且目标开发板不是树莓派 Pico，则需要将 -DPICO_BOARD=boardname 传递给 CMake。这里 boardname 是你的主板名称，例如，假设是 Adafruit Feather RP2040，你应该传参 -DPICO_BOARD=adafruit_feather_rp2040。有关更多信息，请参阅树莓派 Pico SDK 中的 boards/ 目录和论坛。
 
 >**注意**
 >
->在《连接到树莓派 Pico W 互联网》书中介绍了如何使用 C/C++ 或 MicroPython 在树莓派 Pico W 上使用 Wi-Fi 和蓝牙的文档。 
+>在《连接到树莓派 Pico W 互联网》书中介绍了如何使用 C/C++ 或 MicroPython 在树莓派 Pico W 上使用 Wi-Fi 和蓝牙的文档。
 
 >**注意**
 >
@@ -41,11 +41,11 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 
 >**警告**
 >
->如果你使用的是 Apple Mac，并且运行着 macOS Ventura，则由于 Finder 的工作方式发生了变化，导致拖放操作失败。请查看我们的博客文章以获取完整解释及解决方法，以及我们的 Github 问题跟踪的实时状态。 
+>如果你使用的是 Apple Mac，并且运行着 macOS Ventura，则由于 Finder 的工作方式发生了变化，导致拖放操作失败。请查看我们的博客文章以获取完整解释及解决方法，以及我们的 Github 问题跟踪的实时状态。
 
 ### 点亮 LED
 
-当使用新的微控制器时，大部分人编写的第一个程序是让 LED 灯闪烁。 树莓派 Pico 配备了一个单独的 LED。 该 LED 连接到了该板的树莓派 RP2040 的 GP25 ，以及 Pico W 的 Infineon 43439 无线芯片的 WL_GPIO0 。
+当使用新的微控制器时，大部分人编写的第一个程序是让 LED 灯闪烁。树莓派 Pico 配备了一个单独的 LED。该 LED 连接到了该板的树莓派 RP2040 的 GP25，以及 Pico W 的 Infineon 43439 无线芯片的 WL_GPIO0。
 
 ![Blink an LED 640x360 v2](https://www.raspberrypi.com/documentation/microcontrollers/images/Blink-an-LED-640x360-v2.gif)
 
@@ -85,7 +85,7 @@ API 级文档树莓派 Pico C/C++ SDK 的文档
 
 >**注意**
 >
->以下说明简洁，仅基于 Linux。对于详细步骤、其他平台的说明，或者通用建议，推荐阅读书籍《树莓派 Pico 入门指南》和《树莓派 Pico C/C++ SDK》。 
+>以下说明简洁，仅基于 Linux。对于详细步骤、其他平台的说明，或者通用建议，推荐阅读书籍《树莓派 Pico 入门指南》和《树莓派 Pico C/C++ SDK》。
 
 安装 CMake（至少版本 3.13）和 GCC 交叉编译器
 
@@ -174,4 +174,4 @@ $ cmake ..
 $ make hello_world
 ```
 
-你现在可以通过调试器加载 hello_world.elf ，或者通过拖放安装并在你的树莓派 Pico 上运行 hello_world.uf2 。
+你现在可以通过调试器加载 hello_world.elf，或者通过拖放安装并在你的树莓派 Pico 上运行 hello_world.uf2。

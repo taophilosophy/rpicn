@@ -52,13 +52,13 @@ sense-hat 是传感器扩展板的官方支持库；它提供对所有板载传�
 
 ### 使用 C++ 与传感器扩展板
 
-RTIMULib 是一个 C++ 和 Python 库，可使嵌入式 Linux 系统与 9 自由度和 10 自由度 IMU 的使用变得更加容易。 /etc/RTIMULib.ini 中提供了一个预校准的设置文件，也被 sense-hat 复制并使用。包含的示例在当前工作目录中查找 RTIMULib.ini ，因此你可能希望将文件复制到那里以获得更准确的数据。
+RTIMULib 是一个 C++ 和 Python 库，可使嵌入式 Linux 系统与 9 自由度和 10 自由度 IMU 的使用变得更加容易。/etc/RTIMULib.ini 中提供了一个预校准的设置文件，也被 sense-hat 复制并使用。包含的示例在当前工作目录中查找 RTIMULib.ini，因此你可能希望将文件复制到那里以获得更准确的数据。
 
-RTIMULibDrive11 示例已经被预编译，以确保一切按预期工作。可以通过运行 RTIMULibDrive11 启动，并通过按 Ctrl C 停止。
+RTIMULibDrive11 示例已经被预编译，以确保一切按预期工作。可以通过运行 RTIMULibDrive11 启动，并通过按 **Ctrl** **C** 停止。
 
 >**注意**
 >
->可以通过在适当的目录中运行 make 来编译 C/C++ 示例。 
+>可以通过在适当的目录中运行 make 来编译 C/C++ 示例。
 
 ## 传感器扩展板硬件
 
@@ -112,7 +112,7 @@ Options are:
 Enter option:
 ```
 
-按小写的 `m` 。然后将显示以下消息。按任意键开始。
+按小写的 `m`。然后将显示以下消息。按任意键开始。
 
 ```
     Magnetometer min/max calibration

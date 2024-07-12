@@ -32,7 +32,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 ### 零系列
 
-带 H 后缀的型号在 GPIO 母座上预先焊接了排针。 不带 H 后缀的型号 GPIO 母座上没有焊接排针；用户必须手动焊接排针或者使用第三方排针套件。
+带 H 后缀的型号在 GPIO 母座上预先焊接了排针。不带 H 后缀的型号 GPIO 母座上没有焊接排针；用户必须手动焊接排针或者使用第三方排针套件。
 
 所有零系列型号具有以下连接功能：
 
@@ -58,7 +58,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 | ![树莓派计算模块 4S](https://www.raspberrypi.com/documentation/computers/images/compute-module-4s.jpg?hash=4ec9821548515598adfe5a3cdc14789d)<br />树莓派计算模块 4S     | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)    | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 0GB（精简版）<br /><br />8GB<br /><br />16GB<br /><br />32GB | DDR2 SO-DIMM            | 无                                                                          |
 | ![树莓派计算模块 4](https://www.raspberrypi.com/documentation/computers/images/compute-module-4.jpg?hash=989dcf3efb7c9d59f463fe404a5e3820)<br />树莓派计算模块 4        | [BCM2711](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2711)    | 1GB<br /><br />2GB<br /><br />4GB<br /><br />8GB | 0GB (精简)<br /><br />8GB<br /><br />16GB<br /><br />32GB    | 双 100 引脚高密度连接器 | 可选:<br />* 2.4/5GHz 双频 802.11ac Wi-Fi 5 (300Mb/s)* 蓝牙 5, 低功耗蓝牙 (BLE) |
 
-| NOTE | 几个计算模块外形尺寸与物理 DDR2 SO-DIMM 兼容，但与 DDR2 SO-DIMM 电气规格不兼容。 |
+| NOTE | 几个计算模块外形尺寸与物理 DDR2 SO-DIMM 兼容，但与 DDR2 SO-DIMM 电气规格不兼容。|
 | ------ | ----------------------------- |
 
 有关树莓派计算模块的更多信息，请参阅计算模块文档。
@@ -124,7 +124,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 * [电路图，修订版 1.1](https://datasheets.raspberrypi.com/rpi/raspberry-pi-a-plus-reduced-schematics.pdf)
 
-| NOTE | 树莓派 3 A+ 的机械图也适用于树莓派 1 A+。 |
+| NOTE | 树莓派 3 A+ 的机械图也适用于树莓派 1 A+。|
 | ------ | --------------------- |
 
 ### 树莓派 Zero 2 W
@@ -186,7 +186,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 树莓派设备中使用的 PCB 符合 UL94-V0 标准。
 
-| NOTE | 仅适用于 PCB。 |
+| NOTE | 仅适用于 PCB。|
 | ------ | ---------- |
 
 ### 树莓派合规支持
@@ -215,7 +215,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 ### 使用 DVFS
 
-| NOTE | 仅适用于树莓派 4 B、树莓派 400 和 Compute Module 4 的 DVFS 讨论。 |
+| NOTE | 仅适用于树莓派 4 B、树莓派 400 和 Compute Module 4 的 DVFS 讨论。|
 | ------ | -------------------------------------------------------------------------------------- |
 
 树莓派 4 实现了动态电压和频率调节（DVFS）。这种技术使得 树莓派 4 设备能在保持性能不变的同时降低运行温度。
@@ -228,14 +228,14 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 | --------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `dvfs=1`        | 允许欠压                                                                                                             |
 | `dvfs=2`        | 固定默认操作频率的电压                                                                                               |
-| `dvfs=3`        | 根据需求增加超频电压（默认）。如果在 config.txt 中指定了 over_voltage ，则会禁用动态电压调节，使设备退回 dvfs=2 。 |
+| `dvfs=3`        | 根据需求增加超频电压（默认）。如果在 config.txt 中指定了 over_voltage，则会禁用动态电压调节，使设备退回 dvfs=2。|
 
-| NOTE | 该参数已在树莓派 5 上移除，并将处于模式 3。 |
+| NOTE | 该参数已在树莓派 5 上移除，并将处于模式 3。|
 | ------ | -------------------------------------------------------- |
 
 此外，还使用了更细粒度的 CPU 调度器，用来更精细地控制 ARM 核频率，这意味着 DVFS 更有用。现在的步进频率为 1500MHz、1000MHz、750MHz 和 600MHz。这些步进可以在 SoC 节流时有益，意味着几乎不会完全降至 600MHz，从而大大提高了全负载时的性能。
 
-默认的 CPU 调度器是 ondemand 。可以使用 cpufrequtils 软件包中的 cpufreq-set 命令手动更改调度器以减少空闲功耗：
+默认的 CPU 调度器是 ondemand。可以使用 cpufrequtils 软件包中的 cpufreq-set 命令手动更改调度器以减少空闲功耗：
 
 ```
 $ sudo apt install cpufrequtils
@@ -290,7 +290,7 @@ $ vcgencmd measure_temp
 
 树莓派 5、树莓派 4、400、Compute Module 4 和 Compute Module 4S 计算机使用 EEPROM 启动系统。其他型号的 树莓派 计算机使用位于启动文件系统中的 bootcode.bin 文件。
 
-| NOTE | 在 rpi-eeprom GitHub 存储库中，你可以找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。 |
+| NOTE | 在 rpi-eeprom GitHub 存储库中，你可以找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。|
 | ------ | ----------------------------------------------------------------------------------------- |
 
 ### 引导诊断
@@ -315,7 +315,7 @@ $ vcgencmd measure_temp
 4. 选择 Choose OS
 5. 选择 Misc utility images ![Select Misc utility images](https://www.raspberrypi.com/documentation/computers/images/misc-utility-images.png?hash=662b949f2e370649419c8efc7fc522f4)
 6. 为你的树莓派选择 Bootloader (Pi 400 是 4 系列的一部分)![Choose a family for your bootloader](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png?hash=26cda00ff3f46580eac44af916437614)
-7. 选择引导模式： SD （推荐）， USB 或 Network ![Choose the storage from which you’d like to boot](https://www.raspberrypi.com/documentation/computers/images/bootloader-storage-select.png?hash=08b572c18e189ab4dd7688838fc0a97b)
+7. 选择引导模式： SD （推荐），USB 或 Network ![Choose the storage from which you’d like to boot](https://www.raspberrypi.com/documentation/computers/images/bootloader-storage-select.png?hash=08b572c18e189ab4dd7688838fc0a97b)
 8. 选择 SD card 然后 Write
 9. 单击 Yes 继续
 10. 使用新的镜像引导树莓派，并等待至少十秒钟
@@ -327,31 +327,31 @@ $ vcgencmd measure_temp
 要从树莓派 OS 内部更改启动模式或引导加载程序版本，请运行 raspi-config。
 
 1. 升级树莓派 OS 以获取 rpi-eeprom 软件包的最新版本。
-2. 运行 sudo raspi-config 。
-3. 选择 Advanced Options 。
-4. 选择 Bootloader Version 。
+2. 运行 sudo raspi-config。
+3. 选择 Advanced Options。
+4. 选择 Bootloader Version。
 5. 选择 Default 可恢复出厂设置、选择 Latest 可获取最新发布的引导程序。
 6. 使用 sudo reboot 重启。
 
 ### 更新引导程序配置
 
-引导加载程序的 default 版本代表最新的出厂默认固件镜像。它提供了关键的错误修复、硬件支持，并且特性均在 latest 版本中经过测试，然后定期更新。 latest 引导加载程序更频繁地更新，以包含最新的修复和改进。
+引导加载程序的 default 版本代表最新的出厂默认固件镜像。它提供了关键的错误修复、硬件支持，并且特性均在 latest 版本中经过测试，然后定期更新。latest 引导加载程序更频繁地更新，以包含最新的修复和改进。
 
 专业用户可以切换到 latest 引导加载程序以获得最新功能。
 
-运行以下命令以启动 raspi-config 。
+运行以下命令以启动 raspi-config。
 
 ```
 $ sudo raspi-config
 ```
 
-转到 Advanced Options ，然后选择 Bootloader Version 。选择 Latest 并选择 Yes 确认。选择 Finish 并确认要重启。重启后，再次打开命令提示符并更新你的系统：
+转到 Advanced Options，然后选择 Bootloader Version。选择 Latest 并选择 Yes 确认。选择 Finish 并确认要重启。重启后，再次打开命令提示符并更新你的系统：
 
 ```
 $ sudo apt update
 ```
 
-如果运行 sudo rpi-eeprom-update ，你会看到引导加载程序的更新版本是 latest 发布。
+如果运行 sudo rpi-eeprom-update，你会看到引导加载程序的更新版本是 latest 发布。
 
 ```
 *** UPDATE AVAILABLE ***
@@ -374,7 +374,7 @@ $ sudo rpi-eeprom-update -a
 $ sudo reboot
 ```
 
-重启，然后运行 sudo rpi-eeprom-update 。现在你应该看到 CURRENT 日期已更新为引导程序的最新版本。
+重启，然后运行 sudo rpi-eeprom-update。现在你应该看到 CURRENT 日期已更新为引导程序的最新版本。
 
 ```
 BOOTLOADER: up to date
@@ -407,7 +407,7 @@ $ rpi-eeprom-config pieeprom.bin
 
 #### 编辑当前的引导加载程序配置
 
-执行以下命令以将当前引导加载程序配置加载到文本编辑器中。当编辑器关闭时， rpi-eeprom-config 将更新后的配置应用于最新的可用引导加载程序版本，并使用 rpi-eeprom-update 在系统重启时安排更新：
+执行以下命令以将当前引导加载程序配置加载到文本编辑器中。当编辑器关闭时，rpi-eeprom-config 将更新后的配置应用于最新的可用引导加载程序版本，并使用 rpi-eeprom-update 在系统重启时安排更新：
 
 ```
 $ sudo -E rpi-eeprom-config --edit
@@ -443,7 +443,7 @@ $ sudo systemctl mask rpi-eeprom-update
 $ sudo systemctl unmask rpi-eeprom-update
 ```
 
-| NOTE | 如果设置了 FREEZEVERSION 引导加载程序配置，则更新服务将跳过任何自动更新。这样可以避免在安装了多个操作系统或更换 SD 卡时逐个禁用更新服务的需要。 |
+| NOTE | 如果设置了 FREEZEVERSION 引导加载程序配置，则更新服务将跳过任何自动更新。这样可以避免在安装了多个操作系统或更换 SD 卡时逐个禁用更新服务的需要。|
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 
 #### `rpi-eeprom-update`
@@ -500,7 +500,7 @@ $ rpi-eeprom-update -h
 
 #### 更改启动加载程序版本
 
-| NOTE | 你可以通过编辑 /etc/default/rpi-eeprom-update 文件并将 FIRMWARE_RELEASE_STATUS 条目更改为适当的流来更改在更新过程中使用的发布版本。 |
+| NOTE | 你可以通过编辑 /etc/default/rpi-eeprom-update 文件并将 FIRMWARE_RELEASE_STATUS 条目更改为适当的流来更改在更新过程中使用的发布版本。|
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 
 #### 更新启动加载器配置文件中的启动加载器镜像
@@ -525,16 +525,16 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 | `pieeprom.upd`       | 引导程序 EEPROM 镜像                                                    |
 | `pieeprom.bin`       | 引导程序 EEPROM 镜像 - 与 pieeprom.upd 相同，但更改 recovery.bin 的行为 |
 | `pieeprom.sig`       | 引导程序镜像的 sha256 校验和（pieeprom.upd/pieeprom.bin）               |
-| `vl805.bin`       | VLI805 USB 固件 EEPROM 镜像 - 仅适用于树莓派 4B 修订版 1.3 及更老版本。 |
+| `vl805.bin`       | VLI805 USB 固件 EEPROM 镜像 - 仅适用于树莓派 4B 修订版 1.3 及更老版本。|
 | `vl805.sig`       | vl805.bin 的 sha256 校验和                                              |
 
-* 如果引导加载程序更新镜像为 pieeprom.upd ，则更新完成后 recovery.bin 会被重命名为 recovery.000 ，然后系统会重启。由于检测不到 recovery.bin，ROM 将从 SPI 闪存加载新更新的引导加载程序，然后正常启动操作系统。
-* 如果引导加载程序更新镜像为 pieeprom.bin ，那么更新完成后 recovery.bin 将。如更新成功，HDMI 显示绿屏，绿色状态 LED 快速闪烁；如果更新失败，HDMI 显示红屏，并且通过状态 LED 传递错误代码。
+* 如果引导加载程序更新镜像为 pieeprom.upd，则更新完成后 recovery.bin 会被重命名为 recovery.000，然后系统会重启。由于检测不到 recovery.bin，ROM 将从 SPI 闪存加载新更新的引导加载程序，然后正常启动操作系统。
+* 如果引导加载程序更新镜像为 pieeprom.bin，那么更新完成后 recovery.bin 将。如更新成功，HDMI 显示绿屏，绿色状态 LED 快速闪烁；如果更新失败，HDMI 显示红屏，并且通过状态 LED 传递错误代码。
 * .sig 文件包含了相应镜像文件的十六进制 sha256 校验和；将来可能会添加其他字段。
-* 在 BCM2711、BCM2712 上的 ROM 查找 recovery.bin 的功能，不能放在 USB 大容量存储设备及 TFTP 中。而且，更新版本的引导加载程序已支持自更新功能，使引导加载程序能够自己重新刷新 SPI 闪存。请参阅引导加载程序配置页面上的 ENABLE_SELF_UPDATE 。
+* 在 BCM2711、BCM2712 上的 ROM 查找 recovery.bin 的功能，不能放在 USB 大容量存储设备及 TFTP 中。而且，更新版本的引导加载程序已支持自更新功能，使引导加载程序能够自己重新刷新 SPI 闪存。请参阅引导加载程序配置页面上的 ENABLE_SELF_UPDATE。
 * EEPROM 更新的临时文件会在启动时由 rpi-eeprom-update 服务自动删除。
 
-若要获取有关 rpi-eeprom-update 配置文件的更多信息，请参阅 rpi-eeprom-update -h 。
+若要获取有关 rpi-eeprom-update 配置文件的更多信息，请参阅 rpi-eeprom-update -h。
 
 #### EEPROM 写保护
 
@@ -557,20 +557,20 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 | 行 | 信息                                                                                                                    |
 | ---- | ------------------------------------------------------------------------------------------------------------------------- |
 | `bootloader`   | 引导加载程序 git 版本 - RO（如果 EEPROM 受写保护） - 软件构建日期                                                       |
-| `update-ts`   | 更新 EEPROM 配置的时间戳。在自更新模式下检查此时间戳，以避免更新到旧配置。                                              |
-| `secure-boot`   | 如果启用了安全启动，则显示处理器版本（B0/C0）和签名启动状态参数。否则，此行为空。                                       |
+| `update-ts`   | 更新 EEPROM 配置的时间戳。在自更新模式下检查此时间戳，以避免更新到旧配置。                                    |
+| `secure-boot`   | 如果启用了安全启动，则显示处理器版本（B0/C0）和签名启动状态参数。否则，此行为空。                             |
 | `board`   | 主板版本 - 序列号 - 以太网 MAC 地址                                                                                     |
-| `boot`   | 模式（当前启动模式名称和编号）顺序（BOOT ORDER 配置）尝试（当前启动模式的重试次数）重启（通过启动模式列表的循环次数）。 |
-| `SD`   | SD 卡检测状态（已检测/未检测）。                                                                                        |
+| `boot`   | 模式（当前启动模式名称和编号）顺序（BOOT ORDER 配置）尝试（当前启动模式的重试次数）重启（通过启动模式列表的循环次数）。|
+| `SD`   | SD 卡检测状态（已检测/未检测）。                                                                              |
 | `part`   | 主引导记录主分区类型:LBA.                                                                                               |
-| `fw`   | 如果存在，则 start.elf 和 fixup.dat 的文件名(例如 start4x.elf ， fixup4x.dat ).                                         |
+| `fw`   | 如果存在，则 start.elf 和 fixup.dat 的文件名(例如 start4x.elf，fixup4x.dat ).                                         |
 | `net`   | 网络引导: 链路状态（上/下），客户端 IP 地址（ip），子网（sn），默认网关（gw）                                           |
 | `tftp`   | 网络引导：TFTP 服务器 IP 地址                                                                                           |
-| `display`   | 指示是否检测到热插拔（ HPD=1 ），以及每个 HDMI 输出是否成功读取 EDID（ EDID=ok ）。                                     |
+| `display`   | 指示是否检测到热插拔（ HPD=1 ），以及每个 HDMI 输出是否成功读取 EDID（ EDID=ok ）。                           |
 
 可以使用 DISABLE_HDMI 参数禁用此显示器，请参阅引导加载程序配置。
 
-| NOTE | 该功能仅用于诊断引导故障；它并不是可交互的引导程序。如果你需要交互式引导程序，请考虑使用类似 U-Boot 的工具。 |
+| NOTE | 该功能仅用于诊断引导故障；它并不是可交互的引导程序。如果你需要交互式引导程序，请考虑使用类似 U-Boot 的工具。|
 | ------ | ---------------------------------------------------------------------------------------------------------- |
 
 ## 树莓派引导模式
@@ -581,7 +581,7 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 基于 BCM2837 的树莓派可以从 USB 设备和以太网引导 - 也就是说，树莓派 2B v1.2，树莓派 3B 和 树莓派 3B+（由于 树莓派 3A+ 没有内置以太网接口，无法进行网络引导）。此外，所有早于 树莓派 4 的 树莓派 型号可以使用仅 bootcode.bin 方法启用 USB 设备引导。
 
-| NOTE |自树莓派 4 以来，旗舰级设备不再使用文件 bootcode.bin。因为这些设备使用板载 EEPROM 芯片中的引导加载程序。更多信息，请参阅 EEPROM 引导流程和 SPI 引导 EEPROM 的文档。 |
+| NOTE |自树莓派 4 以来，旗舰级设备不再使用文件 bootcode.bin。因为这些设备使用板载 EEPROM 芯片中的引导加载程序。更多信息，请参阅 EEPROM 引导流程和 SPI 引导 EEPROM 的文档。|
 | ------ | -------------------------------------------------------------------------- |
 
 格式化 SD 卡为 FAT32，把最新的 bootcode.bin 复制到里面。把 SD 卡插入到树莓派中。从 SD 卡加载bootcode.bin 以后，树莓派就能使用 USB 主机模式启动了。
@@ -592,7 +592,7 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 ### bootcode.bin 启用 UART
 
-| NOTE | 适用于在树莓派 4 前发布的开发板。 |
+| NOTE | 适用于在树莓派 4 前发布的开发板。|
 | ------ | ---------------------------------------- |
 
 有关使用 EEPROM 引导加载程序启用 UART 的信息，请参阅引导加载程序配置文档。
@@ -611,7 +611,7 @@ $ sed -i -e "s/BOOT_UART=0/BOOT_UART=1/" bootcode.bin
 
 接下来，将合适的 USB 串行电缆连接到计算机（尽管你可能会发现，最简单的方法就是使用 USB 串行电缆，因为它可以在无需设置烦人的 config.txt 的情况下直接使用树莓派）。在 树莓派 或计算模块上使用独立的引脚 6、8 和 10（GND、GPIO14、GPIO15）。
 
-然后在 Linux 或 macOS 上使用 screen ，或者在 Windows 上使用 putty 来连接到串口。
+然后在 Linux 或 macOS 上使用 screen，或者在 Windows 上使用 putty 来连接到串口。
 
 设置串口接收速率为 115200-8-N-1，然后启动你的树莓派。你应该可即时从设备上获得 bootcode.bin 的串行输出。
 
@@ -630,7 +630,7 @@ U 盘有两种独立的启动模式:
 
 ### U 盘设备引导模式
 
-| NOTE | U 盘引导可用于旗舰级的计算模块系列，Zero 系列和 A 变种。 |
+| NOTE | U 盘引导可用于旗舰级的计算模块系列，Zero 系列和 A 变种。|
 | ------ | -------------------------------------------------------------------------- |
 
 当启用此引导模式（通常在无法从 SD 卡引导后），树莓派 将其置为 USB 设备模式，等待主机发送的 USB 重置。在 Github 上可以找到示例代码，展示主机需如何与 树莓派 进行通信。
@@ -642,7 +642,7 @@ U 盘有两种独立的启动模式:
 
 ### USB 主机引导模式
 
-| NOTE | 自树莓派计算模组 3、Zero 系列 2 W、树莓派 2B（1.2 版）、树莓派 3B 以及自树莓派 3B+ 以来，主机引导功能可在计算模块系列和所有旗舰系列设备上使用。树莓派 3A+ 支持大容量存储引导，但不支持网络引导。 |
+| NOTE | 自树莓派计算模组 3、Zero 系列 2 W、树莓派 2B（1.2 版）、树莓派 3B 以及自树莓派 3B+ 以来，主机引导功能可在计算模块系列和所有旗舰系列设备上使用。树莓派 3A+ 支持大容量存储引导，但不支持网络引导。|
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 USB 主机引导模式采用以下逻辑:
@@ -667,27 +667,27 @@ USB 主机引导模式采用以下逻辑:
 
 在树莓派 3B，3A+ 和 3B+ 上，默认禁用主机引导。要启用 USB 主机引导，请将 program_usb_boot_mode=1 这一行添加到 /boot/firmware/config.txt 的末尾。
 
-| WARNING | 任何对 OTP 的修改都是永久性的，无法撤销。<br /><br />在 树莓派 3A+ 上，将 OTP 位设置为启用 USB 主机引导模式将永久性地阻碍其以 USB 设备模式启动。 |
+| WARNING | 任何对 OTP 的修改都是永久性的，无法撤销。<br /><br />在 树莓派 3A+ 上，将 OTP 位设置为启用 USB 主机引导模式将永久性地阻碍其以 USB 设备模式启动。|
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ## USB 大容量存储引导
 
-| NOTE | 自 Compute Module 3 起，Zero 2 W 起的 Zero 系列，以及自 树莓派 2B（版本 1.2）起的所有旗舰系列设备均可使用。 |
+| NOTE | 自 Compute Module 3 起，Zero 2 W 起的 Zero 系列，以及自 树莓派 2B（版本 1.2）起的所有旗舰系列设备均可使用。|
 | ------ | ------------------------------------------------------------------------------------------------------------------- |
 
 USB 大容量存储启动能让你从 USB 大容量存储设备（如闪存驱动器、USB 磁盘）启动 Raspberry Pi。连接 USB 设备时（尤其是硬盘和 SSD），需要注意它们的功耗要求。接入多个磁盘通常需要额外的外部电源，可以是带电源的硬盘盒、带供电的 USB 集线器。
 
-| NOTE | 树莓派 4B 之前的型号存在已知问题，可能导致无法从某些 USB 设备启动。 |
+| NOTE | 树莓派 4B 之前的型号存在已知问题，可能导致无法从某些 USB 设备启动。|
 | ------ | --------------------------------------------------------------------------------- |
 
 ### 带有 EEPROM 引导加载程序的设备
 
 树莓派 4 和更新款的旗舰系列设备以及自计算模块 4 和 4S 起，支持默认情况下的 USB 引导，只要在 BOOT_ORDER 配置中指定 USB 引导。
 
-| NOTE | 早期版本的 树莓派 4 可能需要更新引导加载程序才能从 USB 启动。 |
+| NOTE | 早期版本的 树莓派 4 可能需要更新引导加载程序才能从 USB 启动。|
 | ------ | --------------------------------------------------------------------- |
 
-| NOTE | Compute Module 4 的早期版本可能需要更新引导加载程序才能从 USB 启动。 |
+| NOTE | Compute Module 4 的早期版本可能需要更新引导加载程序才能从 USB 启动。|
 | ------ | ---------------------------------------------------------------------- |
 
 ### 树莓派 3B+
@@ -698,14 +698,14 @@ USB 大容量存储启动能让你从 USB 大容量存储设备（如闪存驱�
 
 在树莓派 2B v1.2，3A+，3B，Zero 2 W 和 Compute Module 3 和 3+ 上，必须先启用 USB 主机启动模式。才能从 USB 大容量存储启动和网络启动。
 
-| NOTE | 树莓派 3A+ 和 Zero 2 W 不支持网络启动。 |
+| NOTE | 树莓派 3A+ 和 Zero 2 W 不支持网络启动。|
 | ------ | ----------------------------------------- |
 
-要启用这些设备的 USB 主机启动模式，请在 OTP（一次可编程）内存中设置 USB 主机位。要设置该位，请从包含以下行的 SD 卡引导 /boot/firmware/config.txt 。设置该位后，你可以在没有 SD 卡的情况下从 USB 启动。
+要启用这些设备的 USB 主机启动模式，请在 OTP（一次可编程）内存中设置 USB 主机位。要设置该位，请从包含以下行的 SD 卡引导 /boot/firmware/config.txt。设置该位后，你可以在没有 SD 卡的情况下从 USB 启动。
 
 #### 使用 OTP 启用 USB 主机启动模式
 
-| WARNING | 对 OTP（一次可编程）内存所做的任何修改都是永久性的，无法撤销。<br /><br />在 树莓派 3A+ 上，设置 OTP 位来启用 USB 主机启动模式将永久阻碍该 树莓派 以 USB 设备模式启动。 |
+| WARNING | 对 OTP（一次可编程）内存所做的任何修改都是永久性的，无法撤销。<br /><br />在 树莓派 3A+ 上，设置 OTP 位来启用 USB 主机启动模式将永久阻碍该 树莓派 以 USB 设备模式启动。|
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 使用安装了 树莓派 OS 的 SD 卡来编程 OTP 位。
@@ -723,7 +723,7 @@ $ vcgencmd otp_dump | grep 17:
 17:3020000a
 ```
 
-如果输出显示 0x3020000a ，则 OTP 已成功编程。如果看到不同的输出，请再次尝试编程过程。确保 config.txt 末尾没有空行。
+如果输出显示 0x3020000a，则 OTP 已成功编程。如果看到不同的输出，请再次尝试编程过程。确保 config.txt 末尾没有空行。
 
 你现在可以像从 SD 卡引导一样从 USB 大容量存储设备引导。有关更多信息，请参阅以下部分。
 
@@ -744,7 +744,7 @@ $ vcgencmd otp_dump | grep 17:
 
 ### 特殊 bootcode.bin -仅引导模式
 
-对于 树莓派 2B v1.2、3A+、3B 和 3B+，如果你无法使用特定的 USB 设备来启动，你可以使用 bootcode.bin 专用启动模式。树莓派 仍会从 SD 卡启动，但只会从 SD 卡中读取 bootcode.bin ；你操作系统的其余部分仍存储于 USB 设备。
+对于 树莓派 2B v1.2、3A+、3B 和 3B+，如果你无法使用特定的 USB 设备来启动，你可以使用 bootcode.bin 专用启动模式。树莓派 仍会从 SD 卡启动，但只会从 SD 卡中读取 bootcode.bin；你操作系统的其余部分仍存储于 USB 设备。
 
 ### 硬件兼容性
 
@@ -756,7 +756,7 @@ $ vcgencmd otp_dump | grep 17:
 
 在搜索可引导分区时，引导加载程序会同时扫描所有 USB 大容量存储设备，并选择首个响应的设备。如果引导分区没有找到合适的 start.elf 文件，则引导加载程序将尝试下一个可用设备。没有根据 USB 拓扑结构指定引导设备的方法；这减缓引导速度并带来不必要的配置复杂性。
 
-| NOTE | 可使用 config.txt 文件条件过滤器来选择复杂设备配置中的备用固件。 |
+| NOTE | 可使用 config.txt 文件条件过滤器来选择复杂设备配置中的备用固件。|
 | ------ | ------------------------------------ |
 
 ## 网络引导
@@ -784,23 +784,23 @@ $ vcgencmd otp_dump | grep 17:
   * 服务器会回复包含文件头部块编号的数据块（512 字节）中的第一个块，文件已存在
     * 树莓派回复 TFTP ACK 数据包，包含块编号，并重复直到最后一个非 512 字节块
 * TFTP RRQ bootsig.bin 下载请求
-  * 这通常会产生错误 file not found 。这是预料之中的，TFTP 引导服务器应该能够处理它。
+  * 这通常会产生错误 file not found。这是预料之中的，TFTP 引导服务器应该能够处理它。
 
-从此刻开始， bootcode.bin 代码继续加载系统。它将尝试访问的第一个文件是 <serial_number>/start.elf 。如果这不会导致错误，那么要读取的其他文件将会在前面加上 serial_number 。这很有用，因为它使你能够为你的 Raspberry Pis 创建具有不同 start.elf /内核的独立目录。
+从此刻开始，bootcode.bin 代码继续加载系统。它将尝试访问的第一个文件是 <serial_number>/start.elf。如果这不会导致错误，那么要读取的其他文件将会在前面加上 serial_number。这很有用，因为它使你能够为你的 Raspberry Pis 创建具有不同 start.elf /内核的独立目录。
 
-要获取设备的序列号，你可以尝试使用这种引导模式，并查看使用 tcpdump / wireshark 访问的文件，或者你可以运行标准的 树莓派 OS SD 卡和 cat /proc/cpuinfo 。
+要获取设备的序列号，你可以尝试使用这种引导模式，并查看使用 tcpdump / wireshark 访问的文件，或者你可以运行标准的 树莓派 OS SD 卡和 cat /proc/cpuinfo。
 
 如果你将所有文件放入 TFTP 目录的根目录中，那么随后所有的文件都将从那里访问。
 
 ### 调试网络引导模式
 
-首先要检查的是 OTP 位是否被正确编程。为此，你需要将 program_usb_boot_mode=1 添加到 config.txt ，然后重启（使用可以正确引导到 树莓派 OS 的标准 SD 卡）。完成后，你应该可以执行以下操作：
+首先要检查的是 OTP 位是否被正确编程。为此，你需要将 program_usb_boot_mode=1 添加到 config.txt，然后重启（使用可以正确引导到 树莓派 OS 的标准 SD 卡）。完成后，你应该可以执行以下操作：
 
 ```
 $ vcgencmd otp_dump | grep 17:
 ```
 
-如果第 17 行包含 3020000a ，则 OTP 已正确编程。现在，你可以拔掉 SD 卡，插入以太网了，然后在树莓派上电约 5 秒后，以太网指示灯应该被点亮。
+如果第 17 行包含 3020000a，则 OTP 已正确编程。现在，你可以拔掉 SD 卡，插入以太网了，然后在树莓派上电约 5 秒后，以太网指示灯应该被点亮。
 
 要在服务器上捕获以太网数据包，请在 tftpboot 服务器上（如果未使用，则在 DHCP 服务器上）使用 tcpdump。否则，你将无法看到发送的数据包，因为网络交换机不是集线器！
 
@@ -879,7 +879,7 @@ Fixed in 树莓派 3 A+ (BCM2837B0). 重试  错误原因
 
 #### DHCP 中继故障
 
-DHCP 检查还检查了跳数值是否为 1 ，而在 DHCP 中继情况下，它不会这样。
+DHCP 检查还检查了跳数值是否为 1，而在 DHCP 中继情况下，它不会这样。
 
 在树莓派 3 A+ 中已修复。
 
@@ -909,7 +909,7 @@ DHCP UUID 设置为常量值。
 
 ## GPIO 启动模式
 
-| NOTE | GPIO 引导模式仅适用于树莓派 3A+、3B、3B+，计算模块 3、3+。 |
+| NOTE | GPIO 引导模式仅适用于树莓派 3A+、3B、3B+，计算模块 3、3+。|
 | ------ | -------------------------------------------------------------- |
 
 老的树莓派可以配置：以在接通电源时使用连接到 GPIO 连接器的硬件选择启动模式。这是通过在 SoC 的 OTP 存储器中设置位来完成的。一旦设置了这些位，它们会永久性分配五个 GPIO，以便进行选择。只要设置了 OTP 位，就无法撤销。你应该仔细考虑是否启用此功能，因为这五个 GPIO 针脚将始终控制引导。尽管在树莓派引导后可以使用这些 GPIO 进行其他功能，但你必须进行额外设置，才能在树莓派引导时启用所需的启动模式。
@@ -950,7 +950,7 @@ program_gpio_bootmode=n
 | 25     | 42     | USB 主机 - 大容量存储设备 |
 | 26     | 43     | USB 主机 - 以太网         |
 
-| NOTE | 各种启动模式按照 GPIO 线的数字顺序尝试，即 SD0，然后 SD1，然后 NAND 等等。 |
+| NOTE | 各种启动模式按照 GPIO 线的数字顺序尝试，即 SD0，然后 SD1，然后 NAND 等等。|
 | ------ | ---------------------------------------------------------------------------- |
 
 ### 启动流程
@@ -973,7 +973,7 @@ NVMe（高速非易失性内存）是通过 PCIe 总线进行外部存储访问�
   * 对于 树莓派 5，我们推荐使用 M.2 HAT+，它能把 树莓派 的 PCIe FFC 槽转换为 M Key 接口。
   * 对于 CM4，可搜索 "PCIe 3.0 ×1 转 M.2 NGFF M-Key SSD NVMe PCIe 转接器"
 
-要检查你的 NVMe 驱动器是否正确连接，请从其他存储设备（如 SD 卡）引导你的 Raspberry Pi，并运行 ls -l /dev/nvme* 。示例输出如下所示。
+要检查你的 NVMe 驱动器是否正确连接，请从其他存储设备（如 SD 卡）引导你的 Raspberry Pi，并运行 ls -l /dev/nvme*。示例输出如下所示。
 
 ```
 crw------- 1 root root 245, 0 Mar  9 14:58 /dev/nvme0
@@ -1008,7 +1008,7 @@ $ sudo rpi-eeprom-update
 $ sudo raspi-config
 ```
 
-在 Advanced Options > Bootloader Version 下，选择 Latest 。然后，使用 Finish 键或 Escape 键退出 raspi-config 。
+在 Advanced Options > Bootloader Version 下，选择 Latest。然后，使用 Finish 键或 Escape 键退出 raspi-config。
 
 运行以下命令以将固件更新至最新版本：
 
@@ -1026,7 +1026,7 @@ $ sudo rpi-eeprom-update -a
 
 ### NVMe `BOOT_ORDER`
 
-EEPROM 配置中的 BOOT_ORDER 设置控制引导行为。对于 NVMe 引导，请使用引导模式 6 。有关更多信息，请参见树莓派引导加载程序配置。
+EEPROM 配置中的 BOOT_ORDER 设置控制引导行为。对于 NVMe 引导，请使用引导模式 6。有关更多信息，请参见树莓派引导加载程序配置。
 
 ### 例子
 
@@ -1054,7 +1054,7 @@ MESS:00:00:07.098682:0: Loading 'kernel8.img' to 0x80000 size 0x1441a00
 MESS:00:00:07.146055:0:[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd083]
 ```
 
-在 Linux 中，SSD 显示为 /dev/nvme0 ，而“namespace”显示为 /dev/nvme0n1 。将会有两个分区 /dev/nvme0n1p1 （FAT）和 /dev/nvme0n1p2 （EXT4）。使用 lsblk 来检查分区分配：
+在 Linux 中，SSD 显示为 /dev/nvme0，而“namespace”显示为 /dev/nvme0n1。将会有两个分区 /dev/nvme0n1p1 （FAT）和 /dev/nvme0n1p2 （EXT4）。使用 lsblk 来检查分区分配：
 
 ```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
@@ -1075,7 +1075,7 @@ nvme0n1     259:0    0 232.9G  0 disk
 
 例如，你可以将这添加到你的 BOOT_ORDER 作为备用引导方法，或者将其放在 GPIO 条件后，在 GPIO 引脚拉低时从你自己的服务器启动 HTTP 引导。
 
-例如，如果将以下内容添加到你的 EEPROM 配置中，且 GPIO 8（默认状态为 1 或高电平）被拉低，将下载文件 http://downloads.raspberrypi.org:80/net_install/boot.img 、http://downloads.raspberrypi.org:80/net_install/boot.sig。如果启用开机网络安装，则会使用相同的网址。如果 GPIO 8 未被拉低，则行为将保持不变。
+例如，如果将以下内容添加到你的 EEPROM 配置中，且 GPIO 8（默认状态为 1 或高电平）被拉低，将下载文件 http://downloads.raspberrypi.org:80/net_install/boot.img、http://downloads.raspberrypi.org:80/net_install/boot.sig。如果启用开机网络安装，则会使用相同的网址。如果 GPIO 8 未被拉低，则行为将保持不变。
 
 ```
 [gpio8=0]
@@ -1098,12 +1098,12 @@ boot.img 和签名文件 boot.sig 是个包含引导文件系统的内存盘。�
 
 所有 HTTP 下载必须签名。引导加载程序包含一个用于默认主机 fw-download-alias1.raspberrypi.com 上文件的公钥。除非设置了 HTTP_HOST，并在 EEPROM 中内置公钥，否则该密钥将用于验证网络安装镜像。这能让你在自己的服务器上托管树莓派网络安装镜像。
 
-| WARNING | 使用你自己的网络安装镜像将需要你对镜像进行签名，并将你的公钥添加到 EEPROM。如果你后续进行了公版 EEPROM 更新，你的密钥将丢失，并且需要重新添加。 |
+| WARNING | 使用你自己的网络安装镜像将需要你对镜像进行签名，并将你的公钥添加到 EEPROM。如果你后续进行了公版 EEPROM 更新，你的密钥将丢失，并且需要重新添加。|
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 USBBOOT 包含了编程公钥所需的全部工具。
 
-使用以下命令将你的公钥添加到 EEPROM。 boot.conf 包含你的修改：
+使用以下命令将你的公钥添加到 EEPROM。boot.conf 包含你的修改：
 
 ```
 $ rpi-eeprom-config -c boot.conf -p mypubkey.pem -o pieeprom.upd pieeprom.original.bin
@@ -1157,7 +1157,7 @@ $ sudo rpi-eeprom-config --edit
 
 * 将 <your_website> 替换为你的网站，例如 yourserver.org
 * 将 <path_to_files> 替换为托管在你的网站上的 OS 镜像的路径，例如 path/to/files
-* 使用上面生成的哈希值 701bd97f67b0f5483a9734e6e5cf72f9a123407b346088638f597878563193fc ，例如 <hash>
+* 使用上面生成的哈希值 701bd97f67b0f5483a9734e6e5cf72f9a123407b346088638f597878563193fc，例如 <hash>
 
 ```
 [all]
@@ -1192,15 +1192,15 @@ HTTP: GET request for https://yourserver.org:443/path/to/files/boot.img
 
 ### 安全启动
 
-如果启用了安全启动，则 树莓派 只能运行由客户私钥签名的代码。因此，如果你想要在安全启动的情况下使用网络安装、HTTP 启动模式，你必须使用自己的密钥签署 boot.img 并生成 boot.sig ，并在某处托管这些文件供下载。EEPROM 中的公钥将用于验证镜像。
+如果启用了安全启动，则 树莓派 只能运行由客户私钥签名的代码。因此，如果你想要在安全启动的情况下使用网络安装、HTTP 启动模式，你必须使用自己的密钥签署 boot.img 并生成 boot.sig，并在某处托管这些文件供下载。EEPROM 中的公钥将用于验证镜像。
 
 如果启用安全启动且未设置 HTTP_HOST，则网络安装和 HTTP 引导将被禁用。
 
-有关安全启动的更多信息，请参阅 USBBOOT 。
+有关安全启动的更多信息，请参阅 USBBOOT。
 
 ## 引导顺序
 
-| IMPORTANT | 此启动顺序仅适用于基于 BCM2837、BCM2837B0 的树莓派。在此之前的型号，树莓派将尝试 SD 卡引导，然后是 USB 设备模式引导。有关树莓派 4 和树莓派 5 的引导顺序，请参阅 EEPROM 引导流程部分。 |
+| IMPORTANT | 此启动顺序仅适用于基于 BCM2837、BCM2837B0 的树莓派。在此之前的型号，树莓派将尝试 SD 卡引导，然后是 USB 设备模式引导。有关树莓派 4 和树莓派 5 的引导顺序，请参阅 EEPROM 引导流程部分。|
 | ----------- | --------------------------------------------------------------------------------------- |
 
 树莓派 3 上的 USB 引导默认取决于所使用的版本。如果默认未启用 USB 引导模式，请参阅此页面获取有关启用 USB 引导模式的信息。
@@ -1236,7 +1236,7 @@ Next, the boot ROM checks each of the boot sources for a file called `bootcode.b
     * 启用设备模式并等待主机 PC 枚举
     * 我们用 VID: 0a5c PID: 0x2763 回复 PC（树莓派 1 或树莓派 2）或 0x2764 （树莓派 3）
 
-| NOTE | 如果没有插入 SD 卡，SD 引导模式将在五秒钟后失败。为了缩短这个时间并更快地切换到 USB 模式，你可以插入空白的 SD 卡，或者使用上面描述的 GPIO 引导模式 OTP 设置，只启用 USB。GPIO 的默认拉取在 ARM 外围设备数据手册的第 102 页上有定义。如果引导时的值不等于默认拉取值，则启用该引导模式。USB 枚举是一种使下游设备在集线器上获取电源，然后等待设备拉动 D+ 和 D- 线以指示其是 USB 1 还是 USB 2 的方法。这可能需要一段时间：对于某些设备，硬盘驱动器可能需要长达 3 秒的时间来启动并开始枚举过程。因为这是唯一能检测硬件连接的方法，所以我们必须等待的最短时间为两秒。如果设备在最大超时时间后仍未响应，则可以使用 program_usb_boot_timeout=1 在 config.txt 中增加超时时间至五秒。MSD 引导优先于以太网引导。不再需要第一个分区是 FAT 分区，因为 MSD 引导将继续搜索第一个分区之外的 FAT 分区。引导 ROM 现在还支持 GUID 分区，并已测试过使用 Mac、Windows 和 Linux 分区的硬盘。使用供应商 ID 0x0424 和产品 ID 0xec00 可以检测 LAN951x，这与独立的 LAN9500 设备不同，后者的产品 ID 是 0x9500 或 0x9e00 。要使用独立的 LAN9500，需要添加 I2C EEPROM 以更改这些 ID 以匹配 LAN951x。 |
+| NOTE | 如果没有插入 SD 卡，SD 引导模式将在五秒钟后失败。为了缩短这个时间并更快地切换到 USB 模式，你可以插入空白的 SD 卡，或者使用上面描述的 GPIO 引导模式 OTP 设置，只启用 USB。GPIO 的默认拉取在 ARM 外围设备数据手册的第 102 页上有定义。如果引导时的值不等于默认拉取值，则启用该引导模式。USB 枚举是一种使下游设备在集线器上获取电源，然后等待设备拉动 D+ 和 D- 线以指示其是 USB 1 还是 USB 2 的方法。这可能需要一段时间：对于某些设备，硬盘驱动器可能需要长达 3 秒的时间来启动并开始枚举过程。因为这是唯一能检测硬件连接的方法，所以我们必须等待的最短时间为两秒。如果设备在最大超时时间后仍未响应，则可以使用 program_usb_boot_timeout=1 在 config.txt 中增加超时时间至五秒。MSD 引导优先于以太网引导。不再需要第一个分区是 FAT 分区，因为 MSD 引导将继续搜索第一个分区之外的 FAT 分区。引导 ROM 现在还支持 GUID 分区，并已测试过使用 Mac、Windows 和 Linux 分区的硬盘。使用供应商 ID 0x0424 和产品 ID 0xec00 可以检测 LAN951x，这与独立的 LAN9500 设备不同，后者的产品 ID 是 0x9500 或 0x9e00。要使用独立的 LAN9500，需要添加 I2C EEPROM 以更改这些 ID 以匹配 LAN951x。|
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 主要 SD 卡引导模式默认设置为 GPIO 49-53。可以在第二组引脚上从次要 SD 卡引导，即将次要 SD 卡连接到 GPIO 引脚。但是，我们尚未启用此功能。
@@ -1270,7 +1270,7 @@ ROM（第一阶段）的引导流程如下：
     * 成功 - 运行 recovery.bin 并更新 SPI EEPROM 或切换到 USB 大容量存储设备模式
     * 失败 - 重试 USB 设备引导
 
-| NOTE | recovery.bin 是一个用于更新引导加载程序 SPI EEPROM 镜像的最小第二阶段程序。 |
+| NOTE | recovery.bin 是一个用于更新引导加载程序 SPI EEPROM 镜像的最小第二阶段程序。|
 | ------ | ----------------------------------------------------------------------------- |
 
 ### 第二阶段引导加载程序
@@ -1310,7 +1310,7 @@ ROM（第一阶段）的引导流程如下：
           * 尝试加载固件
             * 成功-运行固件
             * 失败 - 转至下一个 LUN
-  * 否则如果 boot-mode == NVME ，那么
+  * 否则如果 boot-mode == NVME，那么
     * 扫描 PCIe 以查找 NVMe 设备，如果找到，则
       * 尝试从 NVMe 设备加载固件
         * 成功 - 运行固件
@@ -1320,8 +1320,8 @@ ROM（第一阶段）的引导流程如下：
 
 #### Differences on 树莓派 5 重试  错误原因
 
-* 电源按钮用于从 PMIC STANDBY、HALT 唤醒，而非 GPIO 3 。
-* 固件加载 start.elf 而不是 start.elf。实际上，引导加载程序内置了嵌入版本的 start.elf 。
+* 电源按钮用于从 PMIC STANDBY、HALT 唤醒，而非 GPIO 3。
+* 固件加载 start.elf 而不是 start.elf。实际上，引导加载程序内置了嵌入版本的 start.elf。
 * 连接到 3A 电源时，默认禁用 USB 启动。在 /boot/firmware/config.txt 中设置 usb_max_current_enable=1 可启用 USB 启动。或者你可以在 USB 启动失败时，按一下电源按钮来临时启用 usb_max_current_enable 并继续引导。但是，如果是按电源按钮启用的，该设置在重启后将失效。
 
 ### 引导加载程序更新
@@ -1330,23 +1330,23 @@ ROM（第一阶段）的引导流程如下：
 
 ### 安全模式操作系统更新（ tryboot ）
 
-引导加载程序/固件提供了一个一次性标志，如果设置了该标志，会清除，但会导致加载 tryboot.txt 而不是 config.txt 。这种备用配置将指定待处理的 OS 更新固件、cmdline、内核和 os_prefix 参数。因为在启动固件之前清除了该标志，所以崩溃或重置会导致在下次重启时加载原始的 config.txt 文件。
+引导加载程序/固件提供了一个一次性标志，如果设置了该标志，会清除，但会导致加载 tryboot.txt 而不是 config.txt。这种备用配置将指定待处理的 OS 更新固件、cmdline、内核和 os_prefix 参数。因为在启动固件之前清除了该标志，所以崩溃或重置会导致在下次重启时加载原始的 config.txt 文件。
 
-要设置 tryboot 标志，请在 reboot 命令中的分区号后添加 tryboot 。通常，分区号默认为 0。但如果要添加额外的参数，则必须指定分区号。传递参数给 reboot 时始终使用引号：它只接受一个参数：
+要设置 tryboot 标志，请在 reboot 命令中的分区号后添加 tryboot。通常，分区号默认为 0。但如果要添加额外的参数，则必须指定分区号。传递参数给 reboot 时始终使用引号：它只接受一个参数：
 
 ```
 $ sudo reboot '0 tryboot'
 ```
 
-所有树莓派型号都支持 tryboot ，但是在树莓派 4 A 1.0 和 1.1 版本上，EEPROM 不能写保护。这是因为旧的树莓派 4B 设备必须重置电源供应（会丢失 tryboot 状态），而这些信息正存储在 EEPROM。
+所有树莓派型号都支持 tryboot，但是在树莓派 4 A 1.0 和 1.1 版本上，EEPROM 不能写保护。这是因为旧的树莓派 4B 设备必须重置电源供应（会丢失 tryboot 状态），而这些信息正存储在 EEPROM。
 
-如果 secure-boot 启用，则 tryboot 模式将导致加载 tryboot.img 而不是 boot.img 。
+如果 secure-boot 启用，则 tryboot 模式将导致加载 tryboot.img 而不是 boot.img。
 
 ### tryboot_a_b 模式
 
-如果 autoboot.txt 中的 tryboot_a_b 属性设置为 1 ，则加载的是 config.txt 而不是 tryboot.txt 。这是因为在更高级别（分区）已经进行了 tryboot 切换，因此在备用分区本身内部不需要具有 tryboot.txt 文件。
+如果 autoboot.txt 中的 tryboot_a_b 属性设置为 1，则加载的是 config.txt 而不是 tryboot.txt。这是因为在更高级别（分区）已经进行了 tryboot 切换，因此在备用分区本身内部不需要具有 tryboot.txt 文件。
 
-当从内置的 boot.img 镜像加载文件，tryboot_a_b 属性会被隐式设置为 1 。
+当从内置的 boot.img 镜像加载文件，tryboot_a_b 属性会被隐式设置为 1。
 
 ## 树莓派引导加载程序配置
 
@@ -1392,17 +1392,17 @@ $ sudo -E rpi-eeprom-config --edit
 
 如果 1 则 sudo halt 将在较低功耗模式下运行，直到 GPIO3 或 GLOBAL_EN 短接至地。
 
-在树莓派 5 上，此设置并不相关，因为专用电源按钮可以始终用于唤醒来自 HALT 或 STANDBY 。
+在树莓派 5 上，此设置并不相关，因为专用电源按钮可以始终用于唤醒来自 HALT 或 STANDBY。
 
  默认: 1
 
 #### `POWER_OFF_ON_HALT`
 
-如果 1 和 WAKE_ON_GPIO=0 ，那么 sudo halt 将关闭所有 PMIC 输出。这是 halt 的最低功耗状态，但可能会导致一些 HATs 出现问题，因为 5V 仍将处于开启状态。 GLOBAL_EN 必须短接地来启动。
+如果 1 和 WAKE_ON_GPIO=0，那么 sudo halt 将关闭所有 PMIC 输出。这是 halt 的最低功耗状态，但可能会导致一些 HATs 出现问题，因为 5V 仍将处于开启状态。GLOBAL_EN 必须短接地来启动。
 
 树莓派 400 有一个专用的电源按钮，即使处理器关闭也能工作。这个功能默认启用，但可设置 WAKE_ON_GPIO=2 来使用外部 GPIO 电源按钮，而不是专用电源按钮。
 
-在树莓派 5 上，这将把 PMIC 置于 STANDBY 模式，其中所有输出都被关闭。无需设置 WAKE_ON_GPIO ，按下专用电源按钮将启动设备。
+在树莓派 5 上，这将把 PMIC 置于 STANDBY 模式，其中所有输出都被关闭。无需设置 WAKE_ON_GPIO，按下专用电源按钮将启动设备。
 
  默认: 0
 
@@ -1416,16 +1416,16 @@ BOOT_ORDER 属性定义了不同引导模式的顺序。它是从右到左读取
 
 | 值 | 模式 | 说明                                                                                        |
 | ---- | ------ | ---------------------------------------------------------------------------------------------- |
-| `0x0`   | `SD CARD DETECT`     | 尝试 SD 卡，然后等待卡检测指示卡已更改。现在已弃用，因为 0xf ( RESTART ) 可用。              |
-| `0x1`   | `SD CARD`     | SD 卡 (或 Compute Module 4 上的 eMMC)。                                                      |
-| `0x2`   | `NETWORK`     | 网络引导-请参阅网络引导服务器教程。                                                          |
-| `0x3`   | `RPIBOOT`     | RPIBOOT-请参阅 usbboot。                                                                     |
-| `0x4`   | `USB-MSD`     | USB 大容量存储引导-请参阅 USB 大容量存储引导。                                               |
-| `0x5`   | `BCM-USB-MSD`     | 通过 USB-C 插口从 USB 2.0 启动（CM4：CM4IO 板上的 USB-A 插口）。在树莓派 5 上不可用。        |
-| `0x6`   | `NVME`     | 仅限于 CM4 和 Pi 5：从连接到 PCIe 接口的 NVMe SSD 启动。有关更多详细信息，请参阅 NVMe 启动。 |
-| `0x7`   | `HTTP`     | 通过以太网上的 HTTP 引导。有关更多详细信息，请参阅 HTTP 引导。                               |
-| `0xe`   | `STOP`     | 停止并显示错误模式。需要电源循环以退出此状态。                                               |
-| `0xf`   | `RESTART`     | 从 BOOT_ORDER 字段中的第一个引导模式重启，即循环。                                       |
+| `0x0`   | `SD CARD DETECT`     | 尝试 SD 卡，然后等待卡检测指示卡已更改。现在已弃用，因为 0xf ( RESTART ) 可用。    |
+| `0x1`   | `SD CARD`     | SD 卡 (或 Compute Module 4 上的 eMMC)。                                            |
+| `0x2`   | `NETWORK`     | 网络引导-请参阅网络引导服务器教程。                                                |
+| `0x3`   | `RPIBOOT`     | RPIBOOT-请参阅 usbboot。                                                           |
+| `0x4`   | `USB-MSD`     | USB 大容量存储引导-请参阅 USB 大容量存储引导。                                     |
+| `0x5`   | `BCM-USB-MSD`     | 通过 USB-C 插口从 USB 2.0 启动（CM4：CM4IO 板上的 USB-A 插口）。在树莓派 5 上不可用。  |
+| `0x6`   | `NVME`     | 仅限于 CM4 和 Pi 5：从连接到 PCIe 接口的 NVMe SSD 启动。有关更多详细信息，请参阅 NVMe 启动。|
+| `0x7`   | `HTTP`     | 通过以太网上的 HTTP 引导。有关更多详细信息，请参阅 HTTP 引导。                     |
+| `0xe`   | `STOP`     | 停止并显示错误模式。需要电源循环以退出此状态。                                     |
+| `0xf`   | `RESTART`     | 从 BOOT_ORDER 字段中的第一个引导模式重启，即循环。                             |
 
 RPIBOOT 与计算模块 4 同时使用，加载自定义调试镜像（例如，Linux RAM-disk）而不是正常的引导。这应该是最后的引导选项，因为它目前不支持超时或重试。
 
@@ -1548,7 +1548,7 @@ MAC_ADDRESS_OTP=0,1
 
 可以选择并以任何顺序组合任意两个客户行。
 
-Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，所以如果前两行被编程如下，则 MAC_ADDRESS_OTP=0,1 就会给出一个 MAC 地址为 e4:5f:01:20:24:7e 。
+Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，所以如果前两行被编程如下，则 MAC_ADDRESS_OTP=0,1 就会给出一个 MAC 地址为 e4:5f:01:20:24:7e。
 
 ```
 36:247e0000
@@ -1581,7 +1581,7 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 #### `DISABLE_HDMI`
 
-如果 DISABLE_HDMI=1 ，HDMI 启动诊断显示将被禁用。其他非零值保留供将来使用。
+如果 DISABLE_HDMI=1，HDMI 启动诊断显示将被禁用。其他非零值保留供将来使用。
 
  默认： 0
 
@@ -1599,7 +1599,7 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
  注：
 
-* 2021 年之前的引导加载程序版本不支持 self-update 。
+* 2021 年之前的引导加载程序版本不支持 self-update。
 * 2022 年之前，SD 启动中未启用自更新功能。在树莓派 4 上，ROM 已经可以从 SD 卡加载 recovery.bin。在 CM4 上，自更新和 recovery.bin 都不生效，需要使用 USB 启动（请参阅计算模块 EEPROM 引导程序文档）。
 * 从 2022 年开始（beta 和稳定版），可以启用 SD 卡的自更新功能。
 * 对于网络启动，请确保 TFTP boot 目录可以通过 NFS 挂载，并且 rpi-eeprom-update 可以写入其中。
@@ -1608,7 +1608,7 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 #### `FREEZE_VERSION`
 
-以前，此属性仅由 rpi-eeprom-update 脚本检查。但是，现在自更新已启用，引导加载程序还将检查此属性。如果设置为 1，则将覆盖 ENABLE_SELF_UPDATE 以停止自动更新。要禁用 FREEZE_VERSION ，你必须使用带有 recovery.bin 的 SD 卡引导。
+以前，此属性仅由 rpi-eeprom-update 脚本检查。但是，现在自更新已启用，引导加载程序还将检查此属性。如果设置为 1，则将覆盖 ENABLE_SELF_UPDATE 以停止自动更新。要禁用 FREEZE_VERSION，你必须使用带有 recovery.bin 的 SD 卡引导。
 
 自定义 EEPROM 更新脚本也必须检查此标志。
 
@@ -1616,9 +1616,9 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 #### `HTTP_HOST`
 
-如果启动网络安装或 HTTP 引导，则会从此服务器下载 boot.img 和 boot.sig 。
+如果启动网络安装或 HTTP 引导，则会从此服务器下载 boot.img 和 boot.sig。
 
-无效的主机名将被忽略。它们应仅包含小写字母数字字符和 - 或 . 。如果设置了 HTTP_HOST ，则将禁用 HTTPS 并改用普通的 HTTP。你可以指定 IP 地址以避免 DNS 查找的需要。在主机名中不要包含 HTTP 方案及正斜杠。
+无效的主机名将被忽略。它们应仅包含小写字母数字字符和 - 或 .。如果设置了 HTTP_HOST，则将禁用 HTTPS 并改用普通的 HTTP。你可以指定 IP 地址以避免 DNS 查找的需要。在主机名中不要包含 HTTP 方案及正斜杠。
 
  默认: fw-download-alias1.raspberrypi.com
 
@@ -1626,7 +1626,7 @@ Customer OTP 行是 OTP 寄存器 36 到 43，在 vcgencmd otp_dump 输出中，
 
 你可以使用此属性更改用于网络安装和 HTTP 引导的 port . 使用默认主机 fw-download-alias1.raspberrypi.com 时启用 HTTPS . 如果修改了 HTTP_HOST，则会禁用 HTTPS 并改用普通 HTTP .
 
-当禁用 HTTPS 时，即使 HTTP_PORT 被更改为 443 ，仍将使用普通 HTTP .
+当禁用 HTTPS 时，即使 HTTP_PORT 被更改为 443，仍将使用普通 HTTP .
 
 Default: `443` if HTTPS is enabled otherwise `80` 重试  错误原因
 
@@ -1636,7 +1636,7 @@ The path used for network install and HTTP boot. 重试  错误原因
 
 Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and trailing forward slashes are not required. 重试  错误原因
 
-如果未设置 HTTP_HOST ，将忽略 HTTP_PATH ，并且 URL 将为 https://fw-download-alias1.raspberrypi.com:443/net_install/boot.img 。如果设置了 HTTP_HOST ，URL 将为 http://<HTTP_HOST>:<HTTP_PORT>/<HTTP_PATH>/boot.img
+如果未设置 HTTP_HOST，将忽略 HTTP_PATH，并且 URL 将为 https://fw-download-alias1.raspberrypi.com:443/net_install/boot.img。如果设置了 HTTP_HOST，URL 将为 http://<HTTP_HOST>:<HTTP_PORT>/<HTTP_PATH>/boot.img
 
  默认： net_install
 
@@ -1652,13 +1652,13 @@ Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and 
 
 当启用网络安装时，如果检测到了键盘，引导加载程序会在启动时显示网络安装界面。
 
-为了启用网络安装，请添加 NET_INSTALL_ENABLED=1 ，或者为了禁用网络安装，请添加 NET_INSTALL_ENABLED=0 。
+为了启用网络安装，请添加 NET_INSTALL_ENABLED=1，或者为了禁用网络安装，请添加 NET_INSTALL_ENABLED=0。
 
-如果设置 DISABLE_HDMI=1 ，则此设置将被忽略，网络安装将被禁用。
+如果设置 DISABLE_HDMI=1，则此设置将被忽略，网络安装将被禁用。
 
 为了检测键盘，网络安装必须初始化 USB 控制器并枚举设备。这会增加约 1 秒的启动时间，因此在某些嵌入式应用中禁用网络安装可能更为有利。
 
-在树莓派 4 和树莓派 400 上默认为 1 ，在计算模块 4 上为 0 。
+在树莓派 4 和树莓派 400 上默认为 1，在计算模块 4 上为 0。
 
 #### `NET_INSTALL_KEYBOARD_WAIT`
 
@@ -1666,7 +1666,7 @@ Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and 
 
 将此设置为 0 将禁用对键盘的等待，尽管如果找不到引导文件且 USB 引导模式为 4 且处于 BOOT_ORDER 中，则仍可以启动网络安装。
 
-| NOTE | 测试表明检测键盘和 SHIFT 至少需要 750 毫秒。 |
+| NOTE | 测试表明检测键盘和 SHIFT 至少需要 750 毫秒。|
 | ------ | ------------------------------------ |
 
  默认: 900
@@ -1675,7 +1675,7 @@ Case-sensitive. Use forward (Linux) slashes for the path separator. Leading and 
 
 NETCONSOLE 复制调试消息到网络接口。IP 地址和接口由 NETCONSOLE 字符串定义。
 
-| NOTE | NETCONSOLE 阻塞，直到以太网连接建立或超时发生。超时值为 DHCP_TIMEOUT ，尽管除非请求网络引导，否则不会尝试 DHCP。 |
+| NOTE | NETCONSOLE 阻塞，直到以太网连接建立或超时发生。超时值为 DHCP_TIMEOUT，尽管除非请求网络引导，否则不会尝试 DHCP。|
 | ------ | ------------------------------------------------------------------------------------------------------------------ |
 
 ##### 格式
@@ -1697,7 +1697,7 @@ E.g. 6665@169.254.1.1/,6666@/
 
 通过将测试树莓派 4 连接到运行 WireShark 的另一个树莓派，并选择“udp.srcport == 6665”作为过滤器，然后选择 分析 → 跟随 → UDP 数据流 以 ASCII 日志形式查看数据的一种方式。
 
-默认情况下不应启用 NETCONSOLE ，因为这可能会导致网络问题。可以通过 GPIO 过滤器按需启用。
+默认情况下不应启用 NETCONSOLE，因为这可能会导致网络问题。可以通过 GPIO 过滤器按需启用。
 
 ```
 # Enable debug if GPIO 7 is pulled low
@@ -1711,7 +1711,7 @@ NETCONSOLE=6665@169.254.1.1/,6666@/
 
 #### `PARTITION`
 
-如果未显式地由 reboot 命令 (例如 sudo reboot N ) 或 boot_partition=N 在 autoboot.txt 中设置，则可以使用 PARTITION 选项来指定引导分区号。 用户可以按下按钮来从救援分区启动。
+如果未显式地由 reboot 命令 (例如 sudo reboot N ) 或 boot_partition=N 在 autoboot.txt 中设置，则可以使用 PARTITION 选项来指定引导分区号。用户可以按下按钮来从救援分区启动。
 
 ```
 # Boot from partition 2 if GPIO 7 is pulled low
@@ -1783,7 +1783,7 @@ PARTITION=2
 
 仅适用于计算模块 4。
 
-如果 VL805 属性设置为 1 ，则引导加载程序将搜索 VL805 PCIe XHCI 控制器，并尝试使用嵌入在引导加载程序 EEPROM 中的 VL805 固件进行初始化。这使得工业设计可以使用 VL805 XHCI 控制器而无需提供专用的 SPI EEPROM 来存储 VL805 固件。
+如果 VL805 属性设置为 1，则引导加载程序将搜索 VL805 PCIe XHCI 控制器，并尝试使用嵌入在引导加载程序 EEPROM 中的 VL805 固件进行初始化。这使得工业设计可以使用 VL805 XHCI 控制器而无需提供专用的 SPI EEPROM 来存储 VL805 固件。
 
 * 在计算模块 4 上，引导加载程序永远不会写入专用的 VL805 SPI EEPROM。此选项仅配置控制器从 SDRAM 加载固件。
 * 如果 VL805 XHCI 控制器有专用的 EEPROM，请勿使用此选项。它将无法初始化，因为 VL805 ROM 将尝试使用专用的 SPI EEPROM（如果已安装）。
@@ -1793,7 +1793,7 @@ PARTITION=2
 
 #### `XHCI_DEBUG`
 
-此属性是一个位字段，用于控制 USB 调试消息在大容量存储引导模式下的冗长程度。启用所有这些消息会生成大量日志数据，会降低启动速度，甚至可能导致启动失败。对于详细日志，最好使用 NETCONSOLE 。
+此属性是一个位字段，用于控制 USB 调试消息在大容量存储引导模式下的冗长程度。启用所有这些消息会生成大量日志数据，会降低启动速度，甚至可能导致启动失败。对于详细日志，最好使用 NETCONSOLE。
 
 | 值 | 日志                        |
 | ---- | ----------------------------- |
@@ -1818,10 +1818,10 @@ XHCI_DEBUG=0x3
 
 在读取 config.txt GPU 固件 start4.elf 后，读取引导加载程序 EEPROM 配置并检查是否存在名为 [config.txt] 的部分。如果 [config.txt] 部分存在，则将从此部分开头到文件末尾的内容附加到内存中，以便与从引导分区读取的 config.txt 文件的内容组合。这可用于自动应用设置到每个操作系统，例如 dtoverlays。
 
-| WARNING | 如果你配置引导加载程序时出现无法引导的无效配置，则必须重新刷新引导加载程序 EEPROM 为有效配置以引导。 |
+| WARNING | 如果你配置引导加载程序时出现无法引导的无效配置，则必须重新刷新引导加载程序 EEPROM 为有效配置以引导。|
 | --------- | ------------------------------------------------------------------------------------------------------ |
 
-| TIP | 一些配置属性存储在 config.txt 中。有关这些属性的更多信息，请参阅配置属性。 |
+| TIP | 一些配置属性存储在 config.txt 中。有关这些属性的更多信息，请参阅配置属性。|
 | ----- | ---------------------------------------------------------------------------- |
 
 ## 显示并行接口 (DPI)
@@ -1913,16 +1913,16 @@ display_auto_detect=1
 
 #### 手动配置显示器
 
-| NOTE | 在树莓派 OS Bookworm 或更高版本中，先前用于设置 DPI 的 dpi_output_format 和 dpi_timings 条目已被 vc4-kms-dpi-generic 叠加层取代。 |
+| NOTE | 在树莓派 OS Bookworm 或更高版本中，先前用于设置 DPI 的 dpi_output_format 和 dpi_timings 条目已被 vc4-kms-dpi-generic 叠加层取代。|
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 
-要使用除树莓派官方显示屏之外的其他显示屏，必须在配置文件中指定 dtoverlay 条目。面板制造商应在 Linux 内核代码中配置你的显示屏的定时，并提供一个叠加层来启用这些设置。 请参阅 Adafruit Kippah 显示屏条目以获取示例。 以下示例演示如何在你的 txt 文件中为 Kippah 显示屏设置一个 dtoverlay 条目：
+要使用除树莓派官方显示屏之外的其他显示屏，必须在配置文件中指定 dtoverlay 条目。面板制造商应在 Linux 内核代码中配置你的显示屏的定时，并提供一个叠加层来启用这些设置。请参阅 Adafruit Kippah 显示屏条目以获取示例。以下示例演示如何在你的 txt 文件中为 Kippah 显示屏设置一个 dtoverlay 条目：
 
 ```
 dtoverlay=vc4-kms-kippah-7inch-overlay
 ```
 
-显示定时通常在内核中定义，但你也可以在提供的 BSD 驱动程序中定义它们。 如果你的面板在内核代码中缺乏定义的叠加层，则可以使用 BSD 驱动程序将显示定时定义为参数。 这使你能够为任何显示屏手动配置设备树条目。
+显示定时通常在内核中定义，但你也可以在提供的 BSD 驱动程序中定义它们。如果你的面板在内核代码中缺乏定义的叠加层，则可以使用 BSD 驱动程序将显示定时定义为参数。这使你能够为任何显示屏手动配置设备树条目。
 
 以下示例演示如何使用设备树参数定义定时：
 
@@ -1933,7 +1933,7 @@ dtparam=vactive=640,vfp=25,vsync=10,vbp=16
 dtparam=clock-frequency=32000000,rgb666-padhi
 ```
 
-| NOTE | 设备树行长度不得超过 80 个字符。当设置需要超过 80 个字符的行时，请将该参数的赋值拆分为多行。 |
+| NOTE | 设备树行长度不得超过 80 个字符。当设置需要超过 80 个字符的行时，请将该参数的赋值拆分为多行。|
 | ------ | ---------------------------------------------------------------------------------------------- |
 
 参数显示树定义支持以下参数:
@@ -1965,7 +1965,7 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 
 你可以在所有当前的 树莓派 主板上找到一个 40 针 GPIO（通用输入/输出）排针。主板上所有的 GPIO 排针间距均为 0.1 英寸（2.54 mm）。
 
-| NOTE | 零和 Pico 设备上没有带有“H”后缀的排针。 |
+| NOTE | 零和 Pico 设备上没有带有“H”后缀的排针。|
 | ------ | ------------------------------------------- |
 
 ![GPIO pinout diagram](https://www.raspberrypi.com/documentation/computers/images/GPIO-Pinout-Diagram-2.png?hash=df7d7847c57a1ca6d5b2617695de6d46)
@@ -1974,7 +1974,7 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 
 ![GPIO layout](https://www.raspberrypi.com/documentation/computers/images/GPIO.png?hash=335edaa0c254546813319d80556f842f)
 
-| NOTE | GPIO 引脚编号方案不按数字顺序排列。GPIO 引脚 0 和 1 位于板上（物理引脚 27 和 28），但保留供高级使用。 |
+| NOTE | GPIO 引脚编号方案不按数字顺序排列。GPIO 引脚 0 和 1 位于板上（物理引脚 27 和 28），但保留供高级使用。|
 | ------ | ------------------------------------------------------------------------------------------------------- |
 
 ### 输出
@@ -1989,7 +1989,7 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 
 可以通过打开终端窗口并运行命令 pinout 在树莓派上访问 GPIO 参考。此工具由 GPIO Zero Python 库提供，在树莓派 OS 中预装。
 
-| WARNING | 尽管把简单的组件连接到 GPIO 引脚是安全的，但要小心线路的连接方式。应该用电阻限制通过 LED 的电流。不要给 3.3V 的组件用 5V。不要把电机直接连接到 GPIO 引脚，应该使用 H 桥电路、电机控制板。 |
+| WARNING | 尽管把简单的组件连接到 GPIO 引脚是安全的，但要小心线路的连接方式。应该用电阻限制通过 LED 的电流。不要给 3.3V 的组件用 5V。不要把电机直接连接到 GPIO 引脚，应该使用 H 桥电路、电机控制板。|
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### 权限
@@ -2089,7 +2089,7 @@ GPIO 驱动强度并不表示最大电流，仅表示在此电流下 pad 仍将�
 
 在 pad 内部有多个并联驱动器。如果将驱动强度设置为低（ 0b000 ），则大多数驱动器将处于三态状态，因此不会对输出电流产生影响。如果增加驱动强度，则会并联更多驱动器。图表显示了该行为。
 
-| WARNING | 对于 树莓派 4、树莓派 400 和 Compute Module 4，当前级别是图表中显示数值的一半。 |
+| WARNING | 对于 树莓派 4、树莓派 400 和 Compute Module 4，当前级别是图表中显示数值的一半。|
 | --------- | --------------------------------------------------------------------------------------------- |
 
 ![GPIO drive strength diagram](https://www.raspberrypi.com/documentation/computers/images/pi_gpio_drive_strength_diagram.png?hash=466ec669893a20d65c4f54da5aea9e3f)
@@ -2120,7 +2120,7 @@ V~OL~=0.14V 意味着如果输出为低电平，则电压将 <= 0.14V。V~OH~=3.
 
 GPIO 引脚的物理特性有更多信息。
 
-| NOTE | 在计算模块设备上，可以将 VDD IO 从标准的 3.3V 更改。在这种情况下，V~OL~ 和 V~OH~ 将根据 GPIO 部分的表格进行更改。 |
+| NOTE | 在计算模块设备上，可以将 VDD IO 从标准的 3.3V 更改。在这种情况下，V~OL~ 和 V~OH~ 将根据 GPIO 部分的表格进行更改。|
 | ------ | ----------------------------------------------------------------------------------------------------------------- |
 
 树莓派 的 3.3V 电源为每个 GPIO 引脚的设计最大电流是 ~3mA。如果你将每个引脚的负载设定为 16mA，则总电流为 272mA。在此负载水平下，3.3V 电源将崩溃。会引发大电流脉冲，特别是如果有电容负载。脉冲将在附近的其他引脚之间反弹。这可能会造成对 SD 卡乃至内存行为的干扰。
@@ -2184,7 +2184,7 @@ $ vcgencmd otp_dump
 
 此外，从 36 到 43（包括 36 和 43），有八行 32 位供客户使用。
 
-| NOTE | 在 BCM2712 设备上，这些数字是不同的。第 31 行是序列号，第 32 行是板子修订号码。客户行是 77 到 84（包括 77 和 84）。 |
+| NOTE | 在 BCM2712 设备上，这些数字是不同的。第 31 行是序列号，第 32 行是板子修订号码。客户行是 77 到 84（包括 77 和 84）。|
 | ------ | --------------------------------------------------------------------------------------------------------------------- |
 
 一些这些行可以使用 vcmailbox 进行编程。这是一个 Linux 驱动程序界面，用于处理行的编程。要执行此操作，请参考文档和 vcmailbox 示例应用程序。
@@ -2201,11 +2201,11 @@ $ vcmailbox 0x00010004 8 8 0 0
 0x00000020 0x80000000 0x00010004 0x00000008 0x800000008 0xnnnnnnnn 0x00000000 0x00000000
 ```
 
-以上使用邮箱属性接口 GET_BOARD_SERIAL ，请求大小为 8 字节，响应大小为 8 字节（发送两个整数作为请求 0,0）。对此的响应将是两个整数（0x00000020 和 0x80000000），后跟标签代码、请求长度、响应长度（第 31 位设为 1 表示它是响应），然后是 64 位序列号（其中最高 32 位始终为 0）。
+以上使用邮箱属性接口 GET_BOARD_SERIAL，请求大小为 8 字节，响应大小为 8 字节（发送两个整数作为请求 0,0）。对此的响应将是两个整数（0x00000020 和 0x80000000），后跟标签代码、请求长度、响应长度（第 31 位设为 1 表示它是响应），然后是 64 位序列号（其中最高 32 位始终为 0）。
 
 ### 编写和读取客户 OTP 值
 
-| WARNING | OTP 值是一次性可编程的。一旦将位从 0 更改为 1，则无法改回。 |
+| WARNING | OTP 值是一次性可编程的。一旦将位从 0 更改为 1，则无法改回。|
 | --------- | ------------------------------------------------------------- |
 
 要设置定制 OTP 值，你需要使用 SET_CUSTOMER_OTP (0x38021) 标签如下：
@@ -2276,7 +2276,7 @@ $ vcmailbox 0x00038021 8 8 0xffffffff 0xaffebabe
 
 在 BCM2712 设备上，以太网、Wi-Fi 和蓝牙 MAC 地址在 OTP 存储器中设置。这些值可以随客户值而改变。
 
-获取客户端的 MAC 地址 vcmailbox 0x00030082/3/4 6 6 0 0 ，其中 2 是以太网，3 是 Wi-Fi，4 是蓝牙：
+获取客户端的 MAC 地址 vcmailbox 0x00030082/3/4 6 6 0 0，其中 2 是以太网，3 是 Wi-Fi，4 是蓝牙：
 
 ```
 $ vcmailbox 0x00030083 6 6 0 0
@@ -2304,7 +2304,7 @@ $ sudo vclog -m
 $ vcmailbox 0x00038082 6 6 0x44332211 0x6655
 ```
 
-如果客户 MAC 地址设置为 ff:ff:ff:ff:ff:ff ，则将被忽略。
+如果客户 MAC 地址设置为 ff:ff:ff:ff:ff:ff，则将被忽略。
 
 ### 设备特定的私钥
 
@@ -2312,7 +2312,7 @@ $ vcmailbox 0x00038082 6 6 0x44332211 0x6655
 
 可以使用类似于管理客户 OTP 行所使用的相似 vcmailbox 命令来编程和读取这些行。如果不需要安全引导 / 文件系统加密，则可以使用设备私钥行来存储通用信息。
 
-* 设备专用密钥行只能通过 vcmailbox 命令读取，该命令需要访问 /dev/vcio ，该访问权限仅限于 树莓派 OS 上的 video 组。
+* 设备专用密钥行只能通过 vcmailbox 命令读取，该命令需要访问 /dev/vcio，该访问权限仅限于 树莓派 OS 上的 video 组。
 * 树莓派计算机没有硬件保护密钥存储。建议将此功能与安全启动结合使用，以限制对这些数据的访问。
 * 树莓派 OS 不支持加密根文件系统。
 
@@ -2322,7 +2322,7 @@ $ vcmailbox 0x00038082 6 6 0x44332211 0x6655
 
 rpi-otp-private-key 脚本包装设备私钥 vcmailbox API，使得更容易以 OpenSSL 格式读取和写入密钥。
 
-| NOTE | usbboot 库包含你需要的所有工具，包括 rpi-eeprom 作为 Git 子模块。 |
+| NOTE | usbboot 库包含你需要的所有工具，包括 rpi-eeprom 作为 Git 子模块。|
 | ------ | ------------------------------------------------------------------- |
 
 把这个 32 字节的密钥读取为 64 个字符的十六进制数：
@@ -2340,14 +2340,14 @@ f8dbc7b0a4fcfb1d706e298ac9d0485c2226ce8df7f7596ac77337bd09fbe160
 
 将 32 字节的随机生成数字写入设备私钥。
 
-| WARNING | 此操作无法撤销。 |
+| WARNING | 此操作无法撤销。|
 | --------- | ------------------ |
 
 ```
 $ rpi-otp-private-key -w $(openssl rand -hex 32)
 ```
 
-| NOTE | 要指定要使用的 OTP 行数，请传递 -l <word count> 。要指定密钥存储中的起始位置，请传递 -o <word offset> 。 |
+| NOTE | 要指定要使用的 OTP 行数，请传递 -l <word count>。要指定密钥存储中的起始位置，请传递 -o <word offset>。|
 | ------ | ---------------------------------------------------------------------------------------------------------- |
 
 #### 读取/写入密钥的邮箱 API
@@ -2409,14 +2409,14 @@ $ vcgencmd otp_dump
 * 位 28：启用 USB 设备引导
 * 位 29：启用 USB 主机引导（以太网和大容量存储）
 
-| NOTE | 在 BCM2711 上，引导模式由引导加载程序 EEPROM 配置而不是 OTP 定义。 |
+| NOTE | 在 BCM2711 上，引导模式由引导加载程序 EEPROM 配置而不是 OTP 定义。|
 | ------ | -------------------------------------------------------------------- |
 
 18 启动模式寄存器的副本
   28 序列号
   29 ~(序列号)
 30 修订代码 ^1^
-33 电路板修订扩展 - 意义取决于电路板型号。 这通过设备树在 /proc/device-tree/chosen/rpi-boardrev-ext 中提供，并且可以通过在 config.txt 中设置 board_rev_ext 来临时覆盖测试目的中的 OTP 值。
+33 电路板修订扩展 - 意义取决于电路板型号。这通过设备树在 /proc/device-tree/chosen/rpi-boardrev-ext 中提供，并且可以通过在 config.txt 中设置 board_rev_ext 来临时覆盖测试目的中的 OTP 值。
 
 * 计算模块 4
   * 位 30：计算模块是否安装了 Wi-Fi 模块
@@ -2512,7 +2512,7 @@ $ vcgencmd otp_dump
 
 有关 PCIe FPC 连接器引脚分配和创建第三方设备、配件和 HAT 所需的其他详细信息，请参阅树莓派 PCIe 标准文档。建议同时阅读树莓派 HAT+ 规格说明。
 
-| NOTE | 目前不支持枚举位于在交换机后的 PCIe 设备。 |
+| NOTE | 目前不支持枚举位于在交换机后的 PCIe 设备。|
 | ------ | ------------------------------------------------ |
 
 ### 启用 PCIe
@@ -2525,12 +2525,12 @@ dtparam=pciex1
 
 使用 sudo reboot 重启以使配置更改生效。
 
-| NOTE | 你还可以使用别名 nvme 。 |
+| NOTE | 你还可以使用别名 nvme。|
 | ------ | -------------------------- |
 
 ### 从 PCIe 启动
 
-默认情况下，树莓派设备不会从 PCIe 存储启动。要启用从 PCIe 启动，请更改引导加载程序配置中的 BOOT_ORDER 。使用以下命令编辑 EEPROM 配置：
+默认情况下，树莓派设备不会从 PCIe 存储启动。要启用从 PCIe 启动，请更改引导加载程序配置中的 BOOT_ORDER。使用以下命令编辑 EEPROM 配置：
 
 ```
 $ sudo rpi-eeprom-config --edit
@@ -2552,7 +2552,7 @@ PCIE_PROBE=1
 
 ### PCIe 3.0
 
-| WARNING | 树莓派 5 未获 3.0 速度认证。 PCIe 3.0 连接可能不稳定。 |
+| WARNING | 树莓派 5 未获 3.0 速度认证。PCIe 3.0 连接可能不稳定。|
 | --------- | ------------------------------------------------------------- |
 
 #### 通过 config.txt
@@ -2575,8 +2575,8 @@ $ sudo raspi-config
 
 完成以下步骤以启用 PCIe Gen 3.0 速度：
 
-1. 选择 Advanced Options 。
-2. 选择 PCIe Speed 。
+1. 选择 Advanced Options。
+2. 选择 PCIe Speed。
 3. 选择 Yes 以启用 PCIe Gen 3 模式。
 4. 选择 Finish 以退出。
 
@@ -2584,23 +2584,23 @@ $ sudo raspi-config
 
 ## 电源按钮
 
-| NOTE | 本小节仅适用于带有电源按钮的 树莓派 型号，如 树莓派 5。 |
+| NOTE | 本小节仅适用于带有电源按钮的 树莓派 型号，如 树莓派 5。|
 | ------ | ------------------------------------------------------------------- |
 
 当你首次将树莓派插入电源时，不用按按钮，它可以自动引导并启动到操作系统。
 
-如果你运行着桌面版树莓派，你可以通过短按电源按钮来执行彻底的关机。 一个窗口将出现询问你是否要关机、重启或注销。
+如果你运行着桌面版树莓派，你可以通过短按电源按钮来执行彻底的关机。一个窗口将出现询问你是否要关机、重启或注销。
 
 可选择菜单选项或者再次按下电源按钮以直接执行彻底关机。
 
-| NOTE | 如果你运行着桌面版树莓派，则可以通过连续快速地按两下电源按钮来关闭计算机。如果你运行着无桌面界面的树莓派操作系统精简版，则按一下电源按钮即可触发关机流程。 |
+| NOTE | 如果你运行着桌面版树莓派，则可以通过连续快速地按两下电源按钮来关闭计算机。如果你运行着无桌面界面的树莓派操作系统精简版，则按一下电源按钮即可触发关机流程。|
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### 重启
 
 如果树莓派主板已关闭但仍接入电源，按下电源按钮可重启。
 
-| NOTE | 重置电源管理集成电路（PMIC）也可以重启。连接 HAT 会重置 PMIC。在连接 HAT 之前，应始终断开设备与电源的连接。 |
+| NOTE | 重置电源管理集成电路（PMIC）也可以重启。连接 HAT 会重置 PMIC。在连接 HAT 之前，应始终断开设备与电源的连接。|
 | ------ | --------------------------------------------------------------------------------------------------------------------- |
 
 ### 硬关机
@@ -2625,10 +2625,10 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 
 对于 树莓派 1、树莓派 2 和 树莓派 3，我们推荐使用 2.5A micro USB 适配器。对于 树莓派 4 和 树莓派 400，我们推荐使用 3A USB-C 适配器。对于 树莓派 5，我们推荐使用 27W USB-C 电源适配器。
 
-| NOTE | 所有 树莓派 型号都不支持 USB-PPS。 |
+| NOTE | 所有 树莓派 型号都不支持 USB-PPS。|
 | ------ | -------------------------------------- |
 
-| NOTE | 如果你使用第三方多接口的 USB-PD 电源适配器，在连接树莓派时，再插入其他设备会导致电源适配器与树莓派之间的重新协商。如果树莓派已开机，可无缝进行。但如果树莓派已关机，该协商可能造成树莓派重启。 |
+| NOTE | 如果你使用第三方多接口的 USB-PD 电源适配器，在连接树莓派时，再插入其他设备会导致电源适配器与树莓派之间的重新协商。如果树莓派已开机，可无缝进行。但如果树莓派已关机，该协商可能造成树莓派重启。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ### 以太网供电（PoE）连接器
@@ -2653,16 +2653,16 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 | 树莓派 1 型 B+     | 1.8A                | 1.2A                                           | 330mA             |
 | 树莓派 2 型 B      | 1.8A                | 1.2A                                           | 350mA             |
 | 树莓派 3 型号 B    | 2.5A                | 1.2A                                           | 400mA             |
-| 树莓派 3 型号 A+   | 2.5A                | 仅受电源、主板和连接器评级限制。               | 350mA             |
+| 树莓派 3 型号 A+   | 2.5A                | 仅受电源、主板和连接器评级限制。     | 350mA             |
 | 树莓派 3B+     | 2.5A                | 1.2A                                           | 500mA             |
 | 树莓派 4 型号 B    | 3.0A                | 1.2A                                           | 600mA             |
 | 树莓派 5           | 5.0A                | 1.6A（如果使用 3A 电源则为 600mA） | 800mA           |
 | 树莓派 400         | 3.0A                | 1.2A                                           | 800mA             |
 | 树莓派 Zero        | 1.2A                | 仅受电源、板卡和连接器评级限制                 | 100mA             |
-| 树莓派 Zero W      | 1.2A                | 受电源、主板和连接器额定值的限制。             | 150mA             |
-| 树莓派 Zero 2 W    | 2A                  | 仅受电源、主板和连接器额定值限制。             | 350mA                |
+| 树莓派 Zero W      | 1.2A                | 受电源、主板和连接器额定值的限制。   | 150mA             |
+| 树莓派 Zero 2 W    | 2A                  | 仅受电源、主板和连接器额定值限制。   | 350mA                |
 
-| NOTE | 当连接到 5A，+5V（25W）的电源能力的适配器时，树莓派 5 为下游 USB 外设提供 1.6A 的电源。当连接到任何其他兼容的电源时，树莓派 5 将限制下游 USB 设备的电源为 600mA。 |
+| NOTE | 当连接到 5A，+5V（25W）的电源能力的适配器时，树莓派 5 为下游 USB 外设提供 1.6A 的电源。当连接到任何其他兼容的电源时，树莓派 5 将限制下游 USB 设备的电源为 600mA。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 大多数 树莓派 能提供足够的电流给 USB 外设，可供应大多数 USB 设备，包括键盘、鼠标和适配器。然而，某些设备需要额外的电流，比如调制解调器、外部磁盘和大功率天线。如果要连接某 USB 设备，但是其电力需求超过了上表中指定的数值，请使用带外部供电的 USB 集线器。
@@ -2688,7 +2688,7 @@ $ vcgencmd get_config usb_max_current_enable
 |                   | 平均 | 0.32       | 0.75      | 0.85      | 0.23        | 1.2       |
 | 停止当前          |      |            |           | 0.10      | 0.055       | 0.023     |
 
-| NOTE | 这些测量基于标准的 树莓派 OS 镜像（截至 2016 年 2 月 26 日或 2019 年 6 月对于 树莓派 4），室温，树莓派 连接到了 HDMI 显示器、USB 键盘和 USB 鼠标。树莓派 3 A 连接到了无线局域网接入点，树莓派 4 连接到了以太网。所有这些功耗测量均为近似值，并未考虑来自额外 USB 设备的功耗；如果连接了多个额外 USB 设备或 HAT，功耗很容易超过这些测量值。 |
+| NOTE | 这些测量基于标准的 树莓派 OS 镜像（截至 2016 年 2 月 26 日或 2019 年 6 月对于 树莓派 4），室温，树莓派 连接到了 HDMI 显示器、USB 键盘和 USB 鼠标。树莓派 3 A 连接到了无线局域网接入点，树莓派 4 连接到了以太网。所有这些功耗测量均为近似值，并未考虑来自额外 USB 设备的功耗；如果连接了多个额外 USB 设备或 HAT，功耗很容易超过这些测量值。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ##### [树莓派 4 和 Compute Module 4 上的额外 PMIC 功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
@@ -2699,7 +2699,7 @@ $ vcgencmd get_config usb_max_current_enable
 
 #### 降低树莓派 5 关机后的功率
 
-默认情况下，树莓派 5 关闭后仍会消耗电力，约 1 瓦至 1.4 瓦。可以减少这种功率消耗：手动编辑 EEPROM 配置来，使用 sudo rpi-eeprom-config -e 。将设置更改为以下内容：
+默认情况下，树莓派 5 关闭后仍会消耗电力，约 1 瓦至 1.4 瓦。可以减少这种功率消耗：手动编辑 EEPROM 配置来，使用 sudo rpi-eeprom-config -e。将设置更改为以下内容：
 
 ```
 BOOT_UART=1
@@ -2739,13 +2739,13 @@ PDO 转储 - 高级用户的调试
 
 重置事件 PMIC 重置原因，例如看门狗、过压或欠压、过温
 
-PMIC 具有内置的 ADC，可以测量供电电压 EXT5V_V 等等。 使用以下命令查看 ADC 测量值：
+PMIC 具有内置的 ADC，可以测量供电电压 EXT5V_V 等等。使用以下命令查看 ADC 测量值：
 
 ```
 $ vcgencmd pmic_read_adc
 ```
 
-你无法看到 USB 电流或其他直接连接到 5V 的设备，因为这将绕过 PMIC。 你不应该期望这些值加起来等于电源供应的W数。 但是，监视核心电压等事项可能很有用。
+你无法看到 USB 电流或其他直接连接到 5V 的设备，因为这将绕过 PMIC。你不应该期望这些值加起来等于电源供应的W数。但是，监视核心电压等事项可能很有用。
 
 ### 反向供电
 
@@ -2783,13 +2783,13 @@ $ sudo halt
 
 将会使板进入极低功耗状态，然后在 10 分钟后唤醒并重启。
 
-RTC 还提供了启动时的时间，例如 dmesg ，适用于缺乏 NTP 访问权限的用例：
+RTC 还提供了启动时的时间，例如 dmesg，适用于缺乏 NTP 访问权限的用例：
 
 ```
 [    1.295799] rpi-rtc soc:rpi_rtc: setting system clock to 2023-08-16T15:58:50 UTC (1692201530)
 ```
 
-| NOTE | 即使没有备用电池连接到 J5 连接器，RTC 仍然可用。 |
+| NOTE | 即使没有备用电池连接到 J5 连接器，RTC 仍然可用。|
 | ------ | -------------------------------------------------- |
 
 ### 添加备用电池
@@ -2800,10 +2800,10 @@ RTC 还提供了启动时的时间，例如 dmesg ，适用于缺乏 NTP 访问�
 
 官方电池部件是一枚可充电的锂锰硬币电池，配有预装的两针 JST-SH 插头和粘性安装垫。适用于在主板的主电源断开时为 RTC 供电。由于关机时的电流吸收为个位数µA，可保持时间为几个月。
 
-| NOTE | 不建议把大部分（非可充电）锂电池用作 RTC 的备用电源。RTC 的备用电流消耗要高于大多数专用 RTC 模块，使用寿命将非常短暂。 |
+| NOTE | 不建议把大部分（非可充电）锂电池用作 RTC 的备用电源。RTC 的备用电流消耗要高于大多数专用 RTC 模块，使用寿命将非常短暂。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------ |
 
-| WARNING | 不要使用锂离子电池作为 RTC 的电源。 |
+| WARNING | 不要使用锂离子电池作为 RTC 的电源。|
 | --------- | ------------------------------------- |
 
 ### 启用电池充电
@@ -2840,7 +2840,7 @@ dtparam=rtc_bbat_vchg=3000000
 
 * U 盘，在所有 树莓派 的引脚上都有两个硬件芯片选择信号；还有一种仅适用于 Compute 模块的备用映射。
 * U 盘，在除早期 树莓派 1 A 和 A 之外的所有 树莓派 型号上都有三个硬件芯片选择信号。
-* SPI2 ，也具有三个硬件芯片选择器，仅在计算模块 1、3 和 3+ 上可用。
+* SPI2，也具有三个硬件芯片选择器，仅在计算模块 1、3 和 3+ 上可用。
 
 在 树莓派 4、400 和 Compute Module 4 上，还有四个额外的 SPI 总线：SPI3 到 SPI6，每个总线都有两个硬件芯片选择器。这些额外的 SPI 总线可通过某些 GPIO 引脚的替代功能分配来使用。有关更多信息，请参阅 BCM2711 Arm 外围设备数据表。
 
@@ -2956,7 +2956,7 @@ MOMI 主在主出
 
 LoSSI 标准允许向外围设备（LCD）发出命令并在它们之间传输数据。LoSSI 命令和参数均为 8 位长，但额外的一位用于指示字节是命令还是参数/数据。数据时此额外位设置为高位，命令时设置为低位。最终的 9 位值被串行化输出。LoSSI 常与 MIPI DBI 类型 C 兼容的 LCD 控制器一起使用。
 
-| NOTE | 某些命令会触发 SPI 控制器自动读取，因此该模式不能用作多功能的 9 位 SPI。 |
+| NOTE | 某些命令会触发 SPI 控制器自动读取，因此该模式不能用作多功能的 9 位 SPI。|
 | ------ | -------------------------------------------------------------------------- |
 
 #### 传输模式
@@ -2988,7 +2988,7 @@ SCLK 核心时钟 / CDIV
 
 默认的 Linux 驱动程序是 spi-bcm2835 .
 
-默认情况下，SPI0 已禁用。要启用，请使用 raspi-config，或确保 dtparam=spi=on 在 /boot/firmware/config.txt 中没有被注释掉。默认情况下，它使用两个芯片选择线，但可以使用 dtoverlay=spi0-1cs 将其减少到一个。还有 dtoverlay=spi0-2cs ；没有任何参数时，它等同于 dtparam=spi=on 。
+默认情况下，SPI0 已禁用。要启用，请使用 raspi-config，或确保 dtparam=spi=on 在 /boot/firmware/config.txt 中没有被注释掉。默认情况下，它使用两个芯片选择线，但可以使用 dtoverlay=spi0-1cs 将其减少到一个。还有 dtoverlay=spi0-2cs；没有任何参数时，它等同于 dtparam=spi=on。
 
 要启用 SPI1，你可以使用 1、2 或 3 个芯片选择线。将适当的线添加到 /boot/firmware/config.txt 中：
 
@@ -3003,7 +3003,7 @@ dtoverlay=spi1-3cs
 
 类似的叠加层也适用于 SPI2、SPI3、SPI4、SPI5 和 SPI6。
 
-驱动程序不使用硬件片选线，因为某些限制。相反，它可以使用任意数量的 GPIO 作为软件/GPIO 片选。这意味着你可以选择任何多余的 GPIO 作为 CS 线，所有这些 SPI 叠加层都包括该控制 - 详细信息请参见 /boot/firmware/overlays/README ，或运行（例如） dtoverlay -h spi0-2cs （可能有助于列出所有这些）。
+驱动程序不使用硬件片选线，因为某些限制。相反，它可以使用任意数量的 GPIO 作为软件/GPIO 片选。这意味着你可以选择任何多余的 GPIO 作为 CS 线，所有这些 SPI 叠加层都包括该控制 - 详细信息请参见 /boot/firmware/overlays/README，或运行（例如） dtoverlay -h spi0-2cs （可能有助于列出所有这些）。
 
 ##### 速度
 
@@ -3021,7 +3021,7 @@ SPI_NO_CS1 每总线一个设备，无芯片选择
 
 SPI_3WIRE 双向模式，数据输入输出引脚共享
 
-双向模式，也称为 3 线模式，由 spi-bcm2835 内核模块支持。请注意，在此模式下， spi_transfer 结构体的 tx 或 rx 字段必须是 NULL 指针之一，因为只支持半双工通信。否则，传输将失败。 spidev_test.c 源代码未正确考虑此情况，因此在 3 线模式下根本无法工作。
+双向模式，也称为 3 线模式，由 spi-bcm2835 内核模块支持。请注意，在此模式下，spi_transfer 结构体的 tx 或 rx 字段必须是 NULL 指针之一，因为只支持半双工通信。否则，传输将失败。spidev_test.c 源代码未正确考虑此情况，因此在 3 线模式下根本无法工作。
 
 ##### 支持的每字比特数
 
@@ -3087,7 +3087,7 @@ F0 0D
 
 ## 通用串行总线（USB）
 
-一般来说，Linux 支持的所有设备， 树莓派 都能用，尽管在 树莓派 4 之前的型号上有一些限制。
+一般来说，Linux 支持的所有设备，树莓派 都能用，尽管在 树莓派 4 之前的型号上有一些限制。
 
 ### 最大功率输出
 
@@ -3107,7 +3107,7 @@ F0 0D
 
 如果用户希望驱动大功率外设（如硬盘和固态硬盘），同时保留面对峰值工作负载仍有余量。应使用能够提供 +5V 5A（25W）的 USB-PD 电源适配器。如果树莓派 5 固件检测到了这样的电源适配器，它会把外设的 USB 电流限制缓解至 1.6A，为下游 USB 设备提供额外 5W 电力，并为主板上电力预算提供额外的 5W 电力。
 
-| NOTE |  USB 和风扇接口共用电力预算。 |
+| NOTE |  USB 和风扇接口共用电力预算。|
 | ------ | ------------------------------ |
 
 ### 树莓派 4
@@ -3132,7 +3132,7 @@ USB 2.0 规范定义了三种设备速度 - 低速、全速和高速。大多数
 
 #### 与 USB 3.0 集线器的互操作性
 
-在使用全速或低速设备（包括大多数鼠标和键盘）时，与 USB 3.0 集线器一起使用的问题。 大多数 USB 3.0 集线器硬件中存在的一个错误意味着在连接到 USB 3.0 集线器的全速或低速设备时，树莓派 4 之前的型号无法与这些设备通信。
+在使用全速或低速设备（包括大多数鼠标和键盘）时，与 USB 3.0 集线器一起使用的问题。大多数 USB 3.0 集线器硬件中存在的一个错误意味着在连接到 USB 3.0 集线器的全速或低速设备时，树莓派 4 之前的型号无法与这些设备通信。
 
 当通过 USB 3.0 集线器接入时，USB 2.0 高速设备（包括 USB 2.0 集线器）可正确运行。
 
@@ -3166,7 +3166,7 @@ Revision    : a02082
 Serial      : 00000000765fc593
 ```
 
-| NOTE | 所有树莓派计算机报告 BCM2835 ，即使是带有 BCM2836、BCM2837、BCM2711 和 BCM2712 处理器的也一样。你不应该使用此字符串来检测处理器。使用下面的信息解码修订代码，或 cat /sys/firmware/devicetree/base/model 。 |
+| NOTE | 所有树莓派计算机报告 BCM2835，即使是带有 BCM2836、BCM2837、BCM2711 和 BCM2712 处理器的也一样。你不应该使用此字符串来检测处理器。使用下面的信息解码修订代码，或 cat /sys/firmware/devicetree/base/model。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ### 旧式修订代码
@@ -3254,7 +3254,7 @@ NOQuuuWuFMMMCCCCPPPPTTTTTTTTRRRR
 |                         |             | 15：CM4S                  |
 |                         |             | 16：仅供内部使用          |
 |                         |             | 17: 5                     |
-| RRRR（位 0-3）          | 修订        | 0、1、2 等。              |
+| RRRR（位 0-3）          | 修订        | 0、1、2 等。    |
 
 ^1^ 编程 OTP 位的信息。
 
@@ -3262,7 +3262,7 @@ NOQuuuWuFMMMCCCCPPPPTTTTTTTTRRRR
 
 ### 使用新样式的修订代码
 
-| NOTE | 此列表不是详尽无遗的 - 可能有正在使用但不在此表中的代码。请参阅下一节，了解如何使用修订代码来识别板子的最佳实践。 |
+| NOTE | 此列表不是详尽无遗的 - 可能有正在使用但不在此表中的代码。请参阅下一节，了解如何使用修订代码来识别板子的最佳实践。|
 | ------ | ------------------------------------------------------------------------------------------------------------------- |
 
 | 代码   | Model              | 修订 | RAM   | 制造商   |
@@ -3321,13 +3321,13 @@ $ cat /proc/cpuinfo | grep Revision
 Revision      : c03111
 ```
 
-在上面的示例中，我们有一个十六进制的修订代码 c03111 。将其转换为二进制，我们得到 0 0 0 000 0 0 1 100 0000 0011 00010001 0001 。根据上表，已插入空格以显示修订代码的各部分之间的边界。
+在上面的示例中，我们有一个十六进制的修订代码 c03111。将其转换为二进制，我们得到 0 0 0 000 0 0 1 100 0000 0011 00010001 0001。根据上表，已插入空格以显示修订代码的各部分之间的边界。
 
-从最低阶位开始，底部的四位（0-3）是板子的修订号，所以这块板子的修订号是 1。接下来的八位（4-11）是板子类型，在这种情况下是二进制 00010001 ，十六进制 11 ，所以这是一个树莓派 4B。使用相同的过程，我们可以确定处理器是 BCM2711，板子由索尼英国制造，并且有 4GB 的 RAM。
+从最低阶位开始，底部的四位（0-3）是板子的修订号，所以这块板子的修订号是 1。接下来的八位（4-11）是板子类型，在这种情况下是二进制 00010001，十六进制 11，所以这是一个树莓派 4B。使用相同的过程，我们可以确定处理器是 BCM2711，板子由索尼英国制造，并且有 4GB 的 RAM。
 
 #### 在你的程序中获取修订代码
 
-很明显，有这么多编程语言，不可能为所有这些语言都举例，但这里有两个快速例子，分别针对 C 和 Python 。这两个例子都使用系统调用运行一个 bash 命令，获取 cpuinfo 并将结果传送给 awk 以恢复所需的修订代码。然后，它们使用位操作来提取代码中的 New 、 Model 和 Memory 字段。
+很明显，有这么多编程语言，不可能为所有这些语言都举例，但这里有两个快速例子，分别针对 C 和 Python。这两个例子都使用系统调用运行一个 bash 命令，获取 cpuinfo 并将结果传送给 awk 以恢复所需的修订代码。然后，它们使用位操作来提取代码中的 New、Model 和 Memory 字段。
 
 ```
 #include <stdio.h>
@@ -3386,12 +3386,12 @@ if new and model == 0x11 and mem >= 3 : # Note, 3 in the mem field is 2GB
 
 例如，你可以限制支持具有 2GB 或更多 RAM 的树莓派 4B 型号。上一节的示例使用了这种推荐方法。
 
-| NOTE | 始终检查第 23 位，即“新”标志，以确保修订代码是新版本，然后再检查其他字段。 |
+| NOTE | 始终检查第 23 位，即“新”标志，以确保修订代码是新版本，然后再检查其他字段。|
 | ------ | ------------------------------------------------------------------------------ |
 
 #### 检查树莓派型号和 CPU 跨发行版
 
-在各个 Linux 发行版中， /proc/cpuinfo 的支持和格式会有所不同。要检查树莓派设备在任何 Linux 发行版（包括树莓派 OS）上的型号或 CPU，请检查设备树：
+在各个 Linux 发行版中，/proc/cpuinfo 的支持和格式会有所不同。要检查树莓派设备在任何 Linux 发行版（包括树莓派 OS）上的型号或 CPU，请检查设备树：
 
 ```
 $ cat /proc/device-tree/compatible | tr '\0' '\n'

@@ -36,7 +36,7 @@
 
 >**重要**
 >
->在树莓派系统的 32 位发行版上构建 64 位内核是一个交叉编译练习，因为它需要安装交叉编译器 ( gcc-aarch64-linux-gnu )。如果你在 Pi 4B、Pi 400、CM4 或 CM4S 上运行树莓派系统的 32 位发行版，那么你将运行一个 32 位用户空间和 64 位内核 — 因此，如果你想显式构建一个 32 位内核，你应该设置 ARCH=arm ，并且要启动这个内核，你需要在 config.txt 中设置 arm_64bit=0 。我们提供了交叉编译内核的说明。
+>在树莓派系统的 32 位发行版上构建 64 位内核是一个交叉编译练习，因为它需要安装交叉编译器 ( gcc-aarch64-linux-gnu )。如果你在 Pi 4B、Pi 400、CM4 或 CM4S 上运行树莓派系统的 32 位发行版，那么你将运行一个 32 位用户空间和 64 位内核 — 因此，如果你想显式构建一个 32 位内核，你应该设置 ARCH=arm，并且要启动这个内核，你需要在 config.txt 中设置 arm_64bit=0。我们提供了交叉编译内核的说明。
 
 在树莓派上，首先安装最新版本的树莓派系统。然后启动你的树莓派，登录，并确保你连接到互联网，以便访问源代码。
 
@@ -118,7 +118,7 @@ make bcm2712_defconfig
 
 除了内核配置更改外，你可能希望调整 LOCALVERSION 以确保你的新内核不会收到与上游内核相同的版本字符串。这样可以澄清你在 uname 的输出中运行自己的内核，并确保 /lib/modules 中的现有模块不会被覆盖。
 
-要调整 LOCALVERSION ，请更改 .config 中的以下行：
+要调整 LOCALVERSION，请更改 .config 中的以下行：
 
 ```
 CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
@@ -246,13 +246,13 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2712_defconfig
 
 >**注意**
 >
->标准的，基于 bcm2711_defconfig 的内核（ kernel8.img ）也可在树莓派 5 上运行。为获得最佳性能，你应该使用 kernel_2712.img ，但在需要 4KB 页大小的情况下，则应使用 kernel8.img （ kernel=kernel8.img ）。 
+>标准的，基于 bcm2711_defconfig 的内核（ kernel8.img ）也可在树莓派 5 上运行。为获得最佳性能，你应该使用 kernel_2712.img，但在需要 4KB 页大小的情况下，则应使用 kernel8.img （ kernel=kernel8.img ）。
 
 ##### 使用配置构建
 
 >**注意**
 >
->为了加快多处理器系统上的编译速度，并在单处理器设备上获得一些改进，使用 -j n ，其中 n 是处理器数量 ×1.5。你可以使用 nproc 命令查看你有多少处理器。
+>为了加快多处理器系统上的编译速度，并在单处理器设备上获得一些改进，使用 -j n，其中 n 是处理器数量 ×1.5。你可以使用 nproc 命令查看你有多少处理器。
 
 ###### 对于所有 32 位构建
 
@@ -264,7 +264,7 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs
 
 >**注意**
 >
->请注意 32 位和 64 位镜像目标之间的区别。 
+>请注意 32 位和 64 位镜像目标之间的区别。
 
 ```
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- Image modules dtbs
@@ -282,7 +282,7 @@ sdb
    sdb2
 ```
 
-其中 sdb1 是 FAT 文件系统（引导）分区， sdb2 是 ext4 文件系统（根）分区。
+其中 sdb1 是 FAT 文件系统（引导）分区，sdb2 是 ext4 文件系统（根）分区。
 
 首先安装这些，根据需要调整分区字母：
 
@@ -296,7 +296,7 @@ sudo mount /dev/sdb2 mnt/ext4
 
 >**注意**
 >
->你应该根据你的设置适当调整驱动器字母，例如，如果你的 SD 卡显示为 /dev/sdc 而不是 /dev/sdb 。 
+>你应该根据你的设置适当调整驱动器字母，例如，如果你的 SD 卡显示为 /dev/sdc 而不是 /dev/sdb。
 接下来，在 SD 卡上安装内核模块：
 
 ##### 32 位

@@ -16,7 +16,7 @@ Connect 使用安全加密连接。默认情况下，Connect 直接在你树莓�
 
 >**注意**
 >
->Connect 与精简版树莓派系统或使用 X windows 服务器的系统并不兼容。 
+>Connect 与精简版树莓派系统或使用 X windows 服务器的系统并不兼容。
 
 要开始安装，请打开终端。运行以下命令来更新你的系统和软件包：
 
@@ -118,7 +118,7 @@ Complete sign in by visiting https://connect.raspberrypi.com/verify/XXXX-XXXX
 
 >**注意**
 >
->你还可以使用终端命令 rpi-connect signout 来从 Connect 中移除你的树莓派。 
+>你还可以使用终端命令 rpi-connect signout 来从 Connect 中移除你的树莓派。
 
 Connect 通过设备序列号通信。在设备之间移动 SD 卡会使你从 Connect 中注销。
 
@@ -142,7 +142,7 @@ Connect 会将你重定向到 Raspberry Pi ID 服务以进行登录。登录后�
 
 >**技巧**
 >
->使用桌面上方的从远程复制和粘贴到远程按钮在本地和远程剪贴板之间复制。 
+>使用桌面上方的从远程复制和粘贴到远程按钮在本地和远程剪贴板之间复制。
 
 连接后，在 Connect 网站中的屏幕共享标签旁会出现一个绿点。这表示活动屏幕共享会话。悬停可查看当前屏幕共享会话数。
 

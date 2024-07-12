@@ -14,7 +14,7 @@
 
 >**注意**
 >
->有关树莓派三针调试连接器的更多信息，请参阅规格书。 
+>有关树莓派三针调试连接器的更多信息，请参阅规格书。
 
 这使得在 Windows、macOS 和 Linux 等没有 GPIO 引脚头来直连 Pico 串口或 SWD 接口的设备也可轻松使用树莓派 Pico。
 
@@ -64,7 +64,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 >**注意**
 >
->如果你有非 H Pico 或 Pico W（没有 JST-SH 连接器），你仍然可以将其连接到调试器。在板上的 SWCLK ， GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK ， GND 和 SWDIO 连接到调试器上的 SC ， GND 和 SD 引脚。
+>如果你有非 H Pico 或 Pico W（没有 JST-SH 连接器），你仍然可以将其连接到调试器。在板上的 SWCLK，GND 和 SWDIO 引脚上焊接一个公连接器。使用随调试器附带的备用 3 引脚 JST-SH 连接器到 0.1 英寸排针（母）电缆，连接到调试器的“D”端口。分别将 Pico 或 Pico W 上的 SWCLK，GND 和 SWDIO 连接到调试器上的 SC，GND 和 SD 引脚。
 
 ![wiring](https://www.raspberrypi.com/documentation/microcontrollers/images/wiring.png)
 
@@ -124,7 +124,7 @@ $ brew install gdb
 
 >**重要**
 >
->GDB 不支持 gdb Arm-based Macs。因此，要么从源代码编译 `gdb`，要么使用 `lldb` 来代替 `gdb`。开发者没有为在 Arm-based Macs 上运行 GDB 提供官方支持。可以在 Sourceware.org 的 GDB 邮件列表中找到有关 GDB 的支持。 lldb 可作为 Xcode 命令行工具的一部分进行安装。
+>GDB 不支持 gdb Arm-based Macs。因此，要么从源代码编译 `gdb`，要么使用 `lldb` 来代替 `gdb`。开发者没有为在 Arm-based Macs 上运行 GDB 提供官方支持。可以在 Sourceware.org 的 GDB 邮件列表中找到有关 GDB 的支持。lldb 可作为 Xcode 命令行工具的一部分进行安装。
 
 #### MS Windows
 
@@ -134,7 +134,7 @@ GDB 包含在我们的 Pico Windows 安装程序中。它也包含在 Arm GNU To
 
 >**注意**
 >
-> 不建议在 Windows 上手动安装 GDB。 
+> 不建议在 Windows 上手动安装 GDB。
 
 ## 串行线调试（SWD）
 
@@ -156,7 +156,7 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 ### 使用 SWD 进行调试
 
-它还将让你在服务器模式下使用 openocd ，并连接 GDB，这将为你提供断点和“正确”的调试。
+它还将让你在服务器模式下使用 openocd，并连接 GDB，这将为你提供断点和“正确”的调试。
 
 ```
 $ cd ~/pico/pico-examples/
@@ -207,7 +207,7 @@ GDB 不适用于所有平台。根据你的操作系统和设备，请使用以�
 | UART0_TX   | 1        | GP0       |
 | UART0_RX   | 2        | GP1       |
 
-在连接后，树莓派 Pico 的 UART 上的流量将通过调试器中继到你的计算机，并显示为 CDC UART。在树莓派上，显示为 /dev/ttyACM0 ；在其他平台上，此串口将以不同方式显示（例如，在 macOS 上，显示为 /dev/cu.usbmodemXXXX ）。
+在连接后，树莓派 Pico 的 UART 上的流量将通过调试器中继到你的计算机，并显示为 CDC UART。在树莓派上，显示为 /dev/ttyACM0；在其他平台上，此串口将以不同方式显示（例如，在 macOS 上，显示为 /dev/cu.usbmodemXXXX ）。
 
 如果你尚未安装 minicom，请执行以下操作：
 
@@ -223,11 +223,11 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 >**技巧**
 >
->要退出 minicom ，请按 CTRL-A，然后按 X 键。 
+>要退出 minicom，请按 **CTRL**-**A**，然后按 **X** 键。
 
 要测试串行通信，你可以构建并上传“Hello World”示例应用程序。
 
-进入 pico-examples 树中的 hello_world 目录，并运行 make 。之后，你可以使用 openocd 将其上传到你的树莓派 Pico。要了解构建 hello_serial 示例程序的完整步骤，请参阅《开始使用树莓派 Pico》第 4 章。
+进入 pico-examples 树中的 hello_world 目录，并运行 make。之后，你可以使用 openocd 将其上传到你的树莓派 Pico。要了解构建 hello_serial 示例程序的完整步骤，请参阅《开始使用树莓派 Pico》第 4 章。
 
 ```
 $ cd pico-examples
@@ -255,7 +255,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 调试器固件的最新版本是版本 2。如果你正在运行旧版，或者如果你意外地覆盖了调试器的固件，你可以在 debugprobe GitHub 存储库中找到最新版本的固件。
 
-从最新版本下载 debugprobe.uf2 。
+从最新版本下载 debugprobe.uf2。
 
 捏住调试器外壳顶部以拆除。
 

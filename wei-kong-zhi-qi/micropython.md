@@ -37,7 +37,7 @@ MicroPython 是 Python 3 编程语言的完整实现，可直接在嵌入式硬�
 
 >**警告**
 >
->如果你使用的是 Apple Mac 并运行着 macOS Ventura，则 Finder 的工作方式发生了变化，导致拖放操作失败。此问题已在 macOS Ventura 版本 13.1 中修复。如果你无法升级到最新版本的 Ventura，请参阅我们的博客文章，了解完整的解释以及解决方法。 
+>如果你使用的是 Apple Mac 并运行着 macOS Ventura，则 Finder 的工作方式发生了变化，导致拖放操作失败。此问题已在 macOS Ventura 版本 13.1 中修复。如果你无法升级到最新版本的 Ventura，请参阅我们的博客文章，了解完整的解释以及解决方法。
 
 ## 在哪里可以找到文档？
 

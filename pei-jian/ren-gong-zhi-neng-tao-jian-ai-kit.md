@@ -44,7 +44,7 @@
     $ sudo raspi-config
     ```
 
-    在 Advanced Options > Bootloader Version 下，选择 Latest 。然后，使用 Finish 键或 Escape 键退出 raspi-config 。
+    在 Advanced Options > Bootloader Version 下，选择 Latest。然后，使用 Finish 键或 Escape 键退出 raspi-config。
 
     运行以下命令以将固件更新到最新版本：
 
@@ -62,7 +62,7 @@
 
 >**警告**
 >
->在连接或断开 M.2 插槽上的设备之前，务必先将你的树莓派断开电源。 
+>在连接或断开 M.2 插槽上的设备之前，务必先将你的树莓派断开电源。
 
 ## 入门指南
 
@@ -149,7 +149,7 @@
 
 rpicam-apps 摄像头应用套件实现了一个后处理框架。本节包含一些演示后处理阶段，突出了 Ai 套件的一些功能。
 
-以下演示使用 rpicam-hello ，默认情况下显示一个预览窗口。但是，你也可以使用其他 rpicam-apps ，包括 rpicam-vid 和 rpicam-still 。你可能需要添加或修改一些命令行选项，以使演示命令与替代应用程序兼容。
+以下演示使用 rpicam-hello，默认情况下显示一个预览窗口。但是，你也可以使用其他 rpicam-apps，包括 rpicam-vid 和 rpicam-still。你可能需要添加或修改一些命令行选项，以使演示命令与替代应用程序兼容。
 
 要开始，请下载演示所需的后处理 JSON 文件。这些文件确定要运行的后处理阶段，并配置每个阶段的行为。例如，你可以在对象检测演示中启用、禁用、加强或减弱时间滤波的强度。或者你可以在分割演示中启用或禁用输出蒙版绘制。
 

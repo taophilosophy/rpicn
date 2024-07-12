@@ -35,7 +35,7 @@ $ sudo apt full-upgrade
 
 >**技巧**
 >
->与 Debian 不同，树莓派系统始终处于开发状态。因此，软件包的依赖关系有时会发生变更，因此你应始终使用 `full-upgrade`，而不要用标准的 `upgrade`。 
+>与 Debian 不同，树莓派系统始终处于开发状态。因此，软件包的依赖关系有时会发生变更，因此你应始终使用 `full-upgrade`，而不要用标准的 `upgrade`。
 
 请定期运行这些命令，以确保软件保持最新状态。在使用 `apt` 维持树莓派系统最新状态时，也会同时把你的 Linux 内核和固件变成最新版本（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
 
@@ -121,7 +121,7 @@ $ sudo apt remove <软件包名>
 
 >**技巧**
 >
->要彻底删除软件包的所有痕迹（包括配置文件），请把 `remove` 换成 `purge`。 
+>要彻底删除软件包的所有痕迹（包括配置文件），请把 `remove` 换成 `purge`。
 
 `apt` 会显示在卸载软件包后，可释放的磁盘容量。输入 **Y** 并按 **回车键** 来确认卸载。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
 
@@ -143,7 +143,7 @@ $ sudo apt clean
 
 >**警告**
 >
->请在尝试进行大版本更新时，先行备份。 
+>请在尝试进行大版本更新时，先行备份。
 
 要把树莓派系统这个操作系统更新至最新大版本，请使用另外一张 SD 卡，在它上面写入新版本的镜像。从先前安装的旧系统（使用 SD 卡读卡器或网络存储）复制文件和配置到这张新的 SD 卡。然后，将这张新的 SD 卡插进树莓派上的卡槽，再启动。
 
@@ -155,7 +155,7 @@ $ sudo apt clean
 
 >**警告**
 >
->软件的预发布版本能否正常工作，是无法保证的。除非得到了树莓派工程师的建议，否则不要在任何系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为日常更新流程的组成部分。 
+>软件的预发布版本能否正常工作，是无法保证的。除非得到了树莓派工程师的建议，否则不要在任何系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为日常更新流程的组成部分。
 
 要把你树莓派的固件更至最新版本，请使用 [`rpi-update`](https://github.com/raspberrypi/rpi-update)。
 
@@ -246,7 +246,7 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 
 ### 在精简版树莓派系统上播放音频和视频
 
-与完整版本的树莓派系统（所有 with desktop 版本）相比，精简版树莓派系统上并未预装 VLC 。要在精简版树莓派系统上使用 VLC 播放音视频，请安装用于无需桌面播放的软件包：
+与完整版本的树莓派系统（所有 with desktop 版本）相比，精简版树莓派系统上并未预装 VLC。要在精简版树莓派系统上使用 VLC 播放音视频，请安装用于无需桌面播放的软件包：
 
 ```
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
@@ -377,7 +377,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 #### `measure_temp`
 
-`measure_temp` 可返回 SoC 的温度，数据源于其内部温度传感器。在树莓派 4 上， `measure_temp pmic` 返回的温度来自电源管理（PMIC）。
+`measure_temp` 可返回 SoC 的温度，数据源于其内部温度传感器。在树莓派 4 上，`measure_temp pmic` 返回的温度来自电源管理（PMIC）。
 
 #### `measure_clock [时钟]`
 
@@ -425,7 +425,7 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem 类型`
 
-`get_mem 类型` 会报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu` 。如果设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
+`get_mem 类型` 会报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu`。如果设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
 
 ##### `codec_enabled [类型]`
 

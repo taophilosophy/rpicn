@@ -19,7 +19,7 @@
   fixup_file=fixup_x.dat
 ```
 
-在树莓派 4 上，如果存在文件 start4x.elf 和 fixup4x.dat ，则将使用这些文件。
+在树莓派 4 上，如果存在文件 start4x.elf 和 fixup4x.dat，则将使用这些文件。
 
   start_debug=1 意味着
 
@@ -30,7 +30,7 @@
 
 ### `disable_commandline_tags`
 
-将 disable_commandline_tags 命令设置为 1 ，以阻止 start.elf 在启动内核之前填充 ATAGS（来自 0x100 的内存）。
+将 disable_commandline_tags 命令设置为 1，以阻止 start.elf 在启动内核之前填充 ATAGS（来自 0x100 的内存）。
 
 ### `arm_control`
 
@@ -59,15 +59,15 @@ armstub 是从中加载 ARM 存根的引导分区上的文件名。默认的 ARM
 
 ### `kernel_address`
 
-kernel_address 是内核映像应加载到的内存地址。默认情况下，32 位内核加载到地址 0x8000 ，64 位内核加载到地址 0x200000 。如果设置了 kernel_old ，内核将加载到地址 0x0 。
+kernel_address 是内核映像应加载到的内存地址。默认情况下，32 位内核加载到地址 0x8000，64 位内核加载到地址 0x200000。如果设置了 kernel_old，内核将加载到地址 0x0。
 
 ### `kernel_old`
 
-将 kernel_old 设置为 1 以将内核加载到内存地址 0x0 。
+将 kernel_old 设置为 1 以将内核加载到内存地址 0x0。
 
 ### `init_uart_baud`
 
-init_uart_baud 是初始 UART 波特率。默认值为 115200 。
+init_uart_baud 是初始 UART 波特率。默认值为 115200。
 
 ### `init_uart_clock`
 
@@ -75,21 +75,21 @@ init_uart_clock 是初始 UART 时钟频率。默认值为 48000000 （48MHz）�
 
 ### `bootcode_delay`
 
-bootcode_delay 命令在 bootcode.bin 秒内延迟，然后加载 start.elf ：默认值为 0 。
+bootcode_delay 命令在 bootcode.bin 秒内延迟，然后加载 start.elf ：默认值为 0。
 
 这在在读取显示器的 EDID 之前插入延迟特别有用，例如，如果树莓派和显示器来自同一电源，但显示器启动时间比树莓派更长。如果在初始启动时显示检测错误，但在不断电的情况下重启树莓派时正确，请尝试设置此值。
 
 ### `boot_delay`
 
-boot_delay 命令会在加载内核之前在 start.elf 中强制等待给定的秒数：默认值为 0 。毫秒中的总延迟计算为 (1000 x boot_delay) + boot_delay_ms 。如果你的 SD 卡需要一段时间才能准备好，然后 Linux 才能从中引导，这可能很有用。
+boot_delay 命令会在加载内核之前在 start.elf 中强制等待给定的秒数：默认值为 0。毫秒中的总延迟计算为 (1000 x boot_delay) + boot_delay_ms。如果你的 SD 卡需要一段时间才能准备好，然后 Linux 才能从中引导，这可能很有用。
 
 ### `boot_delay_ms`
 
-boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定的毫秒数，以及 boot_delay 。默认值为 0 。
+boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定的毫秒数，以及 boot_delay。默认值为 0。
 
 ### enable_gic （仅适用于树莓派 4）
 
-在树莓派 4B 上，如果将此值设置为 0 ，则中断将通过旧版中断控制器路由到 Arm 内核，而不是通过 GIC-400。默认值为 1 。
+在树莓派 4B 上，如果将此值设置为 0，则中断将通过旧版中断控制器路由到 Arm 内核，而不是通过 GIC-400。默认值为 1。
 
 ### `sha256`
 
@@ -97,15 +97,15 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 ### `uart_2ndstage`
 
-设置 uart_2ndstage=1 会导致第二阶段加载程序（在树莓派 4 之前的设备上为 bootcode.bin ，在树莓派 4 设备上为 EEPROM 中的引导代码）和主固件（ start*.elf ）将诊断信息输出到 UART0。
+设置 uart_2ndstage=1 会导致第二阶段加载程序（在树莓派 4 之前的设备上为 bootcode.bin，在树莓派 4 设备上为 EEPROM 中的引导代码）和主固件（ start*.elf ）将诊断信息输出到 UART0。
 
 请注意，输出可能会干扰蓝牙操作，除非将其禁用（ dtoverlay=disable-bt ）或切换到另一个 UART（ dtoverlay=miniuart-bt ），如果 UART 同时访问 Linux 输出，则可能会导致数据丢失，从而导致输出损坏。只有在尝试诊断早期引导加载问题时才应该需要此功能。
 
 ### `upstream_kernel`
 
-如果使用 upstream_kernel=1 ，固件会将 os_prefix 设置为"upstream/"，除非已明确设置为其他内容，但与其他 os_prefix 值一样，如果在使用前缀时找不到所需的内核和.dtb 文件，则会被忽略。
+如果使用 upstream_kernel=1，固件会将 os_prefix 设置为"upstream/"，除非已明确设置为其他内容，但与其他 os_prefix 值一样，如果在使用前缀时找不到所需的内核和.dtb 文件，则会被忽略。
 
-固件还会更喜欢 DTBs 的上游 Linux 名称（ bcm2837-rpi-3-b.dtb 而不是 bcm2710-rpi-3-b.dtb ，例如）。如果找不到上游文件，则固件将加载下游变体，并自动应用"upstream"叠加以进行一些调整。请注意，此过程发生在 os_prefix 最终确定之后。
+固件还会更喜欢 DTBs 的上游 Linux 名称（ bcm2837-rpi-3-b.dtb 而不是 bcm2710-rpi-3-b.dtb，例如）。如果找不到上游文件，则固件将加载下游变体，并自动应用"upstream"叠加以进行一些调整。请注意，此过程发生在 os_prefix 最终确定之后。
 
 ## 旧版 GPIO 控制
 
@@ -146,7 +146,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 >**注意**
 >
->此过滤器仅适用于树莓派 4。 
+>此过滤器仅适用于树莓派 4。
 
 树莓派 4 有两个 HDMI，对于许多与 HDMI 相关的 config.txt 命令，有必要指定所指的 HDMI 接口。HDMI 条件过滤器将后续 HDMI 配置限制到特定接口。
 
@@ -174,11 +174,11 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 >**注意**
 >
->树莓派 5 不会代表操作系统分配 GPU 内存，因此以下设置不起作用。 
+>树莓派 5 不会代表操作系统分配 GPU 内存，因此以下设置不起作用。
 
 ### `gpu_mem`
 
-指定要为 GPU 专用保留多少兆字节的内存：剩余内存分配给 Arm CPU 供操作系统使用。对于内存少于 1GB 的树莓派，默认值为 64 ；对于内存为 1GB 或更多的树莓派，默认值为 76 。
+指定要为 GPU 专用保留多少兆字节的内存：剩余内存分配给 Arm CPU 供操作系统使用。对于内存少于 1GB 的树莓派，默认值为 64；对于内存为 1GB 或更多的树莓派，默认值为 76。
 
 >**重要**
 >
@@ -196,32 +196,32 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 | ------------ | ---------------------------------- |
 | 256MB      | `128`                                 |
 | 512MB      | `384`                                 |
-| 1GB 或更大 | 在树莓派 4 上， 512 ， 76 |
+| 1GB 或更大 | 在树莓派 4 上，512，76 |
 
 >**重要**
 >
 >树莓派系统上的相机堆栈（libcamera）使用 Linux CMA 内存来分配缓冲区，而非 GPU 显存，因此增加 GPU 显存大小没有任何好处。
 
 
-可以将 gpu_mem 设置为较大的值，但应避免这样做，因为可能会导致问题，比如妨碍 Linux 启动。gpu_mem 的最小值为 16 ，但这会禁用某些 GPU 功能。
+可以将 gpu_mem 设置为较大的值，但应避免这样做，因为可能会导致问题，比如妨碍 Linux 启动。gpu_mem 的最小值为 16，但这会禁用某些 GPU 功能。
 
-你还可以使用 gpu_mem_256 ， gpu_mem_512 和 gpu_mem_1024 ，以便在不同内存量的树莓派之间交换相同的 SD 卡，而无需每次都编辑 config.txt ：
+你还可以使用 gpu_mem_256，gpu_mem_512 和 gpu_mem_1024，以便在不同内存量的树莓派之间交换相同的 SD 卡，而无需每次都编辑 config.txt ：
 
 ### `gpu_mem_256`
 
-gpu_mem_256 命令为具有 256MB 内存的树莓派设置以兆字节为单位的 GPU 内存。如果内存大小不是 256MB，则会被忽略。这会覆盖 gpu_mem 。
+gpu_mem_256 命令为具有 256MB 内存的树莓派设置以兆字节为单位的 GPU 内存。如果内存大小不是 256MB，则会被忽略。这会覆盖 gpu_mem。
 
 ### `gpu_mem_512`
 
-gpu_mem_512 命令设置树莓派内存为 512MB 时的 GPU 内存（以兆字节为单位）。如果内存大小不是 512MB，则会被忽略。这将覆盖 gpu_mem 。
+gpu_mem_512 命令设置树莓派内存为 512MB 时的 GPU 内存（以兆字节为单位）。如果内存大小不是 512MB，则会被忽略。这将覆盖 gpu_mem。
 
 ### `gpu_mem_1024`
 
-gpu_mem_1024 命令设置树莓派内存为 1GB 或更多时的 GPU 内存（以兆字节为单位）。如果内存大小小于 1GB，则会被忽略。这将覆盖 gpu_mem 。
+gpu_mem_1024 命令设置树莓派内存为 1GB 或更多时的 GPU 内存（以兆字节为单位）。如果内存大小小于 1GB，则会被忽略。这将覆盖 gpu_mem。
 
 ### `disable_l2cache`
 
-将此设置为 1 会禁用 CPU 对 GPU 的 L2 缓存的访问，并需要相应的禁用 L2 缓存的内核。在 BCM2835 上的默认值为 0 。在 BCM2836、BCM2837、BCM2711 和 BCM2712 上，ARM 有自己的 L2 缓存，因此默认值为 1 。标准的树莓派 kernel.img 和 kernel7.img 版本反映了缓存设置的差异。
+将此设置为 1 会禁用 CPU 对 GPU 的 L2 缓存的访问，并需要相应的禁用 L2 缓存的内核。在 BCM2835 上的默认值为 0。在 BCM2836、BCM2837、BCM2711 和 BCM2712 上，ARM 有自己的 L2 缓存，因此默认值为 1。标准的树莓派 kernel.img 和 kernel7.img 版本反映了缓存设置的差异。
 
 ## 旧版视频选项
 
@@ -231,7 +231,7 @@ gpu_mem_1024 命令设置树莓派内存为 1GB 或更多时的 GPU 内存（以
 
 >**注意**
 >
->因为树莓派 4 和树莓派 400 有两个 HDMI 接口，一些 HDMI 命令可以应用于任一接口。你可以使用语法 `<command>:<port>` ，其中端口为 0 或 1，以指定设置应适用于哪个端口。如果未指定端口，则默认为 0。如果在不需要端口号的命令上指定端口号，则端口将被忽略。有关语法和替代机制的更多详细信息，请参阅文档的条件部分中 HDMI 子部分。 
+>因为树莓派 4 和树莓派 400 有两个 HDMI 接口，一些 HDMI 命令可以应用于任一接口。你可以使用语法 `<command>:<port>`，其中端口为 0 或 1，以指定设置应适用于哪个端口。如果未指定端口，则默认为 0。如果在不需要端口号的命令上指定端口号，则端口将被忽略。有关语法和替代机制的更多详细信息，请参阅文档的条件部分中 HDMI 子部分。
 
 #### `hdmi_safe`
 
@@ -312,11 +312,11 @@ hdmi_pixel_encoding 命令强制使用像素编码模式。默认情况下，它
 
 #### `hdmi_blanking`
 
-当操作系统要求将显示器置于待机模式以节省电源时， hdmi_blanking 命令控制发生的情况。如果未设置此选项或将其设置为 0，则 HDMI 输出将被清空但不会关闭。为了模仿其他计算机的行为，你可以将 HDMI 输出也设置为关闭，方法是将此选项设置为 1：连接的显示器将进入低功耗待机模式。
+当操作系统要求将显示器置于待机模式以节省电源时，hdmi_blanking 命令控制发生的情况。如果未设置此选项或将其设置为 0，则 HDMI 输出将被清空但不会关闭。为了模仿其他计算机的行为，你可以将 HDMI 输出也设置为关闭，方法是将此选项设置为 1：连接的显示器将进入低功耗待机模式。
 
 >**注意**
 >
->在树莓派 4 上，设置 hdmi_blanking=1 不会导致 HDMI 输出停止，因为此功能尚未实现。当使用不使用 framebuffer 的应用程序时，此功能可能会导致问题，例如 omxplayer 。
+>在树莓派 4 上，设置 hdmi_blanking=1 不会导致 HDMI 输出停止，因为此功能尚未实现。当使用不使用 framebuffer 的应用程序时，此功能可能会导致问题，例如 omxplayer。
 
 | hdmi_blanking | 结果                    |
 | --------------- | ------------------------- |
@@ -334,11 +334,11 @@ hdmi_drive 命令允许你在 HDMI 和 DVI 输出模式之间进行选择。
 
 #### `config_hdmi_boost`
 
-配置 HDMI 接口的信号强度。最小值为 0 ，最大值为 11 。
+配置 HDMI 接口的信号强度。最小值为 0，最大值为 11。
 
-原始B 和 A 的默认值为 2 。Model B+ 和所有后续型号的默认值为 5 。
+原始B 和 A 的默认值为 2。Model B+ 和所有后续型号的默认值为 5。
 
-如果你遇到 HDMI 问题（斑点，干扰），请尝试 7 。非常长的 HDMI 电缆可能需要高达 11 才行，但除非绝对必要，否则不应使用这么高的值。
+如果你遇到 HDMI 问题（斑点，干扰），请尝试 7。非常长的 HDMI 电缆可能需要高达 11 才行，但除非绝对必要，否则不应使用这么高的值。
 
 在旧版树莓派 4 上会忽略此选项。
 
@@ -354,7 +354,7 @@ hdmi_group 命令定义 HDMI 输出组，可以是 CEA（消费类电子协会�
 
 #### `hdmi_mode`
 
-与 hdmi_group 一起， hdmi_mode 定义 HDMI 输出格式。格式模式编号源自 CTA 规范。
+与 hdmi_group 一起，hdmi_mode 定义 HDMI 输出格式。格式模式编号源自 CTA 规范。
 
 >**注意**
 >
@@ -472,7 +472,7 @@ hdmi_group 命令定义 HDMI 输出组，可以是 CEA（消费类电子协会�
 | 106       | 2160p          | 50Hz     | 64:27    | 树莓派 4           |
 | 107       | 2160p          | 60Hz     | 64:27    | 树莓派 4           |
 
-1. 仅在超频核心频率下可用：设置 core_freq_min=600 和 core_freq=600 。请参阅超频。
+1. 仅在超频核心频率下可用：设置 core_freq_min=600 和 core_freq=600。请参阅超频。
 
 像素加倍和四倍表示更高的时钟速率，每个像素分别重复两次或四次。
 
@@ -625,11 +625,11 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 
  选项如下：
 
-* 0 = EDID_ContentType_NODATA ，内容类型为 none
-* 1 = EDID_ContentType_Graphics ，内容类型为图形，ITC 必须设置为 1
-* 2 = EDID_ContentType_Photo ，内容类型为照片
-* 3 = EDID_ContentType_Cinema ，内容类型为电影
-* 4 = EDID_ContentType_Game ，内容类型游戏
+* 0 = EDID_ContentType_NODATA，内容类型为 none
+* 1 = EDID_ContentType_Graphics，内容类型为图形，ITC 必须设置为 1
+* 2 = EDID_ContentType_Photo，内容类型为照片
+* 3 = EDID_ContentType_Cinema，内容类型为电影
+* 4 = EDID_ContentType_Game，内容类型游戏
 
 ### 我的显示器可以使用哪些值？
 
@@ -641,7 +641,7 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 * 输入以下命令以显示当前状态： /opt/vc/bin/tvservice -s
 * 输入以下命令以从你的监视器中获取更详细的信息： /opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat
 
-在故障排除默认 HDMI 模式问题时，还应提供 edid.dat 。
+在故障排除默认 HDMI 模式问题时，还应提供 edid.dat。
 
 ### 自定义模式
 
@@ -691,7 +691,7 @@ sdtv_mode 命令定义了用于复合视频输出的电视标准。
 
 #### `sdtv_aspect`
 
-sdtv_aspect 命令定义了复合视频输出的纵横比。默认值为 1 。
+sdtv_aspect 命令定义了复合视频输出的纵横比。默认值为 1。
 
 | sdtv_aspect | 结果 |
 | ------------- | -------- |
@@ -717,7 +717,7 @@ sdtv_aspect 命令定义了复合视频输出的纵横比。默认值为 1 。
 
 这会使用 LCD 内置的翻转功能翻转显示，这比使用基于 GPU 的旋转操作更省计算资源。
 
-例如， lcd_rotate=2 将补偿倒置显示。
+例如，lcd_rotate=2 将补偿倒置显示。
 
 #### `enable_dpi_lcd`
 
@@ -784,37 +784,37 @@ dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <
 
 #### `disable_overscan`
 
-disable_overscan 的默认值为 0 ，这为 HD CEA 模式的左、右、上和下边缘以及 SD CEA 模式的 32 和 DMT 模式的 0 提供了默认的过扫描值。
+disable_overscan 的默认值为 0，这为 HD CEA 模式的左、右、上和下边缘以及 SD CEA 模式的 32 和 DMT 模式的 0 提供了默认的过扫描值。
 
 将 disable_overscan 设置为 1 以禁用固件设置的超扫描的默认值。
 
 #### `overscan_left`
 
-overscan_left 命令指定要添加到屏幕左边缘的固件默认超扫描值的像素数。默认值为 0 。
+overscan_left 命令指定要添加到屏幕左边缘的固件默认超扫描值的像素数。默认值为 0。
 
 如果文本超出屏幕左边缘，请增加此值；如果屏幕左边缘和文本之间有黑色边框，请减少此值。
 
 #### `overscan_right`
 
-overscan_right 命令指定要添加到屏幕右边缘超扫描的固件默认值的像素数。默认值为 0 。
+overscan_right 命令指定要添加到屏幕右边缘超扫描的固件默认值的像素数。默认值为 0。
 
 如果文本超出屏幕右边缘，请增加此值；如果屏幕右边缘和文本之间有黑色边框，请减小此值。
 
 #### `overscan_top`
 
-overscan_top 命令指定要添加到屏幕顶部超扫描的固件默认值的像素数。默认值为 0 。
+overscan_top 命令指定要添加到屏幕顶部超扫描的固件默认值的像素数。默认值为 0。
 
 如果文本超出屏幕顶部边缘，请增加此值；如果屏幕顶部边缘和文本之间有黑色边框，请减小此值。
 
 #### `overscan_bottom`
 
-overscan_bottom 命令指定要添加到屏幕底部边缘超扫描的像素数。默认值为 0 。
+overscan_bottom 命令指定要添加到屏幕底部边缘超扫描的像素数。默认值为 0。
 
 如果文本超出屏幕底部边缘，请增加此值；如果屏幕底部边缘和文本之间有黑色边框，请减小此值。
 
 #### `overscan_scale`
 
-将 overscan_scale 设置为 1 以强制任何非帧缓冲层符合超扫描设置。默认值为 0 。
+将 overscan_scale 设置为 1 以强制任何非帧缓冲层符合超扫描设置。默认值为 0。
 
 注意：通常不建议使用此功能：因为显示器上的所有图层都将由 GPU 缩放，这可能会降低图像质量。建议在显示器本身上禁用超扫描，以避免图像被 GPU 和显示器两次缩放。
 
@@ -832,7 +832,7 @@ framebuffer_height 命令指定控制台帧缓冲区的像素高度。默认值�
 
 #### `framebuffer_depth`
 
-使用 framebuffer_depth 来指定每像素位的控制台帧缓冲区深度。默认值为 16 。
+使用 framebuffer_depth 来指定每像素位的控制台帧缓冲区深度。默认值为 16。
 
 | 帧缓冲深度 | 结果          | 注解                                           |
 | ------------ | --------------- | ------------------------------------------------ |
@@ -869,11 +869,11 @@ framebuffer_height 命令指定控制台帧缓冲区的像素高度。默认值�
 
 #### `test_mode`
 
-test_mode 命令在启动过程中显示测试图像和声音（仅通过复合视频和模拟音频输出），持续给定的秒数，然后继续正常启动操作系统。这用作制造测试；默认值为 0 。
+test_mode 命令在启动过程中显示测试图像和声音（仅通过复合视频和模拟音频输出），持续给定的秒数，然后继续正常启动操作系统。这用作制造测试；默认值为 0。
 
 #### `display_hdmi_rotate`
 
-使用 display_hdmi_rotate 旋转或翻转 HDMI 显示方向。默认值为 0 。
+使用 display_hdmi_rotate 旋转或翻转 HDMI 显示方向。默认值为 0。
 
 | 显示 _hdmi_ 旋转 | 结果              |
 | ---------------- | ------------------- |
@@ -890,11 +890,11 @@ test_mode 命令在启动过程中显示测试图像和声音（仅通过复合�
 
 #### `display_lcd_rotate`
 
-对于旧版图形驱动程序（适用于早于树莓派 4 的型号），请使用 display_lcd_rotate 旋转或翻转 LCD 方向。参数与 display_hdmi_rotate 相同。另请参阅 lcd_rotate 。
+对于旧版图形驱动程序（适用于早于树莓派 4 的型号），请使用 display_lcd_rotate 旋转或翻转 LCD 方向。参数与 display_hdmi_rotate 相同。另请参阅 lcd_rotate。
 
 #### `display_rotate`
 
-在最新固件中， display_rotate 已被弃用。仅保留以确保向后兼容性。请改用 display_lcd_rotate 和 display_hdmi_rotate 。
+在最新固件中，display_rotate 已被弃用。仅保留以确保向后兼容性。请改用 display_lcd_rotate 和 display_hdmi_rotate。
 
 使用 display_rotate 旋转或翻转屏幕方向。参数与 display_hdmi_rotate 相同。
 

@@ -56,7 +56,7 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附�
     $ sudo raspi-config
     ```
 
-    在 Advanced Options 下 > Bootloader Version ，选择 Latest 。然后，使用 Finish 键或 Escape 键退出 raspi-config 。
+    在 Advanced Options 下 > Bootloader Version，选择 Latest。然后，使用 Finish 键或 Escape 键退出 raspi-config。
 
     运行以下命令以将固件更新到最新版本：
 
@@ -76,7 +76,7 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附�
 
 >**警告**
 >
->在连接或断开 M.2 插槽上的设备之前，务必将树莓派断开电源。 
+>在连接或断开 M.2 插槽上的设备之前，务必将树莓派断开电源。
 
 ## 从 NVMe 启动
 
@@ -85,7 +85,7 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附�
 1. 使用 Raspberry Pi Imager 格式化你的 NVMe 存储设备。如果你已经有带有树莓派系统镜像的 SD 卡，可以在你的树莓派上执行此操作。
 2. 使用 SD 卡或 USB 存储设备将树莓派启动到树莓派系统，以持久性更改板载 EEPROM 配置中的引导顺序。
 3. 在树莓派终端上运行 sudo raspi-config 以打开树莓派配置 CLI。
-4. 在 Advanced Options > Boot Order 下，选择 NVMe/USB boot 。然后，使用 Finish 或 Esc 键退出 raspi-config 。
+4. 在 Advanced Options > Boot Order 下，选择 NVMe/USB boot。然后，使用 Finish 或 Esc 键退出 raspi-config。
 5. 使用 sudo reboot 重启你的树莓派。
 
 要获取更多信息，请参阅 NVMe 启动。
@@ -94,7 +94,7 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附�
 
 >**警告**
 >
->树莓派 5 未经 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。 
+>树莓派 5 未经 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。
 
 要启用 PCIe Gen 3 速度，请按照在启用 PCIe Gen 3.0 中的说明操作。
 

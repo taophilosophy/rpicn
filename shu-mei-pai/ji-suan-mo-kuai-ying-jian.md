@@ -175,17 +175,17 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
     ```
     $ sudo rpiboot
     ```
-4. 几秒钟后，计算模块应该会显示成一个大容量存储设备。检查 /dev/ 目录，可能是 /dev/sda 或 /dev/sdb ，查找该设备。或者，运行 lsblk 并搜索一个存储容量与你的计算模块容量相匹配的设备。
+4. 几秒钟后，计算模块应该会显示成一个大容量存储设备。检查 /dev/ 目录，可能是 /dev/sda 或 /dev/sdb，查找该设备。或者，运行 lsblk 并搜索一个存储容量与你的计算模块容量相匹配的设备。
 
 >**技巧**
 >
->或者，你可以从源代码编译 rpiboot 。 
+>或者，你可以从源代码编译 rpiboot。
 
 #### 在 macOS 上
 
 在 macOS 主机设备上设置软件：
 
-1. 首先，从源代码编译 rpiboot 。
+1. 首先，从源代码编译 rpiboot。
 2. 将 IO 板连接到电源。
 3. 然后，使用以下命令运行 rpiboot 可执行文件：
 
@@ -205,7 +205,7 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 
 >**技巧**
 >
->或者，你可以从源代码编译 rpiboot 。 
+>或者，你可以从源代码编译 rpiboot。
 
 ### 刷写 eMMC
 
@@ -231,7 +231,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 #### 使用 计算模块 4 IO 板
 
-从 IO 板跳线上的 J2 ( disable eMMC Boot ) 断开 nRPI_BOOT 。
+从 IO 板跳线上的 J2 ( disable eMMC Boot ) 断开 nRPI_BOOT。
 
 #### 使用计算模块 IO 板
 
@@ -258,13 +258,13 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上启动和开发，并且在制造时刷写的软件版本可能比最新版本要旧。对于最终产品，请考虑：
 
-* 选择并验证特定的引导加载程序版本。 usbboot 存储库中的版本始终是最新的稳定版本。
+* 选择并验证特定的引导加载程序版本。usbboot 存储库中的版本始终是最新的稳定版本。
 * 配置引导设备（例如网络引导）。请参阅引导加载程序配置指南中的 BOOT_ORDER 部分。
 * 启用引导加载程序 EEPROM 上的硬件写保护，以确保引导加载程序无法在无法访问的产品（如远程或嵌入式设备）上被修改。
 
 >**注意**
 >
->计算模块 4 ROM 不从 SD/EMMC 运行 recovery.bin ， rpi-eeprom-update 服务默认情况下未启用。这是必要的，因为 EMMC 不可拆卸，无效的 recovery.bin 文件将妨碍系统启动。这可以被覆盖并与 self-update 模式一起使用，其中引导加载程序可以从 USB MSD 或网络引导进行更新。但是，在更新 EEPROM 时发生断电时， self-update 模式不是原子更新，所以不安全。
+>计算模块 4 ROM 不从 SD/EMMC 运行 recovery.bin，rpi-eeprom-update 服务默认情况下未启用。这是必要的，因为 EMMC 不可拆卸，无效的 recovery.bin 文件将妨碍系统启动。这可以被覆盖并与 self-update 模式一起使用，其中引导加载程序可以从 USB MSD 或网络引导进行更新。但是，在更新 EEPROM 时发生断电时，self-update 模式不是原子更新，所以不安全。
 
 
 #### 除 SD 卡之外的闪存设备
@@ -284,14 +284,14 @@ CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上�
   * 用于 SD/EMMC 引导，请使用 BOOT_ORDER=0xf1
   * 用于 USB 引导失败后切换到 EMMC，请使用 BOOT_ORDER=0xf15
 * 运行 ./update-pieeprom.sh 以更新 EEPROM 图像 pieeprom.bin 图像文件
-* 如果需要 EEPROM 写保护，请编辑 config.txt 并添加 eeprom_write_protect=1 。硬件写保护必须通过软件启用，然后通过将 EEPROM_nWP 引脚拉低进行锁定
+* 如果需要 EEPROM 写保护，请编辑 config.txt 并添加 eeprom_write_protect=1。硬件写保护必须通过软件启用，然后通过将 EEPROM_nWP 引脚拉低进行锁定
 * 运行 ../rpiboot -d . 以使用更新的 EEPROM 映像 pieeprom.bin 更新引导加载程序
 
 pieeprom.bin 文件现在已准备好刷写到计算模块 4。
 
 #### 刷写引导加载程序 EEPROM - 计算模块 4
 
-要刷写引导加载程序 EEPROM，请遵循与刷写 EMMC 相同的硬件设置，但还要确保 EEPROM_nWP 未被拉低。完成后， EEPROM_nWP 可以再次被拉低。运行以下命令将 recovery/pieeprom.bin 写入引导加载程序 EEPROM：
+要刷写引导加载程序 EEPROM，请遵循与刷写 EMMC 相同的硬件设置，但还要确保 EEPROM_nWP 未被拉低。完成后，EEPROM_nWP 可以再次被拉低。运行以下命令将 recovery/pieeprom.bin 写入引导加载程序 EEPROM：
 
 ```
 $ ./rpiboot -d recovery
@@ -340,9 +340,9 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 
 树莓派 BCM283x 设备具有三阶段引导过程：
 
-* GPU DSP 退出复位并从小型内部引导 ROM 执行代码。此代码通过外部接口加载第二阶段引导加载程序。此代码首先在称为 bootcode.bin 的引导分区上查找第二阶段引导加载程序。如果未找到引导设备或未找到 bootcode.bin ，引导 ROM 将在 USB 引导模式下等待主机提供第二阶段引导加载程序（ usbbootcode.bin ）。
+* GPU DSP 退出复位并从小型内部引导 ROM 执行代码。此代码通过外部接口加载第二阶段引导加载程序。此代码首先在称为 bootcode.bin 的引导分区上查找第二阶段引导加载程序。如果未找到引导设备或未找到 bootcode.bin，引导 ROM 将在 USB 引导模式下等待主机提供第二阶段引导加载程序（ usbbootcode.bin ）。
 * 第二阶段引导加载程序负责设置 LPDDR2 SDRAM 接口和其他关键系统功能。设置完成后，第二阶段引导加载程序加载并执行主 GPU 固件（ start.elf ）。
-* start.elf 处理额外的系统设置并启动 Arm 处理器子系统。它包含 GPU 固件。GPU 固件首先读取 dt-blob.bin 以确定初始 GPIO 引脚状态和 GPU 特定接口和时钟，然后解析 config.txt 。然后加载特定于模型的 Arm 设备树文件和在 config.txt 中指定的任何设备树叠加，然后启动 Arm 子系统并将设备树数据传递给正在引导的 Linux 内核。
+* start.elf 处理额外的系统设置并启动 Arm 处理器子系统。它包含 GPU 固件。GPU 固件首先读取 dt-blob.bin 以确定初始 GPIO 引脚状态和 GPU 特定接口和时钟，然后解析 config.txt。然后加载特定于模型的 Arm 设备树文件和在 config.txt 中指定的任何设备树叠加，然后启动 Arm 子系统并将设备树数据传递给正在引导的 Linux 内核。
 
 ### 设备树
 
@@ -360,23 +360,23 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 * bcm2708-rpi-cm.dtb （用于树莓派 计算模块 1）
 * bcm2710-rpi-cm3.dtb （用于树莓派计算模块 3）
 
-在启动过程中，用户可以通过 device_tree 参数在 config.txt 中指定要使用的特定 Arm 设备树。例如， config.txt 中的 device_tree=mydt.dtb 行指定了一个名为 mydt.dtb 的文件中的 Arm 设备树。
+在启动过程中，用户可以通过 device_tree 参数在 config.txt 中指定要使用的特定 Arm 设备树。例如，config.txt 中的 device_tree=mydt.dtb 行指定了一个名为 mydt.dtb 的文件中的 Arm 设备树。
 
 你可以为计算模块产品创建完整的设备树，但我们建议改用叠加层。叠加层向基本设备树添加非特定于板的硬件描述。这包括使用的 GPIO 引脚及其功能，以及连接的设备，以便正确加载驱动程序。引导加载程序在将设备树传递给 Linux 内核之前将叠加层与基本设备树合并。基本设备树偶尔会更改，通常不会破坏叠加层。
 
-使用 dtoverlay 参数在 config.txt 中加载设备树叠加层。树莓派系统假定所有叠加层位于 /overlays 目录中，并使用后缀 -overlay.dtb 。例如， dtoverlay=myoverlay 行加载叠加层 /overlays/myoverlay-overlay.dtb 。
+使用 dtoverlay 参数在 config.txt 中加载设备树叠加层。树莓派系统假定所有叠加层位于 /overlays 目录中，并使用后缀 -overlay.dtb。例如，dtoverlay=myoverlay 行加载叠加层 /overlays/myoverlay-overlay.dtb。
 
 要将外围设备连接到计算模块，请在覆盖中描述连接到 BANK0 和 BANK1 GPIO 的所有硬件。这样你就可以使用标准的树莓派系统镜像，因为覆盖已合并到标准基础设备树中。或者，你可以为你的应用程序定义自定义设备树，但你将无法使用标准的树莓派系统镜像。相反，你必须创建一个包含你自定义设备树的修改后的树莓派系统镜像，以便分发你希望分发的每个操作系统更新。如果基础覆盖发生更改，则可能需要更新你的定制设备树。
 
 ### `dt-blob.bin`
 
-当 start.elf 运行时，它首先读取 dt-blob.bin 。这是一种特殊形式的设备树 blob，告诉 GPU 如何设置 GPIO 引脚状态。
+当 start.elf 运行时，它首先读取 dt-blob.bin。这是一种特殊形式的设备树 blob，告诉 GPU 如何设置 GPIO 引脚状态。
 
 dt-blob.bin 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息。例如，GPU 管理摄像头模块。GPU 需要独占访问 I2C 接口和一些引脚，以便与摄像头模块通信。
 
-在大多数树莓派型号上，I2C0 专为 GPU 独占使用。 dt-blob.bin 定义了用于 I2C0 的 GPIO 引脚。
+在大多数树莓派型号上，I2C0 专为 GPU 独占使用。dt-blob.bin 定义了用于 I2C0 的 GPIO 引脚。
 
-默认情况下， dt-blob.bin 不存在。相反， start.elf 包含了文件的内置版本。许多计算模块项目提供了一个自定义 dt-blob.bin ，该文件覆盖了默认的内置文件。
+默认情况下，dt-blob.bin 不存在。相反，start.elf 包含了文件的内置版本。许多计算模块项目提供了一个自定义 dt-blob.bin，该文件覆盖了默认的内置文件。
 
   dt-blob.bin 指定：
 
@@ -386,7 +386,7 @@ dt-blob.bin 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息�
 
 minimal-cm-dt-blob.dts 是一个示例 .dts 设备树文件。它设置了 HDMI 热插拔检测，ACT LED，并将所有其他 GPIO 设置为带有默认拉电的输入。
 
-要将 minimal-cm-dt-blob.dts 编译为 dt-blob.bin ，请使用设备树编译器 dtc 。要在树莓派上安装 dtc ，请运行以下命令：
+要将 minimal-cm-dt-blob.dts 编译为 dt-blob.bin，请使用设备树编译器 dtc。要在树莓派上安装 dtc，请运行以下命令：
 
 ```
 $ sudo apt install device-tree-compiler
@@ -398,13 +398,13 @@ $ sudo apt install device-tree-compiler
 $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 ```
 
-获取更多信息，请参阅我们的创建指南 dt-blob.bin 。
+获取更多信息，请参阅我们的创建指南 dt-blob.bin。
 
 ### Arm Linux 设备树
 
-在 start.elf 读取 dt-blob.bin 并设置初始引脚状态和时钟之后，它会读取 config.txt ，其中包含许多其他系统设置选项。
+在 start.elf 读取 dt-blob.bin 并设置初始引脚状态和时钟之后，它会读取 config.txt，其中包含许多其他系统设置选项。
 
-阅读完 config.txt 后， start.elf 会读取一个特定于模型的设备树文件。例如，计算模块 3 使用 bcm2710-rpi-cm.dtb 。该文件是一个标准的 Arm Linux 设备树文件，详细说明连接到处理器的硬件。它枚举了：
+阅读完 config.txt 后，start.elf 会读取一个特定于模型的设备树文件。例如，计算模块 3 使用 bcm2710-rpi-cm.dtb。该文件是一个标准的 Arm Linux 设备树文件，详细说明连接到处理器的硬件。它枚举了：
 
 * 外围设备的种类和位置
 * 使用了哪些 GPIO
@@ -417,11 +417,11 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 ### 设备树源码和编译
 
-树莓派系统镜像提供了预编译的 dtb 文件，但源 dts 文件位于树莓派 Linux 内核分支中。在文件名中查找 rpi 。
+树莓派系统镜像提供了预编译的 dtb 文件，但源 dts 文件位于树莓派 Linux 内核分支中。在文件名中查找 rpi。
 
-默认叠加 dts 文件位于 arch/arm/boot/dts/overlays 。这些叠加文件是创建自己的叠加的好起点。要将这些 dts 文件编译为 dtb 文件，请使用设备树编译器 dtc 。
+默认叠加 dts 文件位于 arch/arm/boot/dts/overlays。这些叠加文件是创建自己的叠加的好起点。要将这些 dts 文件编译为 dtb 文件，请使用设备树编译器 dtc。
 
-在编译自己的内核时，构建主机需要 scripts/dtc 中的设备树编译器。要自动构建叠加，请将它们添加到 dtbs 中的 make 目标中 arch/arm/boot/dts/overlays/Makefile 。
+在编译自己的内核时，构建主机需要 scripts/dtc 中的设备树编译器。要自动构建叠加，请将它们添加到 dtbs 中的 make 目标中 arch/arm/boot/dts/overlays/Makefile。
 
 ### 设备树调试
 
@@ -441,7 +441,7 @@ $ sudo vclog --msg
 
 >**技巧**
 >
->要在输出中包含更多诊断信息，请将 dtdebug=1 添加到 config.txt 。 
+>要在输出中包含更多诊断信息，请将 dtdebug=1 添加到 config.txt。
 
 使用设备树树莓派论坛提出设备树相关问题或报告问题。
 
@@ -475,7 +475,7 @@ pin@p44 { function = "i2c1"; termination = "pull_up"; }; // SDA1
 pin@p45 { function = "i2c1"; termination = "pull_up"; }; // SCL1
 ```
 
-我们可以在不进行任何更改的情况下使用此 dt-blob.dts ，因为 Linux 设备树在特定驱动程序加载时重新配置这些引脚。但是，如果配置 dt-blob.dts ，GPIO 在 GPU 引导阶段尽快达到最终状态。在某些情况下，必须在 GPU 引导时配置引脚，以便在加载 Linux 驱动程序时处于特定状态。例如，重置线可能需要保持在正确的方向上。
+我们可以在不进行任何更改的情况下使用此 dt-blob.dts，因为 Linux 设备树在特定驱动程序加载时重新配置这些引脚。但是，如果配置 dt-blob.dts，GPIO 在 GPU 引导阶段尽快达到最终状态。在某些情况下，必须在 GPU 引导时配置引脚，以便在加载 Linux 驱动程序时处于特定状态。例如，重置线可能需要保持在正确的方向上。
 
 运行以下命令编译 dt-blob.bin ：
 
@@ -483,7 +483,7 @@ pin@p45 { function = "i2c1"; termination = "pull_up"; }; // SCL1
 $ sudo dtc -I dts -O dtb -o /boot/firmware/dt-blob.bin /boot/firmware/minimal-cm-dt-blob.dts
 ```
 
-下载 example1-overlay.dts ，将其复制到 /boot/firmware/ 中的引导分区，然后使用以下命令编译：
+下载 example1-overlay.dts，将其复制到 /boot/firmware/ 中的引导分区，然后使用以下命令编译：
 
 ```
 $ sudo dtc -@ -I dts -O dtb -o /boot/firmware/overlays/example1.dtbo /boot/firmware/example1-overlay.dts
@@ -507,9 +507,9 @@ $ sudo hwclock
 
 #### 在 BANK0 上连接一个 ENC28J60 SPI 以太网控制器
 
-在这个示例中，我们使用已在 /boot/firmware/overlays 中定义的叠加层，将 ENC28J60 SPI 以太网控制器添加到 BANK0。 以太网控制器使用 SPI 引脚 CE0、MISO、MOSI 和 SCLK（分别为 GPIO8-11），GPIO25 用于下降沿中断，另外还有 GND 和 3.3V。
+在这个示例中，我们使用已在 /boot/firmware/overlays 中定义的叠加层，将 ENC28J60 SPI 以太网控制器添加到 BANK0。以太网控制器使用 SPI 引脚 CE0、MISO、MOSI 和 SCLK（分别为 GPIO8-11），GPIO25 用于下降沿中断，另外还有 GND 和 3.3V。
 
-在这个示例中，我们不会更改 dt-blob.bin 。而是，将以下行添加到 /boot/firmware/config.txt 中：
+在这个示例中，我们不会更改 dt-blob.bin。而是，将以下行添加到 /boot/firmware/config.txt 中：
 
 ```
 dtoverlay=enc28j60
@@ -658,7 +658,7 @@ $ rpicam-vid -t 10000 -o video.h264
 
 #### 指定要使用的摄像头
 
-默认情况下， libcamera 总是使用 --list-cameras 列表中索引为 0 的相机。要指定相机选项，请从以下命令获取每个相机的索引值：
+默认情况下，libcamera 总是使用 --list-cameras 列表中索引为 0 的相机。要指定相机选项，请从以下命令获取每个相机的索引值：
 
 ```
 $ rpicam-hello --list-cameras
@@ -695,7 +695,7 @@ $ rpicam-hello --camera 1
 
 ### GPIO 引脚的 I2C 映射
 
-默认情况下，提供的摄像头驱动程序假定 CAM1 使用 i2c-10 ，CAM0 使用 i2c-0 。计算模块 I/O 板将以下 GPIO 引脚映射到 i2c-10 和 i2c-0 ：
+默认情况下，提供的摄像头驱动程序假定 CAM1 使用 i2c-10，CAM0 使用 i2c-0。计算模块 I/O 板将以下 GPIO 引脚映射到 i2c-10 和 i2c-0 ：
 
 | I/O 板型号                                              | i2c-10 引脚 | i2c-0 引脚 |
 | --------------------------------------------------------- | ------------- | ------------ |
@@ -741,13 +741,13 @@ CM1、CM3、CM3+和 CM4S I/O 板不提供 cam1_reg 和 cam0_reg 的 GPIO 引脚�
 
 ## 连接官方的 7 英寸显示屏
 
-在开始之前，请将系统软件和固件更新到最新版本。 计算模块大多使用相同的流程，但有时物理差异会迫使针对特定型号进行更改。
+在开始之前，请将系统软件和固件更新到最新版本。计算模块大多使用相同的流程，但有时物理差异会迫使针对特定型号进行更改。
 
 ### 连接显示器到 DISP1
 
 >**注意**
 >
->树莓派 Zero 相机线不能作为 RPI-DISPLAY 适配器的替代品。这两根线的布线不同。 
+>树莓派 Zero 相机线不能作为 RPI-DISPLAY 适配器的替代品。这两根线的布线不同。
 
 要连接显示器到 DISP1：
 
