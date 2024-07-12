@@ -1,9 +1,8 @@
-# Raspberry Pi Connect（测试版）
+# Raspberry Pi Connect（BETA）
 
 ## 简介
 
-
-Raspberry Pi Connect 可以让您安全地从世界任何地方访问您的树莓派。
+Raspberry Pi Connect 可以让您在世界上任何地方，安全地访问您的树莓派。
 
 ![hero](https://www.raspberrypi.com/documentation/services/images/hero.png?hash=abae19beca53f018d9c434ddee214cd9)
 
