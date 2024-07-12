@@ -2783,7 +2783,7 @@ $ sudo halt
 RTC 还提供了启动时的时间，例如 dmesg，适用于缺乏 NTP 访问权限的用例：
 
 ```
-[   1.295799] rpi-rtc soc:rpi_rtc: setting system clock to 2023-08-16T15:58:50 UTC (1692201530)
+[     1.295799] rpi-rtc soc:rpi_rtc: setting system clock to 2023-08-16T15:58:50 UTC (1692201530)
 ```
 
 | NOTE | 即使没有备用电池连接到 J5 连接器，RTC 仍然可用。|
