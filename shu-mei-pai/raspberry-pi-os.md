@@ -5,7 +5,7 @@
 
 树莓派系统（Raspberry Pi OS）是一款免费操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
 
-因为树莓派系统源自 Debian，因此树莓派系统基于 Debian [发行周期](https://wiki.debian.org/DebianReleases)的阶段版本。大约每 2 年发布一次。
+因为树莓派系统源自 Debian，因此树莓派系统基于 Debian [发布周期](https://wiki.debian.org/DebianReleases)内的阶段发行版本。大约每 2 年发布一次。
 
 最新版本的树莓派系统基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。先前版本基于 [Debian Bullseye](https://www.raspberrypi.com/news/raspberry-pi-os-debian-bullseye/)。
 
@@ -21,7 +21,7 @@
 
 #### 安装更新
 
-apt 把软件源列表存放在文件 `/etc/apt/sources.list` 中。在安装软件之前，请运行以下命令，来 **刷新（update）** 位于 `/etc/apt/sources.list` 的本地软件源：
+`apt` 会把软件源列表存放在文件 `/etc/apt/sources.list` 中。在安装软件之前，请运行以下命令，来 **刷新（update）** 位于 `/etc/apt/sources.list` 的本地软件源：
 
 ```
 $ sudo apt update
@@ -68,9 +68,9 @@ raspi-copies-and-fills - ARM-accelerated versions of selected functions from str
 raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 ```
 
-搜索结果返回了多个软件包，他们的名称或简介中均包含了关键词（raspi）。
+搜索结果返回了多个软件包，他们的名称或简介中均涉及关键词（raspi）。
 
-使用以下命令查看其详细信息：
+使用以下命令可查看其详细信息：
 
 ```
 $ apt-cache show <软件包名>
@@ -99,7 +99,7 @@ Description: Raspberry Pi configuration tool
 Description-md5: 19630c04463bfe7193152448b53d85a0
 ```
 
-可使用此命令验证维护者、版本和大小是否符合你对软件包的要求。
+可使用此命令验证维护者、版本和大小是否满足你对软件包的要求。
 
 #### 安装软件包
 
@@ -139,16 +139,15 @@ $ df -h
 $ sudo apt clean
 ```
 
-### 将你的操作系统更新至最新的大版本
+### 将你的操作系统更新至最新大版本（major version）
 
 >**警告**
 >
 >请在尝试进行大版本更新时，先行备份。 
 
-
 要把树莓派系统这个操作系统更新至最新大版本，请使用另外一张 SD 卡，在它上面写入新版本的镜像。从先前安装的旧系统（使用 SD 卡读卡器或网络存储）复制文件和配置到这张新的 SD 卡。然后，将这张新的 SD 卡插进树莓派上的卡槽，再启动。
 
-### 更新固件
+### 更新你的固件
 
 >**警告**
 >
@@ -156,13 +155,13 @@ $ sudo apt clean
 
 >**警告**
 >
->软件的预发布版本能否正常工作，是无法保证的。除非得到了树莓派工程师的建议，否则不要在任何系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为日常更新流程的一部分。 
+>软件的预发布版本能否正常工作，是无法保证的。除非得到了树莓派工程师的建议，否则不要在任何系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为日常更新流程的组成部分。 
 
-要把你树莓派的固件更至最新版本，请使用 `rpi-update`。
+要把你树莓派的固件更至最新版本，请使用 [`rpi-update`](https://github.com/raspberrypi/rpi-update)。
 
 `rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块、设备树文件和最新版的 VideoCore 固件。然后将这些文件安装到树莓派系统中。
 
-`rpi-update` 使用的所有源数据均来自 [rpi-firmware 存储库](https://github.com/raspberrypi/rpi-firmware)。该存储库包含来自[官方固件存储库](https://github.com/raspberrypi/firmware)的数据子集。
+`rpi-update` 使用的所有源数据均来自 [`rpi-firmware` 存储库](https://github.com/raspberrypi/rpi-firmware)。该存储库包含来自[官方固件存储库](https://github.com/raspberrypi/firmware)的数据子集。
 
 要进行更新，请以 root 身份运行 `rpi-update`。更新完成后，需重启你的树莓派以使这些变更生效：
 
@@ -211,7 +210,7 @@ $ sudo apt install --reinstall raspi-firmware
 
 在默认情况下，树莓派系统会通过 HDMI 将音频输出至你的显示器。要将音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选择。
 
-#### `vlc` 命令 
+#### `vlc` 命令行
 
 你还可以用命令行启动 VLC。在以下示例中，我们使用了来自《大雄兔》（Big Buck Bunny）的片段。要在树莓派上下载该片段，请执行以下命令：
 
@@ -270,10 +269,10 @@ $ cvlc --play-and-exit computer-startup-music.mp3
 要强制把音频输出到特定设备，请使用 [ALSA](https://www.alsa-project.org/wiki/Main_Page) 音频输出：把 `alsa` 值传给参数 `-A`。同时使用参数 `--alsa-audio-device` 来指定音频输出设备：
 
 ```
-$ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startup-music.mp3
+$ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startup-music.mp3
 ```
 
-用以下选项来替换占位符 `<alsa-device>` ：
+用以下选项来替换占位符 `<alsa-设备>` ：
 
 | ALSA 设备 | 说明                                                              |
 | :-----------: | :-------------------------------------------------------------------: |
@@ -324,14 +323,13 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果你有 H.264 原始码流（裸流，raw H.264 stream），比如用树莓派摄像头模块捕获的码流，你可以通过把码流封装成诸如 MP4 之类的文件格式，来提升在 VLC 上的播放性能。你可以使用 ffmpeg 把码流内容转成容器文件。例如，以下命令可把名为 video.h264 的码流，转成 MP4 文件（30fps），同时命名为 video.mp4 ：
+如果你有 H.264 原始码流（裸流，raw H.264 stream），比如用树莓派摄像头模块捕获的码流，你可以通过把码流封装成诸如 MP4 之类的文件格式，来提升在 VLC 上的播放性能。你可以使用 `ffmpeg` 把码流内容转成容器文件。例如，以下命令可把名为 `video.h264` 的码流，转成 MP4 文件 `video.mp4`（30fps）：
 
 ```
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 ```
 
 ## 实用工具
-
 
 树莓派系统中预装了几个有用的命令行工具。
 
@@ -347,7 +345,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 ### `vcgencmd`
 
-`vcgencmd` 工具用于输出树莓派上有关 VideoCore GPU 的信息。你可以在 [GitHub 上](https://github.com/raspberrypi/utils/tree/master/vcgencmd)找到工具 vcgencmd 的源代码。
+`vcgencmd` 工具用于输出树莓派上有关 VideoCore GPU 的信息。你可以在 [GitHub 上](https://github.com/raspberrypi/utils/tree/master/vcgencmd)找到工具 `vcgencmd` 的源代码。
 
 要获取 `vcgencmd` 支持的所有命令列表，请使用 `vcgencmd commands`。下面列出了一些实用命令及其所需参数。
 
@@ -366,7 +364,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 返回系统的限流状态。这是个位模式。设置位表示以下含义：
 
-| 位 | 十六进制值 | 意义              |
+| 位 | 十六进制（Hex）值 | 意义              |
 | ---- | ------------ | ------------------- |
 | 0  | `0x1`           | 已检测到欠压        |
 | 1  | `0x2`           | Arm 频率已受限   |
@@ -379,7 +377,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 #### `measure_temp`
 
-`measure_temp` 可返回 SoC 的温度，数据来自其内部温度传感器。在树莓派 4 上， `measure_temp pmic` 可返回电源管理（PMIC）的温度。
+`measure_temp` 可返回 SoC 的温度，数据源于其内部温度传感器。在树莓派 4 上， `measure_temp pmic` 返回的温度来自电源管理（PMIC）。
 
 #### `measure_clock [时钟]`
 
@@ -393,9 +391,9 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 | `isp`     | 图像传感器管道         |
 | `v3d`     | 3D 区域                  |
 | `uart`     | UART                   |
-| `pwm`     | PWM 块（模拟音频输出） |
+| `pwm`     | PWM 区域（模拟音频输出） |
 | `emmc`     | SD 卡接口              |
-| `pixel`     | 像素阀                 |
+| `pixel`     | 像素阀（Pixel valves）                 |
 | `vec`     | 模拟视频编码器         |
 | `hdmi`     | HDMI                   |
 | `dpi`     | 显示并行接口           |
@@ -419,7 +417,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 #### `get_config [配置项目|int|str]`
 
-它将显示指定配置项目的值：或者指定 `int` （整数）、`str` （字符串），以查看给定类型的所有配置项。例如，以下命令会返回设备上的所有内存（单位为 Mb）：
+它将显示指定配置项目的值。或者如要查看给定类型的所有配置项目，可指定参数 `int`（整数）或`str`（字符串）。例如，以下命令会返回设备上的全部内存大小（单位为 Mb）：
 
 ```
 $ vcgencmd get_config total_mem
@@ -427,11 +425,11 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem 类型`
 
-`get_mem 类型` 能报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu` 。如果设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
+`get_mem 类型` 会报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu` 。如果设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
 
 ##### `codec_enabled [类型]`
 
-可报告指定类型的解码器是否已启用。支持的类型参数包括 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块不属于 VideoCore GPU，因此无法用此命令查看其状态。
+可报告指定类型的解码器是否已启用。可支持以下类型：AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块不属于 VideoCore GPU，因此无法用此命令查看其状态。
 
 ##### `mem_oom`
 
@@ -487,9 +485,9 @@ $ sudo apt install python3-build-hat
 
 ### 使用 `pip` 安装 Python 库
 
-#### Bookworm 改为使用 `pip` 安装
+#### Bookworm 上 `pip` 安装的变更
 
-在旧版本的树莓派系统中，你可以使用 `pip` 直接把库安装到系统级 Python 中。自树莓派系统 Bookworm 以降，用户无法直接把库安装到系统级 Python。
+在旧版本的树莓派系统中，你可以用 `pip` 直接把库安装到系统级 Python 中。自树莓派系统 *Bookworm* 以降，用户无法直接把库安装到系统级 Python。
 
 应该[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户把库安装成系统级，[请用 `apt`` 来安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
 
@@ -515,15 +513,15 @@ note: If you believe this is a mistake, please contact your Python installation 
 hint: See PEP 668 for the detailed specification.
 ```
 
-长期以来，Python 用户一直需要解决操作系统软件包管理器（`apt`）和 Python 特定软件包管理工具（`pip`）之间的冲突。这些冲突包括 Python 的 API 不兼容性、文件所有权。
+长期以来，Python 用户一直承受着操作系统软件包管理器（`apt`）和 Python 特定软件包管理工具（`pip`）之间的冲突。这些冲突包括 Python 的 API 不兼容性、文件所有权。
 
 从树莓派系统 *Bookworm* 开始，用 `pip` 安装的软件包，**只能安装到 Python 虚拟环境（`venv`）里面**。虚拟环境是个容器，在这儿，你能安全地安装第三方模块，不会干扰系统级 Python。
 
-#### pip 和虚拟环境的使用
+#### 使用 pip 和虚拟环境
 
-要使用虚拟环境，请创建容器来存储环境。根据你使用 Python 的打算，有多种方法可以实现这一点。
+要使用虚拟环境，请创建容器来存储环境。根据你使用 Python 的打算，有多种方法可以做到这一点。
 
-运行以下命令可创建一个虚拟环境配置文件夹，把 `<环境名>` 改成你想要的虚拟环境名称（例如 `env`）:
+运行以下命令可创建一个虚拟环境配置文件夹，把 `<环境名>` 改成你想要的虚拟环境名称（如 `env`）:
 
 ```
 $ python -m venv <环境名>
@@ -593,9 +591,9 @@ $ source env/bin/activate
 
 #### 为每个用户使用独立的环境
 
-与为每个 Python 项目都创建一个虚拟环境有所不同，你可以为你的用户账户，创建一个单独的虚拟环境。在运行其他 Python 程序之前，先激活这个虚拟环境。这种方法对于在项目之间共享许多库的工作流可能更方便。
+与为每个 Python 项目都创建一个虚拟环境有所不同，你可以为你的用户账户，创建一个单独的虚拟环境。**在运行其他 Python 程序之前，先激活这个虚拟环境。** 这种方法对于在项目之间共享许多库的工作流可能更方便。
 
-当为整个用户账户，跨多个项目创建虚拟环境时，可考虑将虚拟环境配置文件放在你的主目录下。可将其配置存储在一个以点开头的文件夹中，以便在默认情况下，隐藏该文件夹，防止在主目录里弄混。
+当为整个用户账户，跨多个项目创建虚拟环境时，可考虑将虚拟环境配置文件放在你的主目录下。可将其配置存储在[一个以点开头的文件夹中](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)，以便在默认情况下，隐藏该文件夹，防止在主目录里弄混。
 
 使用以下命令，在当前用户的主目录中，隐藏文件夹下，创建虚拟环境：
 
@@ -635,7 +633,7 @@ $ source ~/.env/bin/activate
 
 关于 GPIO 硬件的信息，请参见 [GPIO 硬件](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio)。
 
-#### LED
+#### 控制 LED
 
 以下示例代码用于控制接入到 GPIO17 的 LED：
 
@@ -652,13 +650,13 @@ while True:
     sleep(1)
 ```
 
-可在类似 Thonny 的 IDE 中运行，LED 会不断地闪烁。
+可在类似 Thonny 的 IDE 中运行，LED 会不停地闪烁。
 
-LED 方法包括 on() ， off() ， toggle() 和 blink() 。
+LED 方法包括 `on()`、`off()`、`toggle()` 和 `blink()`。
 
-#### 按钮
+#### 读取按钮状态
 
-以下示例代码可读取接入到 GPIO2 按钮的状态：
+以下示例代码，可读取接入到 GPIO2 按钮的状态：
 
 ```
 from gpiozero import Button
@@ -674,11 +672,11 @@ while True:
     sleep(1)
 ```
 
-按钮功能包括属性 is_pressed 和 is_held ；回调 when_pressed ， when_released 和 when_held ；以及方法 wait_for_press() 和 wait_for_release 。
+按钮函数包括属性 `is_pressed` 和 `is_held`；回调 `when_pressed`、`when_released` 和 `when_held`；以及方法 `wait_for_press()` 和 `wait_for_release`。
 
-#### 按钮和 LED
+#### 用按钮控制 LED
 
-以下示例代码可读取接入 GPIO2 按钮的状态，并在按下按钮时，点亮接入到 GPIO17 的 LED：
+以下示例代码可读取接入 GPIO2 的按钮状态，并在按下按钮时，点亮接入到 GPIO17 的 LED：
 
 ```
 from gpiozero import LED, Button
@@ -693,7 +691,7 @@ while True:
         led.off()
 ```
 
- 或者：
+ 还可这么写：
 
 ```
 from gpiozero import LED, Button
@@ -708,7 +706,7 @@ while True:
     led.off()
 ```
 
- 又或者：
+ 又或者这么写：
 
 ```
 from gpiozero import LED, Button
@@ -720,10 +718,10 @@ button.when_pressed = led.on
 button.when_released = led.off
 ```
 
-#### 更进一步
+#### 进一步阅读
 
-![](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)
+![GPIO Zero 基础电子学](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)
 
-你可以在由树莓派出版社出版的书籍《使用 GPIO Zero 的简单电子学》中，找到有关如何使用 GPIO Zero Python 库编程，连接到你的树莓派的更多信息。该书通过 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
+你可以在由树莓派出版社出版的书籍[《GPIO Zero 基础电子学》（Simple Electronics with GPIO Zero）](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)中，找到有关如何使用 GPIO Zero Python 库编程，沟通你树莓派的更多信息。该书使用 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
 
-你可以免费下载这本书的 PDF 文件，它是根据知识共享署名-非商业性使用-相同方式共享 3.0 国际许可发布的。
+你可以免费[下载这本书](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)的 PDF 文件，它是根据[知识共享署名-非商业性使用-相同方式共享 3.0 国际许可（CC BY NC-SA）](https://creativecommons.org/licenses/by-nc-sa/3.0/)发布的。
