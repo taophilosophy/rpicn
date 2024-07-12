@@ -182,61 +182,65 @@ $ sudo reboot
 
 ### 把固件降级到最新稳定版本。
 
-如果你在把固件更新到最新版本后遇到问题，请使用以下命令退回到上个稳定版固件：
+如果你在把固件更新到最新版本后遇到问题，请使用以下命令退回到最新稳定版固件：
 
 ```
 $ sudo apt-get update
 $ sudo apt install --reinstall raspi-firmware
 ```
 
-```
-$ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
-```
-
-最后，使用 `sudo reboot` 重启你的树莓派以使这些变更生效。
+>**注意**
+>
+>如果你仍在使用树莓派操作系统 Bullseye，则必须用以下命令重装 `raspberrypi-kernel`：
+>
+>```
+>$ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
+>```
+>
+>最后，使用 `sudo reboot` 重启你的树莓派以使这些变更生效。
 
 ## 播放音频和视频
 
 
-树莓派系统预装了 VLC 媒体播放器。你可以用 VLC 播放音频和视频文件。VLC 在树莓派系统中能使用硬件加速，并支持多种常见的音频和视频文件格式。
+树莓派系统预装了 [VLC 媒体播放器](https://www.videolan.org/)。你可以它播放音视频文件。VLC 在树莓派系统上能使用硬件加速，并支持多种常见的音视频文件格式。
 
 ### VLC 媒体播放器
 
-#### VLC 图形界面
+#### 图形界面的 VLC 
 
-要在树莓派桌面播放音频和视频文件，请在文件管理器中双击文件。这将自动启动 VLC 播放文件。或者，从“声音和视频”菜单中启动 VLC 媒体播放器。然后，从“媒体”菜单中选择“打开文件...”，并找到到要播放的文件。
+要在树莓派桌面播放音视频文件，请在文件管理器中双击文件。这将自动触发 VLC 播放文件。或者，从“**声音和视频（Sound & Video）**”菜单中启动 **VLC 媒体播放器（VLC Media Player）**。然后，从“**媒体（Media）**”菜单中选择“**打开文件...（Open File…）**”，并找到到要播放的文件。
 
-默认情况下，树莓派系统通过 HDMI 将音频输出至你的显示器。要将音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选择。
+在默认情况下，树莓派系统会通过 HDMI 将音频输出至你的显示器。要将音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选择。
 
-#### vlc 命令行界面
+#### `vlc` 命令 
 
-你还可以用命令行启动 VLC。在以下示例中，我们使用的短片来自《大雄兔》（Big Buck Bunny）。要在树莓派上下载该片段，请执行以下命令：
+你还可以用命令行启动 VLC。在以下示例中，我们使用了来自《大雄兔》（Big Buck Bunny）的片段。要在树莓派上下载该片段，请执行以下命令：
 
 ```
 $ wget --trust-server-names http://rptl.io/big-buck-bunny
 ```
 
-要用命令行使 VLC 播放视频，请运行以下命令：
+要用命令行 VLC 播放视频，请运行以下命令：
 
 ```
 $ vlc big-buck-bunny-1080p.mp4
 ```
 
-要在文件播放完成后关闭 VLC 图形界面，请添加参数 `--play-and-exit`：
+要在文件播放完成后关闭 VLC 的图形界面，请添加参数 `--play-and-exit`：
 
 ```
 $ vlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
-要在全屏模式下播放视频（某些情况下可能会让播放更加流畅），请添加参数 `--fullscreen`：
+要全屏播放视频（在某些情况下播放会更流畅），请添加参数 `--fullscreen`：
 
 ```
 $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 ```
 
-#### 使用 cvlc 来播放不含图形界面的媒体
+#### 使用 `cvlc` 播放无图形界面的媒体
 
-如果你在以上这些命令中使用了 cvlc 来代替 vlc ，那么将不会显示 VLC 的图形界面：
+如果你在以上这些命令中把 `vlc` 换成 `cvlc`，那么将不会显示 VLC 的图形界面：
 
 ```
 $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
@@ -244,19 +248,19 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 
 ### 在精简版树莓派系统上播放音频和视频
 
-与完整版本的树莓派系统不同，在精简版树莓派系统上并未预装 VLC 。要在精简版树莓派系统上使用 VLC 播放视频和音频，请安装所需的，用于无需桌面播放的软件包：
+与完整版本的树莓派系统（所有 with desktop 版本）相比，精简版树莓派系统上并未预装 VLC 。要在精简版树莓派系统上使用 VLC 播放音视频，请安装用于无需桌面播放的软件包：
 
 ```
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
 ```
 
-为了下面的示例，我们使用了一个短音频的剪辑片段。要在树莓派上下载这个剪辑片段，请执行以下命令：
+为了下面的示例，我们使用了一个短音频的片段剪辑。要在树莓派上下载该片段，请执行以下命令：
 
 ```
 $ wget --trust-server-names http://rptl.io/startup-music
 ```
 
-要从命令行中的 VLC 播放片段，请运行以下命令：
+要在命令行让 VLC 播放片段，请运行以下命令：
 
 ```
 $ cvlc --play-and-exit computer-startup-music.mp3
