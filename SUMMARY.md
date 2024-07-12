@@ -12,7 +12,7 @@
 ## 树莓派
 
 * [入门](shu-mei-pai/ru-men.md)
-* [Raspberry Pi OS](shu-mei-pai/raspberry-pi-os.md)
+* [树莓派系统（Raspberry Pi OS）](shu-mei-pai/raspberry-pi-os.md)
 * [系统配置](shu-mei-pai/xi-tong-pei-zhi.md)
 * [config.txt](shu-mei-pai/config.txt.md)
 * [旧版 config.txt 参数](shu-mei-pai/jiu-ban-config.txt-can-shu.md)
