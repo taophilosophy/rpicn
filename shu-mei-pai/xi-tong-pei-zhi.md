@@ -14,7 +14,7 @@ raspi-config 能帮助你配置树莓派。不同树莓派型号之间的能用�
 $ sudo raspi-config
 ```
 
-你应该会在灰色窗口中，看到蓝色界面，并附带了各种选项：
+你应该会在灰色窗口中，看到蓝色的界面，并附带了各种选项：
 
 
 ![raspi-config main screen](../.gitbook/assets/raspi-config.png)
