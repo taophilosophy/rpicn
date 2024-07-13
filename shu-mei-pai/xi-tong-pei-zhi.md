@@ -1383,7 +1383,7 @@ splash 告诉引导使用 Plymouth 模块显示启动画面。
 
 `plymouth.ignore-serial-consoles` 通常如果启用了 Plymouth 模块，它会屏蔽掉所有串口控制台上出现的启动信息。此参数让 Plymouth 忽略所有串口控制台，以使启动消息再次可见，就像没有运行 Plymouth 一样。
 
-`dwc_otg.lpm_enable=0` 关闭 Link Power Management（LPM）在 dwc_otg 驱动程序中的设置，该驱动程序驱动着嵌入在用于树莓派计算机的处理器中的 USB 控制器。在树莓派 4 上，默认情况下禁用此控制器，并且仅连接到 USB Type C 电源输入连接器。树莓派 4 上的 USB-A 端口由另一个不受此设置影响的 USB 控制器驱动。
+`dwc_otg.lpm_enable=0` 关闭链接状态电源管理（Link Power Management，LPM）在 dwc_otg 驱动程序中的设置，该驱动程序驱动着嵌入在用于树莓派计算机的处理器中的 USB 控制器。在树莓派 4 上，默认情况下禁用此控制器，并且仅连接到 USB Type C 电源输入连接器。树莓派 4 上的 USB-A 端口由另一个不受此设置影响的 USB 控制器驱动。
 
 dwc_otg.speed 设置了树莓派计算机上内置处理器的 USB 控制器的速度。dwc_otg.speed=1 将其设置为全速（USB 1.0），比高速（USB 2.0）慢。除非在解决 USB 设备问题时，否则不应设置此选项。
 
