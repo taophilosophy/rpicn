@@ -1,7 +1,5 @@
 # 系统配置
 
-
-
 ## `raspi-config`
 
 >**技巧**
@@ -84,9 +82,9 @@ $ sudo raspi-config
 
 如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且不带黑边。
 
-#### Screen blanking——无操作时使屏幕变暗
+#### Screen blanking——无操作时关闭屏幕
 
-启用或禁用：Screen blanking（无操作时使屏幕变暗）。
+启用或禁用：Screen blanking（无操作时关闭屏幕）。
 
 #### VNC resolution——VNC 分辨率
 
@@ -397,16 +395,16 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 * `0`：启用过扫描
 * `1`：禁用过扫描
 
-#### Screen blanking——无操作时使屏幕变暗
+#### Screen blanking——无操作时关闭屏幕
 
-启用或禁用：Screen blanking（无操作时使屏幕变暗）。
+启用或禁用：Screen blanking（无操作时关闭屏幕）。
 
 ```
 $ sudo raspi-config nonint do_blanking <0/1>
 ```
 
-* `0`：Screen blanking（无操作时使屏幕变暗）
-* `1`：Screen blanking（无操作时不会使屏幕变暗）
+* `0`：Screen blanking（无操作时关闭屏幕）
+* `1`：Screen blanking（无操作时不会关闭屏幕）
 
 #### VNC resolution——VNC 分辨率
 
@@ -1055,13 +1053,13 @@ AUTOCONNECT-PRIORITY  NAME
 
 如果要给你的树莓派分配静态 IP 地址，请在路由器上为其保留一个地址。你的树莓派将继续通过 DHCP 分配其地址，但每次都会收到相同的地址。可以在 DHCP 服务器中，将树莓派的 MAC 地址绑定到静态 IP 地址，来实现分配“静态”地址。
 
-## Screen Blanking（无操作时使屏幕变暗）
+## Screen Blanking（无操作时关闭屏幕）
 
-你可以配置你的树莓派，在一段时间内无操作后，把屏幕变暗。在默认情况下，在启用 Screen Blanking 后，树莓派系统将在无操作后十分钟把屏幕变暗。
+你可以配置你的树莓派，在一段时间内无操作后，把关闭屏幕。在默认情况下，在启用 Screen Blanking 后，树莓派系统将在无操作后十分钟把关闭屏幕。
 
 ### 桌面
 
-你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制在无操作时是否使屏幕变暗。
+你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制在无操作时是否关闭屏幕。
 
 #### 配置树莓派
 
@@ -1090,7 +1088,7 @@ $ sudo raspi-config
 dpms_timeout=600
 ```
 
-dpms_timeout 变量控制了在树莓派系统在屏幕变暗之前需要的无操作时间（秒）。例如，值若为 600，意味着会在 600 秒（十分钟）后使屏幕变暗。将值置 0 屏幕将永不变暗。
+dpms_timeout 变量控制了在树莓派系统在关闭屏幕之前需要的无操作时间（秒）。例如，值若为 600，意味着会在 600 秒（十分钟）后关闭屏幕。将值置 0 屏幕将永不变暗。
 
 ### 控制台
 
