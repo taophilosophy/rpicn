@@ -8,25 +8,25 @@
 >
 >树莓派桌面用户可以在“**首选项（Preferences）**”>“**树莓派配置（Raspberry Pi Configuration）**”中使用这款软件的图形化版本。但是，某些高级配置仅存在于 `raspi-config`。
 
-`raspi-config` 能帮助你配置树莓派。不同型号的树莓派之间，能用的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
+`raspi-config` 能帮助你配置树莓派。不同型号的树莓派之间，能进行配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
 
 ```
 $ sudo raspi-config
 ```
 
-你应该会在灰色窗口内，看到一个蓝色背景的界面，并附带了各种选项：
+你应该会在灰色窗口内，看到蓝色背景的界面，并附带了各种选项：
 
 ![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
-你用 **上（↑）**、**下（↓）** 箭头键就能在可选条目之间进行切换，并对当前所选高亮显示。
+你用 **上（↑）箭头**、**下（↓）箭头** 就能在可选条目之间自由切换，并对当前所选高亮显示。
 
-按 **右箭头键（→）**、**Tab 键** 可选择 `<Select>` 和 `<Finish>` 按钮。按 **左箭头键（←）**、**Tab 键** 可返回上一级菜单。
+按 **右箭头（→）**、**Tab 键** 可选择按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上一级菜单。
 
-`raspi-config` 会自动编辑 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt)，以及相关 Linux 配置文件。某些选项需要重启才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
+`raspi-config` 会自动编辑 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt)，以及相关 Linux 配置文件。某些选项可能需要重启才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
 
 >**技巧**
 >
->在选项值所提供的长长的列表中（比如时区城市列表），输入单个字母即可跳转到列表的对应部分。例如，输入 `L` 会跳转至 Lisbon（里斯本）。
+>在选项值所提供的长长的列表中（比如时区城市列表），输入单个字母即可跳转到列表中的对应部分。例如，输入 `L` 会跳转至 Lisbon（里斯本）。
 
 ### System options——系统选项
 
@@ -82,7 +82,7 @@ $ sudo raspi-config
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且去除黑边。
+如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且不带黑边。
 
 #### Screen blanking——无信号时关闭屏幕
 
@@ -150,7 +150,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 #### GPU memory——GPU 显存
 
-修改向 GPU 提供的内存量。①
+修改向 GPU 提供的内存大小。①
 
 #### Overlay file system——堆叠文件系统（OverlayFS）
 
@@ -244,7 +244,7 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 
 >**注意**
 >
-> 对于不同选项来说，`0` 和 `1` 的含义也是不一样的。在将值传给选项之前，请始终参照文档。
+> 对于不同选项来说，`0` 和 `1` 的含义也是不尽相同。在将值赋给参数之前，请始终参照文档。
 
 ### System options——系统选项
 
@@ -262,7 +262,7 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <密码> [隐藏的网
 
 参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时定义 `<hidden>` 值。
 
-例如，通过执行以下命令，可以连接到：
+例如，通过执行以下命令，可以连接到他们：
 
 * 未隐藏的网络 `myssid`，密码为 `mypassphrase`：
 
@@ -320,7 +320,7 @@ $ sudo raspi-config nonint do_hostname <主机名>
 
 #### Boot/auto login——启动/自动登录
 
-选择是启动到控制台还是桌面，并且在打开电源时是否自动登录到当前用户账户。
+选择启动到控制台还是桌面。以及在接通电源时，是否自动登录到当前用户账户。
 
 ```
 $ sudo raspi-config nonint do_boot_behaviour <B1/B2/B3/B4>
@@ -361,7 +361,7 @@ $ sudo raspi-config nonint do_boot_splash <0/1>
 $ sudo raspi-config nonint do_leds <0/1>
 ```
 
-* `0`：用闪烁表示磁盘活动
+* `0`：用闪烁表示磁盘活动状态
 * `1`：电源灯常亮
 
 
