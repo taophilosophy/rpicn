@@ -623,9 +623,9 @@ $ source ~/.env/bin/activate
 
 我们推荐使用 [Thonny](https://thonny.org/)，来编辑树莓派上的 Python 代码。
 
-在默认情况下，Thonny 使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的 **解释器菜单（interpreter menu）** 来切换使用 Python 虚拟环境。可选择配置好的环境或使用 `Configure interpreter…` 来配置一个新的虚拟环境。
+在默认情况下，Thonny 使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的 **解释器菜单（interpreter menu）** 来切换使用 Python 虚拟环境。可选择配置好的环境或使用 `配置解释器（Configure interpreter…）` 来配置一个新的虚拟环境。
 
-![thonny venv](https://www.raspberrypi.com/documentation/computers/images/thonny-venv.png)
+![thonny venv](../.gitbook/assets/thonny-venv.png)
 
 ### 用 Python 控制 GPIO
 
