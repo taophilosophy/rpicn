@@ -204,15 +204,15 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Boot order——启动顺序
 
-在树莓派 4 及后续设备上，设定：在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续新款设备上，设定：在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 及后续设备上，更新到最新的 ROM 引导软件。或者，如果最新版引发故障，你可恢复出厂设置。
+在树莓派 4 及后续新款设备上，更新到最新的 ROM 引导软件。或者，如果最新版引发故障，你可恢复出厂设置。
 
 #### Wayland
 
-在 X11 后端和 Wayland 后端之间进行切换。在树莓派 4 及后续设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
+在 X11 后端和 Wayland 后端之间进行切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 >**注意**
 >
@@ -666,7 +666,7 @@ $ sudo raspi-config nonint do_proxy <SCHEMES> <ADDRESS>
 
 #### Boot order——启动顺序
 
-在树莓派 4 及后续设备上，指定在未插入 SD 卡的情况下：是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续新款设备上，指定在未插入 SD 卡的情况下：是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 
 ```
@@ -681,7 +681,7 @@ $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 后续新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
+在树莓派 4 及后续新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
 
 ```
 $ sudo raspi-config nonint do_boot_rom <E1/E2>
@@ -692,7 +692,7 @@ $ sudo raspi-config nonint do_boot_rom <E1/E2>
 
 #### Wayland
 
-在 X11 后端和 Wayland 后端之间切换。在树莓派 4 及更新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
+在 X11 后端和 Wayland 后端之间切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 ```
 $ sudo raspi-config nonint do_wayland <W1/W2>
@@ -707,7 +707,7 @@ $ sudo raspi-config nonint do_wayland <W1/W2>
 
 #### Audio config——音频配置
 
-使用此参数在 PulseAudio 和 PipeWire 音频后端之间进行切换。在树莓派系统 Bookworm 以前，树莓派系统使用 PulseAudio。
+使用此参数在 PulseAudio 和 PipeWire 音频后端之间进行切换。在树莓派系统 Bookworm 之前，树莓派系统使用 PulseAudio。
 
 ```
 $ sudo raspi-config nonint do_audioconf <1/2>
@@ -867,7 +867,7 @@ $ sudo raspi-config
 
 >**注意**
 >
->从树莓派系统 Bookworm 开始，Network Manager 是默认的网络配置工具。早期版本的树莓派系统使用 APT 和其他工具进行网络配置。
+>从树莓派系统 Bookworm 开始，Network Manager 成为了默认的网络配置工具。旧版的树莓派系统使用 APT 和其他工具进行网络配置。
 
 ### 连接到无线网络
 
