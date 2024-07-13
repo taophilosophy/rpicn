@@ -88,7 +88,7 @@ $ sudo raspi-config
 
 启用或禁用 Screen blanking（在无信号时关闭屏幕）。
 
-#### VNC resolution——VNC 分辨率——
+#### VNC resolution——VNC 分辨率
 
 用于[无头](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi)设置所使用的显示分辨率。
 
