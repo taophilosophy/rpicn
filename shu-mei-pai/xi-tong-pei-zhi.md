@@ -62,7 +62,7 @@ $ sudo raspi-config
 
 #### Splash screen——启动画面
 
-启用或禁用开机时显示的启动画面。
+启用或禁用：开机时显示的启动画面。
 
 #### Power LED——电源灯
 
@@ -86,7 +86,7 @@ $ sudo raspi-config
 
 #### Screen blanking——无信号时关闭屏幕
 
-启用或禁用 Screen blanking（在无信号时关闭屏幕）。
+启用或禁用：Screen blanking（在无信号时关闭屏幕）。
 
 #### VNC resolution——VNC 分辨率
 
@@ -98,7 +98,7 @@ $ sudo raspi-config
 
 #### 4Kp60 HDMI
 
-启用或禁用 HDMI 的 4K 60p 分辨率输出。
+启用或禁用：HDMI 的 4K 60p 分辨率输出。
 
 ### Interface options——接口选项
 
@@ -108,33 +108,33 @@ $ sudo raspi-config
 
 #### SSH
 
-启用或禁用树莓派终端 SSH 远程访问。
+启用或禁用：树莓派终端 SSH 远程访问。
 
 SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在默认情况下，SSH 处于禁用状态。在 [SSH 文档页](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)上能阅读更多关于 SSH 的使用信息。如果你将树莓派直接接入到了公共网络，请不要启用 SSH，除非你为所有用户都设置了安全的密码。
 
 #### VNC
 
-启用或禁用 WayVNC、RealVNC 虚拟网络计算服务（virtual network computing，VNC）。
+启用或禁用：WayVNC、RealVNC 虚拟网络计算服务（virtual network computing，VNC）。
 
 #### SPI
 
-启用或禁用 SPI 接口、自动加载 SPI 内核模块与否。
+启用或禁用：SPI 接口、是否自动加载 SPI 内核模块。
 
 #### I2C——I²C
 
-启用或禁用 I²C 接口、自动加载 I²C 内核模块与否。
+启用或禁用：I²C 接口、是否自动加载 I²C 内核模块。
 
 #### Serial port——串口
 
-在串口上启用或禁用 shell 及内核信息。
+在串口上，启用或禁用 shell 及内核信息。
 
 #### 1-Wire——单总线
 
-启用或禁用 Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
+启用或禁用：Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
 
 #### Remote GPIO——GPIO 远程访问
 
-启用或禁用对 GPIO 引脚的远程访问。
+启用或禁用：GPIO 引脚的远程访问。
 
 ### Performance options——性能选项
 
@@ -154,7 +154,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Overlay file system——堆叠文件系统（OverlayFS）
 
-启用或禁用只读文件系统。
+启用或禁用：只读文件系统。
 
 #### Fan——风扇
 
@@ -196,7 +196,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Network interface names——网络接口名称
 
-启用或禁用可预测的网络接口名称。
+启用或禁用：可预测的网络接口名称。
 
 #### Network proxy settings——设置网络代理
 
@@ -208,7 +208,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 及更新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版引发故障，你可恢复出厂设置。
+在树莓派 4 及后续设备上，更新到最新的 ROM 引导软件。或者，如果最新版引发故障，你可恢复出厂设置。
 
 #### Wayland
 
@@ -232,7 +232,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 ### Finish——完成
 
-退出 `raspi-config`。如果你进行的修改需要重启，`raspi-config` 会提示你重启。首次进行修改时，最好重启。如果选择调整 SD 卡大小，重启可能会花比平常更长的时间。
+退出 `raspi-config`。如果你进行的修改需要重启，`raspi-config` 会提示你重启。首次进行修改时，最好重启。如果选择了调整 SD 卡大小，重启可能会花比平时更久的时间。
 
 ## 非交互式 raspi-config
 
@@ -244,7 +244,7 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 
 >**注意**
 >
-> 对于不同选项来说，`0` 和 `1` 的含义也是不尽相同。在将值赋给参数之前，请始终参照文档。
+> 对于不同选项来说，`0` 和 `1` 的含义也不尽相同。在将值赋给参数之前，请始终参照文档。
 
 ### System options——系统选项
 
@@ -253,14 +253,14 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 配置 Wi-Fi SSID（网络名称）和密码。
 
 ```
-$ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <密码> [隐藏的网络] [明文]
+$ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐藏的网络] [明文]
 ```
 
 填入无线网络名称（SSID）和密码（如需要）。以下是可选参数：
 
 参数 `<隐藏的网络>` 代表 SSID 可见性。如果网络 SSID 开放广播，请使用 `0` 或者省略该参数。如果你的 SSID 是隐藏的，请填 `1`。默认为 `0`。
 
-参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时定义 `<hidden>` 值。
+参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时赋值给 `<隐藏的网络>`。
 
 例如，通过执行以下命令，可以连接到他们：
 
@@ -294,7 +294,7 @@ $ sudo raspi-config nonint do_audio <N>
 * `1`：vc4-hdmi-0
 * `2`：vc4-hdmi-1
 
-要查看此选项的交互式 `raspi-config` 版本中使用的数字列表，请参阅能用的 `<N>` 值的完整列表。
+要查看此选项的交互式版 `raspi-config` 中使用的数字列表，请参阅能用的 `<N>` 值的完整列表。
 
 #### Password——密码
 
@@ -308,7 +308,7 @@ $ sudo raspi-config nonint do_change_pass
 
 >**注意**
 >
->此功能会使用全屏交互式界面，即使从命令行参数运行也是如此。
+>此功能会使用全屏交互式界面，即使在命令行执行参数也是一样的。
 
 #### Hostname——主机名
 
@@ -320,7 +320,7 @@ $ sudo raspi-config nonint do_hostname <主机名>
 
 #### Boot/auto login——启动/自动登录
 
-选择启动到控制台还是桌面。以及在接通电源时，是否自动登录到当前用户账户。
+选择：启动到控制台，还是桌面；在接通电源时，是否自动登录到当前用户账户。
 
 ```
 $ sudo raspi-config nonint do_boot_behaviour <B1/B2/B3/B4>
@@ -333,18 +333,18 @@ $ sudo raspi-config nonint do_boot_behaviour <B1/B2/B3/B4>
 
 #### Network at boot——启动时联网
 
-在启动前等待网络连接。
+在启动前是否等待网络连接。
 
 ```
 $ sudo raspi-config nonint do_boot_wait <0/1>
 ```
 
-* `0`：在不等待网络连接的情况下启动
-* `1`：等待网络连接后启动
+* `0`：启动前不等待网络连接
+* `1`：启动前等待网络连接
 
 #### 启动画面
 
-启用或禁用启动时显示的启动画面。
+启用或禁用：启动时显示的启动画面。
 
 ```
 $ sudo raspi-config nonint do_boot_splash <0/1>
@@ -367,7 +367,7 @@ $ sudo raspi-config nonint do_leds <0/1>
 
 #### 浏览器
 
-修改默认的网络浏览器。如选择当前未安装的网络浏览器将不起作用。
+修改默认的网络浏览器。如所选网络浏览器在当前并未安装，将不生效。
 
 ```
 $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
@@ -381,7 +381,7 @@ $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且去除黑边。
+如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把图像填充到整个屏幕，且不带黑边。
 
 ```
 $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
@@ -399,21 +399,21 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 
 #### Screen blanking——无信号时关闭屏幕
 
-启用或禁用 Screen blanking（在无信号时关闭屏幕）。
+启用或禁用：Screen blanking（无信号时关闭屏幕）。
 
 ```
 $ sudo raspi-config nonint do_blanking <0/1>
 ```
 
-* `0`：Screen blanking（在无信号时关闭屏幕）
-* `1`：Screen blanking（在无信号时也不会关闭屏幕）
+* `0`：Screen blanking（无信号时关闭屏幕）
+* `1`：Screen blanking（无信号时不会关闭屏幕）
 
 #### VNC resolution——VNC 分辨率
 
 用于[无头](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi)设置所使用的显示分辨率。
 
 ```
-$ sudo raspi-config nonint do_vnc_resolution <width>x<height>
+$ sudo raspi-config nonint do_vnc_resolution <宽>x<高>
 ```
 
 #### Composite——复合视频
@@ -443,7 +443,7 @@ $ sudo raspi-config nonint do_composite <0/1>
 
 #### SSH
 
-启用或禁用树莓派终端 SSH 远程访问。
+启用或禁用：树莓派终端 SSH 远程访问。
 
 SSH 能让你在另一台计算机远程访问树莓派的命令行。有关 SSH 的更多信息，请参阅 [SSH 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)。
 
@@ -456,7 +456,7 @@ $ sudo raspi-config nonint do_ssh <0/1>
 
 #### VNC
 
-启用或禁用虚拟网络计算服务（virtual network computing，VNC）。有关 VNC 的更多信息，请参阅 [VNC 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)。
+启用或禁用：虚拟网络计算服务（virtual network computing，VNC）。有关 VNC 的更多信息，请参阅 [VNC 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)。
 
 ```
 $ sudo raspi-config nonint do_vnc <0/1>
@@ -467,7 +467,7 @@ $ sudo raspi-config nonint do_vnc <0/1>
 
 #### SPI
 
-启用或禁用 SPI 接口及自动加载 SPI 内核模块与否。
+启用或禁用：SPI 接口；是否自动加载 SPI 内核模块。
 
 ```
 $ sudo raspi-config nonint do_spi <0/1>
@@ -478,7 +478,7 @@ $ sudo raspi-config nonint do_spi <0/1>
 
 #### I2C——I²C
 
-启用或禁用 I²C 接口及自动加载 I²C 内核模块与否。
+启用或禁用：I²C 接口；是否自动加载 I²C 内核模块。
 
 ```
 $ sudo raspi-config nonint do_i2c <0/1>
@@ -489,7 +489,7 @@ $ sudo raspi-config nonint do_i2c <0/1>
 
 #### Serial port——串口
 
-启用或禁用串口硬件。
+启用或禁用：串口硬件。
 
 ```
 $ sudo raspi-config nonint do_serial_hw <0/1/2>
@@ -500,7 +500,7 @@ $ sudo raspi-config nonint do_serial_hw <0/1/2>
 
 #### 串口控制台
 
-在串口上启用或禁用 shell 及内核信息。
+在串口，启用或禁用 shell 及内核信息。
 
 ```
 $ sudo raspi-config nonint do_serial_cons <0/1/2>
@@ -511,7 +511,7 @@ $ sudo raspi-config nonint do_serial_cons <0/1/2>
 
 #### 1-wire——单总线
 
-启用或禁用 Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
+启用或禁用：Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
 
 ```
 $ sudo raspi-config nonint do_onewire <0/1>
@@ -522,7 +522,7 @@ $ sudo raspi-config nonint do_onewire <0/1>
 
 #### Remote GPIO——GPIO 远程访问
 
-启用或禁用对 GPIO 引脚的远程访问。
+启用或禁用：GPIO 引脚的远程访问。
 
 ```
 $ sudo raspi-config nonint do_rgpio <0/1>
@@ -535,12 +535,12 @@ $ sudo raspi-config nonint do_rgpio <0/1>
 
 #### 超频
 
-如果你的树莓派型号支持，就可以对 CPU 进行超频。超频能力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
+如果你的树莓派型号支持，就能对 CPU 超频。超频能力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
 
 
 >**警告**
 >
->**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，可以试试较为保守的超频。在启动过程中按住 **Shift** 键可临时禁用超频。
+>**超频可能会缩短你树莓派的使用寿命。** 如因某个特定级别的超频造成系统不稳定，可尝试更为保守的超频。在启动过程中按住 **Shift** 键可暂时禁用超频。
 
 ```
 $ sudo raspi-config nonint do_overclock <设置>
@@ -548,7 +548,7 @@ $ sudo raspi-config nonint do_overclock <设置>
 
 此命令接受以下 <设置> 值：
 
-* `None`：未超频（默认）
+* `None`：不超频（默认）
 * `Modest`：超频至最大值 50%
 * `Medium`：超频至最大值 75%
 * `High`：超频至最大值 100%
