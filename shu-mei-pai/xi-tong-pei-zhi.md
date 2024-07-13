@@ -877,11 +877,11 @@ $ sudo raspi-config
 >
 >搭载双频无线的树莓派设备（树莓派 3B+、树莓派 4、计算模块 4、树莓派 400 和树莓派 5）会自动禁用网络，除非你分配了无线局域网区域。要设置无线局域网区域，请在“首选项”菜单里打开树莓派配置应用程序，选择本地化，然后从菜单中选择你的区域。
 
-![wifi2](https://www.raspberrypi.com/documentation/computers/images/wifi2.png)
+![WiFi](../.gitbook/assets/wifi2.png)
 
 右侧的图标会提示网络是否加密，并显示了信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
 
-![key](https://www.raspberrypi.com/documentation/computers/images/key.png)
+![密码](../.gitbook/assets/key.png)
 
 输入密钥，然后单击“确定”，再等待几秒钟。网络图标会闪烁一下，表示正在建立连接。连接成功后，图标将停止闪烁并显示信号强度。
 
@@ -889,11 +889,11 @@ $ sudo raspi-config
 
 要使用隐藏的网络，请在网络菜单中导航到高级选项 > 连接到隐藏的 Wi-Fi 网络：
 
-![the connect to a hidden wi-fi network option in advanced options](https://www.raspberrypi.com/documentation/computers/images/network-hidden.png)
+![高级选项中连接到隐藏的网络](../.gitbook/assets/network-hidden.png)
 
 然后，输入隐藏网络的网络名称（SSID）。询问你的网络管理员：你所用的网络使用哪种加密方式。目前，大多数家用网络使用的是 WPA 和 WPA2 个人加密，公共网络有时使用 WPA 和 WPA2 企业加密。选择你网络的加密方式，并输入你的凭据：
 
-![hidden wi-fi network authentication](https://www.raspberrypi.com/documentation/computers/images/network-hidden-authentication.png)
+![hidden wi-fi network authentication](../.gitbook/assets/network-hidden-authentication.png)
 
 单击“连接”按钮可启动网络连接。
 
