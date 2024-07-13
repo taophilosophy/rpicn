@@ -26,7 +26,7 @@ $ sudo raspi-config
 
 >**技巧**
 >
->在选项值所提供的长长的列表中（比如时区城市列表），输入单个字母即可跳转到列表的对应部分。例如，输入 `L` 会跳转至 Lisbon（里斯本）。
+>在选项值所提供的长长的列表中（比如时区城市列表），输入单个字母即可跳转到列表的对应部分。例如，输入 `S` 会跳转至 Shanghai（上海）。
 
 ### System options——系统选项
 
@@ -146,29 +146,29 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 >**警告**
 >
->**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，请尝试降低超频的程度。在启动过程中按住 Shift 键可临时禁用超频。
+>**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，可以试试较为保守的超频。在启动过程中按住 Shift 键可临时禁用超频。
 
-#### GPU 内存
+#### GPU memory——GPU 显存
 
-修改向 GPU 提供的内存量。
+修改向 GPU 提供的内存量。①
 
-#### Overlay file system（堆叠文件系统）
+#### Overlay file system——堆叠文件系统（OverlayFS）
 
 启用或禁用只读文件系统。
 
-#### 风扇
+#### Fan——风扇
 
-可自定义 GPIO 连接的树莓派 4 外壳风扇的行为。这不影响树莓派 5 外壳中的风扇及使用特殊四针风扇头连接的树莓派 5 主动散热器。
+可自定义接入 GPIO 的风扇行为（[树莓派 4 外壳](https://www.raspberrypi.com/products/raspberry-pi-4-case-fan/)自带）。对[树莓派 5 外壳自带风扇](https://www.raspberrypi.com/products/raspberry-pi-5-case/)、[树莓派 5 主动散热器](https://www.raspberrypi.com/products/active-cooler/)（使用特殊四针风扇头连接）无效。
 
-### 本地化选项
+### Localisation options——本地化选项
 
-配置位置和与国家/地区相关的选项。
+配置位置、国家/地区相关选项。
 
 ![raspi-config localisation options](../.gitbook/assets/raspi-l18n.png)
 
-#### 语言环境
+#### Locale——语言环境
 
-选择一个语言环境，例如 en_GB.UTF-8 UTF-8。
+可选择语言环境，如 `zh_CN.UTF-8 UTF-8`（中文）。
 
 #### 时区
 
@@ -3359,3 +3359,6 @@ clock_setup {
 ### 样本设备树源文件
 
 固件存储库包含一个主 Raspberry Pi blob，通常从中派生其他内容。
+
+
+译者注：① 树莓派显存会直接占用内存，就和英特尔核显一样。
