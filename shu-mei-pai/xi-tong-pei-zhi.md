@@ -16,7 +16,7 @@ $ sudo raspi-config
 
 ![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
-你用 **上（↑）箭头**、**下（↓）箭头** 就能在可选条目之间自由切换，并对当前所选高亮显示。
+你用 **上箭头（↑）**、**下箭头（↓）** 就能在可选条目之间自由切换，并对当前所选高亮显示。
 
 按 **右箭头（→）**、**Tab 键** 可选择按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上一级菜单。
 
@@ -1840,7 +1840,7 @@ SoC 在启动时会加载引导加载程序。它会执行一些非常基本的�
 
 ### `start*.elf`
 
-加载到 SoC 中 VideoCore GPU 上的二进制固件块，然后接管引导过程。
+加载 SoC 中 VideoCore GPU 上的二进制固件，然后接管引导过程。
 
 start.elf 基本固件。
 
@@ -1848,13 +1848,13 @@ start_x.elf 包含额外的编解码器。
 
 start_db.elf 用于调试。
 
-start_cd.elf 是精简版本的固件，移除了对硬件块（如编解码器和 3D）以及调试日志支持的支持；它还施加了初始帧缓冲区限制。当在 config.txt 中指定 gpu_mem=16 时，将自动使用精简固件。
+start_cd.elf 是精简版本的固件，移除了对硬件块（如编解码器和 3D）以及调试日志支持的支持；它还施加了初始帧缓冲区限制。当在 config.txt 中指定 `gpu_mem=16` 时，将自动调用精简固件。
 
-start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是针对树莓派 4 系列（4B 型号，Pi 400，计算模块 4 和计算模块 4S）特定固件文件。
+start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列（4B、400、计算模块 4 和计算模块 4S）的专用固件文件。
 
 要了解如何使用这些文件的更多信息，请参阅 config.txt 文档。
 
-树莓派 5 不使用 elf 文件。固件被包含在引导加载程序 EEPROM 中。
+树莓派 5 不再使用 elf 文件。固件内置在引导加载程序 EEPROM 中。
 
 ### `fixup*.dat`
 
@@ -1862,15 +1862,15 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是针对树莓派 4 �
 
 ### `cmdline.txt`
 
-内核命令行传递到引导时的内核。
+内核命令行，将传递给引导时的内核。
 
 ### `config.txt`
 
-包含许多用于设置树莓派的配置参数。有关更多信息，请参阅 config.txt 文档。
+涉及许多用于设置树莓派的配置参数。有关更多信息，请参阅 config.txt 文档。
 
 >**重要**
 >
->树莓派 5 需要在启动分区中有一个非空 config.txt 文件。
+>树莓派 5 要求在启动分区中有一个非空的 config.txt 文件。
 
 ### `issue.txt`
 
@@ -1878,33 +1878,33 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是针对树莓派 4 �
 
 ### `initramfs*`
 
-初始 RAM 磁盘的内容。这会在真正的根文件系统被挂载之前将临时根文件系统加载到内存中。
+初始内存盘的内容。这会在真正的根文件系统被挂载之前，把临时根文件系统加载到内存。
 
-自从 Bookworm 版本开始，树莓派系统默认包含一个 initramfs 文件。要启用初始 ramdisk，请在 config.txt 中使用 auto_initramfs 关键字进行配置。
+自 Bookworm 版本以降，树莓派系统默认包含一个 initramfs 文件。要启用初始内存盘，请在 config.txt 中使用关键字 auto_initramfs 进行配置。
 
 ### ssh 或 ssh.txt
 
-当此文件存在时，会在启动时启用 SSH。否则，默认情况下禁用 SSH。内容无关紧要。即使是空文件也会启用 SSH。
+当此文件存在时，会在启动时启用 SSH。否则，默认情况下会禁用 SSH。内容无关紧要。即使是空文件也会启用 SSH。
 
-### 设备树 blob 文件（ *.dtb ）
+### 设备树 blob 文件（ `*.dtb` ）
 
 设备树 blob 文件包含各种型号的树莓派的硬件定义。这些文件根据检测到的树莓派型号在启动时设置内核。
 
-### 内核文件（ *.img ）
+### 内核文件（ `*.img` ）
 
 相应于树莓派型号的各种内核镜像文件：
 
 | 文件名 | 处理器                    | 树莓派型号                                                                     | 注解                                           |
 | -------- | --------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `kernel.img`       | BCM2835                   | Pi Zero，Pi 1                                                                  |                                                  |
-| `kernel7.img`       | BCM2836，BCM2837          | 树莓派 Zero 2 W，树莓派 2，树莓派 3                                            | 后来的树莓派 2 使用 BCM2837                      |
-| `kernel7l.img`       | BCM2711                   | Pi 4，Pi 400，CM4，CM4S                                                        | 大物理地址扩展（LPAE）                           |
-| `kernel8.img`       | BCM2837，BCM2711，BCM2712 | 树莓派 Zero 2 W，树莓派 2，树莓派 3，树莓派 4，树莓派 400，CM4，CM4S，树莓派 5 | 64 位内核。基于 BCM2836 的树莓派 2 不支持 64 位内核。|
+| `kernel.img`       | BCM2835                   | 树莓派 Zero，树莓派 1                                                                  |                                                  |
+| `kernel7.img`       | BCM2836，BCM2837          | 树莓派 Zero 2 W，树莓派2、3                                            | 后续树莓派 2 使用 BCM2837                      |
+| `kernel7l.img`       | BCM2711                   | 树莓派 4、400，CM4，CM4S                                                        | 大物理地址扩展（LPAE）                           |
+| `kernel8.img`       | BCM2837，BCM2711，BCM2712 | 树莓派 Zero 2 W，树莓派 2、3、4、400，CM4、CM4S、5 | 64 位内核。基于 BCM2836 的树莓派 2 不支持 64 位内核。|
 | `kernel_2712.img`       | BCM2712                   | 树莓派 5                                                                       | 为 Pi 5 优化的 64 位内核。                |
 
 >**注意**
 >
->在运行 32 位内核系统上，lscpu 会报告其 CPU 架构为 armv7l，在运行 64 位内核系统上，lscpu 会报告其 CPU 架构为 aarch64。在 armv7l 情况下，l 指的是小端 CPU 架构，而不是 LPAE，如 kernel7l.img 文件名所示。
+>在运行 32 位内核系统上，lscpu 会报告其 CPU 架构为 armv7l；在运行 64 位内核系统上，lscpu 会报告其 CPU 架构为 aarch64。在 armv7l 情况下，l 指的是小端 CPU 架构，而不是 LPAE，如 kernel7l.img 文件名所示。
 
 ### overlays 文件夹
 
