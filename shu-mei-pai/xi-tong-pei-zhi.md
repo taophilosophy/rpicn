@@ -72,7 +72,7 @@ $ sudo raspi-config
 
 ### Display options——显示选项
 
-![raspi-config display options（显示选项）](../.gitbook/assets/raspi-display.png)
+![raspi-config display options（显示选项）](/raspi-display.png)
 
 #### Underscan——欠扫描
 
@@ -102,7 +102,7 @@ $ sudo raspi-config
 
 启用和禁用各种物理、虚拟接口。
 
-![raspi-config interface options（接口选项）](../.gitbook/assets/raspi-interface.png)
+![raspi-config interface options（接口选项）](/raspi-interface.png)
 
 #### SSH
 
@@ -136,7 +136,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 ### Performance options——性能选项
 
-![raspi-config performance options（性能选项）](../.gitbook/assets/raspi-perf.png)
+![raspi-config performance options（性能选项）](/raspi-perf.png)
 
 #### Overclock——超频
 
@@ -162,7 +162,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 配置位置、国家/地区相关选项。
 
-![raspi-config localisation options（本地化选项）](../.gitbook/assets/raspi-l18n.png)
+![raspi-config localisation options（本地化选项）](/raspi-l18n.png)
 
 #### Locale——语言环境
 
@@ -182,7 +182,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 ### Advanced options——高级选项
 
-![raspi-config advanced options（高级选项）](../.gitbook/assets/raspi-adv.png)
+![raspi-config advanced options（高级选项）](/raspi-adv.png)
 
 #### Expand filesystem——扩大文件系统
 
@@ -893,7 +893,7 @@ $ sudo raspi-config
 
 然后，输入隐藏网络的网络名称（SSID）。询问你的网络管理员：你所用的网络使用哪种加密方式。目前，大多数家用网络使用的是 WPA 和 WPA2 个人加密，公共网络有时使用 WPA 和 WPA2 企业加密。选择你网络的加密方式，并输入你的凭据：
 
-![hidden wi-fi network authentication](../.gitbook/assets/network-hidden-authentication.png)
+![隐藏的 WiFi 网络认证](../.gitbook/assets/network-hidden-authentication.png)
 
 单击“连接”按钮可启动网络连接。
 
