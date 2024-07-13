@@ -546,7 +546,7 @@ $ sudo raspi-config nonint do_rgpio <0/1>
 $ sudo raspi-config nonint do_overclock <设置>
 ```
 
-此命令接受以下 <设置> 值：
+此命令接受以下 `<设置>` 值：
 
 * `None`：不超频（默认）
 * `Modest`：超频至最大值 50%
@@ -564,7 +564,7 @@ $ sudo raspi-config nonint do_memory_split <megabytes>
 
 #### Overlay file system——堆叠文件系统（OverlayFS）
 
-启用或禁用只读文件系统。
+启用或禁用：只读文件系统。
 
 ```
 $ sudo raspi-config nonint do_overlayfs <0/1>
@@ -608,17 +608,17 @@ $ sudo raspi-config nonint do_change_locale <地区>
 $ sudo raspi-config nonint do_change_timezone <时区>
 ```
 
-要查看参数`<时区>` 缩写的完整列表，请参见交互式版 `raspi-config`。
+要查看参数`<时区>` 缩写的完整列表，请参见交互版 `raspi-config`。
 
 #### Keyboard——键盘
 
-设置键盘布局。修改通常会立即生效，但可能需要重启。
+设置键盘布局。一般来说，修改会立即生效，但也可能需重启才能生效。
 
 ```
 $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 ```
 
-要查看此参数可用的 `<键盘布局>` 值的完整列表，请参阅交互式版 raspi-config 中所使用的缩写。
+要查看该参数可用的 `<键盘布局>` 值的完整列表，请参阅交互式 raspi-config 中所使用的缩写。
 
 #### WLAN country——无线局域网国家/地区
 
