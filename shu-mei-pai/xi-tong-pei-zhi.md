@@ -188,7 +188,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Expand filesystem——扩大文件系统
 
-扩大你的操作系统分区，以便利用整个存储设备，从而带来更大的文件存储空间。要完成此操作，你需重启树莓派。通常，在下次启动时，树莓派系统会执行此操作。如果你把你的操作系统克隆到了容量大于先前设备的其他存储设备上，该功能可能会极其有用。
+扩大你的操作系统分区，以便利用整个存储设备，从而带来更大的文件存储空间。要完成此操作，你需重启树莓派。通常，在首次启开机时，树莓派系统会执行此操作。如果你把你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
 
 >**警告**
 >
@@ -595,10 +595,10 @@ $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
 选择语言环境，如 `zh_CN.UTF-8 UTF-8`（中文）或 `en_GB.UTF-8 UTF-8`（英语）。
 
 ```
-$ sudo raspi-config nonint do_change_locale <地区>
+$ sudo raspi-config nonint do_change_locale <语言环境>
 ```
 
-要查看参数 `<地区>` 所有可用值列表，请参阅交互式版 raspi-config 中所使用的缩写。
+要查看参数 `<语言环境>` 所有可用值列表，请参阅交互式版 raspi-config 中所使用的缩写。
 
 #### Time zone——时区
 
@@ -608,7 +608,7 @@ $ sudo raspi-config nonint do_change_locale <地区>
 $ sudo raspi-config nonint do_change_timezone <时区>
 ```
 
-要查看参数`<时区>` 缩写的完整列表，请参见交互版 `raspi-config`。
+要查看参数 `<时区>` 所有缩写值的列表，请参见交互版 `raspi-config`。
 
 #### Keyboard——键盘
 
@@ -618,7 +618,7 @@ $ sudo raspi-config nonint do_change_timezone <时区>
 $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 ```
 
-要查看该参数可用的 `<键盘布局>` 值的完整列表，请参阅交互式 raspi-config 中所使用的缩写。
+要查看该参数 `<键盘布局>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
 
 #### WLAN country——无线局域网国家/地区
 
@@ -628,17 +628,17 @@ $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 $ sudo raspi-config nonint do_wifi_country <国家/地区>
 ```
 
-要查看此参数可用的`<国家/地区>` 值的完整列表，请参阅交互式版 raspi-config 中所使用的缩写。
+要查看此参数 `<国家/地区>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
 
 ### Advanced options——高级选项
 
-#### Expand filesystem——扩展文件系统
+#### Expand filesystem——扩大文件系统
 
-将你的操作系统分区进行扩展，以使用整个存储设备，能为你带来更多的文件可用空间。完成此操作需要重启你的树莓派。通常，树莓派系统在首次启动时运行此操作。如果你将你的操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能会很有用。
+将你的操作系统分区进行扩大，以利用整个存储设备，能为你带来更大的文件存储空间。需要需重启你的树莓派才能完成该。通常，树莓派系统会在首次开机时执行此操作。如果你将你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
 
 >**警告**
 >
->没有再确认的步骤。选择该选项将立即开始分区扩展。
+>没有再确认的步骤。选择该选项将立即执行分区扩展操作。
 
 ```
 $ sudo raspi-config nonint do_expand_rootfs
@@ -666,22 +666,22 @@ $ sudo raspi-config nonint do_proxy <SCHEMES> <ADDRESS>
 
 #### Boot order——启动顺序
 
-在树莓派 4 及更新款设备上，指定在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续设备上，指定在未插入 SD 卡的情况下：是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 
 ```
 $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
 ```
 
-根据你的设备，你可以从以下选项中进行选择：
+视你的设备而定，你可以在以下选项中进行选择：
 
-* B1 ：SD 卡启动 - 如果可用，则从 SD 卡启动，否则从 NVMe 启动，否则从 USB 启动
-* B2 ：NVMe/USB 启动 - 如果可用，则从 NVMe 启动，否则从 USB 启动，否则从 SD 卡启动
-* B3 ：网络引导 - 如果插入 SD 卡，则从 SD 卡引导，否则从网络引导
+* B1 ：SD 卡启动 - 如果 SD 卡可用，则优先从 SD 卡启动；如 SD 卡不可用，再从 NVMe 启动；如果 SD 卡、NVMe 均不可用，那么从 USB 启动
+* B2 ：NVMe/USB 启动 - 如果 NVMe 可用，则优先从 NVMe 启动；如果 NVMe 不可用，再从 USB 启动；如果 NVMe、USB 均不可用，那么从 SD 卡启动
+* B3 ：网络启动 - 如果 SD 卡可用，则优先从 SD 卡启动；如果 SD 卡不可用，则从网络启动
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 及更新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
+在树莓派 4 后续新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
 
 ```
 $ sudo raspi-config nonint do_boot_rom <E1/E2>
