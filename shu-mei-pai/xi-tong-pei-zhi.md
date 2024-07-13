@@ -1387,45 +1387,45 @@ splash 告诉引导使用 Plymouth 模块显示启动画面。
 
 `dwc_otg.speed` 可设置树莓派计算机 USB 控制器的速度（处理器上内置）。将其设置 dwc_otg.speed=1 则为全速（USB 1.0），比高速（USB 2.0）慢。除非需要解决 USB 设备问题，否则不应设置此参数。
 
-`smsc95xx.turbo_mode` 启用/禁用有线网络驱动程序的 Turbo 模式。smsc95xx.turbo_mode=N 关闭 Turbo 模式。
+`smsc95xx.turbo_mode` 启用或禁用有线网络驱动程序 Turbo 模式。`smsc95xx.turbo_mode=N` 则关闭 Turbo 模式。
 
-usbhid.mousepoll 指定鼠标轮询间隔。如果你遇到无线鼠标运行缓慢或不稳定的问题，将其设置为 0 可能会有所帮助。
+`usbhid.mousepoll` 指定鼠标轮询间隔。如果你遇到无线鼠标移动缓慢或不稳定的问题，将其置 0 也许有用。
 
-使用 drm.edid_firmware=HDMI-A-1:edid/your_edid.bin 覆盖你的显示器内置的 EDID 内容。
+使用 `drm.edid_firmware=HDMI-A-1:edid/your_edid.bin` 覆盖你显示器内置的 EDID 信息。
 
-## 本地化你的树莓派 Pi
+## 本地化你的树莓派
 
-你可以使用 raspi-config 工具配置树莓派系统的 UI 语言、键盘布局和时区。
+你可以使用工具 `raspi-config` 配置树莓派系统的界面语言、键盘布局和时区。
 
 ## 保护你的树莓派
 
-在这里，我们描述了一些提高你树莓派安全性的常见方法。
+在这儿，我们介绍了一些常见方法，能提高你树莓派的安全性。
 
 ### 设置 sudo 命令要求密码
 
-使用 sudo 前缀运行命令将其作为超级用户运行。默认情况下，这不需要密码。但是，你可以通过要求为所有使用 sudo 运行的命令输入密码来使你的树莓派更安全。
+使用前缀 sudo 运行命令，会将其以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 sudo 运行的命令均需输入密码，来使你的树莓派更安全。
 
-要强制 sudo 需要密码，请编辑你的用户账户的 nopasswd sudoers 文件，将文件名中的 `<username>` 占位符替换为你的用户名：
-
-```
-$ sudo visudo /etc/sudoers.d/010_<username>-nopasswd
-```
-
-将 `<username>` 条目修改为以下内容，并将 <username> 替换为你的用户名：
+要强制 sudo 需要密码，请编辑你的用户账户的 nopasswd sudoers 文件，将文件名中的占位符 `<用户名>` 换成你的用户名：
 
 ```
-<username> ALL=(ALL) PASSWD: ALL
+$ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 ```
 
-保存文件。你的新偏好应立即生效。
+将条目 `<用户名>` 修改为以下内容，并将 `<用户名>` 换成你的用户名：
+
+```
+<用户名> ALL=(ALL) PASSWD: ALL
+```
+
+保存文件。你的新设置会立即生效。
 
 ### 更新树莓派系统
 
-只有最新的操作系统发行版包含所有最新的安全补丁。始终将你的设备更新到最新版本的树莓派系统。
+只有最新版本的操作系统包含所有最新的安全补丁。请始终将你的设备更新至最新版本的树莓派系统。
 
 ### 自动更新你的 SSH 服务器
 
-如果你使用 SSH 连接到你的树莓派，添加 cron 工作可能是值得的，专门更新 SSH 服务器。以下命令，可能作为每日 cron 工作运行，确保你及时获得最新的 SSH 安全修复程序，独立于你的正常更新过程。
+如果你使用 SSH 连接至树莓派，添加 cron 工作可能是值得的，专门更新 SSH 服务器。以下命令，可能作为每日 cron 工作运行，确保你及时获得最新的 SSH 安全修复程序，独立于你的正常更新过程。
 
 ```
 $ apt install openssh-server
