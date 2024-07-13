@@ -352,7 +352,7 @@
 
 树莓派操作系统预装了许多基本应用程序，因此可以开箱即用。如果你想使用我们认为有用的其他软件，请单击屏幕左上角的树莓派图标。选择 **首选项（Preferences）** > **推荐软件（Recommended Software）**，你将找到软件包管理器。你可以在此免费安装各种推荐软件。
 
-![在树莓派系统中打开图形界面的软件包管理器](https://www.raspberrypi.com/documentation/computers/images/recommended-software.png)
+![在树莓派系统中打开图形界面的软件包管理器](../.gitbook/assets/recommended-software.png)
 
 具体来说，如果你打算把树莓派当家用电脑用，你可能会需要 LibreOffice，它对于撰写和编辑文档和电子表格非常有用。你还可以通过诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序使树莓派更易于使用，这些应用程序位于通用访问下。
 
