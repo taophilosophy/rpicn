@@ -3,19 +3,19 @@
 
 | English          | 翻译           |
 |:------------------:|:---------------:|
-|树莓派系统|树莓派系统|
+|Raspberry Pi OS|树莓派系统|
 |HAT|扩展板|
-|精简版树莓派系统|精简版树莓派系统|
+|Raspberry Pi OS Lite|精简版树莓派系统|
 | APT              | APT           |
-|ports |接口/端口/通道/port/省略该词|
+|ports |接口/端口/通道/路/port/省略该词|
 | Legacy           | 旧版           |
 | Hz               | Hz            |
 | remote access    | 远程访问       |
-| Model            | Model         |
+| Model            | 型号/省略该词      |
 | Zero             | Zero          |
 | Compute Modules  | 计算模块       |
 | Camera Modules   | 摄像头模块     |
-| Build HAT        | Build HAT     |
+| Build HAT        | Build 扩展板   |
 | Sense HAT        | 传感器扩展板   |
 | TV HAT           | 电视扩展板     |
 | AI Kit           | Ai 套件       |
@@ -28,8 +28,7 @@
 | MicroPython      | MicroPython   |
 | SDK              | SDK           |
 |peripherals |外设/外部设备|
-|models|型号/models/省略该词|
 |form factor|外形尺寸|
-|Raspberry Pi Imager|Raspberry Pi Imager/树莓派镜像烧录器|
+|Raspberry Pi Imager|树莓派启动盘制作工具|
 
 `The树莓派系统to树莓派系统.  The APT to APT. The Legacy to 旧版. The Hz to Hz. The remote access to 远程访问.The Model to Model .The Zero to Zero. The Compute Modules to 计算模块. The Camera Modules to 摄像头模块. The Build HAT to Build HAT. The Sense HAT to 传感器扩展板. The TV HAT to 电视扩展板. The AI Kit to Ai 套件. The M.2 HAT+ to M.2 HAT+. The Audio Board to 音频扩展板. The Pico to Pico. The Pico W to Pico W. The Debug Probe to 调试器. The Probe to 调试器. The MicroPython to MicroPython. The SDK to SDK.`
