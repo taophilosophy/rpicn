@@ -1138,7 +1138,7 @@ $ passwd
 
 ### 添加用户
 
-要添加新用户，请输入以下命令：将占位符 `<用户名>` 换成新用户的用户名：
+要添加新用户，请输入以下命令：把占位符 `<用户名>` 换成新用户的用户名：
 
 ```
 $ sudo adduser <用户名>
@@ -1358,7 +1358,7 @@ rootfstype 定义了根文件系统使用的文件系统类型，例如，`rootf
 video=HDMI-A-1:1920x1080M@60
 ```
 
-另外，可以添加旋转和反射参数，如标准 Linux 帧缓冲文档中所述。以下示例定义了一个名为 HDMI-A- 的显示器，分辨率为 1080p，刷新率为 60Hz，屏幕旋转 90 度，并在 X 轴上翻转屏幕：
+另外，可以添加旋转和反射参数，如标准 Linux 帧缓冲文档中所述。以下示例定义了一台显示器，名为 HDMI-A-，分辨率为 1080p，刷新率为 60Hz，屏幕旋转 90 度，并在 X 轴上翻转屏幕（屏幕镜像）：
 
 ```
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
@@ -1383,11 +1383,11 @@ splash 告诉引导使用 Plymouth 模块显示启动画面。
 
 `plymouth.ignore-serial-consoles` 通常如果启用了 Plymouth 模块，它会屏蔽掉所有串口控制台上出现的启动信息。此参数让 Plymouth 忽略所有串口控制台，以使启动消息再次可见，就像没有运行 Plymouth 一样。
 
-`dwc_otg.lpm_enable=0` 关闭链接状态电源管理（Link Power Management，LPM）在 dwc_otg 驱动程序中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，默认情况下已禁用此控制器，并且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由另外的，与此设置无关的 USB 控制器驱动。
+`dwc_otg.lpm_enable=0` 关闭链接状态电源管理（Link Power Management，LPM）在 dwc_otg 驱动程序中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，默认情况下已禁用此控制器，并且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由另外，与此设置无关的 USB 控制器驱动。
 
-dwc_otg.speed 可设置树莓派计算机 USB 控制器的速度（处理器上内置）。将其设置 dwc_otg.speed=1 则为全速（USB 1.0），比高速（USB 2.0）慢。除非需要解决 USB 设备问题，否则不应设置此选项。
+`dwc_otg.speed` 可设置树莓派计算机 USB 控制器的速度（处理器上内置）。将其设置 dwc_otg.speed=1 则为全速（USB 1.0），比高速（USB 2.0）慢。除非需要解决 USB 设备问题，否则不应设置此参数。
 
-smsc95xx.turbo_mode 启用/禁用有线网络驱动程序的 Turbo 模式。smsc95xx.turbo_mode=N 关闭 Turbo 模式。
+`smsc95xx.turbo_mode` 启用/禁用有线网络驱动程序的 Turbo 模式。smsc95xx.turbo_mode=N 关闭 Turbo 模式。
 
 usbhid.mousepoll 指定鼠标轮询间隔。如果你遇到无线鼠标运行缓慢或不稳定的问题，将其设置为 0 可能会有所帮助。
 
