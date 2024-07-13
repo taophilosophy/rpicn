@@ -84,9 +84,9 @@ $ sudo raspi-config
 
 如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且不带黑边。
 
-#### Screen blanking——无操作时关闭屏幕
+#### Screen blanking——无操作时使屏幕变暗
 
-启用或禁用：Screen blanking（在无操作时关闭屏幕）。
+启用或禁用：Screen blanking（无操作时使屏幕变暗）。
 
 #### VNC resolution——VNC 分辨率
 
@@ -399,14 +399,14 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 
 #### Screen blanking——无操作时使屏幕变暗
 
-启用或禁用：Screen blanking（无信号时关闭屏幕）。
+启用或禁用：Screen blanking（无操作时使屏幕变暗）。
 
 ```
 $ sudo raspi-config nonint do_blanking <0/1>
 ```
 
-* `0`：Screen blanking（无信号时关闭屏幕）
-* `1`：Screen blanking（无信号时不会关闭屏幕）
+* `0`：Screen blanking（无操作时使屏幕变暗）
+* `1`：Screen blanking（无操作时不会使屏幕变暗）
 
 #### VNC resolution——VNC 分辨率
 
@@ -1055,13 +1055,13 @@ AUTOCONNECT-PRIORITY  NAME
 
 如果要给你的树莓派分配静态 IP 地址，请在路由器上为其保留一个地址。你的树莓派将继续通过 DHCP 分配其地址，但每次都会收到相同的地址。可以在 DHCP 服务器中，将树莓派的 MAC 地址绑定到静态 IP 地址，来实现分配“静态”地址。
 
-## 屏幕空白
+## Screen Blanking（无操作时使屏幕变暗）
 
-你可以配置你的树莓派，在一段时间内无操作后，将屏幕变暗。在默认情况下，当启用屏幕空白时，树莓派系统无操作十分钟后将屏幕变暗。
+你可以配置你的树莓派，在一段时间内无操作后，把屏幕变暗。在默认情况下，在启用 Screen Blanking 后，树莓派系统将在无操作后十分钟把屏幕变暗。
 
 ### 桌面
 
-你可以使用树莓派配置菜单中的屏幕空白选项来控制屏幕空白。
+你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制在无操作时是否使屏幕变暗。
 
 #### 配置树莓派
 
@@ -1069,19 +1069,19 @@ AUTOCONNECT-PRIORITY  NAME
 
 ![opening the Raspberry Pi Configuration menu from the desktop](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
-选择显示选项卡。将屏幕空白选项单选按钮切换到打开位置。按下确定以确认你的选择。
+选择显示选项卡。将 Screen Blanking 选项单选按钮切换到打开位置。按下确定以确认你的选择。
 
 ![toggle Screen Blanking on in the Raspberry Pi Configuration menu](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
-#### CLI
+#### 命令行
 
-你可以使用 raspi-config 命令行工具启用和禁用屏幕空白。运行以下命令打开该工具：
+你可以使用命令行工具 `raspi-config`，来启用和禁用：Screen Blanking。运行以下命令打开该工具：
 
 ```
 $ sudo raspi-config
 ```
 
-使用箭头键导航，使用回车键选择。选择 Display Options > Screen Blanking。使用箭头键选择 yes 以启用屏幕空白，或选择 no 以禁用屏幕空白。
+使用箭头键导航，使用回车键选择。选择 Display Options > 。使用箭头键选择 yes 以启用 Screen Blanking、选择 no 以禁用 Screen Blanking 。
 
 或者，你可以添加或编辑以下行到 ~/.config/wayfire.ini ：
 
@@ -1090,15 +1090,15 @@ $ sudo raspi-config
 dpms_timeout=600
 ```
 
-dpms_timeout 变量控制了在树莓派系统在屏幕空白之前需要的不活动秒数。例如，值为 600 会在 600 秒后，或者十分钟后使屏幕空白。将值设置为 0 可以永远不让屏幕空白。
+dpms_timeout 变量控制了在树莓派系统在屏幕变暗之前需要的无操作时间（秒）。例如，值若为 600，意味着会在 600 秒（十分钟）后使屏幕变暗。将值置 0 屏幕将永不变暗。
 
 ### 控制台
 
-Raspberry Pi Configuration 使用的 dpms_timeout 屏幕空白配置仅影响桌面会话。在控制台模式下，当你的树莓派连接到仅有终端输入的监视器和键盘时，请在内核命令行中使用 consoleblank 设置。
+Raspberry Pi Configuration 使用的 dpms_timeout  Screen Blanking 配置仅影响桌面会话。在控制台模式下，当你的树莓派连接到仅有终端输入的监视器和键盘时，请在内核命令行中使用 consoleblank 设置。
 
-#### 设置控制台模式屏幕空白
+#### 设置控制台模式 Screen Blanking 
 
-要修改控制台模式屏幕空白配置，请在文本编辑器中以管理员身份打开 /boot/firmware/cmdline.txt ：
+要修改控制台模式 Screen Blanking 配置，请在文本编辑器中以管理员身份打开 /boot/firmware/cmdline.txt ：
 
 ```
 $ sudo nano /boot/firmware/cmdline.txt
@@ -1112,7 +1112,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 $ sudo reboot
 ```
 
-#### 查看当前屏幕空白设置
+#### 查看当前 Screen Blanking 设置
 
 你可以使用以下命令显示当前控制台空白时间（以秒为单位）：
 
