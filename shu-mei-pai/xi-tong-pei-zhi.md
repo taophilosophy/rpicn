@@ -1059,7 +1059,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 ### 桌面
 
-你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制屏幕节能（在无操作时是否关闭屏幕）。
+你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制屏幕节能（在无操作时关闭屏幕）。
 
 #### 配置树莓派
 
