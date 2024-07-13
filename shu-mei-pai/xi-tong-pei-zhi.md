@@ -208,7 +208,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 及后续新款设备上，更新到最新的 ROM 引导软件。或者，如果最新版引发故障，你可恢复出厂设置。
+在树莓派 4 及后续新款设备上，更新到最新的 ROM 引导软件。或者，倘若最新版本引发了故障，你可以在此恢复出厂默认设置。
 
 #### Wayland
 
@@ -294,7 +294,7 @@ $ sudo raspi-config nonint do_audio <N>
 * `1`：vc4-hdmi-0
 * `2`：vc4-hdmi-1
 
-要查看此选项的交互式版 `raspi-config` 中使用的数字列表，请参阅能用的 `<N>` 值的完整列表。
+要查看此参数 `<N>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
 
 #### Password——密码
 
@@ -333,7 +333,7 @@ $ sudo raspi-config nonint do_boot_behaviour <B1/B2/B3/B4>
 
 #### Network at boot——启动时联网
 
-在启动前是否等待网络连接。
+是否在启动前等待网络连接。
 
 ```
 $ sudo raspi-config nonint do_boot_wait <0/1>
@@ -467,7 +467,7 @@ $ sudo raspi-config nonint do_vnc <0/1>
 
 #### SPI
 
-启用或禁用：SPI 接口；是否自动加载 SPI 内核模块。
+启用或禁用：SPI 接口，是否自动加载 SPI 内核模块。
 
 ```
 $ sudo raspi-config nonint do_spi <0/1>
@@ -478,7 +478,7 @@ $ sudo raspi-config nonint do_spi <0/1>
 
 #### I2C——I²C
 
-启用或禁用：I²C 接口；是否自动加载 I²C 内核模块。
+启用或禁用：I²C 接口，是否自动加载 I²C 内核模块。
 
 ```
 $ sudo raspi-config nonint do_i2c <0/1>
@@ -500,7 +500,7 @@ $ sudo raspi-config nonint do_serial_hw <0/1/2>
 
 #### 串口控制台
 
-在串口，启用或禁用 shell 及内核信息。
+启用或禁用： shell 及内核信息的串口输出。
 
 ```
 $ sudo raspi-config nonint do_serial_cons <0/1/2>
@@ -646,7 +646,7 @@ $ sudo raspi-config nonint do_expand_rootfs
 
 #### Network interface names——网络接口名称
 
-启用或禁用可预测的网络接口名称。
+启用或禁用：可预测的网络接口名称。
 
 ```
 $ sudo raspi-config nonint do_net_names <0/1>
@@ -666,7 +666,7 @@ $ sudo raspi-config nonint do_proxy <SCHEMES> <ADDRESS>
 
 #### Boot order——启动顺序
 
-在树莓派 4 及后续新款设备上，指定在未插入 SD 卡的情况下：是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续新款设备上，指定在 SD 卡未插入的情况下：是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 
 ```
@@ -681,7 +681,7 @@ $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 及后续新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
+在树莓派 4 及后续新款设备上，更新到最新版的 ROM 引导软件。或者，倘若最新版本引发了故障，你可以在此恢复出厂默认设置。
 
 ```
 $ sudo raspi-config nonint do_boot_rom <E1/E2>
@@ -692,7 +692,7 @@ $ sudo raspi-config nonint do_boot_rom <E1/E2>
 
 #### Wayland
 
-在 X11 后端和 Wayland 后端之间切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
+在 X11 后端和 Wayland 后端间进行切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 ```
 $ sudo raspi-config nonint do_wayland <W1/W2>
@@ -703,11 +703,11 @@ $ sudo raspi-config nonint do_wayland <W1/W2>
 
 >**注意**
 >
->要在树莓派 4 先前的型号上使用 Wayland，你还必须把 `wayland=on` 添加至 `/boot/firmware/cmdline.txt`。
+>要在树莓派 4 先前的型号上使用 Wayland，你还必须将 `wayland=on` 添加到 `/boot/firmware/cmdline.txt`。
 
 #### Audio config——音频配置
 
-使用此参数在 PulseAudio 和 PipeWire 音频后端之间进行切换。在树莓派系统 Bookworm 之前，树莓派系统使用 PulseAudio。
+使用此参数在 PulseAudio 和 PipeWire 音频后端间进行切换。在树莓派系统 Bookworm 之前，树莓派系统使用 PulseAudio。
 
 ```
 $ sudo raspi-config nonint do_audioconf <1/2>
@@ -718,35 +718,35 @@ $ sudo raspi-config nonint do_audioconf <1/2>
 
 ### Update——更新
 
-将此工具（`raspi-config`）更至最新版本。
+将 `raspi-config` 更新至最新版本。
 
 ```
 $ sudo raspi-config nonint do_update
 ```
 
-## Displays——显示
+## 显示
 
-要配置你的树莓派使用非默认分辨率，请手动设置分辨率或方向。
+要配置你的树莓派，使用非默认显示模式，请手动设置分辨率或方向。
 
-### Support for HDMI monitors——HDMI 显示器支持
+### HDMI 显示器支持
 
-大多数 HDMI 显示器上，树莓派系统使用显示器支持的最高分辨率和刷新率。
+对于大多数 HDMI 显示器，树莓派系统都能使其达到最高分辨率和刷新率。
 
-树莓派 Zero、Zero W 和 Zero 2 W 配备迷你 HDMI 端口，因此你需要 mini HDMI 转全尺寸 HDMI 转接线或者转换器。
+树莓派 Zero、Zero W 和 Zero 2 W 搭载了 mini HDMI 接口，因此你需要 mini HDMI 转全尺寸 HDMI 转接线或者转接头。
 
-树莓派 4、树莓派 5 和树莓派 400 都有两个 micro HDMI，因此你需要，为每个你想用显示器都准备一份 micro HDMI 转标准 HDMI 转接线或者转换器。请在打开树莓派之前接入这些转换线。
+树莓派 4、5 和 400 搭载了两个 micro HDMI，因此你需要为每台你想使用的显示器，都各准备一份 micro HDMI 转标准 HDMI 转接线或转接头。请在打开树莓派之前就接入这些转换器。
 
-树莓派 4 和 400 可以同时点亮两个显示器，最高可达 1080p 分辨率、60Hz 刷新率。或两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 `/boot/firmware/config.txt` 中设置参数了 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率点亮当个 4K 显示器。
+树莓派 4 和 400 可以同时点亮两个显示器，高达 1080p 分辨率、60Hz 刷新率；或点亮两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 `/boot/firmware/config.txt` 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率点亮单个 4K 显示器。
 
-树莓派 5 可以在无需额外配置的情况下，以 4K 分辨率、60Hz 的刷新率，点亮两个显示器。
+无需任何额外配置，树莓派 5 就可以 4K 分辨率、60Hz 的刷新率，点亮两个显示器。
 
 ### 设置分辨率和方向
 
-#### 通过桌面设置
+#### 在桌面设置
 
-在树莓派桌面上，打开“首选项”菜单，然后选择工具“屏幕配置”。你应该会看到已接入树莓派的显示器，以图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭“屏幕配置”以保存修改。
+在树莓派桌面上，打开“首选项”菜单，然后选择工具“屏幕配置”。你应该会看到当前树莓派已接入的显示器（以图画代表）。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭“屏幕配置”以保存修改。
 
-#### 通过命令行设置
+#### 在命令行设置
 
 使用以下命令能打开屏幕配置工具：
 
@@ -754,7 +754,7 @@ $ sudo raspi-config nonint do_update
 $ arandr
 ```
 
-你应该会看到已接入树莓派的显示器，以图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭屏幕配置以保存修改。
+你应该会看到当前树莓派已接入的显示器（以图画代表）。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭屏幕配置以保存修改。
 
 ### 手动设置分辨率和方向
 
@@ -768,7 +768,7 @@ $ kmsprint | grep Connector
 
 #### 设置自定义分辨率
 
-如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 .config/wayfire.ini，来设置自定义显示分辨率。可编辑现有的 [output:<device>] 部分，倘若没有，则添加一个新部分 [output:<device>]，以适用于你的显示设备。要修改显示分辨率，请添加 mode 这行。例如，以下示例的配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz：
+如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 .config/wayfire.ini，来设置自定义显示分辨率。可编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新部分 `[output:<device>]`，以适用于你的显示设备。要修改显示分辨率，请添加 mode 这行。例如，对于以下示例，配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz：
 
 ```
 [output:HDMI-A-1]
@@ -781,7 +781,7 @@ mode = 1920x1080@60
 
 #### 设置自定义屏幕方向
 
-如果你运行 Wayland 桌面混成器，可以使用 wlr-randr 设置自定义显示方向。以下命令将屏幕方向配置为 0°、90°、180°和 270°：
+如果你运行着 Wayland 桌面混成器，可以使用 wlr-randr 设置自定义显示方向。以下命令分别将屏幕方向配置为 0°、90°、180°和 270°：
 
 ```
 $ wlr-randr --output HDMI-A-1 --transform normal
@@ -790,16 +790,16 @@ $ wlr-randr --output HDMI-A-1 --transform 180
 $ wlr-randr --output HDMI-A-1 --transform 270
 ```
 
---output 选项可指定要修改屏幕方向的设备。
+参数 `--output` 可指定要修改屏幕方向的设备。
 
 >**注意**
 >
->如要通过 SSH 运行此命令，请添加如下前缀： WAYLAND_DISPLAY=wayland-1，例如 WAYLAND_DISPLAY=wayland-1 wlr-randr --output HDMI-A-1 --transform 90。
+>如要通过 SSH 运行此命令，请添加如下前缀： `WAYLAND_DISPLAY=wayland-1`，例如 `WAYLAND_DISPLAY=wayland-1 wlr-randr --output HDMI-A-1 --transform 90`。
 
 
-你还可以使用以下某个 --transform 选项，同时镜像显示器并修改方向：flipped，flipped-90，flipped-180，flipped-270。
+你还可以使用以下某个 `--transform` 参数，同时镜像显示器并修改方向：flipped，flipped-90，flipped-180，flipped-270。
 
-或者，你还可以编辑你家目录中的文件 .config/wayfire.ini 来旋转屏幕。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的显示设备。要旋转你屏幕，需添加 transform 这行。例如，以下示例的配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz，旋转角度是 270°：
+或者，你还可以编辑你家目录中的文件 `.config/wayfire.ini` 来旋转屏幕。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的显示设备。要旋转你屏幕，需添加 transform 这行。例如，以下示例的配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz，旋转角度是 270°：
 
 
 ```
@@ -815,16 +815,16 @@ Wayland 支持以下 transform 参数：
 * `180`
 * `270`
 
-将相同的配置块添加到 /usr/share/greeter.ini 以配置登录屏幕旋转。
+将相同的配置内容添加到 /usr/share/greeter.ini，来改变登录屏幕的方向。
 
 ### 控制台分辨率和方向
 
-要修改树莓派控制台模式的分辨率和方向，请使用 KMS 设置。有关更多信息，请参阅配置内核命令行。
+要修改树莓派控制台模式下的分辨率和方向，请使用 KMS 设置。有关更多信息，请参阅配置内核命令行。
 
 >**注意**
 >
 >
->如多个显示器同时使用控制台模式输出，所有接入的显示器将使用相同的方向设置。
+>如多个显示器同时以控制台模式输出，所有接入的显示器将使用相同的方向设置。
 
 ## 音频
 
@@ -838,88 +838,88 @@ Wayland 支持以下 transform 参数：
 
 #### 通过桌面音量控制
 
-单击系统托盘上的音量图标以打开音频输出选择器。该界面可让你选择音频输出设备。单击音频输出设备以切换音频输出到该设备。
+单击系统托盘上的音量图标，打开音频输出选择器。该界面可让你选择音频输出设备。单击音频输出设备，能切换音频输出到该设备。
 
 ##### 专业音频配置文件
 
-在音频输出选择器中查看音频设备时，你可能会看到一个名为专业音频的设备配置文件。该配置文件在每个音频设备上公开了最大数量的通道，使你能够更好地控制信号的路由。除非你需要对音频输出进行精细调整控制，否则请使用其他设备配置文件。
+在音频输出选择器中查看音频设备时，你可能会看到一个名为专业音频的设备配置文件。该配置文件在每个音频设备上公开了最大数量的通道，使你能够更好地控制信号的路由。除非你需要对音频输出进行细粒度调整控制，否则请使用其他设备配置文件。
 
-有关专业音频配置文件的更多信息，请访问 PipeWire 的常见问题解答。
+更多有关专业音频配置文件的内容，请访问 PipeWire 的常见问题解答。
 
-#### 通过 raspi-config
+#### 使用 raspi-config
 
-要修改音频输出，请使用 raspi-config，运行以下命令：
+要修改音频输出，请使用 `raspi-config`，运行以下命令：
 
 ```
 $ sudo raspi-config
 ```
 
-你应该看到一个配置屏幕。完成以下步骤以修改你的音频输出：
+你应该会看到一个配置界面。完成以下步骤，可修改你的音频输出：
 
 1. 选择 System options 并按  **回车键**。
 2. 选择 Audio 选项并按  **回车键**。
 3. 选择所需模式，然后按 **回车键** 选择该模式。
-4. 按右箭头键退出选项列表。选择 Finish 退出配置工具。
+4. 按右箭头键退出选项列表。选择 `Finish` 退出配置工具。
 
 ## 网络
 
-树莓派系统为设置无线连接提供了图形用户界面（GUI）。精简版树莓派系统的用户和无头机器的用户可以使用 APT 从命令行设置无线网络连接。
+树莓派系统可以用图形用户界面（GUI）来设置无线连接。精简版树莓派系统和无头机器的用户可以使用 APT，通过命令行设置无线网络连接。
 
 >**注意**
 >
->从树莓派系统 Bookworm 开始，Network Manager 成为了默认的网络配置工具。旧版的树莓派系统使用 APT 和其他工具进行网络配置。
+>从树莓派系统 Bookworm 开始，Network Manager 成为默认的网络配置工具。旧版的树莓派系统使用 APT 和其他工具进行网络配置。
 
 ### 连接到无线网络
 
 #### 通过桌面
 
-通过菜单栏右端的网络图标访问网络管理器。如果你使用带有内置无线连接功能的树莓派，或者插入了无线适配器，则单击此图标即可显示可用无线网络列表。如果看到消息“未找到 AP - 正在扫描...”，请等待几秒钟，网络管理器应该会找到你的网络。
+通过菜单栏右端的网络图标打开网络管理器。如果你使用的是搭载内置无线连接功能的树莓派（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP - 正在扫描...”，请等待几秒钟，网络管理器应该就会搜到你的网络。
 
 >**注意**
 >
->支持双频无线的树莓派设备（树莓派 3B+、树莓派 4、计算模块 4、树莓派 400 和树莓派 5）会自动禁用网络，直到你分配一个无线局域网国家。要设置无线局域网国家，请从“首选项”菜单中打开树莓派配置应用程序，选择本地化，然后从菜单中选择你的国家。
+>搭载双频无线的树莓派设备（树莓派 3B+、树莓派 4、计算模块 4、树莓派 400 和树莓派 5）会自动禁用网络，除非你分配了无线局域网区域。要设置无线局域网区域，请在“首选项”菜单里打开树莓派配置应用程序，选择本地化，然后从菜单中选择你的区域。
 
 ![wifi2](https://www.raspberrypi.com/documentation/computers/images/wifi2.png)
 
-右侧的图标显示网络是否已安全，并指示信号强度。单击要连接的网络。如果网络已安全，对话框将提示你输入网络密钥：
+右侧的图标会提示网络是否加密，并显示了信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
 
 ![key](https://www.raspberrypi.com/documentation/computers/images/key.png)
 
-输入密钥，然后单击“确定”，然后等待几秒钟。网络图标会闪烁一下，表示正在建立连接。连接成功后，图标将停止闪烁并显示信号强度。
+输入密钥，然后单击“确定”，再等待几秒钟。网络图标会闪烁一下，表示正在建立连接。连接成功后，图标将停止闪烁并显示信号强度。
 
-##### 连接到隐藏网络
+##### 连接到隐藏的网络
 
-使用隐藏网络，请在网络菜单中导航到高级选项 > 连接到隐藏的 Wi-Fi 网络：
+要使用隐藏的网络，请在网络菜单中导航到高级选项 > 连接到隐藏的 Wi-Fi 网络：
 
 ![the connect to a hidden wi-fi network option in advanced options](https://www.raspberrypi.com/documentation/computers/images/network-hidden.png)
 
-然后，输入隐藏网络的 SSID。询问你的网络管理员你的网络使用哪种安全类型；大多数家庭网络目前使用 WPA 和 WPA2 个人安全，公共网络有时使用 WPA 和 WPA2 企业安全。选择你的网络的安全类型，并输入你的凭据：
+然后，输入隐藏网络的网络名称（SSID）。询问你的网络管理员：你所用的网络使用哪种加密方式。目前，大多数家用网络使用的是 WPA 和 WPA2 个人加密，公共网络有时使用 WPA 和 WPA2 企业加密。选择你网络的加密方式，并输入你的凭据：
 
 ![hidden wi-fi network authentication](https://www.raspberrypi.com/documentation/computers/images/network-hidden-authentication.png)
 
-单击“连接”按钮以启动网络连接。
+单击“连接”按钮可启动网络连接。
 
 #### 通过命令行
 
-本指南将帮助你在树莓派上配置无线连接，而无需使用图形工具。不需要额外的软件。
+本指南将帮助你：在不使用图形化工具（且无需额外软件）的情况下，在树莓派上配置使用无线连接。
 
 >**注意**
 >
->本指南适用于 WEP、WPA、WPA2 或 WPA3 网络，但可能不适用于企业网络。
+>本指南适用于 WEP、WPA、WPA2 和 WPA3 网络，但可能不适用于企业网络。
 
 ##### 启用无线网络
 
-在全新安装时，你必须指定你使用设备的国家/地区。这样可以使你的设备选择正确的 5GHz 网络频段。在你指定了无线局域网国家/地区后，你就可以使用树莓派内置的无线网络模块。
+在全新安装时，你必须指定你使用设备的区域。这样可以使你的设备选择正确的 5GHz 网络频段。在你指定了无线局域网区域后，你就可以使用树莓派内置的无线网络模块了。
 
-要做到这一点，请使用命令行 raspi-config 工具设置你的无线局域网国家/地区。运行以下命令：
+要做到这一点，请使用命令行工具 `raspi-config` 设置你的无线局域网区域。运行以下命令：
 
 ```
 $ sudo raspi-config
 ```
 
-使用箭头键选择“本地化选项”菜单项。选择 WLAN 国家选项。使用箭头键从下拉菜单中选择你的国家。按 **回车键** 选择你的国家。
+使用箭头键选择“本地化选项”菜单项。选择 WLAN 国家/地区选项。使用箭头键从下拉菜单中选择你的国家。按 **回车键** 选择你的区域。
 
-你现在应该可以访问无线网络。运行以下命令以检查你的无线电是否已启用：
+现在，你应该已经可以访问无线网络了。运行以下命令来检查你的无线电是否已启用：
 
 ```
 $ nmcli radio wifi
@@ -939,7 +939,7 @@ $ nmcli radio wifi on
 $ nmcli dev wifi list
 ```
 
-你应该看到类似以下的输出：
+你应看到类似输出如下：
 
 ```
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
@@ -953,25 +953,25 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 ##### 连接到网络
 
-运行以下命令来配置网络连接，将 <example_ssid> 占位符替换为你要配置的网络名称：
+运行以下命令来配置网络连接，将占位符 `<网络名称>` 替换为你要配置的网络名称：
 
 ```
-$ sudo nmcli --ask dev wifi connect <example_ssid>
+$ sudo nmcli --ask dev wifi connect <网络名称>
 ```
 
-在提示时输入你的网络密码。
+在有提示时输入你的网络密码。
 
-你输入密码后，你的树莓派应该会自动连接到网络。
+在你输入密码后，你的树莓派应该会自动接入网络。
 
-如果你看到错误输出，声称“需要密码，但未提供密码”，则表示你输入了错误的密码。请再次运行上述命令，仔细输入你的密码。
+如果你看到错误输出，提示你“需要密码，但未提供密码”，则意味着你输入的密码错误。请再次运行上述命令，仔细检查你输入的密码。
 
-检查是否已连接到网络，请运行以下命令：
+要检查是否已接入网络，请运行以下命令：
 
 ```
 $ nmcli dev wifi list
 ```
 
-应该看到类似以下的输出：
+应该看到类似输出如下：
 
 ```
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
@@ -981,15 +981,15 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
         B4:2A:0E:64:BD:BE  Example         Infra  6     195 Mbit/s  37      **    WPA1 WPA2
 ```
 
-在“IN-USE”列中查找星号（ `*` ）；它应该出现在你打算连接到的网络的 SSID 所在的同一行。
+在“IN-USE”列中查找星号（ `*` ）；它应该出现在你打算接入网络的网络名称（SSID）所在的同一行。
 
 >**注意**
 >
->你可以在目录 /etc/NetworkManager/system-connections/ 中手动编辑你的连接配置。
+>你可以手动编辑你的连接配置，位于目录 `/etc/NetworkManager/system-connections/` 下。
 
-##### 连接到一个未加密的网络
+##### 连接到未加密的网络
 
-如果你要连接的网络没有使用密码，请运行以下命令：
+如果你要连接的网络未使用密码，请运行以下命令：
 
 ```
 $ sudo nmcli dev wifi connect <example_ssid>
@@ -997,25 +997,25 @@ $ sudo nmcli dev wifi connect <example_ssid>
 
 >**警告**
 >
->未加密的无线网络可能会将你的个人信息置于风险之中。在可能的情况下，请使用安全的无线网络或 VPN。
+>未加密的无线网络可能会将你的个人信息置于风险之中。应尽可能请使用安全的无线网络（或 VPN）。
 
-##### 连接到隐藏网络
+##### 连接到隐藏的网络
 
-如果你正在使用隐藏网络，请在运行 nmcli 时指定"hidden"选项，其值为"yes"。
+如果你正在使用着隐藏的网络，请在运行 nmcli 时指定参数 "hidden"，并赋值为"yes"。
 
 ```
-$ sudo nmcli --ask dev wifi connect <example_ssid> hidden yes
+$ sudo nmcli --ask dev wifi connect <网络名称> hidden yes
 ```
 
 ##### 设置网络优先级
 
-如果你的设备同时检测到多个已知网络，它可能会连接任何一个已检测到的已知网络。可使用优先级选项来强制让你的树莓派优先连接某些网络。你的设备将连接到具有最高优先级的范围内的网络。运行以下命令查看已知网络的优先级：
+如果你的设备同时检测到了多个已知网络，它可能会随机接入到任意一个被检测到的已知网络。可使用优先级参数，强制让你的树莓派优先连接某些网络。你的设备将连接到在范围内，具有最高优先级的网络。运行以下命令，查看已知网络的优先级：
 
 ```
 $ nmcli --fields autoconnect-priority,name connection
 ```
 
-你应该看到类似以下的输出：
+你应该看到类似输出如下：
 
 ```
 AUTOCONNECT-PRIORITY  NAME
@@ -1026,13 +1026,13 @@ AUTOCONNECT-PRIORITY  NAME
 -999                  Wired connection 1
 ```
 
-使用 nmcli connection modify 命令设置网络的优先级。以下示例命令将名为 "Pi Towers" 的网络的优先级设置为 10 ：
+使用命令 `nmcli connection modify` 可设置网络的优先级。以下示例命令：将名为 "Pi Towers" 的网络的优先级设置为 10 ：
 
 ```
 $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 ```
 
-你的设备将始终尝试连接到具有最高非负优先级值的在范围内的网络。你还可以为网络分配负优先级；只有在范围内没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，假设有三个网络：
+你的设备将始终尝试连接到在范围内，具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
 
 ```
 AUTOCONNECT-PRIORITY  NAME
@@ -1042,22 +1042,22 @@ AUTOCONNECT-PRIORITY  NAME
 1000                  dog
 ```
 
-* 如果所有这些网络都在范围内，你的设备将首先尝试连接到 "dog" 网络。
-* 如果连接到"dog"网络失败，你的设备将尝试连接到"cat"网络。
-* 如果连接到"cat"网络失败，你的设备将尝试连接到"rabbit"网络。
-* 如果连接到"rabbit"网络失败，并且你的设备未检测到其他已知网络，你的设备将尝试连接到"snake"网络。
+* 如果所有这些网络都在范围内，你的设备将首先尝试连接到网络“dog”。
+* 如果网络“dog”连接失败，你的设备将尝试连接到网络“cat”。
+* 如果网络“cat”连接失败，你的设备将尝试连接到网络“rabbit”。
+* 如果网络“rabbit”连接失败，并且你的设备未检测到其他已知网络，你的设备将尝试连接到网络“snake”。
 
 ### 配置 DHCP
 
-默认情况下，树莓派系统尝试通过 DHCP 自动配置所有网络接口，如果 DHCP 失败，则回退到 169.254.0.0/16 范围内的自动私有地址。
+在默认情况下，树莓派系统会尝试用 DHCP 自动配置所有网络接口。如果 DHCP 失败，则回滚至自动私有地址，范围是 169.254.0.0/16。
 
 ### 分配静态 IP 地址
 
-为了为你的树莓派分配静态 IP 地址，请在路由器上为其保留一个地址。你的树莓派将继续通过 DHCP 分配其地址，但每次都将收到相同的地址。可以通过在 DHCP 服务器中将树莓派的 MAC 地址与静态 IP 地址关联来分配“固定”地址。
+如果要给你的树莓派分配静态 IP 地址，请在路由器上为其保留一个地址。你的树莓派将继续通过 DHCP 分配其地址，但每次都会收到相同的地址。可以在 DHCP 服务器中，将树莓派的 MAC 地址绑定到静态 IP 地址，来实现分配“静态”地址。
 
 ## 屏幕空白
 
-你可以配置你的树莓派在一段时间内的不活动后将屏幕变暗。在默认情况下，当启用屏幕空白时，树莓派系统在不活动十分钟后将屏幕变暗。
+你可以配置你的树莓派，在一段时间内无操作后，将屏幕变暗。在默认情况下，当启用屏幕空白时，树莓派系统无操作十分钟后将屏幕变暗。
 
 ### 桌面
 
