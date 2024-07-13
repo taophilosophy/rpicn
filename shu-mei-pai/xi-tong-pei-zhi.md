@@ -178,9 +178,9 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 将打开菜单，你可以在其中选择你的键盘布局（中国使用标准美式键盘布局）。通常修改会立即生效，但可能需要重启。键入单个字母会跳转到列表中的该字母。
 
-#### WLAN country——无线局域网国家/地区
+#### WLAN country——无线局域网区域
 
-为你的无线网络设置国家/地区码。
+为你的无线网络设置区域码。
 
 ### Advanced options——高级选项
 
@@ -397,7 +397,7 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 * `0`：启用过扫描
 * `1`：禁用过扫描
 
-#### Screen blanking——无信号时关闭屏幕
+#### Screen blanking——无操作时使屏幕变暗
 
 启用或禁用：Screen blanking（无信号时关闭屏幕）。
 
