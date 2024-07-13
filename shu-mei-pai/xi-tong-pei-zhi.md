@@ -6,7 +6,7 @@
 
 >**技巧**
 >
->树莓派桌面用户可以在“**首选项（Preferences）**”>“**树莓派配置（Raspberry Pi Configuration）**”中使用这款软件的图形化版本。但是，某些高级配置仅存在于 `raspi-config`。
+>树莓派桌面用户可以使用这款软件的图形化版本，位于“**首选项（Preferences）**”>“**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
 
 `raspi-config` 能帮助你配置树莓派。不同型号的树莓派之间，能进行配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
 
