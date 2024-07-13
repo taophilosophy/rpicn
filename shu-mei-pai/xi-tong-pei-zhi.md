@@ -644,7 +644,7 @@ $ sudo raspi-config nonint do_wifi_country <国家/地区>
 $ sudo raspi-config nonint do_expand_rootfs
 ```
 
-#### 网络接口名称
+#### Network interface names——网络接口名称
 
 启用或禁用可预测的网络接口名称。
 
@@ -655,78 +655,80 @@ $ sudo raspi-config nonint do_net_names <0/1>
 * `0`：启用可预测的网络接口名称
 * `1`：禁用可预测的网络接口名称
 
-#### 网络代理设置
+#### Network proxy settings——设置网络代理
 
-配置网络代理设置。
+配置网络代理。
+
 
 ```
 $ sudo raspi-config nonint do_proxy <SCHEMES> <ADDRESS>
 ```
 
-#### 启动顺序
+#### Boot order——启动顺序
 
-在树莓派 4 及更高型号上，如果未插入 SD 卡，指定是否从 USB 或网络引导。有关更多信息，请参阅引导加载程序配置部分。
+在树莓派 4 及更新款设备上，指定在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+
 
 ```
 $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
 ```
 
-根据你的设备，你可以从以下选项中选择：
+根据你的设备，你可以从以下选项中进行选择：
 
 * B1 ：SD 卡启动 - 如果可用，则从 SD 卡启动，否则从 NVMe 启动，否则从 USB 启动
 * B2 ：NVMe/USB 启动 - 如果可用，则从 NVMe 启动，否则从 USB 启动，否则从 SD 卡启动
 * B3 ：网络引导 - 如果插入 SD 卡，则从 SD 卡引导，否则从网络引导
 
-#### 引导加载程序版本
+#### Bootloader version——引导加载程序版本
 
-在树莓派 4 及更新型号上，切换到最新的引导 ROM 软件。或者，如果最新版本导致问题，可以恢复到出厂默认设置。
+在树莓派 4 及更新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
 
 ```
 $ sudo raspi-config nonint do_boot_rom <E1/E2>
 ```
 
-* E1 ：使用最新的引导 ROM
-* E2 ：使用出厂默认设置
+* `E1` ：使用最新的引导 ROM
+* `E2` ：使用出厂默认设置
 
 #### Wayland
 
-在 X11 和 Wayland 后端之间切换。树莓派 4 及更新型号默认使用 Wayland；其他型号的树莓派默认使用 X11。
+在 X11 后端和 Wayland 后端之间切换。在树莓派 4 及更新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 ```
 $ sudo raspi-config nonint do_wayland <W1/W2>
 ```
 
-* W1 ：使用 X11 后端
-* W2 ：使用 Wayland 后端
+* `W1` ：使用 X11 后端
+* `W2` ：使用 Wayland 后端
 
 >**注意**
 >
->在树莓派 4 之前的树莓派型号上使用 Wayland，你还必须将 wayland=on 添加到 /boot/firmware/cmdline.txt。
+>要在树莓派 4 先前的型号上使用 Wayland，你还必须把 `wayland=on` 添加至 `/boot/firmware/cmdline.txt`。
 
-#### 音频配置
+#### Audio config——音频配置
 
-使用此选项在 PulseAudio 和 PipeWire 音频后端之间切换。在树莓派系统 Bookworm 之前，树莓派系统使用了 PulseAudio。
+使用此参数在 PulseAudio 和 PipeWire 音频后端之间进行切换。在树莓派系统 Bookworm 以前，树莓派系统使用 PulseAudio。
 
 ```
 $ sudo raspi-config nonint do_audioconf <1/2>
 ```
 
 * `1`：使用 PulseAudio 后端
-* 2 ：使用 PipeWire 后端
+* `2`：使用 PipeWire 后端
 
-### 更新
+### Update——更新
 
-将此工具更新到最新版本。
+将此工具（`raspi-config`）更至最新版本。
 
 ```
 $ sudo raspi-config nonint do_update
 ```
 
-## 显示
+## Displays——显示
 
-要配置你的树莓派使用非默认显示模式，请手动设置分辨率或旋转。
+要配置你的树莓派使用非默认分辨率，请手动设置分辨率或方向。
 
-### 支持 HDMI 显示器
+### Support for HDMI monitors——HDMI 显示器支持
 
 大多数 HDMI 显示器上，树莓派系统使用显示器支持的最高分辨率和刷新率。
 
@@ -734,11 +736,11 @@ $ sudo raspi-config nonint do_update
 
 树莓派 4、树莓派 5 和树莓派 400 都有两个 micro HDMI，因此你需要为每个你希望连接的显示器准备 micro HDMI 转标准 HDMI 的线缆或适配器。在打开树莓派之前连接这些线缆。
 
-树莓派 4 和 400 可以驱动高达 1080p 分辨率、60Hz 刷新率的两个显示器。或者支持两个 30Hz 刷新率的 4K 显示器。如果你将显示器连接到 HDMI0 端口并在 /boot/firmware/config.txt 中设置 hdmi_enable_4kp60=1 参数，还可以以 60Hz 刷新率驱动单个 4K 显示器。
+树莓派 4 和 400 可以同时点亮两个显示器，高达 1080p 分辨率、60Hz 刷新率。或者支持两个 30Hz 刷新率的 4K 显示器。如果你将显示器连接到 `HDMI0` 端口并在 `/boot/firmware/config.txt` 中设置参数 `hdmi_enable_4kp60=1`，还可以以 60Hz 刷新率驱动单个 4K 显示器。
 
-树莓派 5 可以在无需额外配置的情况下以 60Hz 的刷新率驱动两个 4K 分辨率的显示器。
+树莓派 5 可以在无需额外配置的情况下，以 4K 分辨率、60Hz 的刷新率，点亮两个显示器。
 
-### 设置分辨率和旋转
+### 设置分辨率和方向
 
 #### 通过桌面
 
