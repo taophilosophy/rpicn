@@ -84,9 +84,9 @@ $ sudo raspi-config
 
 如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且不带黑边。
 
-#### Screen blanking——无信号时关闭屏幕
+#### Screen blanking——无操作时关闭屏幕
 
-启用或禁用：Screen blanking（在无信号时关闭屏幕）。
+启用或禁用：Screen blanking（在无操作时关闭屏幕）。
 
 #### VNC resolution——VNC 分辨率
 
