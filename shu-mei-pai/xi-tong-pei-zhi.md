@@ -1055,11 +1055,11 @@ AUTOCONNECT-PRIORITY  NAME
 
 ## Screen Blanking——屏幕节能（无操作时关闭屏幕）
 
-你可以配置你的树莓派使用屏幕节能：在一段时间内无操作后，把屏幕关闭。在默认情况下，在启用 Screen Blanking——屏幕节能后，树莓派系统将在无操作后十分钟把屏幕关闭。
+你可以配置你的树莓派使用屏幕节能：在一段时间内无操作后，把屏幕关闭。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
 
 ### 桌面
 
-你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制屏幕节能（在无操作时关闭屏幕）。
+你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制屏幕节能（无操作时关闭屏幕）。
 
 #### 配置树莓派
 
@@ -1067,19 +1067,19 @@ AUTOCONNECT-PRIORITY  NAME
 
 ![opening the Raspberry Pi Configuration menu from the desktop](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
-选择显示选项卡。将 Screen Blanking 选项单选按钮切换到打开位置。按下确定以确认你的选择。
+选择显示选项卡。将 Screen Blanking 选项单选按钮切换到打开位置。按下确定确认你的选择。
 
 ![toggle Screen Blanking on in the Raspberry Pi Configuration menu](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
 #### 命令行
 
-你可以使用命令行工具 `raspi-config`，来启用和禁用：Screen Blanking——屏幕节能。运行以下命令打开该工具：
+你可以使用命令行工具 `raspi-config`，来启用和禁用：屏幕节能。运行以下命令打开该工具：
 
 ```
 $ sudo raspi-config
 ```
 
-使用箭头键导航，使用回车键选择。选择 Display Options > 。使用箭头键选择 yes 以启用屏幕节能、选择 no 以禁用屏幕节能。
+使用箭头键导航，使用回车键选择。选择 Display Options > 。使用箭头键：选择 yes 启用屏幕节能；选择 no 禁用屏幕节能。
 
 或者，你可以添加或编辑以下行到 ~/.config/wayfire.ini ：
 
@@ -1088,21 +1088,21 @@ $ sudo raspi-config
 dpms_timeout=600
 ```
 
-dpms_timeout 变量控制了在树莓派系统在关闭屏幕之前需要的无操作时间（秒）。例如，值若为 600，意味着会在 600 秒（十分钟）后关闭屏幕。将值置 0 屏幕将永不变暗。
+变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作时间（秒）。例如，值若为 600，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 0，屏幕将永不熄灭。
 
 ### 控制台
 
-Raspberry Pi Configuration 使用的 dpms_timeout  Screen Blanking 配置仅影响桌面会话。在控制台模式下，当你的树莓派连接到仅有终端输入的监视器和键盘时，请在内核命令行中使用 consoleblank 设置。
+Raspberry Pi Configuration 使用的 dpms_timeout  屏幕节能配置仅涉及桌面会话。在控制台模式下，即当你的树莓派仅接入至带有终端输入的监控器和键盘时，请在内核命令行下，使用 consoleblank 进行设置。
 
-#### 设置控制台模式 Screen Blanking 
+#### 设置控制台模式下的屏幕节能
 
-要修改控制台模式 Screen Blanking 配置，请在文本编辑器中以管理员身份打开 /boot/firmware/cmdline.txt ：
+要修改控制台模式下的屏幕节能配置，请在文本编辑器中以管理员身份打开 `/boot/firmware/cmdline.txt`：
 
 ```
 $ sudo nano /boot/firmware/cmdline.txt
 ```
 
-你可以在这里调整树莓派系统在空白控制台之前等待的秒数。例如，添加 consoleblank=600 以在 600 秒的不活动后禁用显示输出。将值设置为 0 以永远不要空白屏幕。
+你可以在这儿调整树莓派系统在关闭屏幕之前，等待控制台的秒数。例如，添加 `consoleblank=600` 可在其无操作 600 秒后关闭显示信号输出。将值置 0，屏幕将永不熄灭。
 
 修改 cmdline.txt 后，只有在重启后才会生效。使用以下命令重启你的树莓派：
 
