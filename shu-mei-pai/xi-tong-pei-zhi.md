@@ -1925,10 +1925,10 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 | 2      | 1      | 分区不是 FAT                       |
 | 2      | 2      | 无法读取分区                 |
 | 2      | 3      | 扩展分区不是 FAT                   |
-| 2      | 4      | 文件签名/哈希不匹配 - Pi 4 和 Pi 5 |
+| 2      | 4      | 文件签名或哈希不匹配 - Pi 4 和 Pi 5 |
 | 3      | 1      | SPI EEPROM 错误 - Pi 4 和 Pi 5     |
 | 3      | 2      | SPI EEPROM 写保护 - Pi 4 和 Pi 5 |
-| 3      | 3      | I2C 错误 - Pi 4 和 Pi 5            |
+| 3      | 3      | I²C 错误 - Pi 4 和 Pi 5            |
 | 3      | 4      | 安全启动配置无效                   |
 | 4      | 3      | 未找到 RP1                         |
 | 4      | 4      | 不支持的主板类型                     |
@@ -1938,13 +1938,13 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 ## 配置 UART
 
-树莓派上有两种可用的 UART - PL011 和 mini UART。PL011 是一种功能强大、广泛兼容 16550 的 UART，而 mini UART 具有较少的功能集。
+树莓派上有两种可用的 UART - PL011 和 mini UART。PL011 是一种功能强大、兼容性好的，16550 UART，而 mini UART 功能较少。
 
-树莓派上的所有 UART 仅支持 3.3V（如果连接到 5V 系统，将会损坏）。可以使用适配器连接到 5V 系统。另外，也可以 用各种第三方提供的低成本 USB 至 3.3V 串口适配器。
+树莓派上的所有 UART 仅支持 3.3V（如果接入 5V 设备，将损坏）。可以使用适配器转接到 5V 设备。此外，也可以用各种第三方提供的低成本 USB 至 3.3V 串口转换器。
 
-### 树莓派 Zero、1、2 和 3
+### 树莓派 Zero，树莓派 1、2、3
 
-树莓派 Zero、1、2 和 3 各自包含两个 UART，如下：
+树莓派 Zero，树莓派 1、2、3 各搭载着两个 UART，如下：
 
 | 名称  | 类型      |
 | ------- | ----------- |
@@ -1953,7 +1953,7 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 ### 树莓派 4 和 400
 
-树莓派 4B 和 400 默认情况下有额外的四个 PL011，但它们是被禁用的：
+在默认情况下，树莓派 4B 和 400 搭载了额外四个 PL011，但它们是被禁用的：
 
 | 名称  | 类型      |
 | ------- | ----------- |
@@ -1966,7 +1966,7 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 ### 树莓派 5
 
-树莓派 5 有额外的四个 PL011，这些在默认情况下是禁用的：
+树莓派 5 搭载了额外四个 PL011，这些在默认情况下也是被禁用的：
 
 | 名称  | 类型  |
 | ------- | ------- |
@@ -1980,9 +1980,9 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 ### CM1、CM3、CM3+ 和 CM4
 
-第一代计算模块，与计算模块 3 和计算模块 3+ 一起，都有两个 UART，而计算模块 4 如上所述有六个 UART。
+计算模块 1、3、3+ 各搭载了两个 UART，而计算模块 4 如上所述有六个 UART。
 
-在所有的计算模块型号上，默认情况下禁用了 UART，并可以通过使用设备树叠加来显式启用。你还可以指定要使用的 GPIO 引脚，例如：
+在所有型号的计算模块上，默认情况下禁用了 UART，并可以通过使用设备树叠加来显式启用。你还可以指定要使用的 GPIO 引脚，例如：
 
 ```
 dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
@@ -2005,7 +2005,7 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 | 型号                            | 主/控制台 | 次要/蓝牙 |
 | --------------------------------- | ----------- | ----------- |
 | 树莓派 Zero                     | UART0     | UART1     |
-| 树莓派 Zero W / 树莓派 Zero 2 W | UART1     | UART0     |
+| 树莓派 Zero W、Zero 2 W | UART1     | UART0     |
 | 树莓派 1                        | UART0     | UART1     |
 | 树莓派 2                        | UART0     | UART1     |
 | 树莓派 3                        | UART1     | UART0     |
@@ -2025,9 +2025,9 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 
 /dev/serial0 和 /dev/serial1 是指向 /dev/ttyS0 或 /dev/ttyAMA0 的符号链接。
 
-在树莓派 5 上，/dev/serial0 是一个指向 /dev/ttyAMA10 的符号链接。
+在树莓派 5 上，/dev/serial0 是指向 /dev/ttyAMA10 的符号链接。
 
-由于 Bookworm 的变化，/dev/serial1 在默认情况下不存在。你可以通过在 config.txt 中设置以下值来重新启用 serial1 ：
+由于 Bookworm 的变更，/dev/serial1 在默认情况下不存在。你可以通过在 config.txt 中设置以下值来重新启用 serial1 ：
 
 ```
 dtparam=krnbt=off
@@ -2035,46 +2035,46 @@ dtparam=krnbt=off
 
 >**技巧**
 >
->该选项将来可能不适用于所有型号。应只有在你的用例没有其他替代方案时才使用该选项。
+>该参数可能不适用于将来的所有型号。应只有在你的用例没有其他替代方案时才使用该选项。
 
 ### mini UART 和 CPU 核心频率
 
 >**注意**
 >
-> 如果迷你 UART 是主要的，或者蓝牙被禁用，则默认情况下禁用迷你 UART。
+> 如果 mini UART 是主要的，或蓝牙被禁用，则默认情况下禁用 mini UART。
 
-为了使用迷你 UART，你需要配置树莓派以使用固定的 VPU 核心时钟频率。这是因为迷你 UART 时钟与 VPU 核心时钟相连，因此当核心时钟频率发生变化时，UART 波特率也会发生变化。可以将 enable_uart 和 core_freq 设置添加到 config.txt 中，以修改迷你 UART 的行为。以下表总结了可能的组合：
+为了使用 mini UART，你需要配置树莓派以使用固定的 VPU 核心时钟频率。这是因为 mini UART 时钟与 VPU 核心时钟关联，因此当核心时钟频率发生变化时，UART 波特率也会发生变化。可以将 enable_uart 和 core_freq 设置添加到 config.txt 中，以修改 mini UART 的行为。以下表总结了可能的组合：
 
-| 迷你 UART 设置为 | 核心时钟                      | 结果                                                                                 |
+| mini UART 的设置 | 核心时钟                      | 结果                                                                                 |
 | ------------------ | ------------------------------- | -------------------------------------------------------------------------------------- |
-| 主 UART          | 变量                          | 迷你 UART 已禁用                                                                     |
-| 主 UART          | 通过设置 enable_uart=1 来修复 | 启用迷你 UART，核心时钟固定为 250MHz，或者如果 force_turbo=1 设置，则为 VPU 超频频率 |
-| 次要 UART        | 可变                          | 迷你 UART 已禁用                                                                     |
-| 二级 UART        | 通过设置 core_freq=250 来修复 | 迷你 UART 已启用                                                                     |
+| 主 UART          | 变量                          | mini UART 已禁用                                                                     |
+| 主 UART          | 通过设置 enable_uart=1 来修复 | 启用 mini UART，核心时钟固定为 250MHz；如果设置 force_turbo=1，则为 VPU 超频频率 |
+| 次要 UART        | 可变                          | mini UART 已禁用                                                                     |
+| 二级 UART        | 通过设置 core_freq=250 来修复 | mini UART 已启用                                                                     |
 
-enable_uart 标志的默认状态取决于哪个 UART 是主 UART：
+参数 enable_uart 的默认状态取决于哪个 UART 是主 UART：
 
 | 主 UART               | 启用 `_uart` 参数的默认状态 |
 | ----------------------- | -------------------------- |
-| 迷你 UART             | 0                        |
+| mini UART             | 0                        |
 | 第一个 PL011（UART0） | 1                        |
 
 ### 禁用 Linux 串口控制台
 
-默认情况下，主 UART 被分配给 Linux 控制台。如果你希望将主 UART 用于其他目的，你必须重新配置树莓派系统。这可以通过使用 raspi-config 来实现：
+在默认情况下，主 UART 被分配给 Linux 控制台。如果你希望将主 UART 用于其他目的，你必须重新配置树莓派系统。这可以通过使用 `raspi-config` 来实现：
 
 * 启动 raspi-config: sudo raspi-config
 * 选择选项 3 - 接口选项
 * 选择选项 P6 - 串口端口
 * 在提示符 Would you like a login shell to be accessible over serial? 处，回答'否'
 * 在提示符 Would you like the serial port hardware to be enabled? 处，回答“是”
-* 退出 raspi-config 并重启树莓派以使修改生效
+* 退出 raspi-config 并重启树莓派，以使修改生效
 
 ### 启用 Linux 的早期控制台
 
-尽管 Linux 内核在引导过程中相对较早地启动了 UART，但仍然比一些关键基础设施设置晚得多。在这些早期阶段出现故障可能很难诊断，如果没有访问那个时间段的内核日志消息。要为其中一个 UART 启用 earlycon 支持，请根据主要 UART 是哪个，向 cmdline.txt 添加以下选项之一：
+尽管 Linux 内核在引导过程中，相对较早地启动了 UART，但仍然比一些关键基础设施设置晚得多。如果得不到这些早期阶段的内核日志信息，在那个时间段出现的故障可能很难诊断，要为其中某个 UART 启用 earlycon 支持，请根据主要 UART 的选择，向 cmdline.txt 添加以下某选项：
 
-对于树莓派 5，earlycon 输出仅出现在具有以下配置的 3 针调试连接器上：
+对于树莓派 5，以下配置，earlycon 输出仅出现在调试连接器上（3 针）：
 
 ```
 earlycon=pl011,0x107d001000,115200n8
@@ -2094,7 +2094,7 @@ earlycon=uart8250,mmio32,0x3f215040
 earlycon=pl011,mmio32,0x3f201000
 ```
 
-对于树莓派 1、Pi Zero 和 Compute Module 1：
+对于树莓派 1、Pi Zero 和计算模块 1：
 
 ```
 earlycon=uart8250,mmio32,0x20215040
@@ -2109,11 +2109,11 @@ earlycon=pl011,mmio32,0x20201000
 
 ### UART 和设备树
 
-内核 GitHub 中可以找到各种 UART 设备树叠加定义。最有用的两个叠加是 disable-bt 和 miniuart-bt。
+在内核 GitHub 中，可以找到各种 UART 设备树叠加定义。最有用的两个叠加是 disable-bt 和 miniuart-bt。
 
 disable-bt 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主 UART。你还必须禁用初始化调制解调器的系统服务，以防它连接到 UART，使用 sudo systemctl disable hciuart。
 
-miniuart-bt 将蓝牙功能切换到使用迷你 UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关迷你 UART 限制的内容）。你还必须使用 force_turbo=1 或 core_freq=250 将 VPU 核心时钟设置为固定频率。
+miniuart-bt 将蓝牙功能切换到使用 mini UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini UART 限制的内容）。你还必须使用 force_turbo=1 或 core_freq=250 将 VPU 核心时钟设置为固定频率。
 
 叠加层 uart2、uart3、uart4 和 uart5 用于在树莓派 4 上启用四个额外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 /boot/firmware/overlays/README，或运行 dtoverlay -h overlay-name 查看描述和使用信息。
 
@@ -2127,18 +2127,18 @@ dtoverlay=disable-bt
 
 PL011 UART 和 mini-UART 之间存在一些差异。
 
-迷你 UART 具有较小的 FIFO。加上缺乏流量控制，这使得在更高的波特率下更容易丢失字符。它也通常比 PL011 功能更弱，主要是因为其波特率与 VPU 时钟速度的关联。
+mini UART 具有较小的 FIFO。加上缺乏流量控制，这使得在更高的波特率下更容易丢失字符。它也通常比 PL011 功能更弱，主要是因为其波特率与 VPU 时钟速度的关联。
 
-与 PL011 相比，迷你 UART 的特定缺陷包括：
+与 PL011 相比，mini UART 的特定缺陷包括：
 
 * 没有中断检测
 * 没有帧错误检测
 * 没有奇偶校验位
 * 没有接收超时中断
 
-迷你 UART 和 BCM2835 的 PL011 实现均没有 DCD、DSR、DTR 或 RI 信号。
+迷你 UART 和 BCM2835 的 PL011 实现均不带 DCD、DSR、DTR 和 RI 信号。
 
-可在 SoC 外设文档中找到进一步的迷你 UART 文档。
+可在 SoC 外设文档中找到进一步的 mini UART 文档。
 
 ## 设备树、叠加和参数
 
@@ -2150,19 +2150,19 @@ PL011 UART 和 mini-UART 之间存在一些差异。
 
 ### 设备树
 
-设备树（DT）是系统中硬件的描述。它应包括基本 CPU 的名称、其内存配置以及任何外部和内部的外围设备。DT 不应用于描述软件，尽管通过列出硬件模块，通常会导致驱动程序模块被加载。
+设备树（DT）是系统中硬件的描述。它应包括基本 CPU 的名称、其内存配置以及所有外部和内部的外围设备。DT 不应用于描述软件，尽管通过列出硬件模块，通常会导致驱动程序模块被加载。
 
 >**注意**
 >
->切记，DT 应该是与操作系统无关的，因此任何与 Linux 特定的内容都不应出现在其中。
+>切记，DT 应是与操作系统无关的，因此任何 Linux 的特定内容都不应出现在其中。
 
 设备树表示硬件配置，以节点层次结构的形式呈现。每个节点可以包含属性和子节点。属性是命名的字节数组，可以包含字符串、数字（大端序）、任意字节序列以及二者的任意组合。类比于文件系统，节点是目录，属性是文件。树中节点和属性的位置可以用路径描述，使用斜杠作为分隔符，单个斜杠（ `/` ）表示根。
 
 #### DTS 基本语法
 
-设备树通常以一种称为设备树源（DTS）的文本形式编写，并存储在具有 .dts 后缀的文件中。DTS 语法类似于 C 语言，使用大括号进行分组，并在每行末尾使用分号。请注意，DTS 在关闭大括号后需要分号：将其视为 C struct 而非函数。编译后的二进制格式称为扁平设备树（FDT）或设备树 Blob（DTB），存储在 .dtb 文件中。
+设备树通常以一种称为设备树源（DTS）的文本形式编写，并存储在具有 `.dts` 后缀的文件中。DTS 语法类似于 C 语言，使用大括号进行分组，并在每行末尾使用分号。请注意，DTS 在封闭大括号后需要分号：将其视为 C struct 而非函数。编译后的二进制格式称为扁平设备树（FDT）或设备树 Blob（DTB），存储在 `.dtb` 文件中。
 
-以下是 .dts 格式中的简单树：
+以下是 `.dts` 格式中的简单树：
 
 ```
 /dts-v1/;
@@ -2255,7 +2255,7 @@ string-list = "red fish", "blue fish";
 };
 ```
 
-因此，一个 .dtsi 可以覆盖或为树中的多个位置提供默认值。
+因此，一个 `.dtsi` 可以覆盖或为树中的多个位置提供默认值。
 
 #### 标签和引用
 
@@ -2591,7 +2591,7 @@ bmp280@76 {
 
 name 属性是一个伪属性 - 它不应出现在 DT 中，但是对其赋值会导致其父节点的名称修改为分配的值。与 reg 属性一样，这可以用于给节点提供唯一的名称。
 
-##### 叠加地图文件
+##### 叠加映射文件
 
 树莓派 4 的推出，围绕 BCM2711 SoC 构建，带来了许多变化；其中一些变化是额外的接口，另一些是对现有接口进行的修改（或删除）。有一些新的叠加层专为树莓派 4 设计，这些叠加层在旧硬件上没有意义，例如启用新的 SPI、I2C 和 UART 接口的叠加层，但其他叠加层即使控制着新设备上仍然相关的功能，也不能正确应用。
 
@@ -2755,7 +2755,7 @@ dtoverlay 和 dtmerge 实用程序已扩展以支持映射文件：
 
 >**注意**
 >
->DT 和 ATAGs 是互斥的，将 DT blob 传递给不理解它的内核将导致启动失败。固件将始终尝试加载 DT 并将其传递给内核，因为自 rpi-4.4.y 以来的所有内核都没有 DTB 将无法正常工作。你可以通过在 config.txt 中添加 device_tree= 来覆盖此设置，这将强制使用 ATAGs，对于简单的裸机内核可能很有用。
+>DT 和 ATAGs 互斥，将 DT blob 传递给不理解它的内核将导致启动失败。固件将始终尝试加载 DT 并将其传递给内核，因为自 rpi-4.4.y 以来的所有内核都没有 DTB 将无法正常工作。你可以通过在 config.txt 中添加 device_tree= 来覆盖此设置，这将强制使用 ATAGs，对于简单的裸机内核可能很有用。
 
 现在的加载程序支持使用 bcm2835_defconfig 进行构建，该配置选择了上游 BCM2835 支持。这个配置将导致 bcm2835-rpi-b.dtb 和 bcm2835-rpi-b-plus.dtb 被构建。如果这些文件与内核一起复制，那么加载程序将尝试默认加载其中一个 DTB。
 
@@ -2813,11 +2813,11 @@ dtoverlay=lirc-rpi,gpio_out_pin=16,gpio_in_pin=17,gpio_in_pull=down
 dtoverlay=
 ```
 
-#### 特定于板的标签和参数
+#### 特定于主板的标签和参数
 
-树莓派开发板有两个 I2C 接口。这些通常分为：一个用于 ARM，一个用于 VideoCore（GPU）。在几乎所有型号上，i2c1 属于 ARM，i2c0 属于 VC，用于控制摄像头并读取 HAT EEPROM。然而，两个早期版本的 B 设定相反。
+树莓派开发板有两个 I2C 接口。这些通常分为：一个用于 ARM，一个用于 VideoCore（GPU）。几乎在所有型号上，i2c1 属于 ARM，i2c0 属于 VC，用于控制摄像头并读取 HAT EEPROM。然而，两个早期版本的 B 型树莓派设定相反。
 
-为了使所有树莓派都能使用一组叠加和参数，固件创建了一些特定于板的 DT 参数。这些是：
+为了使所有树莓派都能使用一组叠加和参数，固件创建了一些特定于主板的 DT 参数。这些是：
 
 ```
 i2c/i2c_arm
@@ -2826,7 +2826,7 @@ i2c_baudrate/i2c_arm_baudrate
 i2c_vc_baudrate
 ```
 
-这些是 i2c0，i2c1，i2c0_baudrate 和 i2c1_baudrate 的别名。建议仅在确实需要时使用 i2c_vc 和 i2c_vc_baudrate - 例如，如果你正在编程 HAT EEPROM（最好使用 i2c-gpio 叠加层使用软件 I2C 总线）。启用 i2c_vc 可能会导致树莓派相机或树莓派触摸显示屏无法正常工作。
+这些是 i2c0，i2c1，i2c0_baudrate 和 i2c1_baudrate 的别名。建议仅在确实需要时使用 i2c_vc 和 i2c_vc_baudrate - 例如，如果你正在编程 HAT EEPROM（最好使用 i2c-gpio 叠加层使用软件 I2C 总线）。启用 i2c_vc 可能会导致树莓派相机、树莓派触摸显示屏无法正常工作。
 
 对于编写叠加层的人，相同的别名已应用于 I2C DT 节点上的标签。因此，你应该编写：
 
@@ -2841,9 +2841,9 @@ fragment@0 {
 
 使用数字变体的任何叠加层将被修改为使用新的别名。
 
-#### HATs 和设备树
+#### 扩展板（HAT）和设备树
 
-树莓派 HAT 是一个带有嵌入式 EEPROM 的附加板，专为具有 40 针引脚头的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加的名称）所需的任何 DT 叠加层，此叠加层还可以公开参数。
+树莓派扩展板是搭载了嵌入式 EEPROM 的附加板，专为具有 40 针引脚头的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加的名称）所需的任何 DT 叠加层，此叠加层还可以公开参数。
 
 HAT 叠加层在基本 DTB 之后由固件自动加载，因此其参数可在加载任何其他叠加层之前访问，或者在使用 dtoverlay= 结束叠加层范围之前访问。如果出于某种原因你想要抑制 HAT 叠加层的加载，请在任何其他 dtoverlay 或 dtparam 指令之前放置 dtoverlay=。
 
@@ -2914,7 +2914,7 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 ### 固件参数
 
-固件使用特殊的 `/chosen` 节点在引导加载程序和/或固件与操作系统之间传递参数。除非另有说明，否则每个属性都存储为 32 位整数。
+固件使用特殊的 `/chosen` 节点在引导加载程序及固件与操作系统之间传递参数。除非另有说明，否则每个属性都存储为 32 位整数。
 
 overlay_prefix （字符串）由 config.txt 选择的 overlay_prefix 字符串。
 
@@ -2940,25 +2940,25 @@ tryboot 如果在启动时设置了 tryboot 标志，则设置为 1。
 
 #### 电源供应属性 `/chosen/power`
 
-仅适用于树莓派 5。除非另有说明，否则每个属性均存储为 32 位整数。
+仅适用于树莓派 5。除非另有说明，否则每个属性均被存储为 32 位整数。
 
-max_current 电源供应器可以提供的最大电流（以 mA 为单位）。固件报告由 USB-C、USB-PD 或 PoE 接口指示的值。对于台式电源供应器（例如连接到 GPIO 排针），请在引导加载程序配置中定义 PSU_MAX_CURRENT 以指示电源供应器的电流能力。
+max_current 电源适配器可以提供的最大电流（以 mA 为单位）。固件报告由 USB-C、USB-PD 或 PoE 接口指示的值。对于台式电源适配器（例如连接到 GPIO 排针），请在引导加载程序配置中定义 PSU_MAX_CURRENT 以指示电源适配器的电流能力。
 
 power_reset 仅适用于树莓派 5。一个位字段，指示 PMIC 被重置的原因。
 
 | 位 | 原因     |
 | ---- | ---------- |
 | 0  | 过压     |
-| 1  | 低电压   |
+| 1  | 低压   |
 | 2  | 高温     |
 | 3  | 启用信号 |
 | 4  | 看门狗   |
 
-rpi_power_supply （两个 32 位整数）官方树莓派 27W 电源适配器的 USB VID 和 Product VDO（如果连接）。
+rpi_power_supply （两个 32 位整数）官方树莓派 27W 电源适配器的 USB VID 和 Product VDO（如已接入）。
 
-usb_max_current_enable 如果 USB 端口电流限制器在启动时设置为低限，则为零；如果启用了高限，则为非零。如果电源适配器声称最大电流为 5A 或者在 config.txt 中强制使用 usb_max_current_enable=1，则自动启用高电平。
+usb_max_current_enable 如果 USB 接口电流限制器在启动时设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器声称最大电流为 5A 或在 config.txt 中强制使用 usb_max_current_enable=1，则自动启用高电平。
 
-usb_over_current_detected 如果在 USB 启动期间发生 USB 过流事件，则为非零值。
+usb_over_current_detected 如果在 USB 启动期间发生 USB 过流事件，则为非 0 值。
 
 usbpd_power_data_objects （包含多个 32 位整数的二进制数据块）引导加载程序在 USB-PD 协商期间接收到的原始二进制 USB-PD 对象（仅限固定供电）。要为错误报告捕获此内容，请运行 hexdump -C /proc/device-tree/chosen/power/usbpd_power_data_objects。
 
@@ -3011,7 +3011,7 @@ lun 用于大容量存储设备的逻辑单元号。
 
 #### NVMEM 节点
 
-固件通过 NVMEM 子系统提供引导加载程序 EEPROM 部分的只读内存副本。
+固件通过 NVMEM 子系统提供引导加载程序 EEPROM 部分的只读内存映射。
 
 每个区域在 /sys/bus/nvmem/devices/ 下显示为一个 NVMEM 设备，在 /sys/firmware/devicetree/base/aliases 下显示为一个命名别名。
 
@@ -3049,7 +3049,7 @@ $ sudo vclog --msg
 
 通过将 dtdebug=1 添加到 config.txt 可以启用额外的调试。
 
-你可以这样创建当前 DT 状态的人类可读表示：
+你可以这样创建当前 DT 状态，以人类可读的形式表示：
 
 ```
 $ dtc -I fs /proc/device-tree
@@ -3069,7 +3069,7 @@ $ dtc -I fs /proc/device-tree
 MODULE_DEVICE_TABLE(of, xxx_of_match);
 ```
 
-如果失败，depmod 失败了，或者更新的模块尚未安装在目标文件系统上。
+如果失败，那么因为 depmod 失败，或者更新的模块尚未安装在目标文件系统上。
 
 #### 使用 dtmerge、dtdiff 和 ovmerge 测试叠加。
 
@@ -3273,15 +3273,15 @@ dt-blob.bin 用于在启动时配置二进制区块（VideoCore）。Linux 内�
 
 * pins_rev1 ：Rev1 引脚设置。由于移动的 I2C 引脚，存在一些差异。
 * pins_rev2 ：Rev2 引脚设置。这包括 P5 上的附加编解码器引脚。
-* pins_bplus1 ：树莓派 1 型 B+ rev 1.1，包括完整的 40 针连接器。
-* pins_bplus2 ：树莓派 1 型 B+ rev 1.2，交换低功耗和 lan-run 引脚。
-* pins_aplus ：树莓派 1 型 A+，无以太网。
-* pins_2b1 ：树莓派 2 型 B rev 1.0；通过 I2C0 控制开关电源管理系统。
-* pins_2b2 ：树莓派 2 型 B rev 1.1；通过软件 I2C 在 42 和 43 上控制开关电源管理系统。
-* pins_3b1 ：树莓派 3 型 B 型修订版 1.0
-* pins_3b2 ：树莓派 3 型 B 型修订版 1.2
-* pins_3bplus ：树莓派 3 型 B+
-* pins_3aplus ：树莓派 3 型 A+
+* pins_bplus1 ：树莓派 1B+ rev 1.1，包括完整的 40 针连接器。
+* pins_bplus2 ：树莓派 1B+ rev 1.2，交换低功耗和 lan-run 引脚。
+* pins_aplus ：树莓派 1A+，无以太网。
+* pins_2b1 ：树莓派 2B rev 1.0；通过 I2C0 控制开关电源管理系统。
+* pins_2b2 ：树莓派 2B rev 1.1；通过软件 I2C 在 42 和 43 上控制开关电源管理系统。
+* pins_3b1 ：树莓派 3B 型修订版 1.0
+* pins_3b2 ：树莓派 3B 型修订版 1.2
+* pins_3bplus ：树莓派 3B+
+* pins_3aplus ：树莓派 3A+
 * pins_pi0 ：树莓派 Zero
 * pins_pi0w ：树莓派 Zero W
 * pins_pi02w ：树莓派 Zero 2 W
@@ -3329,7 +3329,7 @@ pin_config 部分用于配置各个引脚。该部分中的每个项目必须是
   * `gp_clk`
   * `emmc`
   * `arm_jtag`
-* 驱动强度用于设置引脚的强度。请注意，你只能为该参数指定单个驱动强度。有效值为 <8>、<16>。
+* 驱动强度用于设置引脚的强度。请注意，你只能为该参数指定单个驱动强度。有效值为 `<8>`、`<16>`。
 
 #### `pin_defines`
 
