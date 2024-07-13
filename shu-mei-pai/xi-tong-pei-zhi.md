@@ -110,7 +110,7 @@ $ sudo raspi-config
 
 启用或禁用树莓派终端 SSH 远程访问。
 
-SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认情况下，SSH 处于禁用状态。在 [SSH 文档页](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)上能阅读更多关于 SSH 的使用信息。如果你将树莓派直接接入到了公共网络，请不要启用 SSH，除非你为所有用户都设置了安全的密码。
+SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在默认情况下，SSH 处于禁用状态。在 [SSH 文档页](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)上能阅读更多关于 SSH 的使用信息。如果你将树莓派直接接入到了公共网络，请不要启用 SSH，除非你为所有用户都设置了安全的密码。
 
 #### VNC
 
@@ -142,7 +142,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 #### Overclock——超频
 
-如果你的树莓派型号支持，就可以对 CPU 进行超频。超频能力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
+如果你的树莓派型号支持，就能对 CPU 超频。超频能力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
 
 >**警告**
 >
@@ -204,15 +204,15 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 #### Boot order——启动顺序
 
-在树莓派 4 及更新款设备上，指定在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续设备上，设定：在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 及更新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
+在树莓派 4 及更新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版引发故障，你可恢复出厂设置。
 
 #### Wayland
 
-在 X11 后端和 Wayland 后端之间切换。在树莓派 4 及更新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
+在 X11 后端和 Wayland 后端之间进行切换。在树莓派 4 及后续设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 >**注意**
 >
@@ -224,7 +224,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 ### Update——更新
 
-将此工具（`raspi-config`）更至最新版本。
+把 `raspi-config` 更新到最新版本。
 
 ### About raspi-config——关于 raspi-config
 
