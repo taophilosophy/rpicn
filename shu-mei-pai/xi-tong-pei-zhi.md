@@ -126,7 +126,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 #### Serial port——串口
 
-在串行连接上启用或禁用 shell 及内核消息。
+在串口上启用或禁用 shell 及内核信息。
 
 #### 1-Wire——单总线
 
@@ -146,7 +146,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 >**警告**
 >
->**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，可以试试较为保守的超频。在启动过程中按住 Shift 键可临时禁用超频。
+>**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，可以试试较为保守的超频。在启动过程中按住 **Shift** 键可临时禁用超频。
 
 #### GPU memory——GPU 显存
 
@@ -186,101 +186,101 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 ![raspi-config advanced options](../.gitbook/assets/raspi-adv.png)
 
-#### 扩展文件系统
+#### Expand filesystem——扩大文件系统
 
-将你的操作系统分区进行扩展，以使用整个存储设备，能为你带来更多的文件可用空间。完成此操作需要重启你的树莓派。通常，树莓派系统在首次启动时运行此操作。如果你将你的操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能会很有用。
+扩大你的操作系统分区，以便利用整个存储设备，从而带来更大的存储空间。要完成此操作需要重启你的树莓派。通常，在下次启动时，树莓派系统会执行此操作。如果你把你的操作系统克隆到容量大于先前设备的独立存储设备上，则此选项可能会极有用。
 
 >**警告**
 >
->它没有再确认的步骤。选择该选项将立即开始分区扩展。
+>没有再确认的步骤。选择该选项将立即开始分区扩展。
 
-#### 网络接口名称
+#### Network interface names——网络接口名称
 
 启用或禁用可预测的网络接口名称。
 
-#### 网络代理设置
+#### Network proxy settings——设置网络代理
 
-配置网络的代理设置。
+配置网络代理。
 
-#### 启动顺序
+#### Boot order——启动顺序
 
-在树莓派 4 及更高版本上，如果未插入 SD 卡，指定是否从 USB 或网络引导。有关更多信息，请参阅引导加载程序配置。
+在树莓派 4 及更新款设备上，指定在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
-#### 引导加载程序版本
+#### Bootloader version——引导加载程序版本
 
-在树莓派 4 及更高版本上，切换到最新的引导 ROM 软件。或者，如果最新版本引起问题，你可以恢复到出厂默认设置。
+在树莓派 4 及更新款设备上，切换到最新的 ROM 引导软件。或者，如果最新版本引发故障，你可以恢复出厂默认设置。
 
 #### Wayland
 
-在 X11 和 Wayland 后端之间切换。树莓派 4 及更高版本默认使用 Wayland；其他型号的树莓派默认使用 X11。
+在 X11 后端和 Wayland 后端之间切换。在树莓派 4 及更新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 >**注意**
 >
->要在树莓派 4 先前的型号上使用 Wayland，你还必须将 wayland=on 添加到 /boot/firmware/cmdline.txt。
+>要在树莓派 4 先前的型号上使用 Wayland，你还必须把 `wayland=on` 添加至 `/boot/firmware/cmdline.txt`。
 
-#### 音频配置
+#### Audio config——音频配置
 
-在 Bookworm 之前，树莓派系统使用 PulseAudio，现在可以在 PulseAudio 和 PipeWire 音频后端之间切换。
+在 Bookworm 以前，树莓派系统使用 PulseAudio，现在则可以在音频后端 PulseAudio 和 PipeWire 之间进行切换。
 
-### 更新
+### Update——更新
 
-将此工具更新到最新版本。
+将此工具（`raspi-config`）更至最新版本。
 
-### 关于 raspi-config
+### About raspi-config——关于 raspi-config
 
-显示 raspi-config 的描述。
+`raspi-config` 相关说明。
 
-### 完成
+### Finish——完成
 
-退出 raspi-config。如果你进行了需要重启的修改，raspi-config 会提示你重启。首次实施修改时，最好重启。如果选择调整 SD 卡大小，重启可能需要比平常更长的时间。
+退出 `raspi-config`。如果你进行的修改需要重启，`raspi-config` 会提示你重启。首次进行修改时，最好重启。如果选择调整 SD 卡大小，重启可能会花比平常更长的时间。
 
 ## 非交互式 raspi-config
 
-raspi-config 工具还支持非交互式选项和标志，可以在命令行上完全修改选项，没有可视化组件。可用选项在树莓派型号之间可能有所不同。
+工具 `raspi-config` 还支持非交互式选项和参数，可以用命令行修改所有选项，无需可视化组件。可用选项可能因树莓派型号而异。
 
 ```
-$ sudo raspi-config nonint <command> <arguments> [optional-argument]
+$ sudo raspi-config nonint <命令> <参数> [可选参数]
 ```
 
 >**注意**
 >
->`0` 和 `1` 的含义在选项之间有所不同。在将值传递给选项之前，请始终参照文档。
+> 对于不同选项来说，`0` 和 `1` 的含义也是不一样的。在将值传给选项之前，请始终参照文档。
 
-### 系统选项
+### System options——系统选项
 
-#### 无线局域网
+#### Wireless LAN——无线局域网（WLAN）
 
-配置 Wi-Fi SSID 和密码。
+配置 Wi-Fi SSID（网络名称）和密码。
 
 ```
-$ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <passphrase> [hidden] [plain]
+$ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <密码> [隐藏] [明文]
 ```
 
-传递无线网络名称（SSID）和密码（如果需要）。以下参数是可选的：
+填入无线网络名称（SSID）和密码（如需要）。以下是可选参数：
 
-`<hidden>` 选项表示 SSID 的可见性。如果网络广播开放的 SSID，请传递 0 或省略该选项。如果你的 SSID 是隐藏的，请传递 1。默认为 0。
+参数 `<隐藏>` 代表 SSID 的可见性。如果网络 SSID 是广播开放的，请使用 `0` 或者省略该参数。如果你的 SSID 是隐藏的，请填 `1`。默认为 `0`。
 
-`<plain>` 选项指示你是否打算将密码作为明文传递。如果你的密码包含空格或类似 ! 的特殊字符，则必须传递 0 并在密码周围使用引号。否则，你可以传递 1 或省略该选项。默认为 1。要传递此选项，你必须为 `<hidden>` 指定一个值。
+参数 `<明文>` 代表你是否打算以明文传输密码。如果你的密码包含空格或特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时为 `<hidden>` 指定一个值。
 
-例如，运行以下命令以连接到 a：
+例如，通过执行以下命令，可以连接到：
 
-* 名为 myssid 的非隐藏网络，密码为 mypassphrase ：
+* 非隐藏网络 `myssid`，密码为 `mypassphrase`：
 
   ```
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid mypassphrase
   ```
-* 使用密码 mypassphrase 的隐藏网络 myssid ：
+* 隐藏网络 `myssid`，密码为 `mypassphrase`：
 
   ```
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid mypassphrase 1
   ```
-* 使用密码 my passphrase 的非隐藏网络 myssid ：
+* 非隐藏网络 `myssid`，密码为 `my passphrase`：
 
   ```
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid "my passphrase" 0 0
   ```
 
-#### 音频
+#### Audio——音频
 
 指定音频输出位置。
 
@@ -290,17 +290,17 @@ $ sudo raspi-config nonint do_audio <N>
 
 在树莓派 4B 上，你可以使用以下选项：
 
-* 0 ：bcm2835 headphone jack（耳机插孔）
-* 1 ：vc4-hdmi-0
-* 2 ：vc4-hdmi-1
+* `0`：bcm2835 headphone jack（耳机插孔）
+* `1`：vc4-hdmi-0
+* `2`：vc4-hdmi-1
 
-要查看此选项的交互式 raspi-config 版本中使用的数字列表，请参阅可能的 `<N>` 值的完整列表。
+要查看此选项的交互式 `raspi-config` 版本中使用的数字列表，请参阅能用的 `<N>` 值的完整列表。
 
-#### 密码
+#### Password——密码
 
- 修改你的密码。
+修改你的密码。
 
-有关修改用户密码的更多信息，请参阅修改用户密码。
+有关修改用户密码的更多信息，请参阅[修改用户密码](https://www.raspberrypi.com/documentation/computers/configuration.html#change-user-password)。
 
 ```
 $ sudo raspi-config nonint do_change_pass
@@ -308,17 +308,17 @@ $ sudo raspi-config nonint do_change_pass
 
 >**注意**
 >
->此功能使用全屏交互式界面，即使从命令行参数运行也是如此。
+>此功能会使用全屏交互式界面，即使从命令行参数运行也是如此。
 
-#### 主机名
+#### Hostname——主机名
 
-在网络上为此树莓派设置可见的 mDNS 域名。
+在网络上为此树莓派设置可见的 [mDNS](https://www.raspberrypi.com/documentation/computers/remote-access.html#resolve-raspberrypi-local-with-mdns) 域名。
 
 ```
-$ sudo raspi-config nonint do_hostname <hostname>
+$ sudo raspi-config nonint do_hostname <主机名>
 ```
 
-#### 启动/自动登录
+#### Boot/auto login——启动/自动登录
 
 选择是启动到控制台还是桌面，并且在打开电源时是否自动登录到当前用户账户。
 
@@ -326,21 +326,21 @@ $ sudo raspi-config nonint do_hostname <hostname>
 $ sudo raspi-config nonint do_boot_behaviour <B1/B2/B3/B4>
 ```
 
-* B1 ：启动到控制台，需要登录
-* B2 ：启动到控制台，自动登录
-* B3 ：启动到桌面，需要登录
-* B4 ：启动到桌面，自动登录
+* `B1`：启动到控制台，需要登录
+* `B2`：启动到控制台，自动登录
+* `B3`：启动到桌面，需要登录
+* `B4`：启动到桌面，自动登录
 
-#### 启动时的网络
+#### Network at boot——启动时联网
 
-在允许启动继续之前等待网络连接。
+在启动前等待网络连接。
 
 ```
 $ sudo raspi-config nonint do_boot_wait <0/1>
 ```
 
-* 0 ：在不等待网络连接的情况下启动
-* 1 ：等待网络连接后启动
+* `0`：在不等待网络连接的情况下启动
+* `1`：等待网络连接后启动
 
 #### 启动画面
 
@@ -350,72 +350,75 @@ $ sudo raspi-config nonint do_boot_wait <0/1>
 $ sudo raspi-config nonint do_boot_splash <0/1>
 ```
 
-* 0 ：启用启动画面
-* 1 ：禁用启动画面
+* `0`：启用启动画面
+* `1`：禁用启动画面
 
-#### 电源 LED
+#### Power LED——电源灯
 
-如果你的树莓派允许的话，可以修改电源 LED 的行为。
+如果你的树莓派型号支持，可以修改电源灯的行为。
 
 ```
 $ sudo raspi-config nonint do_leds <0/1>
 ```
 
-* 0 ：闪烁以表示磁盘活动
-* 1 ：始终点亮电源 LED
+* `0`：用闪烁表示磁盘活动
+* `1`：电源灯常亮
 
-#### 浏览器
 
-修改默认的网络浏览器。选择一个当前未安装的网络浏览器将无法工作。
+#### Browser——浏览器
+
+修改默认的网络浏览器。如选择当前未安装的网络浏览器将不起作用。
 
 ```
 $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 ```
 
-### 显示选项
+### Display options——显示选项
 
-#### Underscan（欠扫描）
+#### Underscan——欠扫描
 
+>**注意**
+>
 >在 Wayland 下不可用。
 
-如果屏幕上显示的初始文本消失在边缘，启用过扫描以调整边框。在某些显示器上，特别是监视器上，禁用过扫描将使图像填满整个屏幕并去除黑色边框。
+如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且去除黑边。
 
 ```
 $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 ```
 
- 设备:
+设备:
 
 * `1`: HDMI-1
 * `2`: HDMI-2
 
- 启用：
+启用：
 
-* 0 ：启用过扫描
-* 1 ：禁用过扫描
+* `0`：启用过扫描
+* `1`：禁用过扫描
 
-#### 屏幕空白
+#### Screen blanking——无信号时关闭屏幕
 
-启用或禁用屏幕空白。
+启用或禁用 Screen blanking（在无信号时关闭屏幕）。
 
 ```
 $ sudo raspi-config nonint do_blanking <0/1>
 ```
 
-* 0 ：启用屏幕空白
-* 1 ：禁用屏幕空白
+* `0`：Screen blanking（在无信号时关闭屏幕）
+* `1`：Screen blanking（在无信号时也不会关闭屏幕）
 
-#### VNC 分辨率
+#### VNC resolution——VNC 分辨率
 
-在无显示器设置中为 VNC 定义要使用的视频分辨率。
+用于[无头](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi)设置所使用的显示分辨率。
 
 ```
 $ sudo raspi-config nonint do_vnc_resolution <width>x<height>
 ```
 
-#### 复合
+#### Composite——复合视频
 
-启用或禁用复合视频输出。
+启用或禁用复合视频（composite video）。
 
 在树莓派 4 上：
 
@@ -423,101 +426,101 @@ $ sudo raspi-config nonint do_vnc_resolution <width>x<height>
 $ sudo raspi-config nonint do_pi4video <V1/V2/V3>
 ```
 
-* V1 ：启用 4Kp60 HDMI 输出
-* V2 ：启用复合视频输出
-* V3 ：禁用 4Kp60 和复合输出
+* `V1`：启用 HDMI 4K 60p 输出
+* `V2`：启用复合视频输出
+* `V3`：禁用 4K 60p 和复合输出
 
- 在其他型号上：
+在其他型号上：
 
 ```
 $ sudo raspi-config nonint do_composite <0/1>
 ```
 
-* 0 ：启用复合视频
-* 1 ：禁用复合视频
+* `0`：启用复合视频
+* `1`：禁用复合视频
 
-### 接口选项
+### Interface options——接口选项
 
 #### SSH
 
-使用 SSH 启用或禁用对树莓派的远程终端访问。
+启用或禁用树莓派终端 SSH 远程访问。
 
-SSH 允许你从另一台计算机远程访问树莓派的命令行。有关 SSH 的更多信息，请参阅 SSH 文档。
+SSH 能让你在另一台计算机远程访问树莓派的命令行。有关 SSH 的更多信息，请参阅 [SSH 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)。
 
 ```
 $ sudo raspi-config nonint do_ssh <0/1>
 ```
 
-* 0 ：启用 SSH
-* 1 ：禁用 SSH
+* `0`：启用 SSH
+* `1`：禁用 SSH
 
 #### VNC
 
-启用或禁用虚拟网络计算（VNC）服务器。有关 VNC 的更多信息，请参阅 VNC 文档。
+启用或禁用虚拟网络计算服务（virtual network computing，VNC）。有关 VNC 的更多信息，请参阅 [VNC 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)。
 
 ```
 $ sudo raspi-config nonint do_vnc <0/1>
 ```
 
-* 0 ：启用 VNC
-* 1 ：禁用 VNC
+* `0`：启用 VNC
+* `1`：禁用 VNC
 
 #### SPI
 
-启用或禁用 SPI 接口和 SPI 内核模块的自动加载。
+启用或禁用 SPI 接口及自动加载 SPI 内核模块与否。
 
 ```
 $ sudo raspi-config nonint do_spi <0/1>
 ```
 
-* 0 ：启用 SPI
-* 1 ：禁用 SPI
+* `0`：启用 SPI
+* `1`：禁用 SPI
 
-#### I2C
+#### I2C——I²C
 
-启用或禁用 I2C 接口和 I2C 内核模块的自动加载。
+启用或禁用 I²C 接口及自动加载 I²C 内核模块与否。
 
 ```
 $ sudo raspi-config nonint do_i2c <0/1>
 ```
 
-* 0 ：启用 I2C
-* 1 ：禁用 I2C
+* `0`：启用 I²C
+* `1`：禁用 I²C
 
-#### 串行端口
+#### Serial port——串口
 
-启用或禁用串行连接硬件。
+启用或禁用串口硬件。
 
 ```
 $ sudo raspi-config nonint do_serial_hw <0/1/2>
 ```
 
-* 0 ：启用串行端口
-* 1 ：禁用串行端口
+* `0`：启用串口
+* `1`：禁用串口
 
-#### 串行控制台
+#### 串口控制台
 
-在串行连接上启用或禁用 shell 和内核消息。
+在串口上启用或禁用 shell 及内核信息。
 
 ```
 $ sudo raspi-config nonint do_serial_cons <0/1/2>
 ```
 
-* 0 ：启用串行端口上的控制台
-* 1 ：禁用串行端口上的控制台
+* `0`：启用串口控制台
+* `1`：禁用串口控制台
 
-#### 1-wire
+#### 1-wire——单总线
 
-启用或禁用达拉斯 1-wire 接口。这通常用于 DS18B20 温度传感器。
+启用或禁用 Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
 
 ```
 $ sudo raspi-config nonint do_onewire <0/1>
 ```
 
-* 0 ：启用 1-wire
-* 1 ：禁用 1-wire
+* `0`：启用 1-wire
+* `1`：禁用 1-wire
 
-#### 远程 GPIO
+#### Remote GPIO——GPIO 远程访问
 
 启用或禁用对 GPIO 引脚的远程访问。
 
@@ -525,33 +528,33 @@ $ sudo raspi-config nonint do_onewire <0/1>
 $ sudo raspi-config nonint do_rgpio <0/1>
 ```
 
-* 0 ：启用远程 GPIO
-* 1 ：禁用远程 GPIO
+* `0`：启用 GPIO 远程访问
+* `1`：禁用 GPIO 远程访问
 
 ### 性能选项
 
 #### 超频
 
-如果你的树莓派型号允许，可以对 CPU 进行超频。即使是相同型号的树莓派设备，超频潜力也会有所不同。超频过高可能会导致不稳定。
+如果你的树莓派型号支持，就可以对 CPU 进行超频。超频能力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
 
 
 >**警告**
 >
->超频可能会缩短你树莓派的使用寿命。如果在某个水平上超频导致系统不稳定，请尝试更温和的超频。在启动时按住 Shift 键可临时禁用超频。
+>**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，可以试试较为保守的超频。在启动过程中按住 **Shift** 键可临时禁用超频。
 
 ```
-$ sudo raspi-config nonint do_overclock <setting>
+$ sudo raspi-config nonint do_overclock <设置>
 ```
 
-此命令接受以下 <setting> 值：
+此命令接受以下 <设置> 值：
 
-* None ：无超频（默认）
-* Modest ：超频至最大值的 50%
-* Medium ：超频至最大值的 75%
-* High ：超频至最大值的 100%
-* Turbo ：超频至最大值的 125%
+* `None`：未超频（默认）
+* `Modest`：超频至最大值 50%
+* `Medium`：超频至最大值 75%
+* `High`：超频至最大值 100%
+* `Turbo`：超频至最大值 125%
 
-#### GPU 内存
+#### GPU memory——GPU 显存
 
 修改向 GPU 提供的内存量。
 
@@ -559,7 +562,7 @@ $ sudo raspi-config nonint do_overclock <setting>
 $ sudo raspi-config nonint do_memory_split <megabytes>
 ```
 
-#### 堆叠文件系统
+#### Overlay file system——堆叠文件系统（OverlayFS）
 
 启用或禁用只读文件系统。
 
@@ -567,75 +570,75 @@ $ sudo raspi-config nonint do_memory_split <megabytes>
 $ sudo raspi-config nonint do_overlayfs <0/1>
 ```
 
-* 0 ：启用覆盖文件系统
-* 1 ：禁用覆盖文件系统
+* `0`：启用堆叠文件系统（OverlayFS）
+* `1`：禁用堆叠文件系统（OverlayFS）
 
-#### 风扇
+#### Fan——风扇
 
-自定义 GPIO 连接的树莓派 4 外壳风扇的行为。不影响树莓派 5 外壳中的风扇或使用特殊四针风扇头连接的树莓派 5 主动散热器。
+可自定义接入 GPIO 的风扇行为（[树莓派 4 外壳](https://www.raspberrypi.com/products/raspberry-pi-4-case-fan/)自带）。对[树莓派 5 外壳自带风扇](https://www.raspberrypi.com/products/raspberry-pi-5-case/)、[树莓派 5 主动散热器](https://www.raspberrypi.com/products/active-cooler/)（使用特殊四针风扇头连接）无效。
 
 ```
 $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
 ```
 
-* 0 ：启用风扇
-* 1 ：禁用风扇
+* `0`：启用风扇
+* `1`：禁用风扇
 
-gpio 默认为 14。
+默认 `gpio` 为 14。
 
-onTemp 默认为 80 °C。
+`onTemp` 默认为 80 °C。
 
-### 本地化选项
+### Localisation options——本地化选项
 
-#### 语言环境
+#### Localisation options——语言环境
 
-选择语言环境，例如 en_GB.UTF-8 UTF-8。
-
-```
-$ sudo raspi-config nonint do_change_locale <locale>
-```
-
-要查看所有可用的 `<locale>` 值列表，请参阅此选项交互式 raspi-config 版本中使用的缩写。
-
-#### 时区
-
-设置你的本地时区，从地区开始，然后选择一个城市，例如"Europe/London"。
+选择语言环境，如 `zh_CN.UTF-8 UTF-8`（中文）或 `en_GB.UTF-8 UTF-8`（英语）。
 
 ```
-$ sudo raspi-config nonint do_change_timezone <timezone>
+$ sudo raspi-config nonint do_change_locale <地区>
 ```
 
-要查看此选项交互式 `<timezone>` 版本中使用的缩写的完整列表，请参见。
+要查看参数 `<地区>` 所有可用值列表，请参阅交互式版 raspi-config 中所使用的缩写。
 
-#### 键盘
+#### Time zone——时区
+
+设置你的本地时区，从地区开始，然后选择城市，如"Asia/Shanghai"。
+
+```
+$ sudo raspi-config nonint do_change_timezone <时区>
+```
+
+要查看参数`<时区>` 缩写的完整列表，请参见交互式版 `raspi-config`。
+
+#### Keyboard——键盘
 
 设置键盘布局。修改通常会立即生效，但可能需要重启。
 
 ```
-$ sudo raspi-config nonint do_configure_keyboard <keymap>
+$ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 ```
 
-要查看可用的 `<keymap>` 值的完整列表，请参阅此选项交互 raspi-config 版本中使用的缩写。
+要查看此参数可用的 `<键盘布局>` 值的完整列表，请参阅交互式版 raspi-config 中所使用的缩写。
 
-#### 无线局域网国家
+#### WLAN country——无线局域网国家/地区
 
-设置无线网络的国家代码。
+设置无线网络的国家/地区代码。
 
 ```
-$ sudo raspi-config nonint do_wifi_country <country>
+$ sudo raspi-config nonint do_wifi_country <国家/地区>
 ```
 
-要查看此选项交互式 raspi-config 版本中使用的缩写的可用 `<country>` 值的完整列表。
+要查看此参数可用的`<国家/地区>` 值的完整列表，请参阅交互式版 raspi-config 中所使用的缩写。
 
-### 高级选项
+### Advanced options——高级选项
 
-#### 扩展文件系统
+#### Expand filesystem——扩展文件系统
 
-将你的操作系统分区扩展到填满整个存储设备，为你提供更多用于文件的空间。重启树莓派以完成此操作。通常，树莓派系统在第一次启动时运行此操作。如果你将操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能很有用。
+将你的操作系统分区进行扩展，以使用整个存储设备，能为你带来更多的文件可用空间。完成此操作需要重启你的树莓派。通常，树莓派系统在首次启动时运行此操作。如果你将你的操作系统克隆到容量大于原始设备的独立存储设备上，则此选项可能会很有用。
 
 >**警告**
 >
->没有再确认步骤。选择该选项将立即开始分区扩展。
+>没有再确认的步骤。选择该选项将立即开始分区扩展。
 
 ```
 $ sudo raspi-config nonint do_expand_rootfs
@@ -649,8 +652,8 @@ $ sudo raspi-config nonint do_expand_rootfs
 $ sudo raspi-config nonint do_net_names <0/1>
 ```
 
-* 0 ：启用可预测的网络接口名称
-* 1 ：禁用可预测的网络接口名称
+* `0`：启用可预测的网络接口名称
+* `1`：禁用可预测的网络接口名称
 
 #### 网络代理设置
 
@@ -708,7 +711,7 @@ $ sudo raspi-config nonint do_wayland <W1/W2>
 $ sudo raspi-config nonint do_audioconf <1/2>
 ```
 
-* 1 ：使用 PulseAudio 后端
+* `1`：使用 PulseAudio 后端
 * 2 ：使用 PipeWire 后端
 
 ### 更新
@@ -1333,7 +1336,7 @@ $ cat /proc/cmdline
 
 #### 标准条目
 
-console 定义了串行控制台。通常有两个条目：
+console 定义了串口控制台。通常有两个条目：
 
 * `console=serial0,115200`
 * `console=tty1`
@@ -1377,7 +1380,7 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 splash 告诉引导使用 Plymouth 模块显示启动画面。
 
-plymouth.ignore-serial-consoles 通常，如果启用了 Plymouth 模块，它将阻止任何串行控制台上出现启动消息。此标志告诉 Plymouth 忽略所有串行控制台，使启动消息再次可见，就像没有运行 Plymouth 时一样。
+plymouth.ignore-serial-consoles 通常，如果启用了 Plymouth 模块，它将阻止任何串口控制台上出现启动消息。此标志告诉 Plymouth 忽略所有串口控制台，使启动消息再次可见，就像没有运行 Plymouth 时一样。
 
 dwc_otg.lpm_enable=0 关闭 Link Power Management（LPM）在 dwc_otg 驱动程序中的设置，该驱动程序驱动着嵌入在用于树莓派计算机的处理器中的 USB 控制器。在树莓派 4 上，默认情况下禁用此控制器，并且仅连接到 USB Type C 电源输入连接器。树莓派 4 上的 USB-A 端口由另一个不受此设置影响的 USB 控制器驱动。
 
@@ -1935,7 +1938,7 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是针对树莓派 4 �
 
 树莓派上有两种可用的 UART - PL011 和 mini UART。PL011 是一种功能强大、广泛兼容 16550 的 UART，而 mini UART 具有较少的功能集。
 
-树莓派上的所有 UART 仅支持 3.3V（如果连接到 5V 系统，将会损坏）。可以使用适配器连接到 5V 系统。另外，也可以 用各种第三方提供的低成本 USB 至 3.3V 串行适配器。
+树莓派上的所有 UART 仅支持 3.3V（如果连接到 5V 系统，将会损坏）。可以使用适配器连接到 5V 系统。另外，也可以 用各种第三方提供的低成本 USB 至 3.3V 串口适配器。
 
 ### 树莓派 Zero、1、2 和 3
 
@@ -2054,13 +2057,13 @@ enable_uart 标志的默认状态取决于哪个 UART 是主 UART：
 | 迷你 UART             | 0                        |
 | 第一个 PL011（UART0） | 1                        |
 
-### 禁用 Linux 串行控制台
+### 禁用 Linux 串口控制台
 
 默认情况下，主 UART 被分配给 Linux 控制台。如果你希望将主 UART 用于其他目的，你必须重新配置树莓派系统。这可以通过使用 raspi-config 来实现：
 
 * 启动 raspi-config: sudo raspi-config
 * 选择选项 3 - 接口选项
-* 选择选项 P6 - 串行端口
+* 选择选项 P6 - 串口端口
 * 在提示符 Would you like a login shell to be accessible over serial? 处，回答'否'
 * 在提示符 Would you like the serial port hardware to be enabled? 处，回答“是”
 * 退出 raspi-config 并重启树莓派以使修改生效
@@ -2256,7 +2259,7 @@ string-list = "red fish", "blue fish";
 
 树的一部分经常需要引用另一部分，有四种方法可以做到这一点：
 
-路径字符串类似于文件系统路径，例如 `/soc/i2s@7e203000` 是 BCM2835 和 BCM2836 中 I2S 设备的完整路径。标准 API 不会创建到属性的路径，例如 `/soc/i2s@7e203000/status` ：所以，你应首先找到一个节点，然后选择该节点的属性。
+路径字符串类似于文件系统路径，例如 `/soc/i2s@7e203000` 是 BCM2835 和 BCM2836 中 I2S 设备的完整路径。标准 API 不会创建到属性的路径，例如 `/soc/i2s@7e203000/status`：所以，你应首先找到一个节点，然后选择该节点的属性。
 
 Phandles 是分配给节点的唯一 32 位整数，在其 phandle 属性中。出于历史原因，你可能还会看到一个多余的匹配 linux,phandle。Phandles 按顺序编号，从 1 开始；0 不是有效的 phandle。它们通常由 DT 编译器分配，当它在整数上下文中遇到对节点的引用时，通常以标签的形式。使用 phandles 引用节点的引用仅被编码为相应的整数（单元）值；没有标记表明它们应被解释为 phandles，因为这是应用程序定义的。
 
@@ -2767,7 +2770,7 @@ dtparam=foo=bar,level=42
 
 有多种方法可以告诉内核正在使用设备树：
 
-* 在引导过程中，“Machine model:”内核消息具有特定于板的值，例如“Raspberry Pi 2 Model B”，而不是“BCM2709”。
+* 在引导过程中，“Machine model:”内核信息具有特定于板的值，例如“Raspberry Pi 2 Model B”，而不是“BCM2709”。
 * /proc/device-tree 存在，并包含与 DT 的节点和属性完全相同的子目录和文件。
 
 使用设备树，内核将自动搜索并加载支持指示启用设备的模块。因此，通过为设备创建适当的 DT 叠加，你可以使设备的用户无需编辑 /etc/modules；所有配置都在 config.txt 中进行，在 HAT 的情况下，甚至这一步也是不必要的。但是，请注意，诸如 i2c-dev 之类的分层模块仍然需要显式加载。
