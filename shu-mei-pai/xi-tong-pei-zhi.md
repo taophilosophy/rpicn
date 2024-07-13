@@ -2781,7 +2781,7 @@ dtparam=foo=bar,level=42
 
 #### DT 参数
 
-如上所述，DT 参数是一种方便的方式，可以对设备的配置进行小的修改。当前的基本 DTB 支持用于启用和控制板载音频、I²C、I2S 和 SPI 接口的参数，而无需使用专用叠加。在使用中，参数看起来像这样：
+如上所述，DT 参数是一种方便的方式，可以对设备的配置进行小的修改。当前的基本 DTB 支持用于启用和控制板载音频、I²C、I²S 和 SPI 接口的参数，而无需使用专用叠加。在使用中，参数看起来像这样：
 
 ```
 dtparam=audio=on,i2c_arm=on,i2c_arm_baudrate=400000,spi=on
@@ -2887,7 +2887,7 @@ Options applicable to most variants:
 
 ##### dtparam 命令
 
-dtparam 创建并加载一个覆盖层，其效果基本与在 config.txt 中使用 dtparam 指令相同。在使用上，它与具有 - 的覆盖层名称的 dtoverlay 基本等效，但存在一些差异： dtparam 将列出基础 DTB 的所有已知参数的帮助信息。仍然可以使用 dtparam -h 获取有关 dtparam 命令的帮助。在指示要移除的参数时，只能使用索引号（而非名称）。并非所有 Linux 子系统都会在运行时响应设备的添加 - I2C、SPI 和声音设备可以工作，但有些则不行。
+dtparam 创建并加载一个覆盖层，其效果基本与在 config.txt 中使用 dtparam 指令相同。在使用上，它与具有 - 的覆盖层名称的 dtoverlay 基本等效，但存在一些差异： dtparam 将列出基础 DTB 的所有已知参数的帮助信息。仍然可以使用 dtparam -h 获取有关 dtparam 命令的帮助。在指示要移除的参数时，只能使用索引号（而非名称）。并非所有 Linux 子系统都会在运行时响应设备的添加 - I²C、SPI 和声音设备可以工作，但有些则不行。
 
 ##### 撰写运行时可用覆盖层的指南
 
@@ -2922,9 +2922,9 @@ os_prefix （字符串）由 config.txt 选择的 os_prefix 字符串。
 
 rpi-boardrev-ext 来自 OTP 行 33 的扩展板修订代码。
 
-rpi-country-code PiWiz 使用的国家代码。仅适用于树莓派 400。
+rpi-country-code PiWiz 使用的区域代码。仅适用于树莓派 400。
 
-rpi-duid （字符串）仅适用于树莓派 5。PCB 上 QR 码的字符串表示。
+rpi-duid （字符串）仅适用于树莓派 5。PCB 上二维码的字符串表示。
 
 #### 通用引导加载程序属性 `/chosen/bootloader`
 
@@ -3277,7 +3277,7 @@ dt-blob.bin 用于在启动时配置二进制区块（VideoCore）。Linux 内�
 * pins_bplus2 ：树莓派 1B+ 修订版 1.2，交换低功耗和 lan-run 引脚。
 * pins_aplus ：树莓派 1A+，无以太网。
 * pins_2b1 ：树莓派 2B 修订版 1.0；通过 I2C0 控制开关电源管理系统。
-* pins_2b2 ：树莓派 2B 修订版 1.1；通过软件 I2C 在 42 和 43 上控制开关电源管理系统。
+* pins_2b2 ：树莓派 2B 修订版 1.1；通过软件 I²C 在 42 和 43 上控制开关电源管理系统。
 * pins_3b1 ：树莓派 3B 修订版 1.0
 * pins_3b2 ：树莓派 3B 修订版 1.2
 * pins_3bplus ：树莓派 3B+
