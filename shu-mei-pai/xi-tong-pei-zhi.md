@@ -1643,7 +1643,7 @@ $ openssl 你的密码 -6
 
 ## 从你的树莓派发射无线网络
 
-你的树莓派可以使用无线模块发射自己的无线网络。如果你用以太网口（或第二个无线模块）把你的树莓派接入互联网，那么接入无线网络的其他设备就可以用你的树莓派来上网。
+你的树莓派可以使用无线模块发射自己的无线网络。如果你用以太网口（或其他的无线模块）把你的树莓派接入互联网，那么接入无线网络的其他设备就可以用你的树莓派来上网。
 
 假如使用的有线网络 IP 段是 10.x.x.x。你可将你的树莓派连接到该网络，并在使用另一个 IP 段（如 192.168.x.x）的独立网络上，为无线客户端提供服务。
 
@@ -1655,7 +1655,7 @@ $ openssl 你的密码 -6
 
 >**注意**
 >
->树莓派 5、4、3、Zero W 和 Zero 2 W 可以使用内置无线模块托管无线网络。未搭载内置无线网卡的树莓派型号可以使用外置无线网卡适配来实现此功能。
+>树莓派 5、4、3、Zero W 和 Zero 2 W 可以使用内置无线模块托管无线网络。未搭载内置无线网卡的树莓派型号可以使用外置无线模块来实现此功能。
 
 ### 启用热点
 
@@ -1665,7 +1665,7 @@ $ openssl 你的密码 -6
 $ sudo nmcli device wifi hotspot ssid <网络名称> password <密码>
 ```
 
-使用其他的无线客户端（如笔记本电脑和智能手机）连接至网络。查找一个网络名称（SSID）与 `<网络名称>` 一致的网络。输入你的网络密码，你应成功连接至网络。如果你的树莓派用以太网连接和第二个无线适配器接入互联网，你也应该能上网。
+使用其他的无线客户端（如笔记本电脑和智能手机）连接至网络。查找一个网络名称（SSID）与 `<网络名称>` 一致的网络。输入你的网络密码，你应成功连接至网络。如果你的树莓派用以太网连接和另外的无线适配器接入互联网，你也应该能上网。
 
 ### 禁用热点
 
@@ -1708,21 +1708,21 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
     con-name 'Ethernet' ifname eth0 master bridge0
 ```
 
-最后，将你的无线热点连接添加到桥接中。你可以添加现有的热点接口创建一个新的：
+最后，把你的无线热点连接添加到桥接中。你可以添加现有的热点接口，亦可创建新的：
 
-* 如果你已经按照上述说明创建了无线热点连接，请使用以下命令将现有接口添加到桥接中：
+* 如果你已经按照上述说明创建了无线热点连接，请使用以下命令将现有接口添加至桥接中：
 
   ```
   $ sudo nmcli connection modify 'Hotspot' master bridge0
   ```
-* 如果你尚未创建无线热点连接，请使用单个命令创建新接口并将其添加到桥接中，将 `<hotspot-password>` 占位符替换为你选择的密码：
+* 如果你尚未创建无线热点连接，请使用单个命令（所有内容是一个命令）来创建新接口并将其添加到桥接中，把占位符 `<热点密码>` 改成你选择的密码：
 
   ```
   $ sudo nmcli connection add con-name 'Hotspot' \
       ifname wlan0 type wifi slave-type bridge master bridge0 \
       wifi.mode ap wifi.ssid Hotspot wifi-sec.key-mgmt wpa-psk \
       wifi-sec.proto rsn wifi-sec.pairwise ccmp \
-      wifi-sec.psk <hotspot-password>
+      wifi-sec.psk <热点密码>
   ```
 
 现在你已配置好桥接，是时候激活它了。运行以下命令以激活桥接：
@@ -1731,55 +1731,55 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
 $ sudo nmcli connection up Bridge
 ```
 
-运行以下命令开始托管你的无线网络：
+运行以下命令，开始托管你的无线网络：
 
 ```
 $ sudo nmcli connection up Hotspot
 ```
 
-你可以使用 nmcli device 命令来验证桥接、以太网接口和无线热点接口是否都处于活动状态。
+你可以使用命令 `nmcli device` 来验证桥接、以太网接口和无线热点接口是否均处于活动状态。
 
 >**技巧**
 >
->使用诸如 arp-scan 之类的工具，检查如果连接到热点，父网络上的设备是否可访问。
+>可使用诸如 arp-scan 之类的工具，检查接入热点后，是否可访问父网络上的设备。
 
 ## 使用代理服务器
 
-代理服务器充当客户端设备和互联网之间的中介。要将你的树莓派配置为代理服务器客户端，请按照本节中的说明操作。
+代理服务器是客户端设备和互联网之间的中介。要将你的树莓派配置为代理服务器客户端，请按照本节中的说明操作。
 
  你将需要：
 
-* 代理服务器的 IP 地址或主机名和端口
+* 代理服务器的 IP 地址或者主机名和端口
 * 如果需要，为你的代理设置用户名和密码
 
 ### 配置你的树莓派
 
 你需要设置三个环境变量（ http_proxy，https_proxy 和 no_proxy ），以便你的树莓派知道如何访问代理服务器。
 
-打开终端窗口，并使用 nano 打开文件 /etc/environment ：
+打开终端，并使用 nano 打开文件 `/etc/environment`：
 
 ```
 $ sudo nano /etc/environment
 ```
 
-将以下内容添加到 /etc/environment 文件中以创建 http_proxy 变量：
+将以下内容添加到文件 `/etc/environment`，以创建变量 http_proxy ：
 
 ```
-export http_proxy="http://<proxy_ip_address>:<proxy_port>"
+export http_proxy="http://<代理IP地址>:<代理端口>"
 ```
 
-用代理的 IP 地址和端口替换 `<proxy_ip_address>` 和 `<proxy_port>` 占位符。
+用代理的 IP 地址和端口分别替换占位符 `<代理IP地址>` 和 `<代理端口>`。
 
 ```
-export http_proxy="http://<username>:<password>@proxyipaddress:proxyport"
+export http_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 ```
 
-用你用于验证代理的用户名和密码替换 `<username>` 和 `<password>` 占位符。
+把你用于验证代理的用户名和密码分别替换占位符 `<用户名>` 和 `<密码>`。
 
 为环境变量 https_proxy 输入相同的信息：
 
 ```
-export https_proxy="http://username:password@proxyipaddress:proxyport"
+export https_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 ```
 
 创建 no_proxy 环境变量，这是一个逗号分隔的地址列表，你的树莓派不应该使用代理。
@@ -1791,16 +1791,16 @@ export no_proxy="localhost, 127.0.0.1"
 你的 /etc/environment 文件现在应该如下所示：
 
 ```
-export http_proxy="http://username:password@proxyipaddress:proxyport"
-export https_proxy="http://username:password@proxyipaddress:proxyport"
+export http_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
+export https_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 export no_proxy="localhost, 127.0.0.1"
 ```
 
-按下 **Ctrl** + **X** 保存并退出。
+按 **Ctrl** + **X** 保存并退出。
 
 ### 更新 sudoers 文件
 
-使用代理环境变量来运行作为 sudo 的操作，比如下载和安装软件，更新 sudoers。
+可使用代理环境变量来运行 sudo，比如下载和安装软件，需更新 sudoers。
 
 使用以下命令打开 sudoers ：
 
@@ -1814,29 +1814,29 @@ $ sudo visudo
 Defaults	env_keep+="http_proxy https_proxy no_proxy"
 ```
 
-按下 **Ctrl** + **X** 保存并退出。
+按 **Ctrl** + **X** 保存并退出。
 
 ### 重启你的树莓派
 
-重启你的树莓派以使修改生效。现在你应该能够通过代理服务器访问互联网。
+重启你的树莓派以使修改生效。现在你应该能够通过代理服务器访问互联网了。
 
 ## boot 文件夹内容
 
 树莓派系统将引导文件存储在 SD 卡的第一个分区上，使用 FAT 文件系统格式化。
 
-在启动时，每个树莓派从引导分区加载各种文件，以便在 Linux 内核启动之前启动各个处理器。
+在启动时，每个树莓派都从引导分区加载各种文件，以便在 Linux 内核启动之前启动各个处理器。
 
 在启动时，Linux 将引导分区挂载为 /boot/firmware/。
 
 >**注意**
 >
->在 Bookworm 之前，树莓派系统将引导分区存储在 /boot/。自从 Bookworm 以来，引导分区位于 /boot/firmware/。
+>在 Bookworm 之前，树莓派系统将引导分区放在 /boot/。自 Bookworm 以降，引导分区位于 /boot/firmware/。
 
 ### `bootcode.bin`
 
-引导加载程序由 SoC 在启动时加载。它执行一些非常基本的设置，然后加载 start*.elf 文件之一。
+SoC 在启动时会加载引导加载程序。它会执行一些非常基本的设置，然后加载某个 start*.elf 文件。
 
-树莓派 4 和 5 不使用 bootcode.bin。它已被内置 EEPROM 中的引导代码取代。
+树莓派 4 和 5 不使用 bootcode.bin。它们使用 EEPROM 中内置的引导代码。
 
 ### `start*.elf`
 
