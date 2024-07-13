@@ -16,7 +16,7 @@ $ sudo raspi-config
 
 你应该会在灰色窗口内，看到一个蓝色背景的界面，并附带了各种选项：
 
-![raspi-config main screen](../.gitbook/assets/raspi-config.png)
+![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
 你用 **上（↑）**、**下（↓）** 箭头键就能在可选条目之间进行切换，并对当前所选高亮显示。
 
@@ -32,7 +32,7 @@ $ sudo raspi-config
 
 子菜单系统选项（System options）可让你对引导、登录和网络过程的相关部分进行配置修改，以及一些其他系统级修改。
 
-![raspi-config system options](../.gitbook/assets/raspi-system.png)
+![raspi-config system options（系统选项）](../.gitbook/assets/raspi-system.png)
 
 #### Wireless LAN——无线局域网（WLAN）
 
@@ -74,7 +74,7 @@ $ sudo raspi-config
 
 ### Display options——显示选项
 
-![raspi-config display options](../.gitbook/assets/raspi-display.png)
+![raspi-config display options（显示选项）](../.gitbook/assets/raspi-display.png)
 
 #### Underscan——欠扫描
 
@@ -104,7 +104,7 @@ $ sudo raspi-config
 
 启用和禁用各种物理、虚拟接口。
 
-![raspi-config interface options](../.gitbook/assets/raspi-interface.png)
+![raspi-config interface options（接口选项）](../.gitbook/assets/raspi-interface.png)
 
 #### SSH
 
@@ -138,7 +138,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 ### Performance options——性能选项
 
-![raspi-config performance options](../.gitbook/assets/raspi-perf.png)
+![raspi-config performance options（性能选项）](../.gitbook/assets/raspi-perf.png)
 
 #### Overclock——超频
 
@@ -164,7 +164,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 配置位置、国家/地区相关选项。
 
-![raspi-config localisation options](../.gitbook/assets/raspi-l18n.png)
+![raspi-config localisation options（本地化选项）](../.gitbook/assets/raspi-l18n.png)
 
 #### Locale——语言环境
 
@@ -184,7 +184,7 @@ SSH 能让你在另一台计算机远程访问树莓派的命令行。在默认�
 
 ### Advanced options——高级选项
 
-![raspi-config advanced options](../.gitbook/assets/raspi-adv.png)
+![raspi-config advanced options（高级选项）](../.gitbook/assets/raspi-adv.png)
 
 #### Expand filesystem——扩大文件系统
 
@@ -365,7 +365,7 @@ $ sudo raspi-config nonint do_leds <0/1>
 * `1`：电源灯常亮
 
 
-#### Browser——浏览器
+#### 浏览器
 
 修改默认的网络浏览器。如选择当前未安装的网络浏览器将不起作用。
 
@@ -732,35 +732,35 @@ $ sudo raspi-config nonint do_update
 
 大多数 HDMI 显示器上，树莓派系统使用显示器支持的最高分辨率和刷新率。
 
-树莓派 Zero、Zero W 和 Zero 2 W 配备迷你 HDMI 端口，因此你需要迷你 HDMI 转全尺寸 HDMI 电缆或适配器。
+树莓派 Zero、Zero W 和 Zero 2 W 配备迷你 HDMI 端口，因此你需要 mini HDMI 转全尺寸 HDMI 转接线或者转换器。
 
-树莓派 4、树莓派 5 和树莓派 400 都有两个 micro HDMI，因此你需要为每个你希望连接的显示器准备 micro HDMI 转标准 HDMI 的线缆或适配器。在打开树莓派之前连接这些线缆。
+树莓派 4、树莓派 5 和树莓派 400 都有两个 micro HDMI，因此你需要，为每个你想用显示器都准备一份 micro HDMI 转标准 HDMI 转接线或者转换器。请在打开树莓派之前接入这些转换线。
 
-树莓派 4 和 400 可以同时点亮两个显示器，高达 1080p 分辨率、60Hz 刷新率。或者支持两个 30Hz 刷新率的 4K 显示器。如果你将显示器连接到 `HDMI0` 端口并在 `/boot/firmware/config.txt` 中设置参数 `hdmi_enable_4kp60=1`，还可以以 60Hz 刷新率驱动单个 4K 显示器。
+树莓派 4 和 400 可以同时点亮两个显示器，最高可达 1080p 分辨率、60Hz 刷新率。或两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 `/boot/firmware/config.txt` 中设置参数了 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率点亮当个 4K 显示器。
 
 树莓派 5 可以在无需额外配置的情况下，以 4K 分辨率、60Hz 的刷新率，点亮两个显示器。
 
 ### 设置分辨率和方向
 
-#### 通过桌面
+#### 通过桌面设置
 
-在树莓派桌面上，打开“首选项”菜单，然后选择“屏幕配置”实用程序。你应该看到连接到树莓派的显示器的图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭“屏幕配置”以保存修改。
+在树莓派桌面上，打开“首选项”菜单，然后选择工具“屏幕配置”。你应该会看到已接入树莓派的显示器，以图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭“屏幕配置”以保存修改。
 
-#### 通过 CLI
+#### 通过命令行设置
 
-使用以下命令打开屏幕配置实用程序：
+使用以下命令能打开屏幕配置工具：
 
 ```
 $ arandr
 ```
 
-你应该看到连接到树莓派的显示器的图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭屏幕配置以保存修改。
+你应该会看到已接入树莓派的显示器，以图形表示。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭屏幕配置以保存修改。
 
-### 手动设置分辨率和旋转
+### 手动设置分辨率和方向
 
 #### 确定显示设备名称
 
-要手动配置分辨率和旋转，你需要知道显示设备的名称。要确定设备名称，请运行以下命令以显示有关连接设备的信息：
+要手动配置分辨率和方向，你得知道显示设备的名称。要确定设备名称，请运行以下命令，来显示已接入设备的信息：
 
 ```
 $ kmsprint | grep Connector
@@ -768,20 +768,20 @@ $ kmsprint | grep Connector
 
 #### 设置自定义分辨率
 
-如果你运行 Wayland 桌面合成器，你可以通过编辑你的主目录中的 .config/wayfire.ini 文件来设置自定义显示分辨率。编辑现有的 [output:<device>] 部分，或者如果不存在，则添加一个新的 [output:<device>] 部分以适用于你的显示设备。要修改显示分辨率，请添加一行 mode。例如，以下示例显示了名为 HDMI-A-1 的设备以 1080p 60Hz 分辨率的配置：
+如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 .config/wayfire.ini，来设置自定义显示分辨率。可编辑现有的 [output:<device>] 部分，倘若没有，则添加一个新部分 [output:<device>]，以适用于你的显示设备。要修改显示分辨率，请添加 mode 这行。例如，以下示例的配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz：
 
 ```
 [output:HDMI-A-1]
 mode = 1920x1080@60
 ```
 
-有关支持的模式和 mode 语法的信息，请参阅 Wayfire 文档。
+有关支持的分辨率和 mode 语法的信息，请参阅 Wayfire 文档。
 
 将相同的配置块添加到 /usr/share/greeter.ini 以配置登录屏幕分辨率。
 
-#### 设置自定义旋转
+#### 设置自定义屏幕方向
 
-如果你运行 Wayland 桌面合成器，可以使用 wlr-randr 设置自定义显示旋转。以下命令将显示旋转为 0°、90°、180°和 270°：
+如果你运行 Wayland 桌面混成器，可以使用 wlr-randr 设置自定义显示方向。以下命令将屏幕方向配置为 0°、90°、180°和 270°：
 
 ```
 $ wlr-randr --output HDMI-A-1 --transform normal
@@ -790,16 +790,17 @@ $ wlr-randr --output HDMI-A-1 --transform 180
 $ wlr-randr --output HDMI-A-1 --transform 270
 ```
 
---output 选项指定要旋转的设备。
+--output 选项可指定要修改屏幕方向的设备。
 
 >**注意**
 >
->要通过 SSH 运行此命令，请添加以下前缀： WAYLAND_DISPLAY=wayland-1，例如 WAYLAND_DISPLAY=wayland-1 wlr-randr --output HDMI-A-1 --transform 90。
+>如要通过 SSH 运行此命令，请添加如下前缀： WAYLAND_DISPLAY=wayland-1，例如 WAYLAND_DISPLAY=wayland-1 wlr-randr --output HDMI-A-1 --transform 90。
 
 
-你还可以使用以下 --transform 选项之一，同时镜像显示器并旋转它： flipped，flipped-90，flipped-180，flipped-270。
+你还可以使用以下某个 --transform 选项，同时镜像显示器并修改方向：flipped，flipped-90，flipped-180，flipped-270。
 
-或者，你可以通过编辑你的家目录中的 .config/wayfire.ini 文件来旋转显示。编辑现有的 `[output:<device>]` 部分，或者如果不存在，则添加一个新的 `[output:<device>]` 部分以适配你的显示设备。要旋转你的显示，添加一个 transform 行。例如，以下示例显示了一个名为 HDMI-A-1 的设备的配置，分辨率为 1080p，刷新率为 60Hz，旋转角度为 270°：
+或者，你还可以编辑你家目录中的文件 .config/wayfire.ini 来旋转屏幕。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的显示设备。要旋转你屏幕，需添加 transform 这行。例如，以下示例的配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz，旋转角度是 270°：
+
 
 ```
 [output:HDMI-A-1]
@@ -807,7 +808,7 @@ mode = 1920x1080@60
 transform = 270
 ```
 
-Wayland 支持以下 transform 选项：
+Wayland 支持以下 transform 参数：
 
 * `normal`
 * `90`
@@ -816,24 +817,24 @@ Wayland 支持以下 transform 选项：
 
 将相同的配置块添加到 /usr/share/greeter.ini 以配置登录屏幕旋转。
 
-### 控制台分辨率和旋转
+### 控制台分辨率和方向
 
-要在树莓派控制台模式下修改分辨率和旋转，请使用 KMS 设置。有关更多信息，请参阅配置内核命令行。
+要修改树莓派控制台模式的分辨率和方向，请使用 KMS 设置。有关更多信息，请参阅配置内核命令行。
 
 >**注意**
 >
 >
->在使用多个显示器的控制台模式时，所有连接的显示器共享相同的旋转设置。
+>如多个显示器同时使用控制台模式输出，所有接入的显示器将使用相同的方向设置。
 
 ## 音频
 
-树莓派系统具有多种音频输出模式：HDMI 1、耳机插孔（如果你的设备有）和 USB 音频。
+树莓派系统支持多种音频输出模式：HDMI 1、耳机插孔（如果你的设备有）和 USB 音频。
 
-默认情况下，树莓派系统将音频输出到 HDMI 1。如果没有 HDMI 输出可用，树莓派系统将音频输出到耳机插孔或连接的 USB 音频设备。
+在默认情况下，树莓派系统将音频输出到 HDMI 1。如果 HDMI 输出不可用，树莓派系统会将音频输出到耳机插孔、已接入的 USB 音频设备。
 
 ### 修改音频输出
 
-本节介绍了在树莓派系统中配置音频输出的不同方法。
+本节介绍了在树莓派系统中，多种配置音频输出的方法。
 
 #### 通过桌面音量控制
 
