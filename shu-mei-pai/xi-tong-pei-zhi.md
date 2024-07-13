@@ -253,28 +253,28 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 配置 Wi-Fi SSID（网络名称）和密码。
 
 ```
-$ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <密码> [隐藏] [明文]
+$ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <密码> [隐藏的网络] [明文]
 ```
 
 填入无线网络名称（SSID）和密码（如需要）。以下是可选参数：
 
-参数 `<隐藏>` 代表 SSID 的可见性。如果网络 SSID 是广播开放的，请使用 `0` 或者省略该参数。如果你的 SSID 是隐藏的，请填 `1`。默认为 `0`。
+参数 `<隐藏的网络>` 代表 SSID 可见性。如果网络 SSID 开放广播，请使用 `0` 或者省略该参数。如果你的 SSID 是隐藏的，请填 `1`。默认为 `0`。
 
-参数 `<明文>` 代表你是否打算以明文传输密码。如果你的密码包含空格或特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时为 `<hidden>` 指定一个值。
+参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时定义 `<hidden>` 值。
 
 例如，通过执行以下命令，可以连接到：
 
-* 非隐藏网络 `myssid`，密码为 `mypassphrase`：
+* 未隐藏的网络 `myssid`，密码为 `mypassphrase`：
 
   ```
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid mypassphrase
   ```
-* 隐藏网络 `myssid`，密码为 `mypassphrase`：
+* 隐藏的网络 `myssid`，密码为 `mypassphrase`：
 
   ```
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid mypassphrase 1
   ```
-* 非隐藏网络 `myssid`，密码为 `my passphrase`：
+* 未隐藏的网络 `myssid`，密码为 `my passphrase`：
 
   ```
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid "my passphrase" 0 0
@@ -288,7 +288,7 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <ssid> <密码> [隐藏] [明
 $ sudo raspi-config nonint do_audio <N>
 ```
 
-在树莓派 4B 上，你可以使用以下选项：
+在树莓派 4B 上，你可以使用以下参数：
 
 * `0`：bcm2835 headphone jack（耳机插孔）
 * `1`：vc4-hdmi-0
