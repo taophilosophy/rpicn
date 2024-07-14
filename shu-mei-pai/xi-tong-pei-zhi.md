@@ -857,7 +857,7 @@ $ sudo raspi-config
 1. 选择 `System options` 并按  **回车键**。
 2. 选择 `Audio` 选项并按  **回车键**。
 3. 选择所需模式，然后按 **回车键** 选择该模式。
-4. 按右箭头键退出选项列表。选择 `Finish` 退出配置工具。
+4. 按右方向键退出选项列表。选择 `Finish` 退出配置工具。
 
 ## 网络
 
@@ -915,7 +915,7 @@ $ sudo raspi-config
 $ sudo raspi-config
 ```
 
-使用箭头键选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用箭头键从下拉菜单中选择你的区域。按 **回车键** 确认选择。
+使用方向键选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用方向键从下拉菜单中选择你的区域。按 **回车键** 确认选择。
 
 现在，你应该已经可以访问无线网络了。运行以下命令来检查你的 WiFi 无线电是否已启用：
 
@@ -953,7 +953,7 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 运行以下命令来配置网络连接，将占位符 `<网络名称>` 替换为你要配置的网络名称：
 
-```bash
+```
 $ sudo nmcli --ask dev wifi connect <网络名称>
 ```
 
@@ -999,7 +999,7 @@ $ sudo nmcli dev wifi connect <网络名称>
 
 ##### 连接到隐藏的网络
 
-如果你正在使用着隐藏的网络，请在运行 nmcli 时指定参数 “hidden”，并赋值为“yes”。
+如果你正在使用着隐藏的网络，请在运行 `nmcli` 时指定参数 “hidden”，并赋值为“yes”。
 
 ```
 $ sudo nmcli --ask dev wifi connect <网络名称> hidden yes
@@ -1024,7 +1024,7 @@ AUTOCONNECT-PRIORITY  NAME
 -999                  Wired connection 1
 ```
 
-使用命令 `nmcli connection modify` 可设置网络的优先级。以下示例命令：将名为 "Pi Towers" 的网络的优先级设置为 10 ：
+使用命令 `nmcli connection modify` 可设置网络的优先级。以下示例命令：将名为 "Pi Towers" 的网络的优先级设置为 `10`：
 
 ```
 $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
@@ -1051,11 +1051,11 @@ AUTOCONNECT-PRIORITY  NAME
 
 ### 分配静态 IP 地址
 
-如果要给你的树莓派分配静态 IP 地址，请在路由器上为其保留一个地址。你的树莓派将继续通过 DHCP 分配其地址，但每次都会收到相同的地址。可以在 DHCP 服务器中，将树莓派的 MAC 地址绑定到静态 IP 地址，来实现分配“静态”地址。
+如果要给你的树莓派分配静态 IP 地址，请在路由器上为其设置一个保留地址。你的树莓派仍将通过 DHCP 分配其地址，但每次都会收到相同的地址。可以在 DHCP 服务器中，将树莓派的 MAC 地址绑定到静态 IP 地址，来实现“静态”地址的分配。
 
-## Screen Blanking——屏幕节能（无操作时关闭屏幕）
+## Screen Blanking 屏幕节能（无操作时关闭屏幕）
 
-你可以配置你的树莓派使用屏幕节能：在一段时间内无操作后，把屏幕关闭。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
+你可以配置你的树莓派使用 **屏幕节能（Screen Blanking）**：在一段时间内无操作后，把屏幕关闭。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
 
 ### 桌面
 
@@ -1063,25 +1063,25 @@ AUTOCONNECT-PRIORITY  NAME
 
 #### 配置树莓派
 
-单击菜单栏中的树莓派按钮。导航到 **首选项** > **树莓派配置**。
+单击菜单栏中的树莓派按钮。导航到 **首选项（Preferences）** > **树莓派配置（Raspberry Pi Configuration）**。
 
-![opening the Raspberry Pi Configuration menu from the desktop](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
+![从桌面打开菜单“树莓派配置”](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
-选择显示选项卡。将选项按钮切换到屏幕节能。按下确定，确认你的选择。
+选择选项卡显示（**Display**）。将选项按钮切换到屏幕节能（**Screen Blanking**）。按下 **完成（OK）**，确认你的选择。
 
 ![toggle Screen Blanking on in the Raspberry Pi Configuration menu](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
 #### 命令行
 
-你可以使用命令行工具 `raspi-config`，来启用和禁用：屏幕节能。运行以下命令打开该工具：
+你可以使用命令行工具 `raspi-config`，来启用和禁用屏幕节能。运行以下命令打开该工具：
 
 ```
 $ sudo raspi-config
 ```
 
-使用箭头键导航，使用回车键选择。选择 Display Options > 。使用箭头键：选择 yes 启用屏幕节能；选择 no 禁用屏幕节能。
+使用方向键导航，使用 **回车键** 选择。选择 `Display Options` > 。使用方向键：选择 `yes` 启用屏幕节能；选择 `no` 禁用屏幕节能。
 
-或者，你可以添加或编辑以下行到 ~/.config/wayfire.ini ：
+或者，你可以添加或编辑以下行到 `~/.config/wayfire.ini`：
 
 ```
 [idle]
