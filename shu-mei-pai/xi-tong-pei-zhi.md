@@ -1366,13 +1366,13 @@ $ cat /proc/cmdline
 video=HDMI-A-1:1920x1080M@60
 ```
 
-另外，可以添加旋转和反射参数，如标准 Linux 帧缓冲文档中所述。以下示例定义了一台显示器，名为 HDMI-A-，分辨率为 1080p，刷新率为 60Hz，屏幕旋转 90 度，并在 X 轴上翻转屏幕（屏幕镜像）：
+另外，可以添加旋转和反射参数，如标准 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst)中所述。以下示例定义了一台显示器：名为 `HDMI-A-`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
 
 ```
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 ```
 
-在指定旋转和镜像参数时，必须明确指定分辨率。
+在指定屏幕旋转和镜像参数时，必须明确指定分辨率。
 
 显示类型的支持选项 - video= 条目的第一部分 - 包括：
 
