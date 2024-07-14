@@ -489,7 +489,7 @@ $ sudo apt install python3-build-hat
 
 在旧版本的树莓派系统中，你可以用 `pip` 直接把库安装到系统级 Python 中。自树莓派系统 *Bookworm* 以降，用户无法直接把库安装到系统级 Python。
 
-应该[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户把库安装成系统级，[请用 `apt`` 来安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
+应该[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户把库安装成系统级，[请用 `apt` 来安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
 
 若尝试在系统级安装 Python 软件包，将会输出类似以下报错：
 
@@ -625,7 +625,7 @@ $ source ~/.env/bin/activate
 
 在默认情况下，Thonny 使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的 **解释器菜单（interpreter menu）** 来切换使用 Python 虚拟环境。可选择配置好的环境或使用 `配置解释器（Configure interpreter…）` 来配置一个新的虚拟环境。
 
-![thonny venv](../.gitbook/assets/thonny-venv.png)
+![thonny 环境](../.gitbook/assets/thonny-venv.png)
 
 ### 用 Python 控制 GPIO
 
