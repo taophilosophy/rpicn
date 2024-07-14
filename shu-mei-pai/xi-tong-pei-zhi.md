@@ -2584,7 +2584,7 @@ exp_led = <&led1>,"gpios:0=",<&gpio>,
 
 ```
 phonetic = <&node>,"letter{a=alpha,b=bravo,c=charlie,d,e,='tango uniform'}";
-bus      = <&fragment>,"target:0{0=",<&0>,"1=",<&1>,"}";
+bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 ```
 
 没有 `=value` 的键意味着将键用作值，没有键的 = 表示在没有匹配项的情况下是默认值，并且以逗号开始或结束列表（或在任何地方使用空键=值对）表示未匹配的输入值应该保持不变；否则，找不到匹配项将会报错。
