@@ -340,7 +340,7 @@ $ sudo raspi-config nonint do_boot_wait <0/1>
 * `0`：启动前不等待网络连接
 * `1`：启动前等待网络连接
 
-#### 启动画面
+#### Splash screen——启动画面
 
 启用或禁用：启动时显示的启动画面。
 
@@ -363,7 +363,7 @@ $ sudo raspi-config nonint do_leds <0/1>
 * `1`：电源灯常亮
 
 
-#### 浏览器
+#### Browser——浏览器
 
 修改默认的网络浏览器。如所选的网络浏览器在当前并未安装，将不生效。
 
@@ -496,7 +496,7 @@ $ sudo raspi-config nonint do_serial_hw <0/1/2>
 * `0`：启用串口
 * `1`：禁用串口
 
-#### 串口控制台
+#### Serial console——串口控制台
 
 启用或禁用： shell 及内核信息的串口输出。
 
@@ -722,11 +722,11 @@ $ sudo raspi-config nonint do_audioconf <1/2>
 $ sudo raspi-config nonint do_update
 ```
 
-## Displays——显示
+## 显示
 
 要配置你的树莓派，使用非默认显示模式，请手动设置分辨率和方向。
 
-### Support for HDMI monitors——HDMI 显示器支持
+### HDMI 显示器支持
 
 对于大部分 HDMI 显示器来说，树莓派系统都能使其达到最高分辨率和刷新率。
 
@@ -738,7 +738,7 @@ $ sudo raspi-config nonint do_update
 
 树莓派 5 无需任何额外配置，就可以 4K 分辨率、60Hz 刷新率，输出两个显示器。
 
-### Set resolution and rotation——设置分辨率和方向
+### 设置分辨率和方向
 
 #### 在桌面设置
 
