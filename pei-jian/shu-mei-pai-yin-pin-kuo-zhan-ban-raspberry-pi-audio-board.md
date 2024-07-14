@@ -98,7 +98,7 @@ DigiAMP+ 旨在同时并联为树莓派和 DigiAMP+ 提供电源，通过 GPIO �
 
 ### 树莓派 Codec Zero
 
-树莓派 Codec Zero 是一款树莓派 Zero 尺寸的音频 HAT。它在树莓派和 Codec Zero 的内置 Dialog Semiconductor DA7212 编解码器之间传递双向数字音频信号（I2S）。Codec Zero 支持各种输入和输出设备。
+树莓派 Codec Zero 是一款树莓派 Zero 尺寸的音频 HAT。它在树莓派和 Codec Zero 的内置 Dialog Semiconductor DA7212 编解码器之间传递双向数字音频信号（I²S）。Codec Zero 支持各种输入和输出设备。
 
 * 高性能 24 位音频编解码器
 * 支持 8-96kHz 之间的常见音频采样率
@@ -472,8 +472,8 @@ $ crontab -e
 
 * 所有电源引脚
 * 所有地线引脚
-* GPIO 2/3 (I2C)
-* GPIO 18/19/20/21 (I2S)
+* GPIO 2/3 (I²C)
+* GPIO 18/19/20/21 (I²S)
 
 如果可用，还将使用以下硬件：
 
@@ -486,7 +486,7 @@ $ crontab -e
 
 ![pin table new](https://www.raspberrypi.com/documentation/accessories/images/pin_table_new.jpg)
 
-DAC PRO，DAC+ 和 DigiAMP+ 重新公开了树莓派信号，可以轻松添加其他传感器和外围设备。请注意，一些信号是一些我们的主板专用的（如 I2S 和 EEPROM）；其他信号如 I2C 可以在多个主板之间共享。
+DAC PRO，DAC+ 和 DigiAMP+ 重新公开了树莓派信号，可以轻松添加其他传感器和外围设备。请注意，一些信号是一些我们的主板专用的（如 I²S 和 EEPROM）；其他信号如 I²C 可以在多个主板之间共享。
 
 ![pin out new](https://www.raspberrypi.com/documentation/accessories/images/pin_out_new.jpg)
 

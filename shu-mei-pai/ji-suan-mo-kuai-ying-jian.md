@@ -322,11 +322,11 @@ SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示�
 
 本指南首先解释了引导过程以及设备树如何描述连接的硬件。
 
-然后，我们将解释如何将 I2C 和 SPI 外围设备连接到 IO 板。最后，我们将创建使用这两个外围设备所需的设备树文件，以便在树莓派系统上使用。
+然后，我们将解释如何将 I²C 和 SPI 外围设备连接到 IO 板。最后，我们将创建使用这两个外围设备所需的设备树文件，以便在树莓派系统上使用。
 
 ### BCM283x GPIOs
 
-BCM283x 具有三个通用输入/输出（GPIO）引脚组：BANK0 上有 28 个引脚，BANK1 上有 18 个引脚，BANK2 上有 8 个引脚，总共 54 个引脚。这些引脚可以用作真正的 GPIO 引脚：软件可以将它们设置为输入或输出，读取和/或设置状态，并将它们用作中断。它们还可以运行诸如 I2C、SPI、I2S、UART、SD 卡等其他功能。
+BCM283x 具有三个通用输入/输出（GPIO）引脚组：BANK0 上有 28 个引脚，BANK1 上有 18 个引脚，BANK2 上有 8 个引脚，总共 54 个引脚。这些引脚可以用作真正的 GPIO 引脚：软件可以将它们设置为输入或输出，读取和/或设置状态，并将它们用作中断。它们还可以运行诸如 I²C、SPI、I²S、UART、SD 卡等其他功能。
 
 任何计算模块上都可以使用 BANK0 或 BANK1。不要使用 BANK2：它控制 eMMC、HDMI 热插拔检测和 ACT LED/USB 引导控制。
 
@@ -372,7 +372,7 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 
 当 start.elf 运行时，它首先读取 dt-blob.bin。这是一种特殊形式的设备树 blob，告诉 GPU 如何设置 GPIO 引脚状态。
 
-dt-blob.bin 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息。例如，GPU 管理摄像头模块。GPU 需要独占访问 I2C 接口和一些引脚，以便与摄像头模块通信。
+dt-blob.bin 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息。例如，GPU 管理摄像头模块。GPU 需要独占访问 I²C 接口和一些引脚，以便与摄像头模块通信。
 
 在大多数树莓派型号上，I2C0 专为 GPU 独占使用。dt-blob.bin 定义了用于 I2C0 的 GPIO 引脚。
 
@@ -449,7 +449,7 @@ $ sudo vclog --msg
 
 以下示例使用带有通过跳线连接的外围设备的 IO 板。我们假设使用旧版的精简版树莓派系统运行 CM1+CMIO 或 CM3+CMIO3。这里的示例需要互联网连接，因此我们建议将 USB 集线器、键盘和无线局域网或以太网转接器插入 IO 板的 USB 端口。
 
-#### 将 I2C RTC 连接到 BANK1 引脚
+#### 将 I²C RTC 连接到 BANK1 引脚
 
 在这个示例中，我们将 NXP PCF8523 实时时钟（RTC）连接到 IO 板的 BANK1 GPIO 引脚：3V3、GND、GPIO44 上的 I2C1_SDA 和 GPIO45 上的 I2C1_SCL。
 
@@ -693,7 +693,7 @@ $ rpicam-hello --camera 0
 $ rpicam-hello --camera 1
 ```
 
-### GPIO 引脚的 I2C 映射
+### GPIO 引脚的 I²C 映射
 
 默认情况下，提供的摄像头驱动程序假定 CAM1 使用 i2c-10，CAM0 使用 i2c-0。计算模块 I/O 板将以下 GPIO 引脚映射到 i2c-10 和 i2c-0 ：
 
