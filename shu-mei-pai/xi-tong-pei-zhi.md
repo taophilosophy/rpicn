@@ -947,13 +947,13 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
         B4:2A:0E:64:BD:BE  Example         Infra  6     195 Mbit/s  37      **    WPA1 WPA2
 ```
 
-在“SSID”这一列下，查找要连接的网络名称。使用 SSID 和密码连接到网络。
+在“SSID”这一列下，查找要连接的网络名称。使用网络名称（SSID）和密码连接到网络。
 
 ##### 连接到网络
 
 运行以下命令来配置网络连接，将占位符 `<网络名称>` 替换为你要配置的网络名称：
 
-```
+```sh-session
 $ sudo nmcli --ask dev wifi connect <网络名称>
 ```
 
@@ -983,14 +983,14 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 >**注意**
 >
->你可以手动编辑你的连接配置，位于目录 `/etc/NetworkManager/system-connections/`。
+>你可以手动编辑你的连接，配置文件位于目录 `/etc/NetworkManager/system-connections/` 下。
 
 ##### 连接到未加密的网络
 
 如果你要连接的网络未使用密码，请运行以下命令：
 
 ```
-$ sudo nmcli dev wifi connect <example_ssid>
+$ sudo nmcli dev wifi connect <网络名称>
 ```
 
 >**警告**
