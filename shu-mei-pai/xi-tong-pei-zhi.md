@@ -797,7 +797,7 @@ $ wlr-randr --output HDMI-A-1 --transform 270
 
 你还可以使用以下某个 `--transform` 参数，来同时镜像显示并修改屏幕显示方向：`flipped`、`flipped-90`、`flipped-180`、`flipped-270`。
 
-或者，你还可以编辑你家目录（home）中的文件 `.config/wayfire.ini` 来旋转屏幕方向。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这行。比如，以下示例的配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
+或者，你还可以编辑你主目录（home）中的文件 `.config/wayfire.ini` 来旋转屏幕方向。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这行。比如，以下示例的配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
 
 
 ```
@@ -1081,30 +1081,30 @@ $ sudo raspi-config
 
 使用方向键导航，使用 **回车键** 选择。选择 `Display Options` > 。使用方向键：选择 `yes` 启用屏幕节能；选择 `no` 禁用屏幕节能。
 
-或者，你可以添加或编辑以下行到 `~/.config/wayfire.ini`：
+或者，你可以编辑添加以下行到 `~/.config/wayfire.ini`：
 
 ```
 [idle]
 dpms_timeout=600
 ```
 
-变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作时间（秒）。例如，值若为 600，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 0，屏幕将永不熄灭。
+变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作时间（秒）。比如，值若为 `600`，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 `0`，屏幕将永不熄灭。
 
 ### 控制台
 
-树莓派配置使用的 dpms_timeout  屏幕节能配置仅涉及桌面会话。在控制台模式下，即当你的树莓派仅接入至带有终端输入的监控器和键盘时，请在内核命令行下，使用 consoleblank 进行设置。
+树莓派配置使用的屏幕节能配置 `dpms_timeout` 仅涉及桌面会话。在 **控制台模式** 下，即当你的树莓派仅接入至带有终端输入的监控器和键盘时，请在内核命令行下，使用设置 `consoleblank`。
 
-#### 设置控制台模式下的屏幕节能
+#### 设置控制台模式下的屏幕节能（screen blanking）
 
-要修改控制台模式下的屏幕节能配置，请在文本编辑器中以管理员身份打开 `/boot/firmware/cmdline.txt`：
+要修改控制台模式下的屏幕节能配置，请以管理员身份，在文本编辑器中打开 `/boot/firmware/cmdline.txt`：
 
 ```
 $ sudo nano /boot/firmware/cmdline.txt
 ```
 
-你可以在这儿调整树莓派系统在关闭屏幕之前，等待控制台的秒数。例如，添加 `consoleblank=600` 可在其无操作 600 秒后关闭显示信号输出。将值置 0，屏幕将永不熄灭。
+你可以在这儿调整树莓派系统在关闭屏幕之前，所等待控制台的秒数。例如，添加 `consoleblank=600` 可在其无操作 600 秒后关闭显示信号输出。将值置 `0`，屏幕将永不熄灭。
 
-修改 cmdline.txt 后，只有在重启后才会生效。使用以下命令重启你的树莓派：
+修改 `cmdline.txt` 后，只有在重启后才会生效。使用以下命令重启你的树莓派：
 
 ```
 $ sudo reboot
@@ -1122,15 +1122,15 @@ $ cat /sys/module/kernel/parameters/consoleblank
 
 ### 修改用户密码
 
-你可以用命令行或软件 `raspi-config` 来修改当前用户账户的密码：
+你可以用工具 `raspi-config`，在命令行来修改当前用户账户的密码：
 
 ```
 $ sudo raspi-config
 ```
 
-选择选项 2，并按照说明修改密码。
+选择 option 2，并按照说明修改密码。
 
-或者，使用工具 passwd：
+或者，使用工具 `passwd`：
 
 ```
 $ passwd
@@ -1148,29 +1148,29 @@ $ sudo adduser <用户名>
 
 新用户的主目录位于 `/home/<用户名>/`。
 
-为了授予新用户必要的权限，比如 sudo，运行以下命令将该用户添加到相关用户组，把占位符 `<用户名>` 换成新用户的用户名：
+为了授予新用户必要的权限，比如 `sudo`，运行以下命令将该用户添加到相关用户组，请把占位符 `<用户名>` 换成新用户的用户名：
 
 ```
 $ sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,gpio,i2c,spi <用户名>
 ```
 
-要检查权限是否已成功授予，请运行以下命令，将占位符 `<用户名>` 换成新用户的用户名：
+要检查权限是否成功授予，请运行以下命令，请将占位符 `<用户名>` 换成新用户的用户名：
 
 ```
 $ sudo su - <用户名>
 ```
 
-如果上述命令成功运行，则已成功为用户配置权限。
+如果上述命令成功运行，则已成功为该用户配置了权限。
 
 ### 删除用户
 
-要删除用户，请运行以下命令，将占位符 `<用户名>` 换成要删除的用户名：
+要删除用户，请运行以下命令，请将占位符 `<用户名>` 换成要删除的用户名：
 
 ```
 $ sudo deluser -remove-home <用户名>
 ```
 
-此命令将删除用户及其主目录。如果你想保留用户的主目录，请在执行命令时，把参数 `-remove-home` 去掉。
+此命令将删除用户及其主目录。如果你想保留该用户的主目录，请在执行命令时，把参数 `-remove-home` 去掉。
 
 ### 修改默认用户
 
@@ -1180,7 +1180,7 @@ $ sudo deluser -remove-home <用户名>
 $ sudo raspi-config
 ```
 
-选择选项 1，Boot/Auto login。重启以使修改生效。
+选择 option `1`, `Boot/Auto login`。重启以使修改生效。
 
 ## 外部存储
 
@@ -1190,7 +1190,7 @@ $ sudo raspi-config
 
 >**注意**
 >
->精简版树莓派系统没有自动挂载这个功能。
+>精简版树莓派系统没有实现自动挂载这个功能。
 
 要设置存储设备，必须手动挂载，使其挂载到你选择的特定位置。
 
@@ -1206,7 +1206,7 @@ $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
 
 树莓派自身使用挂载点 `/` 和 `/boot/firmware/`。你的存储设备将显示在此列表中，以及所有其他已接入的存储设备。
 
-使用 SIZE、LABEL 和 MODEL 列来辨别指向存储设备的磁盘分区的名称（如 sda1）。FSTYPE 列包含了文件系统类型。如果你的存储设备使用的是 exFAT 文件系统，请安装 exFAT 驱动程序：
+使用 SIZE、LABEL 和 MODEL 列来辨别指向存储设备的磁盘分区的名称（如 `sda1`）。FSTYPE 列包含了文件系统类型。如果你的存储设备使用的是 exFAT 文件系统，请安装 exFAT 驱动程序：
 
 ```
 $ sudo apt update
@@ -1226,9 +1226,9 @@ $ sudo apt install ntfs-3g
 $ sudo blkid
 ```
 
- 例如，/dev/sda1。
+比如，`/dev/sda1`。
 
-创建一个目标文件夹，用作存储设备的挂载点。在这种情况下，使用的挂载点名称是 mydisk。你可以指定自己想要的名称：
+创建一个目标文件夹，用作存储设备的挂载点。在这种情况下，使用的挂载点名称是 `mydisk`。你可以指定成自己想要的名称：
 
 ```
 $ sudo mkdir /mnt/mydisk
@@ -1248,7 +1248,7 @@ $ ls /mnt/mydisk
 
 ### 自动挂载存储设备
 
-你可以修改 fstab 文件，定义树莓派在启动时，存储设备自动挂载的位置。在 fstab 文件中，磁盘分区由通用唯一标识符（UUID）标识。
+你可以修改 `fstab` 文件，定义树莓派在启动时，存储设备自动挂载的位置。在 `fstab` 文件中，磁盘分区由通用唯一标识符（UUID）标识。
 
 获取磁盘分区的 UUID：
 
@@ -1256,30 +1256,30 @@ $ ls /mnt/mydisk
 $ sudo blkid
 ```
 
-从列表中找到磁盘分区并记录 UUID。（如 5C24-1453。）使用诸如 nano 之类的命令行编辑器打开 fstab 文件：
+从列表中找到磁盘分区并记录 UUID。（如 `5C24-1453`）使用诸如 nano 之类的命令行编辑器打开 fstab 文件：
 
 ```
 $ sudo nano /etc/fstab
 ```
 
-在 fstab 文件中添加以下几行：
+在 `fstab` 文件中添加以下几行：
 
 ```
 UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 ```
 
-用你在上述步骤中找到的文件系统类型替换 fstype（如 ntfs）。
+用你在上述步骤中找到的文件系统类型（如 `ntfs`）替换 `fstyp`。
 
-如果文件系统类型为 FAT 和 NTFS，请紧跟 `nofail` 之后，再添加上 `,umask=000` - 这将让所有用户完全读写存储设备上的任意文件。
+如果文件系统类型为 FAT 和 NTFS，请在紧跟 `nofail` 之后，添加 `,umask=000` - 这将让所有用户完全读写存储设备上的任意文件。
 
-现在你已在 fstab 中设置了一个条目，你可以启动带有或不带有存储设备的树莓派。在拔下存储设备之前，你必须先将树莓派关机或手动卸载该存储设备。
+现在你已在 `fstab` 中设置了一个条目。在启动树莓派时，该存储设备是否接入均可开机。在拔下存储设备之前，你必须先将树莓派关机，或者手动卸载该存储设备。
 
 >**注意**
 >
->如果在树莓派启动时未接入存储设备，启动时间将额外增加 90 秒。你可以通过在紧跟 `nofail` 之后添加 `,x-systemd.device-timeout=30` 来缩短这个时间。这将把超时时间修改为 30 秒，这意味着系统只会等待 30 秒，然后放弃挂载磁盘。
+>如果在树莓派启动时，未接入存储设备，启动时将再多等 90 秒。你可以通过在紧跟 `nofail` 之后，添加 `,x-systemd.device-timeout=30` 来缩短时间。这将把超时时间修改为 30 秒，这意味着系统只会等待 30 秒，然后放弃挂载磁盘。
 
 
-要获取有关每个 Linux 命令的更多信息，请使用 man 命令查阅特定的手册页。例如，man fstab。
+要获取有关每个 Linux 命令的更多信息，请使用 `man` 命令查阅特定的手册页。例如，`man fstab`。
 
 ### 卸载存储设备
 
@@ -1312,7 +1312,7 @@ $ lsof /mnt/mydisk
 
 ## 内核命令行（ cmdline.txt ）
 
-Linux 内核在启动时可接受一组命令行参数。在树莓派上，这个命令行定义在引导分区中的一个文件中，名为 cmdline.txt。你可以使用任意文本编辑器编辑该文本文件。
+Linux 内核在启动时可接受一组命令行参数。在树莓派上，这个命令行定义在引导分区中的一个文件中，名为 `cmdline.txt`。你可以使用任意文本编辑器编辑该文本文件。
 
 ```
 $ sudo nano /boot/firmware/cmdline.txt
@@ -1320,7 +1320,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 
 >**重要**
 >
->请把所有参数放在 cmdline.txt 中的一行里。不要用换行符。
+>请把所有参数放在 `cmdline.txt` 中的一行里。**不要** 用换行符。
 
 
 要查看在启动时传递给内核的命令行，请运行以下命令：
@@ -1329,7 +1329,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 $ cat /proc/cmdline
 ```
 
-因为树莓派固件会在启动内核之前对命令行进行修改，所以此命令行的输出不会与 cmdline.txt 的内容完全吻合。
+因为树莓派固件会在启动内核之前对命令行进行修改，所以此命令行的输出不会与 `cmdline.txt` 的内容完全吻合。
 
 ### 命令行参数
 
@@ -1337,22 +1337,30 @@ $ cat /proc/cmdline
 
 #### 标准条目
 
-console 定义了串口控制台。通常有两个条目：
+`console`
+
+　　定义了串口控制台。通常有两个条目：
 
 * `console=serial0,115200`
 * `console=tty1`
 
-root 定义了根文件系统的位置。例如，`root=/dev/mmcblk0p2` 表示多媒体卡 0 分区 2。
+`root` 
 
-rootfstype 定义了根文件系统使用的文件系统类型，例如，`rootfstype=ext4`。
+　　定义了根文件系统的位置。例如，`root=/dev/mmcblk0p2` 表示多媒体卡区块 0 分区 2。
 
-`quiet` 将默认内核日志级别设置为 KERN_WARNING，在启动过程中屏蔽任何不是非常严重级别的日志消息。
+`rootfstype`
+
+　　定义了根文件系统使用的文件系统类型，例如 `rootfstype=ext4`。
+
+`quiet` 
+
+　　将默认内核日志级别设置为 `KERN_WARNING`，在启动过程中屏蔽任何不是非常严重级别的内核信息。
 
 #### 设置 KMS 显示模式
 
 早期版本的树莓派系统中使用的传统固件和 FKMS 显示模式，已不再支持。作为代替，最新版本的操作系统使用 KMS（内核模式设置）。
 
-如果在树莓派系统中没有 video 条目，则树莓派操作系统将根据 HDMI 连接的显示器的 EDID，自动选择（基于 Linux 内核信息的）显示器支持的最佳分辨率。在精简版树莓派系统、控制台模式中，你必须自定义 video 条目以控制分辨率和屏幕方向。
+如果在 `cmdline.txt` 中没有 `video` 这个条目，树莓派操作系统将根据 HDMI 接入显示器的 [EDID](https://en.wikipedia.org/wiki/Extended_Display_Identification_Data)，自动选择（基于 Linux 内核信息）显示器支持的最佳分辨率。在精简版树莓派系统、控制台模式中，你必须自定义 `video` 条目以控制分辨率和屏幕方向。
 
 ```
 video=HDMI-A-1:1920x1080M@60
