@@ -102,7 +102,7 @@ $ sudo raspi-config
 
 启用和禁用各种物理、虚拟接口。
 
-![raspi-config interface options（接口选项）](/raspi-interface.png)
+![raspi-config interface options（接口选项）](../.gitbook/assets//raspi-interface.png)
 
 #### SSH
 
@@ -136,7 +136,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 ### Performance options——性能选项
 
-![raspi-config performance options（性能选项）](/raspi-perf.png)
+![raspi-config performance options（性能选项）](../.gitbook/assets//raspi-perf.png)
 
 #### Overclock——超频
 
@@ -162,7 +162,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 配置位置、国家/地区相关选项。
 
-![raspi-config localisation options（本地化选项）](/raspi-l18n.png)
+![raspi-config localisation options（本地化选项）](../.gitbook/assets//raspi-l18n.png)
 
 #### Locale——语言环境
 
@@ -182,7 +182,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 ### Advanced options——高级选项
 
-![raspi-config advanced options（高级选项）](/raspi-adv.png)
+![raspi-config advanced options（高级选项）](../.gitbook/assets//raspi-adv.png)
 
 #### Expand filesystem——扩大文件系统
 
