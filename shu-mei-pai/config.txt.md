@@ -3,9 +3,9 @@
 ## 什么是 config.txt ?
  
 
-树莓派设备使用一个配置文件，名为 config.txt，用其实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会读取 config.txt。树莓派系统在引导分区中查找此文件，该分区位于 /boot/firmware/。
+树莓派设备使用一个配置文件，名为 config.txt，用其实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会读取 config.txt。树莓派系统在引导分区中查找此文件，该分区位于 `/boot/firmware/`。
 
-| NOTE | 在树莓派系统 Bookworm 之前，树莓派系统将引导分区放在 /boot/。|
+| NOTE | 在树莓派系统 Bookworm 之前，树莓派系统将引导分区放在 `/boot/`。|
 | ------ | ------------------------------------------------------------------- |
 
 你可以直接在你树莓派的当前系统中编辑 config.txt。你还可以弹出存储设备，在另一台计算机上编辑启动分区中的文件（含 config.txt）。
@@ -30,16 +30,16 @@ config.txt 文件由早期启动固件读取，因此使用非常简单的文件
 这里是一个示例文件：
 
 ```
-# Enable audio (loads snd_bcm2835)
+# 开启音频（加载 snd_bcm2835）
 dtparam=audio=on
 
-# Automatically load overlays for detected cameras
+# 自动检测新加摄像头
 camera_auto_detect=1
 
-# Automatically load overlays for detected DSI displays
+# 自动检测新加 DSI 显示器
 display_auto_detect=1
 
-# Enable DRM VC4 V3D driver
+# 开启 DRM VC4 V3D 驱动
 dtoverlay=vc4-kms-v3d
 ```
 
@@ -66,25 +66,24 @@ dtoverlay=vc4-kms-v3d
 
 ## `autoboot.txt`
 
- 
 
-autoboot.txt 是一个可选的配置文件，可用于指定 boot_partition 数量。
+autoboot.txt 是可选的配置文件，可用于指定 boot_partition 数量。
 
-这也可以与 tryboot 功能一起使用，实现用于 OS 升级的 A/B 引导。
+也可以与 tryboot 功能一起使用，实现用于 OS 升级的 A/B 引导。
 
-autoboot.txt 限制为 512 B，支持 [all]、[none] 和 [tryboot] 条件过滤器。
+autoboot.txt 限制为 512 字节，支持 [all]、[none] 和 [tryboot] 条件过滤器。
 
 查看 TRYBOOT 启动流程。
 
 ### `boot_partition`
 
-指定引导的分区号，除非分区号已作为 reboot 命令的参数指定（例如 sudo reboot 2 ）。
+指定引导的分区号，除非分区号已作为 reboot 命令的参数指定（例如 `sudo reboot 2` ）。
 
 分区号从 1 开始，MBR 分区为 1 到 4。指定分区 0 意味着从第一个可引导的 FAT 分区 default 引导。
 
 可引导的分区必须以 FAT12、FAT16 或 FAT32 格式进行格式化，并包含一个 start.elf 文件（或者在树莓派 5 上包含一个 config.txt 文件），以便引导程序将其视为可引导。
 
-### [tryboot] 过滤器
+### `[tryboot]` 过滤器
 
 如果系统启动时设置了 tryboot 标志，则此过滤器将通过。
 
@@ -94,7 +93,7 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当设置此属性为 1 时，会加载普通 config.txt 和 boot.img 文件，而不加载 tryboot.txt 和 tryboot.img 文件，当 tryboot 标志设置时。
+当设置此属性为 1 时，会加载普通 config.txt 和 boot.img 文件，而不加载 tryboot.txt 和 tryboot.img 文件，当设置 tryboot 参数时。
 
 这样可以在分区级别而不是文件级别上进行 tryboot 开关，并且无需修改 A/B 分区中的配置文件。
 
@@ -121,17 +120,13 @@ boot_partition=3
 **提交或取消更新**
 
 * 系统从第 3 分区引导，因为 [tryboot] 过滤器在 tryboot mode 中评估为 true
-* 如果 tryboot 处于活动状态 ( /proc/device-tree/chosen/bootloader/tryboot == 1 )
-
-  * 如果当前的引导分区（ /proc/device-tree/chosen/bootloader/partition ）与 autoboot.txt 部分的 [tryboot] 匹配
-
+* 如果 tryboot 处于活动状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
+  * 如果当前的引导分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 autoboot.txt 部分的 [tryboot] 匹配
     * Update Service 验证系统以确保更新成功
     * 如果更新成功
-
       * 替换 autoboot.txt 交换 boot_partition 配置
       * 正常重启 - 分区 3 现在是默认启动分区
     * 否则
-
       * Update Service 将更新标记为失败，例如删除更新文件。
       * 正常重启 - 分区 2 仍然是默认的启动分区，因为 tryboot 标志会自动清除。
     * 结束如果。
@@ -157,9 +152,9 @@ boot_partition=2
 
 ### 常见显示选项
 
-#### hdmi_enable_4kp60 （仅适用于 Raspberry Pi 4）
+#### hdmi_enable_4kp60 （仅适用于树莓派 4）
 
-默认情况下，连接到 4K 显示器时，Raspberry Pi 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可允许选择 60Hz 的刷新率。Raspberry Pi 4 不支持同时在两个微型 HDMI ports 上输出 4Kp60。设置 hdmi_enable_4kp60 会增加功耗和温度。
+默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可允许选择 60Hz 的刷新率。Raspberry Pi 4 不支持同时在两个微型 HDMI ports 上输出 4Kp60。设置 hdmi_enable_4kp60 会增加功耗和温度。
 
 ### 常见硬件配置选项
 
@@ -181,22 +176,21 @@ dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可�
 
 #### `dtparam`
 
-为 Raspberry Pi 的设备树配置文件支持许多参数，例如启用 I2C 和 SPI 接口。许多 DT 叠加层可通过参数配置。这两种类型的参数都可以使用 dtparam 设置。此外，叠加层参数可以附加到 dtoverlay 选项，用逗号分隔，但请注意字符长度限制为 98 个字符。
+为树莓派的设备树配置文件支持许多参数，例如启用 I2C 和 SPI 接口。许多 DT 叠加层可通过参数配置。这两种类型的参数都可以使用 dtparam 设置。此外，叠加层参数可以附加到 dtoverlay 选项，用逗号分隔，但请注意字符长度限制为 98 个字符。
 
 欲了解更多详情，请查阅 DTB、叠加层和 config.txt。
 
 #### arm_boost （仅适用于 Raspberry Pi 4）
 
-所有 Raspberry Pi 400s 和更新版本的 Raspberry Pi 4B 都配备了第二个开关模式电源供应，用于 SoC 电压轨，这使得默认的 turbo 模式时钟可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认启用。设置 arm_boost=0 以禁用。
+所有树莓派 400 系列和树莓派 4B 修订版都配备了第二个开关模式电源供应，用于 SoC 电压轨，这使得默认的 turbo 模式时钟可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认启用。设置 arm_boost=0 以禁用。
 
-#### power_force_3v3_pwm （仅适用于 Raspberry Pi 5）
+#### power_force_3v3_pwm （仅适用于树莓派 5）
 
 使用 3V3 电源时强制 PWM。设置 power_force_3v3_pwm=0 以禁用。
 
-## 在板载模拟音频（3.5 mm插孔）
+## 在板载模拟音频（3.5 mm 插孔）
 
  
-
 板载音频输出使用配置选项来改变模拟音频驱动的方式，以及是否启用某些固件功能。
 
 ### `audio_pwm_mode`
@@ -254,9 +248,9 @@ cmdline 是启动分区上的备用文件名，用于读取内核命令行字符
 
 ### `kernel`
 
-kernel 是用于加载内核的启动分区上的备用文件名。树莓派 1、Zero 和 Zero W 以及树莓派计算模块 1 的默认值为 kernel.img。树莓派 2、3、3+ 和 Zero 2 W 以及树莓派计算模块 3 和 3+ 的默认值为 kernel7.img。树莓派 4 和 400 以及树莓派计算模块 4 的默认值为 kernel8.img，或者如果设置了 arm_64bit 为 0，则默认值为 kernel7l.img。
+kernel 是用于加载内核的启动分区上的备用文件名。树莓派 1、Zero、Zero W 和计算模块 1 的默认值为 kernel.img。树莓派 2、3、3+、Zero 2 W、计算模块 3 和 3+ 的默认值为 kernel7.img。树莓派 4、400 和计算模块 4 的默认值为 kernel8.img，或者如果设置了 arm_64bit 为 0，则默认值为 kernel7l.img。
 
-Raspberry Pi 5 固件默认加载 kernel_2712.img，因为此镜像针对 Raspberry Pi 5 进行了优化（例如 16K 页面大小）。如果此文件不存在，则会加载通用的 64 位内核（ kernel8.img ）。
+树莓派 5 固件默认加载 kernel_2712.img，因为此镜像针对树莓派 5 进行了优化（例如 16K 页面大小）。如果此文件不存在，则会加载 64 位通用内核（ kernel8.img ）。
 
 ### `arm_64bit`
 
@@ -264,7 +258,7 @@ Raspberry Pi 5 固件默认加载 kernel_2712.img，因为此镜像针对 Raspbe
 
 在 64 位模式下，固件将选择适当的内核（例如 kernel8.img ），除非存在明确的 kernel 选项，那么将使用该选项。
 
-在 Pi 4s（Pi 4B、Pi 400、CM4 和 CM4S）上默认为 1，在所有其他平台上默认为 0。但是，如果显式 kernel 选项中给定的名称与已知的内核之一匹配，则 arm_64bit 将相应设置。
+在树莓派 4 系列（4B、Pi 400、CM4 和 CM4S）上默认为 1，在所有其他平台上默认为 0。但是，如果显式 kernel 选项中给定的名称与已知的内核之一匹配，则 arm_64bit 将相应设置。
 
 | NOTE | 64 位内核可以是未压缩的镜像文件或图像的 gzip 存档（仍可称为 kernel8.img；引导加载程序将从开头的签名 B识别存档）。64 位内核仅适用于树莓派 3、3+、4、400、Zero 2 W 和 2B rev 1.2，以及树莓派计算模块 3、3+ 和 4。树莓派 5 仅支持 64 位内核，因此对于该设备已删除此参数。|
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
