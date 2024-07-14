@@ -4,7 +4,7 @@
 
  
 
-树莓派设备使用一个名为 config.txt 的配置文件，来实现常规 PC 上的 BIOS 相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会读取 config.txt。树莓派系统在引导分区中查找此文件，该分区位于 /boot/firmware/。
+树莓派设备使用一个名为 config.txt 的配置文件，来实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会读取 config.txt。树莓派系统在引导分区中查找此文件，该分区位于 /boot/firmware/。
 
 | NOTE | 在树莓派系统 Bookworm 之前，树莓派系统将引导分区放在 /boot/。|
 | ------ | ------------------------------------------------------------------- |
