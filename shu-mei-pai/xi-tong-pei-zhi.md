@@ -34,7 +34,7 @@ $ sudo raspi-config
 
 #### Wireless LAN——无线局域网（WLAN）
 
-可配置 WiFi SSID（网络名称）和密码。
+可配置 WiFi 网络名称（SSID）和密码。
 
 #### Audio——音频
 
@@ -124,11 +124,11 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Serial port——串口
 
-在串口上，启用或禁用 shell 及内核信息。
+启用或禁用：串口上的 shell 及内核信息输出。
 
 #### 1-Wire——单总线
 
-启用或禁用：Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
+启用或禁用：单总线（Dallas 1-wire）接口，通常用于 DS18B20 温度传感器。
 
 #### Remote GPIO——GPIO 远程访问
 
@@ -202,7 +202,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Boot order——启动顺序
 
-在树莓派 4 及后续新款设备上，设定：在未插入 SD 卡的情况下，是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续新款设备上，设定：在未插入 SD 卡的情况下，是否从 USB、网络进行启动。有关更多信息，请参阅[启动加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 #### Bootloader version——引导加载程序版本
 
@@ -210,7 +210,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Wayland
 
-在 X11 后端和 Wayland 后端之间进行切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
+在 X11 后端和 Wayland 后端间进行切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 >**注意**
 >
@@ -234,7 +234,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 ## 非交互式 raspi-config
 
-工具 `raspi-config` 还支持非交互式选项和参数，可以用命令行修改所有选项，无需可视化组件。可用选项可能因树莓派型号而异。
+工具 `raspi-config` 还支持非交互式选项及参数，无需可视化组件，就可以用命令行修改所有选项。可用选项可能因树莓派型号而异。
 
 ```
 $ sudo raspi-config nonint <命令> <参数> [可选参数]
@@ -248,7 +248,7 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 
 #### Wireless LAN——无线局域网（WLAN）
 
-配置 WiFi SSID（网络名称）和密码。
+配置 WiFi 网络名称（SSID）和密码。
 
 ```
 $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐藏的网络] [明文]
@@ -256,11 +256,11 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐�
 
 填入无线网络名称（SSID）和密码（如需要）。以下是可选参数：
 
-参数 `<隐藏的网络>` 代表 SSID 可见性。如果网络 SSID 开放广播，请使用 `0` 或者省略该参数。如果你的 SSID 是隐藏的，请填 `1`。默认为 `0`。
+参数 `<隐藏的网络>` 代表网络名称可见性。如果网络名称开放广播，请使用 `0` 或者省略该参数。如果你的网络名称是隐藏的，请填 `1`。默认为 `0`。
 
 参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时赋值给 `<隐藏的网络>`。
 
-例如，通过执行以下命令，可以连接到他们：
+例如，通过执行以下命令，可以连接至：
 
 * 未隐藏的网络 `myssid`，密码为 `mypassphrase`：
 
@@ -283,7 +283,7 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐�
 指定音频输出位置。
 
 ```
-$ sudo raspi-config nonint do_audio <N>
+$ sudo raspi-config nonint do_audio <数字>
 ```
 
 在树莓派 4B 上，你可以使用以下参数：
@@ -292,7 +292,7 @@ $ sudo raspi-config nonint do_audio <N>
 * `1`：vc4-hdmi-0
 * `2`：vc4-hdmi-1
 
-要查看此参数 `<N>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
+要查看此参数 `<数字>` 所有可用值的列表，请参阅交互版 `raspi-config` 中所使用的缩写。
 
 #### Password——密码
 
@@ -306,7 +306,7 @@ $ sudo raspi-config nonint do_change_pass
 
 >**注意**
 >
->此功能会使用全屏交互式界面，即使在命令行执行参数也是一样的。
+>此功能会使用全屏界面进行交互，即使在命令行执行参数也是一样的。
 
 #### Hostname——主机名
 
@@ -359,13 +359,13 @@ $ sudo raspi-config nonint do_boot_splash <0/1>
 $ sudo raspi-config nonint do_leds <0/1>
 ```
 
-* `0`：用闪烁表示磁盘活动状态
+* `0`：用闪烁代表磁盘活动状态
 * `1`：电源灯常亮
 
 
 #### 浏览器
 
-修改默认的网络浏览器。如所选网络浏览器在当前并未安装，将不生效。
+修改默认的网络浏览器。如所选的网络浏览器在当前并未安装，将不生效。
 
 ```
 $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
@@ -379,7 +379,7 @@ $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开头在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把图像填充到整个屏幕，且不带黑边。
+如果屏幕上显示的文本开端在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把图像填充到整个屏幕，且不带黑边。
 
 ```
 $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
@@ -397,14 +397,14 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 
 #### Screen blanking——屏幕节能
 
-启用或禁用：Screen blanking——屏幕节能（无操作时关闭屏幕）。
+启用或禁用：屏幕节能（无操作时关闭屏幕）。
 
 ```
 $ sudo raspi-config nonint do_blanking <0/1>
 ```
 
-* `0`：Screen blanking（无操作时关闭屏幕）
-* `1`：Screen blanking（无操作时不会关闭屏幕）
+* `0`：启用屏幕节能（无操作时关闭屏幕）
+* `1`：禁用屏幕节能（无操作时不会关闭屏幕）
 
 #### VNC resolution——VNC 分辨率
 
@@ -428,7 +428,7 @@ $ sudo raspi-config nonint do_pi4video <V1/V2/V3>
 * `V2`：启用复合视频输出
 * `V3`：禁用 4K 60p 和复合输出
 
-在其他型号上：
+对于其他型号：
 
 ```
 $ sudo raspi-config nonint do_composite <0/1>
@@ -529,11 +529,11 @@ $ sudo raspi-config nonint do_rgpio <0/1>
 * `0`：启用 GPIO 远程访问
 * `1`：禁用 GPIO 远程访问
 
-### 性能选项
+### Performance options——性能选项
 
-#### 超频
+#### Overclock——超频
 
-如果你的树莓派型号支持，就能对 CPU 超频。超频能力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
+如果你的树莓派型号支持，就能对 CPU 超频。超频潜力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
 
 
 >**警告**
@@ -588,7 +588,7 @@ $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
 
 ### Localisation options——本地化选项
 
-#### Localisation options——语言环境
+#### Locale——语言环境
 
 选择语言环境，如 `zh_CN.UTF-8 UTF-8`（中文）或 `en_GB.UTF-8 UTF-8`（英语）。
 
@@ -596,7 +596,7 @@ $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
 $ sudo raspi-config nonint do_change_locale <语言环境>
 ```
 
-要查看参数 `<语言环境>` 所有可用值列表，请参阅交互式版 raspi-config 中所使用的缩写。
+要查看参数 `<语言环境>` 的所有可用值列表，请参阅交互版 `raspi-config` 中所使用的缩写。
 
 #### Time zone——时区
 
@@ -606,7 +606,7 @@ $ sudo raspi-config nonint do_change_locale <语言环境>
 $ sudo raspi-config nonint do_change_timezone <时区>
 ```
 
-要查看参数 `<时区>` 所有缩写值的列表，请参见交互版 `raspi-config`。
+要查看参数 `<时区>` 的所有缩写值列表，请参见交互版 `raspi-config`。
 
 #### Keyboard——键盘
 
@@ -616,23 +616,23 @@ $ sudo raspi-config nonint do_change_timezone <时区>
 $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 ```
 
-要查看该参数 `<键盘布局>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
+要查看该参数 `<键盘布局>` 的所有可用值列表，请参阅交互版 `raspi-config` 中所使用的缩写。
 
 #### WLAN country——无线局域网区域
 
-设置无线网络的区域代码。
+设置无线网络的区域码。
 
 ```
 $ sudo raspi-config nonint do_wifi_country <区域>
 ```
 
-要查看此参数 `<区域>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
+要查看此参数 `<区域>` 的所有可用值列表，请参阅交互版 `raspi-config` 中所使用的缩写。
 
 ### Advanced options——高级选项
 
-#### Expand filesystem——扩大文件系统
+#### Expand filesystem——扩展文件系统
 
-将你的操作系统分区进行扩大，以利用整个存储设备，能为你带来更大的文件存储空间。需要需重启你的树莓派才能完成该。通常，树莓派系统会在首次开机时执行此操作。如果你将你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
+将你的操作系统分区进行扩展，以利用整个存储设备，能为你带来更大的文件存储空间。需要需重启你的树莓派才能完成该。通常，树莓派系统会在首次开机时执行此操作。如果你将你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
 
 >**警告**
 >
@@ -664,7 +664,7 @@ $ sudo raspi-config nonint do_proxy <SCHEMES> <ADDRESS>
 
 #### Boot order——启动顺序
 
-在树莓派 4 及后续新款设备上，指定在 SD 卡未插入的情况下：是否从 USB、网络进行引导。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续新款设备上，在未插入 SD 卡的情况下，指定：是否从 USB、网络进行启动。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 
 ```
@@ -675,11 +675,11 @@ $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
 
 * B1 ：SD 卡启动 - 如果 SD 卡可用，则优先从 SD 卡启动；如 SD 卡不可用，再从 NVMe 启动；如果 SD 卡、NVMe 均不可用，那么从 USB 启动
 * B2 ：NVMe/USB 启动 - 如果 NVMe 可用，则优先从 NVMe 启动；如果 NVMe 不可用，再从 USB 启动；如果 NVMe、USB 均不可用，那么从 SD 卡启动
-* B3 ：网络启动 - 如果 SD 卡可用，则优先从 SD 卡启动；如果 SD 卡不可用，则从网络启动
+* B3 ：网络启动 - **如果 SD 卡可用**，则优先从 SD 卡启动；如果 SD 卡不可用，则从网络启动
 
 #### Bootloader version——引导加载程序版本
 
-在树莓派 4 及后续新款设备上，更新到最新版的 ROM 引导软件。或者，倘若最新版本引发了故障，你可以在此恢复出厂默认设置。
+在树莓派 4 及后续新款设备上，更新到最新版的 ROM 引导软件。或者，倘若最新版本引发了故障，你也可以在此恢复出厂默认设置。
 
 ```
 $ sudo raspi-config nonint do_boot_rom <E1/E2>
@@ -701,7 +701,7 @@ $ sudo raspi-config nonint do_wayland <W1/W2>
 
 >**注意**
 >
->要在树莓派 4 先前的型号上使用 Wayland，你还必须将 `wayland=on` 添加到 `/boot/firmware/cmdline.txt`。
+>要在树莓派 4 先前的型号上使用 Wayland，你还必须把 `wayland=on` 添加到 `/boot/firmware/cmdline.txt`。
 
 #### Audio config——音频配置
 
@@ -722,39 +722,39 @@ $ sudo raspi-config nonint do_audioconf <1/2>
 $ sudo raspi-config nonint do_update
 ```
 
-## 显示
+## Displays——显示
 
-要配置你的树莓派，使用非默认显示模式，请手动设置分辨率或方向。
+要配置你的树莓派，使用非默认显示模式，请手动设置分辨率和方向。
 
-### HDMI 显示器支持
+### Support for HDMI monitors——HDMI 显示器支持
 
-对于大多数 HDMI 显示器，树莓派系统都能使其达到最高分辨率和刷新率。
+对于大部分 HDMI 显示器来说，树莓派系统都能使其达到最高分辨率和刷新率。
 
-树莓派 Zero、Zero W 和 Zero 2 W 搭载了 mini HDMI 接口，因此你需要 mini HDMI 转全尺寸 HDMI 转接线或者转接头。
+树莓派 Zero、Zero W 和 Zero 2 W 搭载了 mini HDMI 接口，因此你需要 mini HDMI 转全尺寸 HDMI 转接线（转接头）。
 
-树莓派 4、5 和 400 搭载了两个 micro HDMI，因此你需要为每台你想使用的显示器，都各准备一份 micro HDMI 转标准 HDMI 转接线或转接头。请在打开树莓派之前就接入这些转换器。
+树莓派 4、5 和 400 搭载了两个 micro HDMI，因此你需要为每台你想使用的显示器，都各准备一份 micro HDMI 转标准 HDMI 转接线（转接头）。请在树莓派开机之前接入上述适配器。
 
-树莓派 4 和 400 可以同时点亮两个显示器，高达 1080p 分辨率、60Hz 刷新率；或点亮两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 `/boot/firmware/config.txt` 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率点亮单个 4K 显示器。
+树莓派 4 和 400 可以同时输出两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单个 4K 显示器。
 
-无需任何额外配置，树莓派 5 就可以 4K 分辨率、60Hz 的刷新率，点亮两个显示器。
+树莓派 5 无需任何额外配置，就可以 4K 分辨率、60Hz 刷新率，输出两个显示器。
 
-### 设置分辨率和方向
+### Set resolution and rotation——设置分辨率和方向
 
 #### 在桌面设置
 
-在树莓派桌面上，打开“首选项”菜单，然后选择工具“屏幕配置”。你应该会看到当前树莓派已接入的显示器（以图画代表）。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭“屏幕配置”以保存修改。
+在树莓派桌面上，打开菜单“**首选项（Preferences）**”，然后选择工具“**屏幕配置（Screen Configuration）**”。你应该会看到当前树莓派已接入的显示器（以图画代表）。右键单击要修改的显示器，然后选择一个选项。单击“**应用（Apply）**”并退出“**屏幕配置（Screen Configuration）**”以保存修改。
 
 #### 在命令行设置
 
-使用以下命令能打开屏幕配置工具：
+使用以下命令能打开 **屏幕配置（Screen Configuration）** 工具：
 
 ```
 $ arandr
 ```
 
-你应该会看到当前树莓派已接入的显示器（以图画代表）。右键单击要修改的显示器，然后选择一个选项。单击“应用”并关闭屏幕配置以保存修改。
+你应该会看到当前树莓派已接入的显示器（以图画代表）。右键单击要修改的显示器，然后选择一个选项。单击“**应用(Apply)**”并退出 **屏幕配置（Screen Configuration）** 以保存修改。
 
-### 手动设置分辨率和方向
+### 手动设置分辨率和屏幕方向
 
 #### 确定显示设备名称
 
@@ -766,20 +766,20 @@ $ kmsprint | grep Connector
 
 #### 设置自定义分辨率
 
-如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 `.config/wayfire.ini`，来设置自定义显示分辨率。可编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新部分 `[output:<device>]`，以适用于你的显示设备。要修改显示分辨率，请添加 mode 这行。例如，对于以下示例，配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz：
+如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 `.config/wayfire.ini`，来设置自定义显示分辨率。可编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新部分 `[output:<device>]`，以适配你的显示设备。要修改显示分辨率，请添加 `mode` 这行。例如，对于以下示例，配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz：
 
 ```
 [output:HDMI-A-1]
 mode = 1920x1080@60
 ```
 
-有关支持的分辨率和 mode 语法的信息，请参阅 Wayfire 文档。
+有关支持的分辨率和 `mode` 语法的信息，请参阅 [Wayfire 文档](https://github.com/WayfireWM/wayfire-wiki/blob/master/Configuration.md#output-configuration)。
 
-将相同的配置块添加到 `/usr/share/greeter.ini` 以配置登录屏幕分辨率。
+将相同的配置段落添加到 `/usr/share/greeter.ini` 以配置登录屏幕分辨率。
 
 #### 设置自定义屏幕方向
 
-如果你运行着 Wayland 桌面混成器，可以使用 wlr-randr 设置自定义显示方向。以下命令分别将屏幕方向配置为 0°、90°、180°和 270°：
+如果你运行着 Wayland 桌面混成器，可以使用 `wlr-randr` 设置自定义屏幕显示方向。以下命令分别将屏幕方向配置为 0°、90°、180°和 270°：
 
 ```
 $ wlr-randr --output HDMI-A-1 --transform normal
@@ -792,12 +792,12 @@ $ wlr-randr --output HDMI-A-1 --transform 270
 
 >**注意**
 >
->如要通过 SSH 运行此命令，请添加如下前缀： `WAYLAND_DISPLAY=wayland-1`，例如 `WAYLAND_DISPLAY=wayland-1 wlr-randr --output HDMI-A-1 --transform 90`。
+>如要通过 SSH 运行此命令，请添加如下前缀： `WAYLAND_DISPLAY=wayland-1`。比如 `WAYLAND_DISPLAY=wayland-1 wlr-randr --output HDMI-A-1 --transform 90`。
 
 
-你还可以使用以下某个 `--transform` 参数，同时镜像显示器并修改方向：flipped，flipped-90，flipped-180，flipped-270。
+你还可以使用以下某个 `--transform` 参数，来同时镜像显示并修改屏幕显示方向：`flipped`、`flipped-90`、`flipped-180`、`flipped-270`。
 
-或者，你还可以编辑你家目录中的文件 `.config/wayfire.ini` 来旋转屏幕。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的显示设备。要旋转你屏幕，需添加 transform 这行。例如，以下示例的配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz，旋转角度是 270°：
+或者，你还可以编辑你家目录（home）中的文件 `.config/wayfire.ini` 来旋转屏幕方向。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这行。比如，以下示例的配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
 
 
 ```
@@ -806,25 +806,25 @@ mode = 1920x1080@60
 transform = 270
 ```
 
-Wayland 支持以下 transform 参数：
+Wayland 支持以下 `transform` 参数：
 
 * `normal`
 * `90`
 * `180`
 * `270`
 
-将相同的配置内容添加到 `/usr/share/greeter.ini`，来改变登录屏幕的方向。
+将相同的配置内容添加到 `/usr/share/greeter.ini`，来改变登录界面的屏幕方向。
 
-### 控制台分辨率和方向
+### Console resolution and rotation——控制台分辨率和屏幕旋转方向
 
-要修改树莓派控制台模式下的分辨率和方向，请使用 KMS 设置。有关更多信息，请参阅配置内核命令行。
+要修改树莓派控制台模式下的分辨率和方向，请使用 KMS 设置。有关更多信息，请参阅[配置内核命令行](https://www.raspberrypi.com/documentation/computers/configuration.html#kernel-command-line-cmdline-txt)。
 
 >**注意**
 >
 >
->如多个显示器同时以控制台模式输出，所有接入的显示器将使用相同的方向设置。
+>如多个显示器同时以控制台模式输出，所有接入的显示器将使用相同的屏幕旋转参数。
 
-## 音频
+## Audio——音频
 
 树莓派系统支持多种音频输出模式：HDMI 1、耳机插孔（如果你的设备有）和 USB 音频。
 
@@ -840,54 +840,54 @@ Wayland 支持以下 transform 参数：
 
 ##### 专业音频配置文件
 
-在音频输出选择器中查看音频设备时，你可能会看到一个名为专业音频的设备配置文件。该配置文件在每个音频设备上公开了最大数量的通道，使你能够更好地控制信号的路由。除非你需要对音频输出进行细粒度调整控制，否则请使用其他设备配置文件。
+在 **音频输出选择器（audio output selector）** 中查看音频设备时，你可能会看到一个名为专业音频的设备配置文件。该配置文件在每个音频设备上公开了最大数量的通道，使你能够更好地控制信号的路由。除非你需要对音频输出进行细粒度调整控制，否则请使用其他设备配置文件。
 
-更多有关专业音频配置文件的内容，请访问 PipeWire 的常见问题解答。
+更多有关专业音频配置文件的内容，请浏览 [PipeWire 常见问题解答](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ#what-is-the-pro-audio-profile)。
 
 #### 使用 raspi-config
 
-要修改音频输出，请使用 `raspi-config`，运行以下命令：
+要修改音频输出，请使用 [`raspi-config`](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config)，运行以下命令：
 
 ```
 $ sudo raspi-config
 ```
 
-你应该会看到一个配置界面。完成以下步骤，可修改你的音频输出：
+你将看到配置界面。完成以下步骤，可修改你的音频输出：
 
-1. 选择 System options 并按  **回车键**。
-2. 选择 Audio 选项并按  **回车键**。
+1. 选择 `System options` 并按  **回车键**。
+2. 选择 `Audio` 选项并按  **回车键**。
 3. 选择所需模式，然后按 **回车键** 选择该模式。
 4. 按右箭头键退出选项列表。选择 `Finish` 退出配置工具。
 
 ## 网络
 
-树莓派系统可以用图形用户界面（GUI）来设置无线连接。精简版树莓派系统和无头机器的用户可以使用 APT，通过命令行设置无线网络连接。
+树莓派系统可以用图形化用户界面（GUI）来设置无线连接。精简版树莓派系统和无头机器的用户可以用 [nmcli](https://networkmanager.dev/docs/api/latest/nmcli.html)，在命令行设置无线网络连接。
 
 >**注意**
 >
->从树莓派系统 Bookworm 开始，Network Manager 成为默认的网络配置工具。旧版的树莓派系统使用 APT 和其他工具进行网络配置。
+>自树莓派系统 *Bookworm* 以降，默认的网络配置工具变成了 Network Manager。旧版的树莓派系统使用 dhcpd 及其他工具进行网络配置。
 
 ### 连接到无线网络
 
 #### 通过桌面
 
-通过菜单栏右端的网络图标打开网络管理器。如果你使用的是搭载内置无线连接功能的树莓派（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP - 正在扫描...”，请等待几秒钟，网络管理器应该就会搜到你的网络。
+通过菜单栏右端的网络图标打开网络管理器。如果你使用的是搭载内置无线连接功能的树莓派（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP——正在扫描……（No APs found - scanning…​）”，请等待几秒钟，网络管理器应该就会搜到你的网络。
 
 >**注意**
 >
->搭载双频无线的树莓派设备（树莓派 3B+、树莓派 4、计算模块 4、树莓派 400 和树莓派 5）会自动禁用网络，除非你分配了无线局域网区域。要设置无线局域网区域，请在“首选项”菜单里打开树莓派配置应用程序，选择本地化，然后从菜单中选择你的区域。
+>搭载双频无线的树莓派设备（树莓派 3B+、树莓派 4、计算模块 4、树莓派 400 和树莓派 5）会自动禁用网络，直到你分配了无线局域网区域。要设置无线局域网区域，请在“首选项”菜单里打开树莓派配置应用程序，选择 **本地化（Localisation）**，然后从菜单中选择你的区域。
 
 ![WiFi](../.gitbook/assets/wifi2.png)
 
-右侧的图标会提示网络是否加密，并显示了信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
+右侧的图标会提示网络是否加密，并显示其信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
 
 ![密码](../.gitbook/assets/key.png)
 
-输入密钥，然后单击“确定”，再等待几秒钟。网络图标会闪烁一下，表示正在建立连接。连接成功后，图标将停止闪烁并显示信号强度。
+输入密钥，然后单击“**确定（OK）**”，再等待几秒钟。网络图标会闪烁一下，表示正在建立连接。连接成功后，图标将停止闪烁并显示信号强度。
 
 ##### 连接到隐藏的网络
 
-要使用隐藏的网络，请在网络菜单中导航到高级选项 > 连接到隐藏的 WiFi 网络：
+要使用隐藏的网络，请在网络菜单中导航到 **高级选项（Advanced options）** > **连接到隐藏的 WiFi 网络（Connect to a hidden Wi-Fi network）**：
 
 ![高级选项中连接到隐藏的网络](../.gitbook/assets/network-hidden.png)
 
@@ -895,7 +895,7 @@ $ sudo raspi-config
 
 ![隐藏的 WiFi 网络认证](../.gitbook/assets/network-hidden-authentication.png)
 
-单击“连接”按钮可启动网络连接。
+单击按钮“**连接（Connect）**”可启动网络连接。
 
 #### 通过命令行
 
@@ -907,7 +907,7 @@ $ sudo raspi-config
 
 ##### 启用无线网络
 
-在全新安装时，你必须指定你使用设备的区域。这样可以使你的设备选择正确的 5GHz 网络频段。在你指定了无线局域网区域后，你就可以使用树莓派内置的无线网络模块了。
+在全新安装时，你必须指定你使用设备的位置。这样可以使你的设备选择正确的 5GHz 网络频段。在你指定了无线局域网区域后，你就可以使用树莓派内置的无线网络模块了。
 
 要做到这一点，请使用命令行工具 `raspi-config` 设置你的无线局域网区域。运行以下命令：
 
@@ -915,21 +915,21 @@ $ sudo raspi-config
 $ sudo raspi-config
 ```
 
-使用箭头键选择“本地化选项”菜单项。选择 WLAN 区域选项。使用箭头键从下拉菜单中选择你的区域。按 **回车键** 选择你的区域。
+使用箭头键选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用箭头键从下拉菜单中选择你的区域。按 **回车键** 确认选择。
 
-现在，你应该已经可以访问无线网络了。运行以下命令来检查你的无线电是否已启用：
+现在，你应该已经可以访问无线网络了。运行以下命令来检查你的 WiFi 无线电是否已启用：
 
 ```
 $ nmcli radio wifi
 ```
 
-如果此命令返回文本“已启用”，则可以准备配置连接。如果此命令返回“已禁用”，请尝试使用以下命令启用 WiFi：
+如果此命令返回文本“enabled（已启用）”，则可以继续准备配置连接。如果此命令返回“disabled（已禁用）”，请尝试使用以下命令启用 WiFi：
 
 ```
 $ nmcli radio wifi on
 ```
 
-##### 查找网络
+##### 搜索网络
 
 要扫描无线网络，请运行以下命令：
 
@@ -947,7 +947,7 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
         B4:2A:0E:64:BD:BE  Example         Infra  6     195 Mbit/s  37      **    WPA1 WPA2
 ```
 
-在“SSID”列中查找要连接的网络名称。使用 SSID 和密码连接到网络。
+在“SSID”这一列下，查找要连接的网络名称。使用 SSID 和密码连接到网络。
 
 ##### 连接到网络
 
