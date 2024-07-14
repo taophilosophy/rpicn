@@ -72,7 +72,7 @@ $ sudo raspi-config
 
 ### Display options——显示选项
 
-![raspi-config display options（显示选项）](/raspi-display.png)
+![raspi-config display options（显示选项）](../.gitbook/assets/raspi-display.png)
 
 #### Underscan——欠扫描
 
