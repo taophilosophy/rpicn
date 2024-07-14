@@ -80,7 +80,7 @@ $ sudo raspi-config
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开端消失在屏幕边缘，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使图像充满整个屏幕，且不带黑边。
+如果屏幕上显示的文本开端消失在屏幕边缘，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使镜像充满整个屏幕，且不带黑边。
 
 #### Screen blanking——屏幕节能（无操作时关闭屏幕）
 
@@ -258,7 +258,7 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐�
 
 参数 `<隐藏的网络>` 代表网络名称可见性。如果网络名称开放广播，请使用 `0` 或者省略该参数。如果你的网络名称是隐藏的，请填 `1`。默认为 `0`。
 
-参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!` ），则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时赋值给 `<隐藏的网络>`。
+参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!`)，则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时赋值给 `<隐藏的网络>`。
 
 例如，通过执行以下命令，可以连接至：
 
@@ -379,7 +379,7 @@ $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开端在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把图像填充到整个屏幕，且不带黑边。
+如果屏幕上显示的文本开端在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把镜像填充到整个屏幕，且不带黑边。
 
 ```
 $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
@@ -685,8 +685,8 @@ $ sudo raspi-config nonint do_boot_order <B1/B2/B3>
 $ sudo raspi-config nonint do_boot_rom <E1/E2>
 ```
 
-* `E1` ：使用最新的引导 ROM
-* `E2` ：使用出厂默认设置
+* `E1`：使用最新的引导 ROM
+* `E2`：使用出厂默认设置
 
 #### Wayland
 
@@ -696,8 +696,8 @@ $ sudo raspi-config nonint do_boot_rom <E1/E2>
 $ sudo raspi-config nonint do_wayland <W1/W2>
 ```
 
-* `W1` ：使用 X11 后端
-* `W2` ：使用 Wayland 后端
+* `W1`：使用 X11 后端
+* `W2`：使用 Wayland 后端
 
 >**注意**
 >
@@ -979,7 +979,7 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
         B4:2A:0E:64:BD:BE  Example         Infra  6     195 Mbit/s  37      **    WPA1 WPA2
 ```
 
-在“IN-USE”列中查找星号（ `*` ）；它应该出现在你打算接入网络的网络名称（SSID）所在的同一行。
+在“IN-USE”列中查找星号(`*`)；它应该出现在你打算接入网络的网络名称（SSID）所在的同一行。
 
 >**注意**
 >
@@ -1374,10 +1374,10 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 在指定屏幕旋转和镜像参数时，必须明确指定分辨率。
 
-显示类型的支持选项 - video= 条目的第一部分 - 包括：
+显示类型的支持选项——`video=` 条目的开头部分，包括：
 
 | 视频选项 | 显示                                                                   |
-| ---------- | ------------------------------------------------------------------------ |
+| :----------: | :------------------------------------------------------------------------: |
 | `HDMI-A-1`         | HDMI 1（树莓派 4B 主板上标为 HDMI 0、单个 HDMI 主板上标为 HDMI） |
 | `HDMI-A-2`         | HDMI 2（树莓派 4B 主板上标为 HDMI 1）                          |
 | `DSI-1`         | DSI 或 DPI                                                             |
@@ -1387,23 +1387,37 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 此部分涉及你可以在内核命令行中使用的其他条目。此列表不是完整无遗的。
 
-splash 告诉引导使用 Plymouth 模块显示启动画面。
+`splash`
 
-`plymouth.ignore-serial-consoles` 通常如果启用了 Plymouth 模块，它会屏蔽掉所有串口控制台上出现的启动信息。此参数让 Plymouth 忽略所有串口控制台，以使启动消息再次可见，就像没有运行 Plymouth 一样。
+  告诉引导使用 Plymouth 模块显示启动画面。
 
-`dwc_otg.lpm_enable=0` 关闭链接状态电源管理（Link Power Management，LPM）在 dwc_otg 驱动程序中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，默认情况下已禁用此控制器，并且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由另外，与此设置无关的 USB 控制器驱动。
+`plymouth.ignore-serial-consoles` 
 
-`dwc_otg.speed` 可设置树莓派计算机 USB 控制器的速度（处理器上内置）。将其设置 dwc_otg.speed=1 则为全速（USB 1.0），比高速（USB 2.0）慢。除非需要解决 USB 设备问题，否则不应设置此参数。
+  通常如果启用了 Plymouth 模块，它会屏蔽掉所有串口控制台上出现的启动信息。此参数让 Plymouth 忽略所有串口控制台，以使启动消息再次可见，就像没有运行 Plymouth 一样。
 
-`smsc95xx.turbo_mode` 启用或禁用有线网络驱动程序 Turbo 模式。`smsc95xx.turbo_mode=N` 则关闭 Turbo 模式。
+`dwc_otg.lpm_enable=0` 
 
-`usbhid.mousepoll` 指定鼠标轮询间隔。如果你遇到无线鼠标移动缓慢或不稳定的问题，将其置 0 也许有用。
+  关闭链接状态电源管理（Link Power Management，LPM）在 `dwc_otg` 驱动程序中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，默认情况下已禁用此控制器，并且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由另外，与此设置无关的 USB 控制器驱动。
 
-使用 `drm.edid_firmware=HDMI-A-1:edid/your_edid.bin` 覆盖你显示器内置的 EDID 信息。
+`dwc_otg.speed` 
+
+  可设置树莓派计算机 USB 控制器的速度（处理器上内置）。将其设置 `dwc_otg.speed=1` 则为全速（USB 1.0），比高速（USB 2.0）慢。除非需要解决 USB 设备问题，否则不应设置此参数。
+
+`smsc95xx.turbo_mode` 
+
+  启用或禁用有线网络驱动程序 Turbo 模式。`smsc95xx.turbo_mode=N` 则关闭 Turbo 模式。
+
+`usbhid.mousepoll` 
+
+  指定鼠标轮询间隔。如果你遇到无线鼠标移动缓慢、不稳定的问题，将其置 `0` 也许有用。
+
+`drm.edid_firmware=HDMI-A-1:edid/your_edid.bin`
+
+  使用它能覆盖你显示器内置的 EDID 信息。
 
 ## 本地化你的树莓派
 
-你可以使用工具 `raspi-config` 配置树莓派系统的界面语言、键盘布局和时区。
+你可以使用工具 [`raspi-config`](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config) 配置树莓派系统的界面语言、键盘布局和时区。
 
 ## 保护你的树莓派
 
@@ -1411,9 +1425,9 @@ splash 告诉引导使用 Plymouth 模块显示启动画面。
 
 ### 设置 sudo 命令要求密码
 
-使用前缀 sudo 运行命令，会将其以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 sudo 运行的命令均需输入密码，来使你的树莓派更安全。
+使用前缀 `sudo` 运行命令，会将其以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 `sudo` 运行的命令均需输入密码，来使你的树莓派更安全。
 
-要强制 sudo 需要密码，请编辑你的用户账户的 nopasswd sudoers 文件，将文件名中的占位符 `<用户名>` 换成你的用户名：
+要强制 `sudo` 需要密码，请编辑你的用户账户的 `nopasswd` sudoers 文件，将文件名中的占位符 `<用户名>` 换成你的用户名：
 
 ```
 $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
@@ -1429,11 +1443,11 @@ $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 
 ### 更新树莓派系统
 
-只有最新版本的操作系统包含所有最新的安全补丁。请始终将你的设备更新至最新版本的树莓派系统。
+只有最新版本的操作系统包含所有最新的安全补丁。请始终将你的设备[更新](https://www.raspberrypi.com/documentation/computers/os.html#update-software)至最新版本的树莓派系统。
 
 ### 自动更新你的 SSH 服务器
 
-如果你使用 SSH 连接至树莓派，添加 cron 计划可能是值得的，专门更新 SSH 服务器。可把以下命令，作为每日 cron 计划运行，确保你能及时获得最新的 SSH 安全修复程序，独立于你的正常更新流程。
+如果你使用 SSH 连接至树莓派，添加 `cron` 作业可能是值得的，专门更新 SSH 服务器。可把以下命令，作为每日 `cron` 作业运行，确保你能及时获得最新的 SSH 安全修复程序，独立于你的正常更新流程。
 
 ```
 $ apt install openssh-server
@@ -1441,11 +1455,11 @@ $ apt install openssh-server
 
 ### 提高 SSH 安全性
 
-SSH 是远程访问树莓派的常用方式。在默认情况下，SSH 需要用户名和密码。为了使 SSH 更加安全，请使用基于密钥的身份验证。
+SSH 是远程访问树莓派的常用方式。在默认情况下，SSH 需要用户名和密码。为了使 SSH 更加安全，请[使用基于密钥的身份验证](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
 
 #### 启用和禁用 SSH 用户
 
-你还可以通过修改 sshd 配置，允许和拒绝特定用户。
+你还可以通过修改 sshd 配置，**允许（allow）** 和 **拒绝（deny）** 特定用户。
 
 ```
 $ sudo nano /etc/ssh/sshd_config
@@ -1457,13 +1471,13 @@ $ sudo nano /etc/ssh/sshd_config
 AllowUsers alice bob
 ```
 
-你还可以使用 DenyUsers 来明确禁止某些用户名的登录：
+你还可以使用 `DenyUsers` 来明确禁止某些用户名的登录：
 
 ```
 DenyUsers jane john
 ```
 
-修改后，请使用以下命令重启 sshd 服务，以使修改生效：
+修改后，请使用以下命令重启 `sshd` 服务，以使修改生效：
 
 ```
 $ sudo systemctl restart ssh
@@ -1471,13 +1485,13 @@ $ sudo systemctl restart ssh
 
 ### 使用防火墙
 
-Linux 有许多防火墙解决方案可用。大多数使用底层的 iptables 项目来进行数据包过滤。该项目基于 Linux netfiltering 系统。在默认情况下，树莓派系统上预装了 iptables，但未设置。设置它可能是一件非常麻烦的事情。Uncomplicated Firewall (UFW) 项目提供了比 iptables 更简单的界面。UFW 是 Ubuntu 中默认的防火墙工具，也可以安装到你的树莓派上：
+Linux 有许多防火墙解决方案可用。大多数使用底层的 [iptables](http://www.netfilter.org/projects/iptables/index.html) 项目来进行数据包过滤。该项目基于 Linux netfiltering 系统。在默认情况下，树莓派系统上预装了 `iptables`，但未设置。设置它可能是一件非常麻烦的事情。[Uncomplicated Firewall (UFW) ](https://www.linux.com/learn/introduction-uncomplicated-firewall-ufw)项目提供了比 `iptables` 更简单的界面。UFW 是 Ubuntu 中默认的防火墙工具，也可以安装到你的树莓派上：
 
 ```
 $ sudo apt install ufw
 ```
 
-ufw 是个命令行工具，尽管也有些图形界面能用。请注意，ufw 需要以 root 权限运行，因此所有命令都以 sudo 开头。还可以使用参数 `--dry-run` 运行所有 ufw 命令，这表示仅输出命令的执行结果，而不进行任何实际修改。
+`ufw` 是个命令行工具，尽管也有些图形界面能用。请注意，`ufw` 需要以 root 权限运行，因此所有命令都以 `sudo` 开头。还可以使用参数 `--dry-run` 运行所有 `ufw` 命令，这表示仅输出命令的执行结果，而不进行任何实际修改。
 
 启用防火墙，同时也会让它开机自启：
 
@@ -1521,7 +1535,7 @@ $ sudo ufw allow ssh
 $ sudo ufw status
 ```
 
-规则可能相当复杂：允许阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（如有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 ufw 手册页（`man ufw`）以获取除下面命令之外的完整详细信息。
+规则可能相当复杂：允许阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（如有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 `ufw` 手册页（`man ufw`）以获取除下面命令之外的完整详细信息。
 
 在 ssh 端口上（TCP）限制登录尝试。如果 IP 地址在过往 30 秒内有过六次及更多次连接尝试，则拒绝连接：
 
@@ -1535,11 +1549,11 @@ $ sudo ufw limit ssh/tcp
 $ sudo ufw deny from 192.168.2.1 port 30
 ```
 
-### 使用 fail2ban 阻止可疑活动
+### 使用 `fail2ban` 阻止可疑活动
 
-当将树莓派用作服务器时，你必须在防火墙中创建有意的漏洞以允许服务器流量通过。Fail2ban 可以帮助保护你的服务器。Fail2ban 会检查日志文件中的检查可疑活动，如多次暴力登录尝试。它可以帮助你避免：手动检查入侵尝试的日志文件，然后再通过 iptables 更新防火墙来阻止它们。
+当将树莓派用作服务器时，你必须在防火墙中创建有意的漏洞以允许服务器流量通过。[Fail2ban](http://www.fail2ban.org/) 可以帮助保护你的服务器。Fail2ban 会检查日志文件中的检查可疑活动，如多次暴力登录尝试。它可以帮助你避免：手动检查入侵尝试的日志文件，然后再通过 `iptables` 更新防火墙来阻止它们。
 
-运行以下命令安装 fail2ban ：
+运行以下命令安装 `fail2ban`：
 
 ```
 $ sudo apt install fail2ban
@@ -1551,7 +1565,7 @@ $ sudo apt install fail2ban
 $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
-在此配置文件中包含了一组默认选项，以及用于检查特定服务异常的选项。要查看用于 ssh 的规则，请用编辑器打开 `jail.local`：
+在此配置文件中包含了一组默认选项，以及用于检查特定服务异常的选项。要查看用于 `ssh` 的规则，请用编辑器打开 `jail.local`：
 
 ```
 $ sudo nano /etc/fail2ban/jail.local
@@ -1580,9 +1594,9 @@ maxretry = 6
 banaction = iptables-multiport
 ```
 
-多端口会禁止所有端口上的一切访问。action.d 文件夹包含许多可用于自定义服务器响应可疑活动的替代操作配置文件。
+多端口会禁止所有端口上的一切访问。`action.d` 文件夹包含许多可用于自定义服务器响应可疑活动的替代操作配置文件。
 
-例如，如果要在三次失败尝试后永久拉黑 IP 地址，请将 `[ssh]` 部分中的 maxretry 值修改为 3，并将 bantime 设置为负数：
+例如，如果要在三次失败尝试后永久拉黑 IP 地址，请将 `[ssh]` 部分中的 `maxretry` 值修改为 `3`，并将 `bantime` 设置为负数：
 
 ```
 [ssh]
@@ -1596,13 +1610,13 @@ bantime  = -1
 
 ## 设置无头树莓派
 
-无头树莓派是指在没有显示器、键盘、鼠标的情况下运行。要无头运行树莓派，你需要一种在其他计算机上访问它的方法。要远程访问你的树莓派，你需要将树莓派接入网络，并找到一种使用该网络访问树莓派的方法。
+无头（**headless**）树莓派是指在没有显示器、键盘、鼠标的情况下运行。要无头运行树莓派，你需要一种在其他计算机上访问它的方法。要远程访问你的树莓派，你需要将树莓派接入网络，并找到一种使用该网络访问树莓派的方法。
 
 要将树莓派连接到网络，你可以通过以太网，把设备进行有线连接，或者配置无线网络。
 
-要通过该网络访问树莓派，请使用 SSH。通过 SSH 连接，你就可以使用 `raspi-config` 来启用 VNC（如果你更喜欢图形化桌面环境）。
+要通过该网络访问树莓派，请使用 SSH。通过 SSH 连接，你就可以使用 `raspi-config` 来[启用 VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)（如果你更喜欢图形化桌面环境）。
 
-如果你从头开始设置你的树莓派，请在启动盘制作过程中设置无线网络和 SSH。如果你已经设置好了树莓派，你可以使用 `raspi-config` 配置 SSH。
+如果你从头开始设置你的树莓派，请在[启动盘制作过程中](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)设置无线网络和 SSH。如果你已经设置好了树莓派，你可以使用 `raspi-config` 配置 SSH。
 
 >**警告**
 >
@@ -1624,27 +1638,27 @@ bantime  = -1
 
 ### 远程访问
 
-如果没有键盘和显示器，你需要一种方法来远程控制你的无头树莓派。在首次启动时，唯一的办法是 SSH。要在全新安装的树莓派系统上启用 SSH，请选择以下某种方法：
+如果没有键盘和显示器，你需要一种方法来[远程控制](https://www.raspberrypi.com/documentation/computers/remote-access.html)你的无头树莓派。在首次启动时，唯一的办法是 SSH。要在全新安装的树莓派系统上启用 SSH，请选择以下某种方法：
 
 * 在树莓派启动盘制作工具的操作系统自定义菜单中启用 SSH，然后输入用户名和密码
-* 在 SD 卡的根目录下创建一个名为 `ssh` 的文件，然后按照下面部分的说明手动配置一个用户 `userconf.txt`
+* 在 SD 卡的根目录下创建一个名为 `ssh` 的文件，然后按照下面部分的说明手动配置用户 `userconf.txt`
 
-欲了解更多信息，请参阅设置 SSH 服务器。通过 SSH 连接，你就可以使用 `raspi-config` 来启用 VNC，如果你更喜欢图形桌面环境。
+欲了解更多信息，请参阅[设置 SSH 服务器](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)。通过 SSH 连接，你就可以使用 `raspi-config` 来启[用 VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)，如果你更喜欢图形桌面环境。
 
 #### 手动配置用户
 
 在你的 SD 卡根目录下，创建一个名为 `userconf.txt` 的文件。
 
-该文件应包含一行文本，由 `<用户明>:<密码>` 构成：你想要使用的用户名，紧接着是一个英文冒号，然后是你想要使用的密码的加密形式。
+该文件应包含一行文本，由 `<用户明>:<密码>` 构成：你想要使用的用户名，紧接着是一个英文冒号，然后是你想要使用的密码的 **加密** 形式。
 
 >**注意**
 >
->`<用户名>` 仅支持小写英语字母，数字和连字符。并且必须以字母开头。长度不得超过 31 个字符。
+>`<用户名>` 仅支持小写英语字母，数字和 `-`。且必须以字母开头。长度不大于 31 个字符。
 
-要生成加密密码，请在其他计算机上使用 OpenSSL。打开终端并输入以下内容：
+要生成加密密码，请在其他计算机上使用 [OpenSSL](https://www.openssl.org/)。打开终端并输入以下内容：
 
 ```
-$ openssl 你的密码 -6
+$ openssl passwd -6
 ```
 
 在有提示时输入密码并进行验证。然后，该命令将输出所提供密码的加密形式。
@@ -1653,11 +1667,11 @@ $ openssl 你的密码 -6
 
 你的树莓派可以使用无线模块发射自己的无线网络。如果你用以太网口（或其他的无线模块）把你的树莓派接入互联网，那么接入无线网络的其他设备就可以用你的树莓派来上网。
 
-假如使用的有线网络 IP 段是 10.x.x.x。你可将你的树莓派连接到该网络，并在使用另一个 IP 段（如 192.168.x.x）的独立网络上，为无线客户端提供服务。
+假如使用的有线网络 IP 段是 `10.x.x.x`。你可将你的树莓派连接到该网络，并在使用另一个 IP 段（如 `192.168.x.x`）的独立网络上，为无线客户端提供服务。
 
-在下面的拓扑中，请注意笔记本电脑与路由器和有线客户端的 IP 段是分离的：
+在以下拓扑中，请注意笔记本电脑与路由器和有线客户端的 IP 段是分离的：
 
-![host a network](../.gitbook/assets/host-a-network.png)
+![主网络](../.gitbook/assets/host-a-network.png)
 
 在这种网络配置下，无线客户端可以通过树莓派路由器彼此通信。但是，无线网络上的客户端不能直接与有线网络上的客户端进行通信（除了树莓派）。无线客户端位于私有网络中，与为有线客户端提供服务的网络相分离。
 
@@ -1673,7 +1687,7 @@ $ openssl 你的密码 -6
 $ sudo nmcli device wifi hotspot ssid <网络名称> password <密码>
 ```
 
-使用其他的无线客户端（如笔记本电脑和智能手机）连接至网络。查找一个网络名称（SSID）与 `<网络名称>` 一致的网络。输入你的网络密码，你应成功连接至网络。如果你的树莓派用以太网连接和另外的无线适配器接入互联网，你也应该能上网。
+使用其他的无线客户端（如笔记本电脑和智能手机）连接至网络。查找与网络名称（SSID）与 `<网络名称>` 一致的网络。输入你的网络密码，你应成功连接至网络。如果你的树莓派用以太网连接和另外的无线适配器接入互联网，你也应该能上网。
 
 ### 禁用热点
 
@@ -1691,15 +1705,15 @@ $ sudo nmcli device up wlan0
 
 >**技巧**
 >
->有关连接到无线网络的更多信息，请参阅配置网络。
+>有关连接到无线网络的更多信息，请参阅[配置网络](https://www.raspberrypi.com/documentation/computers/configuration.html#networking)。
 
 ### 将你的树莓派用作网桥
 
-在默认情况下，从你的树莓派托管的无线网络与通过以太网连接的父网络分相分离。在这种拓扑下，连接到父网络的设备无法直接与树莓派托管的无线网络所接入的设备进行通信。如果你希望连接的无线设备能够与父网络上的设备通信，你可以将你的树莓派配置为网桥。有了网桥，所有接入树莓派托管的无线网络的设备都会被分配一个父网络中的 IP 地址。
+在默认情况下，从你的树莓派托管的无线网络与通过以太网连接的父网络分相分离。在这种拓扑下，连接到父网络的设备无法直接与树莓派托管的无线网络所接入的设备进行通信。如果你希望连接的无线设备能够与父网络上的设备通信，你可以将你的树莓派配置为[网桥](https://en.wikipedia.org/wiki/Network_bridge)。有了网桥，所有接入树莓派托管的无线网络的设备都会被分配一个父网络中的 IP 地址。
 
-在下面的拓扑中，笔记本电脑、路由器和有线客户端位于相同的 IP 段：
+在以下拓扑中，笔记本电脑、路由器和有线客户端位于相同的 IP 段：
 
-![bridge network](../.gitbook/assets/bridge-network.png)
+![桥接网络](../.gitbook/assets/bridge-network.png)
 
 以下步骤记录了如何在你的树莓派上设置网桥，以实现无线客户端和父网络之间的通信。
 
@@ -1749,7 +1763,7 @@ $ sudo nmcli connection up Hotspot
 
 >**技巧**
 >
->可使用诸如 arp-scan 之类的工具，检查接入热点后，是否可访问父网络上的设备。
+>可使用诸如 [arp-scan](https://github.com/royhills/arp-scan) 之类的工具，检查接入热点后，是否可访问父网络上的设备。
 
 ## 使用代理服务器
 
@@ -1762,7 +1776,7 @@ $ sudo nmcli connection up Hotspot
 
 ### 配置你的树莓派
 
-你需要设置三个环境变量（ http_proxy，https_proxy 和 no_proxy ），以便你的树莓派知道如何访问代理服务器。
+你需要设置三个环境变量（`http_proxy`、`https_proxy`、`no_proxy`），以便你的树莓派知道如何访问代理服务器。
 
 打开终端，并使用 nano 打开文件 `/etc/environment`：
 
@@ -1770,7 +1784,7 @@ $ sudo nmcli connection up Hotspot
 $ sudo nano /etc/environment
 ```
 
-将以下内容添加到文件 `/etc/environment`，以创建变量 http_proxy ：
+将以下内容添加到文件 `/etc/environment`，以创建变量 `http_proxy`：
 
 ```
 export http_proxy="http://<代理IP地址>:<代理端口>"
@@ -1778,19 +1792,24 @@ export http_proxy="http://<代理IP地址>:<代理端口>"
 
 用代理的 IP 地址和端口分别替换占位符 `<代理IP地址>` 和 `<代理端口>`。
 
-```
-export http_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
-```
+>**注意**
+>
+>如果你使用的代理需要用户名和密码，请使用以下格式：
+>
+>```
+>export http_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
+>```
+>
+>把你用于验证代理的用户名和密码分别替换占位符 `<用户名>` 和 `<密码>`。
 
-把你用于验证代理的用户名和密码分别替换占位符 `<用户名>` 和 `<密码>`。
 
-为环境变量 https_proxy 输入相同的信息：
+为环境变量 `https_proxy` 输入相同的信息：
 
 ```
 export https_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 ```
 
-创建 no_proxy 环境变量，这是一个逗号分隔的地址列表，你的树莓派不应该使用代理。
+创建环境变量 `no_proxy`，这是一个由逗号分隔的地址列表，你的树莓派不应该使用代理。
 
 ```
 export no_proxy="localhost, 127.0.0.1"
@@ -1806,17 +1825,17 @@ export no_proxy="localhost, 127.0.0.1"
 
 按 **Ctrl** + **X** 保存并退出。
 
-### 更新 sudoers 文件
+### 更新 `sudoers` 文件
 
-可使用代理环境变量来运行 sudo，比如下载和安装软件，需更新 sudoers。
+要在下载和安装软件等以 `sudo` 方式运行的操作中，使用代理环境变量，请更新 sudoers。
 
-使用以下命令打开 sudoers ：
+使用以下命令打开 `sudoers`：
 
 ```
 $ sudo visudo
 ```
 
-将以下行添加到文件中，这样 sudo 将使用你刚刚创建的环境变量：
+将以下行添加到文件中，这样 `sudo` 将使用你刚刚创建的环境变量：
 
 ```
 Defaults	env_keep+="http_proxy https_proxy no_proxy"
@@ -1842,43 +1861,51 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 ### `bootcode.bin`
 
-SoC 在启动时会加载引导加载程序。它会执行一些非常基本的设置，然后加载某个 start*.elf 文件。
+SoC 在启动时会加载引导加载程序。它会执行一些非常基本的设置，然后加载某个 `start*.elf` 文件。
 
-树莓派 4 和 5 不使用 bootcode.bin。它们使用 EEPROM 中内置的引导代码。
+树莓派 4 和 5 不使用 `bootcode.bin`。它们使用板载 EEPROM 中的引导代码。
 
 ### `start*.elf`
 
 加载 SoC 中 VideoCore GPU 上的二进制固件，然后接管引导过程。
 
-start.elf 基本固件。
+`start.elf`
 
-start_x.elf 包含额外的编解码器。
+　　基本固件
 
-start_db.elf 用于调试。
+`start_x.elf` 
 
-start_cd.elf 是精简版本的固件，移除了对硬件块（如编解码器和 3D）以及调试日志支持的支持；它还施加了初始帧缓冲区限制。当在 config.txt 中指定 `gpu_mem=16` 时，将自动调用精简固件。
+　　包含额外的编解码器
 
-start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列（4B、400、计算模块 4 和计算模块 4S）的专用固件文件。
+`start_db.elf`
 
-要了解如何使用这些文件的更多信息，请参阅 config.txt 文档。
+　　用于调试
 
-树莓派 5 不再使用 elf 文件。固件内置在引导加载程序 EEPROM 中。
+`start_cd.elf`
+　　
+　　是精简版本的固件，移除了对硬件块（如编解码器和 3D）以及调试日志支持的支持；它还施加了初始帧缓冲区限制。当在 `config.txt` 中指定 `gpu_mem=16` 时，将自动调用精简固件。
+
+`start4.elf`、`start4x.elf`、`start4db.elf` 和 `start4cd.elf` 是树莓派 4 系列（4B、400、计算模块 4 和计算模块 4S）的专用固件文件。
+
+要了解如何使用这些文件的更多信息，请参阅 [config.txt 文档](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。
+
+树莓派 5 不再使用 `elf` 文件。固件内置在引导加载程序 EEPROM 中。
 
 ### `fixup*.dat`
 
-在匹配的情况下找到链接器文件与前一节中列出的 start*.elf 文件。
+在匹配的情况下找到链接器文件与前一节中列出的 `start*.elf` 文件。
 
 ### `cmdline.txt`
 
-内核命令行，将传递给引导时的内核。
+[内核命令行](https://www.raspberrypi.com/documentation/computers/configuration.html#kernel-command-line-cmdline-txt)，将传递给引导时的内核。
 
 ### `config.txt`
 
-涉及许多用于设置树莓派的配置参数。有关更多信息，请参阅 config.txt 文档。
+涉及许多用于设置树莓派的配置参数。有关更多信息，请参阅 [config.txt 文档](https://www.raspberrypi.com/documentation/computers/config_txt.html)。
 
 >**重要**
 >
->树莓派 5 要求在启动分区中有一个非空的 config.txt 文件。
+>树莓派 5 要求在启动分区中有一个非空的 `config.txt` 文件。
 
 ### `issue.txt`
 
@@ -1888,42 +1915,42 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 初始内存盘的内容。这会在真正的根文件系统被挂载之前，把临时根文件系统加载到内存。
 
-自 Bookworm 版本以降，树莓派系统默认包含一个 initramfs 文件。要启用初始内存盘，请在 config.txt 中使用关键字 auto_initramfs 进行配置。
+自 Bookworm 版本以降，树莓派系统默认内置了一个 `initramfs` 文件。要启用初始内存盘，请在 [`config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html) 中使用关键字 [`auto_initramfs`](https://www.raspberrypi.com/documentation/computers/config_txt.html#auto_initramfs) 进行配置。
 
-### ssh 或 ssh.txt
+### ssh（ssh.txt）
 
 当此文件存在时，会在启动时启用 SSH。否则，默认情况下会禁用 SSH。内容无关紧要。即使是空文件也会启用 SSH。
 
-### 设备树 blob 文件（ `*.dtb` ）
+### DTB 文件(`*.dtb`)
 
-设备树 blob 文件包含各种型号的树莓派的硬件定义。这些文件根据检测到的树莓派型号在启动时设置内核。
+DTB 文件包含各种型号的树莓派的硬件定义。这些文件根据[检测到的树莓派型号](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.1)在启动时设置内核。
 
-### 内核文件（ `*.img` ）
+### 内核文件(`*.img`)
 
-相应于树莓派型号的各种内核镜像文件：
+适用于各种树莓派型号的内核镜像文件：
 
 | 文件名 | 处理器                    | 树莓派型号                                                                     | 注解                                           |
-| -------- | --------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
+| :--------: | :---------------------------: | :--------------------------------------------------------------------------------: | -------------------------------------------------- |
 | `kernel.img`       | BCM2835                   | 树莓派 Zero，树莓派 1                                                                  |                                                  |
 | `kernel7.img`       | BCM2836，BCM2837          | 树莓派 Zero 2 W，树莓派2、3                                            | 新款树莓派 2 使用 BCM2837                      |
 | `kernel7l.img`       | BCM2711                   | 树莓派 4、400，CM4，CM4S                                                        | 大物理地址扩展（LPAE）                           |
-| `kernel8.img`       | BCM2837，BCM2711，BCM2712 | 树莓派 Zero 2 W，树莓派 2、3、4、400，CM4、CM4S、5 | 64 位内核。基于 BCM2836 的树莓派 2 不支持 64 位内核。|
-| `kernel_2712.img`       | BCM2712                   | 树莓派 5                                                                       | 为 Pi 5 优化的 64 位内核。                |
+| `kernel8.img`       | BCM2837，BCM2711，BCM2712 | 树莓派 Zero 2 W，树莓派 2、3、4、400，CM4、CM4S、5 | [64 位内核](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。基于 BCM2836 的树莓派 2 不支持 64 位内核。|
+| `kernel_2712.img`       | BCM2712                   | 树莓派 5                                                                       | 为 Pi 5 优化的 [64 位内核](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。                |
 
 >**注意**
 >
->在运行 32 位内核系统上，lscpu 会报告其 CPU 架构为 armv7l；在运行 64 位内核系统上，lscpu 会报告其 CPU 架构为 aarch64。在 armv7l 情况下，l 指的是小端 CPU 架构（如 kernel7l.img 文件名所示），而不是指 LPAE。
+>在运行 32 位内核系统上，`lscpu` 会报告其 CPU 架构为 `armv7l`；在运行 64 位内核系统上，lscpu 会报告其 CPU 架构为 `aarch64`。对于 `armv7l`，`l` 指的是小端 CPU 架构（如 `kernel7l.img` 文件名所示），而不是指 `LPAE`。
 
-### overlays 文件夹
+### 文件夹 `overlays` 
 
-包含设备树叠加。这些用于配置各种硬件设备，如第三方声卡。config.txt 中的条目选择这些叠加层。有关更多信息，请参阅设备树、叠加和参数。
+包含设备树叠加层。这些用于配置各种硬件设备，如第三方声卡。`config.txt` 中的条目选择这些叠加层。有关更多信息，请参阅[设备树、叠加层和参数](https://www.raspberrypi.com/documentation/computers/configuration.html#part2)。
 
 ## LED 警告闪烁代码
 
 如果树莓派由于某种原因无法启动，或者必须关闭，在许多情况下，LED 将闪烁特定次数以指示发生了什么。LED 将产生一定数量的长闪烁（0 或更多次），然后产生短闪烁，以指示确切状态。在大多数情况下，该模式将在两秒间隔后重复。
 
-| 长闪烁 | 短闪烁 | 状态                               |
-| -------- | -------- | ------------------------------------ |
+| 长闪 | 短闪 | 状态                               |
+| :--------: | :--------: | ------------------------------------ |
 | 0      | 3      | 无法启动的一般故障                 |
 | 0      | 4      | 未找到 start*.elf                  |
 | 0      | 7      | 未找到内核镜像                     |
@@ -1946,7 +1973,7 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 ## 配置 UART
 
-树莓派上有两种可用的 UART - PL011 和 mini UART。PL011 是一种功能强大、兼容性好的，16550 UART，而 mini UART 功能较少。
+树莓派上有两种可用的 UART - [PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini UART。PL011 是一种功能强大、兼容性好的，16550 UART，而 mini UART 功能较少。
 
 树莓派上的所有 UART 仅支持 3.3V（如果接入 5V 设备，将损坏）。可以使用适配器转接到 5V 设备。此外，也可以用各种第三方提供的低成本 USB 至 3.3V 串口转换器。
 
@@ -1955,16 +1982,16 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 树莓派 Zero，树莓派 1、2、3 各搭载着两个 UART，如下：
 
 | 名称  | 类型      |
-| ------- | ----------- |
+| :-------: | :-----------: |
 | UART0 | PL011     |
 | UART1 | mini UART |
 
 ### 树莓派 4 和 400
 
-在默认情况下，树莓派 4B 和 400 搭载了额外四个 PL011，但它们是被禁用的：
+在默认情况下，树莓派 4B 和 400 搭载了四个额外的 PL011，但它们是被禁用的：
 
 | 名称  | 类型      |
-| ------- | ----------- |
+| :-------: | :-----------: |
 | UART0 | PL011     |
 | UART1 | mini UART |
 | UART2 | PL011     |
@@ -1974,10 +2001,10 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 ### 树莓派 5
 
-树莓派 5 搭载了额外四个 PL011，这些在默认情况下也是被禁用的：
+树莓派 5 搭载了四个额外的 PL011，这些在默认情况下也是被禁用的：
 
 | 名称  | 类型  |
-| ------- | ------- |
+| :-------: | :-------: |
 | UART0 | PL011 |
 | UART1 | PL011 |
 | UART2 | PL011 |
@@ -1990,7 +2017,7 @@ start4.elf，start4x.elf，start4db.elf 和 start4cd.elf 是树莓派 4 系列�
 
 计算模块 1、3、3+ 各搭载了两个 UART，而计算模块 4 如上所述有六个 UART。
 
-在所有型号的计算模块上，默认情况下禁用了 UART，并可以通过使用设备树叠加来显式启用。你还可以指定要使用的 GPIO 引脚，例如：
+在所有型号的计算模块上，默认情况下禁用了 UART，并可以通过使用设备树叠加层来显式启用。你还可以指定要使用的 GPIO 引脚，例如：
 
 ```
 dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
@@ -2010,8 +2037,8 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 
 以下表格总结了各种树莓派设备上 UART 的分配：
 
-| 型号                            | 主/控制台 | 次要/蓝牙 |
-| --------------------------------- | ----------- | ----------- |
+| 型号                            | 主/控制台 | 次/蓝牙 |
+| :---------------------------------: | :-----------: | :-----------: |
 | 树莓派 Zero                     | UART0     | UART1     |
 | 树莓派 Zero W、Zero 2 W | UART1     | UART0     |
 | 树莓派 1                        | UART0     | UART1     |
@@ -2024,7 +2051,7 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 树莓派系统上的 Linux 设备：
 
 | Linux 设备 | 说明                  |
-| ------------ | ----------------------- |
+| :------------: | :-----------------------: |
 | `/dev/ttyS0`           | mini UART             |
 | `/dev/ttyAMA0`           | 第一个 PL011（UART0） |
 | `/dev/serial0`           | 主 UART               |
@@ -2051,16 +2078,16 @@ dtparam=krnbt=off
 >
 > 如果 mini UART 是主要的，或蓝牙被禁用，则默认情况下禁用 mini UART。
 
-为了使用 mini UART，你需要配置树莓派以使用固定的 VPU 核心时钟频率。这是因为 mini UART 时钟与 VPU 核心时钟关联，因此当核心时钟频率发生变化时，UART 波特率也会发生变化。可以将 enable_uart 和 core_freq 设置添加到 config.txt 中，以修改 mini UART 的行为。以下表总结了可能的组合：
+为了使用 mini UART，你需要配置树莓派以使用固定的 VPU 核心时钟频率。这是因为 mini UART 时钟与 VPU 核心时钟关联，因此当核心时钟频率发生变化时，UART 波特率也会发生变化。可以将 `enable_uart` 和 `core_freq` 设置添加到 `config.txt` 中，以修改 mini UART 的行为。以下表总结了可能的组合：
 
 | mini UART 的设置 | 核心时钟                      | 结果                                                                                 |
-| ------------------ | ------------------------------- | -------------------------------------------------------------------------------------- |
+| :------------------: | :-------------------------------: | -------------------------------------------------------------------------------------- |
 | 主 UART          | 变量                          | mini UART 已禁用                                                                     |
-| 主 UART          | 通过设置 enable_uart=1 来修复 | 启用 mini UART，核心时钟固定为 250MHz；如果设置 force_turbo=1，则为 VPU 超频频率 |
+| 主 UART          | 通过设置 `enable_uart=1` 来修复 | 启用 mini UART，核心时钟固定为 250MHz；如果设置 `force_turbo=1`，则为 VPU 超频频率 |
 | 次要 UART        | 可变                          | mini UART 已禁用                                                                     |
-| 二级 UART        | 通过设置 core_freq=250 来修复 | mini UART 已启用                                                                     |
+| 二级 UART        | 通过设置 `core_freq=250` 修复 | mini UART 已启用                                                                     |
 
-参数 enable_uart 的默认状态取决于哪个 UART 是主 UART：
+参数 `enable_uart` 的默认状态取决于哪个 UART 是主 UART：
 
 | 主 UART               | 启用 `_uart` 参数的默认状态 |
 | ----------------------- | -------------------------- |
@@ -2069,20 +2096,20 @@ dtparam=krnbt=off
 
 ### 禁用 Linux 串口控制台
 
-在默认情况下，主 UART 被分配给 Linux 控制台。如果你希望将主 UART 用于其他目的，你必须重新配置树莓派系统。这可以通过使用 `raspi-config` 来实现：
+在默认情况下，主 UART 被分配给 Linux 控制台。如果你希望将主 UART 用于其他目的，你必须重新配置树莓派系统。这可以通过使用 [`raspi-config`](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config) 来实现：
 
-* 启动 raspi-config: sudo raspi-config
-* 选择选项 3 - 接口选项
-* 选择选项 P6 - 串口端口
-* 在提示符 Would you like a login shell to be accessible over serial? 处，回答'否'
-* 在提示符 Would you like the serial port hardware to be enabled? 处，回答“是”
-* 退出 raspi-config 并重启树莓派，以使修改生效
+* 启动 raspi-config：`sudo raspi-config`
+* 选择  option 3 - Interface Options
+* 选择 option P6 - Serial Port
+* 在提示符 `Would you like a login shell to be accessible over serial?` 处，回答“No”
+* 在提示符 `Would you like the serial port hardware to be enabled?` 处，回答“Yes”
+* 退出 `raspi-config` 并重启树莓派，以使修改生效
 
 ### 启用 Linux 的早期控制台
 
-尽管 Linux 内核在引导过程中，相对较早地启动了 UART，但仍然比一些关键基础设施设置晚得多。如果得不到这些早期阶段的内核日志信息，在那个时间段出现的故障可能很难诊断，要为其中某个 UART 启用 earlycon 支持，请根据主要 UART 的选择，向 cmdline.txt 添加以下某选项：
+尽管 Linux 内核在引导过程中，相对较早地启动了 UART，但仍然比一些关键基础设施设置晚得多。如果得不到这些早期阶段的内核日志信息，在那个时间段出现的故障可能很难诊断，要为其中某个 UART 启用 `earlycon` 支持，请根据主 UART 的选择，向 cmdline.txt 添加以下某选项：
 
-对于树莓派 5，以下配置，earlycon 输出仅出现在调试连接器上（3 针）：
+对于树莓派 5，以下配置，`earlycon` 输出仅出现在调试连接器上（3 针）：
 
 ```
 earlycon=pl011,0x107d001000,115200n8
@@ -2117,15 +2144,15 @@ earlycon=pl011,mmio32,0x20201000
 
 ### UART 和设备树
 
-在内核 GitHub 中，可以找到各种 UART 设备树叠加定义。最有用的两个叠加是 disable-bt 和 miniuart-bt。
+在[内核 GitHub](https://github.com/raspberrypi/linux) 中，可以找到各种 UART 设备树叠加层定义。最有用的两个叠加层是 [`disable-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/disable-bt-overlay.dts) 和 [`miniuart-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/miniuart-bt-overlay.dts)。
 
-disable-bt 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主 UART。你还必须禁用初始化调制解调器的系统服务，以防它连接到 UART，使用 `sudo systemctl disable hciuart|。
+`disable-bt` 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主 UART。你还必须禁用初始化调制解调器的系统服务，以防它连接到 UART，使用 `sudo systemctl disable hciuart`。
 
-miniuart-bt 将蓝牙功能切换到使用 mini UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini UART 限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
+`miniuart-bt` 将蓝牙功能切换到使用 mini UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini UART 限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
 
-叠加层 uart2、uart3、uart4 和 uart5 用于在树莓派 4 上启用四个额外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 `/boot/firmware/overlays/README`，或运行 `dtoverlay -h overlay-name` 查看描述和使用信息。
+叠加层 `uart2`、`uart3`、`uart4` 和 `uart5` 用于在树莓派 4 上启用四个额外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 `/boot/firmware/overlays/README`，或运行 `dtoverlay -h overlay-name` 查看描述和使用信息。
 
-向 config.txt 文件添加一行以应用设备树叠加。请注意，文件名的 `-overlay.dts` 部分将被移除。例如：
+向 `config.txt` 文件添加一行以应用[设备树叠加层](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。请注意，文件名的 `-overlay.dts` 部分将被移除。例如：
 
 ```
 dtoverlay=disable-bt
@@ -2144,17 +2171,17 @@ mini UART 具有较小的 FIFO。加上缺乏流量控制，这使得在更高�
 * 没有奇偶校验位
 * 没有接收超时中断
 
-迷你 UART 和 BCM2835 的 PL011 实现均不带 DCD、DSR、DTR 和 RI 信号。
+mini UART 和 BCM2835 的 PL011 实现均不带 DCD、DSR、DTR 和 RI 信号。
 
-可在 SoC 外设文档中找到进一步的 mini UART 文档。
+可在 [SoC 外设文档](https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf?_gl=1*oiqbws*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3MjM3Ni4zNi4wLjE3MjA5NzIzNzYuMC4wLjA.)中找到进一步的 mini UART 文档。
 
-## 设备树、叠加和参数
+## 设备树、叠加层和参数
 
 树莓派内核和固件使用设备树（DT）来描述硬件。这些设备树可能包括用于控制板载功能的 DT 参数。DT 叠加层允许描述和配置可选外部硬件，并支持更多控制参数。
 
-固件加载程序（ start.elf 及其变体）负责加载 DTB（设备树块 - 一种机器可读的 DT 文件）。它根据板的修订号选择要加载的 DTB，并进行修改以进一步定制。这种运行时定制避免了许多只有细微差异的 DTB 的需求。
+固件加载程序（`start.elf` 及其变体）负责加载 DTB（设备树块 - 一种机器可读的 DT 文件）。它根据板的修订号选择要加载的 DTB，并进行修改以进一步定制。这种运行时定制避免了许多只有细微差异的 DTB 的需求。
 
-用户提供的参数在 config.txt 中被扫描，以及任何叠加层及其参数，然后应用。加载程序检查结果以了解（例如）要用于控制台的任何 UART。最后，它启动内核，传递指向合并 DTB 的指针。
+用户提供的参数在 `config.txt` 中被扫描，以及任何叠加层及其参数，然后应用。加载程序检查结果以了解（例如）要用于控制台的任何 UART。最后，它启动内核，传递指向合并 DTB 的指针。
 
 ### 设备树
 
@@ -2164,11 +2191,11 @@ mini UART 具有较小的 FIFO。加上缺乏流量控制，这使得在更高�
 >
 >切记，DT 应是与操作系统无关的，因此任何 Linux 的特定内容都不应出现在其中。
 
-设备树表示硬件配置，以节点层次结构的形式呈现。每个节点可以包含属性和子节点。属性是命名的字节数组，可以包含字符串、数字（大端序）、任意字节序列以及二者的任意组合。类比于文件系统，节点是目录，属性是文件。树中节点和属性的位置可以用路径描述，使用斜杠作为分隔符，单个斜杠（ `/` ）表示根。
+设备树表示硬件配置，以节点层次结构的形式呈现。每个节点可以包含属性和子节点。属性是命名的字节数组，可以包含字符串、数字（大端序）、任意字节序列以及二者的任意组合。类比于文件系统，节点是目录，属性是文件。树中节点和属性的位置可以用路径描述，使用斜杠作为分隔符，单个斜杠(`/`)表示 root。
 
-#### DTS 基本语法
+#### DTS 基础语法
 
-设备树通常以一种称为设备树源（DTS）的文本形式编写，并存储在具有 `.dts` 后缀的文件中。DTS 语法类似于 C 语言，使用大括号进行分组，并在每行末尾使用分号。请注意，DTS 在封闭大括号后需要分号：将其视为 C struct 而非函数。编译后的二进制格式称为扁平设备树（FDT）或设备树 Blob（DTB），存储在 `.dtb` 文件中。
+设备树通常以一种称为设备树源（DTS）的文本形式编写，并存储在具有 `.dts` 后缀的文件中。DTS 语法类似于 C 语言，使用大括号进行分组，并在每行末尾使用分号。请注意，DTS 在封闭大括号后需要分号：将其视为 C `struct` 而非函数。编译后的二进制格式称为扁平设备树（FDT）或 DTB，存储在 `.dtb` 文件中。
 
 以下是 `.dts` 格式中的简单树：
 
@@ -2206,13 +2233,13 @@ mini UART 具有较小的 FIFO。加上缺乏流量控制，这使得在更高�
  此树包含：
 
 * 必需的标题： `/dts-v1/`
-* 包含另一个 DTS 文件，传统上命名为 `*.dtsi`，类似于 C 中的 .h 头文件
+* 包含另一个 DTS 文件，传统上命名为 `*.dtsi`，类似于 C 中的头文件 `.h` 
 * 单个根节点： `/`
-* 一对子节点： node1 和 node2
-* 一些节点的子节点： child-node1 和 child-node2
-* 一个标签（ cousin ）和对该标签的引用（ `&cousin` ）
+* 一对子节点：`node1` 和 `node2`
+* 一些节点的子节点：`child-node1` 和 `child-node2`
+* 一个标签（`cousin`）和对该标签的引用(`&cousin`)
 * 散布在树中的几个属性
-* 一个重复的节点 ( `/node2` )
+* 一个重复的节点 (`/node2`)
 
 属性是简单的键值对，其中值可以是空的，也可以包含任意字限流。虽然数据类型没有编码在数据结构中，但在设备树源文件中可以表达一些基本数据表示。
 
@@ -2248,7 +2275,7 @@ string-list = "red fish", "blue fish";
 
 #### 有关 `/include/` 的一则说明
 
-`/include/` 指令实现了简单的文本包含，类似于 C 的 #include 指令，但是设备树编译器的一个特性导致不同的使用模式。鉴于节点是命名的，可能带有绝对路径，因此在 DTS 文件（及其包含文件）中可能会出现相同的节点两次。当这种情况发生时，节点和属性被合并，根据需要交错和覆盖属性（后续值会覆盖先前的值）。
+`/include/` 指令实现了简单的文本包含，类似于 C 的 `#include` 指令，但是设备树编译器的一个特性导致不同的使用模式。鉴于节点是命名的，可能带有绝对路径，因此在 DTS 文件（及其包含文件）中可能会出现相同的节点两次。当这种情况发生时，节点和属性被合并，根据需要交错和覆盖属性（后续值会覆盖先前的值）。
 
 在上面的示例中，`/node2` 的第二次出现会导致将新属性添加到原始属性中：
 
@@ -2269,30 +2296,43 @@ string-list = "red fish", "blue fish";
 
 树的一部分经常需要引用另一部分，有四种方法可以做到这一点：
 
-路径字符串类似于文件系统路径，例如 `/soc/i2s@7e203000` 是 BCM2835 和 BCM2836 中 I²S 设备的完整路径。标准 API 不会创建到属性的路径，例如 `/soc/i2s@7e203000/status`：所以，你应首先找到一个节点，然后选择该节点的属性。
+**Path strings**
 
-Phandles 是分配给节点的唯一 32 位整数，在其 phandle 属性中。出于历史原因，你可能还会看到一个多余的匹配 linux,phandle。Phandles 按顺序编号，从 1 开始；0 不是有效的 phandle。它们通常由 DT 编译器分配，当它在整数上下文中遇到对节点的引用时，通常以标签的形式。使用 phandles 引用节点的引用仅被编码为相应的整数（单元）值；没有标记表明它们应被解释为 phandles，因为这是应用程序定义的。
+　　类似于文件系统路径，例如 `/soc/i2s@7e203000` 是 BCM2835 和 BCM2836 中 I²S 设备的完整路径。标准 API 不会创建到属性的路径，例如 `/soc/i2s@7e203000/status`：所以，你应首先找到一个节点，然后选择该节点的属性。
 
-标签就像 C 中的标签为代码中的位置命名一样，DT 标签为层次结构中的节点分配名称。编译器获取标签的引用，并在字符串上下文（ `&node` ）中将其转换为路径，在整数上下文（ `<&node>` ）中将其转换为 phandle；原始标签不会出现在编译输出中。请注意，标签不包含结构；它们只是一个扁平的全局命名空间中的标记。
+**Phandles**
 
-别名类似于标签，不同之处在于它们作为索引形式出现在 FDT 输出中。它们作为 `/aliases` 节点的属性存储，每个属性将别名名称映射到路径字符串。尽管别名节点出现在源中，但路径字符串通常显示为对标签的引用（ `&node` ），而不是完全写出。解析路径字符串为节点的 DT API 通常查看路径的第一个字符，将不以斜杠开头的路径视为必须首先使用 `/aliases` 表转换为路径的别名。
+　　是分配给节点的唯一 32 位整数，在其 `phandle` 属性中。出于历史原因，你可能还会看到一个多余的匹配 `linux,phandle`。Phandles 按顺序编号，从 1 开始；0 不是有效的 phandle。它们通常由 DT 编译器分配，当它在整数上下文中遇到对节点的引用时，通常以标签的形式。使用 phandles 引用节点的引用仅被编码为相应的整数（单元）值；没有标记表明它们应被解释为 phandles，因为这是应用程序定义的。
+
+**Labels**
+
+　　就像 C 中的标签为代码中的位置命名一样，DT 标签为层次结构中的节点分配名称。编译器获取标签的引用，并在字符串上下文(`&node`)中将其转换为路径，在整数上下文(`<&node>`)中将其转换为 phandle；原始标签不会出现在编译输出中。请注意，标签不包含结构；它们只是一个扁平的全局命名空间中的标记。
+
+**Aliases**
+
+　　类似于标签，不同之处在于它们作为索引形式出现在 FDT 输出中。它们作为 `/aliases` 节点的属性存储，每个属性将别名名称映射到路径字符串。尽管别名节点出现在源中，但路径字符串通常显示为对标签的引用(`&node`)，而不是完全写出。解析路径字符串为节点的 DT API 通常查看路径的第一个字符，将不以斜杠开头的路径视为必须首先使用 `/aliases` 表转换为路径的别名。
 
 #### 设备树语义
 
 如何构建设备树，以及如何最好地使用它来捕获一些硬件的配置，是一个庞大而复杂的主题。有许多可用资源，其中一些列在下面，但有几点值得强调：
 
-* compatible 属性是硬件描述和驱动软件之间的链接。当操作系统遇到具有 compatible 属性的节点时，它会在其设备驱动程序数据库中查找最佳匹配项。在 Linux 中，这通常会导致驱动程序模块被自动加载，前提是它已经被适当标记并且没有被列入黑名单。
-* status 属性指示设备是启用还是禁用。如果 status 是 ok，okay 或不存在，则设备已启用。否则，status 应该是 disabled，以便禁用设备。将设备放置在一个 .dtsi 文件中并将状态设置为 disabled 可以很有用。然后，派生配置可以包括该 .dtsi 并设置所需设备的状态为 okay。
+* `compatible`
 
-### 设备树叠加
+　　属性是硬件描述和驱动软件之间的链接。当操作系统遇到具有 compatible 属性的节点时，它会在其设备驱动程序数据库中查找最佳匹配项。在 Linux 中，这通常会导致驱动程序模块被自动加载，前提是它已经被适当标记并且没有被列入黑名单。
+  
+* `status`
 
-现代片上系统（SoC）是一个非常复杂的设备；完整的设备树可能长达数百行。进一步将 SoC 放置在带有其他组件的板上只会使情况变得更加复杂。为了保持可管理性，特别是如果有共享组件的相关设备，将共同元素放入 .dtsi 文件中，以便从可能的多个 .dts 文件中包含，这是有道理的。
+　　属性指示设备是启用还是禁用。如果 status 是 ok，okay 或不存在，则设备已启用。否则，status 应该是 disabled，以便禁用设备。将设备放置在一个 .dtsi 文件中并将状态设置为 disabled 可以很有用。然后，派生配置可以包括该 .dtsi 并设置所需设备的状态为 okay。
 
-当像树莓派这样的系统还支持可选的插件配件，如 HATs 时，问题就变得更加复杂。最终，每种可能的配置都需要一个设备树来描述它，但假如考虑到所有不同的基本型号和大量可用的配件，组合的数量开始迅速增加。
+### 设备树叠加层
 
-需要的是一种方法来描述这些可选组件，使用部分设备树，然后通过采用基本 DT 并添加一些可选元素来构建完整的树。你可以这样做，这些可选元素称为"叠加"。
+现代片上系统（SoC）是一个非常复杂的设备；完整的设备树可能长达数百行。进一步将 SoC 放置在带有其他组件的板上只会使情况变得更加复杂。为了保持可管理性，特别是如果有共享组件的相关设备，将共同元素放入 `.dtsi` 文件中，以便从可能的多个 `.dts` 文件中包含，这是有道理的。
 
-除非你想要学习如何为树莓派编写叠加，否则你可能更喜欢跳转到使用设备树。
+当像树莓派这样的系统还支持可选的插件配件，如 HAT 时，问题就变得更加复杂。最终，每种可能的配置都需要一个设备树来描述它，但假如考虑到所有不同的基本型号和大量可用的配件，组合的数量开始迅速增加。
+
+需要的是一种方法来描述这些可选组件，使用部分设备树，然后通过采用基本 DT 并添加一些可选元素来构建完整的树。你可以这样做，这些可选元素称为"叠加层"。
+
+除非你想要学习如何为树莓派编写叠加层，否则你可能更喜欢跳转到[使用设备树](https://www.raspberrypi.com/documentation/computers/configuration.html#part3)。
 
 #### 片段
 
@@ -2319,9 +2359,9 @@ DT 叠加层包含多个片段，每个片段都针对一个节点及其子节�
 };
 ```
 
-字符串 compatible 标识这是为 BCM2835 设计的，这是树莓派 SoC 的基本架构；如果叠加层使用了树莓派 4 的功能，则 brcm,bcm2711 是正确的值，否则 brcm,bcm2835 可用于所有树莓派叠加层。然后是第一个（在这种情况下是唯一的）片段。片段应从零开始编号。不遵守这一点可能导致一些或所有片段被忽略。
+字符串 `compatible` 标识这是为 BCM2835 设计的，这是树莓派 SoC 的基本架构；如果叠加层使用了树莓派 4 的功能，则 `brcm,bcm2711` 是正确的值，否则 brcm,bcm2835 可用于所有树莓派叠加层。然后是第一个（在这种情况下是唯一的）片段。片段应从零开始编号。不遵守这一点可能导致一些或所有片段被忽略。
 
-每个片段由两部分组成：一个 target 属性，用于标识要应用叠加层的节点；以及 **overlay** 本身，其主体将添加到目标节点。上面的示例可以解释为如果它是这样编写的：
+每个片段由两部分组成：一个 `target` 属性，用于标识要应用叠加层的节点；以及 `__overlay__` 本身，其主体将添加到目标节点。上面的示例可以解释为如果它是这样编写的：
 
 ```
 /dts-v1/;
@@ -2340,9 +2380,9 @@ DT 叠加层包含多个片段，每个片段都针对一个节点及其子节�
 };
 ```
 
-使用足够新版本的 dtc，你可以按照上述示例编写并获得相同的输出，但一些自制工具尚不理解这种格式。目前，应将希望包含在标准树莓派系统内核中的任何叠加层以旧格式编写。
+使用足够新版本的 `dtc`，你可以按照上述示例编写并获得相同的输出，但一些自制工具尚不理解这种格式。目前，应将希望包含在标准树莓派系统内核中的任何叠加层以旧格式编写。
 
-将该叠加层与标准树莓派基础设备树（例如 bcm2708-rpi-b-plus.dtb ）合并的效果，前提是叠加层在之后加载，将启用 I²S 接口，将其状态修改为 okay。但是，如果尝试使用以下方式编译此叠加层：
+将该叠加层与标准树莓派基础设备树（例如 `bcm2708-rpi-b-plus.dtb`）合并的效果，前提是叠加层在之后加载，将启用 I²S 接口，将其状态修改为 `okay`。但是，如果尝试使用以下方式编译此叠加层：
 
 ```
 $ dtc -I dts -O dtb -o 2nd.dtbo 2nd-overlay.dts
@@ -2354,15 +2394,15 @@ $ dtc -I dts -O dtb -o 2nd.dtbo 2nd-overlay.dts
 Label or path i2s not found
 ```
 
-这并不太意外，因为没有提及基础 .dtb 或 .dts 文件，以便编译器找到 i2s 标签。
+这并不太意外，因为没有提及基础 `.dtb` 或 `.dts` 文件，以便编译器找到标签 `i2s`。
 
-再试一次，这次使用原始示例并添加 `-@` 选项以允许未解决的引用（和 -Hepapr 以去除一些混乱）：
+再试一次，这次使用原始示例并添加选项 `-@` 以允许未解决的引用（和 `-Hepapr` 以去除一些混乱）：
 
 ```
 $ dtc -@ -Hepapr -I dts -O dtb -o 1st.dtbo 1st-overlay.dts
 ```
 
-如果 dtc 返回关于第三行的错误，则它没有覆盖工作所需的扩展。运行 `sudo apt install device-tree-compiler`，然后再试一次 - 这次，编译应该成功完成。请注意，适当的编译器也可在内核树中作为 scripts/dtc/dtc 使用，当使用 dtbs make 目标时构建：
+如果 `dtc` 返回关于第三行的错误，则它没有覆盖工作所需的扩展。运行 `sudo apt install device-tree-compiler`，然后再试一次。这次，编译应该成功完成。请注意，适当的编译器也可在内核树中作为 `scripts/dtc/dtc` 使用，当使用 `dtbs` make target 时构建：
 
 ```
 $ make ARCH=arm dtbs
@@ -2418,21 +2458,21 @@ $ fdtdump 1st.dtbo
 };
 ```
 
-在文件结构的详细描述之后，有我们的片段。但请仔细观察 - 我们在 `&i2s` 处写了什么，现在却写成了 `0xffffffff`，这表明发生了一些奇怪的事情（较旧版本的 dtc 可能会写成 0xdeadbeef ）。编译器还添加了一个包含唯一（对于此叠加层而言）的小整数的 phandle 属性，以指示该节点具有标签，并用相同的小整数替换了对标签的所有引用。
+在文件结构的详细描述之后，有我们的片段。但请仔细观察 - 我们在 `&i2s` 处写了什么，现在却写成了 `0xffffffff`，这表明发生了一些奇怪的事情（较旧版本的 dtc 可能会写成 `0xdeadbeef`）。编译器还添加了一个包含唯一（对于此叠加层而言）的小整数的 `phandle` 属性，以指示该节点具有标签，并用相同的小整数替换了对标签的所有引用。
 
 在片段之后有三个新节点：
 
-* **symbols** 列出了覆盖中使用的标签（ test_label 在这里），以及带有标签节点的路径。这个节点是如何处理未解析符号的关键。
-* **fixups** 包含一个属性映射列表，将未解析符号的名称映射到需要使用目标节点的 phandle 进行修补的片段内单元格路径列表。在这种情况下，路径是到 target 的 0xffffffff 值，但片段可能包含其他未解析引用，这将需要额外的修复。
-* **local_fixups** 保存了存在于叠加层内的标签引用的位置 - test_ref 属性。这是必需的，因为执行合并的程序必须确保 phandle 编号是连续且唯一的。
+* `__symbols__` 列出了覆盖中使用的标签（ `test_label` 在这里），以及带有标签节点的路径。这个节点是如何处理未解析符号的关键。
+* `__fixups__` 包含一个属性映射列表，将未解析符号的名称映射到需要使用目标节点的 phandle 进行修补的片段内单元格路径列表。在这种情况下，路径是到 `target` 的 `0xffffffff` 值，但片段可能包含其他未解析引用，这将需要额外的修复。
+* `__local_fixups__` 保存了存在于叠加层内的标签引用的位置 - `test_ref` 属性。这是必需的，因为执行合并的程序必须确保 phandle 编号是连续且唯一的。
 
-在 1.3 节中提到“原始标签不会出现在编译输出中”，但是当使用 `-@` 开关时，情况并非如此。相反，每个标签都会导致 **symbols** 节点中的一个属性，将标签映射到路径，就像 aliases 节点一样。实际上，机制如此相似，以至于在解析符号时，树莓派加载程序会在没有 **symbols** 节点的情况下搜索“别名”节点。曾经这非常有用，因为提供足够的别名允许使用非常旧的 dtc 版本来构建基本的 DTB 文件，但幸运的是，那已经是远古历史了。
+在 [1.3 节](https://www.raspberrypi.com/documentation/computers/configuration.html#part1.3)中提到“原始标签不会出现在编译输出中”，但是当使用 `-@` 开关时，情况并非如此。相反，每个标签都会导致节点 `__symbols__` 中的一个属性，将标签映射到路径，就像节点 `aliases` 一样。实际上，机制如此相似，以至于在解析符号时，树莓派加载程序会在没有 `__symbols__` 节点的情况下搜索“别名”节点。这在曾经非常有用，因为提供足够的别名允许使用非常旧的 `dtc` 版本来构建基本的 DTB 文件，但幸运的是，那已经是远古历史了。
 
 #### 设备树参数
 
-为了避免需要大量的设备树叠加，减少外围设备用户修改 DTS 文件的需要，树莓派加载程序支持一项新功能 - 设备树参数。这允许使用命名参数对 DT 进行小的修改，类似于内核模块从 modprobe 和内核命令行接收参数的方式。参数可以由基本 DTBs 和叠加暴露，包括 HAT 叠加。
+为了避免需要大量的设备树叠加层，减少外围设备用户修改 DTS 文件的需要，树莓派加载程序支持一项新功能 - 设备树参数。这允许使用命名参数对 DT 进行小的修改，类似于内核模块从 `modprobe` 和内核命令行接收参数的方式。参数可以由基本 DTBs 和叠加层暴露，包括 HAT 叠加层。
 
-通过在根节点添加一个 **overrides** 节点来定义参数。它包含属性，其名称是选择的参数名称，其值是一个序列，包括目标节点的 phandle（对标签的引用）和指示目标属性的字符串；支持字符串、整数（单元）和布尔属性。
+通过在根节点添加一个 `__overrides__` 节点来定义参数。它包含属性，其名称是选择的参数名称，其值是一个序列，包括目标节点的 phandle（对标签的引用）和指示目标属性的字符串；支持字符串、整数（单元）和布尔属性。
 
 ##### 字符串参数
 
@@ -2442,9 +2482,9 @@ $ fdtdump 1st.dtbo
 name = <&label>,"property";
 ```
 
-其中 label 和 property 将被适当的值替换。字符串参数可能导致它们的目标属性增长、缩小或被创建。
+其中 `label` 和 `property` 将被适当的值替换。字符串参数可能导致它们的目标属性增长、缩小或被创建。
 
-请注意，名为 status 的属性被特殊对待；`非零/true/yes/on` 值将被转换为字符串 "okay"，而`零/false/no/off` 将变为 "disabled"。
+请注意，名为 `status` 的属性被特殊对待；非零/true/yes/on 值将被转换为字符串 `"okay"`，而 零/false/no/off 将变为 `"disabled"`。
 
 ##### 整数参数
 
@@ -2457,7 +2497,7 @@ name = <&label>,"property:offset"; // 32-bit
 name = <&label>,"property#offset"; // 64-bit
 ```
 
-在这里，label，property 和 offset 将被适当的值替换；偏移量以字节为单位相对于属性的起始位置指定（默认为十进制），前面的分隔符指定参数的大小。与早期实现不同，整数参数可以引用不存在的属性或超出现有属性末尾的偏移量。
+在这里，`label`、`property` 和 `offset` 将被适当的值替换；偏移量以字节为单位相对于属性的起始位置指定（默认为十进制），前面的分隔符指定参数的大小。与早期实现不同，整数参数可以引用不存在的属性或超出现有属性末尾的偏移量。
 
 ##### 布尔参数
 
@@ -2467,13 +2507,13 @@ name = <&label>,"property#offset"; // 64-bit
 boolean_property; // Set 'boolean_property' to true
 ```
 
-通过不定义属性将其分配值 false。布尔参数的声明如下，用适当的值替换 label 和 property 占位符：
+通过不定义属性将其分配值 `false`。布尔参数的声明如下，用适当的值替换占位符 `label` 和 `property` ：
 
 ```
 name = <&label>,"property?";
 ```
 
-倒置布尔在应用相同方式之前反转输入值，就像常规布尔一样；它们的声明方式类似，但使用 ! 表示反转：
+倒置布尔在应用相同方式之前反转输入值，就像常规布尔一样；它们的声明方式类似，但使用 `!` 表示反转：
 
 ```
 name = <&label>,"<property>!";
@@ -2489,7 +2529,7 @@ name = <&label>,"<property>!";
 mac_address = <&ethernet0>,"local_mac_address[";
 ```
 
-选择 [ 是为了与声明字节字符串的 DT 语法匹配：
+选择 `[` 是为了与声明字节字符串的 DT 语法匹配：
 
 ```
 local_mac_address = [aa bb cc dd ee ff];
@@ -2511,13 +2551,13 @@ __overrides__ {
 
 >**注意**
 >
->甚至可以使用单个参数针对不同类型的属性。你可以合理地将“启用”参数连接到 status 字符串、包含零或一的单元格以及适当的布尔属性。
+>甚至可以使用单个参数针对不同类型的属性。你可以合理地将“启用”参数连接到字符串 `status`、包含零或一的单元格以及适当的布尔属性。
 
 ##### 文本分配
 
 DT 参数机制允许从同一参数中修补多个目标，但其效用受到限制，因为必须将相同的值写入所有位置（除了格式转换和从反转布尔值中获得的否定）。嵌入式文字分配的添加允许参数写入任意值，而不管用户提供的参数值如何。
 
-分配出现在声明的末尾，并由 = 表示：
+分配出现在声明的末尾，并由 `=` 表示：
 
 ```
 str_val  = <&target>,"strprop=value";              // 1
@@ -2534,7 +2574,7 @@ exp_led = <&led1>,"gpios:0=",<&gpio>,
           <&led1>,"gpios:4";
 ```
 
-应用叠加时，标签将按照通常的方式针对基本 DTB 进行解析。最好将多部分参数拆分到多行，以便更容易阅读 - 随着单元值分配的增加，这变得更加必要。
+应用叠加层时，标签将按照通常的方式针对基本 DTB 进行解析。最好将多部分参数拆分到多行，以便更容易阅读 - 随着单元值分配的增加，这变得更加必要。
 
 请记住，除非应用了参数，否则参数不起作用 - 查找表中的默认值将被忽略，除非使用参数名称而不指定值。
 
@@ -2547,7 +2587,7 @@ phonetic = <&node>,"letter{a=alpha,b=bravo,c=charlie,d,e,='tango uniform'}";
 bus      = <&fragment>,"target:0{0=",<&0>,"1=",<&1>,"}";
 ```
 
-没有 =value 的键意味着将键用作值，没有键的 = 表示在没有匹配项的情况下是默认值，并且以逗号开始或结束列表（或在任何地方使用空键=值对）表示未匹配的输入值应该保持不变；否则，找不到匹配项将会报错。
+没有 `=value` 的键意味着将键用作值，没有键的 = 表示在没有匹配项的情况下是默认值，并且以逗号开始或结束列表（或在任何地方使用空键=值对）表示未匹配的输入值应该保持不变；否则，找不到匹配项将会报错。
 
 >**注意**
 >
@@ -2555,13 +2595,13 @@ bus      = <&fragment>,"target:0{0=",<&0>,"1=",<&1>,"}";
 
 >**注意**
 >
->由于查找表操作的是输入值，而文字赋值会忽略它们，因此不可能将两者结合在一起 - 查找声明中 } 结束后的字符被视为错误。
+>由于查找表操作的是输入值，而文字赋值会忽略它们，因此不可能将两者结合在一起 - 查找声明中 `}` 结束后的字符被视为错误。
 
-##### 叠加/片段参数
+##### 叠加层/片段参数
 
 描述中所述的 DT 参数机制存在许多限制，包括缺乏创建整数数组的简便方法，以及无法创建新节点。克服其中一些限制的方法是有条件地包含或排除某些片段。
 
-通过将 **overlay** 节点重命名为 **dormant**，可以将片段从最终合并过程中排除（禁用）。参数声明语法已扩展，以允许否则非法的零目标 phandle 指示以下字符串包含片段或叠加范围的操作。到目前为止，已实现了四种操作：
+通过将 `__overlay__` 节点重命名为 `__dormant__`，可以将片段从最终合并过程中排除（禁用）。参数声明语法已扩展，以允许否则非法的零目标 phandle 指示以下字符串包含片段或叠加层范围的操作。到目前为止，已实现了四种操作：
 
 ```
 +<n>    // Enable fragment <n>
@@ -2578,15 +2618,15 @@ conditional = <0>,"=3!4"; // Enable 3, disable 4 if value is true,
                           // otherwise disable 3, enable 4.
 ```
 
--rtc 叠加使用这种技术。
+叠加层 `i2c-rtc` 使用这种技术。
 
 ##### 特殊属性
 
-一些属性名称，在被参数定位时，会得到特殊处理。你可能已经注意到的一个 - status - 将布尔值转换为 okay 表示 true，disabled 表示 false。
+一些属性名称，在被参数定位时，会得到特殊处理。你可能已经注意到的一个 - `status` - 将布尔值转换为 `okay` 表示 true，`disabled` 表示 false。
 
-分配给 bootargs 属性会将其附加到其末尾，而不是覆盖它 - 这是如何向内核命令行添加设置的方式。
+分配给 `bootargs` 属性会将其附加到其末尾，而不是覆盖它 - 这是如何向内核命令行添加设置的方式。
 
-reg 属性用于指定设备地址 - 内存映射硬件块的位置， 总线上的地址等。子节点的名称应该用十六进制地址加以限定，使用 @ 作为分隔符：
+`reg` 属性用于指定设备地址 - 内存映射硬件块的位置，I²C 总线上的地址等。子节点的名称应该用十六进制地址加以限定，使用 `@` 作为分隔符：
 
 ```
 bmp280@76 {
@@ -2595,19 +2635,19 @@ bmp280@76 {
 };
 ```
 
-当分配给 reg 属性时，父节点名称的地址部分将被替换为分配的值。这可用于在多次使用相同叠加时防止节点名称冲突 - 这是 i2c-gpio 叠加使用的技术。
+当分配给 `reg` 属性时，父节点名称的地址部分将被替换为分配的值。这可用于在多次使用相同叠加层时防止节点名称冲突 - 这是 `i2c-gpio` 叠加层使用的技术。
 
-name 属性是一个伪属性 - 它不应出现在 DT 中，但是对其赋值会导致其父节点的名称修改为分配的值。与 reg 属性一样，这可以用于给节点提供唯一的名称。
+`name` 属性是一个伪属性 - 它不应出现在 DT 中，但是对其赋值会导致其父节点的名称修改为分配的值。与 `reg` 属性一样，这可以用于给节点提供唯一的名称。
 
-##### 叠加映射文件
+##### 叠加层映射文件
 
 树莓派 4 的推出，围绕 BCM2711 SoC 构建，带来了许多变化；其中一些变化是额外的接口，另一些是对现有接口进行的修改（或删除）。有一些新的叠加层专为树莓派 4 设计，这些叠加层在旧硬件上没有意义，例如启用新的 SPI、I²C 和 UART 接口的叠加层，但其他叠加层即使控制着新设备上仍然相关的功能，也不能正确应用。
 
-因此，有必要针对具有不同硬件的多个平台定制叠加方法。在单个 .dtbo 文件中支持它们将需要大量使用隐藏的（“休眠”）片段，并切换到按需符号解析机制，以便不需要的丢失符号不会导致失败。一个更简单的解决方案是添加一个功能，根据当前平台将叠加名称映射到几个实现文件中的一个。
+因此，有必要针对具有不同硬件的多个平台定制叠加层方法。在单个 .dtbo 文件中支持它们将需要大量使用隐藏的（“休眠”）片段，并切换到按需符号解析机制，以便不需要的丢失符号不会导致失败。一个更简单的解决方案是添加一个功能，根据当前平台将叠加层名称映射到几个实现文件中的一个。
 
-叠加映射是固件在引导时加载的文件。它以 DTS 源格式编写 - overlay_map.dts，编译为 overlay_map.dtb 并存储在叠加目录中。
+叠加层映射是固件在引导时加载的文件。它以 DTS 源格式编写 - `overlay_map.dts`，编译为 `overlay_map.dtb` 并存储在叠加层目录中。
 
-这是当前地图文件的摘录（请参阅完整版本）:
+这是当前映射文件的摘录（请参阅[完整版本](https://github.com/raspberrypi/linux/blob/rpi-6.6.y/arch/arm/boot/dts/overlays/overlay_map.dts)）:
 
 ```
 / {
@@ -2635,33 +2675,33 @@ name 属性是一个伪属性 - 它不应出现在 DT 中，但是对其赋值�
 };
 ```
 
-每个节点都有一个需要特殊处理的叠加名称。每个节点的属性要么是平台名称，要么是少数几个特殊指令之一。当前支持的平台有 bcm2835，其中包括所有围绕 BCM2835、BCM2836 和 BCM2837 SoCs 构建的树莓派，bcm2711 适用于树莓派 4B、400 和 CM4，bcm2712 适用于树莓派 5 和 CM5。
+每个节点都有一个需要特殊处理的叠加层名称。每个节点的属性要么是平台名称，要么是少数几个特殊指令之一。当前支持的平台有 `bcm2835`，其中包括所有围绕 BCM2835、BCM2836 和 BCM2837 SoC 构建的树莓派，`bcm2711` 适用于树莓派 4B、400 和 CM4，`bcm2712` 适用于树莓派 5 和 CM5。
 
-没有值的平台名称（空属性）表示当前叠加与该平台兼容；例如，uart5 与 bcm2711 平台兼容。对于平台的非空值是要使用的替代叠加的名称，请求在 BCM2712 上使用 disable-bt 会导致加载 disable-bt-pi5。未在叠加节点中包含的任何平台都与该叠加不兼容。未在映射中提到的任何叠加都假定与所有平台兼容。
+没有值的平台名称（空属性）表示当前叠加层与该平台兼容；例如，`uart5` 与 `bcm2711` 平台兼容。对于平台的非空值是要使用的替代叠加层的名称，请求在 BCM2712 上使用 `disable-bt` 会导致加载 `disable-bt-pi5`。未在叠加层节点中包含的任何平台都与该叠加层不兼容。未在映射中提到的任何叠加层都假定与所有平台兼容。
 
-第二个示例节点 - disable-bt-pi5 - 可以从 disable-bt 的内容中推断出，但这种智能是用于文件的构建，而不是用于其解释。
+第二个示例节点 - `disable-bt-pi5` - 可以从 `disable-bt` 的内容中推断出，但这种智能是用于文件的构建，而不是用于其解释。
 
-仅在 BCM2711 上使用 uart5 叠加才有意义。
+仅在 BCM2711 上使用 `uart5` 叠加层才有意义。
 
-如果未为叠加列出平台，则可能适用其中一个特殊指令：
+如果未为叠加层列出平台，则可能适用其中一个特殊指令：
 
-* renamed 指令表示叠加的新名称（应与原始名称基本兼容），但也会记录有关更名的警告。
-* deprecated 指令包含一个简要的解释性错误消息，在通用前缀 overlay '...' is deprecated: 之后将被记录。
+* `renamed` 指令表示叠加层的新名称（应与原始名称基本兼容），但也会记录有关更名的警告。
+* `deprecated` 指令包含一个简要的解释性错误消息，在通用前缀 `overlay '...' is deprecated:` 之后将被记录。
 
 链接重命名和特定于平台的实现是可能的，但要小心避免循环！
 
 记住：只有异常需要列出 - 覆盖的节点缺失意味着应该为所有平台使用默认文件。
 
-从固件中访问诊断消息已在调试中介绍。
+从固件中访问诊断消息已在[调试](https://www.raspberrypi.com/documentation/computers/configuration.html#part5.1)中介绍。
 
-dtoverlay 和 dtmerge 实用程序已扩展以支持映射文件：
+`dtoverlay` 和 `dtmerge` 工具已扩展以支持映射文件：
 
-* dtmerge 从基础 DTB 中的兼容字符串中提取平台名称。
-* dtoverlay 从 live 设备树中读取兼容字符串位于 /proc/device-tree 处，但你可以使用 -p 选项提供替代平台名称（在不同平台上进行干扰运行时很有用）。
+* `dtmerge` 从基础 DTB 中的兼容字符串中提取平台名称。
+* `dtoverlay` 从 live 设备树中读取兼容字符串位于 `/proc/device-tree` 处，但你可以使用选项 `-p` 提供替代平台名称（在不同平台上进行干扰运行时很有用）。
 
 它们都将错误、警告和任何调试输出发送到 STDERR。
 
-##### 例子
+##### 示例
 
 这里有一些不同类型的属性示例，带有修改它们的参数：
 
@@ -2678,8 +2718,8 @@ dtoverlay 和 dtmerge 实用程序已扩展以支持映射文件：
                 u16s = /bits/ 16 <0xabcd 0xef01>;
                 u32s = /bits/ 32 <0xfedcba98 0x76543210>;
                 u64s = /bits/ 64 < 0xaaaaa5a55a5a5555 0x0000111122223333>;
-                bool1; // Defaults to true
-                       // bool2 defaults to false
+                bool1; // 默认为 true
+                       // bool2 默认为 false
                 mac = [01 23 45 67 89 ab];
                 spi = <&spi0>;
             };
@@ -2726,13 +2766,13 @@ dtoverlay 和 dtmerge 实用程序已扩展以支持映射文件：
 };
 ```
 
-对于更多示例，请查看树莓派 Linux GitHub 存储库中托管的大量叠加源文件。
+对于更多示例，请查看[树莓派 Linux GitHub 存储库](https://github.com/raspberrypi/linux/tree/rpi-6.1.y/arch/arm/boot/dts/overlays)中托管的大量叠加层源文件。
 
 #### 导出标签
 
-固件中的叠加处理和使用 dtoverlay 实用程序的运行时叠加应用将在叠加中定义的标签视为私有于该叠加。这样可以避免为标签发明全局唯一名称（使它们保持简短），并且允许同一叠加多次使用而不发生冲突（前提是使用一些技巧 - 请参阅特殊属性）。
+固件中的叠加层处理和使用 `dtoverlay` 工具的运行时叠加层应用将在叠加层中定义的标签视为私有于该叠加层。这样可以避免为标签发明全局唯一名称（使它们保持简短），并且允许同一叠加层多次使用而不发生冲突（前提是使用一些技巧 - 请参阅[特殊属性](https://www.raspberrypi.com/documentation/computers/configuration.html#part2.2.9)）。
 
-有时，创建一个标签并从另一个叠加中使用它非常有用。自 2020 年 2 月 14 日发布的固件具有将某些标签声明为全局的能力 - **exports** 节点：
+有时，创建一个标签并从另一个叠加层中使用它非常有用。自 2020 年 2 月 14 日发布的固件具有将某些标签声明为全局的能力 - `__exports__` 节点：
 
 ```
     ...
@@ -2744,52 +2784,52 @@ dtoverlay 和 dtmerge 实用程序已扩展以支持映射文件：
 };
 ```
 
-当应用此叠加时，加载程序会剥离除了已导出的符号之外的所有符号，在本例中为 public，并重新编写路径，使其相对于包含标签的片段的目标。然后加载在此之后的叠加可以引用 `&public`。
+当应用此叠加层时，加载程序会剥离除了已导出的符号之外的所有符号，在本例中为 `public`，并重新编写路径，使其相对于包含标签的片段的目标。然后加载在此之后的叠加层可以引用 `&public`。
 
-#### 叠加应用程序顺序
+#### 叠加层应用程序顺序
 
-在大多数情况下，片段应用的顺序并不重要，但对于自身打补丁的叠加（其中片段的目标是叠加中的标签，称为叠加内部片段），这变得重要。在旧固件中，片段严格按顺序从上到下应用。自 2020 年 2 月 14 日发布的固件起，片段分两次应用：
+在大多数情况下，片段应用的顺序并不重要，但对于自身打补丁的叠加层（其中片段的目标是叠加层中的标签，称为叠加层内部片段），这变得重要。在旧固件中，片段严格按顺序从上到下应用。自 2020 年 2 月 14 日发布的固件起，片段分两次应用：
 
 * 首先应用并隐藏目标其他片段的片段。
 * 然后应用常规片段。
 
-这种拆分对于运行时叠加特别重要，因为第一步发生在 dtoverlay 实用程序中，第二步由内核执行（无法处理内部叠加片段）。
+这种拆分对于运行时叠加层特别重要，因为第一步发生在 `dtoverlay` 工具中，第二步由内核执行（无法处理内部叠加层片段）。
 
 ### 在树莓派上使用设备树
 
-#### DTBs，叠加和 config.txt
+#### DTB，叠加层和 `config.txt`
 
-在树莓派上，加载程序（其中之一是 start.elf 图像）的工作是将叠加与适当的基础设备树结合，然后将完全解析的设备树传递给内核。基础设备树位于 FAT 分区中与 start.elf 相邻（从 Linux /boot/firmware/ ），命名为 bcm2711-rpi-4-b.dtb，bcm2710-rpi-3-b-plus.dtb，等等。请注意，一些型号（3A+，A，A+）将使用“b” 等效型号（3B+，B，B+），分别。此选择是自动的，并允许在各种设备中使用相同的 SD 卡镜像。
+在树莓派上，加载程序（其中之一是镜像 `start.elf` ）的工作是将叠加层与适当的基础设备树结合，然后将完全解析的设备树传递给内核。基础设备树位于 FAT 分区（Linux 在 `/boot/firmware/`）中与 `start.elf` 相邻，命名为 `bcm2711-rpi-4-b.dtb`，`bcm2710-rpi-3-b-plus.dtb` 等等。请注意，某些型号（3A+，A，A+）将使用“b” 等效型号（3B+，B，B+），分别。此选择是自动的，并允许在各种设备中使用相同的 SD 卡镜像。
 
 >**注意**
 >
->DT 和 ATAGs 互斥，将 DT blob 传递给不理解它的内核将导致启动失败。固件将始终尝试加载 DT 并将其传递给内核，因为自 rpi-4.4.y 以来的所有内核都没有 DTB 将无法正常工作。你可以通过在 config.txt 中添加 device_tree= 来覆盖此设置，这将强制使用 ATAGs，对于简单的裸机内核可能很有用。
+>DT 和 ATAGs 互斥，将 DT blob 传递给不理解它的内核将导致启动失败。固件将始终尝试加载 DT 并将其传递给内核，因为自 rpi-4.4.y 以来的所有内核都没有 DTB 将无法正常工作。你可以通过在 config.txt 中添加 `device_tree=` 来覆盖此设置，这将强制使用 ATAGs，对于简单的裸机内核可能很有用。
 
-现在的加载程序支持使用 bcm2835_defconfig 进行构建，该配置选择了上游 BCM2835 支持。这个配置将导致 bcm2835-rpi-b.dtb 和 bcm2835-rpi-b-plus.dtb 被构建。如果这些文件与内核一起复制，那么加载程序将尝试默认加载其中一个 DTB。
+现在的加载程序支持使用 bcm2835_defconfig 进行构建，该配置选择了上游 BCM2835 支持。这个配置将导致 `bcm2835-rpi-b.dtb` 和 `bcm2835-rpi-b-plus.dtb` 被构建。如果这些文件与内核一起复制，那么加载程序将尝试默认加载其中一个 DTB。
 
-为了管理设备树和叠加层，加载程序支持一些 config.txt 指令：
+为了管理设备树和叠加层，加载程序支持一些 `config.txt` 指令：
 
 ```
 dtoverlay=acme-board
 dtparam=foo=bar,level=42
 ```
 
-这将导致加载程序在固件分区中查找 overlays/acme-board.dtbo，树莓派系统挂载在 /boot/firmware/ 上。然后它将搜索参数 foo 和 level，并将指定的值分配给它们。
+这将导致加载程序在固件分区中查找 `overlays/acme-board.dtbo`，树莓派系统挂载在 `/boot/firmware/` 上。然后它将搜索参数 `foo` 和 `level`，并将指定的值分配给它们。
 
 加载程序还将搜索带有已编程 EEPROM 的附加 HAT，并从那里加载支持的叠加层 - 直接或通过“overlays”目录中的名称; 这一切都在没有任何用户干预的情况下发生。
 
 有多种方法可以告诉内核正在使用设备树：
 
 * 在引导过程中，“Machine model:”内核信息具有特定于板的值，如“Raspberry Pi 2 Model B”，而非“BCM2709”。
-* /proc/device-tree 存在，并包含与 DT 的节点和属性完全相同的子目录和文件。
+* `/proc/device-tree` 存在，并包含与 DT 的节点和属性完全相同的子目录和文件。
 
-使用设备树，内核将自动搜索并加载支持指示启用设备的模块。因此，通过为设备创建适当的 DT 叠加，你可以使设备的用户无需编辑 /etc/modules；所有配置都在 config.txt 中进行，在 HAT 的情况下，甚至这一步也是不必要的。但是，请注意，诸如 i2c-dev 之类的分层模块仍然需要显式加载。
+使用设备树，内核将自动搜索并加载支持指示启用设备的模块。因此，通过为设备创建适当的 DT 叠加层，你可以使设备的用户无需编辑 `/etc/modules`；所有配置都在 `config.txt` 中进行，在 HAT 的情况下，甚至这一步也是不必要的。但是，请注意，诸如 `i2c-dev` 之类的分层模块仍然需要显式加载。
 
 反过来，由于平台设备只有在 DTB 请求时才会被创建，因此不再需要黑名单模块，这些模块过去是由板支持代码中定义的平台设备加载的结果。实际上，当前的树莓派系统镜像不包含黑名单文件（除了一些 WLAN 设备，其中有多个可用驱动程序）。
 
 #### DT 参数
 
-如上所述，DT 参数是一种方便的方式，可以对设备的配置进行小的修改。当前的基本 DTB 支持用于启用和控制板载音频、I²C、I²S 和 SPI 接口的参数，而无需使用专用叠加。在使用中，参数看起来像这样：
+如上所述，DT 参数是一种方便的方式，可以对设备的配置进行小的修改。当前的基本 DTB 支持用于启用和控制板载音频、I²C、I²S 和 SPI 接口的参数，而无需使用专用叠加层。在使用中，参数看起来像这样：
 
 ```
 dtparam=audio=on,i2c_arm=on,i2c_arm_baudrate=400000,spi=on
@@ -2797,7 +2837,7 @@ dtparam=audio=on,i2c_arm=on,i2c_arm_baudrate=400000,spi=on
 
 >**注意**
 >
->多个赋值可以放在同一行，但确保不要超过 80 个字符的限制。
+>多个赋值可以放在同一行，但要确保不超过 80 个字符的限制。
 
 
 如果你有一个定义一些参数的叠加层，可以在后续行上指定这些参数，就像这样：
@@ -2823,9 +2863,9 @@ dtoverlay=
 
 #### 特定于主板的标签和参数
 
-树莓派开发板有两个 I²C 接口。这些通常分为：一个用于 ARM，一个用于 VideoCore（GPU）。几乎在所有型号上，i2c1 属于 ARM，i2c0 属于 VC，用于控制摄像头并读取 HAT EEPROM。然而，两个早期版本的 B 型树莓派设定相反。
+树莓派开发板有两个 I²C 接口。这些通常分为：一个用于 ARM，一个用于 VideoCore（GPU）。几乎在所有型号上，`i2c1` 属于 ARM，`i2c0` 属于 VC，用于控制摄像头并读取 HAT EEPROM。然而，两个早期版本的 B 型树莓派设定相反。
 
-为了使所有树莓派都能使用一组叠加和参数，固件创建了一些特定于主板的 DT 参数。这些是：
+为了使所有树莓派都能使用一组叠加层和参数，固件创建了一些特定于主板的 DT 参数。这些是：
 
 ```
 i2c/i2c_arm
@@ -2834,7 +2874,7 @@ i2c_baudrate/i2c_arm_baudrate
 i2c_vc_baudrate
 ```
 
-这些是 i2c0，i2c1，i2c0_baudrate 和 i2c1_baudrate 的别名。建议仅在确实需要时使用 i2c_vc 和 i2c_vc_baudrate - 例如，如果你正在编程 HAT EEPROM（最好使用 i2c-gpio 叠加层使用软件 I²C 总线）。启用 i2c_vc 可能会导致树莓派相机、树莓派触摸显示屏无法正常工作。
+这些分别是 `i2c0`，`i2c1`，`i2c0_baudrate` 和 `i2c1_baudrate` 的别名。建议仅在确实需要时使用 `i2c_vc` 和 `i2c_vc_baudrate` - 例如，如果你正在编程 HAT EEPROM（最好使用 `i2c-gpio` 叠加层使用软件 I²C 总线）。启用 `i2c_vc` 可能会导致树莓派相机、树莓派触摸显示屏无法正常工作。
 
 对于编写叠加层的人，相同的别名已应用于 I²C DT 节点上的标签。因此，你应该编写：
 
@@ -2851,21 +2891,21 @@ fragment@0 {
 
 #### 扩展板（HAT）和设备树
 
-树莓派扩展板是搭载了嵌入式 EEPROM 的附加板，专为具有 40 针引脚头的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加的名称）所需的任何 DT 叠加层，此叠加层还可以公开参数。
+树莓派扩展板是搭载了嵌入式 EEPROM 的附加板，专为具有 40 针引脚头的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加层的名称）所需的任何 DT 叠加层，此叠加层还可以公开参数。
 
-HAT 叠加层在基本 DTB 之后由固件自动加载，因此其参数可在加载任何其他叠加层之前访问，或者在使用 dtoverlay= 结束叠加层范围之前访问。如果出于某种原因你想要抑制 HAT 叠加层的加载，请在任何其他 dtoverlay 或 dtparam 指令之前放置 dtoverlay=。
+HAT 叠加层在基本 DTB 之后由固件自动加载，因此其参数可在加载任何其他叠加层之前访问，或者在使用 `dtoverlay=` 结束叠加层范围之前访问。如果出于某种原因你想要抑制 HAT 叠加层的加载，请在任何其他 `dtoverlay` 或 `dtparam` 指令之前放置 `dtoverlay=`。
 
 #### 动态设备树
 
-从 Linux 4.4 开始，树莓派内核支持动态加载叠加和参数。兼容内核管理一个叠加的堆栈，这些叠加叠加在基本 DTB 之上。修改立即反映在 /proc/device-tree 中，可能导致模块被加载和平台设备被创建和销毁。
+从 Linux 4.4 开始，树莓派内核支持动态加载叠加层和参数。兼容内核管理一个叠加层的堆栈，这些叠加层叠加层在基本 DTB 之上。修改立即反映在 `/proc/device-tree` 中，可能导致模块被加载和平台设备被创建和销毁。
 
-上面提到的“堆栈”一词很重要 - 叠加只能在堆栈顶部添加和移除；修改堆栈中较低位置的内容需要首先移除其顶部的任何内容。
+上面提到的“堆栈”一词很重要 - 叠加层只能在堆栈顶部添加和移除；修改堆栈中较低位置的内容需要首先移除其顶部的任何内容。
 
-有一些用于管理叠加的新命令：
+有一些用于管理叠加层的新命令：
 
-##### dtoverlay 命令
+##### 命令 `dtoverlay` 
 
-dtoverlay 是一个命令行实用程序，可在系统运行时加载和移除叠加层，同时列出可用的叠加层并显示其帮助信息。
+`dtoverlay` 是一个命令行工具，可在系统运行时加载和移除叠加层，同时列出可用的叠加层并显示其帮助信息。
 
 使用 `dtoverlay -h` 获取使用信息：
 
@@ -2889,13 +2929,13 @@ Options applicable to most variants:
     -v          Verbose operation
 ```
 
-与 config.txt 等效不同，所有叠加的参数必须包含在同一条命令行中 - dtparam 命令仅用于基本 DTB 的参数。
+与 `config.txt` 等效不同，所有叠加层的参数必须包含在同一条命令行中 - [dtparam](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.5.2) 命令仅用于基本 DTB 的参数。
 
-修改内核状态的命令变体（添加和移除内容）需要 root 权限，因此你可能需要在命令前加上 sudo。只有在运行时应用的叠加和参数可以被卸载 - 固件应用的叠加或参数会被“烘焙”，因此不会被 dtoverlay 列出，也无法移除。
+修改内核状态的命令变体（添加和移除内容）需要 root 权限，因此你可能需要在命令前加上 `sudo`。只有在运行时应用的叠加层和参数可以被卸载 - 固件应用的叠加层或参数会被“烘焙”，因此不会被 `dtoverlay` 列出，也无法移除。
 
-##### dtparam 命令
+##### 命令 `dtparam` 
 
-dtparam 创建并加载一个覆盖层，其效果基本与在 config.txt 中使用 dtparam 指令相同。在使用上，它与具有 - 的覆盖层名称的 dtoverlay 基本等效，但存在一些差异： dtparam 将列出基础 DTB 的所有已知参数的帮助信息。仍然可以使用 dtparam -h 获取有关 dtparam 命令的帮助。在指示要移除的参数时，只能使用索引号（而非名称）。并非所有 Linux 子系统都会在运行时响应设备的添加 - I²C、SPI 和声音设备可以工作，但有些则不行。
+`dtparam` 创建并加载一个覆盖层，其效果基本与在 `config.txt` 中使用 `dtparam` 指令相同。在使用上，它与具有 - 的覆盖层名称的 `dtoverlay` 基本等效，但存在一些差异： `dtparam` 将列出基础 DTB 的所有已知参数的帮助信息。仍然可以使用 `dtparam -h` 获取有关 dtparam 命令的帮助。在指示要移除的参数时，只能使用索引号（而非名称）。并非所有 Linux 子系统都会在运行时响应设备的添加 - I²C、SPI 和声音设备可以工作，但有些则不行。
 
 ##### 撰写运行时可用覆盖层的指南
 
@@ -2903,56 +2943,78 @@ dtparam 创建并加载一个覆盖层，其效果基本与在 config.txt 中使
 
 不要在将覆盖基础 DTB 中现有节点的片段内创建节点 - 内核将重命名新节点以使其唯一。如果要修改现有节点的属性，请创建一个针对它的片段。
 
-ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用中删除叠加可能会导致内核异常，如果删除的编解码器仍在声卡中使用。实验发现设备在叠加中以片段顺序的相反顺序被删除，因此将卡的节点放在组件节点之后允许有序关闭。
+ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用中删除叠加层可能会导致内核异常，如果删除的编解码器仍在声卡中使用。实验发现设备在叠加层中以片段顺序的相反顺序被删除，因此将卡的节点放在组件节点之后允许有序关闭。
 
 ##### 注意事项
 
 在运行时加载叠加层是内核的一个最新功能，截至撰写本文时，尚无一种被接受的方法可以从用户空间执行此操作。通过将此机制的细节隐藏在命令背后，用户可以在不同内核接口标准化的情况下免受影响。
 
 * 一些叠加层在运行时的效果比其他叠加层更好。设备树的某些部分仅在引导时使用 - 使用叠加层修改它们不会产生任何效果。
-* 应用或移除一些叠加层可能会导致意外行为，因此应谨慎进行。这就是需要 sudo 的原因之一。
-* 卸载 ALSA 卡的叠加层可能会因为某些正在使用 ALSA 的活动而停滞不前 - LXPanel 音量滑块插件展示了这种效果。为了使声卡的叠加层能够被移除，lxpanelctl 实用程序已被赋予两个新选项 - alsastop 和 alsastart - 并且这些选项在加载或卸载叠加层之前和之后分别从辅助脚本 dtoverlay-pre 和 dtoverlay-post 中调用。
-* 移除叠加层不会导致已加载的模块被卸载，但可能会导致一些模块的引用计数降至零。运行 rmmod -a 两次将导致未使用的模块被卸载。
+* 应用或移除一些叠加层可能会导致意外行为，因此应谨慎进行。这就是需要 `sudo` 的原因之一。
+* 卸载 ALSA 卡的叠加层可能会因为某些正在使用 ALSA 的活动而停滞不前 - LXPanel 音量滑块插件展示了这种效果。为了使声卡的叠加层能够被移除，`lxpanelctl` 工具已被赋予两个新选项 - `alsastop` 和 `alsastart` - 并且这些选项在加载或卸载叠加层之前和之后分别从辅助脚本 `dtoverlay-pre` 和 `dtoverlay-post` 中调用。
+* 移除叠加层不会导致已加载的模块被卸载，但可能会导致一些模块的引用计数降至零。运行 `rmmod -a` 两次将导致未使用的模块被卸载。
 * 覆盖必须按相反顺序移除。这些命令将允许你移除较早的覆盖，但所有中间的覆盖将被移除并重新应用，这可能会产生意想不到的后果。
 * 仅会探测树顶层和总线节点的子级的设备树节点。对于运行时添加的节点，进一步的限制是总线必须注册通知以添加和移除子级。但是，有一些例外情况会打破这个规则并引起混淆：内核明确扫描整个树以寻找某些设备类型 - 时钟和中断控制器是主要的两种 - 以便（对于时钟）早期初始化它们和/或（对于中断控制器）按特定顺序初始化。这种搜索机制仅在引导过程中发生，因此对于运行时由覆盖添加的节点不起作用。因此，建议将固定时钟节点放在树的根部，除非保证覆盖不会在运行时使用。
 
 #### 支持的覆盖和参数
 
-请参考 /boot/firmware/overlays 中找到的叠加 .dtbo 文件旁边的 README 文件。它会随着添加和修改而保持最新。
+请参考 `/boot/firmware/overlays` 中找到的叠加层 `.dtbo` 文件旁边的 [README](https://github.com/raspberrypi/firmware/blob/master/boot/firmware/overlays/README) 文件。它会随着添加和修改而保持最新。
 
 ### 固件参数
 
-固件使用特殊的 `/chosen` 节点在引导加载程序及固件与操作系统之间传递参数。除非另有说明，否则每个属性都存储为 32 位整数。
+固件使用特殊的 [`/chosen`](https://www.kernel.org/doc/html/latest/devicetree/usage-model.html#runtime-configuration) 节点在引导加载程序及固件与操作系统之间传递参数。除非另有说明，否则每个属性都存储为 32 位整数。
 
-overlay_prefix （字符串）由 config.txt 选择的 overlay_prefix 字符串。
+`overlay_prefix`
 
-os_prefix （字符串）由 config.txt 选择的 os_prefix 字符串。
+　　（**字符串**）由 `config.txt` 选择的 [`overlay_prefix`](https://www.raspberrypi.com/documentation/computers/config_txt.html#overlay_prefix) 字符串。
 
-rpi-boardrev-ext 来自 OTP 行 33 的扩展板修订代码。
+`os_prefix` 
 
-rpi-country-code PiWiz 使用的区域代码。仅适用于树莓派 400。
+　　（**字符串**）由 `config.txt` 选择的 [os_prefix](https://www.raspberrypi.com/documentation/computers/config_txt.html#os_prefix) 字符串。
 
-rpi-duid （字符串）仅适用于树莓派 5。PCB 上二维码的字符串表示。
+`rpi-boardrev-ext`
+
+　　来自 [OTP 第 33 行](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#otp-register-and-bit-definitions) 的扩展板修订代码。
+
+`rpi-country-code`
+
+　　[PiWiz](https://github.com/raspberrypi-ui/piwiz) 使用的区域代码。仅适用于树莓派 400。
+
+`rpi-duid` 
+
+　　（**字符串**）仅适用于树莓派 5。PCB 上二维码的字符串表示。
 
 #### 通用引导加载程序属性 `/chosen/bootloader`
 
 除非另有说明，否则每个属性都存储为 32 位整数。
 
-boot-mode 用于加载内核的引导模式。请参阅 BOOT_ORDER。
+`boot-mode`
 
-partition 引导过程中使用的分区号。如果加载了 boot.img ramdisk，则此引用的是 ramdisk 中加载的分区，而不是 ramdisk 内部的分区号。
+　　用于加载内核的引导模式。请参阅 [BOOT_ORDER](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#BOOT_ORDER)。
 
-pm_rsts 引导过程中 PM_RSTS 寄存器的值。
+`partition`
 
-tryboot 如果在启动时设置了 tryboot 标志，则设置为 1。
+　　引导过程中使用的分区号。如果加载了 `boot.img` ramdisk，则此引用的是 ramdisk 中加载的分区，而不是 ramdisk 内部的分区号。
 
-#### 电源供应属性 `/chosen/power`
+`pm_rsts` 
+
+　　引导过程中 `PM_RSTS` 寄存器的值。
+
+`tryboot`
+
+　　如果在启动时设置了参数 `tryboot` ，则设置为 1。
+
+#### 电源适配器属性 `/chosen/power`
 
 仅适用于树莓派 5。除非另有说明，否则每个属性均被存储为 32 位整数。
 
-max_current 电源适配器可以提供的最大电流（以 mA 为单位）。固件报告由 USB-C、USB-PD 或 PoE 接口指示的值。对于台式电源适配器（例如连接到 GPIO 排针），请在引导加载程序配置中定义 PSU_MAX_CURRENT 以指示电源适配器的电流能力。
+`max_current`
 
-power_reset 仅适用于树莓派 5。一个位字段，指示 PMIC 被重置的原因。
+　　电源适配器可以提供的最大电流（以 mA 为单位）。固件报告由 USB-C、USB-PD 或 PoE 接口指示的值。对于台式电源适配器（例如连接到 GPIO 排针），请在引导加载程序配置中定义 `PSU_MAX_CURRENT` 以指示电源适配器的电流能力。
+
+`power_reset` 
+
+　　仅适用于树莓派 5。一个位字段，指示 PMIC 被重置的原因。
 
 | 位 | 原因     |
 | ---- | ---------- |
@@ -2960,70 +3022,96 @@ power_reset 仅适用于树莓派 5。一个位字段，指示 PMIC 被重置的
 | 1  | 低压   |
 | 2  | 高温     |
 | 3  | 启用信号 |
-| 4  | 看门狗   |
+| 4  | Watchdog   |
 
-rpi_power_supply （两个 32 位整数）官方树莓派 27W 电源适配器的 USB VID 和 Product VDO（如已接入）。
+`rpi_power_supply` 
 
-usb_max_current_enable 如果 USB 接口电流限制器在启动时设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器报告其最大电流为 5A 或在 config.txt 中强制使用 usb_max_current_enable=1，则自动启用高电平。
+　　（**两个 32 位整数**）官方树莓派 27W 电源适配器的 USB VID 和 Product VDO（如已接入）。
 
-usb_over_current_detected 如果在 USB 启动期间发生 USB 过流事件，则为非 0 值。
+`usb_max_current_enable` 
 
-usbpd_power_data_objects （包含多个 32 位整数的二进制数据块）引导加载程序在 USB-PD 协商期间接收到的原始二进制 USB-PD 对象（仅限固定供电）。要为错误报告捕获此内容，请运行 hexdump -C /proc/device-tree/chosen/power/usbpd_power_data_objects。
+　　如果 USB 接口电流限制器在启动时设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器报告其最大电流为 5A 或在 `config.txt` 中强制使用 `usb_max_current_enable=1`，则自动启用高电平。
 
-格式由 USB 供电规范定义。
+`usb_over_current_detected` 
+
+　　如果在 USB 启动期间发生 USB 过流事件，则为非 0 值。
+
+`usbpd_power_data_objects`
+
+　　（**包含多个 32 位整数的二进制数据块**）引导加载程序在 USB-PD 协商期间接收到的原始二进制 USB-PD 对象（仅限固定供电）。要为错误报告捕获此内容，请运行 `hexdump -C /proc/device-tree/chosen/power/usbpd_power_data_objects`。
+
+格式由 [USB PD](https://usb.org/document-library/usb-power-delivery)规范定义。
 
 #### BCM2711 和 BCM2712 特定的引导加载程序属性 /chosen/bootloader
 
 以下属性特定于 BCM2711 和 BCM2712 SPI EEPROM 引导加载程序。除非另有说明，否则每个属性都存储为 32 位整数。
 
-build_timestamp EEPROM 引导加载程序的 UTC 构建时间。
+`build_timestamp`
 
-capabilities 这个位字段描述了当前引导加载程序支持的功能。这可以用来在引导加载程序 EEPROM 配置中启用功能（例如 USB 启动）之前检查是否支持。
+　　EEPROM 引导加载程序的 UTC 构建时间。
+
+`capabilities` 
+
+　　这个位字段描述了当前引导加载程序支持的功能。这可以用来在引导加载程序 EEPROM 配置中启用功能（例如 USB 启动）之前检查是否支持。
 
 | 位 | 功能                                     |
 | ---- | ------------------------------------------ |
-| 0  | 使用 VLI USB 主机控制器进行 USB 引导     |
+| 0  | 使用 VLI USB 主机控制器进行 [USB 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#usb-mass-storage-boot)     |
 | 1  | [ 网络引导](https://www.raspberrypi.com/documentation/computers/remote-access.html#network-boot-your-raspberry-pi)                                         |
-| 2  | TRYBOOT_A_B 模式                         |
+| 2  | [TRYBOOT_A_B](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot) 模式                         |
 | 3  | [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot)                                         |
-| 4  | 使用 BCM2711 USB 主机控制器进行 USB 引导 |
+| 4  | 使用 BCM2711 USB 主机控制器进行 [USB 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#usb-mass-storage-boot) |
 | 5  | [RAM 磁盘 - boot.img](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot_ramdisk)                                         |
 | 6  | [ NVMe 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#nvme-ssd-boot)                                         |
 | 7  | [ 安全启动](https://github.com/raspberrypi/usbboot/blob/master/Readme.md#secure-boot)                                         |
 
-update_timestamp 由 rpi-eeprom-update 设置的 UTC 更新时间戳。
+`update_timestamp` 
 
-signed 如果启用了安全启动，则此位字段将为非 0。各个位指示当前的安全启动配置。
+　　由 `rpi-eeprom-update` 设置的 UTC 更新时间戳。
+
+`signed` 
+
+　　如果启用了安全启动，则此位字段将为非 0。各个位指示当前的安全启动配置。
 
 | 位    | 说明                                            |
-| ------- | ------------------------------------------------- |
-| 0     | SIGNED_BOOT 已在 EEPROM 配置文件中定义。  |
+| :-------: | ------------------------------------------------- |
+| 0     | `SIGNED_BOOT` 已在 EEPROM 配置文件中定义。  |
 | 1     | 保留                                            |
-| 2     | ROM 开发密钥已被吊销。请参阅 revoke_devkey。 |
-| 3     | 客户公钥摘要已写入 OTP。请参阅 program_pubkey。|
+| 2     | ROM 开发密钥已被吊销。请参阅 [revoke_devkey](https://www.raspberrypi.com/documentation/computers/config_txt.html#revoke_devkey)。 |
+| 3     | 客户公钥摘要已写入 OTP。请参阅 [program_pubkey](https://www.raspberrypi.com/documentation/computers/config_txt.html#program_pubkey)。|
 | 4…31 | 保留                                            |
 
-version (字符串) 用于引导加载程序的 Git 版本字符串。
+`version` 
 
-#### BCM2711 和 BCM2712 USB 引导属性 /chosen/bootloader/usb
+  （**字符串**）用于引导加载程序的 Git 版本字符串。
+
+#### BCM2711 和 BCM2712 USB 引导属性 `/chosen/bootloader/usb`
 
 如果系统是从 USB 引导的，则定义以下属性。这些属性可用于唯一标识 USB 引导设备。每个属性存储为 32 位整数。
 
-usb-version USB 主协议版本（2 或 3）。
+`usb-version`
 
-route-string 由 USB 3.0 规范定义的设备的 USB 路由字符串标识符。
+　　USB 主协议版本（2 或 3）。
 
-root-hub-port-number 引导设备连接到的根集线器端口号 - 可能通过其他 USB 集线器连接。
+`route-string`
 
-lun 用于大容量存储设备的逻辑单元号。
+　　由 USB 3.0 规范定义的设备的 USB 路由字符串标识符。
+
+`root-hub-port-number` 
+
+　　引导设备连接到的根集线器端口号 - 可能通过其他 USB 集线器连接。
+
+`lun` 
+
+　　用于大容量存储设备的逻辑单元号。
 
 #### NVMEM 节点
 
 固件通过 NVMEM 子系统提供引导加载程序 EEPROM 部分的只读内存映射。
 
-每个区域在 /sys/bus/nvmem/devices/ 下显示为一个 NVMEM 设备，在 /sys/firmware/devicetree/base/aliases 下显示为一个命名别名。
+每个区域在 `/sys/bus/nvmem/devices/` 下显示为一个 NVMEM 设备，在 `/sys/firmware/devicetree/base/aliases` 下显示为一个命名别名。
 
-从 rpi-eeprom-update 读取 NVMEM 模式的示例 shell 脚本代码。
+从 [rpi-eeprom-update](https://github.com/raspberrypi/rpi-eeprom/blob/master/rpi-eeprom-update) 读取 NVMEM 模式的示例 shell 脚本代码。
 
 ```
 blconfig_alias="/sys/firmware/devicetree/base/aliases/blconfig"
@@ -3039,23 +3127,27 @@ if [ -f "${blconfig_alias}" ]; then
 fi
 ```
 
-blconfig 别名，指向存储引导加载程序 EEPROM 配置文件副本的 NVMEM 设备。
+`blconfig`
 
-blpubkey 别名，指向以二进制格式存储引导加载程序 EEPROM 公钥副本（如果已定义）的 NVMEM 设备。可以使用 rpi-bootloader-key-convert 实用程序将数据转换为 PEM 格式，以便与 OpenSSL 一起使用。
+　　别名，指向存储引导加载程序 EEPROM 配置文件副本的 NVMEM 设备。
 
-有关更多信息，请参阅安全启动。
+`blpubkey` 
+
+　　别名，指向以二进制格式存储引导加载程序 EEPROM 公钥副本（如果已定义）的 NVMEM 设备。可以使用 [rpi-bootloader-key-convert](https://github.com/raspberrypi/usbboot/blob/master/tools/rpi-bootloader-key-convert) 工具将数据转换为 PEM 格式，以便与 OpenSSL 一起使用。
+
+有关更多信息，请参阅[安全启动](https://github.com/raspberrypi/usbboot#secure-boot)。
 
 ### 故障排除
 
 #### 调试
 
-加载程序将跳过缺少的叠加和错误参数，但如果存在严重错误，比如缺少或损坏的基本 DTB 或失败的叠加合并，那么加载程序将退回到非 DT 引导。如果发生这种情况，或者如果你的设置不符合你的期望，值得检查加载程序的警告或错误：
+加载程序将跳过缺少的叠加层和错误参数，但如果存在严重错误，比如缺少或损坏的基本 DTB 或失败的叠加层合并，那么加载程序将退回到非 DT 引导。如果发生这种情况，或者如果你的设置不符合你的期望，值得检查加载程序的警告或错误：
 
 ```
 $ sudo vclog --msg
 ```
 
-通过将 dtdebug=1 添加到 config.txt 可以启用额外的调试。
+通过将 `dtdebug=1` 添加到 `config.txt` 可以启用额外的调试。
 
 你可以这样创建当前 DT 状态，以人类可读的形式表示：
 
@@ -3065,7 +3157,7 @@ $ dtc -I fs /proc/device-tree
 
 这对于查看将叠加层合并到基础树上的效果可能很有用。
 
-如果内核模块未按预期加载，请检查它们是否在 /etc/modprobe.d/raspi-blacklist.conf 中被列入黑名单；在使用设备树时，不应该需要列入黑名单。如果没有发现任何异常，你还可以通过在 /lib/modules/<version>/modules.alias 中搜索 compatible 值来检查模块是否导出了正确的别名。否则，你的驱动程序可能缺少以下内容之一：
+如果内核模块未按预期加载，请检查它们是否在 `/etc/modprobe.d/raspi-blacklist.conf` 中被列入黑名单；在使用设备树时，不应该需要列入黑名单。如果没有发现任何异常，你还可以通过在 `/lib/modules/<version>/modules.alias` 中搜索 `compatible` 值来检查模块是否导出了正确的别名。否则，你的驱动程序可能缺少以下内容之一：
 
 ```
 .of_match_table = xxx_of_match,
@@ -3077,29 +3169,29 @@ $ dtc -I fs /proc/device-tree
 MODULE_DEVICE_TABLE(of, xxx_of_match);
 ```
 
-如果失败，那么因为 depmod 失败，或者更新的模块尚未安装在目标文件系统上。
+如果失败，那么因为 `depmod` 失败，或者更新的模块尚未安装在目标文件系统上。
 
-#### 使用 dtmerge、dtdiff 和 ovmerge 测试叠加。
+#### 使用 dtmerge、dtdiff 和 ovmerge 测试叠加层。
 
-除了 dtoverlay 和 dtparam 命令之外，还有一个用于将叠加应用到 DTB 的实用程序 - dtmerge。要使用它，你首先需要获取基本的 DTB，可以通过以下两种方式之一获取：
+除了命令 `dtoverlay` 和 `dtparam` 之外，还有一个用于将叠加层应用到 DTB 的工具 - `dtmerge`。要使用它，你首先需要获取基本的 DTB，可以通过以下两种方式之一获取：
 
-从 /proc/device-tree 中的实时 DT 状态生成它：
+从 `/proc/device-tree` 中的实时 DT 状态生成它：
 
 ```
 $ dtc -I fs -O dtb -o base.dtb /proc/device-tree
 ```
 
-这将包括你迄今为止在 config.txt 中应用的任何叠加和参数，或者通过在运行时加载它们，这可能是你想要的，也可能不是。或者：
+这将包括你迄今为止在 `config.txt` 中应用的任何叠加层和参数，或者通过在运行时加载它们，这可能是你想要的，也可能不是。或者：
 
-从 /boot/firmware/ 中的源 DTB 复制它。这不会包括叠加和参数，但也不会包括固件的任何其他修改。为了允许测试所有叠加，dtmerge 实用程序将创建一些特定于板的别名（"i2c_arm" 等），但这意味着合并的结果将与原始 DTB 有更多差异。你可能期望的不同。解决此问题的方法是使用 dtmerge 进行复制：
+从 `/boot/firmware/` 中的源 DTB 复制它。这不会包括叠加层和参数，但也不会包括固件的任何其他修改。为了允许测试所有叠加层，`dtmerge` 工具将创建一些特定于板的别名（"i2c_arm" 等），但这意味着合并的结果将与原始 DTB 有更多差异。你可能期望的不同。解决此问题的方法是使用 dtmerge 进行复制：
 
 ```
 $ dtmerge /boot/firmware/bcm2710-rpi-3-b.dtb base.dtb -
 ```
 
-( - 表示不存在的叠加名称)。
+( - 表示不存在的叠加层名称)。
 
-你现在可以尝试应用叠加或参数：
+你现在可以尝试应用叠加层或参数：
 
 ```
 $ dtmerge base.dtb merged.dtb - sd_overclock=62
@@ -3122,7 +3214,7 @@ $ dtdiff base.dtb merged.dtb
                         clocks = <0x8>;
 ```
 
-你还可以比较不同的叠加或参数。
+你还可以比较不同的叠加层或参数。
 
 ```
 $ dtmerge base.dtb merged1.dtb /boot/firmware/overlays/spi1-1cs.dtbo
@@ -3172,7 +3264,7 @@ $ dtdiff merged1.dtb merged2.dtb
                 spi@7e2150C0 {
 ```
 
-Utils 存储库包含了另一个 DT 工具 - ovmerge。与 dtmerge 不同，ovmerge 结合了文件并以源形式应用叠加。由于叠加从未被编译，标签得以保留，结果通常更易读。它还具有许多其他技巧，例如能够列出文件包含的顺序。
+[Utils](https://github.com/raspberrypi/utils) 存储库包含了另一个 DT 工具 - `ovmerge`。与 `dtmerge` 不同，`ovmerge` 结合了文件并以源形式应用叠加层。由于叠加层从未被编译，标签得以保留，结果通常更易读。它还具有许多其他技巧，例如能够列出文件包含的顺序。
 
 #### 强制使用特定的设备树
 
@@ -3190,7 +3282,7 @@ device_tree=my-pi.dtb
 device_tree=
 ```
 
-到 config.txt。
+到 `config.txt`。
 
 #### 快捷方式和语法变体
 
@@ -3207,55 +3299,65 @@ dtparam=i2s=on
 dtparam=i2c,i2s
 ```
 
-（ i2c 是 i2c_arm 的别名，=on 为默认）。它仍然接受长形式版本： device_tree_overlay 和 device_tree_param。
+（ `i2c` 是 `i2c_arm` 的别名，`=on` 为默认）。它仍然接受长形式版本： `device_tree_overlay` 和 `device_tree_param`。
 
-#### config.txt 中可用的其他 DT 命令
+#### `config.txt` 中可用的其他 DT 命令
 
-device_tree_address 这用于覆盖固件加载设备树的地址（不是 dt-blob）。默认情况下，固件将选择一个合适的位置。
+`device_tree_address` 
 
-device_tree_end 这将对加载的设备树设置（独占）限制。默认情况下，设备树可以增长到可用内存的末尾，这几乎肯定是所需的。
+　　这用于覆盖固件加载设备树的地址（不是 dt-blob）。默认情况下，固件将选择一个合适的位置。
 
-dtdebug 如果非 0，则打开固件的设备树处理的一些额外日志记录。
+`device_tree_end` 
 
-enable_uart 启用主/控制台 UART（在树莓派 3、4、400、Zero W 和 Zero 2 W 上为 ttyS0，在其他情况下为 ttyAMA0 - 除非与诸如 miniuart-bt 的叠加交换）。如果主 UART 是 ttyAMA0，则 enable_uart 默认为 1（已启用），否则默认为 0（已禁用）。这是因为有必要阻止核心频率的变化，否则会使 ttyS0 无法使用，因此 enable_uart=1 意味着 core_freq=250 （除非 force_turbo=1 ）。在某些情况下，这会影响性能，因此默认情况下关闭。
+　　这将对加载的设备树设置（独占）限制。默认情况下，设备树可以增长到可用内存的末尾，这几乎肯定是所需的。
 
-overlay_prefix 指定要从中加载叠加的子目录/前缀 - 默认为 "overlays/"。请注意末尾的“/”。如果需要，你可以在最后一个“/”后添加内容以向每个文件添加前缀，尽管这可能不是必要的。
+`dtdebug` 
 
-可以用 DT 对端口进行进一步的控制。有关更多详细信息，请参阅第 3 节。
+　　如果非 0，则打开固件的设备树处理的一些额外日志记录。
 
-#### 进一步帮助
+`enable_uart` 
 
-如果你在阅读本文档后，仍未找到解决设备树问题的答案，也能得到帮助。通常可在树莓派文档论坛找到答案，特别是设备树论坛。
+　　启用主/控制台 [UART](https://www.raspberrypi.com/documentation/computers/configuration.html#configure-uarts)（在树莓派 3、4、400、Zero W 和 Zero 2 W 上为 ttyS0，在其他情况下为 ttyAMA0 - 除非与诸如 miniuart-bt 的叠加层交换）。如果主 UART 是 ttyAMA0，则 `enable_uart` 默认为 1（已启用），否则默认为 0（已禁用）。这是因为有必要阻止核心频率的变化，否则会使 ttyS0 无法使用，因此 `enable_uart=1` 意味着 `core_freq=250` （除非 `force_turbo=1`）。在某些情况下，这会影响性能，因此默认情况下关闭。
+
+`overlay_prefix` 
+
+　　指定要从中加载叠加层的子目录/前缀 - 默认为 "overlays/"。请注意末尾的“/”。如果需要，你可以在最后一个“/”后添加内容以向每个文件添加前缀，尽管这可能不是必要的。
+
+可以用 DT 对端口进行进一步的控制。有关更多详细信息，请参阅[第 3 节](https://www.raspberrypi.com/documentation/computers/configuration.html#part3)。
+
+#### 更多帮助
+
+如果你在阅读本文档后，仍未找到解决设备树问题的答案，也能得到帮助。通常可在树莓派文档论坛找到答案，特别是[设备树](https://forums.raspberrypi.com/viewforum.php?f=107&_gl=1*ud7pvi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3NDM1MC4zNy4xLjE3MjA5NzU3MzQuMC4wLjA.)论坛。
 
 ## 修改默认引脚配置
 
 >**注意**
 >
->通过用户提供的设备树 blob 自定义默认引脚配置的方法，已被弃用。
+>通过用户提供的DTB 自定义默认引脚配置的方法，已被弃用。
 
 ### 引导序列期间的设备引脚
 
 在引导序列期间，GPIO 引脚经历各种操作。
 
-* 上电 - 引脚默认为具有默认拉电阻的输入，这些电阻在数据表中有描述
+* 上电 - 引脚默认为具有默认拉电阻的输入，这些电阻在[数据表](https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf?_gl=1*ud7pvi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3NDM1MC4zNy4xLjE3MjA5NzU3MzQuMC4wLjA.)中有说明
 * 由 bootrom 设置
-* 通过 bootcode.bin 设置
-* 通过 dt-blob.bin 设置（本页）
-* 通过 GPIO 命令在 config.txt 中设置
-* 附加固件引脚（例如 UARTS）
+* 通过 `bootcode.bin` 设置
+* 通过 `dt-blob.bin` 设置（本页）
+* 通过 [GPIO 命令](https://www.raspberrypi.com/documentation/computers/config_txt.html#gpio-control)在 `config.txt` 中设置
+* 附加固件引脚（例如 UART）
 * 内核/设备树
 
 在软复位时，相同的过程适用，除了默认拉引脚，这些只在上电复位时应用。
 
-通过过程可能需要几秒钟。在此期间，GPIO 引脚可能不处于附加外围设备期望的状态（如 dt-blob.bin 或 config.txt 中定义）。由于不同的 GPIO 引脚具有不同的默认拉电阻，你应该针对你的外围设备执行以下某操作：
+通过过程可能需要几秒钟。在此期间，GPIO 引脚可能不处于附加外围设备期望的状态（如 `dt-blob.bin` 或 `config.txt` 中定义）。由于不同的 GPIO 引脚具有不同的默认拉电阻，你应该针对你的外围设备执行以下 **某个操作**：
 
 * 选择一个在复位时默认为外围设备所需拉电阻的 GPIO 引脚
 * 推迟外围设备的启动，直到操作完成
 * 添加适当的上拉/下拉电阻
 
-### 提供自定义设备树 blob
+### 提供自定义DTB
 
-为了将设备树源（ .dts ）文件编译成设备树 blob（ .dtb ）文件，必须安装设备树编译器，方法是运行 sudo apt install device-tree-compiler。然后可以使用 dtc 命令如下：
+为了将设备树源（ `.dts` ）文件编译成 DTB（ `.dtb`）文件，必须安装设备树编译器，方法是运行 `sudo apt install device-tree-compiler`。然后可以使用 `dtc` 命令如下：
 
 ```
 $ sudo dtc -I dts -O dtb -o /boot/firmware/dt-blob.bin dt-blob.dts
@@ -3267,9 +3369,9 @@ $ sudo dtc -I dts -O dtb -o /boot/firmware/dt-blob.bin dt-blob.dts
 $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 ```
 
-### dt-blob 的各个部分
+### `dt-blob` 的各个部分
 
-dt-blob.bin 用于在启动时配置二进制区块（VideoCore）。Linux 内核目前不使用它。dt-blob 可以配置所有型号的树莓派，包括计算模块，以使用替代设置。dt-blob 中以下部分有效：
+`dt-blob.bin` 用于在启动时配置二进制区块（VideoCore）。Linux 内核目前不使用它。dt-blob 可以配置所有型号的树莓派，包括计算模块，以使用替代设置。dt-blob 中以下部分有效：
 
 #### `videocore`
 
@@ -3277,33 +3379,33 @@ dt-blob.bin 用于在启动时配置二进制区块（VideoCore）。Linux 内�
 
 #### `pins_*`
 
-有许多单独的 pins_* 部分，基于特定的树莓派型号，即：
+有许多单独的 `pins_*` 部分，基于特定的树莓派型号，即：
 
-* pins_rev1 ：Rev1 引脚设置。由于移动的 I²C 引脚，存在一些差异。
-* pins_rev2 ：Rev2 引脚设置。这包括 P5 上的附加编解码器引脚。
-* pins_bplus1 ：树莓派 1B+ 修订版 1.1，包括完整的 40 针连接器。
-* pins_bplus2 ：树莓派 1B+ 修订版 1.2，交换低功耗和 lan-run 引脚。
-* pins_aplus ：树莓派 1A+，无以太网。
-* pins_2b1 ：树莓派 2B 修订版 1.0；通过 I²C0 控制开关电源管理系统。
-* pins_2b2 ：树莓派 2B 修订版 1.1；通过软件 I²C 在 42 和 43 上控制开关电源管理系统。
-* pins_3b1 ：树莓派 3B 修订版 1.0
-* pins_3b2 ：树莓派 3B 修订版 1.2
-* pins_3bplus ：树莓派 3B+
-* pins_3aplus ：树莓派 3A+
-* pins_pi0 ：树莓派 Zero
-* pins_pi0w ：树莓派 Zero W
-* pins_pi02w ：树莓派 Zero 2 W
-* pins_cm ：树莓派计算模块 1。默认情况下，这是芯片的默认设置，因此它是关于芯片上默认上拉/下拉的有用信息来源。
-* pins_cm3 ：树莓派计算模块 3
-* pins_cm3plus ：树莓派计算模块 3+
-* pins_cm4s ：树莓派计算模块 4S
-* pins_cm4 ：树莓派计算模块 4
+* `pins_rev1`：Rev1 引脚设置。由于移动的 I²C 引脚，存在一些差异。
+* `pins_rev2`：Rev2 引脚设置。这包括 P5 上的附加编解码器引脚。
+* `pins_bplus1`：树莓派 1B+ 修订版 1.1，包括完整的 40 针连接器。
+* `pins_bplus2`：树莓派 1B+ 修订版 1.2，交换低功耗和 lan-run 引脚。
+* `pins_aplus`：树莓派 1A+，无以太网。
+* `pins_2b1`：树莓派 2B 修订版 1.0；通过 I²C0 控制开关电源管理系统。
+* `pins_2b2`：树莓派 2B 修订版 1.1；通过软件 I²C 在 42 和 43 上控制开关电源管理系统。
+* `pins_3b1`：树莓派 3B 修订版 1.0
+* `pins_3b2`：树莓派 3B 修订版 1.2
+* `pins_3bplus` ：树莓派 3B+
+* `pins_3aplus` ：树莓派 3A+
+* `pins_pi0` ：树莓派 Zero
+* `pins_pi0w` ：树莓派 Zero W
+* `pins_pi02w` ：树莓派 Zero 2 W
+* `pins_cm` ：树莓派计算模块 1。默认情况下，这是芯片的默认设置，因此它是关于芯片上默认上拉/下拉的有用信息来源。
+* `pins_cm3` ：树莓派计算模块 3
+* `pins_cm3plus` ：树莓派计算模块 3+
+* `pins_cm4s` ：树莓派计算模块 4S
+* `pins_cm4` ：树莓派计算模块 4
 
-每个 pins_* 部分都可以包含 pin_config 和 pin_defines 部分。
+每个 `pins_*` 部分都可以包含 `pin_config` 和 `pin_defines` 部分。
 
 #### `pin_config`
 
-pin_config 部分用于配置各个引脚。该部分中的每个项目必须是一个命名的引脚部分，例如 pin@p32，表示 GPIO32。还有一个特殊部分 pin@default，其中包含未在 pin_config 部分中明确命名的任何内容的默认设置。
+`pin_config` 部分用于配置各个引脚。该部分中的每个项目必须是一个命名的引脚部分，例如 `pin@p32`，表示 GPIO32。还有一个特殊部分 `pin@default`，其中包含未在 pin_config 部分中明确命名的任何内容的默认设置。
 
 #### `pin@pinname`
 
@@ -3337,7 +3439,8 @@ pin_config 部分用于配置各个引脚。该部分中的每个项目必须是
   * `gp_clk`
   * `emmc`
   * `arm_jtag`
-* 驱动强度用于设置引脚的强度。请注意，你只能为该参数指定单个驱动强度。有效值为 `<8>`、`<16>`。
+* `drive_strength_mA`
+　　驱动强度用于设置引脚的强度。请注意，你只能为该参数指定单个驱动强度。有效值为 `<8>`、`<16>`。
 
 #### `pin_defines`
 
@@ -3367,7 +3470,7 @@ clock_setup {
 
 ### 样本设备树源文件
 
-固件存储库包含一个主 Raspberry Pi blob，通常从中派生其他内容。
+固件存储库包含一个[主 Raspberry Pi blob](https://github.com/raspberrypi/firmware/blob/master/extra/dt-blob.dts)，通常从中派生其他内容。
 
 
 >**译者注**
