@@ -111,13 +111,13 @@ boot_partition=2
 boot_partition=3
 ```
 
-** 安装更新**
+**安装更新**
 
 * 系统已启动并默认引导到分区 2
 * Update service 下载新版操作系统到分区 3
 * 通过重启到 tryboot 模式 reboot "0 tryboot" 来测试更新，其中 0 表示默认分区
 
-**提交或取消更新**
+**进行、取消更新**
 
 * 系统从第 3 分区引导，因为 [tryboot] 过滤器在 tryboot mode 中评估为 true
 * 如果 tryboot 处于活动状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
@@ -143,7 +143,7 @@ boot_partition=3
 boot_partition=2
 ```
 
-| NOTE | 更新完 autoboot.txt 后不是必须重启。然而，Update Service 必须小心，以避免覆盖当前分区，因为已经修改了 autoboot.txt 以提交最后的更新。有关更多信息，请参阅设备树参数。|
+| NOTE | 更新完 autoboot.txt 后不必须重启。然而，必须小心 Update Service ，以防止覆盖当前分区，因为已经修改了 autoboot.txt 以提交最后的更新。有关更多信息，请参阅设备树参数。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ## 常见选项
@@ -154,7 +154,7 @@ boot_partition=2
 
 #### hdmi_enable_4kp60 （仅适用于树莓派 4）
 
-默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可允许选择 60Hz 的刷新率。Raspberry Pi 4 不支持同时在两个 micro HDMI ports 上输出 4Kp60。设置 hdmi_enable_4kp60 会增加功耗和温度。
+默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可能选择 60Hz 的刷新率。Raspberry Pi 4 不支持同时在两个 micro HDMI ports 上输出 4Kp60。设置 hdmi_enable_4kp60 会增加功耗和温度。
 
 ### 常见硬件配置选项
 
