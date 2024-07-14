@@ -2023,7 +2023,7 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 | `/dev/serial1`           | 次 UART               |
 | `/dev/ttyAMA10`           | 树莓派 5 调试 UART    |
 
-`/dev/serial0` 和 `/dev/serial1` 是指向 `/dev/ttyS0`、`/dev/ttyAMA0` 的符号链接。
+`/dev/serial0` 是指向 `/dev/ttyS0` 的符号链接、`/dev/serial1` 是指向 `/dev/ttyAMA0` 的符号链接。
 
 在树莓派 5 上，`/dev/serial0` 是指向 `/dev/ttyAMA10` 的符号链接。
 
