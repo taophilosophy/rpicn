@@ -464,7 +464,7 @@ $ vcgencmd get_config total_mem
 在 Linux 上，你可以用两种方式来安装 `python` 依赖包：
 
 * 使用 `apt` 来安装预配置系统软件包
-* 在 **虚拟环境中**，使用 `pip``，即使用 Python 的依赖管理器安装库
+* 在 **虚拟环境中**，使用 `pip`，即使用 Python 的依赖管理器安装库
 
 >**重要**
 >
