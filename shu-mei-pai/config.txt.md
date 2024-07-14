@@ -52,8 +52,14 @@ dtoverlay=vc4-kms-v3d
 
 例如，添加行 include extraconfig.txt 到 config.txt 将在 config.txt 文件中包含 extraconfig.txt 文件的内容。
 
-| NOTE | bootcode.bin 或 EEPROM 引导加载程序不支持 include 指令。<br /><br />只有在 config.txt 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：<br />\* `bootcode_delay`,\* `gpu_mem`, `gpu_mem_256`, `gpu_mem_512`, `gpu_mem_1024`,\* `total_mem`,\* `sdram_freq`,\* `start_x`, `start_debug`, `start_file`, `fixup_file`,\* `uart_2ndstage`. |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NOTE | bootcode.bin 或 EEPROM 引导加载程序不支持 include 指令。<br /><br />只有在 config.txt 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
+
+* `bootcode_delay`,
+* `gpu_mem`, `gpu_mem_256`, `gpu_mem_512`, `gpu_mem_1024`,
+* `total_mem`,
+* `sdram_freq`,
+* `start_x`, `start_debug`, `start_file`, `fixup_file`,
+* `uart_2ndstage`. 
 
 #### 条件过滤
 
