@@ -618,15 +618,15 @@ $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 
 要查看该参数 `<键盘布局>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
 
-#### WLAN country——无线局域网国家/地区
+#### WLAN country——无线局域网区域
 
-设置无线网络的国家/地区代码。
+设置无线网络的区域代码。
 
 ```
-$ sudo raspi-config nonint do_wifi_country <国家/地区>
+$ sudo raspi-config nonint do_wifi_country <区域>
 ```
 
-要查看此参数 `<国家/地区>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
+要查看此参数 `<区域>` 所有可用值的列表，请参阅交互版 raspi-config 中所使用的缩写。
 
 ### Advanced options——高级选项
 
@@ -766,7 +766,7 @@ $ kmsprint | grep Connector
 
 #### 设置自定义分辨率
 
-如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 .config/wayfire.ini，来设置自定义显示分辨率。可编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新部分 `[output:<device>]`，以适用于你的显示设备。要修改显示分辨率，请添加 mode 这行。例如，对于以下示例，配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz：
+如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 `.config/wayfire.ini`，来设置自定义显示分辨率。可编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新部分 `[output:<device>]`，以适用于你的显示设备。要修改显示分辨率，请添加 mode 这行。例如，对于以下示例，配置为：设备名称是 HDMI-A-1；分辨率是 1080p 60Hz：
 
 ```
 [output:HDMI-A-1]
@@ -775,7 +775,7 @@ mode = 1920x1080@60
 
 有关支持的分辨率和 mode 语法的信息，请参阅 Wayfire 文档。
 
-将相同的配置块添加到 /usr/share/greeter.ini 以配置登录屏幕分辨率。
+将相同的配置块添加到 `/usr/share/greeter.ini` 以配置登录屏幕分辨率。
 
 #### 设置自定义屏幕方向
 
@@ -813,7 +813,7 @@ Wayland 支持以下 transform 参数：
 * `180`
 * `270`
 
-将相同的配置内容添加到 /usr/share/greeter.ini，来改变登录屏幕的方向。
+将相同的配置内容添加到 `/usr/share/greeter.ini`，来改变登录屏幕的方向。
 
 ### 控制台分辨率和方向
 
@@ -915,7 +915,7 @@ $ sudo raspi-config
 $ sudo raspi-config
 ```
 
-使用箭头键选择“本地化选项”菜单项。选择 WLAN 国家/地区选项。使用箭头键从下拉菜单中选择你的国家。按 **回车键** 选择你的区域。
+使用箭头键选择“本地化选项”菜单项。选择 WLAN 区域选项。使用箭头键从下拉菜单中选择你的区域。按 **回车键** 选择你的区域。
 
 现在，你应该已经可以访问无线网络了。运行以下命令来检查你的无线电是否已启用：
 
@@ -923,7 +923,7 @@ $ sudo raspi-config
 $ nmcli radio wifi
 ```
 
-如果此命令返回文本“已启用”，则可以准备配置连接。如果此命令返回“已禁用”，请尝试使用以下命令启用 Wi-Fi：
+如果此命令返回文本“已启用”，则可以准备配置连接。如果此命令返回“已禁用”，请尝试使用以下命令启用 WiFi：
 
 ```
 $ nmcli radio wifi on
@@ -983,7 +983,7 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 >**注意**
 >
->你可以手动编辑你的连接配置，位于目录 `/etc/NetworkManager/system-connections/` 下。
+>你可以手动编辑你的连接配置，位于目录 `/etc/NetworkManager/system-connections/`。
 
 ##### 连接到未加密的网络
 
@@ -999,7 +999,7 @@ $ sudo nmcli dev wifi connect <example_ssid>
 
 ##### 连接到隐藏的网络
 
-如果你正在使用着隐藏的网络，请在运行 nmcli 时指定参数 "hidden"，并赋值为"yes"。
+如果你正在使用着隐藏的网络，请在运行 nmcli 时指定参数 “hidden”，并赋值为“yes”。
 
 ```
 $ sudo nmcli --ask dev wifi connect <网络名称> hidden yes
@@ -1030,7 +1030,7 @@ AUTOCONNECT-PRIORITY  NAME
 $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 ```
 
-你的设备将始终尝试连接到在范围内，具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
+你的设备将始终尝试连接到，在范围内，具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
 
 ```
 AUTOCONNECT-PRIORITY  NAME
@@ -1047,7 +1047,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 ### 配置 DHCP
 
-在默认情况下，树莓派系统会尝试用 DHCP 自动配置所有网络接口。如果 DHCP 失败，则回滚至自动私有地址，范围是 169.254.0.0/16。
+在默认情况下，树莓派系统会尝试用 DHCP 自动配置所有网络接口。如果 DHCP 失败，则回滚至自动私有地址，范围是 `169.254.0.0/16`。
 
 ### 分配静态 IP 地址
 
@@ -1059,15 +1059,15 @@ AUTOCONNECT-PRIORITY  NAME
 
 ### 桌面
 
-你可以使用树莓派配置菜单中的 Screen Blanking 选项来控制屏幕节能（无操作时关闭屏幕）。
+你可以使用树莓派配置菜单中的屏幕节能选项来控制屏幕节能（无操作时关闭屏幕）。
 
 #### 配置树莓派
 
-单击菜单栏中的 Raspberry Pi 按钮。导航到首选项 > Raspberry Pi 配置。
+单击菜单栏中的树莓派按钮。导航到 **首选项** > **树莓派配置**。
 
 ![opening the Raspberry Pi Configuration menu from the desktop](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
-选择显示选项卡。将 Screen Blanking 选项单选按钮切换到打开位置。按下确定确认你的选择。
+选择显示选项卡。将选项按钮切换到屏幕节能。按下确定，确认你的选择。
 
 ![toggle Screen Blanking on in the Raspberry Pi Configuration menu](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
@@ -1092,7 +1092,7 @@ dpms_timeout=600
 
 ### 控制台
 
-Raspberry Pi Configuration 使用的 dpms_timeout  屏幕节能配置仅涉及桌面会话。在控制台模式下，即当你的树莓派仅接入至带有终端输入的监控器和键盘时，请在内核命令行下，使用 consoleblank 进行设置。
+树莓派配置使用的 dpms_timeout  屏幕节能配置仅涉及桌面会话。在控制台模式下，即当你的树莓派仅接入至带有终端输入的监控器和键盘时，请在内核命令行下，使用 consoleblank 进行设置。
 
 #### 设置控制台模式下的屏幕节能
 
@@ -1122,7 +1122,7 @@ $ cat /sys/module/kernel/parameters/consoleblank
 
 ### 修改用户密码
 
-你可以用命令行或软件 raspi-config 来修改当前用户账户的密码：
+你可以用命令行或软件 `raspi-config` 来修改当前用户账户的密码：
 
 ```
 $ sudo raspi-config
@@ -1186,7 +1186,7 @@ $ sudo raspi-config
 
 你可以将外置硬盘、固态硬盘和 USB 闪存接入树莓派上的任意 USB 口，然后挂载文件系统，访问里面存储的数据。
 
-在默认情况下，对于一些常见的文件系统（FAT、NTFS 和 HFS+），你的树莓派会自动挂载，挂载位置位于 `/media/pi/<HARD-DRIVE-LABEL>`。
+在默认情况下，对于常见的文件系统（FAT、NTFS 和 HFS+），你的树莓派会自动挂载，挂载位置在 `/media/pi/<HARD-DRIVE-LABEL>`。
 
 >**注意**
 >
@@ -1469,7 +1469,7 @@ Linux 有许多防火墙解决方案可用。大多数使用底层的 iptables �
 $ sudo apt install ufw
 ```
 
-ufw 是个命令行工具，尽管也有些图形界面能用。请注意，ufw 需要以 root 权限运行，因此所有命令都以 sudo 开头。还可以使用参数 --dry-run 运行所有 ufw 命令，这表示仅输出命令的执行结果，而不进行任何实际修改。
+ufw 是个命令行工具，尽管也有些图形界面能用。请注意，ufw 需要以 root 权限运行，因此所有命令都以 sudo 开头。还可以使用参数 `--dry-run` 运行所有 ufw 命令，这表示仅输出命令的执行结果，而不进行任何实际修改。
 
 启用防火墙，同时也会让它开机自启：
 
@@ -1513,9 +1513,9 @@ $ sudo ufw allow ssh
 $ sudo ufw status
 ```
 
-规则可能相当复杂：允许阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（如有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 ufw 手册页（ man ufw ）以获取除下面命令之外的完整详细信息。
+规则可能相当复杂：允许阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（如有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 ufw 手册页（`man ufw`）以获取除下面命令之外的完整详细信息。
 
-在 ssh 端口上（使用 TCP）限制登录尝试。如果 IP 地址在过往 30 秒内有过六次及更多次连接尝试，则拒绝连接：
+在 ssh 端口上（TCP）限制登录尝试。如果 IP 地址在过往 30 秒内有过六次及更多次连接尝试，则拒绝连接：
 
 ```
 $ sudo ufw limit ssh/tcp
@@ -1788,7 +1788,7 @@ export https_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 export no_proxy="localhost, 127.0.0.1"
 ```
 
-你的 /etc/environment 文件现在应该如下所示：
+你的 `/etc/environment` 文件现在应该如下所示：
 
 ```
 export http_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
@@ -1826,11 +1826,11 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 在启动时，每个树莓派都从引导分区加载各种文件，以便在 Linux 内核启动之前启动各个处理器。
 
-在启动时，Linux 将引导分区挂载为 /boot/firmware/。
+在启动时，Linux 将引导分区挂载为 `/boot/firmware/`。
 
 >**注意**
 >
->在 Bookworm 之前，树莓派系统将引导分区放在 /boot/。自 Bookworm 以降，引导分区位于 /boot/firmware/。
+>在 Bookworm 之前，树莓派系统将引导分区放在 `/boot/`。自 Bookworm 以降，引导分区位于 `/boot/firmware/`。
 
 ### `bootcode.bin`
 
@@ -2023,11 +2023,11 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 | `/dev/serial1`           | 次 UART               |
 | `/dev/ttyAMA10`           | 树莓派 5 调试 UART    |
 
-/dev/serial0 和 /dev/serial1 是指向 /dev/ttyS0 或 /dev/ttyAMA0 的符号链接。
+`/dev/serial0` 和 `/dev/serial1` 是指向 `/dev/ttyS0`、`/dev/ttyAMA0` 的符号链接。
 
-在树莓派 5 上，/dev/serial0 是指向 /dev/ttyAMA10 的符号链接。
+在树莓派 5 上，`/dev/serial0` 是指向 `/dev/ttyAMA10` 的符号链接。
 
-由于 Bookworm 的变更，/dev/serial1 在默认情况下不存在。你可以通过在 config.txt 中设置以下值来重新启用 serial1 ：
+由于 Bookworm 的变更，`/dev/serial1` 在默认情况下不存在。你可以通过在 config.txt 中设置以下值来重新启用 serial1 ：
 
 ```
 dtparam=krnbt=off
@@ -2111,13 +2111,13 @@ earlycon=pl011,mmio32,0x20201000
 
 在内核 GitHub 中，可以找到各种 UART 设备树叠加定义。最有用的两个叠加是 disable-bt 和 miniuart-bt。
 
-disable-bt 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主 UART。你还必须禁用初始化调制解调器的系统服务，以防它连接到 UART，使用 sudo systemctl disable hciuart。
+disable-bt 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主 UART。你还必须禁用初始化调制解调器的系统服务，以防它连接到 UART，使用 `sudo systemctl disable hciuart|。
 
-miniuart-bt 将蓝牙功能切换到使用 mini UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini UART 限制的内容）。你还必须使用 force_turbo=1 或 core_freq=250 将 VPU 核心时钟设置为固定频率。
+miniuart-bt 将蓝牙功能切换到使用 mini UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini UART 限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
 
-叠加层 uart2、uart3、uart4 和 uart5 用于在树莓派 4 上启用四个额外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 /boot/firmware/overlays/README，或运行 dtoverlay -h overlay-name 查看描述和使用信息。
+叠加层 uart2、uart3、uart4 和 uart5 用于在树莓派 4 上启用四个额外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 `/boot/firmware/overlays/README`，或运行 `dtoverlay -h overlay-name` 查看描述和使用信息。
 
-向 config.txt 文件添加一行以应用设备树叠加。请注意，文件名的 -overlay.dts 部分将被移除。例如：
+向 config.txt 文件添加一行以应用设备树叠加。请注意，文件名的 `-overlay.dts` 部分将被移除。例如：
 
 ```
 dtoverlay=disable-bt
@@ -2204,7 +2204,7 @@ mini UART 具有较小的 FIFO。加上缺乏流量控制，这使得在更高�
 * 一些节点的子节点： child-node1 和 child-node2
 * 一个标签（ cousin ）和对该标签的引用（ `&cousin` ）
 * 散布在树中的几个属性
-* 一个重复的节点 ( /node2 )
+* 一个重复的节点 ( `/node2` )
 
 属性是简单的键值对，其中值可以是空的，也可以包含任意字限流。虽然数据类型没有编码在数据结构中，但在设备树源文件中可以表达一些基本数据表示。
 
@@ -2354,7 +2354,7 @@ Label or path i2s not found
 $ dtc -@ -Hepapr -I dts -O dtb -o 1st.dtbo 1st-overlay.dts
 ```
 
-如果 dtc 返回关于第三行的错误，则它没有覆盖工作所需的扩展。运行 sudo apt install device-tree-compiler，然后再试一次 - 这次，编译应该成功完成。请注意，适当的编译器也可在内核树中作为 scripts/dtc/dtc 使用，当使用 dtbs make 目标时构建：
+如果 dtc 返回关于第三行的错误，则它没有覆盖工作所需的扩展。运行 `sudo apt install device-tree-compiler`，然后再试一次 - 这次，编译应该成功完成。请注意，适当的编译器也可在内核树中作为 scripts/dtc/dtc 使用，当使用 dtbs make 目标时构建：
 
 ```
 $ make ARCH=arm dtbs
