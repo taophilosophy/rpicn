@@ -953,7 +953,7 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 运行以下命令来配置网络连接，将占位符 `<网络名称>` 替换为你要配置的网络名称：
 
-```sh-session
+```bash
 $ sudo nmcli --ask dev wifi connect <网络名称>
 ```
 
