@@ -2089,8 +2089,8 @@ dtparam=krnbt=off
 
 参数 `enable_uart` 的默认状态取决于哪个 UART 是主 UART：
 
-| 主 UART               | 启用 `_uart` 参数的默认状态 |
-| ----------------------- | -------------------------- |
+| 主 UART               |   参数 `enable_uart` 的默认状态 |
+| :-----------------------: | :--------------------------: |
 | mini UART             | 0                        |
 | 第一个 PL011（UART0） | 1                        |
 
@@ -3017,7 +3017,7 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 　　仅适用于树莓派 5。一个位字段，指示 PMIC 被重置的原因。
 
 | 位 | 原因     |
-| ---- | ---------- |
+| :----: | :----------: |
 | 0  | 过压     |
 | 1  | 低压   |
 | 2  | 高温     |
@@ -3055,7 +3055,7 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 　　这个位字段描述了当前引导加载程序支持的功能。这可以用来在引导加载程序 EEPROM 配置中启用功能（例如 USB 启动）之前检查是否支持。
 
 | 位 | 功能                                     |
-| ---- | ------------------------------------------ |
+| :----: | :------------------------------------------: |
 | 0  | 使用 VLI USB 主机控制器进行 [USB 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#usb-mass-storage-boot)     |
 | 1  | [ 网络引导](https://www.raspberrypi.com/documentation/computers/remote-access.html#network-boot-your-raspberry-pi)                                         |
 | 2  | [TRYBOOT_A_B](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot) 模式                         |
