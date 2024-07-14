@@ -3,29 +3,36 @@
 ## 什么是 config.txt ?
  
 
-树莓派设备使用一个配置文件，名为 config.txt，用其实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会读取 config.txt。树莓派系统在引导分区中查找此文件，该分区位于 `/boot/firmware/`。
+树莓派设备使用一个配置文件（`config.txt`），来实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会先读取 `config.txt`。树莓派系统会在引导分区中查找此文件，该分区位于 `/boot/firmware/`。
 
-| NOTE | 在树莓派系统 Bookworm 之前，树莓派系统将引导分区放在 `/boot/`。|
-| ------ | ------------------------------------------------------------------- |
+>**注意**
+>
+>在树莓派系统 *Bookworm* 之前，树莓派系统把引导分区放在 `/boot/`。
 
-你可以直接在你树莓派的当前系统中编辑 config.txt。你还可以弹出存储设备，在另一台计算机上编辑启动分区中的文件（含 config.txt）。
+你可以直接在你树莓派的当前系统中编辑 `config.txt`。你还可以弹出存储设备，在其他计算机上编辑启动分区中的文件（其中就有 `config.txt`）。
 
-对 config.txt 的更改，仅在重启后才会生效。你可以使用以下命令查看当前使用的设置：
+对 `config.txt` 的修改，仅在重启后才会生效。你可以使用以下命令，查看当下使用的设置：
 
-`vcgencmd get_config <配置>` 显示特定的配置数值，例如 `vcgencmd get_config arm_freq`
+`vcgencmd get_config <配置>` 
 
-`vcgencmd get_config int` 列出所有非零整数配置选项（非 0）
+可显示特定的配置数值，如 `vcgencmd get_config arm_freq`
 
-`vcgencmd get_config str` 列出所有非空字符串配置选项
+`vcgencmd get_config int` 
+
+列出所有非零整数配置选项（非 0）
+
+`vcgencmd get_config str`
+
+可列出所有非空字符串配置选项
 
 | NOTE | 并非所有配置设置都可以用 vcgencmd 进行检索。|
 | ------ | ------------------------------------------------ |
 
 ### 文件格式
 
-config.txt 文件由早期启动固件读取，因此使用非常简单的文件格式：每行一个 property=value 语句，其中 value 可以是整数或字符串。可以添加注释，或通过以 # 字符开头的行来注释掉和禁用现有配置值。
+文件 `config.txt` 由早期启动固件读取，因此使用的文件格式非常简单：每行一个 `property=value` 语句，其中 value 可以是整数或者字符串。可以添加注释，或通过以 `#` 字符开头的行，注释掉和禁用现有配置值。
 
-条目的最大长度为 98 个字符。树莓派操作系统会忽略超出此限制的任何字符。
+条目的最大长度为 98 个字符。树莓派操作系统会忽略超出此限制的所有字符。
 
 这里是一个示例文件：
 
@@ -33,7 +40,7 @@ config.txt 文件由早期启动固件读取，因此使用非常简单的文件
 # 开启音频（加载 snd_bcm2835）
 dtparam=audio=on
 
-# 自动检测新加摄像头
+# 自动检测新加摄像头叠加层
 camera_auto_detect=1
 
 # 自动检测新加 DSI 显示器
@@ -47,11 +54,11 @@ dtoverlay=vc4-kms-v3d
 
 #### `include`
 
-使指定文件的内容插入到当前文件中。
+把指定文件的内容插入到当前文件中。
 
-例如，添加行 include extraconfig.txt 到 config.txt 将在 config.txt 文件中包含 extraconfig.txt 文件的内容。
+例如，把 `include extraconfig.txt` 这一行添加到到 `config.txt` 将在 `config.txt` 文件中包含 `extraconfig.txt` 文件的内容。
 
-| NOTE | bootcode.bin 或 EEPROM 引导加载程序不支持 include 指令。<br /><br />只有在 config.txt 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
+| NOTE | `bootcode.bin` 或 EEPROM 引导加载程序不支持 include 指令。<br /><br />只有在 `config.txt` 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
 
 * `bootcode_delay`,
 * `gpu_mem`, `gpu_mem_256`, `gpu_mem_512`, `gpu_mem_1024`,
@@ -67,25 +74,25 @@ dtoverlay=vc4-kms-v3d
 ## `autoboot.txt`
 
 
-autoboot.txt 是可选的配置文件，可用于指定 boot_partition 数量。
+`autoboot.txt` 是可选的配置文件，可用于指定 `boot_partition` 数量。
 
 也可以与 tryboot 功能一起使用，实现用于 OS 升级的 A/B 引导。
 
-autoboot.txt 限制为 512 字节，支持 [all]、[none] 和 [tryboot] 条件过滤器。
+autoboot.txt 限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` 条件过滤器。
 
 查看 TRYBOOT 启动流程。
 
 ### `boot_partition`
 
-指定引导的分区号，除非分区号已作为 reboot 命令的参数指定（例如 `sudo reboot 2` ）。
+指定引导的分区号，除非分区号已作为 `reboot` 命令的参数指定（例如 `sudo reboot 2` ）。
 
 分区号从 1 开始，MBR 分区为 1 到 4。指定分区 0 意味着从第一个可引导的 FAT 分区 default 引导。
 
-可引导的分区必须以 FAT12、FAT16 或 FAT32 格式进行格式化，并包含一个 start.elf 文件（或者在树莓派 5 上包含一个 config.txt 文件），以便引导程序将其视为可引导。
+可引导的分区必须以 FAT12、FAT16 或 FAT32 格式进行格式化，并包含一个 `start.elf` 文件（或者在树莓派 5 上包含一个 `config.txt` 文件），以便引导程序将其视为可引导。
 
 ### `[tryboot]` 过滤器
 
-如果系统启动时设置了 tryboot 标志，则此过滤器将通过。
+如果系统启动时设置了参数 `tryboot`，则此过滤器将通过。
 
 ```
 $ sudo reboot "0 tryboot"
@@ -93,15 +100,15 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当设置此属性为 1 时，会加载普通 config.txt 和 boot.img 文件，而不加载 tryboot.txt 和 tryboot.img 文件，当设置 tryboot 参数时。
+当设置此属性为 1 时，会加载普通的 `config.txt` 和 `boot.img` 文件，而不加载 tryboot.txt 和 tryboot.img 文件，当设置 tryboot 参数时。
 
 这样可以在分区级别而不是文件级别上进行 tryboot 开关，并且无需修改 A/B 分区中的配置文件。
 
 ### A/B 启动的示例更新流程
 
-以下伪代码显示了一个假设的操作系统 Update service 如何在 autoboot.txt 中使用 tryboot 执行安全的操作系统升级。
+以下伪代码显示了一个假设的操作系统 Update service 如何在 `autoboot.txt` 中使用 tryboot 执行安全的操作系统升级。
 
- 初始 autoboot.txt :
+ 初始 `autoboot.txt` :
 
 ```
 [all]
@@ -119,12 +126,12 @@ boot_partition=3
 
 **进行、取消更新**
 
-* 系统从第 3 分区引导，因为 [tryboot] 过滤器在 tryboot mode 中评估为 true
+* 系统从第 3 分区引导，因为 `[tryboot]` 过滤器在 tryboot mode 中评估为 true
 * 如果 tryboot 处于活动状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
-  * 如果当前的引导分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 autoboot.txt 部分的 [tryboot] 匹配
+  * 如果当前的引导分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 autoboot.txt 部分的 `[tryboot]` 匹配
     * Update Service 验证系统以确保更新成功
     * 如果更新成功
-      * 替换 autoboot.txt 交换 boot_partition 配置
+      * 替换 autoboot.txt 交换 `boot_partition` 配置
       * 正常重启 - 分区 3 现在是默认启动分区
     * 否则
       * Update Service 将更新标记为失败，例如删除更新文件。
@@ -143,7 +150,7 @@ boot_partition=3
 boot_partition=2
 ```
 
-| NOTE | 更新完 autoboot.txt 后不必须重启。然而，必须小心 Update Service ，以防止覆盖当前分区，因为已经修改了 autoboot.txt 以提交最后的更新。有关更多信息，请参阅设备树参数。|
+| NOTE | 更新完 autoboot.txt 后并不必须重启。然而，必须小心 Update Service ，以防止覆盖当前分区，因为已经修改了 autoboot.txt 以提交最后的更新。有关更多信息，请参阅设备树参数。|
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 ## 常见选项
@@ -152,25 +159,25 @@ boot_partition=2
 
 ### 常见显示选项
 
-#### hdmi_enable_4kp60 （仅适用于树莓派 4）
+#### `hdmi_enable_4kp60` （仅适用于树莓派 4）
 
-默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可能选择 60Hz 的刷新率。Raspberry Pi 4 不支持同时在两个 micro HDMI ports 上输出 4Kp60。设置 hdmi_enable_4kp60 会增加功耗和温度。
+默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可能选择 60Hz 的刷新率。Raspberry Pi 4 不支持同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
 
 ### 常见硬件配置选项
 
 #### `camera_auto_detect`
 
-启用此设置（在树莓派系统中，默认启用），固件将自动加载识别的 CSI 摄像头的叠加层。将 camera_auto_detect=0 设置为禁用该设置。
+启用此设置（在树莓派系统中，默认启用），固件将自动加载识别的 CSI 摄像头的叠加层。将 `camera_auto_detect=0`则 设置为禁用该设置。
 
 #### `display_auto_detect`
 
-启用此设置（在树莓派系统中默认启用），固件将自动加载识别的 DSI 显示屏的叠加层。将 display_auto_detect=0 设置为禁用。
+启用此设置（在树莓派系统中默认启用），固件将自动加载识别的 DSI 显示屏的叠加层。将 `display_auto_detect=0` 设置为禁用。
 
 #### `dtoverlay`
 
-dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可以启用内置和外部硬件内核支持的配置文件。例如，dtoverlay=vc4-kms-v3d 加载一个启用内核图形驱动程序的叠加层。
+dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可以启用内置和外部硬件内核支持的配置文件。例如，`dtoverlay=vc4-kms-v3d` 加载一个启用内核图形驱动程序的叠加层。
 
-作为一个特殊情况，如果没有值调用 - dtoverlay= - 该选项标记着叠加参数列表的结束。如果在任何其他 dtoverlay 或 dtparam 设置之前使用，它会阻止加载任何 HAT 叠加层。
+作为一个特殊情况，如果没有值调用 - `dtoverlay=` - 该选项标记着叠加参数列表的结束。如果在任何其他 dtoverlay 或 dtparam 设置之前使用，它会阻止加载任何 HAT 叠加层。
 
 有关更多详细信息，请参阅 DTB、叠加和 config.txt。
 
@@ -182,11 +189,11 @@ dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可�
 
 #### arm_boost （仅适用于树莓派 4）
 
-所有树莓派 400 系列和树莓派 4B 修订版都配备了第二个开关模式电源供应，用于 SoC 电压轨，这使得默认的 turbo 模式时钟可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认启用。设置 arm_boost=0 以禁用。
+所有树莓派 400 系列和树莓派 4B 修订版都配备了第二个开关模式电源供应，用于 SoC 电压轨，这使得默认的 turbo 模式时钟可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认启用。设置 `arm_boost=0` 以禁用。
 
-#### power_force_3v3_pwm （仅适用于树莓派 5）
+#### `power_force_3v3_pwm` （仅适用于树莓派 5）
 
-使用 3V3 电源时强制 PWM。设置 power_force_3v3_pwm=0 以禁用。
+使用 3V3 电源时强制 PWM。设置 `power_force_3v3_pwm=0` 以禁用。
 
 ## 板载模拟音频（3.5 mm 插孔）
 
@@ -195,30 +202,30 @@ dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可�
 
 ### `audio_pwm_mode`
 
-audio_pwm_mode=1 选择来自 3.5 mm AV 插孔的传统低质量模拟音频。
+`audio_pwm_mode=1` 选择来自 3.5 mm AV 插孔的传统低质量模拟音频。
 
-audio_pwm_mode=2 （默认）使用先进的调制方案选择高质量模拟音频。
+`audio_pwm_mode=2` （默认）使用先进的调制方案选择高质量模拟音频。
 
 | NOTE | 此选项会占用更多的 GPU 计算资源，可能会对某些型号的某些用例产生干扰。|
 | ------ | ------------------------------------------------------------------- |
 
 ### `disable_audio_dither`
 
-默认情况下，如果音频流被路由到模拟音频输出，则会应用 1.0LSB 抖动。在某些情况下，例如当 ALSA 音量设置为低水平时，这可能会产生可听见的背景噪音。将 disable_audio_dither 设置为 1 以禁用抖动应用。
+默认情况下，如果音频流被路由到模拟音频输出，则会应用 1.0LSB 抖动。在某些情况下，例如当 ALSA 音量设置为低水平时，这可能会产生可听见的背景噪音。将 `disable_audio_dither` 设置为 `1` 以禁用抖动应用。
 
 ### `enable_audio_dither`
 
-音频抖动（请参阅上述 disable_audio_dither）通常在音频样本大于 16 位时被禁用。将此选项设置为 1 可强制对所有位深度使用抖动。
+音频抖动（请参阅上述 `disable_audio_dither`）通常在音频样本大于 16 位时被禁用。将此选项设置为 `1` 可强制对所有位深度使用抖动。
 
 ### `pwm_sample_bits`
 
-pwm_sample_bits 命令调整模拟音频输出的位深度。默认位深度为 11。选择低于 8 的位深度将导致音频无法正常工作，因为低于 8 的设置会导致 PLL 频率过低而无法支持。这通常仅用作演示位深度如何影响量化噪声。
+`pwm_sample_bits` 命令调整模拟音频输出的位深度。默认位深度为 `11`。选择低于 `8` 的位深度将导致音频无法正常工作，因为低于 `8` 的值会导致 PLL 频率过低而无法支持。这通常仅用作演示位深度如何影响量化噪声。
 
 ## HDMI 音频
 
 默认情况下，所有搭载 HDMI 输出的树莓派型号，都启用 HDMI 音频输出。
 
-要禁用 HDMI 音频输出，请在 /boot/firmware/config.txt 中的 dtoverlay=vc4-kms-v3d 行末尾添加 ,noaudio ：
+要禁用 HDMI 音频输出，请在 `/boot/firmware/config.txt` 中的 `dtoverlay=vc4-kms-v3d` 行末尾添加 `,noaudio` ：
 
 ```
 dtoverlay=vc4-kms-v3d,noaudio
@@ -232,11 +239,11 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 这些选项指定在启动前传输到 VideoCore GPU 的固件文件。
 
-start_file 指定要使用的 VideoCore 固件文件。fixup_file 指定用于修正 start_file 中使用的内存位置，以匹配 GPU 内存分配。
+`start_file` 指定要使用的 VideoCore 固件文件。`fixup_file` 指定用于修正 `start_file` 中使用的内存位置，以匹配 GPU 内存分配。
 
-start_file 和 fixup_file 是一对匹配的文件 - 使用不匹配的文件将阻止板子启动。这是一个高级选项，因此我们建议你使用 start_x 和 start_debug，而不是此选项。
+`start_file` 和 `fixup_file` 是一对匹配的文件 - 使用不匹配的文件将妨碍开发板启动。这是一个专业选项，因此我们建议你使用 `start_x` 和 `start_debug`，而不是此选项。
 
-| NOTE | 精简固件（ start*cd.elf 和 fixup*cd.dat ）不能通过这种方式选择 - 系统将无法启动。启用精简固件的唯一方法是指定 gpu_mem=16。精简固件删除对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp - 尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替这一点，就像任何固件一样。|
+| NOTE | 精简固件（ `start*cd.elf` 和 `fixup*cd.dat` ）不能通过这种方式选择 - 系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件删除对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp - 尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替这一点，就像任何固件一样。|
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 | NOTE | 树莓派 5 固件内置在引导加载程序 EEPROM 中。|
@@ -278,7 +285,7 @@ ramfsaddr 是应将 ramfsfile 加载到的内存地址。
 
 initramfs 命令同时指定 ramfs 文件名和需要加载到的内存地址。它在一个参数中执行了 ramfsfile 和 ramfsaddr 的操作。地址也可以是 followkernel （或 0 ），将其放在内核镜像后的内存中。示例值为： initramfs initramf.gz 0x00800000 或 initramfs init.gz followkernel。与 ramfsfile 一样，更新的固件允许通过逗号分隔它们的名称加载多个文件。
 
-| NOTE | 此选项使用与所有其他选项不同的语法，你不应在此处使用 = 字符。|
+| NOTE | 此选项使用与所有其他选项不同的语法，你不应在此处使用 `=` 字符。|
 | ------ | --------------------------------------------------------------- |
 
 ### `auto_initramfs`
@@ -287,29 +294,29 @@ initramfs 命令同时指定 ramfs 文件名和需要加载到的内存地址。
 
 ### `disable_poe_fan`
 
-默认情况下，I²C 总线上的探测将在启动时发生，即使未连接 PoE HAT。将此选项设置为 1 可禁用通过 I²C 控制 PoE HAT 风扇（在 ID_SD＆ID_SC 引脚上）。如果你不打算使用 PoE HAT，则这是最大化启动时间的有用方式。
+默认情况下，I²C 总线上的探测将在启动时发生，即使未连接 PoE HAT。将此选项设置为 1 可禁用通过 I²C 控制 PoE HAT 风扇（在 `ID_SD＆ID_SC` 引脚上）。如果你不打算使用 PoE HAT，则这是最大化启动时间的有用方式。
 
 ### `disable_splash`
 
-如果将 disable_splash 设置为 1，则启动时不会显示彩虹闪屏。默认值为 0。
+如果将 disable_splash 设置为 1，则启动时不会显示彩虹闪屏。默认值为 `0`。
 
 ### `enable_uart`
 
-enable_uart=1 （与 console=serial0 结合在 cmdline.txt 中）要求内核创建一个串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 和 10 引脚）访问。编辑 cmdline.txt 以删除 quiet 行，从而使内核的启动消息也显示在那里。另请参阅 uart_2ndstage。
+`enable_uart=1` （与 `console=serial0` 结合在 cmdline.txt 中）要求内核创建一个串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 和 10 引脚）访问。编辑 cmdline.txt 以删除 quiet 行，从而使内核的启动消息也显示在那里。另请参阅 uart_2ndstage。
 
 ### `force_eeprom_read`
 
-将此选项设置为 0 可防止固件在上电时尝试读取连接到 ID_SD 和 ID_SC 引脚的 I²C HAT EEPROM。另请参阅 disable_poe_fan。
+将此选项设置为 `0` 可防止固件在上电时尝试读取连接到 `ID_SD` 和 `ID_SC` 引脚的 I²C HAT EEPROM。另请参阅 disable_poe_fan。
 
 ### `os_prefix`
 
-os_prefix 是一个可选设置，允许你在同一卡上安装的内核和设备树文件的多个版本之间进行选择。os_prefix 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、initramfs、cmdline.txt、.dtbs 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须包含尾随的 / 字符。
+os_prefix 是一个可选设置，允许你在同一卡上安装的内核和设备树文件的多个版本之间进行选择。os_prefix 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、initramfs、cmdline.txt、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须包含尾随的 / 字符。
 
-为了减少系统无法启动的几率，固件首先测试所提供的前缀值是否可行 - 除非新位置/名称能够找到预期的内核和.dtb 文件，否则前缀将被忽略（设为“”）。此可行性测试的一个特例应用于叠加层，只有从 ${os_prefix}${overlay_prefix} （其中 overlay_prefix 的默认值为“overlays/”）才会加载叠加层，否则它会忽略 os_prefix 并将叠加层视为共享项。
+为了减少系统无法启动的几率，固件首先测试所提供的前缀值是否可行 - 除非新位置/名称能够找到预期的内核和.dtb 文件，否则前缀将被忽略（设为“”）。此可行性测试的一个特例应用于叠加层，只有从 `${os_prefix}${overlay_prefix}` （其中 overlay_prefix 的默认值为“overlays/”）才会加载叠加层，否则它会忽略 os_prefix 并将叠加层视为共享项。
 
 （固件在检查前缀时检查关键文件的存在而不是目录的原因有二：前缀可能不是目录，并非所有启动方法都支持测试目录的存在。）
 
-| NOTE | 任何用户指定的操作系统文件都可以通过使用绝对路径（相对于启动分区）来绕过所有前缀-只需以 / 开头，例如 kernel=/my_common_kernel.img。|
+| NOTE | 任何用户指定的操作系统文件都可以通过使用绝对路径（相对于启动分区）来绕过所有前缀-只需以 / 开头，例如 `kernel=/my_common_kernel.img`。|
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 
 另请参阅 overlay_prefix 和 upstream_kernel。
@@ -327,9 +334,9 @@ otg_mode=1 请求使用更具能力的 XHCI USB 2 控制器作为 USB-C 连接�
 
 ### `overlay_prefix`
 
-指定从哪个子目录/前缀加载叠加层，默认为 overlays/ （注意末尾的 / ）。如果与 os_prefix 一起使用，则 os_prefix 位于 overlay_prefix 之前，即 dtoverlay=disable-bt 将尝试加载 ${os_prefix}${overlay_prefix}disable-bt.dtbo。
+指定从哪个子目录/前缀加载叠加层，默认为 overlays/ （注意末尾的 / ）。如果与 os_prefix 一起使用，则 os_prefix 位于 overlay_prefix 之前，即 dtoverlay=disable-bt 将尝试加载 `${os_prefix}${overlay_prefix}disable-bt.dtbo`。
 
-| NOTE | 除非 ${os_prefix}${overlay_prefix}README 存在，否则叠加层与主操作系统共享（即 os_prefix 将被忽略）。|
+| NOTE | 除非 `${os_prefix}${overlay_prefix}README` 存在，否则叠加层与主操作系统共享（即 os_prefix 将被忽略）。|
 | ------ | ------------------------------------------------------------------------------------------------------ |
 
 ### 配置属性
@@ -338,7 +345,7 @@ otg_mode=1 请求使用更具能力的 XHCI USB 2 控制器作为 USB-C 连接�
 
 #### `boot_ramdisk`
 
-如果此属性设置为 1，则引导程序将尝试加载一个名为 boot.img 的 ramdisk 文件，其中包含引导文件系统。随后的文件（例如 start4.elf ）从 ramdisk 中读取，而不是原始引导文件系统。
+如果此属性设置为 1，则引导程序将尝试加载一个名为 boot.img 的 ramdisk 文件，其中包含引导文件系统。随后的文件（例如 `start4.elf` ）从 ramdisk 中读取，而不是原始引导文件系统。
 
 boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文件也可用于网络引导或 RPIBOOT 配置。
 
@@ -350,29 +357,29 @@ boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文
 
 有关 secure-boot 和创建 boot.img 文件的更多信息，请参阅 USBBOOT。
 
- 默认： 0
+ 默认： `0`
 
 #### `boot_load_flags`
 
 自定义固件（裸金属）的实验性属性。
 
-位 0 (0x1) 表示 .elf 文件为定制固件。这将禁用任何兼容性检查（例如 USB MSD 启动是否受支持），并在启动可执行文件之前重置 PCIe。
+位 0 (0x1) 表示 `.elf` 文件为定制固件。这将禁用任何兼容性检查（例如 USB MSD 启动是否受支持），并在启动可执行文件之前重置 PCIe。
 
 树莓派 5 上无关紧要，因为没有 start.elf 文件。
 
- 默认： 0x0
+ 默认： `0x0`
 
 #### `pciex4_reset`
 
 仅适用于 Raspberry Pi 5。
 
-默认情况下，在启动操作系统之前，RP1 使用的 PCIe x4 控制器会被复位。如果此参数设置为 0，则复位将被禁用，允许操作系统或裸金属代码继承来自引导加载程序的 PCIe 配置设置。
+默认情况下，在启动操作系统之前，RP1 使用的 PCIe x4 控制器会被复位。如果此参数设置为 `0|，则复位将被禁用，允许操作系统或裸金属代码继承来自引导加载程序的 PCIe 配置设置。
 
- 默认值： 1
+ 默认值： `1`
 
 #### `uart_2ndstage`
 
-如果 uart_2ndstage 是 1，则启用 UART 调试日志记录。此选项还会自动启用 start.elf 中的 UART 日志记录。这也在启动选项页面上有描述。
+如果 uart_2ndstage 为 `1`，则启用 UART 调试日志记录。此选项还会自动启用 start.elf 中的 UART 日志记录。这也在启动选项页面上有描述。
 
 BOOT_UART 属性还会启用引导加载程序 UART 日志记录，但不会在 start.elf 中启用 UART 日志记录，除非也设置了 uart_2ndstage=1。
 
@@ -380,7 +387,7 @@ BOOT_UART 属性还会启用引导加载程序 UART 日志记录，但不会在 
 
 #### `erase_eeprom`
 
-如果 erase_eeprom 设置为 1，那么 recovery.bin 将擦除整个 SPI EEPROM 而不是刷新引导加载程序镜像。此属性在正常启动期间没有任何效果。
+如果 erase_eeprom 设置为 `1`，那么 recovery.bin 将擦除整个 SPI EEPROM 而不是刷新引导加载程序镜像。此属性在正常启动期间没有任何效果。
 
  默认: 0
 
@@ -396,28 +403,28 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 | 值 | 描述                              |
 | ---- | ----------------------------------- |
-| 1  | 配置写保护区域以覆盖整个 EEPROM。|
-| 0  | 清除写保护区域。        |
-| -1 | 什么也不做。            |
+| `1`  | 配置写保护区域以覆盖整个 EEPROM。|
+| `0`  | 清除写保护区域。        |
+| `-1` | 什么也不做。            |
 
 | NOTE | flashrom 不支持清除写保护区域，如果定义了写保护区域，将无法更新 EEPROM。|
 | ------ | -------------------------------------------------------------------------- |
 
 在树莓派 5 上，默认情况下，/WP 被拉低，因此一旦配置 Write Status Register，写保护就会启用。要清除写保护，请通过连接 TP14 和 TP1 将 /WP 拉高。
 
- 默认值: -1
+ 默认值: `-1`
 
 #### `os_check`
 
 在树莓派 5 上，固件会自动在尝试从当前分区引导之前检查兼容的设备树文件。否则，将加载旧的不兼容内核，然后挂起。要禁用此检查（例如用于裸机开发），请在 config.txt 中设置 os_check=0。
 
- 默认： 1
+ 默认： `1`
 
 #### `bootloader_update`
 
-可将此选项设置为 0 以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个 Raspberry Pi 时，有时会很有用，因为可以针对每个 Raspberry Pi 控制此选项（例如，通过 config.txt 中的串行号过滤器）。
+可将此选项设置为 `0` 以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对每个树莓派控制此选项（例如，通过 config.txt 中的串行号过滤器）。
 
- 默认： 1
+ 默认： `1`
 
 ### 安全引导配置属性
 
@@ -435,13 +442,13 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 如果将此属性设置为 1，则 recovery.bin 将哈希公钥的散列值写入 EEPROM 镜像到 OTP。设置后，引导加载程序将拒绝使用不同 RSA 密钥签名的 EEPROM 镜像或未签名镜像。
 
- 默认： 0
+ 默认： `0`
 
 #### `revoke_devkey`
 
 如果将此属性设置为 1，则 recovery.bin 将写入一个值到 OTP，防止 ROM 加载不支持 secure-boot 的旧第二阶段引导加载程序版本。这可以防止通过回滚到旧版本的引导加载程序释放 secure-boot 被关闭。
 
- 默认: 0
+ 默认: `0`
 
 #### `program_rpiboot_gpio`
 
@@ -464,7 +471,7 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 如果此属性设置为 1，则 recovery.bin 将编程防止使用 VideoCore JTAG 的 OTP 值。此选项要求还设置 program_pubkey 和 revoke_devkey。此选项可以防止故障分析，应仅在设备完全测试后设置。
 
- 默认: 0
+ 默认: `0`
 
 ## GPIO 控制
 
@@ -474,7 +481,7 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 gpio 指示允许在引导时将 GPIO 引脚设置为特定模式和值，以一种以前需要定制 dt-blob.bin 文件的方式进行设置。每行将相同的设置应用于一组引脚，或者至少对一组引脚进行相同的更改，可以处理单个引脚（ 3 ），一系列引脚（ 3-4 ）或者以逗号分隔的列表（ 3-4,6,8 ）。
 
-引脚设置后跟一个 = 和此列表中的一个或多个逗号分隔属性：
+引脚设置后跟一个 `=` 和此列表中的一个或多个逗号分隔属性：
 
 * ip - 输入
 * op - 输出
@@ -503,7 +510,7 @@ gpio=18,20=pu
 gpio=17-21=ip
 ```
 
-该 gpio 指令尊重 "[...]" 条件过滤器，因此可以根据型号、序列号和 EDID 使用不同的设置。
+该 gpio 指令尊重 "\[...\]" 条件过滤器，因此可以根据型号、序列号和 EDID 使用不同的设置。
 
 通过该机制进行的 GPIO 更改不会直接影响内核。它们不会导致 GPIO 引脚被导出到 sysfs 接口，并且可以被设备树中的 pinctrl 条目以及像 pinctrl 这样的实用工具覆盖。
 
@@ -512,32 +519,32 @@ gpio=17-21=ip
 ## 超频选项
  
 
-内核默认启用了 CPUFreq 驱动程序，并在启动时将 powersave 调度程序切换为 ondemand，安装 raspi-config 后。使用 ondemand 调度程序，CPU 频率将随处理器负载变化。你可以通过 *_min 配置选项调整最小值，或者通过应用静态缩放调度程序（powersave 或 performance）或使用 force_turbo=1 来禁用动态时钟调整。
+内核默认启用了 CPUFreq 驱动程序，并在启动时将 powersave 调度程序切换为 ondemand，安装 raspi-config 后。使用 ondemand 调度程序，CPU 频率将随处理器负载变化。你可以通过 `*_min` 配置选项调整最小值，或者通过应用静态缩放调度程序（powersave 或 performance）或使用 force_turbo=1 来禁用动态时钟调整。
 
 当 SoC 达到 temp_limit （见下文）时，运行时会禁用超频和过压功能，默认为 85°C，以便降低 SoC 温度。你不应该在 树莓派 1 和 树莓派 2 上达到这个限制，但在 树莓派 3 和更新版本上更有可能。当检测到欠电压情况时，也会禁用超频和过压功能。
 
 | NOTE | 更多信息请参阅频率管理和热控制部分。|
 | ------ | -------------------------------------- |
 
-| WARNING | 将任何超频参数设置为非 raspi-config 使用的值可能会在 SoC 内部置一个永久位。这将使你的 树莓派 曾经超频的情况变得可检测。当将 force_turbo 设置为 1 且任一 over_voltage_* 选项设为大于 0 的值时，超频位会设置。详细信息请查看有关 Turbo 模式的博文。|
+| WARNING | 将任何超频参数设置为非 raspi-config 使用的值可能会在 SoC 内部置一个永久位。这将使你的 树莓派 曾经超频的情况变得可检测。当将 force_turbo 设置为 `1` 且任一 `over_voltage_*` 选项设为大于 `0` 的值时，超频位会设置。详细信息请查看有关 Turbo 模式的博文。|
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### 超频
 
 | 选项 | 描述                                                                                                                                                                                                                                                                                                                                                                           |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `arm_freq`     | ARM CPU 的频率，以 MHz 为单位。                                                                                                                                                                                                                                                                                                                                      |
-| `arm_boost`     | 将 arm_freq 增加到板型和固件支持的最高频率。设置为 1 以启用。                                                                                                                                                                                                                                                                                                        |
-| `gpu_freq`     | 将 core_freq、h264_freq、isp_freq、v3d_freq 和 hevc_freq 一起设置。                                                                                                                                                                                                                                                                                            |
+| `arm_boost`     | 将 `arm_freq` 增加到板型和固件支持的最高频率。设置为 1 以启用。                                                                                                                                                                                                                                                                                                        |
+| `gpu_freq`     | 将 `core_freq`、`h264_freq`、`isp_freq`、`v3d_freq` 和 `hevc_freq` 一起设置。                                                                                                                                                                                                                                                                                            |
 | `core_freq`     | GPU 处理器核心的频率，以 MHz 为单位。影响 CPU 性能，因为它驱动 L2 缓存和内存总线；只有树莓派 Zero / 树莓派 Zero W / 树莓派 1 受益于 L2 缓存；对树莓派 2 和树莓派 3 上的 SDRAM 有一点益处。请参见下面关于在树莓派 4 上使用的部分。                                                                                                                                     |
 | `h264_freq`     | 硬件视频块的频率，以 MHz 为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                         |
 | `isp_freq`     | 图像传感器管道块的频率，以 MHz 为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                   |
-| `v3d_freq`     | 在 MHz 中的 3D 块的频率；gpu_freq 设置的个别覆盖。在 Raspberry Pi 5 上，V3D 与 core_freq、isp_freq 和 hevc_freq 独立。                                                                                                                                                                                                                                            |
+| `v3d_freq`     | 在 MHz 中的 3D 块的频率；gpu_freq 设置的个别覆盖。在 Raspberry Pi 5 上，V3D 与 `core_freq`、`isp_freq` 和 `hevc_freq` 独立。                                                                                                                                                                                                                                            |
 | `hevc_freq`     | 高效视频编解码器块的频率，单位为 MHz；gpu_freq 设置的个别覆盖。仅适用于 Raspberry Pi 4。                                                                                                                                                                                                                                                                            |
 | `sdram_freq`     | SDRAM 的频率，单位为 MHz。不支持在 Raspberry Pi 4 或更新版本上超频 SDRAM。                                                                                                                                                                                                                                                                                           |
 | `over_voltage`     | CPU/GPU 核心上限电压。值应在范围[-16,8]内，这相当于范围[0.95V,1.55V]（在树莓派 1 上为 [0.8V,1.4V]），步长为 0.025V。换句话说，指定-16 将使 CPU/GPU 核心电压的最大值为 0.95V（在树莓派 1 上为 0.8V），指定 8 将允许高达 1.55V（在树莓派 1 上为 1.4V）。有关默认值，请参见下表。仅当指定了 force_turbo=1 时才允许高于 6 的值：如果还设置了 over_voltage_* > 0，则会设置保修位。|
 | `over_voltage_sdram`     | 一起设置 over_voltage_sdram_c，over_voltage_sdram_i 和 over_voltage_sdram_p。                                                                                                                                                                                                                                                                                     |
-| `over_voltage_sdram_c`     | SDRAM 控制器电压调整。[-16,8]相当于[0.8V,1.4V]，步长为 0.025V。不支持树莓派 4 或更高版本设备。                                                                                                                                                                                                                                                                       |
+| `over_voltage_sdram_c`     | SDRAM 控制器电压调整。\[-16,8\]相当于\[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 或更高版本设备。                                                                                                                                                                                                                                                                       |
 | `over_voltage_sdram_i`     | SDRAM I/O 电压调整。[-16,8] 相当于[0.8V,1.4V]，步长为 0.025V。不支持树莓派 4 或更高版本的设备。                                                                                                                                                                                                                                                                      |
 | `over_voltage_sdram_p`     | SDRAM 物理电压调整。[-16,8] 相当于[0.8V,1.4V]，步长为 0.025V。不支持树莓派 4 或更高版本的设备。                                                                                                                                                                                                                                                                      |
 | `force_turbo`     | 即使 ARM 核心空闲时也强制进入 Turbo 模式频率。启用此选项可能设置保修位，如果 over_voltage_* 也设置的话。                                                                                                                                                                                                                                                             |
