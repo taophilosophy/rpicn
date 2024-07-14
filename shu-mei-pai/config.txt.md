@@ -1,25 +1,24 @@
 # config.txt
 
 ## 什么是 config.txt ?
-
  
 
-树莓派设备使用一个名为 config.txt 的配置文件，来实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会读取 config.txt。树莓派系统在引导分区中查找此文件，该分区位于 /boot/firmware/。
+树莓派设备使用一个配置文件，名为 config.txt，用其实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会读取 config.txt。树莓派系统在引导分区中查找此文件，该分区位于 /boot/firmware/。
 
 | NOTE | 在树莓派系统 Bookworm 之前，树莓派系统将引导分区放在 /boot/。|
 | ------ | ------------------------------------------------------------------- |
 
-你可以直接在你树莓派的当前系统中编辑 config.txt。你还可以移除存储设备，在另一台计算机上编辑启动分区中的文件（含 config.txt）。
+你可以直接在你树莓派的当前系统中编辑 config.txt。你还可以弹出存储设备，在另一台计算机上编辑启动分区中的文件（含 config.txt）。
 
 对 config.txt 的更改，仅在重启后才会生效。你可以使用以下命令查看当前使用的设置：
 
-vcgencmd get_config <config> 显示特定的配置数值，例如 vcgencmd get_config arm_freq
+`vcgencmd get_config <配置>` 显示特定的配置数值，例如 `vcgencmd get_config arm_freq`
 
-vcgencmd get_config int 列出所有非零整数配置选项（非零）
+`vcgencmd get_config int` 列出所有非零整数配置选项（非 0）
 
-vcgencmd get_config str 列出所有非空字符串配置选项
+`vcgencmd get_config str` 列出所有非空字符串配置选项
 
-| NOTE | 并非所有配置设置都可以使用 vcgencmd 进行检索。|
+| NOTE | 并非所有配置设置都可以用 vcgencmd 进行检索。|
 | ------ | ------------------------------------------------ |
 
 ### 文件格式
