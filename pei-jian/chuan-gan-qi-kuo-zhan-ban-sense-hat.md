@@ -84,7 +84,7 @@ LED 点阵是一个带有 id“RPi-Sense FB”的 RGB565 帧缓冲区。适当�
 
 ### 操纵杆
 
-操纵杆显示为名为“Raspberry Pi Sense HAT Joystick”的输入事件设备，映射到箭头键和`回车键`。它应该受到任何能够处理输入的库的支持，或直接通过 evdev 接口。适用的库包括 SDL、pygame 和 python-evdev。包含的“snake”示例显示了如何直接访问操纵杆。
+操纵杆显示为名为“Raspberry Pi Sense HAT Joystick”的输入事件设备，映射到方向键和`回车键`。它应该受到任何能够处理输入的库的支持，或直接通过 evdev 接口。适用的库包括 SDL、pygame 和 python-evdev。包含的“snake”示例显示了如何直接访问操纵杆。
 
 ## 硬件校准
 
