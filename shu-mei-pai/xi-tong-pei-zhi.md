@@ -766,20 +766,20 @@ $ kmsprint | grep Connector
 
 #### 设置自定义分辨率
 
-如果你运行着 Wayland 桌面混成器，你可以编辑你的主目录中的文件 `.config/wayfire.ini`，来设置自定义显示分辨率。可编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新部分 `[output:<device>]`，以适配你的显示设备。要修改显示分辨率，请添加 `mode` 这行。例如，对于以下示例，配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz：
+如果你正在使用 Wayland 桌面混成器，你可以通过编辑你主目录中的文件来，设置自定义显示分辨率：`.config/wayfire.ini`。可编辑现有的 `[output:<device>]` 部分。倘若没有，则添加一个新部分 `[output:<device>]`，以适配你的显示设备。要修改显示分辨率，请添加 `mode` 这行。例如，对于以下示例，配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz：
 
 ```
 [output:HDMI-A-1]
 mode = 1920x1080@60
 ```
 
-有关支持的分辨率和 `mode` 语法的信息，请参阅 [Wayfire 文档](https://github.com/WayfireWM/wayfire-wiki/blob/master/Configuration.md#output-configuration)。
+有关可支持的分辨率和 `mode` 语法的信息，请参阅 [Wayfire 文档](https://github.com/WayfireWM/wayfire-wiki/blob/master/Configuration.md#output-configuration)。
 
-将相同的配置段落添加到 `/usr/share/greeter.ini` 以配置登录屏幕分辨率。
+将相同的配置段落添加到 `/usr/share/greeter.ini`，可以配置登录屏幕分辨率。
 
 #### 设置自定义屏幕方向
 
-如果你运行着 Wayland 桌面混成器，可以使用 `wlr-randr` 设置自定义屏幕显示方向。以下命令分别将屏幕方向配置为 0°、90°、180°和 270°：
+如果你正在运行 Wayland 桌面混成器，可以通过设置 `wlr-randr` 自定义屏幕显示方向。以下命令分别将屏幕方向配置为 0°、90°、180° 和 270°：
 
 ```
 $ wlr-randr --output HDMI-A-1 --transform normal
@@ -795,9 +795,9 @@ $ wlr-randr --output HDMI-A-1 --transform 270
 >如要通过 SSH 运行此命令，请添加如下前缀： `WAYLAND_DISPLAY=wayland-1`。比如 `WAYLAND_DISPLAY=wayland-1 wlr-randr --output HDMI-A-1 --transform 90`。
 
 
-你还可以使用以下某个 `--transform` 参数，来同时镜像显示并修改屏幕显示方向：`flipped`、`flipped-90`、`flipped-180`、`flipped-270`。
+你还可以使用以下某 `--transform` 参数，来同时镜像屏幕并修改其显示方向：`flipped`、`flipped-90`、`flipped-180`、`flipped-270`。
 
-或者，你还可以编辑你主目录（home）中的文件 `.config/wayfire.ini` 来旋转屏幕方向。编辑现有的 `[output:<device>]` 部分，倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这行。比如，以下示例的配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
+或者，你还可以通过编辑你主目录（home）中的文件，来旋转屏幕方向：`.config/wayfire.ini`。请编辑现有的 `[output:<device>]` 部分。倘若没有，则添加一个新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这一行。如，以下示例配置：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
 
 
 ```
@@ -822,7 +822,7 @@ Wayland 支持以下 `transform` 参数：
 >**注意**
 >
 >
->如多个显示器同时以控制台模式输出，所有接入的显示器将使用相同的屏幕旋转参数。
+>如控制台模式同时输出至多个显示器，所有接入的显示器将使用相同的屏幕方向。
 
 ## Audio——音频
 
@@ -840,9 +840,9 @@ Wayland 支持以下 `transform` 参数：
 
 ##### 专业音频配置文件
 
-在 **音频输出选择器（audio output selector）** 中查看音频设备时，你可能会看到一个名为专业音频的设备配置文件。该配置文件在每个音频设备上公开了最大数量的通道，使你能够更好地控制信号的路由。除非你需要对音频输出进行细粒度调整控制，否则请使用其他设备配置文件。
+在 **音频输出选择器（audio output selector）** 中查看音频设备时，你也许会看到一个名为专业音频的设备配置文件。该配置文件在每个音频设备上公开了最大数量的通道，使你能够更好地控制信号的路由。除非你要对音频输出进行细粒度调整控制，否则请使用其他设备配置文件。
 
-更多有关专业音频配置文件的内容，请浏览 [PipeWire 常见问题解答](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ#what-is-the-pro-audio-profile)。
+更多有关专业音频配置文件的内容，请访问 [PipeWire 常见问题解答](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ#what-is-the-pro-audio-profile)。
 
 #### 使用 raspi-config
 
@@ -855,31 +855,31 @@ $ sudo raspi-config
 你将看到配置界面。完成以下步骤，可修改你的音频输出：
 
 1. 选择 `System options` 并按  **回车键**。
-2. 选择 `Audio` 选项并按  **回车键**。
+2. 选择 `Audio options` 并按  **回车键**。
 3. 选择所需模式，然后按 **回车键** 选择该模式。
-4. 按右方向键退出选项列表。选择 `Finish` 退出配置工具。
+4. 按 **右、方向键** 退出选项列表。选择 `Finish` 退出配置工具。
 
 ## 网络
 
-树莓派系统可以用图形化用户界面（GUI）来设置无线连接。精简版树莓派系统和无头机器的用户可以用 [nmcli](https://networkmanager.dev/docs/api/latest/nmcli.html)，在命令行设置无线网络连接。
+可以用图形化用户界面（GUI）对树莓派系统上的无线连接进行配置。精简版树莓派系统和无头机器的用户可以用 [nmcli](https://networkmanager.dev/docs/api/latest/nmcli.html)，在命令行设置无线网络连接。
 
 >**注意**
 >
->自树莓派系统 *Bookworm* 以降，默认的网络配置工具变成了 Network Manager。旧版的树莓派系统使用 dhcpd 及其他工具进行网络配置。
+>自树莓派系统 *Bookworm* 以降，默认的网络配置工具变成了 Network Manager。旧版的树莓派系统使用 dhcpd 和其他工具进行网络配置。
 
 ### 连接到无线网络
 
 #### 通过桌面
 
-通过菜单栏右端的网络图标打开网络管理器。如果你使用的是搭载内置无线连接功能的树莓派（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP——正在扫描……（No APs found - scanning…​）”，请等待几秒钟，网络管理器应该就会搜到你的网络。
+通过菜单栏右端的网络图标打开网络管理器。如果你使用的树莓派搭载了内置无线连接功能（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP——正在扫描……（No APs found - scanning…​）”，请等待几秒，网络管理器应该就能搜到你的网络。
 
 >**注意**
 >
->搭载双频无线的树莓派设备（树莓派 3B+、树莓派 4、计算模块 4、树莓派 400 和树莓派 5）会自动禁用网络，直到你分配了无线局域网区域。要设置无线局域网区域，请在“首选项”菜单里打开树莓派配置应用程序，选择 **本地化（Localisation）**，然后从菜单中选择你的区域。
+>搭载双频无线的树莓派设备（树莓派 3B+、4、计算模块 4、树莓派 400、5）会自动禁用网络，直到你分配无线局域网区域。要设置无线局域网区域，请在“首选项”菜单里打开树莓派配置应用程序，选择 **本地化（Localisation）**，然后从菜单中选择你的区域。
 
 ![WiFi](../.gitbook/assets/wifi2.png)
 
-右侧的图标会提示网络是否加密，并显示其信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
+右侧的图标会提示网络是否加密，并指示其信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
 
 ![密码](../.gitbook/assets/key.png)
 
@@ -907,15 +907,15 @@ $ sudo raspi-config
 
 ##### 启用无线网络
 
-在全新安装时，你必须指定你使用设备的位置。这样可以使你的设备选择正确的 5GHz 网络频段。在你指定了无线局域网区域后，你就可以使用树莓派内置的无线网络模块了。
+在全新安装时，你必须指定你设备的使用位置。这样可以使你的设备选择正确的 5GHz 网络频段。在你指定无线局域网区域后，你就可以使用树莓派内置的无线网络模块了。
 
-要做到这一点，请使用命令行工具 `raspi-config` 设置你的无线局域网区域。运行以下命令：
+要做到这一点，请使用命令行工具 `raspi-config`，设置你的无线局域网区域。运行以下命令：
 
 ```
 $ sudo raspi-config
 ```
 
-使用方向键选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用方向键从下拉菜单中选择你的区域。按 **回车键** 确认选择。
+使用方向键选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用 **方向键** 从下拉菜单中选择你的区域。按 **回车键** 确认选择。
 
 现在，你应该已经可以访问无线网络了。运行以下命令来检查你的 WiFi 无线电是否已启用：
 
@@ -995,7 +995,7 @@ $ sudo nmcli dev wifi connect <网络名称>
 
 >**警告**
 >
->未加密的无线网络可能会将你的个人信息置于风险之中。应尽可能请使用安全的无线网络（或 VPN）。
+>未加密的无线网络可能会将你的个人信息暴露在风险之中。应尽可能请使用安全的无线网络（或 VPN）。
 
 ##### 连接到隐藏的网络
 
@@ -1007,7 +1007,7 @@ $ sudo nmcli --ask dev wifi connect <网络名称> hidden yes
 
 ##### 设置网络优先级
 
-如果你的设备同时检测到了多个已知网络，它可能会随机接入到任意一个被检测到的已知网络。可使用优先级参数，强制让你的树莓派优先连接某些网络。你的设备将连接到在范围内，具有最高优先级的网络。运行以下命令，查看已知网络的优先级：
+如果你的设备同时检测到了多个已知网络，它可能会随机接入到任意某个被检测到的已知网络。可使用优先级参数，强制让你的树莓派优先连接到某些网络。在范围内，你的设备将连接到具有最高优先级的网络。运行以下命令，查看已知网络的优先级：
 
 ```
 $ nmcli --fields autoconnect-priority,name connection
@@ -1024,13 +1024,13 @@ AUTOCONNECT-PRIORITY  NAME
 -999                  Wired connection 1
 ```
 
-使用命令 `nmcli connection modify` 可设置网络的优先级。以下示例命令：将名为 "Pi Towers" 的网络的优先级设置为 `10`：
+使用命令 `nmcli connection modify` 可设置网络的优先级。以下示例命令：把叫做 "Pi Towers" 的网络的优先级设置为 `10`：
 
 ```
 $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 ```
 
-你的设备将始终尝试连接到，在范围内，具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
+在范围内，你的设备将始终尝试连接到具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
 
 ```
 AUTOCONNECT-PRIORITY  NAME
@@ -1040,7 +1040,7 @@ AUTOCONNECT-PRIORITY  NAME
 1000                  dog
 ```
 
-* 如果所有这些网络都在范围内，你的设备将首先尝试连接到网络“dog”。
+* 在范围内，如果所有这些网络都存在，你的设备将首先尝试连接到网络“dog”。
 * 如果网络“dog”连接失败，你的设备将尝试连接到网络“cat”。
 * 如果网络“cat”连接失败，你的设备将尝试连接到网络“rabbit”。
 * 如果网络“rabbit”连接失败，并且你的设备未检测到其他已知网络，你的设备将尝试连接到网络“snake”。
@@ -1079,16 +1079,16 @@ AUTOCONNECT-PRIORITY  NAME
 $ sudo raspi-config
 ```
 
-使用方向键导航，使用 **回车键** 选择。选择 `Display Options` > 。使用方向键：选择 `yes` 启用屏幕节能；选择 `no` 禁用屏幕节能。
+使用 **方向键** 导航，使用 **回车键** 选择。选择 `Display Options` > 。使用  **方向键**：选择 `yes` 启用屏幕节能；选择 `no` 禁用屏幕节能。
 
-或者，你可以编辑添加以下行到 `~/.config/wayfire.ini`：
+你还可以编辑添加以下行到 `~/.config/wayfire.ini`：
 
 ```
 [idle]
 dpms_timeout=600
 ```
 
-变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作时间（秒）。比如，值若为 `600`，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 `0`，屏幕将永不熄灭。
+变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作秒数。如，值若为 `600`，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 `0`，屏幕将永不熄灭。
 
 ### 控制台
 
@@ -1102,7 +1102,7 @@ dpms_timeout=600
 $ sudo nano /boot/firmware/cmdline.txt
 ```
 
-你可以在这儿调整树莓派系统在关闭屏幕之前，所等待控制台的秒数。例如，添加 `consoleblank=600` 可在其无操作 600 秒后关闭显示信号输出。将值置 `0`，屏幕将永不熄灭。
+你可以在这儿调整树莓派系统，在关闭屏幕之前，所等待控制台的秒数。例如，添加 `consoleblank=600` 可在其无操作 600 秒后关闭显示信号输出。将值置 `0`，屏幕将永不熄灭。
 
 修改 `cmdline.txt` 后，只有在重启后才会生效。使用以下命令重启你的树莓派：
 
@@ -1144,7 +1144,7 @@ $ passwd
 $ sudo adduser <用户名>
 ```
 
-在有提示时，为新用户输入密码。
+在出现提示时，为新用户输入密码。
 
 新用户的主目录位于 `/home/<用户名>/`。
 
@@ -1206,7 +1206,7 @@ $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
 
 树莓派自身使用挂载点 `/` 和 `/boot/firmware/`。你的存储设备将显示在此列表中，以及所有其他已接入的存储设备。
 
-使用 SIZE、LABEL 和 MODEL 列来辨别指向存储设备的磁盘分区的名称（如 `sda1`）。FSTYPE 列包含了文件系统类型。如果你的存储设备使用的是 exFAT 文件系统，请安装 exFAT 驱动程序：
+使用 SIZE、LABEL 和 MODEL 这几列来辨别指向存储设备的磁盘分区的名称（如 `sda1`）。FSTYPE 这列包含了文件系统类型。如果你的存储设备使用的是 exFAT 文件系统，请安装 exFAT 驱动程序：
 
 ```
 $ sudo apt update
@@ -1240,7 +1240,7 @@ $ sudo mkdir /mnt/mydisk
 $ sudo mount /dev/sda1 /mnt/mydisk
 ```
 
-要验证存储设备是否挂载成功，可通过列出内容来确认：
+要检查存储设备是否挂载成功，可通过列出内容来确认：
 
 ```
 $ ls /mnt/mydisk
@@ -1289,7 +1289,7 @@ UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 $ sudo umount /mnt/mydisk
 ```
 
-如果收到报错“目标正忙”，这意味着存储设备未被卸载。如果没有显示错误，现在可以安全地拔出设备。
+如果收到报错“Devices Busy”，这意味着存储设备未被卸载。如果没有显示错误，现在可以安全地拔出设备。
 
 #### 解决“目标正忙”
 
