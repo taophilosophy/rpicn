@@ -1289,15 +1289,15 @@ UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 $ sudo umount /mnt/mydisk
 ```
 
-如果收到报错“Devices Busy”，这意味着存储设备未被卸载。如果没有显示错误，现在可以安全地拔出设备。
+如果收到报错“device is busy”，这意味着存储设备未被卸载。如果没有显示错误，现在可以安全地拔出设备。
 
-#### 解决“目标正忙”
+#### 解决“device is busy”
 
-信息“目标正忙”意味着存储设备上，有被程序占用的文件。要关闭这些文件，请执行以下步骤。
+信息“device is busy”意味在着存储设备上，有被程序占用的文件。要关闭这些文件，请执行以下步骤。
 
 关闭任何打开了存储设备上的文件的软件。如果你打开了一个终端，请确保你未处于存储设备所挂载的文件夹（及其子文件夹）下。
 
-如果你仍然无法卸载存储设备，你可以使用工具 lsof 检查哪个程序在设备上打开了文件。你首先要使用 apt 安装 lsof：
+如果你仍然无法卸载存储设备，你可以使用工具 lsof 检查是哪个程序在设备上打开了文件。首先你要用 apt 安装 lsof：
 
 ```
 $ sudo apt update
@@ -1360,19 +1360,19 @@ $ cat /proc/cmdline
 
 早期版本的树莓派系统中使用的传统固件和 FKMS 显示模式，已不再支持。作为代替，最新版本的操作系统使用 KMS（内核模式设置）。
 
-如果在 `cmdline.txt` 中没有 `video` 这个条目，树莓派操作系统将根据 HDMI 接入显示器的 [EDID](https://en.wikipedia.org/wiki/Extended_Display_Identification_Data)，自动选择（基于 Linux 内核信息）显示器支持的最佳分辨率。在精简版树莓派系统、控制台模式中，你必须自定义 `video` 条目以控制分辨率和屏幕方向。
+如果在 `cmdline.txt` 中没有 `video` 这个条目，树莓派操作系统将根据 HDMI 接入显示器的 [EDID](https://en.wikipedia.org/wiki/Extended_Display_Identification_Data)，自动选择（基于 Linux 内核信息）显示器支持最佳分辨率。在精简版树莓派系统、控制台模式中，你必须自己手动修改 `video` 这个条目，才能修改分辨率和屏幕方向。
 
 ```
 video=HDMI-A-1:1920x1080M@60
 ```
 
-另外，可以添加旋转和反射参数，如标准 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst)中所述。以下示例定义了一台显示器：名为 `HDMI-A-`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
+另外，可以添加旋转和翻转（屏幕镜像）参数，请参考标准 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst)。以下示例定义了一台显示器：名为 `HDMI-A-`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
 
 ```
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 ```
 
-在指定屏幕旋转和镜像参数时，必须明确指定分辨率。
+在指定屏幕旋转和翻转参数时，必须明确指定分辨率。
 
 显示类型的支持选项——`video=` 条目的开头部分，包括：
 
@@ -1385,31 +1385,31 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 #### 其他条目
 
-此部分涉及你可以在内核命令行中使用的其他条目。此列表不是完整无遗的。
+此部分是可以在内核命令行中使用的其他条目。此列表不是完整无遗的。
 
 `splash`
 
-  告诉引导使用 Plymouth 模块显示启动画面。
+  启动时使用 Plymouth 模块显示启动画面。
 
 `plymouth.ignore-serial-consoles` 
 
-  通常如果启用了 Plymouth 模块，它会屏蔽掉所有串口控制台上出现的启动信息。此参数让 Plymouth 忽略所有串口控制台，以使启动消息再次可见，就像没有运行 Plymouth 一样。
+  通常如启用 Plymouth 模块，它会屏蔽掉所有串口控制台上出现的启动信息。此参数能让 Plymouth 忽略所有串口控制台，使启动消息再次重现，就像没有运行 Plymouth 一样。
 
 `dwc_otg.lpm_enable=0` 
 
-  关闭链接状态电源管理（Link Power Management，LPM）在 `dwc_otg` 驱动程序中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，默认情况下已禁用此控制器，并且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由另外，与此设置无关的 USB 控制器驱动。
+  关闭链接状态电源管理（Link Power Management，LPM）在 `dwc_otg` 驱动程序中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，默认已禁用此控制器，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由另外的，与此设置无关的 USB 控制器驱动。
 
 `dwc_otg.speed` 
 
-  可设置树莓派计算机 USB 控制器的速度（处理器上内置）。将其设置 `dwc_otg.speed=1` 则为全速（USB 1.0），比高速（USB 2.0）慢。除非需要解决 USB 设备问题，否则不应设置此参数。
+  可设置树莓派计算机 USB 控制器的速率（内置于处理器）。将其设置 `dwc_otg.speed=1` 则为全速（USB 1.0），低于高速（USB 2.0）。除非要解决 USB 设备问题，否则不应设置此参数。
 
 `smsc95xx.turbo_mode` 
 
-  启用或禁用有线网络驱动程序 Turbo 模式。`smsc95xx.turbo_mode=N` 则关闭 Turbo 模式。
+  启用或禁用：有线网络驱动程序 Turbo 模式。`smsc95xx.turbo_mode=N` 则关闭 Turbo 模式。
 
 `usbhid.mousepoll` 
 
-  指定鼠标轮询间隔。如果你遇到无线鼠标移动缓慢、不稳定的问题，将其置 `0` 也许有用。
+  指定鼠标轮询间隔。如果你遇到了无线鼠标移动缓慢、不稳定的问题，将其置 `0` 也许有用。
 
 `drm.edid_firmware=HDMI-A-1:edid/your_edid.bin`
 
