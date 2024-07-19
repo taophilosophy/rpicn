@@ -1973,9 +1973,9 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 
 ## 配置串口
 
-树莓派上有两种串口可用- [PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini 串口。PL011 是一款功能强大、兼容性好的 16550 串口，而 mini 串口功能较少。
+在树莓派上有两种串口可用——[PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini 串口。PL011 是一款功能强大、符合 16550 标准的串口，而 mini 串口则功能较少。
 
-树莓派上所有的串口仅支持 3.3V（如接入 5V 设备，将损坏）。可使用适配器转接到 5V 设备。此外，也可以使用各种第三方渠道的廉价 USB 转 3.3V 串口转换器。
+树莓派上所有的串口均仅支持 3.3V（如接入 5V，将导致损坏）。可使用适配器转接到 5V 设备。此外，也可以使用各种第三方渠道的廉价 USB 转 3.3V 串口转换器。
 
 ### 树莓派 Zero，树莓派 1、2、3
 
