@@ -915,7 +915,7 @@ $ sudo raspi-config
 $ sudo raspi-config
 ```
 
-使用方向键选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用 **方向键** 从下拉菜单中选择你的区域。按 **回车键** 确认选择。
+使用 **方向键** 选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用 **方向键** 从下拉菜单中选择你的区域。按 **回车键** 确认选择。
 
 现在，你应该已经可以访问无线网络了。运行以下命令来检查你的 WiFi 无线电是否已启用：
 
