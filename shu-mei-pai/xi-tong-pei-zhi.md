@@ -1971,29 +1971,29 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 | 4      | 6      | A 类电源故障                    |
 | 4      | 7      | B 类电源故障                   |
 
-## 配置 UART
+## 配置串口
 
-树莓派上有两种 UART 可用- [PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini UART。PL011 是一款功能强大、兼容性好的 16550 UART，而 mini UART 功能较少。
+树莓派上有两种串口可用- [PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini 串口。PL011 是一款功能强大、兼容性好的 16550 串口，而 mini 串口功能较少。
 
-树莓派上所有的 UART 仅支持 3.3V（如接入 5V 设备，将损坏）。可使用适配器转接到 5V 设备。此外，也可以使用各种第三方渠道的廉价 USB 转 3.3V 串口转换器。
+树莓派上所有的串口仅支持 3.3V（如接入 5V 设备，将损坏）。可使用适配器转接到 5V 设备。此外，也可以使用各种第三方渠道的廉价 USB 转 3.3V 串口转换器。
 
 ### 树莓派 Zero，树莓派 1、2、3
 
-如下，树莓派 Zero，树莓派 1、2、3 各搭载了两个 UART：
+如下所示，树莓派 Zero，树莓派 1、2、3 均搭载了两个串口：
 
 | 名称  | 类型      |
 | :-------: | :-----------: |
 | UART0 | PL011     |
-| UART1 | mini UART |
+| UART1 | mini 串口 |
 
-### 树莓派 4 和 400
+### 树莓派 4、400
 
-在默认情况下，树莓派 4B 和 400 搭载了四个另外的 PL011，但它们是被禁用的：
+树莓派 4B、400 搭载了另外四个 PL011，在默认情况下，它们已被禁用：
 
 | 名称  | 类型      |
-| :-------: | :-----------: |
+| :---: | :-------: |
 | UART0 | PL011     |
-| UART1 | mini UART |
+| UART1 | mini 串口 |
 | UART2 | PL011     |
 | UART3 | PL011     |
 | UART4 | PL011     |
@@ -2001,68 +2001,68 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 
 ### 树莓派 5
 
-树莓派 5 搭载着四个另外的 PL011，这些在默认情况下也是被禁用的：
+树莓派 5 搭载了另外四个 PL011，这些在默认情况下也是被禁用的：
 
 | 名称  | 类型  |
-| :-------: | :-------: |
+| :-------: | :-----: |
 | UART0 | PL011 |
 | UART1 | PL011 |
 | UART2 | PL011 |
 | UART3 | PL011 |
 | UART4 | PL011 |
 
-树莓派 5 没有 mini UART。
+树莓派 5 没有 mini 串口。
 
 ### CM1、CM3、CM3+ 和 CM4
 
-计算模块 1、3、3+ 各搭载了两个 UART，而计算模块 4 有六个 UART（如上所述）。
+计算模块 1、3、3+ 均搭载了两个串口，而计算模块 4 则有六个串口（如上所述）。
 
-在所有型号的计算模块上，默认情况下均禁用了 UART，并可以通过使用设备树叠加层来显式启用。你还可以指定要使用的 GPIO 引脚，例如：
+所有型号的计算模块，在默认情况下均禁用了串口，但可以通过使用设备树叠加层来显式启用。你还可以指定要使用的 GPIO 引脚，例如：
 
 ```
 dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 ```
 
-### 主 UART
+### 主串口
 
-在树莓派上，使用 GPIO 14（发送）和 15（接收）的 UART - 就是主 UART。在默认情况下，大概率也会把 Linux 控制台输出至该 UART。请注意，GPIO 14 是 GPIO 引脚上的引脚 8，而 GPIO 15 是引脚 10。
+在树莓派上，使用 GPIO 14（TX）和 15（RX）的串口——就是主串口。在默认情况下，大概率也会同时把 Linux 控制台输出到该串口。请注意，GPIO 14 是 GPIO 排针上的引脚 8，而 GPIO 15 是引脚 10。
 
-在树莓派 5 上，主 UART 出现在调试标头上。
+在树莓派 5 上，主串口就是调试接口。
 
-### 次要 UART
+### 副串口
 
-次要 UART 通常并不接入 GPIO 连接器。在默认情况下，次要 UART 连接到了无线局域网和蓝牙控制器（复合）的蓝牙一侧，如果该型号搭载了此控制器。
+副串口通常并未接入 GPIO 连接器。在默认情况下，副串口连接至无线局域网/蓝牙控制器（复合）的蓝牙一侧（如果该型号搭载了此控制器）。
 
-### 主次 UART
+### 主串口和副串口
 
-以下表格总结了各种树莓派设备上 UART 的分配：
+以下表格总结了各种树莓派设备上串口的分配情况：
 
-| 型号                            | 主/控制台 | 次/蓝牙 |
+| 型号                            | 主串口/控制台 | 副串口/蓝牙 |
 | :---------------------------------: | :-----------: | :-----------: |
 | 树莓派 Zero                     | UART0     | UART1     |
-| 树莓派 Zero W、Zero 2 W | UART1     | UART0     |
+| 树莓派 Zero W、Zero 2 W          | UART1     | UART0     |
 | 树莓派 1                        | UART0     | UART1     |
 | 树莓派 2                        | UART0     | UART1     |
 | 树莓派 3                        | UART1     | UART0     |
-|计算模块 3 & 3+                 | UART0     | UART1     |
+|计算模块 3、3+                 | UART0     | UART1     |
 | 树莓派 4                        | UART1     | UART0     |
-| 树莓派 5                        | UART10    |           |
+| 树莓派 5                        | UART10    |    \<专用串口\>       |
 
 树莓派系统上的 Linux 设备：
 
 | Linux 设备 | 说明                  |
 | :------------: | :-----------------------: |
-| `/dev/ttyS0`           | mini UART             |
+| `/dev/ttyS0`           | mini 串口            |
 | `/dev/ttyAMA0`           | 第一个 PL011（UART0） |
-| `/dev/serial0`           | 主 UART               |
-| `/dev/serial1`           | 次 UART               |
-| `/dev/ttyAMA10`           | 树莓派 5 调试 UART    |
+| `/dev/serial0`           | 主串口               |
+| `/dev/serial1`           | 副串口              |
+| `/dev/ttyAMA10`           | 树莓派 5 的调试串口    |
 
-`/dev/serial0` 是指向 `/dev/ttyS0` 的符号链接、`/dev/serial1` 是指向 `/dev/ttyAMA0` 的符号链接。
+`/dev/serial0` 和 `/dev/serial1` 都是符号链接，各指向 `/dev/ttyS0`、`/dev/ttyAMA0` 其中之一。
 
 在树莓派 5 上，`/dev/serial0` 是指向 `/dev/ttyAMA10` 的符号链接。
 
-由于 Bookworm 的变更，在默认情况，`/dev/serial1` 并下不存在。你可以通过在 config.txt 中，设置以下值再次启用 serial1 ：
+由于 Bookworm 的变更，在默认情况没有 `/dev/serial1`。你可以在 `config.txt` 中，设置以下参数再次启用 `serial1`：
 
 ```
 dtparam=krnbt=off
@@ -2072,44 +2072,44 @@ dtparam=krnbt=off
 >
 >该参数可能不会兼容将来的所有型号。应仅在你的用例无其他替代方案时，才使用该选项。
 
-### mini UART 和 CPU 核心频率
+### mini 串口和 CPU 主频
 
 >**注意**
 >
-> 如果 mini UART 是主要的（蓝牙被禁用），则默认情况下会禁用 mini UART。
+> mini 串口默认已禁用。要启用，必须禁用蓝牙或者把 mini 串口设置成主串口。
 
-为了使用 mini UART，你需要配置树莓派以使用固定的 VPU 核心时钟频率。这是因为 mini UART 时钟与 VPU 核心时钟关联，因此当核心时钟频率发生变化时，UART 波特率也会发生变化。可以将 `enable_uart` 和 `core_freq` 设置添加到 `config.txt` 中，以修改 mini UART 的行为。以下表总结了可能的情况：
+为了使用 mini 串口，你需要配置树莓派，让 VPU 使用固定主频。这是因为 mini 串口时钟与 VPU 主频相关联，因此当主频发生变化时，串口的波特率也会同时改变。要修改 mini 串口的行为，可以将 `enable_uart` 和 `core_freq` 这些设置添加到 `config.txt`。以下表格总结了可能的情况：
 
-| mini UART 的设置 | 核心时钟                      | 结果                                                                                 |
+| mini 串口被设置为 | 主频                    | 结果                                                                                 |
 | :------------------: | :-------------------------------: | -------------------------------------------------------------------------------------- |
-| 主 UART          | 变量                          | mini UART 已禁用                                                                     |
-| 主 UART          | 通过设置 `enable_uart=1` 来修复 | 启用 mini UART，核心时钟固定为 250MHz；如设置 `force_turbo=1`，则为 VPU 超频频率 |
-| 次要 UART        | 可变                          | mini UART 已禁用                                                                     |
-| 二级 UART        | 通过设置 `core_freq=250` 修复 | mini UART 已启用                                                                     |
+| 主串口          | 可变                          | mini 串口已禁用                                                                     |
+| 主串口         | 可设置 `enable_uart=1` 固定主频  | 启用 mini 串口，主频被固定为 250MHz；如设置 `force_turbo=1`，则使用 VPU 超频频率 |
+| 副串口        | 可变                          | mini 串口已禁用                                                                     |
+| 副串口       | 可设置 `core_freq=250` 固定主频 | mini 串口已启用                                                                     |
 
-参数 `enable_uart` 的默认状态取决于哪个 UART 是主 UART：
+参数 `enable_uart` 的默认状态取决于谁是主串口：
 
-| 主 UART               |   参数 `enable_uart` 的默认状态 |
+| 主串口              |   参数 `enable_uart` 的默认状态 |
 | :-----------------------: | :--------------------------: |
-| mini UART             | 0                        |
+| mini 串口           | 0                        |
 | 第一个 PL011（UART0） | 1                        |
 
 ### 禁用 Linux 串口控制台
 
-在默认情况下，主 UART 被分配给 Linux 控制台。如果你希望将主 UART 用于其他目的，你必须重新配置树莓派系统。这可以通过使用 [`raspi-config`](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config) 来实现：
+在默认情况下，主串口被分配给 Linux 控制台。如果你希望将主串口用于其他目的，你必须重新配置树莓派系统。可以使用 [`raspi-config`](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config) 来做到这一点：
 
 * 启动 raspi-config：`sudo raspi-config`
-* 选择  option 3 - Interface Options
+* 选择 option 3 - Interface Options
 * 选择 option P6 - Serial Port
-* 在提示符 `Would you like a login shell to be accessible over serial?` 处，回答“No”
-* 在提示符 `Would you like the serial port hardware to be enabled?` 处，回答“Yes”
+* 在提示符 `Would you like a login shell to be accessible over serial?（您是否想要通过串口访问登录 shell？）`处，回答“No”
+* 在提示符 `Would you like the serial port hardware to be enabled?（您是否想要启用串口硬件接口？）` 处，回答“Yes”
 * 退出 `raspi-config` 并重启树莓派，以使修改生效
 
-### 启用 Linux 的早期控制台
+### 启用 Linux 早期控制台（early console）
 
-尽管在 Linux 内核引导过程中，相对较早地启动了 UART，但仍然比一些关键基础设施设置晚得多。如果无法得到这些早期阶段的内核日志信息，可能很难诊断在那个时间段出现的故障。要为其中某个 UART 启用 `earlycon` 支持，请根据所选的主 UART，向 cmdline.txt 中添加以下某选项：
+尽管在 Linux 内核引导过程中，串口的启动相对较早，但仍比一些关键基础设施的设置晚得多。如果无法得到这些早期阶段的内核日志信息，可能很难诊断在那个时间段出现的故障。要为其中某个串口启用 `earlycon` 支持，请根据所选的主串口，向 cmdline.txt 中添加以下某选项：
 
-以下配置，对于树莓派 5，`earlycon` 仅输出到调试连接器（3 针）：
+对于树莓派 5，`earlycon` 仅能通过以下设置输出至调试接口（3 针）：
 
 ```
 earlycon=pl011,0x107d001000,115200n8
@@ -2140,17 +2140,17 @@ earlycon=pl011,mmio32,0x20201000
 
 >**注意**
 >
->选择错误的早期控制台可能会妨碍树莓派启动。
+>如果早期控制台设置不正确，可能会阻碍树莓派启动。
 
-### UART 和设备树
+### 串口和设备树
 
-在[内核 GitHub](https://github.com/raspberrypi/linux) 中，可以找到各种 UART 设备树叠加层定义。最有用的两个叠加层是 [`disable-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/disable-bt-overlay.dts) 和 [`miniuart-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/miniuart-bt-overlay.dts)。
+在[内核 GitHub](https://github.com/raspberrypi/linux) 中，可以找到各种串口设备树叠加层定义。最有用的两个叠加层是 [`disable-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/disable-bt-overlay.dts) 和 [`miniuart-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/miniuart-bt-overlay.dts)。
 
-`disable-bt` 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主 UART。你还必须禁用初始化调制解调器的系统服务，以防它连接到 UART：可使用 `sudo systemctl disable hciuart`。
+`disable-bt` 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主串口。你还必须禁用初始化调制解调器的系统服务，以防它连接到串口：可使用 `sudo systemctl disable hciuart`。
 
-`miniuart-bt` 将蓝牙功能切换到使用 mini UART，并将第一个 PL011（UART0）设置为主 UART。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini UART 限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
+`miniuart-bt` 将蓝牙功能切换到使用 mini 串口，并将第一个 PL011（UART0）设置为主串口。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini 串口限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
 
-叠加层 `uart2`、`uart3`、`uart4` 和 `uart5` 用于在树莓派 4 上启用四个另外的 UART。在文件夹中还有其他特定于 UART 的叠加层。有关设备树叠加层的详细信息，请参考 `/boot/firmware/overlays/README`，或运行 `dtoverlay -h overlay-name` 查看描述和使用信息。
+叠加层 `uart2`、`uart3`、`uart4` 和 `uart5` 用于在树莓派 4 上启用另外四个串口。在文件夹中还有其他特定于串口的叠加层。有关设备树叠加层的详细信息，请参考 `/boot/firmware/overlays/README`，或运行 `dtoverlay -h overlay-name` 查看描述和使用信息。
 
 向 `config.txt` 文件添加一行以应用[设备树叠加层](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。请注意，请去掉文件名中的 `-overlay.dts` 部分。例如：
 
@@ -2158,22 +2158,22 @@ earlycon=pl011,mmio32,0x20201000
 dtoverlay=disable-bt
 ```
 
-### PL011 和 mini-UART
+### PL011 和 mini 串口
 
-PL011 UART 和 mini-UART 有若干差异。
+PL011 串口和 mini 串口有些不同。
 
-mini UART 的 FIFO 比较小。加上缺乏流量控制，导致在较高的波特率下更易丢失字符。它的功能通常也少于 PL011，主要是因为其波特率与 VPU 时钟速度相关联。
+mini 串口的 FIFO 存储较小。加上缺乏流量控制，导致在较高的波特率下更易丢失字符。它的功能通常也少于 PL011，主要是因为其波特率与 VPU 时钟速度相关联。
 
-与 PL011 相比，mini UART 的不足包括：
+与 PL011 相比，mini 串口的不足包括：
 
 * 没有中断检测
 * 没有帧错误检测
 * 没有奇偶校验位
 * 没有接收超时中断
 
-mini UART 和 BCM2835 的 PL011 实现均不带 DCD、DSR、DTR 和 RI 信号。
+mini 串口和基于 BCM2835 的 PL011 实现均不支持 DCD、DSR、DTR 和 RI 信号。
 
-可在 [SoC 外设文档](https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf?_gl=1*oiqbws*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3MjM3Ni4zNi4wLjE3MjA5NzIzNzYuMC4wLjA.)中找到进一步的 mini UART 文档。
+可在 [SoC 外设文档](https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf?_gl=1*oiqbws*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3MjM3Ni4zNi4wLjE3MjA5NzIzNzYuMC4wLjA.)中找到详细的 mini 串口文档。
 
 ## 设备树、叠加层和参数
 
@@ -2181,7 +2181,7 @@ mini UART 和 BCM2835 的 PL011 实现均不带 DCD、DSR、DTR 和 RI 信号。
 
 固件加载程序（`start.elf` 及其变体）负责加载 DTB（设备树块 - 一种机器可读的 DT 文件）。它根据主板的修订版本选择要加载的 DTB，并进行修改以进一步定制。这种运行时定制避免了许多只有细微差异的 DTB 的需求。
 
-在 `config.txt` 中扫描用户提供的参数，以及所有叠加层及其参数，然后应用。加载程序检查结果来了解（例如）要用于控制台的所有 UART。最后，启动内核，传递指向合并 DTB 的指针。
+在 `config.txt` 中扫描用户提供的参数，以及所有叠加层及其参数，然后应用。加载程序检查结果来了解（例如）要用于控制台的所有串口。最后，启动内核，传递指向合并 DTB 的指针。
 
 ### 设备树
 
@@ -2641,7 +2641,7 @@ bmp280@76 {
 
 ##### 叠加层映射文件
 
-随着树莓派 4（围绕 BCM2711 SoC 构建）的推出，带来了许多变化；其中一些变化是附加的接口，另一些是对现有接口进行的修改（删除）。有一些新的叠加层专为树莓派 4 设计，这些叠加层在旧硬件上无意义，如启用新的 SPI、I²C 和 UART 接口的叠加层，但其他叠加层即使控制着新设备上仍然相关的功能，也不能正确应用。
+随着树莓派 4（围绕 BCM2711 SoC 构建）的推出，带来了许多变化；其中一些变化是附加的接口，另一些是对现有接口进行的修改（删除）。有一些新的叠加层专为树莓派 4 设计，这些叠加层在旧硬件上无意义，如启用新的 SPI、I²C 和串口的叠加层，但其他叠加层即使控制着新设备上仍然相关的功能，也不能正确应用。
 
 因此，有必要针对具有不同硬件的多个平台定制叠加层方法。在单个 .dtbo 文件中支持它们将需要大量使用隐藏的（“休眠”）片段，并切换到按需符号解析机制，以便不需要的丢失符号不会导致失败。一个更简单的解决方案是添加一个功能，根据当前平台将叠加层名称映射到几个实现文件中的一个。
 
@@ -3317,7 +3317,7 @@ dtparam=i2c,i2s
 
 `enable_uart` 
 
-　　启用主/控制台 [UART](https://www.raspberrypi.com/documentation/computers/configuration.html#configure-uarts)（在树莓派 3、4、400、Zero W 和 Zero 2 W 上为 ttyS0，在其他情况下为 ttyAMA0 - 除非与诸如 miniuart-bt 的叠加层交换）。如果主 UART 是 ttyAMA0，则 `enable_uart` 默认为 1（已启用），否则默认为 0（已禁用）。这是因为有必要阻止核心频率的变化，否则会使 ttyS0 无法使用，因此 `enable_uart=1` 意味着 `core_freq=250` （除非 `force_turbo=1`）。在某些情况下，这会影响性能，因此默认情况下关闭。
+　　启用主/控制台[串口](https://www.raspberrypi.com/documentation/computers/configuration.html#configure-uarts)（在树莓派 3、4、400、Zero W 和 Zero 2 W 上为 ttyS0，在其他情况下为 ttyAMA0 - 除非与诸如 miniuart-bt 的叠加层交换）。如果主串口是 ttyAMA0，则 `enable_uart` 默认为 1（已启用），否则默认为 0（已禁用）。这是因为有必要阻止核心频率的变化，否则会使 ttyS0 无法使用，因此 `enable_uart=1` 意味着 `core_freq=250` （除非 `force_turbo=1`）。在某些情况下，这会影响性能，因此默认情况下关闭。
 
 `overlay_prefix` 
 
@@ -3344,7 +3344,7 @@ dtparam=i2c,i2s
 * 通过 `bootcode.bin` 设置
 * 通过 `dt-blob.bin` 设置（本页）
 * 通过 [GPIO 命令](https://www.raspberrypi.com/documentation/computers/config_txt.html#gpio-control)在 `config.txt` 中设置
-* 附加固件引脚（例如 UART）
+* 附加固件引脚（例如串口）
 * 内核/设备树
 
 在软复位时，相同的过程适用，除了默认拉引脚，这些只在上电复位时应用。
