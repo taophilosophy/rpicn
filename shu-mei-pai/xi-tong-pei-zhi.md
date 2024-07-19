@@ -2078,7 +2078,7 @@ dtparam=krnbt=off
 >
 > mini 串口默认已禁用。要启用，必须禁用蓝牙或者把 mini 串口设置成主串口。
 
-为了使用 mini 串口，你需要配置树莓派，让 VPU 使用固定主频。这是因为 mini 串口时钟与 VPU 主频相关联，因此当主频发生变化时，串口的波特率也会同时改变。要修改 mini 串口的行为，可以将 `enable_uart` 和 `core_freq` 这些设置添加到 `config.txt`。以下表格总结了可能的情况：
+为了使用 mini 串口，你需要配置树莓派，把 VPU 核心时钟设置为固定频率。这是因为 mini 串口时钟与 VPU 主频相关联，因此当主频发生变化时，串口的波特率也会同时改变。要修改 mini 串口的行为，可以将 `enable_uart` 和 `core_freq` 这些设置添加到 `config.txt`。以下表格总结了可能的情况：
 
 | mini 串口被设置为 | 主频                    | 结果                                                                                 |
 | :------------------: | :-------------------------------: | -------------------------------------------------------------------------------------- |
@@ -2146,9 +2146,9 @@ earlycon=pl011,mmio32,0x20201000
 
 在[内核 GitHub](https://github.com/raspberrypi/linux) 中，可以找到各种串口设备树叠加层定义。最有用的两个叠加层是 [`disable-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/disable-bt-overlay.dts) 和 [`miniuart-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/miniuart-bt-overlay.dts)。
 
-`disable-bt` 禁用蓝牙设备，并将第一个 PL011（UART0）设置为主串口。你还必须禁用初始化调制解调器的系统服务，以防它连接到串口：可使用 `sudo systemctl disable hciuart`。
+`disable-bt` 禁用蓝牙设备，并把第一个 PL011（UART0）设置为主串口。你还必须禁用初始化调制解调器的系统服务，以防它连接到串口：可使用 `sudo systemctl disable hciuart`。
 
-`miniuart-bt` 将蓝牙功能切换到使用 mini 串口，并将第一个 PL011（UART0）设置为主串口。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini 串口限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
+`miniuart-bt` 将蓝牙功能切换到 mini 串口，并将第一个 PL011（UART0）设置为主串口。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini 串口限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
 
 叠加层 `uart2`、`uart3`、`uart4` 和 `uart5` 用于在树莓派 4 上启用另外四个串口。在文件夹中还有其他特定于串口的叠加层。有关设备树叠加层的详细信息，请参考 `/boot/firmware/overlays/README`，或运行 `dtoverlay -h overlay-name` 查看描述和使用信息。
 
