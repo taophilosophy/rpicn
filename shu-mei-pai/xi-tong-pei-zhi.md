@@ -875,7 +875,7 @@ $ sudo raspi-config
 
 >**注意**
 >
->搭载双频无线的树莓派设备（树莓派 3B+、4、计算模块 4、树莓派 400、5）会自动禁用网络，直到你分配无线局域网区域。要设置无线局域网区域，请在“首选项”菜单里打开树莓派配置应用程序，选择 **本地化（Localisation）**，然后从菜单中选择你的区域。
+>搭载双频无线的树莓派设备（树莓派 3B+、4、计算模块 4、树莓派 400、5）会自动禁用网络，直到你分配无线局域网区域。要设置无线局域网区域，请在“首选项（Preferences）”菜单里打开工具树莓派配置（Raspberry Pi Configuration），选择 **本地化（Localisation）**，然后从菜单中选择你的区域。
 
 ![WiFi](../.gitbook/assets/wifi2.png)
 
@@ -1059,13 +1059,13 @@ AUTOCONNECT-PRIORITY  NAME
 
 ### 桌面
 
-你可以使用树莓派配置菜单中的屏幕节能选项来控制屏幕节能（无操作时关闭屏幕）。
+你可以使用树莓派配置（Raspberry Pi Configuration）菜单中的屏幕节能选项来控制屏幕节能（无操作时关闭屏幕）。
 
 #### 配置树莓派
 
 单击菜单栏中的树莓派按钮。导航到 **首选项（Preferences）** > **树莓派配置（Raspberry Pi Configuration）**。
 
-![从桌面打开菜单“树莓派配置”](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
+![从桌面打开菜单“树莓派配置（Raspberry Pi Configuration）”](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
 选择选项卡显示（**Display**）。将选项按钮切换到屏幕节能（**Screen Blanking**）。按下 **完成（OK）**，确认你的选择。
 
