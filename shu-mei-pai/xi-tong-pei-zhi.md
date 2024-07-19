@@ -736,7 +736,7 @@ $ sudo raspi-config nonint do_update
 
 树莓派 4 和 400 可以同时输出两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单个 4K 显示器。
 
-树莓派 5 无需任何额外配置，就可以 4K 分辨率、60Hz 刷新率，输出两个显示器。
+树莓派 5 无需任何专门配置，就可以 4K 分辨率、60Hz 刷新率，输出两个显示器。
 
 ### 设置分辨率和方向
 
@@ -899,7 +899,7 @@ $ sudo raspi-config
 
 #### 通过命令行
 
-本指南将帮助你：在不使用图形化工具（且无需额外软件）的情况下，在树莓派上配置使用无线连接。
+本指南将帮助你：在不使用图形化工具（且无需附加软件）的情况下，在树莓派上配置使用无线连接。
 
 >**注意**
 >
@@ -1312,7 +1312,7 @@ $ lsof /mnt/mydisk
 
 ## 内核命令行（ cmdline.txt ）
 
-Linux 内核在启动时可接受一组命令行参数。在树莓派上，这个命令行定义在引导分区中的一个文件中，名为 `cmdline.txt`。你可以使用任意文本编辑器编辑该文本文件。
+Linux 内核在启动时可接受一组命令行参数。在树莓派上，这个命令行定义在启动分区中的一个文件中，名为 `cmdline.txt`。你可以使用任意文本编辑器编辑该文本文件。
 
 ```
 $ sudo nano /boot/firmware/cmdline.txt
@@ -1847,27 +1847,27 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 重启你的树莓派以使修改生效。现在你应该能够通过代理服务器访问互联网了。
 
-## boot 文件夹内容
+## 文件夹 `boot` 的内容
 
-树莓派系统把引导文件放在 SD 卡的首个分区上，分区被格式化成 FAT 文件系统。
+树莓派系统把引导文件放在 SD 卡上的第一个分区中，该分区使用 FAT 文件系统。
 
-在启动时，每种树莓派都会从引导分区加载所有文件，以便在 Linux 内核启动之前启动各个处理器。
+所有型号的树莓派在启动时，都会先从启动分区加载文件，来启动全部的处理器，继而加载 Linux 内核。
 
-在启动时，Linux 把引导分区挂载到 `/boot/firmware/`。
+在启动时，Linux 把启动分区挂载到 `/boot/firmware/`。
 
 >**注意**
 >
->在 Bookworm 之前，树莓派系统将引导分区放在 `/boot/`。自 Bookworm 以降，引导分区位于 `/boot/firmware/`。
+>在 *Bookworm* 之前，树莓派系统将启动分区放在 `/boot/`。自 Bookworm 以降，启动分区位于 `/boot/firmware/`。
 
 ### `bootcode.bin`
 
-SoC 在启动时会加载引导加载程序。它会执行一些非常基本的设置，然后再加载某个 `start*.elf` 文件。
+SoC 在启动时会加载引导加载程序（bootloader）。引导加载程序会执行一些最基本的设置，继而加载某个 `start*.elf` 文件。
 
-树莓派 4、5 不使用 `bootcode.bin`。它们使用板载 EEPROM 中的引导代码。
+树莓派 4、5 不使用 `bootcode.bin`。它们使用的引导代码位于[板载 EEPROM](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-boot-eeprom)。
 
 ### `start*.elf`
 
-加载 SoC 中 VideoCore GPU 上的二进制固件，然后接管引导过程。
+在将二进制固件模块（`start*.elf`）加载到 VideoCore GPU（Soc 中）后，引导过程将由这些固件模块接管。
 
 `start.elf`
 
@@ -1875,7 +1875,7 @@ SoC 在启动时会加载引导加载程序。它会执行一些非常基本的�
 
 `start_x.elf` 
 
-　　包含额外的编解码器
+　　含附加编解码器
 
 `start_db.elf`
 
@@ -1883,21 +1883,21 @@ SoC 在启动时会加载引导加载程序。它会执行一些非常基本的�
 
 `start_cd.elf`
 　　
-　　精简版本的固件，移除了对硬件区域（如编解码器和 3D）以及调试日志支持的支持；它还施加了对初始帧缓冲区限制。当在 `config.txt` 中指定 `gpu_mem=16` 时，将自动调用精简固件。
+　　精简版固件，移除了对硬件模块（如编解码器和 3D）以及对调试日志支持的支持；它还施加了对初始帧缓冲区限制。当在 `config.txt` 中指定 `gpu_mem=16` 时，将自动调用精简固件。
 
 `start4.elf`、`start4x.elf`、`start4db.elf` 和 `start4cd.elf` 是树莓派 4 系列（树莓派 4B、400，计算模块 4、4S）的专用固件文件。
 
-要了解如何使用这些文件的更多信息，请参阅 [config.txt 文档](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。
+要了解如何使用这些文件的详细信息，请参阅 [config.txt 文档](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。
 
-树莓派 5 不再使用 `elf` 文件。固件内置于引导加载程序 EEPROM。
+树莓派 5 不再使用这些 `elf` 文件。固件直接嵌入到了引导加载程序（EEPROM 中的 bootloader）。
 
 ### `fixup*.dat`
 
-在匹配的情况下找到链接器文件与前一节中列出的 `start*.elf` 文件。
+与上节所列的 `start*.elf` 文件相对应的链接器文件。
 
 ### `cmdline.txt`
 
-[内核命令行](https://www.raspberrypi.com/documentation/computers/configuration.html#kernel-command-line-cmdline-txt)，将传递给引导时的内核。
+[内核命令行](https://www.raspberrypi.com/documentation/computers/configuration.html#kernel-command-line-cmdline-txt)，将传给引导时的内核。
 
 ### `config.txt`
 
@@ -1905,71 +1905,71 @@ SoC 在启动时会加载引导加载程序。它会执行一些非常基本的�
 
 >**重要**
 >
->树莓派 5 要求在启动分区中，有一个非空的 `config.txt` 文件存在。
+>树莓派 5 要求：在启动分区中，应有一个非空的 `config.txt` 文件。
 
 ### `issue.txt`
 
-包含发行版日期和 git 提交 ID 的文本化维护信息。
+文本化的维护信息，包含发行版日期和 Git 提交 ID。
 
 ### `initramfs*`
 
-初始内存盘的内容。将在真实的根文件系统挂载之前，把临时根文件系统加载到内存。
+即初始内存盘。在挂载真实的根文件系统之前，先把临时根文件系统加载到内存上。
 
-自 Bookworm 版本以降，树莓派系统默认内置了一个 `initramfs` 文件。要启用初始内存盘，请在 [`config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html) 中使用关键字 [`auto_initramfs`](https://www.raspberrypi.com/documentation/computers/config_txt.html#auto_initramfs) 进行配置。
+自 Bookworm 以降，树莓派系统默认内置了一个 `initramfs` 文件。要启用初始内存盘，请在 [`config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html) 中使用关键字 [`auto_initramfs`](https://www.raspberrypi.com/documentation/computers/config_txt.html#auto_initramfs) 进行配置。
 
-### ssh（ssh.txt）
+### `ssh`（`ssh.txt`）
 
-若存在此文件，会在启动时启用 SSH。否则，默认情况下会禁用 SSH。内容无关紧要，即使是空文件也会启用 SSH。
+若存在此文件，在启动时会启用 SSH。在默认情况下不存在该文件，因此会禁用 SSH。该文件内容随意，即使是空的也会启用 SSH。
 
 ### DTB 文件(`*.dtb`)
 
-DTB 文件涉及各种树莓派型号的硬件定义。这些文件根据[检测到的树莓派型号](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.1)，在启动时设置内核。
+DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检测到的树莓派型号](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.1)，在启动时设置内核。
 
 ### 内核文件(`*.img`)
 
-适用于各种树莓派型号的内核镜像文件：
+适用于各种树莓派型号的[内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#kernel)镜像文件：
 
 | 文件名 | 处理器                    | 树莓派型号                                                                     | 注解                                           |
 | :--------: | :---------------------------: | :--------------------------------------------------------------------------------: | -------------------------------------------------- |
 | `kernel.img`       | BCM2835                   | 树莓派 Zero，树莓派 1                                                                  |                                                  |
-| `kernel7.img`       | BCM2836，BCM2837          | 树莓派 Zero 2 W，树莓派 2、3                                            | 基于 BCM2837 的新版树莓派 2                     |
+| `kernel7.img`       | BCM2836、BCM2837          | 树莓派 Zero 2 W，树莓派 2、3                                            | 基于 BCM2837 的新款树莓派 2                     |
 | `kernel7l.img`       | BCM2711                   | 树莓派 4、400，CM4，CM4S                                                        | 大物理地址扩展（LPAE）                           |
-| `kernel8.img`       | BCM2837，BCM2711，BCM2712 | 树莓派 Zero 2 W，树莓派 2、3、4、400，CM4、CM4S、5 | [64 位内核](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。基于 BCM2836 的树莓派 2 不支持 64 位内核。|
+| `kernel8.img`       | BCM2837、BCM2711、BCM2712 | 树莓派 Zero 2 W，树莓派 2、3、4、400，CM4、CM4S、5 | [64 位内核](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。基于 BCM2836 的树莓派 2 不支持 64 位内核。|
 | `kernel_2712.img`       | BCM2712                   | 树莓派 5                                                                       | 为树莓派 5 优化的 [64 位内核](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。                |
 
 >**注意**
 >
->在运行 32 位内核系统上，`lscpu` 会把 CPU 架构报告成 `armv7l`；在运行 64 位内核系统上，lscpu 会把 CPU 架构报告成 `aarch64`。对于 `armv7l` 来说，`l` 指的是小端 CPU 架构（如 `kernel7l.img` 文件名所示），而非指 `LPAE`。
+>在使用 32 位内核的系统上，`lscpu` 会把 CPU 架构报告成 `armv7l`；在使用 64 位内核的系统上，lscpu 会把 CPU 架构报告成 `aarch64`。对于 `armv7l`，`l` 指的是小端 CPU 架构（如 `kernel7l.img` 文件名所示），而非指 `LPAE`。
 
-### 文件夹 `overlays` 
+### `overlays` 文件夹
 
-涉及设备树叠加层。这些用于配置各种硬件设备（如第三方声卡）。可使用 `config.txt` 中的条对这些叠加层进行选择。更多有关信息，请参阅[设备树、叠加层和参数](https://www.raspberrypi.com/documentation/computers/configuration.html#part2)。
+涉及设备树叠加层。用于配置各种硬件设备（如第三方声卡）。可使用 `config.txt` 中的条目对这些叠加层进行选择。更多有关信息，请参阅[设备树、叠加层和参数](https://www.raspberrypi.com/documentation/computers/configuration.html#part2)。
 
-## LED 警告闪烁代码
+## LED 警告指示灯
 
-在大多数情况下，如果树莓派由于某种原因无法启动（或必须关闭），LED 将闪烁特定次数以指示问题。LED 将发出一定数量的长闪烁（0 或更多次），然后发出短闪烁，以指示确切状态。在大多数情况下，该模式以两秒间隔重复。
+在大多数情况下，如果树莓派由于某种原因无法启动（或必须关机），LED 灯将闪烁特定次数以传达状态信息。LED 将发出特定次数（0 或更多）的长闪烁，然后发出短闪烁，以传达确切状态。在大多数情况下，重复间隔为两秒。
 
-| 长闪 | 短闪 | 状态                               |
+| 长闪烁 | 短闪烁 | 状态                               |
 | :--------: | :--------: | ------------------------------------ |
 | 0      | 3      | 无法启动的一般故障                 |
 | 0      | 4      | 未找到 start*.elf                  |
 | 0      | 7      | 未找到内核镜像                     |
-| 0      | 8      | 内存故障                         |
-| 0      | 9      | 内部不足                         |
-| 0      | 10     | 处于停止状态                       |
+| 0      | 8      | 内存（SDRAM）故障                         |
+| 0      | 9      | 内存（SDRAM）容量不足                         |
+| 0      | 10     | 处于 HALT 状态                     |
 | 2      | 1      | 分区不是 FAT                       |
 | 2      | 2      | 无法读取分区                 |
 | 2      | 3      | 扩展分区不是 FAT                   |
-| 2      | 4      | 文件签名或哈希不匹配 - 树莓派 4、5 |
-| 3      | 1      | SPI EEPROM 错误 - 树莓派 4、5     |
-| 3      | 2      | SPI EEPROM 写保护 - 树莓派 4、5 |
+| 2      | 4      | 文件签名/哈希不匹配（树莓派 4、5） |
+| 3      | 1      | SPI EEPROM 错误（树莓派 4、5）     |
+| 3      | 2      | SPI EEPROM 写保护（树莓派 4、5） |
 | 3      | 3      | I²C 错误 - 树莓派 4、5            |
 | 3      | 4      | 安全启动配置无效                   |
 | 4      | 3      | 未找到 RP1                         |
 | 4      | 4      | 主板类型不受支持                     |
 | 4      | 5      | 致命性固件错误                       |
-| 4      | 6      | 电源故障类型 A                     |
-| 4      | 7      | 电源故障类型 B                     |
+| 4      | 6      | A 类电源故障                    |
+| 4      | 7      | B 类电源故障                   |
 
 ## 配置 UART
 
@@ -2463,7 +2463,7 @@ $ fdtdump 1st.dtbo
 在片段之后有三个新节点：
 
 * `__symbols__` 列出了覆盖中使用的标签（ `test_label` 在这里），以及带有标签节点的路径。这个节点是如何处理未解析符号的关键。
-* `__fixups__` 包含一个属性映射列表，将未解析符号的名称映射到需要使用目标节点的 phandle 进行修补的片段内单元格路径列表。在这种情况下，路径是到 `target` 的 `0xffffffff` 值，但片段可能包含其他未解析引用，这将需要额外的修复。
+* `__fixups__` 包含一个属性映射列表，将未解析符号的名称映射到需要使用目标节点的 phandle 进行修补的片段内单元格路径列表。在这种情况下，路径是到 `target` 的 `0xffffffff` 值，但片段可能包含其他未解析引用，这将需要另外修复。
 * `__local_fixups__` 保存了存在于叠加层内的标签引用的位置 - `test_ref` 属性。这是必需的，因为执行合并的程序必须确保 phandle 编号是连续且唯一的。
 
 在 [1.3 节](https://www.raspberrypi.com/documentation/computers/configuration.html#part1.3)中提到“原始标签不会出现在编译输出中”，但是当使用 `-@` 开关时，情况并非如此。相反，每个标签都会导致节点 `__symbols__` 中的一个属性，将标签映射到路径，就像节点 `aliases` 一样。实际上，机制如此相似，以至于在解析符号时，树莓派加载程序会在没有 `__symbols__` 节点的情况下搜索“别名”节点。曾经，这非常有用，因为提供足够的别名可允许使用非常老版本的 `dtc` 来构建基本的 DTB 文件，但幸运的是，那已经是远古历史了。
@@ -2641,7 +2641,7 @@ bmp280@76 {
 
 ##### 叠加层映射文件
 
-随着树莓派 4（围绕 BCM2711 SoC 构建）的推出，带来了许多变化；其中一些变化是额外的接口，另一些是对现有接口进行的修改（删除）。有一些新的叠加层专为树莓派 4 设计，这些叠加层在旧硬件上无意义，如启用新的 SPI、I²C 和 UART 接口的叠加层，但其他叠加层即使控制着新设备上仍然相关的功能，也不能正确应用。
+随着树莓派 4（围绕 BCM2711 SoC 构建）的推出，带来了许多变化；其中一些变化是附加的接口，另一些是对现有接口进行的修改（删除）。有一些新的叠加层专为树莓派 4 设计，这些叠加层在旧硬件上无意义，如启用新的 SPI、I²C 和 UART 接口的叠加层，但其他叠加层即使控制着新设备上仍然相关的功能，也不能正确应用。
 
 因此，有必要针对具有不同硬件的多个平台定制叠加层方法。在单个 .dtbo 文件中支持它们将需要大量使用隐藏的（“休眠”）片段，并切换到按需符号解析机制，以便不需要的丢失符号不会导致失败。一个更简单的解决方案是添加一个功能，根据当前平台将叠加层名称映射到几个实现文件中的一个。
 
@@ -3147,7 +3147,7 @@ fi
 $ sudo vclog --msg
 ```
 
-通过将 `dtdebug=1` 添加到 `config.txt` 可以启用额外的调试。
+通过将 `dtdebug=1` 添加到 `config.txt` 可以启用其他的调试。
 
 你可以这样创建当前 DT 状态，以人类可读的形式表示：
 
@@ -3313,7 +3313,7 @@ dtparam=i2c,i2s
 
 `dtdebug` 
 
-　　如果非 0，则打开固件的设备树处理的一些额外日志记录。
+　　如果非 0，则打开固件的设备树处理的一些详细日志记录。
 
 `enable_uart` 
 
