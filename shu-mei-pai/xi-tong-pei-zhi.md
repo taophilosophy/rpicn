@@ -734,7 +734,7 @@ $ sudo raspi-config nonint do_update
 
 树莓派 4、5 和 400 搭载了两个 micro HDMI，因此你需要为每台你想使用的显示器，都各准备一份 micro HDMI 转标准 HDMI 转接线（转接头）。请在树莓派开机之前接入上述适配器。
 
-树莓派 4 和 400 可以同时输出两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单个 4K 显示器。
+树莓派 4 和 400 可以同时输出到两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单个 4K 显示器。
 
 树莓派 5 无需任何专门配置，就可以 4K 分辨率、60Hz 刷新率，输出两个显示器。
 
