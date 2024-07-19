@@ -2273,7 +2273,7 @@ mixed-property = "a string", [01 23 45 67], <0x12345678>;
 string-list = "red fish", "blue fish";
 ```
 
-#### 有关 `/include/` 的一则说明
+#### 关于 `/include/` 的补充说明
 
 `/include/` 指令实现了简单的文本包含，类似于 C 的 `#include` 指令，但是设备树编译器的一个特性会导致不同的使用模式。鉴于节点是被命名的，可能带有绝对路径，因此在 DTS 文件（及其包含文件）中相同的节点可能会出现两次。当发生这种情况时，节点和属性将被合并，根据需要交错和覆盖属性（后续值会覆盖先前的值）。
 
@@ -2282,7 +2282,7 @@ string-list = "red fish", "blue fish";
 ```
 /node2 {
     an-empty-property;
-    a-cell-property = <1 2 3 4>; /* each number (cell) is a uint32 */
+    a-cell-property = <1 2 3 4>; /* 美个数字（cell）都是 uint32 */
     another-property-for-node2;
     child-node1 {
         my-cousin = <&cousin>;
