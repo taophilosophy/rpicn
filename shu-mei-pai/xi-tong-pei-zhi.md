@@ -2580,14 +2580,14 @@ exp_led = <&led1>,"gpios:0=",<&gpio>,
 
 ##### 查找表
 
-查找表允许在使用之前转换参数输入值。它们充当关联数组，有点像 switch/case 语句：
+查找表可在使用之前转换参数输入值。它们充当关联数组，有点像 switch/case 语句：
 
 ```
 phonetic = <&node>,"letter{a=alpha,b=bravo,c=charlie,d,e,='tango uniform'}";
 bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 ```
 
-没有 `=value` 的键意味着将键用作值，没有键的 = 表示在没有匹配项的情况下是默认值，并且以逗号开始或结束列表（或在任何地方使用空键=值对）表示未匹配的输入值应该保持不变；否则，找不到匹配项将会报错。
+不含 `=value` 的键意味着把键作为值，不含键的 = 表示在没有匹配项的情况下是默认值，并且以逗号开始或结束列表（或在任何地方使用空键=值对）表示未匹配的输入值应该保持不变；否则，找不到匹配项将会报错。
 
 >**注意**
 >
@@ -2604,8 +2604,8 @@ bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 通过将 `__overlay__` 节点重命名为 `__dormant__`，可以将片段从最终合并过程中排除（禁用）。参数声明语法已扩展，以允许否则非法的零目标 phandle 指示以下字符串包含片段或叠加层范围的操作。到目前为止，已实现了四种操作：
 
 ```
-+<n>    // Enable fragment <n>
--<n>    // Disable fragment <n>
++<n>    // 开启 fragment <n>
+-<n>    // 禁用 fragment <n>
 =<n>    // Enable fragment <n> if the assigned parameter value is true, otherwise disable it
 !<n>    // Enable fragment <n> if the assigned parameter value is false, otherwise disable it
 ```
@@ -2613,7 +2613,7 @@ bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
  例子：
 
 ```
-just_one    = <0>,"+1-2"; // Enable 1, disable 2
+just_one    = <0>,"+1-2"; // 开启 1, disable 2
 conditional = <0>,"=3!4"; // Enable 3, disable 4 if value is true,
                           // otherwise disable 3, enable 4.
 ```
