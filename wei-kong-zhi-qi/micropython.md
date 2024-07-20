@@ -51,7 +51,7 @@ MicroPython 是 Python 3 编程语言的完整实现，直接运行在嵌入式�
 
 查看 *[Get Started with MicroPython on 树莓派 Pico](https://store.rpipress.cc/collections/getting-started/products/get-started-with-micropython-on-raspberry-pi-pico-2nd-edition)* 了解如何使用 MicroPython 编程语言让你的 Pico 与周围的世界互动。本书已完全更新，适用于 树莓派 Pico W 和最新版本的 MicroPython，它向你展示如何：
 
-* 设置并开始使用你的 Pico 或 Pico W
+* 设置并开始使用你的 Pico、Pico W
 * 使用 MicroPython 编写程序
 * 控制和感知电子组件
 * 发现如何使用 Pico 独特的可编程 IO
