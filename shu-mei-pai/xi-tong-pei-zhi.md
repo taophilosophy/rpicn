@@ -2865,7 +2865,7 @@ dtoverlay=
 
 树莓派开发板有两个 I²C 接口。他们通常区分为：一个用于 ARM，一个用于 VideoCore（GPU）。在几乎所有型号上，`i2c1` 属于 ARM，`i2c0` 属于 VC（用于控制摄像头并读取 HAT EEPROM）。然而，两个旧版的 B 型树莓派设定相反。
 
-为了使所有树莓派都能使用一组叠加层和参数，固件创建了一些特定于主板的 DT 参数。这些是：
+为了使所有树莓派都能使用同一组叠加层和参数，固件创建了一些特定于主板的 DT 参数。这些是：
 
 ```
 i2c/i2c_arm
@@ -2891,15 +2891,15 @@ fragment@0 {
 
 #### 扩展板（HAT）和设备树
 
-树莓派扩展板是搭载了嵌入式 EEPROM 的附加板，专为具有 40 针引脚头的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加层的名称）所需的任何 DT 叠加层，此叠加层还可以公开参数。
+树莓派 HAT 是搭载了嵌入式 EEPROM 的扩展板，专为带有 40 针引脚头的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加层的名称）所需的所有 DT 叠加层，此叠加层还可以公开参数。但
 
 HAT 叠加层在基本 DTB 之后由固件自动加载，因此其参数可在加载任何其他叠加层之前访问，或者在使用 `dtoverlay=` 结束叠加层范围之前访问。如果出于某种原因你想要抑制 HAT 叠加层的加载，请在任何其他 `dtoverlay` 或 `dtparam` 指令之前放置 `dtoverlay=`。
 
 #### 动态设备树
 
-从 Linux 4.4 开始，树莓派内核支持动态加载叠加层和参数。兼容内核管理一个叠加层的堆栈，这些叠加层叠加层在基本 DTB 之上。修改立即反映在 `/proc/device-tree` 中，可能导致模块被加载和平台设备被创建和销毁。
+自 Linux 4.4 以降，树莓派内核可支持动态加载叠加层和参数。兼容内核管理一个叠加层的堆栈，这些叠加层叠加层位于基本 DTB 之上。修改立即反映在 `/proc/device-tree` 中，可能触发模块的加载，及平台设备的创建与销毁。
 
-上面提到的“堆栈”一词很重要 - 叠加层只能在堆栈顶部添加和移除；修改堆栈中较低位置的内容需要首先移除其顶部的任何内容。
+上面提到的“堆栈”一词很重要 - 叠加层只能在堆栈顶部添加和移除；修改堆栈中较低位置的内容需要首先移除其顶部的所有内容。
 
 有一些用于管理叠加层的新命令：
 
@@ -2929,36 +2929,36 @@ Options applicable to most variants:
     -v          Verbose operation
 ```
 
-与 `config.txt` 等效不同，所有叠加层的参数必须包含在同一条命令行中 - [dtparam](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.5.2) 命令仅用于基本 DTB 的参数。
+与 `config.txt` 等效，但有区别：所有叠加层的参数必须位于同一条命令行中 - [dtparam](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.5.2) 命令仅用于基本 DTB 的参数。
 
-修改内核状态的命令变体（添加和移除内容）需要 root 权限，因此你可能需要在命令前加上 `sudo`。只有在运行时应用的叠加层和参数可以被卸载 - 固件应用的叠加层或参数会被“烘焙”，因此不会被 `dtoverlay` 列出，也无法移除。
+修改内核状态的衍生命令（添加和移除内容）需要 root 权限，因此你可能需要在命令前加上 `sudo`。只有在运行时应用的叠加层和参数才能被卸载 - 固件应用的叠加层或参数会被“烘焙”，因此不会被 `dtoverlay` 列出，也无法移除。
 
 ##### 命令 `dtparam` 
 
-`dtparam` 创建并加载一个覆盖层，其效果基本与在 `config.txt` 中使用 `dtparam` 指令相同。在使用上，它与具有 - 的覆盖层名称的 `dtoverlay` 基本等效，但存在一些差异： `dtparam` 将列出基础 DTB 的所有已知参数的帮助信息。仍然可以使用 `dtparam -h` 获取有关 dtparam 命令的帮助。在指示要移除的参数时，只能使用索引号（而非名称）。并非所有 Linux 子系统都会在运行时响应设备的添加 - I²C、SPI 和声音设备可以工作，但有些则不行。
+`dtparam` 创建并加载一个覆盖层，其效果基本与在 `config.txt` 中使用 `dtparam` 指令相同。在使用上，它与带有 - 的覆盖层名称的 `dtoverlay` 基本等效，但存在一些差异： `dtparam` 将列出基础 DTB 的所有已知参数的帮助信息。仍然可使用 `dtparam -h` 获取有关 dtparam 命令的帮助。在指示要移除的参数时，只能使用索引号（而非名称）。并非所有的 Linux 子系统都会在运行时响应设备的添加 - I²C、SPI 和声音设备可以工作，但有些则不行。
 
-##### 撰写运行时可用覆盖层的指南
+##### 运行时可用覆盖层的撰写指南
 
 创建或删除设备对象是由添加或移除节点，或节点状态从禁用变为启用或反之触发的。"status"属性的缺失意味着节点已启用。
 
 不要在将覆盖基础 DTB 中现有节点的片段内创建节点 - 内核将重命名新节点以使其唯一。如果要修改现有节点的属性，请创建一个针对它的片段。
 
-ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用中删除叠加层可能会导致内核异常，如果删除的编解码器仍在声卡中使用。实验发现设备在叠加层中以片段顺序的相反顺序被删除，因此将卡的节点放在组件节点之后允许有序关闭。
+ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如果要删除的编解码器正在被声卡所使用，删除其使用的叠加层可能会导致内核异常。实验发现设备在叠加层中以片段顺序的相反顺序被删除，因此将卡的节点放在组件节点之后允许有序关闭。
 
 ##### 注意事项
 
-在运行时加载叠加层是内核的一个最新功能，截至撰写本文时，尚无一种被接受的方法可以从用户空间执行此操作。通过将此机制的细节隐藏在命令背后，用户可以在不同内核接口标准化的情况下免受影响。
+在运行时加载叠加层是内核的一个最新功能，截至本文撰写时，无法从用户空间执行此操作。通过将此机制的细节隐藏在命令背后，用户可以在不同内核接口标准的情况下免受影响。
 
-* 一些叠加层在运行时的效果比其他叠加层更好。设备树的某些部分仅在引导时使用 - 使用叠加层修改它们不会产生任何效果。
-* 应用或移除一些叠加层可能会导致意外行为，因此应谨慎进行。这就是需要 `sudo` 的原因之一。
-* 卸载 ALSA 卡的叠加层可能会因为某些正在使用 ALSA 的活动而停滞不前 - LXPanel 音量滑块插件展示了这种效果。为了使声卡的叠加层能够被移除，`lxpanelctl` 工具已被赋予两个新选项 - `alsastop` 和 `alsastart` - 并且这些选项在加载或卸载叠加层之前和之后分别从辅助脚本 `dtoverlay-pre` 和 `dtoverlay-post` 中调用。
-* 移除叠加层不会导致已加载的模块被卸载，但可能会导致一些模块的引用计数降至零。运行 `rmmod -a` 两次将导致未使用的模块被卸载。
+* 某些叠加层在运行时的效果比其他叠加层更好。某些设备树部分仅在引导时使用 - 使用叠加层修改它们是无效的。
+* 应用或移除一些叠加层可能会触发意外行为，因此应谨慎进行。这就是需要 `sudo` 的原因之一。
+* 卸载 ALSA 卡的叠加层可能会因为某些正在使用 ALSA 的活动而等待 - LXPanel 音量滑块插件展示了这种效果。为了使声卡的叠加层能够被移除，`lxpanelctl` 工具已被赋予两个新选项 - `alsastop` 和 `alsastart` - 并且这些选项在加载或卸载叠加层之前和之后分别调用辅助脚本 `dtoverlay-pre` 和 `dtoverlay-post`。
+* 移除叠加层不会触发卸载已加载的模块，但可能会导致一些模块的引用计数降至零。运行两回 `rmmod -a` 将触发卸载未使用的模块。
 * 覆盖必须按相反顺序移除。这些命令将允许你移除较早的覆盖，但所有中间的覆盖将被移除并重新应用，这可能会产生意想不到的后果。
-* 仅会探测树顶层和总线节点的子级的设备树节点。对于运行时添加的节点，进一步的限制是总线必须注册通知以添加和移除子级。但是，有一些例外情况会打破这个规则并引起混淆：内核明确扫描整个树以寻找某些设备类型 - 时钟和中断控制器是主要的两种 - 以便（对于时钟）早期初始化它们和/或（对于中断控制器）按特定顺序初始化。这种搜索机制仅在引导过程中发生，因此对于运行时由覆盖添加的节点不起作用。因此，建议将固定时钟节点放在树的根部，除非保证覆盖不会在运行时使用。
+* 仅会探测树顶层和总线节点的子级的设备树节点。对于运行时添加的节点，进一步的限制是总线必须注册通知以添加和移除子级。但是，有一些例外情况会打破这个规则并引起混淆：内核明确扫描整个树以寻找某些设备类型 - 时钟和中断控制器是主要的两种 - 以便早期初始化它们（对于时钟）或按特定顺序初始化（对于中断控制器）。这种搜索机制仅在引导过程中进行，因此对于运行时由覆盖添加的节点无效。因此，建议将固定时钟节点放在树的根部，除非保证覆盖不会在运行时使用。
 
 #### 支持的覆盖和参数
 
-请参考 `/boot/firmware/overlays` 中找到的叠加层 `.dtbo` 文件旁边的 [README](https://github.com/raspberrypi/firmware/blob/master/boot/firmware/overlays/README) 文件。它会随着添加和修改而保持最新。
+请参考 `/boot/firmware/overlays` 中找到的叠加层 `.dtbo` 文件附近的 [README](https://github.com/raspberrypi/firmware/blob/master/boot/firmware/overlays/README) 文件。它会随着添加和修改而保持最新。
 
 ### 固件参数
 
@@ -2978,7 +2978,7 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 `rpi-country-code`
 
-　　[PiWiz](https://github.com/raspberrypi-ui/piwiz) 使用的区域代码。仅适用于树莓派 400。
+　　[PiWiz](https://github.com/raspberrypi-ui/piwiz) 使用的区域码。仅适用于树莓派 400。
 
 `rpi-duid` 
 
@@ -2998,11 +2998,11 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 `pm_rsts` 
 
-　　引导过程中 `PM_RSTS` 寄存器的值。
+　　在引导过程中寄存器 `PM_RSTS` 的值。
 
 `tryboot`
 
-　　如果在启动时设置了参数 `tryboot` ，则设置为 1。
+　　如果在启动时设置了参数 `tryboot` ，则置为 1。
 
 #### 电源适配器属性 `/chosen/power`
 
@@ -3010,7 +3010,7 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 `max_current`
 
-　　电源适配器可以提供的最大电流（以 mA 为单位）。固件报告由 USB-C、USB-PD 或 PoE 接口指示的值。对于台式电源适配器（例如连接到 GPIO 排针），请在引导加载程序配置中定义 `PSU_MAX_CURRENT` 以指示电源适配器的电流能力。
+　　电源适配器可以提供的最大电流（以 mA 为单位）。固件报告的由 USB-C、USB-PD 或 PoE 接口指示的值。对于台式电源适配器（如接入 GPIO 排针），请在引导加载程序配置中定义 `PSU_MAX_CURRENT`，来指示电源适配器的电流能力。
 
 `power_reset` 
 
@@ -3026,29 +3026,29 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 `rpi_power_supply` 
 
-　　（**两个 32 位整数**）官方树莓派 27W 电源适配器的 USB VID 和 Product VDO（如已接入）。
+　　（**两个 32 位整数**）树莓派官方 27W 电源适配器的 USB VID 和 Product VDO（如接入）。
 
 `usb_max_current_enable` 
 
-　　如果 USB 接口电流限制器在启动时设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器报告其最大电流为 5A 或在 `config.txt` 中强制使用 `usb_max_current_enable=1`，则自动启用高电平。
+　　如果 USB 接口的电流限制器在启动时被设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器报告其最大电流为 5A 或在 `config.txt` 中强制使用 `usb_max_current_enable=1`，则自动启用高电平。
 
 `usb_over_current_detected` 
 
-　　如果在 USB 启动期间发生 USB 过流事件，则为非 0 值。
+　　如果在 USB 启动期间发生过 USB 过流事件，则为非 0 值。
 
 `usbpd_power_data_objects`
 
-　　（**包含多个 32 位整数的二进制数据块**）引导加载程序在 USB-PD 协商期间接收到的原始二进制 USB-PD 对象（仅限固定供电）。要为错误报告捕获此内容，请运行 `hexdump -C /proc/device-tree/chosen/power/usbpd_power_data_objects`。
+　　（**包含多个 32 位整数的二进制数据区块**）引导加载程序在 USB-PD 协商期间接收到的原始二进制 USB-PD 对象（仅限固定供电）。要为错误报告捕获此内容，请运行 `hexdump -C /proc/device-tree/chosen/power/usbpd_power_data_objects`。
 
 格式由 [USB PD](https://usb.org/document-library/usb-power-delivery)规范定义。
 
-#### BCM2711 和 BCM2712 特定的引导加载程序属性 /chosen/bootloader
+#### BCM2711 和 BCM2712 特定的引导加载程序属性 `/chosen/bootloader`
 
-以下属性特定于 BCM2711 和 BCM2712 SPI EEPROM 引导加载程序。除非另有说明，否则每个属性都存储为 32 位整数。
+以下属性特定于 BCM2711 和 BCM2712 的 SPI EEPROM 引导加载程序。除非另有说明，否则每个属性都存储为 32 位整数。
 
 `build_timestamp`
 
-　　EEPROM 引导加载程序的 UTC 构建时间。
+　　EEPROM 引导加载程序的构建时间（UTC）。
 
 `capabilities` 
 
@@ -3056,22 +3056,22 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 | 位 | 功能                                     |
 | :----: | :------------------------------------------: |
-| 0  | 使用 VLI USB 主机控制器进行 [USB 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#usb-mass-storage-boot)     |
-| 1  | [ 网络引导](https://www.raspberrypi.com/documentation/computers/remote-access.html#network-boot-your-raspberry-pi)                                         |
+| 0  | 使用 VLI USB 主机控制器进行 [USB 启动](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#usb-mass-storage-boot)     |
+| 1  | [ 网络启动](https://www.raspberrypi.com/documentation/computers/remote-access.html#network-boot-your-raspberry-pi)                                         |
 | 2  | [TRYBOOT_A_B](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot) 模式                         |
 | 3  | [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot)                                         |
-| 4  | 使用 BCM2711 USB 主机控制器进行 [USB 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#usb-mass-storage-boot) |
+| 4  | 使用 BCM2711 USB 主机控制器进行 [USB 启动](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#usb-mass-storage-boot) |
 | 5  | [RAM 磁盘 - boot.img](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot_ramdisk)                                         |
-| 6  | [ NVMe 引导](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#nvme-ssd-boot)                                         |
+| 6  | [ NVMe 启动](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#nvme-ssd-boot)                                         |
 | 7  | [ 安全启动](https://github.com/raspberrypi/usbboot/blob/master/Readme.md#secure-boot)                                         |
 
 `update_timestamp` 
 
-　　由 `rpi-eeprom-update` 设置的 UTC 更新时间戳。
+　　由 `rpi-eeprom-update` 设置的更新时间戳（UTC）。
 
 `signed` 
 
-　　如果启用了安全启动，则此位字段将为非 0。各个位指示当前的安全启动配置。
+　　如启用安全启动，此位字段将为非 0。每个位指示当前的安全启动配置。
 
 | 位    | 说明                                            |
 | :-------: | ------------------------------------------------- |
@@ -3083,11 +3083,11 @@ ALSA 不会阻止其编解码器和其他组件在使用中被卸载。在使用
 
 `version` 
 
-  （**字符串**）用于引导加载程序的 Git 版本字符串。
+  （**字符串**）用于引导加载程序的 Git 版本，是字符串。
 
 #### BCM2711 和 BCM2712 USB 引导属性 `/chosen/bootloader/usb`
 
-如果系统是从 USB 引导的，则定义以下属性。这些属性可用于唯一标识 USB 引导设备。每个属性存储为 32 位整数。
+如果系统是从 USB 启动的，则定义以下属性。这些属性可用于唯一标识 USB 引导设备。每个属性存储为 32 位整数。
 
 `usb-version`
 
@@ -3141,7 +3141,7 @@ fi
 
 #### 调试
 
-加载程序将跳过缺少的叠加层和错误参数，但如果存在严重错误，比如缺少或损坏的基本 DTB 或失败的叠加层合并，那么加载程序将退回到非 DT 引导。如果发生这种情况，或者如果你的设置不符合你的期望，值得检查加载程序的警告或错误：
+加载程序将跳过缺少的叠加层和错误参数，但如果存在严重错误，比如缺少或损坏的基本 DTB 或失败的叠加层合并，那么加载程序将退回到非 DT 引导。如果发生这种情况，或者如果你的设置不符合你的期望，需要检查加载程序的警告或错误：
 
 ```
 $ sudo vclog --msg
@@ -3157,7 +3157,7 @@ $ dtc -I fs /proc/device-tree
 
 这对于查看将叠加层合并到基础树上的效果可能很有用。
 
-如果内核模块未按预期加载，请检查它们是否在 `/etc/modprobe.d/raspi-blacklist.conf` 中被列入黑名单；在使用设备树时，不应该需要列入黑名单。如果没有发现任何异常，你还可以通过在 `/lib/modules/<version>/modules.alias` 中搜索 `compatible` 值来检查模块是否导出了正确的别名。否则，你的驱动程序可能缺少以下内容之一：
+如果内核模块未按预期加载，请检查它们是否在 `/etc/modprobe.d/raspi-blacklist.conf` 中，即是否被列入了黑名单；在使用设备树时，不应该有黑名单的使用需求。如果没有发现任何异常，你还可以通过在 `/lib/modules/<version>/modules.alias` 中搜索 `compatible` 值来检查模块是否导出了正确的别名。否则，你的驱动程序可能缺少以下内容之一：
 
 ```
 .of_match_table = xxx_of_match,
@@ -3169,11 +3169,11 @@ $ dtc -I fs /proc/device-tree
 MODULE_DEVICE_TABLE(of, xxx_of_match);
 ```
 
-如果失败，那么因为 `depmod` 失败，或者更新的模块尚未安装在目标文件系统上。
+如果失败，可能因为 `depmod` 失败，或者更新的模块尚未安装在目标文件系统上。
 
 #### 使用 dtmerge、dtdiff 和 ovmerge 测试叠加层。
 
-除了命令 `dtoverlay` 和 `dtparam` 之外，还有一个用于将叠加层应用到 DTB 的工具 - `dtmerge`。要使用它，你首先需要获取基本的 DTB，可以通过以下两种方式之一获取：
+除了命令 `dtoverlay` 和 `dtparam` 之外，还有一个用于将叠加层应用到 DTB 的工具 - `dtmerge`。要使用它，你首先需要获取基本的 DTB，可以通过以下两种方式获取：
 
 从 `/proc/device-tree` 中的实时 DT 状态生成它：
 
@@ -3181,7 +3181,7 @@ MODULE_DEVICE_TABLE(of, xxx_of_match);
 $ dtc -I fs -O dtb -o base.dtb /proc/device-tree
 ```
 
-这将包括你迄今为止在 `config.txt` 中应用的任何叠加层和参数，或者通过在运行时加载它们，这可能是你想要的，也可能不是。或者：
+将包含你迄今为止在 `config.txt` 中应用的所有叠加层和参数，或者通过在运行时加载它们，这可能是你想要的，也可能不是。或者：
 
 从 `/boot/firmware/` 中的源 DTB 复制它。这不会包括叠加层和参数，但也不会包括固件的任何其他修改。为了允许测试所有叠加层，`dtmerge` 工具将创建一些特定于板的别名（"i2c_arm" 等），但这意味着合并的结果将与原始 DTB 有更多差异。你可能期望的不同。解决此问题的方法是使用 dtmerge 进行复制：
 
@@ -3198,7 +3198,7 @@ $ dtmerge base.dtb merged.dtb - sd_overclock=62
 $ dtdiff base.dtb merged.dtb
 ```
 
- 这将返回：
+ 将返回：
 
 ```
 --- /dev/fd/63  2016-05-16 14:48:26.396024813 +0100
@@ -3266,9 +3266,9 @@ $ dtdiff merged1.dtb merged2.dtb
 
 [Utils](https://github.com/raspberrypi/utils) 存储库包含了另一个 DT 工具 - `ovmerge`。与 `dtmerge` 不同，`ovmerge` 结合了文件并以源形式应用叠加层。由于叠加层从未被编译，标签得以保留，结果通常更易读。它还具有许多其他技巧，例如能够列出文件包含的顺序。
 
-#### 强制使用特定的设备树
+#### 强制使用特定设备树
 
-如果你有非常特定的需求，而默认的 DTB 不能满足他们，或者你只是想尝试编写自己的 DT，请让加载程序加载指定的 DTB 文件，就像这样：
+如果你有非常特定的需求，而默认 DTB 无法满足，或者你只是想尝试编写自己的 DT，请让加载程序加载指定的 DTB 文件，就像这样：
 
 ```
 device_tree=my-pi.dtb
@@ -3276,7 +3276,7 @@ device_tree=my-pi.dtb
 
 #### 禁用设备树使用
 
-树莓派的 Linux 内核需要使用设备树。对于裸机和其他操作系统，可以通过添加以下内容来禁用设备树加载：
+树莓派的 Linux 内核需要使用设备树。对于裸机和其他操作系统，可通过添加以下内容来禁用设备树加载：
 
 ```
 device_tree=
@@ -3305,15 +3305,15 @@ dtparam=i2c,i2s
 
 `device_tree_address` 
 
-　　这用于覆盖固件加载设备树的地址（不是 dt-blob）。默认情况下，固件将选择一个合适的位置。
+　　用于覆盖固件加载设备树的地址（不是 dt-blob）。在默认情况下，固件将选择一个合适的位置。
 
 `device_tree_end` 
 
-　　这将对加载的设备树设置（独占）限制。默认情况下，设备树可以增长到可用内存的末尾，这几乎肯定是所需的。
+　　将对加载的设备树设置（独占）限制。默认情况下，设备树可以增长到可用内存的末尾，这几乎肯定是所需的。
 
 `dtdebug` 
 
-　　如果非 0，则打开固件的设备树处理的一些详细日志记录。
+　　如果非 0，会打开固件的设备树处理的一些详细日志记录。
 
 `enable_uart` 
 
@@ -3333,31 +3333,31 @@ dtparam=i2c,i2s
 
 >**注意**
 >
->通过用户提供的DTB 自定义默认引脚配置的方法，已被弃用。
+>通过用户提供的DTB 自定义默认引脚配置的方法，已弃用。
 
 ### 引导序列期间的设备引脚
 
-在引导序列期间，GPIO 引脚经历各种操作。
+在引导序列期间，GPIO 引脚经历了各种操作。
 
 * 上电 - 引脚默认为具有默认拉电阻的输入，这些电阻在[数据表](https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf?_gl=1*ud7pvi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3NDM1MC4zNy4xLjE3MjA5NzU3MzQuMC4wLjA.)中有说明
 * 由 bootrom 设置
 * 通过 `bootcode.bin` 设置
 * 通过 `dt-blob.bin` 设置（本页）
 * 通过 [GPIO 命令](https://www.raspberrypi.com/documentation/computers/config_txt.html#gpio-control)在 `config.txt` 中设置
-* 附加固件引脚（例如串口）
+* 附加固件引脚（如串口）
 * 内核/设备树
 
-在软复位时，相同的过程适用，除了默认拉引脚，这些只在上电复位时应用。
+在软复位时，该过程仍适用：除了默认拉引脚（只在上电复位时应用）。
 
 通过过程可能需要几秒钟。在此期间，GPIO 引脚可能不处于附加外围设备期望的状态（如 `dt-blob.bin` 或 `config.txt` 中定义）。由于不同的 GPIO 引脚具有不同的默认拉电阻，你应该针对你的外围设备执行以下 **某个操作**：
 
 * 选择一个在复位时默认为外围设备所需拉电阻的 GPIO 引脚
 * 推迟外围设备的启动，直到操作完成
-* 添加适当的上拉/下拉电阻
+* 添加适当的上拉、下拉电阻
 
 ### 提供自定义DTB
 
-为了将设备树源（ `.dts` ）文件编译成 DTB（ `.dtb`）文件，必须安装设备树编译器，方法是运行 `sudo apt install device-tree-compiler`。然后可以使用 `dtc` 命令如下：
+为了将设备树源代码文件（ `.dts` ）编译成 DTB（ `.dtb`）文件，必须安装设备树编译器，方法是运行 `sudo apt install device-tree-compiler`。然后可以使用 `dtc` 命令，如下：
 
 ```
 $ sudo dtc -I dts -O dtb -o /boot/firmware/dt-blob.bin dt-blob.dts
@@ -3375,17 +3375,17 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 #### `videocore`
 
-本部分包含所有 VideoCore blob 信息。所有后续部分必须被包含在此部分内。
+本部分包含了 VideoCore 所有的二进制区块信息。所有后续部分必须被包含在此部分内。
 
 #### `pins_*`
 
-有许多单独的 `pins_*` 部分，基于特定的树莓派型号，即：
+有许多单独的 `pins_*` 部分，基于特定型号的树莓派，即：
 
 * `pins_rev1`：Rev1 引脚设置。由于移动的 I²C 引脚，存在一些差异。
 * `pins_rev2`：Rev2 引脚设置。这包括 P5 上的附加编解码器引脚。
 * `pins_bplus1`：树莓派 1B+ 修订版 1.1，包括完整的 40 针连接器。
 * `pins_bplus2`：树莓派 1B+ 修订版 1.2，交换低功耗和 lan-run 引脚。
-* `pins_aplus`：树莓派 1A+，无以太网。
+* `pins_aplus`：树莓派 1A+，不带以太网。
 * `pins_2b1`：树莓派 2B 修订版 1.0；通过 I²C0 控制开关电源管理系统。
 * `pins_2b2`：树莓派 2B 修订版 1.1；通过软件 I²C 在 42 和 43 上控制开关电源管理系统。
 * `pins_3b1`：树莓派 3B 修订版 1.0
@@ -3395,13 +3395,13 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 * `pins_pi0` ：树莓派 Zero
 * `pins_pi0w` ：树莓派 Zero W
 * `pins_pi02w` ：树莓派 Zero 2 W
-* `pins_cm` ：树莓派计算模块 1。默认情况下，这是芯片的默认设置，因此它是关于芯片上默认上拉/下拉的有用信息来源。
+* `pins_cm` ：树莓派计算模块 1。默认情况下，这是芯片的默认设置，因此它是关于芯片上默认上拉、下拉的有用信息来源。
 * `pins_cm3` ：树莓派计算模块 3
 * `pins_cm3plus` ：树莓派计算模块 3+
 * `pins_cm4s` ：树莓派计算模块 4S
 * `pins_cm4` ：树莓派计算模块 4
 
-每个 `pins_*` 部分都可以包含 `pin_config` 和 `pin_defines` 部分。
+每个 `pins_*` 部分都可包含 `pin_config` 和 `pin_defines` 部分。
 
 #### `pin_config`
 
@@ -3444,11 +3444,11 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 #### `pin_defines`
 
-此部分用于将特定的 VideoCore 功能设置为特定的引脚。这使用户可以将摄像头电源使能引脚移动到其他位置，或将 HDMI 热插拔位置移动：这些是 Linux 无法控制的事情。请参考以下 DTS 示例文件。
+此部分用于将特定的 VideoCore 功能设置为特定的引脚。这使用户可以将摄像头电源使能引脚移动到其他位置，或移动 HDMI 热插拔位置：这些是 Linux 无法控制的事情。请参考以下 DTS 示例文件。
 
 ### 时钟配置
 
-通过这个界面可以修改时钟配置，哪怕结果很难预测！时钟系统的配置异常复杂。有 5 个独立的 PLL，每个 PLL 都有自己固定（或可变，如 PLLC）的 VCO 频率。然后，每个 VCO 都有许多不同的通道，可以使用不同的 VCO 频率分频。每个时钟目的地都可以配置为来自其中一个时钟通道，尽管源到目的地的映射受到限制，因此并非所有通道都可以路由到所有时钟目的地。
+通过该界面可修改时钟配置，哪怕结果很难预测！时钟系统的配置异常复杂。有 5 个独立的 PLL，每个 PLL 都有自己固定（或可变，如 PLLC）的 VCO 频率。然后，每个 VCO 都有许多不同的通道，可以使用不同的 VCO 频率分频。每个时钟目的地都可以配置为来自其中一个时钟通道，尽管源到目的地的映射受到限制，因此并非所有通道都可以路由到所有时钟目的地。
 
 这里有一些示例配置，你可以用来修改特定的时钟。当请求时钟配置时，我们将添加到此资源。
 
