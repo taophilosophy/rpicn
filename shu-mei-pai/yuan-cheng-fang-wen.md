@@ -349,7 +349,7 @@ $ ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
 
-id_rsa 文件包含你的私钥。请将其安全保存在用于远程连接到 树莓派的计算机上。
+id_rsa 文件包含你的私钥。请将其安全保存在用于远程连接到树莓派的计算机上。
 
 id_rsa.pub 文件包含你的公钥。你将与你的树莓派共享此密钥。当你远程连接到树莓派 时，它将使用此密钥来验证你的身份。
 
@@ -642,7 +642,7 @@ Nobody-User = nobody
 Nobody-Group = nogroup
 ```
 
-但是，请注意，客户端可能对 Nobody-User 和 Nobody-Group 有不同的要求。例如，在 RedHat 变体上，它们都是 nfsnobody。如果不确定，请通过以下命令检查 nobody 和 nogroup 是否存在：
+但是，请注意，客户端可能对 Nobody-User 和 Nobody-Group 有不同的要求。例如，在 RedHat 的衍生上，它们都是 nfsnobody。如果不确定，请通过以下命令检查 nobody 和 nogroup 是否存在：
 
 ```
 $ cat /etc/passwd

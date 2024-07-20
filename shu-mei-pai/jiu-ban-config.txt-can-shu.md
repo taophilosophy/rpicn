@@ -105,7 +105,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 如果使用 upstream_kernel=1，固件会将 os_prefix 设置为"upstream/"，除非已明确设置为其他内容，但与其他 os_prefix 值一样，如果在使用前缀时找不到所需的内核和.dtb 文件，则会被忽略。
 
-固件还会更喜欢 DTBs 的上游 Linux 名称（ bcm2837-rpi-3-b.dtb 而不是 bcm2710-rpi-3-b.dtb，例如）。如果找不到上游文件，则固件将加载下游变体，并自动应用"upstream"叠加以进行一些调整。请注意，此过程发生在 os_prefix 最终确定之后。
+固件还会更喜欢 DTBs 的上游 Linux 名称（ bcm2837-rpi-3-b.dtb 而不是 bcm2710-rpi-3-b.dtb，例如）。如果找不到上游文件，则固件将加载下游衍生，并自动应用"upstream"叠加以进行一些调整。请注意，此过程发生在 os_prefix 最终确定之后。
 
 ## 旧版 GPIO 控制
 

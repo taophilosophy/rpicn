@@ -14,7 +14,7 @@
 
 摄像头模块 3 NoIR（左）和摄像头模块 3 NoIR 广角（右）
 
-此外，分别于 2020 年和 2023 年发布了分别适用于外部镜头的 CS 或 M12 安装变种的 1200 万像素高质量摄像头。HQ 摄像头没有红外版本（但如有需要，也可以拆除红外滤镜）。
+此外，分别于 2020 年和 2023 年发布了分别适用于外部镜头的 CS 或 M12 安装衍生的 1200 万像素高质量摄像头。HQ 摄像头没有红外版本（但如有需要，也可以拆除红外滤镜）。
 
 ![M12- and C/CS-mount versions of the HQ Camera](https://www.raspberrypi.com/documentation/accessories/images/hq.jpg)
 
