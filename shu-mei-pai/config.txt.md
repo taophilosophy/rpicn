@@ -264,7 +264,7 @@ cmdline 是启动分区上的备用文件名，用于读取内核命令行字符
 
 ### `kernel`
 
-kernel 是用于加载内核的启动分区上的备用文件名。树莓派 1，树莓派 Zero、Zero W 和计算模块 1 的默认值为 kernel.img。树莓派 2、3、3+，树莓派 Zero 2 W，计算模块 3、3+ 的默认值为 kernel7.img。树莓派 4、400 和计算模块 4 的默认值为 kernel8.img，或者如果设置了 arm_64bit 为 0，则默认值为 kernel7l.img。
+kernel 是用于加载内核的启动分区上的备用文件名。树莓派 1，树莓派 Zero、Zero W 和计算模块 1 的默认值为 kernel.img。树莓派 2、3、3+，树莓派 Zero 2 W，计算模块 3、3+ 的默认值为 kernel7.img。树莓派 4、400 和计算模块 4 的默认值为 kernel8.img；如设置 arm_64bit 为 0，则默认值为 kernel7l.img。
 
 树莓派 5 固件默认加载 kernel_2712.img，因为此镜像针对树莓派 5 进行了优化（例如 16K 页面大小）。如果此文件不存在，则会加载 64 位通用内核（ kernel8.img ）。
 
@@ -274,7 +274,7 @@ kernel 是用于加载内核的启动分区上的备用文件名。树莓派 1�
 
 在 64 位模式下，固件将选择适当的内核（例如 kernel8.img ），除非存在明确的 kernel 选项，那么将使用该选项。
 
-在树莓派 4 系列（4B、Pi 400、CM4 和 CM4S）上默认为 1，在所有其他平台上默认为 0。但是，如果显式 kernel 选项中给定的名称与已知的内核之一匹配，则 arm_64bit 将相应设置。
+在树莓派 4 系列（4B、400、CM4 和 CM4S）上默认为 1，在所有其他平台上默认为 0。但是，如果显式 kernel 选项中给定的名称与已知的内核之一匹配，则 arm_64bit 将相应设置。
 
 >**注意**
 >
@@ -302,31 +302,31 @@ initramfs 命令同时指定 ramfs 文件名和需要加载到的内存地址。
 
 ### `auto_initramfs`
 
-如果 auto_initramfs 设置为 1，请按照内核选择的相同规则查找 initramfs 文件。
+如果设置 auto_initramfs 为 1，请按照内核选择的相同规则查找 initramfs 文件。
 
 ### `disable_poe_fan`
 
-默认情况下，I²C 总线上的探测将在启动时发生，即使未连接 PoE HAT。将此选项设置为 1 可禁用通过 I²C 控制 PoE HAT 风扇（在 `ID_SD＆ID_SC` 引脚上）。如果你不打算使用 PoE HAT，则这是最大化启动时间的有用方式。
+在默认情况下，启动时会在 I²C 总线上进行探测（哪怕未接入 PoE 扩展板）。将此参数置为 1，可禁用在 I²C 上对 PoE 扩展板风扇的检测（在 `ID_SD＆ID_SC` 引脚上）行为。如果你不打算使用 PoE 扩展板，那么这是最大程度上缩短启动时间的有效方式。
 
 ### `disable_splash`
 
-如果将 disable_splash 设置为 1，则启动时不会显示彩虹闪屏。默认值为 `0`。
+如果将 disable_splash 置为 1，启动时不会出现彩虹闪屏。默认值为 `0`。
 
 ### `enable_uart`
 
-`enable_uart=1` （与 `console=serial0` 结合在 cmdline.txt 中）要求内核创建一个串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 和 10 引脚）访问。编辑 cmdline.txt 以删除 quiet 行，从而使内核的启动消息也显示在那里。另请参阅 uart_2ndstage。
+`enable_uart=1` （与 `console=serial0` 结合在 cmdline.txt 中）可要求内核创建串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 和 10 引脚）访问。编辑 cmdline.txt，删除 quiet 行，能把内核的启动消息也显示在那里。另请参阅 uart_2ndstage。
 
 ### `force_eeprom_read`
 
-将此选项设置为 `0` 可防止固件在上电时尝试读取连接到 `ID_SD` 和 `ID_SC` 引脚的 I²C HAT EEPROM。另请参阅 disable_poe_fan。
+将此选项置为 `0` 可防止固件上电时尝试读取连接到 `ID_SD` 和 `ID_SC` 引脚的 I²C HAT EEPROM。另请参阅 disable_poe_fan。
 
 ### `os_prefix`
 
-os_prefix 是一个可选设置，允许你在同一卡上安装的内核和设备树文件的多个版本之间进行选择。os_prefix 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、initramfs、cmdline.txt、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须包含尾随的 / 字符。
+os_prefix 是一个可选配置，能让你在同一卡上安装的内核和设备树文件的多个版本之间进行切换。os_prefix 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、initramfs、cmdline.txt、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须包含尾随的 / 字符。
 
-为了减少系统无法启动的几率，固件首先测试所提供的前缀值是否可行 - 除非新位置/名称能够找到预期的内核和.dtb 文件，否则前缀将被忽略（设为“”）。此可行性测试的一个特例应用于叠加层，只有从 `${os_prefix}${overlay_prefix}` （其中 overlay_prefix 的默认值为“overlays/”）才会加载叠加层，否则它会忽略 os_prefix 并将叠加层视为共享项。
+为了提高系统启动的可能性，固件首先会测试所提供的前缀值是否可行 - 除非新位置/名称能够找到预期的内核和 .dtb 文件，否则前缀将被忽略（设为“”）。此可行性测试的一个特例应用于叠加层，只有从 `${os_prefix}${overlay_prefix}` （其中 overlay_prefix 的默认值为“overlays/”）才会加载叠加层，否则它会忽略 os_prefix 并将叠加层视为共享项。
 
-（固件在检查前缀时检查关键文件的存在而不是目录的原因有二：前缀可能不是目录，并非所有启动方法都支持测试目录的存在。）
+（固件在检查前缀时检查关键文件的存在，而非目录。原因有二：前缀可能不是目录，并非所有启动方法都支持测试目录的存在。）
 
 >**注意**
 >
@@ -338,13 +338,13 @@ os_prefix 是一个可选设置，允许你在同一卡上安装的内核和设�
 
 USB On-The-Go（通常缩写为 OTG）是一项功能，它允许支持 USB 设备使用适当的 OTG 电缆将自己配置为 USB 主机。在旧版的树莓派系列上，一个 USB2 控制器同时用于 USB 主机和设备模式。
 
-树莓派 4B 和树莓派 400（不含 CM4、CM4IO）添加了一个高性能 USB 3 控制器，通过 PCIe 连接，以驱动主 USB ports。传统的 USB 2 控制器仍然可以在 USB-C 电源连接器上使用为设备（ otg_mode=0，默认情况下）。
+树莓派 4B、400（不含 CM4、CM4IO）添加了一个高性能 USB 3 控制器，通过 PCIe 连接，以驱动主 USB。传统的 USB 2 控制器仍然可以在 USB-C 电源连接器上使用为设备（在默认情况下 otg_mode=0）。
 
 otg_mode=1 请求使用更具能力的 XHCI USB 2 控制器作为 USB-C 连接器上的另一个主机控制器。
 
 >**注意**
 >
->由于 CM4 和 CM4IO 不包括外部 USB 3 控制器，树莓派操作系统镜像在 CM4 上设置 otg_mode=1 以获得更好的性能。
+>由于 CM4 和 CM4IO 不含外部 USB 3 控制器，树莓派操作系统镜像在 CM4 上设置 otg_mode=1 以获得更好的性能。
 
 ### `overlay_prefix`
 
@@ -356,18 +356,18 @@ otg_mode=1 请求使用更具能力的 XHCI USB 2 控制器作为 USB-C 连接�
 
 ### 配置属性
 
-树莓派 5 需要一个 config.txt 文件表示分区可引导。
+树莓派 5 需要一个 config.txt 文件代表分区可启动。
 
 #### `boot_ramdisk`
 
-如果此属性设置为 1，则引导程序将尝试加载一个名为 boot.img 的 ramdisk 文件，其中包含引导文件系统。随后的文件（例如 `start4.elf` ）从 ramdisk 中读取，而不是原始引导文件系统。
+如果此属性置为 1，则引导程序将尝试加载一个名为 boot.img 的 ramdisk 文件，其中包含引导文件系统。随后的文件（例如 `start4.elf` ）从 ramdisk 中读取，而不是原始引导文件系统。
 
 boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文件也可用于网络引导或 RPIBOOT 配置。
 
 * RAM 磁盘文件的最大大小为 96MB。
-* boot.img 文件是原始磁盘 .img 文件。建议的格式是一个没有 MBR 的普通 FAT32 分区。
+* boot.img 文件是裸磁盘 .img 文件。推荐的格式是没有 MBR 的普通 FAT32 分区。
 * RAM 磁盘文件系统的内存在操作系统启动之前被释放。
-* 如果选择了 TRYBOOT，则引导加载程序将搜索 tryboot.img 而不是 boot.img。
+* 如果选择了 TRYBOOT，则引导加载程序将搜索 tryboot.img 而非 boot.img。
 * 也请参阅 autoboot.txt。
 
 有关 secure-boot 和创建 boot.img 文件的更多信息，请参阅 USBBOOT。
