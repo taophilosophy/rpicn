@@ -4,23 +4,23 @@
 
 >**技巧**
 >
->树莓派桌面用户可以使用这款软件的图形化版本，位于“**首选项（Preferences）**”>“**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
+>桌面版树莓派用户可以使用图形化版本的 `raspi-config`，位于“**首选项（Preferences）**”>“**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
 
-`raspi-config` 能帮助你配置树莓派。在不同型号的树莓派间，能进行配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
+`raspi-config` 能帮你对树莓派进行配置。对于不同的树莓派型号，可配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
 
 ```
 $ sudo raspi-config
 ```
 
-你应该会在灰色窗口内，看到蓝色背景的界面，并附带了各种选项：
+你应该会在灰色窗口中，看到蓝色背景的界面，上面有各种选项：
 
 ![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
-你用 **上箭头（↑）**、**下箭头（↓）** 就能在可选条目之间自由切换，并对当前所选高亮显示。
+你用 **上箭头（↑）**、**下箭头（↓）** 就能在可选条目间自由切换，并对当前所选高亮显示。
 
-按 **右箭头（→）**、**Tab 键** 可选择按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上一级菜单。
+按 **右箭头（→）**、**Tab 键** 可选择按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上级菜单。
 
-`raspi-config` 会自动编辑 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt)，以及相关 Linux 配置文件。某些选项可能需要重启才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
+`raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别选项可能需要重启才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
 
 >**技巧**
 >
@@ -28,7 +28,7 @@ $ sudo raspi-config
 
 ### System options——系统选项
 
-系统选项（System options）的子菜单：能让你对启动、登录和网络过程的相关部分进行配置修改，以及某些其他系统级的修改。
+系统选项（System options）子菜单：能让你对启动、登录和网络过程的相关部分进行配置修改，以及其他系统级的修改。
 
 ![raspi-config system options（系统选项）](../.gitbook/assets/raspi-system.png)
 
@@ -52,7 +52,7 @@ $ sudo raspi-config
 
 #### Boot/auto login——启动/自动登录
 
-选择是启动到控制台，还是桌面。以及在接通电源时，是否自动登录到当前用户账户。
+选择启动到控制台，还是桌面。以及在接通电源时，是否自动登录到当前用户账户。
 
 #### Network at boot——启动时联网
 
@@ -80,17 +80,17 @@ $ sudo raspi-config
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开端消失在屏幕边缘，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会使镜像充满整个屏幕，且不带黑边。
+如果屏幕上显示的文本开端消失在屏幕边缘，可启用 overscan（过扫描）调整边框。在某些显示器（特别是监控器）上，禁用过扫描会使画面填充到整个屏幕，且去除黑边。
 
-#### Screen blanking——屏幕节能（无操作时关闭屏幕）
+#### Screen blanking——屏幕节能（无操作时关闭信号输出）
 
-启用或禁用：Screen blanking——屏幕节能（无操作时关闭屏幕）。
+启用或禁用：Screen blanking——屏幕节能（无操作时关闭信号输出）。
 
 #### VNC resolution——VNC 分辨率
 
-用于[无头](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi)设置所使用的显示分辨率。
+用于[无头](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi)设置所用的显示分辨率。
 
-#### Composite——复合视频
+#### Composite——复合
 
 启用或禁用复合视频（composite video）。
 
@@ -148,7 +148,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### GPU memory——GPU 显存
 
-修改向 GPU 提供的内存大小。①
+修改向 GPU 提供的内存大小。
 
 #### Overlay file system——堆叠文件系统（OverlayFS）
 
@@ -166,15 +166,15 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Locale——语言环境
 
-可选择语言环境，如 `zh_CN.UTF-8 UTF-8`（中文）或 `en_GB.UTF-8 UTF-8`（英语）。
+可选择语言环境，如 `en_GB.UTF-8 UTF-8`（英语）（译者注：中文为`zh_CN.UTF-8 UTF-8`）。
 
 #### Time zone——时区
 
-设置你的本地时区，从地区（Asia，亚洲）开始，然后选择城市（北京时间为 Shanghai）②，例如"Asia/Shanghai"。键入单个字母可跳转到列表中的该字母。
+设置你的本地时区，从地区（译者注：Asia，亚洲）开始，然后选择城市（译者注：北京时间为 Shanghai），例如"Asia/Shanghai"（译者注：IANA 规范）。键入单个字母可跳转到列表中的该字母。
 
 #### Keyboard——键盘
 
-将打开菜单，你可以在其中选择你的键盘布局（中国使用标准美式键盘布局）。通常修改会立即生效，但可能需要重启。键入单个字母会跳转到列表中的该字母。
+将打开菜单，你可以在其中选择你的键盘布局（译者注：目前中国使用标准美式键盘布局）。通常修改会立即生效，但可能需要重启。键入单个字母会跳转到列表中的该字母。
 
 #### WLAN country——无线局域网区域
 
@@ -202,7 +202,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Boot order——启动顺序
 
-在树莓派 4 及后续新款设备上，设定：在未插入 SD 卡的情况下，是否从 USB、网络进行启动。有关更多信息，请参阅[启动加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续新款设备上，设定如下：在未插入 SD 卡的情况下，是否使用 USB 启动、网络启动。有关更多信息，请参阅[启动加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 #### Bootloader version——引导加载程序版本
 
@@ -218,7 +218,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 #### Audio config——音频配置
 
-在 Bookworm 以前，树莓派系统使用 PulseAudio，现在则可以在音频后端 PulseAudio 和 PipeWire 之间进行切换。
+在 Bookworm 以前，树莓派系统使用的是 PulseAudio。现在则可以在音频后端 PulseAudio 和 PipeWire 之间进行切换。
 
 ### Update——更新
 
@@ -232,7 +232,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 退出 `raspi-config`。如果你进行的修改需要重启，`raspi-config` 会提示你重启。首次进行修改时，最好重启。如果选择了调整 SD 卡大小，重启可能会花比平时更久的时间。
 
-## 非交互式 raspi-config
+## 非交互式 `raspi-config`
 
 工具 `raspi-config` 还支持非交互式选项及参数，无需可视化组件，就可以用命令行修改所有选项。可用选项可能因树莓派型号而异。
 
@@ -242,7 +242,7 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 
 >**注意**
 >
-> 对于不同选项来说，`0` 和 `1` 的含义也不尽相同。在将值赋给参数之前，请始终参照文档。
+> 对于不同选项，`0` 和 `1` 的含义也不尽相同。在将值赋给参数之前，请始终参照文档。
 
 ### System options——系统选项
 
@@ -3472,8 +3472,3 @@ clock_setup {
 
 固件存储库包含一个[主 Raspberry Pi blob](https://github.com/raspberrypi/firmware/blob/master/extra/dt-blob.dts)，通常从中派生其他内容。
 
-
->**译者注**
->
->- ① 树莓派 GPU 显存来自内存。
->- ② 根据 IANA（互联网名称与数字地址分配机构）规范，中国标准时区（北京时间）使用的是 Asia/Shanghai（上海）而非北京。
