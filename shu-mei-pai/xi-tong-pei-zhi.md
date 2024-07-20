@@ -256,9 +256,9 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐�
 
 填入无线网络名称（SSID）和密码（如需要）。以下是可选参数：
 
-参数 `<隐藏的网络>` 代表网络名称可见性。如果网络名称开放广播，请使用 `0` 或者省略该参数。如果你的网络名称是隐藏的，请填 `1`。默认为 `0`。
+参数 `<隐藏的网络>` 代表网络名称可见性。如果网络名称开放广播，请使用 `0` 或省略该参数。如果你的网络名称是隐藏的，请填 `1`。默认为 `0`。
 
-参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!`)，则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以传递 `1` 或者省略该参数。默认为 `1`。但若要使用此参数，你必须同时赋值给 `<隐藏的网络>`。
+参数 `<明文>` 代表你是否打算明文传输密码。如果你的密码包含空格、特殊字符（如 `!`)，则必须使用 `0`，并在密码两头加上英文双引号 `"`。如无以上情形，你可以使用 `1` 或省略该参数。默认为 `1`。但若要使用该参数，你必须同时赋值给 `<隐藏的网络>`。
 
 例如，通过执行以下命令，可以连接至：
 
@@ -286,13 +286,13 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐�
 $ sudo raspi-config nonint do_audio <数字>
 ```
 
-在树莓派 4B 上，你可以使用以下参数：
+在树莓派 4B 上，你可使用以下参数：
 
 * `0`：bcm2835 headphone jack（耳机插孔）
 * `1`：vc4-hdmi-0
 * `2`：vc4-hdmi-1
 
-要查看此参数 `<数字>` 所有可用值的列表，请参阅交互版 `raspi-config` 中所使用的缩写。
+要查看参数 `<数字>` 的所有可用值列表，请参阅交互版 `raspi-config` 中所使用的缩写。
 
 #### Password——密码
 
@@ -306,7 +306,7 @@ $ sudo raspi-config nonint do_change_pass
 
 >**注意**
 >
->此功能会使用全屏界面进行交互，即使在命令行执行参数也是一样的。
+>此功能会使用全屏界面进行交互，即使在命令行执行参数亦如此。
 
 #### Hostname——主机名
 
@@ -351,21 +351,21 @@ $ sudo raspi-config nonint do_boot_splash <0/1>
 * `0`：启用启动画面
 * `1`：禁用启动画面
 
-#### Power LED——电源灯
+#### Power LED—— LED 电源灯
 
-如果你的树莓派型号支持，可以修改电源灯的行为。
+如果你的树莓派型号支持，可以改变 LED 电源灯的行为。
 
 ```
 $ sudo raspi-config nonint do_leds <0/1>
 ```
 
 * `0`：用闪烁代表磁盘活动状态
-* `1`：电源灯常亮
+* `1`：LED 电源灯常亮
 
 
 #### Browser——浏览器
 
-修改默认的网络浏览器。如所选的网络浏览器在当前并未安装，将不生效。
+修改默认的网络浏览器。如所选网络浏览器，在当前并未安装，将不生效。
 
 ```
 $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
@@ -390,21 +390,21 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 * `1`: HDMI-1
 * `2`: HDMI-2
 
-启用：
+使用：
 
 * `0`：启用过扫描
 * `1`：禁用过扫描
 
 #### Screen blanking——屏幕节能
 
-启用或禁用：屏幕节能（无操作时关闭屏幕）。
+启用或禁用：屏幕节能（无操作时关闭屏幕信号）。
 
 ```
 $ sudo raspi-config nonint do_blanking <0/1>
 ```
 
-* `0`：启用屏幕节能（无操作时关闭屏幕）
-* `1`：禁用屏幕节能（无操作时不会关闭屏幕）
+* `0`：启用屏幕节能（无操作时关闭屏幕信号）
+* `1`：禁用屏幕节能（无操作时不会关闭屏幕信号）
 
 #### VNC resolution——VNC 分辨率
 
@@ -414,14 +414,14 @@ $ sudo raspi-config nonint do_blanking <0/1>
 $ sudo raspi-config nonint do_vnc_resolution <宽>x<高>
 ```
 
-#### Composite——复合视频
+#### Composite——复合
 
-启用或禁用复合视频（composite video）。
+启用或禁用复合视频（composite video）输出。
 
 在树莓派 4 上：
 
 ```
-$ sudo raspi-config nonint do_pi4video <V1/V2/V3>
+$ sudo raspi-config nonint do_pi4video <V1或V2或V3>
 ```
 
 * `V1`：启用 HDMI 4K 60p 输出
@@ -431,7 +431,7 @@ $ sudo raspi-config nonint do_pi4video <V1/V2/V3>
 对于其他型号：
 
 ```
-$ sudo raspi-config nonint do_composite <0/1>
+$ sudo raspi-config nonint do_composite <0或1>
 ```
 
 * `0`：启用复合视频
@@ -446,7 +446,7 @@ $ sudo raspi-config nonint do_composite <0/1>
 SSH 能让你在另一台计算机远程访问树莓派的命令行。有关 SSH 的更多信息，请参阅 [SSH 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)。
 
 ```
-$ sudo raspi-config nonint do_ssh <0/1>
+$ sudo raspi-config nonint do_ssh <0或1>
 ```
 
 * `0`：启用 SSH
@@ -457,7 +457,7 @@ $ sudo raspi-config nonint do_ssh <0/1>
 启用或禁用：虚拟网络计算服务（virtual network computing，VNC）。有关 VNC 的更多信息，请参阅 [VNC 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)。
 
 ```
-$ sudo raspi-config nonint do_vnc <0/1>
+$ sudo raspi-config nonint do_vnc <0或1>
 ```
 
 * `0`：启用 VNC
@@ -468,7 +468,7 @@ $ sudo raspi-config nonint do_vnc <0/1>
 启用或禁用：SPI 接口，是否自动加载 SPI 内核模块。
 
 ```
-$ sudo raspi-config nonint do_spi <0/1>
+$ sudo raspi-config nonint do_spi <0或1>
 ```
 
 * `0`：启用 SPI
@@ -479,7 +479,7 @@ $ sudo raspi-config nonint do_spi <0/1>
 启用或禁用：I²C 接口，是否自动加载 I²C 内核模块。
 
 ```
-$ sudo raspi-config nonint do_i2c <0/1>
+$ sudo raspi-config nonint do_i2c <0或1>
 ```
 
 * `0`：启用 I²C
@@ -490,7 +490,7 @@ $ sudo raspi-config nonint do_i2c <0/1>
 启用或禁用：串口硬件。
 
 ```
-$ sudo raspi-config nonint do_serial_hw <0/1/2>
+$ sudo raspi-config nonint do_serial_hw <0或1或2>
 ```
 
 * `0`：启用串口
@@ -501,7 +501,7 @@ $ sudo raspi-config nonint do_serial_hw <0/1/2>
 启用或禁用： shell 及内核信息的串口输出。
 
 ```
-$ sudo raspi-config nonint do_serial_cons <0/1/2>
+$ sudo raspi-config nonint do_serial_cons <0或1或2>
 ```
 
 * `0`：启用串口控制台
@@ -512,7 +512,7 @@ $ sudo raspi-config nonint do_serial_cons <0/1/2>
 启用或禁用：Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
 
 ```
-$ sudo raspi-config nonint do_onewire <0/1>
+$ sudo raspi-config nonint do_onewire <0或1>
 ```
 
 * `0`：启用 1-wire
@@ -523,7 +523,7 @@ $ sudo raspi-config nonint do_onewire <0/1>
 启用或禁用：GPIO 引脚的远程访问。
 
 ```
-$ sudo raspi-config nonint do_rgpio <0/1>
+$ sudo raspi-config nonint do_rgpio <0或1>
 ```
 
 * `0`：启用 GPIO 远程访问
