@@ -365,7 +365,7 @@ otg_mode=1 请求使用更具能力的 XHCI USB 2 控制器作为 USB-C 连接�
 boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文件也可用于网络引导或 RPIBOOT 配置。
 
 * RAM 磁盘文件的最大大小为 96MB。
-* boot.img 文件是裸磁盘 .img 文件。推荐的格式是没有 MBR 的普通 FAT32 分区。
+* boot.img 文件是裸磁盘 .img 文件。推荐的格式是不带 MBR 的普通 FAT32 分区。
 * RAM 磁盘文件系统的内存在操作系统启动之前被释放。
 * 如果选择了 TRYBOOT，则引导加载程序将搜索 tryboot.img 而非 boot.img。
 * 也请参阅 autoboot.txt。
@@ -380,13 +380,13 @@ boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文
 
 位 0 (0x1) 表示 `.elf` 文件为定制固件。这将禁用任何兼容性检查（例如 USB MSD 启动是否受支持），并在启动可执行文件之前重置 PCIe。
 
-树莓派 5 上无关紧要，因为没有 start.elf 文件。
+对于树莓派 5 上无关紧要，因为没有 start.elf 文件。
 
  默认： `0x0`
 
 #### `pciex4_reset`
 
-仅适用于 Raspberry Pi 5。
+仅适用于树莓派 5。
 
 默认情况下，在启动操作系统之前，RP1 使用的 PCIe x4 控制器会被复位。如果此参数设置为 `0|，则复位将被禁用，允许操作系统或裸金属代码继承来自引导加载程序的 PCIe 配置设置。
 
@@ -416,7 +416,7 @@ BOOT_UART 属性还会启用引导加载程序 UART 日志记录，但不会在 
 
 config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
-| 值 | 描述                              |
+| 值 | 说明                              |
 | ---- | ----------------------------------- |
 | `1`  | 配置写保护区域以覆盖整个 EEPROM。|
 | `0`  | 清除写保护区域。        |
