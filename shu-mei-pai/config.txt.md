@@ -3,19 +3,19 @@
 ## 什么是 config.txt ?
  
 
-树莓派设备使用一个配置文件（`config.txt`），来实现常规 PC 上 BIOS 的相关功能。在初始化 Arm CPU 和 Linux 之前，GPU 会先读取 `config.txt`。树莓派系统会在引导分区中查找此文件，该分区位于 `/boot/firmware/`。
+树莓派设备使用了一个配置文件（`config.txt`），来实现常规 PC 上 BIOS 的相关功能。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在启动分区（`/boot/firmware/`）中查找 `config.txt`。
 
 >**注意**
 >
->在树莓派系统 *Bookworm* 之前，树莓派系统把引导分区放在 `/boot/`。
+>在树莓派系统 *Bookworm* 以前，树莓派系统把启动分区放在 `/boot/`。
 
-你可以直接在你树莓派的当前系统中编辑 `config.txt`。你还可以弹出存储设备，在其他计算机上编辑启动分区中的文件（其中就有 `config.txt`）。
+你可以直接在你当前树莓派的系统上编辑 `config.txt`。你还可弹出存储设备，在其他计算机上编辑启动分区中的文件（其中就有 `config.txt`）。
 
 对 `config.txt` 的修改，仅在重启后才会生效。你可以使用以下命令，查看当下使用的设置：
 
 `vcgencmd get_config <配置>` 
 
-可显示特定的配置数值，如 `vcgencmd get_config arm_freq`
+也可显示特定的配置数值，如 `vcgencmd get_config arm_freq`
 
 `vcgencmd get_config int` 
 
@@ -23,16 +23,17 @@
 
 `vcgencmd get_config str`
 
-可列出所有非空字符串配置选项
+可列出所有非空字符串配置参数
 
-| NOTE | 并非所有配置设置都可以用 vcgencmd 进行检索。|
-| ------ | ------------------------------------------------ |
+>**注意**
+>
+>并非所有配置设置都可通过 vcgencmd 进行检索。
 
 ### 文件格式
 
-文件 `config.txt` 由早期启动固件读取，因此使用的文件格式非常简单：每行一个 `property=value` 语句，其中 value 可以是整数或者字符串。可以添加注释，或通过以 `#` 字符开头的行，注释掉和禁用现有配置值。
+文件 `config.txt` 由早期启动固件读取，因此使用的文件格式非常简单：每行一个 `属性=值` 语句，其中值可以是整数或者字符串。可以添加注释，或通过以 `#` 字符开头的行，注释掉和禁用现有配置值。
 
-条目的最大长度为 98 个字符。树莓派操作系统会忽略超出此限制的所有字符。
+条目的最大长度为 98 个字符。树莓派操作系统会忽略任何超出此限制的字符。
 
 这里是一个示例文件：
 
@@ -58,7 +59,11 @@ dtoverlay=vc4-kms-v3d
 
 例如，把 `include extraconfig.txt` 这一行添加到到 `config.txt` 将在 `config.txt` 文件中包含 `extraconfig.txt` 文件的内容。
 
-| NOTE | `bootcode.bin` 或 EEPROM 引导加载程序不支持 include 指令。<br /><br />只有在 `config.txt` 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
+>**注意**
+>
+>`bootcode.bin`、EEPROM 引导加载程序都不支持 include 指令。
+>
+>只有在 `config.txt` 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
 
 * `bootcode_delay`,
 * `gpu_mem`, `gpu_mem_256`, `gpu_mem_512`, `gpu_mem_1024`,
@@ -74,9 +79,9 @@ dtoverlay=vc4-kms-v3d
 ## `autoboot.txt`
 
 
-`autoboot.txt` 是可选的配置文件，可用于指定 `boot_partition` 数量。
+`autoboot.txt` 是可选的配置文件，可用于指定 `boot_partition` 的数量。
 
-也可以与 tryboot 功能一起使用，实现用于 OS 升级的 A/B 引导。
+也可以与 tryboot 功能一起使用，实现用于系统升级的 A/B 启动。
 
 autoboot.txt 限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` 条件过滤器。
 
@@ -86,9 +91,9 @@ autoboot.txt 限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` �
 
 指定引导的分区号，除非分区号已作为 `reboot` 命令的参数指定（例如 `sudo reboot 2` ）。
 
-分区号从 1 开始，MBR 分区为 1 到 4。指定分区 0 意味着从第一个可引导的 FAT 分区 default 引导。
+分区号从 1 开始，MBR 分区为 1 到 4。指定分区 0 意味着默认从第一个可引导的 FAT 分区进行引导。
 
-可引导的分区必须以 FAT12、FAT16 或 FAT32 格式进行格式化，并包含一个 `start.elf` 文件（或者在树莓派 5 上包含一个 `config.txt` 文件），以便引导程序将其视为可引导。
+可启动分区的文件系统必须是 FAT12、FAT16 或 FAT32，并包含一个 `start.elf` 文件（如树莓派 5，则改为需包含一个 `config.txt` 文件），以便引导程序将其视为可引导。
 
 ### `[tryboot]` 过滤器
 
@@ -100,13 +105,13 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当设置此属性为 1 时，会加载普通的 `config.txt` 和 `boot.img` 文件，而不加载 tryboot.txt 和 tryboot.img 文件，当设置 tryboot 参数时。
+当设置此属性为 1 时，会加载普通的 `config.txt` 和 `boot.img` 文件，而不加载 `tryboot.txt` 和 `tryboot.img` 文件，当设置 tryboot 参数时。
 
-这样可以在分区级别而不是文件级别上进行 tryboot 开关，并且无需修改 A/B 分区中的配置文件。
+这样就可以在分区级别，而非在文件级别上进行 tryboot 开关，并且无需修改 A/B 分区中的配置文件。
 
 ### A/B 启动的示例更新流程
 
-以下伪代码显示了一个假设的操作系统 Update service 如何在 `autoboot.txt` 中使用 tryboot 执行安全的操作系统升级。
+以下伪代码显示了一个假设的操作系统更新服务如何在 `autoboot.txt` 中使用 tryboot 执行安全的操作系统升级。
 
  初始 `autoboot.txt` :
 
@@ -120,27 +125,27 @@ boot_partition=3
 
 **安装更新**
 
-* 系统已启动并默认引导到分区 2
-* Update service 下载新版操作系统到分区 3
+* 系统启动并默认启动到分区 2
+* 更新服务下载新版操作系统到分区 3
 * 通过重启到 tryboot 模式 reboot "0 tryboot" 来测试更新，其中 0 表示默认分区
 
 **进行、取消更新**
 
 * 系统从第 3 分区引导，因为 `[tryboot]` 过滤器在 tryboot mode 中评估为 true
 * 如果 tryboot 处于活动状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
-  * 如果当前的引导分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 autoboot.txt 部分的 `[tryboot]` 匹配
-    * Update Service 验证系统以确保更新成功
+  * 如果当前的引导分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 `autoboot.txt` 部分的 `[tryboot]` 匹配
+    * 更新服务验证系统以确保更新成功
     * 如果更新成功
-      * 替换 autoboot.txt 交换 `boot_partition` 配置
+      * 替换 `autoboot.txt` 以交换 `boot_partition` 配置
       * 正常重启 - 分区 3 现在是默认启动分区
     * 否则
-      * Update Service 将更新标记为失败，例如删除更新文件。
+      * 更新服务将更新标记为失败，如删除更新文件。
       * 正常重启 - 分区 2 仍然是默认的启动分区，因为 tryboot 标志会自动清除。
     * 结束如果。
   * 结束 如果
 * 结束 如果
 
- 更新 autoboot.txt ：
+ 更新 `autoboot.txt`：
 
 ```
 [all]
@@ -150,18 +155,18 @@ boot_partition=3
 boot_partition=2
 ```
 
-| NOTE | 更新完 autoboot.txt 后并不必须重启。然而，必须小心 Update Service ，以防止覆盖当前分区，因为已经修改了 autoboot.txt 以提交最后的更新。有关更多信息，请参阅设备树参数。|
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+>**注意**
+>
+>`autoboot.txt` 更新后并不必须重启。然而，必须小心更新服务，防止覆盖当前分区，因为已经修改了 `autoboot.txt` 以提交最后的更新。有关更多信息，请参阅设备树参数。
 
 ## 常见选项
-
  
 
 ### 常见显示选项
 
 #### `hdmi_enable_4kp60` （仅适用于树莓派 4）
 
-默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可能选择 60Hz 的刷新率。Raspberry Pi 4 不支持同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
+默认情况下，连接到 4K 显示器时，树莓派 4B、400 和 CM4 将选择 30Hz 刷新率。使用此选项可能选择 60Hz 的刷新率。树莓派 4 不支持同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
 
 ### 常见硬件配置选项
 
@@ -175,25 +180,25 @@ boot_partition=2
 
 #### `dtoverlay`
 
-dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可以启用内置和外部硬件内核支持的配置文件。例如，`dtoverlay=vc4-kms-v3d` 加载一个启用内核图形驱动程序的叠加层。
+`dtoverlay` 选项请求固件加载一个命名的设备树叠加层 - 一个可以启用内置和外部硬件内核支持的配置文件。例如，`dtoverlay=vc4-kms-v3d` 加载一个启用内核图形驱动程序的叠加层。
 
 作为一个特殊情况，如果没有值调用 - `dtoverlay=` - 该选项标记着叠加参数列表的结束。如果在任何其他 dtoverlay 或 dtparam 设置之前使用，它会阻止加载任何 HAT 叠加层。
 
-有关更多详细信息，请参阅 DTB、叠加和 config.txt。
+有关更多详细信息，请参阅 DTB、叠加和 `config.txt`。
 
 #### `dtparam`
 
-为树莓派的设备树配置文件支持许多参数，例如启用 I²C 和 SPI 接口。许多 DT 叠加层可通过参数配置。这两种类型的参数都可以使用 dtparam 设置。此外，叠加层参数可以附加到 dtoverlay 选项，用逗号分隔，但请注意字符长度限制为 98 个字符。
+为树莓派的设备树配置文件支持许多参数（如启用 I²C 和 SPI 接口）。许多 DT 叠加层都可通过参数配置。这两种类型的参数都可以使用 dtparam 设置。此外，叠加层参数可以附加到 dtoverlay 选项，用逗号分隔，但请注意字符长度限制为 98 个字符。
 
-欲了解更多详情，请查阅 DTB、叠加层和 config.txt。
+欲了解更多详情，请查阅 DTB、叠加层和 `config.txt`。
 
-#### arm_boost （仅适用于树莓派 4）
+#### `arm_boost`（仅适用于树莓派 4）
 
-所有树莓派 400 系列和树莓派 4B 修订版都配备了第二个开关模式电源供应，用于 SoC 电压轨，这使得默认的 turbo 模式时钟可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认启用。设置 `arm_boost=0` 以禁用。
+所有树莓派 400 系列和树莓派 4B 修订版都配备了第二个开关模式电源供应，用于 SoC 电压轨，这使得默认的超频模式时钟可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认启用。设置 `arm_boost=0` 以禁用。
 
-#### `power_force_3v3_pwm` （仅适用于树莓派 5）
+#### `power_force_3v3_pwm`（仅适用于树莓派 5）
 
-使用 3V3 电源时强制 PWM。设置 `power_force_3v3_pwm=0` 以禁用。
+使用 3V3 电源时强制 PWM。设置 `power_force_3v3_pwm=0` 可禁用。
 
 ## 板载模拟音频（3.5 mm 插孔）
 
@@ -204,14 +209,15 @@ dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可�
 
 `audio_pwm_mode=1` 选择来自 3.5 mm AV 插孔的传统低质量模拟音频。
 
-`audio_pwm_mode=2` （默认）使用先进的调制方案选择高质量模拟音频。
+`audio_pwm_mode=2`（默认）使用先进的调制方案选择高质量模拟音频。
 
-| NOTE | 此选项会占用更多的 GPU 计算资源，可能会对某些型号的某些用例产生干扰。|
-| ------ | ------------------------------------------------------------------- |
+>**注意**
+>
+>此选项会占用更多的 GPU 计算资源，可能会对某些型号的某些用例产生干扰。
 
 ### `disable_audio_dither`
 
-默认情况下，如果音频流被路由到模拟音频输出，则会应用 1.0LSB 抖动。在某些情况下，例如当 ALSA 音量设置为低水平时，这可能会产生可听见的背景噪音。将 `disable_audio_dither` 设置为 `1` 以禁用抖动应用。
+在默认情况下，如果音频流被路由到模拟音频输出，则会应用 1.0LSB 抖动。在某些情况下，例如当 ALSA 音量设置为低水平时，有可能产生可见的背景噪音。将 `disable_audio_dither` 设置为 `1` 以禁用抖动应用。
 
 ### `enable_audio_dither`
 
@@ -223,7 +229,7 @@ dtoverlay 选项请求固件加载一个命名的设备树叠加层 - 一个可�
 
 ## HDMI 音频
 
-默认情况下，所有搭载 HDMI 输出的树莓派型号，都启用 HDMI 音频输出。
+在默认情况下，所有搭载 HDMI 输出的树莓派型号，都启用了 HDMI 音频输出。
 
 要禁用 HDMI 音频输出，请在 `/boot/firmware/config.txt` 中的 `dtoverlay=vc4-kms-v3d` 行末尾添加 `,noaudio` ：
 
@@ -235,13 +241,13 @@ dtoverlay=vc4-kms-v3d,noaudio
 
  
 
-### `start_file`, `fixup_file`
+### `start_file`、`fixup_file`
 
 这些选项指定在启动前传输到 VideoCore GPU 的固件文件。
 
-`start_file` 指定要使用的 VideoCore 固件文件。`fixup_file` 指定用于修正 `start_file` 中使用的内存位置，以匹配 GPU 内存分配。
+`start_file` 指定了要使用的 VideoCore 固件文件。`fixup_file` 指定用于修正 `start_file` 中使用的内存位置，以匹配 GPU 内存分配。
 
-`start_file` 和 `fixup_file` 是一对匹配的文件 - 使用不匹配的文件将妨碍开发板启动。这是一个专业选项，因此我们建议你使用 `start_x` 和 `start_debug`，而不是此选项。
+`start_file` 和 `fixup_file` 是一对关联的文件 - 使用不相干的文件将阻碍开发板启动。这是一个专业选项，因此我们建议你使用 `start_x` 和 `start_debug`，而不是此选项。
 
 | NOTE | 精简固件（ `start*cd.elf` 和 `fixup*cd.dat` ）不能通过这种方式选择 - 系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件删除对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp - 尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替这一点，就像任何固件一样。|
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
