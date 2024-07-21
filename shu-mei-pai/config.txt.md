@@ -180,13 +180,13 @@ boot_partition=2
 
 `dtoverlay` 选项请求固件加载特定的设备树覆盖层——这是一个配置文件，可以启用内置和外部硬件的内核支持。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
 
-作为例外，如果调用时未赋值（即 `dtoverlay=`），即表示覆盖至参数列表末尾。如果在其他任何 `dtoverlay` 或 `dtparam` 设置之前使用，它会阻挡所有扩展板叠加层的加载。
+作为例外，如果在调用时未赋值（即 `dtoverlay=`），则表示直接覆盖至参数列表末尾。如果在其他任何 `dtoverlay`、`dtparam` 设置之前使用，它会阻挡所有扩展板叠加层的加载。
 
-有关更多详细信息，请参阅 DTB、叠加层和 `config.txt`。
+更多有关信息，请参阅 [DTB、叠加层和 `config.txt`](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.1)。
 
 #### `dtparam`
 
-为树莓派的设备树配置文件支持许多参数（如启用 I²C 和 SPI 接口）。许多 DT 叠加层都可通过参数配置。这两种类型的参数都可以使用 dtparam 设置。此外，叠加层参数可以附加到 dtoverlay 选项，用逗号分隔，但请注意字符长度限制为 98 个字符。
+树莓派的设备树配置文件支持许多参数（如启用 I²C 和 SPI 接口）。大部分 DT 叠加层都可通过参数配置。这两种类型的参数都可以使用 `dtparam` 进行设置。此外，可以把叠加层参数添加到选项 `dtoverlay`，用逗号分隔，但请注意字符长度限制为 98 个字符。
 
 欲了解更多详情，请查阅 DTB、叠加层和 `config.txt`。
 
