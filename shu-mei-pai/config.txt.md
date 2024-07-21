@@ -1,6 +1,6 @@
 # config.txt
 
-## config.txt 是什么？
+## `config.txt` 是什么？
 
 树莓派设备使用配置文件（`config.txt`），来实现常规 PC BIOS 的相关功能。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在启动分区（`/boot/firmware/`）中查找 `config.txt`。
 
