@@ -676,7 +676,7 @@ $ cat /sys/class/thermal/thermal_zone0/temp
 
 如果电压降至 4.63V 以下（±5％），ARM 核心和 GPU 将降频，并将在内核日志中显示指示低电压状态的消息。
 
-树莓派 5 的 PMIC 搭载了内置 ADC，可测量供电电压。要查看当前的供电电压，请运行以下命令：
+树莓派 5 的电源管理芯片（PMIC）搭载了内置 ADC，可测量供电电压。要查看当前的供电电压，请运行以下命令：
 
 ```
 $ vcgencmd pmic_read_adc EXT5V_V

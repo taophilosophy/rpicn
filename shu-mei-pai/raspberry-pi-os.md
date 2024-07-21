@@ -377,7 +377,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 #### `measure_temp`
 
-`measure_temp` 可返回 SoC 的温度，数据源于其内部温度传感器。在树莓派 4 上，`measure_temp pmic` 返回的温度来自电源管理（PMIC）。
+`measure_temp` 可返回 SoC 的温度，数据源于其内部温度传感器。在树莓派 4 上，`measure_temp pmic` 返回的温度来自电源管理芯片（PMIC）。
 
 #### `measure_clock [时钟]`
 

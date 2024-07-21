@@ -1313,7 +1313,7 @@ ROM（第一阶段）的引导流程如下：
 * 检查`PM_RSTS`寄存器以确定是否请求 HALT
   * 检查`POWER_OFF_ON_HALT`和`WAKE_ON_GPIO`的 EEPROM 配置设置
   * 如果`POWER_OFF_ON_HALT`为`1`且`WAKE_ON_GPIO`为`0`，则
-    * 使用 PMIC 关闭系统电源
+    * 使用电源管理芯片（PMIC）关闭系统电源
   * 否则，如果`WAKE_ON_GPIO`为`1`，则
     * 启用 GPIO3 的下降沿中断以便在 GPIO3 被拉低时唤醒
   * 进入休眠
@@ -1427,7 +1427,7 @@ $ sudo -E rpi-eeprom-config --edit
 
 #### `POWER_OFF_ON_HALT`
 
-如果 1 和 WAKE_ON_GPIO=0，那么 sudo halt 将关闭所有 PMIC 输出。这是 halt 的最低功耗状态，但可能会导致一些 HATs 出现问题，因为 5V 仍将处于开启状态。GLOBAL_EN 必须短接地来启动。
+如果 1 和 WAKE_ON_GPIO=0，那么 sudo halt 将关闭所有电源管理芯片（PMIC）输出。这是 halt 的最低功耗状态，但可能会导致一些 HATs 出现问题，因为 5V 仍将处于开启状态。GLOBAL_EN 必须短接地来启动。
 
 树莓派 400 有一个专用的电源按钮，即使处理器关闭也能工作。这个功能默认启用，但可设置 WAKE_ON_GPIO=2 来使用外部 GPIO 电源按钮，而不是专用电源按钮。
 
@@ -2651,7 +2651,7 @@ $ sudo raspi-config
 
 >**注意**
 >
->重置电源管理集成电路（PMIC）也可以重启。连接 HAT 会重置 PMIC。在连接 HAT 之前，应始终断开设备与电源的连接。
+>重置电源管理芯片（PMIC）也可以重启。连接 HAT 会重置 PMIC。在连接 HAT 之前，应始终断开设备与电源的连接。
 
 ### 硬关机
 
@@ -2745,11 +2745,11 @@ $ vcgencmd get_config usb_max_current_enable
 >
 >这些测量基于标准的树莓派系统镜像（截至 2016 年 2 月 26 日或 2019 年 6 月对于树莓派 4），室温，树莓派 连接到了 HDMI 显示器、USB 键盘和 USB 鼠标。树莓派 3 A 连接到了无线局域网接入点，树莓派 4 连接到了以太网。所有这些功耗测量均为近似值，并未考虑来自额外 USB 设备的功耗；如果连接了多个额外 USB 设备或 HAT，功耗很容易超过这些测量值。
 
-##### [树莓派 4 和计算模块 4 上的额外 PMIC 功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
+##### [树莓派 4 和计算模块 4 上附加的电源管理功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
 
-树莓派 4 和计算模块 4 上的额外 PMIC 功能
+树莓派 4 和计算模块 4 上的额外电源管理功能
 
-树莓派 4 和 CM4 上使用了多种不同的 PMIC 设备。所有这些 PMIC 都提供了额外的功能，除了电压供应之外。本文档描述了如何在软件中访问这些功能。
+树莓派 4 和 CM4 上使用了多种不同的电源管理芯片（PMIC）。所有这些电源管理芯片（PMIC）都提供了额外的功能，除了电压供应之外。本文档描述了如何在软件中访问这些功能。
 
 #### 降低树莓派 5 关机后的功率
 
@@ -2791,15 +2791,15 @@ PDO 转储 - 高级用户的调试
 
 在将控制权转移给操作系统之前，启动期间是否发生任何 USB 超电流
 
-重置事件 PMIC 重置原因，例如看门狗、过压或欠压、过温
+重置事件电源管理芯片（PMIC）重置原因，例如看门狗、过压或欠压、过温
 
-PMIC 具有内置的 ADC，可以测量供电电压 EXT5V_V 等等。使用以下命令查看 ADC 测量值：
+电源管理芯片（PMIC）带有内置 ADC，可以测量供电电压 EXT5V_V 等等。使用以下命令查看 ADC 测量值：
 
 ```
 $ vcgencmd pmic_read_adc
 ```
 
-你无法看到 USB 电流或其他直接连接到 5V 的设备，因为这将绕过 PMIC。你不应该期望这些值加起来等于电源供应的 W 数。但是，监视核心电压等事项可能很有用。
+你无法看到 USB 电流或其他直接连接到 5V 的设备，因为这将绕过电源管理芯片（PMIC）。你不应该期望这些值加起来等于电源供应的 W 数。但是，监视核心电压等事项可能很有用。
 
 ### 反向供电
 
