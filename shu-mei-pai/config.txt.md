@@ -65,10 +65,10 @@ dtoverlay=vc4-kms-v3d
 >只有在 `config.txt` 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
 
 * `bootcode_delay`,
-* `gpu_mem`, `gpu_mem_256`, `gpu_mem_512`, `gpu_mem_1024`,
-* `total_mem`,
-* `sdram_freq`,
-* `start_x`, `start_debug`, `start_file`, `fixup_file`,
+* `gpu_mem`、`gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`、
+* `total_mem`、
+* `sdram_freq`、
+* `start_x`、`start_debug`、`start_file`、`fixup_file`、
 * `uart_2ndstage`. 
 
 #### 条件过滤
@@ -245,11 +245,11 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 `start_file` 指定了要使用的 VideoCore 固件文件。`fixup_file` 指定用于修正 `start_file` 中使用的内存位置，以匹配 GPU 内存分配。
 
-`start_file` 和 `fixup_file` 是一对关联的文件 - 使用不相干的文件将阻碍开发板启动。这是一个专业选项，因此我们建议你使用 `start_x` 和 `start_debug`，而不是此选项。
+`start_file` 和 `fixup_file` 是一对关联的文件：使用不相干的文件将阻碍开发板启动。这是一个专业选项，因此我们建议你使用 `start_x` 和 `start_debug`，而不是此选项。
 
 >**注意**
 >
->精简固件（ `start*cd.elf` 和 `fixup*cd.dat` ）不能通过这种方式选择 - 系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件删除对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp - 尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替这一点，就像任何固件一样。
+>精简固件（`start*cd.elf`、`fixup*cd.dat`）无法通过这种方式进行选择：系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件删除对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp - 尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替这一点，就像任何固件一样。
 
 
 >**注意**
@@ -312,7 +312,7 @@ initramfs 命令同时指定 ramfs 文件名和需要加载到的内存地址。
 
 ### `enable_uart`
 
-`enable_uart=1` （与 `console=serial0` 结合在 cmdline.txt 中）可要求内核创建串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 和 10 引脚）访问。编辑 cmdline.txt，删除 quiet 行，能把内核的启动消息也显示在那里。另请参阅 uart_2ndstage。
+`enable_uart=1` （与 `console=serial0` 结合在 cmdline.txt 中）可要求内核创建串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 引脚和 10 引脚）访问。编辑 cmdline.txt，删除 quiet 行，能把内核的启动消息也显示在那里。另请参阅 uart_2ndstage。
 
 ### `force_eeprom_read`
 
