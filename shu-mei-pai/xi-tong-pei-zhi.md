@@ -3374,8 +3374,8 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 有许多单独的 `pins_*` 部分，基于特定型号的树莓派，即：
 
-* `pins_rev1`：Rev1 引脚设置。由于移动的 I²C 引脚，存在一些差异。
-* `pins_rev2`：Rev2 引脚设置。包括 P5 上的附加编解码器引脚。
+* `pins_rev1`：Rev1 引脚设置。由于移动了 I²C 引脚，因此存在一些差异。
+* `pins_rev2`：Rev2 引脚设置。涉及 P5 上的附加编解码器引脚。
 * `pins_bplus1`：树莓派 1B+ 修订版 1.1，包括完整的 40 针连接器。
 * `pins_bplus2`：树莓派 1B+ 修订版 1.2，交换低功耗和 lan-run 引脚。
 * `pins_aplus`：树莓派 1A+，不带以太网。
