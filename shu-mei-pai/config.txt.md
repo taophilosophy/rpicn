@@ -64,12 +64,12 @@ dtoverlay=vc4-kms-v3d
 >
 >只有在 `config.txt` 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
 
-* `bootcode_delay`,
+* `bootcode_delay`、
 * `gpu_mem`、`gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`、
 * `total_mem`、
 * `sdram_freq`、
 * `start_x`、`start_debug`、`start_file`、`fixup_file`、
-* `uart_2ndstage`. 
+* `uart_2ndstage`。
 
 #### 条件过滤
 
