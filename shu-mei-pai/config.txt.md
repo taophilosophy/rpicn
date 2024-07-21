@@ -57,7 +57,7 @@ dtoverlay=vc4-kms-v3d
 
 把指定文件的内容插入到当前文件中。
 
-例如，把 `include extraconfig.txt` 这一行添加到到 `config.txt` 将在 `config.txt` 文件中包含 `extraconfig.txt` 文件的内容。
+例如，把 `include extraconfig.txt` 这行添加到到 `config.txt`：将在 `config.txt` 文件中引用文件 `extraconfig.txt` 的内容。
 
 >**注意**
 >
