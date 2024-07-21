@@ -16,7 +16,7 @@
 
 ![](./.gitbook/assets/qr.png)
 
-- 微信公众号: 树莓派爱好者基地 （可能已不再更新）
+- 微信公众号: 树莓派爱好者基地 （已不再更新）
 
 ![](./.gitbook/assets/logo1.png)
 
