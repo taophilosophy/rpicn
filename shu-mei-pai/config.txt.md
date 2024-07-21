@@ -2,11 +2,11 @@
 
 ## `config.txt` 是什么？
 
-树莓派设备使用配置文件（`config.txt`），来实现常规 PC BIOS 的相关功能。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在启动分区（`/boot/firmware/`）中查找 `config.txt`。
+树莓派设备使用配置文件（`config.txt`），来实现常规 PC [BIOS](https://en.wikipedia.org/wiki/BIOS) 的相关功能。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
 
 >**注意**
 >
->*Bookworm* 之前的树莓派系统会把启动分区放在 `/boot/`。
+>*Bookworm* 之前的树莓派系统，会把启动分区放在 `/boot/`。
 
 你可以直接在你当前树莓派的系统上编辑 `config.txt`。你还可以弹出存储设备，在其他计算机上，编辑启动分区中的文件（如 `config.txt`）。
 
@@ -26,15 +26,15 @@
 
 >**注意**
 >
->并非所有配置设置均可通过 vcgencmd 进行检索。
+>并非所有配置参数均可通过 vcgencmd 进行检索。
 
 ### 文件格式
 
-文件 `config.txt` 由早期启动固件读取，因此使用的文件格式非常简单：每行一个 `属性=值` 语句，其中值可以是整数或者字符串。可以添加注释，或通过以 `#` 字符开头的行，注释掉和禁用现有配置值。
+文件 `config.txt` 由早期启动固件所读取，因此使用的文件格式非常简单：**每行一个 `属性=值` 语句，其中 `值` 可以是整数、字符串。** 可以通过在行首添加 `#` 字符来插入注释，或注释掉现有的配置值，禁用它们。
 
-条目的最大长度为 98 个字符。树莓派操作系统会忽略任何超出此限制的字符。
+每个条目的最大长度为 98 个字符。树莓派系统会忽略掉任何超出此限制的字符。
 
-这里是一个示例文件：
+此处是示例文件：
 
 ```
 # 开启音频（加载 snd_bcm2835）
@@ -54,49 +54,48 @@ dtoverlay=vc4-kms-v3d
 
 #### `include`
 
-把指定文件的内容插入到当前文件中。
+把指定文件的内容引用到当前文件中。
 
-例如，把 `include extraconfig.txt` 这行添加到到 `config.txt`：将在 `config.txt` 文件中引用文件 `extraconfig.txt` 的内容。
+比如：把 `include extraconfig.txt` 这行添加到 `config.txt`——将在 `config.txt` 文件中引用文件 `extraconfig.txt` 的内容。
 
 >**注意**
 >
 >`bootcode.bin`、EEPROM 引导加载程序均不支持 include 指令。
 >
->只有在 `config.txt` 中指定（而不是任何其他包含文件中），由引导加载程序处理的设置才会生效：
-
-* `bootcode_delay`、
-* `gpu_mem`、`gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`、
-* `total_mem`、
-* `sdram_freq`、
-* `start_x`、`start_debug`、`start_file`、`fixup_file`、
-* `uart_2ndstage`。
+>只有在 `config.txt`（而不是任何其他引用文件）中指定，由引导加载程序处理的设置才会生效：
+>
+>* `bootcode_delay`、
+>* `gpu_mem`、`gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`、
+>* `total_mem`、
+>* `sdram_freq`、
+>* `start_x`、`start_debug`、`start_file`、`fixup_file`、
+>* `uart_2ndstage`。
 
 #### 条件过滤
 
-条件过滤器包含在条件部分中。
+条件过滤器包含在[条件部分](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)中。
 
 ## `autoboot.txt`
 
+`autoboot.txt` 是可选配置文件，可用于指定 `boot_partition` 的数量。
 
-`autoboot.txt` 是可选的配置文件，可用于指定 `boot_partition` 的数量。
+也可以与 `tryboot` 功能一同使用，实现系统升级的 A/B 启动。
 
-也可以与 tryboot 功能一同使用，实现系统升级的 A/B 启动。
+`autoboot.txt` 被限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` [条件](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)过滤器。
 
-autoboot.txt 限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` 条件过滤器。
-
-查看 TRYBOOT 启动流程。
+查看 [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot) 启动流程。
 
 ### `boot_partition`
 
-指定引导的分区号，除非分区号已作为 `reboot` 命令的参数指定（例如 `sudo reboot 2` ）。
+指定启动的分区号，除非分区号已作为参数传给了 `reboot` 命令（如 `sudo reboot 2`）。
 
-分区号从 1 开始，MBR 分区为 1 到 4。指定分区 0 意味着默认从第一个可引导的 FAT 分区进行引导。
+分区号从 `1` 开始，MBR 分区为 `1` 到 `4`。指定分区 `0` 表示从 **默认** 分区启动，默认分区是第一个可引导的 FAT 分区。
 
-可启动分区的文件系统必须是 FAT12、FAT16 或 FAT32，并包含一个 `start.elf` 文件（若为树莓派 5，则改为需包含文件 `config.txt`），以便引导程序将其视为可引导。
+可启动分区的文件系统仅支持 FAT12、FAT16 和 FAT32，并包含一个 `start.elf` 文件（若为树莓派 5，则改需包含文件 `config.txt`），以便引导程序将其视为可引导。
 
 ### `[tryboot]` 过滤器
 
-如果系统启动时设置了参数 `tryboot`，则此过滤器将通过。
+如果系统启动时设置了参数 `tryboot`，则此筛选器会被激活。
 
 ```
 $ sudo reboot "0 tryboot"
@@ -104,9 +103,9 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当设置此属性为 1 时，会加载普通的 `config.txt` 和 `boot.img` 文件，而不加载 `tryboot.txt` 和 `tryboot.img` 文件，当设置 tryboot 参数时。
+当激活 tryboot 参数后，若属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不加载文件 `tryboot.txt` 和 `tryboot.img`，。
 
-这样就可以在分区级别，而非在文件级别上进行 tryboot 开关，并且无需修改 A/B 分区中的配置文件。
+这样就可以在分区级上，而非在文件级上控制 `tryboot` 开关，且无需修改 A/B 分区中的配置文件。
 
 ### A/B 启动的示例更新流程
 
