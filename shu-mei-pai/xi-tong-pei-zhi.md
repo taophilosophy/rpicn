@@ -12,7 +12,7 @@
 $ sudo raspi-config
 ```
 
-你应该会在灰色窗口中，看到蓝色背景的界面，上面有各种选项：
+你将会在灰色窗口中，看到一个蓝色背景的界面，上面有各种选项：
 
 ![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
@@ -797,7 +797,7 @@ $ wlr-randr --output HDMI-A-1 --transform 270
 
 你还可以使用以下某个 `--transform` 参数，在镜像屏幕的同时改变显示方向：`flipped`、`flipped-90`、`flipped-180`、`flipped-270`。
 
-当然，你还可以通过编辑你主目录（home）中的文件，来旋转屏幕方向：`.config/wayfire.ini`。请编辑现有的 `[output:<device>]` 部分。倘若没有，则添加新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这行。如，以下示例配置：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
+当然，你还可以通过编辑你主目录（home）中的文件，来旋转屏幕方向：`.config/wayfire.ini`。请编辑现有的 `[output:<device>]` 部分。倘若没有，则添加新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这行。以下示例配置：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
 
 
 ```
@@ -815,7 +815,7 @@ Wayland 支持以下 `transform` 参数：
 
 将相同的配置内容添加到 `/usr/share/greeter.ini`，来改变登录界面的屏幕方向。
 
-### Console resolution and rotation——控制台分辨率和屏幕旋转方向
+### Console resolution and rotation——控制台分辨率和屏幕方向
 
 要修改树莓派控制台模式下的分辨率和方向，请使用 KMS 设置。有关更多信息，请参阅[配置内核命令行](https://www.raspberrypi.com/documentation/computers/configuration.html#kernel-command-line-cmdline-txt)。
 
@@ -1365,15 +1365,15 @@ $ cat /proc/cmdline
 video=HDMI-A-1:1920x1080M@60
 ```
 
-还可以添加旋转和翻转（屏幕镜像）参数，请参考 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst) 标准。以下示例定义了一台显示器：名为 `HDMI-A-`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
+还可以添加屏幕旋转和翻转（屏幕镜像）参数，请参考 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst) 标准。以下示例定义了一台显示器：名为 `HDMI-A-`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
 
 ```
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 ```
 
-在指定屏幕旋转和翻转参数时，必须明确指定分辨率。
+要指定屏幕旋转方向和翻转参数，必须同时显式定义分辨率。
 
-显示类型的支持选项——`video=` 条目的开头部分，包括：
+显示类型的支持选项——`video=` 条目 `=` 后的部分，支持：
 
 | 视频选项 | 显示                                                                   |
 | :----------: | :------------------------------------------------------------------------: |
@@ -1392,15 +1392,15 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 `plymouth.ignore-serial-consoles` 
 
-  通常如启用 Plymouth 模块，它会屏蔽掉所有串口控制台上出现的启动信息。此参数能让 Plymouth 忽略所有串口控制台，使启动消息再次重现，就像没有运行 Plymouth 一样。
+  如启用 Plymouth 模块，它通常会屏蔽掉一切出现在串口控制台上的启动信息。此参数能让 Plymouth 忽略所有串口控制台，使启动消息再次重现，就像没有运行 Plymouth 一样。
 
 `dwc_otg.lpm_enable=0` 
 
-  关闭链接状态电源管理（Link Power Management，LPM）在驱动程序 `dwc_otg` 中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，默认已禁用此控制器，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由另外的，与此设置无关的 USB 控制器驱动。
+  关闭链接状态电源管理（Link Power Management，LPM）在驱动程序 `dwc_otg` 中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，此控制器默认已禁用，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由其他的，与此设置无关的，USB 控制器驱动。
 
 `dwc_otg.speed` 
 
-  可设置树莓派计算机 USB 控制器的速率（内置于处理器）。将其设置 `dwc_otg.speed=1` 则为全速（USB 1.0），低于高速（USB 2.0）。除非要解决 USB 设备问题，否则不应设置此参数。
+  可设置树莓派计算机 USB 控制器的速率（内置于处理器）。将其设置 `dwc_otg.speed=1` 则为全速（USB 1.0），低于高速（USB 2.0）。除非要排除 USB 设备故障，否则不应设置此参数。
 
 `smsc95xx.turbo_mode` 
 
@@ -1408,7 +1408,7 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 `usbhid.mousepoll` 
 
-  指定鼠标轮询间隔。如果你遇到了无线鼠标移动缓慢、不稳定的问题，将其置 `0`（`usbhid.mousepoll=0`）也许有用。
+  指定鼠标轮询间隔。如果你遇到了无线鼠标移动缓慢、不稳定等问题，将其置 `0`（`usbhid.mousepoll=0`）也许有用。
 
 `drm.edid_firmware=HDMI-A-1:edid/your_edid.bin`
 
@@ -1424,15 +1424,15 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 ### 让 `sudo` 命令要求密码
 
-使用前缀 `sudo` 运行命令，会将其以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 `sudo` 运行的命令均需输入密码，来使你的树莓派更安全。
+使用前缀 `sudo` 运行的命令，将会以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 `sudo` 运行的命令，均需输入密码，来改善你树莓派的安全性。
 
-要强制 `sudo` 需要密码，请编辑你用户账户的 `nopasswd` sudoers 文件，将文件名中的占位符 `<用户名>` 换成你的用户名：
+要强制 `sudo` 需要密码，请编辑你用户账户的 sudoers 文件中的 `nopasswd`，并将文件名中的占位符 `<用户名>` 换成你的用户名：
 
 ```
 $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 ```
 
-将条目 `<用户名>` 修改为如下内容，并把 `<用户名>` 换成你的用户名：
+将 `<用户名>` 这个条目修改为如下内容，并把 `<用户名>` 换成你的用户名：
 
 ```
 <用户名> ALL=(ALL) PASSWD: ALL
@@ -1492,13 +1492,13 @@ $ sudo apt install ufw
 
 `ufw` 是个命令行工具，然而也有图形界面可用。请注意，`ufw` 需以 root 权限运行，因此所有命令都以 `sudo` 开头。还可以使用参数 `--dry-run` 执行所有 `ufw` 命令，这表示仅输出命令的执行结果，而不进行任何实质性修改。
 
-启用防火墙，同时也会让它开机自启：
+启用防火墙，同时也会使其开机自启：
 
 ```
 $ sudo ufw enable
 ```
 
-要禁用防火墙，同时禁用开机自启，请使用：
+要禁用防火墙，同时禁用其开机自启，请使用：
 
 ```
 $ sudo ufw disable
@@ -1558,7 +1558,7 @@ $ sudo ufw deny from 192.168.2.1 port 30
 $ sudo apt install fail2ban
 ```
 
-安装后，Fail2ban 会创建 `/etc/fail2ban/jail.conf`。要启用 Fail2ban，请将 `jail.conf` 复制到 `jail.local`：
+在安装过程中，Fail2ban 会创建 `/etc/fail2ban/jail.conf`。要启用 Fail2ban，请把 `jail.conf` 复制到 `jail.local`：
 
 ```
 $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
@@ -1570,7 +1570,7 @@ $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 $ sudo nano /etc/fail2ban/jail.local
 ```
 
-如果不存在，则创建 `[ssh]` 部分，并向该部分添加以下数行：
+如果没有 `[ssh]` 这个部分，需要手动创建：向里面添加以下几行：
 
 ```
 [ssh]
