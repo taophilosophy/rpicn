@@ -3375,9 +3375,9 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 有许多单独的 `pins_*` 部分，基于特定型号的树莓派，即：
 
 * `pins_rev1`：Rev1 引脚设置。由于移动了 I²C 引脚，因此存在一些差异。
-* `pins_rev2`：Rev2 引脚设置。涉及 P5 上的附加编解码器引脚。
-* `pins_bplus1`：树莓派 1B+ 修订版 1.1，包括完整的 40 针连接器。
-* `pins_bplus2`：树莓派 1B+ 修订版 1.2，交换低功耗和 lan-run 引脚。
+* `pins_rev2`：Rev2 引脚设置。涉及 P5 上附加编解码器的引脚。
+* `pins_bplus1`：树莓派 1B+ 修订版 1.1，包括完整的 40 脚排针。
+* `pins_bplus2`：树莓派 1B+ 修订版 1.2，交换  low-power 和 lan-run 引脚。
 * `pins_aplus`：树莓派 1A+，不带以太网。
 * `pins_2b1`：树莓派 2B 修订版 1.0；通过 I²C0 控制开关电源管理系统。
 * `pins_2b2`：树莓派 2B 修订版 1.1；通过软件 I²C 在 42 和 43 上控制开关电源管理系统。
@@ -3389,10 +3389,10 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 * `pins_pi0w` ：树莓派 Zero W
 * `pins_pi02w` ：树莓派 Zero 2 W
 * `pins_cm` ：树莓派计算模块 1。默认情况下，这是芯片的默认设置，因此它是关于芯片上默认上拉、下拉的有用信息来源。
-* `pins_cm3` ：树莓派计算模块 3
-* `pins_cm3plus` ：树莓派计算模块 3+
-* `pins_cm4s` ：树莓派计算模块 4S
-* `pins_cm4` ：树莓派计算模块 4
+* `pins_cm3`：树莓派计算模块 3
+* `pins_cm3plus`：树莓派计算模块 3+
+* `pins_cm4s`：树莓派计算模块 4S
+* `pins_cm4`：树莓派计算模块 4
 
 每个 `pins_*` 部分都可包含 `pin_config` 和 `pin_defines` 部分。
 
