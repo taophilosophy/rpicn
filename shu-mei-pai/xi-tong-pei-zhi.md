@@ -3023,7 +3023,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 `usb_max_current_enable` 
 
-　　如果 USB 接口的电流限制器在启动时被设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器报告其最大电流为 5A 或在 `config.txt` 中强制使用 `usb_max_current_enable=1`，则自动启用高电平。
+　　如果 USB 接口的电流限制器在启动时被设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器报告其最大电流为 5A，或在 `config.txt` 中强制使用 `usb_max_current_enable=1`，则自动启用高电平。
 
 `usb_over_current_detected` 
 
@@ -3033,7 +3033,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 　　（**包含多个 32 位整数的二进制数据区块**）引导加载程序在 USB-PD 协商期间接收到的原始二进制 USB-PD 对象（仅限固定供电）。要为错误报告捕获此内容，请运行 `hexdump -C /proc/device-tree/chosen/power/usbpd_power_data_objects`。
 
-格式由 [USB PD](https://usb.org/document-library/usb-power-delivery)规范定义。
+格式由 [USB PD](https://usb.org/document-library/usb-power-delivery) 规范定义。
 
 #### BCM2711 和 BCM2712 特定的引导加载程序属性 `/chosen/bootloader`
 
@@ -3064,14 +3064,14 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 `signed` 
 
-　　如启用安全启动，此位字段将为非 0。每个位指示当前的安全启动配置。
+　　如启用安全启动，此位字段为非 0。每个位指示当前的安全启动配置。
 
 | 位    | 说明                                            |
 | :-------: | ------------------------------------------------- |
-| 0     | `SIGNED_BOOT` 已在 EEPROM 配置文件中定义。  |
+| 0     |  已在 EEPROM 配置文件中定义 `SIGNED_BOOT`。  |
 | 1     | 保留                                            |
-| 2     | ROM 开发密钥已被吊销。请参阅 [revoke_devkey](https://www.raspberrypi.com/documentation/computers/config_txt.html#revoke_devkey)。 |
-| 3     | 客户公钥摘要已写入 OTP。请参阅 [program_pubkey](https://www.raspberrypi.com/documentation/computers/config_txt.html#program_pubkey)。|
+| 2     | ROM 开发密钥已吊销。请参阅 [revoke_devkey](https://www.raspberrypi.com/documentation/computers/config_txt.html#revoke_devkey)。 |
+| 3     |  OTP 中已写入客户公钥摘要。请参阅 [program_pubkey](https://www.raspberrypi.com/documentation/computers/config_txt.html#program_pubkey)。|
 | 4…31 | 保留                                            |
 
 `version` 
@@ -3092,7 +3092,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 `root-hub-port-number` 
 
-　　引导设备连接到的根集线器端口号 - 可能通过其他 USB 集线器连接。
+　　引导设备连接到的根集线器端口号：可能通过其他 USB 集线器连接。
 
 `lun` 
 
@@ -3166,7 +3166,7 @@ MODULE_DEVICE_TABLE(of, xxx_of_match);
 
 #### 使用 dtmerge、dtdiff 和 ovmerge 测试叠加层。
 
-除了命令 `dtoverlay` 和 `dtparam` 之外，还有一个用于将叠加层应用到 DTB 的工具 - `dtmerge`。要使用它，你首先需要获取基本的 DTB，可以通过以下两种方式获取：
+除了命令 `dtoverlay` 和 `dtparam`，还有一款能把叠加层应用到 DTB 的工具：`dtmerge`。要使用它，你首先需要获取基本的 DTB，可以通过以下两种方式获取：
 
 从 `/proc/device-tree` 中的实时 DT 状态生成它：
 
@@ -3314,7 +3314,7 @@ dtparam=i2c,i2s
 
 `overlay_prefix` 
 
-　　指定要从中加载叠加层的子目录/前缀 - 默认为 "overlays/"。请注意末尾的“/”。如果需要，你可以在最后一个“/”后添加内容以向每个文件添加前缀，尽管这可能不是必要的。
+　　指定要从中加载叠加层的子目录/前缀。默认为 "overlays/"。请注意末尾的“/”。如果需要，你可以在最后一个“/”后添加内容以向每个文件添加前缀，尽管这可能不是必要的。
 
 可以用 DT 对端口进行进一步的控制。有关更多详细信息，请参阅[第 3 节](https://www.raspberrypi.com/documentation/computers/configuration.html#part3)。
 
@@ -3378,7 +3378,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 * `pins_rev2`：Rev2 引脚设置。涉及 P5 上附加编解码器的引脚。
 * `pins_bplus1`：树莓派 1B+ 修订版 1.1，包括完整的 40 脚排针。
 * `pins_bplus2`：树莓派 1B+ 修订版 1.2，交换  low-power 和 lan-run 引脚。
-* `pins_aplus`：树莓派 1A+，不带以太网。
+* `pins_aplus`：树莓派 1A+，未搭载以太网。
 * `pins_2b1`：树莓派 2B 修订版 1.0；通过 I²C0 控制开关电源管理系统。
 * `pins_2b2`：树莓派 2B 修订版 1.1；通过软件 I²C 在 42 和 43 上控制开关电源管理系统。
 * `pins_3b1`：树莓派 3B 修订版 1.0
@@ -3460,7 +3460,7 @@ clock_setup {
 };
 ```
 
-以上内容将把 PLLA 设置为运行在 1.96608GHz 的源 VCO（此 VCO 的限制为 600MHz - 2.4GHz），将 APER 通道修改为 /4，并配置 GPCLK0 从 PLLA 通过 APER 进行源控制。这用于为音频编解码器提供所需的 12288000Hz，以生成范围为 48000 的频率。
+以上内容将把 PLLA 设置为运行在 1.96608GHz 的源 VCO（此 VCO 的限制为 600MHz 到 2.4GHz），将 APER 通道修改为 /4，并配置 GPCLK0 从 PLLA 通过 APER 进行源控制。这用于为音频编解码器提供所需的 12288000Hz，以生成范围为 48000 的频率。
 
 ### 设备树源文件实例
 
