@@ -73,7 +73,7 @@ dtoverlay=vc4-kms-v3d
 
 #### 条件过滤
 
-条件过滤器包含在[条件部分](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)中。
+条件筛选器包含在[条件部分](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)中。
 
 ## `autoboot.txt`
 
@@ -81,7 +81,7 @@ dtoverlay=vc4-kms-v3d
 
 也可以与 `tryboot` 功能一同使用，实现系统升级的 A/B 启动。
 
-`autoboot.txt` 被限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` [条件](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)过滤器。
+`autoboot.txt` 被限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` [条件](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)筛选器。
 
 查看 [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot) 启动流程。
 
@@ -93,9 +93,9 @@ dtoverlay=vc4-kms-v3d
 
 可启动分区的文件系统仅支持 FAT12、FAT16 和 FAT32，并包含一个 `start.elf` 文件（若为树莓派 5，则改需包含文件 `config.txt`），以便引导程序将其视为可引导。
 
-### `[tryboot]` 过滤器
+### `[tryboot]` 筛选器
 
-如果系统启动时设置了参数 `tryboot`，则此筛选器会被激活。
+如果系统启动时设置了标志位 `tryboot`，则此筛选器会被激活。
 
 ```
 $ sudo reboot "0 tryboot"
@@ -103,15 +103,15 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当激活 tryboot 参数后，若属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不加载文件 `tryboot.txt` 和 `tryboot.img`，。
+当激活 `tryboot` 标志位后，若将属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不加载文件 `tryboot.txt` 和 `tryboot.img`，。
 
 这样就可以在分区级上，而非在文件级上控制 `tryboot` 开关，且无需修改 A/B 分区中的配置文件。
 
 ### A/B 启动的示例更新流程
 
-以下伪代码显示了一个假设的操作系统更新服务如何在 `autoboot.txt` 中使用 tryboot 执行安全的操作系统升级。
+以下伪代码为：假设的操作系统更新服务在 `autoboot.txt` 中使用 `tryboot` 执行安全的操作系统升级。
 
- 初始 `autoboot.txt` :
+初始 `autoboot.txt` :
 
 ```
 [all]
@@ -123,25 +123,25 @@ boot_partition=3
 
 **安装更新**
 
-* 系统启动并默认启动到分区 2
-* 更新服务下载新版操作系统到分区 3
-* 通过重启到 tryboot 模式 reboot "0 tryboot" 来测试更新，其中 0 表示默认分区
+* 设备上电，然后从默认分区 2 启动
+* `Update service（更新服务）`下载新版操作系统到分区 3
+* 重启到 `tryboot` 模式：用 `reboot "0 tryboot"` 来测试更新，其中 `0` 表示默认分区
 
 **进行、取消更新**
 
-* 系统从第 3 分区引导，因为 `[tryboot]` 过滤器在 tryboot mode 中评估为 true
-* 如果 tryboot 处于活动状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
-  * 如果当前的引导分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 `autoboot.txt` 部分的 `[tryboot]` 匹配
-    * 更新服务验证系统以确保更新成功
+* 系统将从分区 3 启动，因为在 `tryboot mode` 中的筛选器 `[tryboot]` 结果为 true
+* 如果 `tryboot` 处于激活状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
+  * 如果当前的启动分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 `autoboot.txt` 部分的 `[tryboot]` 匹配（`boot_partition`）
+    * `Update service（更新服务）`验证系统以确保更新成功
     * 如果更新成功
       * 替换 `autoboot.txt` 以交换 `boot_partition` 配置
-      * 正常重启 - 分区 3 现在是默认启动分区
-    * 否则
-      * 更新服务将更新标记为失败，如删除更新文件。
-      * 正常重启 - 分区 2 仍然是默认的启动分区，因为 tryboot 标志会自动清除
-    * 结束判断
-  * 结束判断
-* 结束判断
+      * 正常重启：现在分区 3 是默认启动分区
+    * 如果更新失败
+      * `Update service（更新服务）`将更新标记为失败，如删除更新文件。
+      * 正常重启：默认的启动分区仍然是分区 2，因为标志位 `tryboot` 会被自动清除
+    * 结束
+  * 结束
+* 结束
 
  更新 `autoboot.txt`：
 
@@ -155,7 +155,7 @@ boot_partition=2
 
 >**注意**
 >
->`autoboot.txt` 更新后并不必须重启。然而，必须小心更新服务，谨防覆盖当前分区，因为已经修改了 `autoboot.txt` 以提交最后的更新。有关更多信息，请参阅设备树参数。
+>更新 `autoboot.txt` 后并不必须重启。然而，必须小心 `Update service（更新服务）`，谨防覆盖当前分区：因为已经修改了 `autoboot.txt`，进行了最后的更新。有关更多信息，请参阅[设备树参数](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。
 
 ## 常见选项
  
@@ -164,13 +164,13 @@ boot_partition=2
 
 #### `hdmi_enable_4kp60`（仅适用于树莓派 4）
 
-默认情况下，接入 4K 显示器时，树莓派 4B、400 和 CM4 将使用 30Hz 刷新率。使用此选项可使用 60Hz 的刷新率。树莓派 4 无法同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
+在默认情况下，接入 4K 显示器时，树莓派 4B、400 和 CM4 将使用 30Hz 刷新率。使用此选项可使用 60Hz 的刷新率。树莓派 4 无法同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
 
 ### 常见硬件配置选项
 
 #### `camera_auto_detect`
 
-启用此设置（在树莓派系统中，默认启用），固件将自动加载识别的 CSI 摄像头的叠加层。如 `camera_auto_detect=0` 则表示禁用该设置。
+启用此设置（树莓派系统中默认启用），固件将自动加载识别的 CSI 摄像头的叠加层。如 `camera_auto_detect=0` 则表示禁用该设置。
 
 #### `display_auto_detect`
 
@@ -178,9 +178,9 @@ boot_partition=2
 
 #### `dtoverlay`
 
-`dtoverlay` 选项请求固件加载特定的设备树叠加层 - 一个可以启用内置和外部硬件内核支持的配置文件。例如，`dtoverlay=vc4-kms-v3d` 加载一个启用内核图形驱动程序的叠加层。
+`dtoverlay` 选项请求固件加载特定的设备树覆盖层——这是一个配置文件，可以启用内置和外部硬件的内核支持。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
 
-作为例外，如果没有值调用 - `dtoverlay=` - 该选项标记着叠加参数列表的结束。如果在任何其他 dtoverlay 或 dtparam 设置之前使用，它会阻挡所有扩展板叠加层的加载。
+作为例外，如果调用时未赋值（即 `dtoverlay=`），即表示覆盖至参数列表末尾。如果在其他任何 `dtoverlay` 或 `dtparam` 设置之前使用，它会阻挡所有扩展板叠加层的加载。
 
 有关更多详细信息，请参阅 DTB、叠加层和 `config.txt`。
 
@@ -435,7 +435,7 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 #### `bootloader_update`
 
-可将此选项设置为 `0` 以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对每个树莓派控制此选项（例如，通过 config.txt 中的串行号过滤器）。
+可将此选项设置为 `0` 以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对每个树莓派控制此选项（例如，通过 config.txt 中的串行号筛选器）。
 
  默认： `1`
 
@@ -523,7 +523,7 @@ gpio=18,20=pu
 gpio=17-21=ip
 ```
 
-该 gpio 指令尊重 "\[...\]" 条件过滤器，因此可以根据型号、序列号和 EDID 使用不同的设置。
+该 gpio 指令尊重 "\[...\]" 条件筛选器，因此可以根据型号、序列号和 EDID 使用不同的设置。
 
 通过该机制进行的 GPIO 更改不会直接影响内核。它们不会导致 GPIO 引脚被导出到 sysfs 接口，并且可以被设备树中的 pinctrl 条目以及像 pinctrl 这样的实用工具覆盖。
 
@@ -683,22 +683,22 @@ $ vcgencmd pmic_read_adc EXT5V_V
 
 大多数超频问题会实时出现在启动失败时。如果发生了这种情况，请在下次启动时按住 **shift** 键。将临时禁用所有超频，让你成功启动，然后修改你的设置。
 
-## 条件过滤器
+## 条件筛选器
 
 
 当一个树莓派和一台显示器使用单个 SD 卡（或卡镜像）时，很容易将 config.txt 设置为该特定组合所需的方式，并仅在发生更改时进行修改。
 
-但是，如果在不同的显示器之间交换树莓派，或者 SD 卡（或卡镜像）在多个板之间交换，单一的设置可能不再足够。条件过滤器允许你定义配置文件的某些部分仅在特定情况下使用，从而使单个 config.txt 在不同硬件读取时创建不同的配置。
+但是，如果在不同的显示器之间交换树莓派，或者 SD 卡（或卡镜像）在多个板之间交换，单一的设置可能不再足够。条件筛选器允许你定义配置文件的某些部分仅在特定情况下使用，从而使单个 config.txt 在不同硬件读取时创建不同的配置。
 
-### [all] 过滤器
+### [all] 筛选器
 
-[all] 过滤器是最基本的过滤器。它重置所有先前设置的过滤器，并允许将下面列出的任何设置应用于所有硬件。通常最好在过滤设置组的末尾添加一个 [all] 过滤器，以避免意外组合过滤器（请参见下文）。
+[all] 筛选器是最基本的筛选器。它重置所有先前设置的筛选器，并允许将下面列出的任何设置应用于所有硬件。通常最好在过滤设置组的末尾添加一个 [all] 筛选器，以避免意外组合筛选器（请参见下文）。
 
-### 过滤器
+### 筛选器
 
-根据以下表格应用条件过滤器。
+根据以下表格应用条件筛选器。
 
-| 过滤器 | 适用型号                                                                 |
+| 筛选器 | 适用型号                                                                 |
 | -------- | -------------------------------------------------------------------------- |
 | `[pi1]`       | 1A、1B、1A+、1B+，计算模块 1                           |
 | `[pi2]`       | 2B（基于 BCM2836、BCM2837）                                       |
@@ -724,23 +724,23 @@ initramfs initrd.img-3.18.7-v7+ followkernel
 [all]
 ```
 
-记得在最后使用 [all] 过滤器，这样任何后续设置不仅限于树莓派 2 硬件。
+记得在最后使用 [all] 筛选器，这样任何后续设置不仅限于树莓派 2 硬件。
 
 >**注意**
 >
->某些型号的树莓派（Zero W、Zero 2 W，树莓派 3B+、400，计算模块 4、4S）查看多个过滤器的设置（如上表所列）。这意味着如果你想让一个设置只适用于（例如）4B，而不会将该设置应用于树莓派 400，那么 [pi4] 部分中的设置需要在随后的 [pi400] 部分中通过替代设置来恢复 - 这些部分的顺序很重要。或者，你可以使用 [board-type=0x11] 过滤器，这个过滤器与不同的硬件产品之间有一对一的映射关系。
+>某些型号的树莓派（Zero W、Zero 2 W，树莓派 3B+、400，计算模块 4、4S）查看多个筛选器的设置（如上表所列）。这意味着如果你想让一个设置只适用于（例如）4B，而不会将该设置应用于树莓派 400，那么 [pi4] 部分中的设置需要在随后的 [pi400] 部分中通过替代设置来恢复 - 这些部分的顺序很重要。或者，你可以使用 [board-type=0x11] 筛选器，这个筛选器与不同的硬件产品之间有一对一的映射关系。
 
-### [none] 过滤器
+### [none] 筛选器
 
-该 [none] 过滤器阻止任何随后的设置应用于任何硬件。尽管没有什么是你不能没有 [none] 做的，但它可以是一个有用的方法，可以在不必注释掉每一行的情况下，在 config.txt 中保留未使用设置的组。
+该 [none] 筛选器阻止任何随后的设置应用于任何硬件。尽管没有什么是你不能没有 [none] 做的，但它可以是一个有用的方法，可以在不必注释掉每一行的情况下，在 config.txt 中保留未使用设置的组。
 
-### 该 [tryboot] 过滤器
+### 该 [tryboot] 筛选器
 
-如果设置了 tryboot 重新引导标志，则此过滤器成功。
+如果设置了 tryboot 重新引导标志，则此筛选器成功。
 
 用于 autoboot.txt 中，以在故障安全的 OS 更新模式下选择不同的 boot_partition。
 
-### [EDID=*] 过滤器
+### [EDID=*] 筛选器
 
 在树莓派上使用单个 SD 卡切换多个显示器时，并且空白配置不足以自动为每个显示器选择所需的分辨率时，可以根据显示器的 EDID 名称选择特定设置。
 
@@ -776,7 +776,7 @@ $ edid-decode /sys/class/drm/card1-HDMI-A-1/edid
 
 此显示器的 EDID 名称将是 DEL-DELL_U2422H。
 
-然后，你可以将其用作条件过滤器，指定仅在连接此特定显示器时适用的设置：
+然后，你可以将其用作条件筛选器，指定仅在连接此特定显示器时适用的设置：
 
 ```
 [EDID=DEL-DELL_U2422H]
@@ -786,13 +786,13 @@ cmdline=cmdline_U2422H.txt
 
 这些设置仅适用于启动时。监视器必须在启动时连接，并且树莓派必须能够读取其 EDID 信息以找到正确的名称。在启动后将不同的监视器热插拔到树莓派上将不会选择不同的设置。
 
-在树莓派 4 上，如果两个 HDMI ports同时使用，则 EDID 过滤器将与两者进行匹配，并将应用所有匹配条件过滤器的配置。
+在树莓派 4 上，如果两个 HDMI ports同时使用，则 EDID 筛选器将与两者进行匹配，并将应用所有匹配条件筛选器的配置。
 
 >**注意**
 >
 >在树莓派 5 上未提供此设置。
 
-### 串号过滤器
+### 串号筛选器
 
 有时候设置应仅适用于单个特定的树莓派，即使你将 SD 卡更换为另一个。示例包括许可证密钥和超频设置（虽然许可证密钥已以不同方式支持 SD 卡更换）。你还可以使用此功能选择不同的显示设置，即使上述的 EDID 识别不可能，只要你不在树莓派之间切换监视器。例如，如果你的显示器没有提供可用的 EDID 名称，或者如果你正在使用复合输出（其中无法读取 EDID）。
 
@@ -824,7 +824,7 @@ Serial          : 0000000012345678
 # 此处设置用于所有硬件
 ```
 
-### GPIO 过滤器
+### GPIO 筛选器
 
 你还可以根据 GPIO 的状态进行过滤。例如：
 
@@ -839,11 +839,11 @@ Serial          : 0000000012345678
 # 此处设置用于所有硬件
 ```
 
-### 合并条件过滤器
+### 合并条件筛选器
 
-相同类型的过滤器互相取代，因此 [pi2] 会覆盖 [pi1]，因为两者不可能同时为真。
+相同类型的筛选器互相取代，因此 [pi2] 会覆盖 [pi1]，因为两者不可能同时为真。
 
-不同类型的过滤器可以通过依次列出它们来组合，例如:
+不同类型的筛选器可以通过依次列出它们来组合，例如:
 
 ```
 # 此处设置用于所有硬件
@@ -858,7 +858,7 @@ Serial          : 0000000012345678
 # 此处设置用于所有硬件
 ```
 
-使用 `[all]` 过滤器重置所有先前的过滤器，避免意外地组合不同类型的过滤器。
+使用 `[all]` 筛选器重置所有先前的筛选器，避免意外地组合不同类型的筛选器。
 
 ## 存储器选项
 
