@@ -135,7 +135,7 @@ boot_partition=3
     * `Update service（更新服务）`验证系统以确保更新成功
     * 如果更新成功
       * 替换 `autoboot.txt` 以交换 `boot_partition` 配置
-      * 正常重启：现在分区 3 是默认启动分区
+      * 正常重启：现在默认启动分区是分区 3
     * 如果更新失败
       * `Update service（更新服务）`将更新标记为失败，如删除更新文件。
       * 正常重启：默认的启动分区仍然是分区 2，因为标志位 `tryboot` 会被自动清除
@@ -186,13 +186,13 @@ boot_partition=2
 
 #### `dtparam`
 
-树莓派的设备树配置文件支持许多参数（如启用 I²C 和 SPI 接口）。大部分 DT 叠加层都可通过参数配置。这两种类型的参数都可以使用 `dtparam` 进行设置。此外，可以把叠加层参数添加到选项 `dtoverlay`，用逗号分隔，但请注意字符长度限制为 98 个字符。
+树莓派的设备树配置文件支持许多参数（如启用 I²C 和 SPI 接口）。大部分 DT 叠加层都可通过参数配置。这两种类型的参数都可以使用 `dtparam` 进行设置。此外，可以把叠加层参数添加到选项 `dtoverlay` 中，以逗号分隔，但请注意字符长度被限制为 98 个字符。
 
 欲了解更多详情，请查阅 DTB、叠加层和 `config.txt`。
 
 #### `arm_boost`（仅适用于树莓派 4）
 
-所有树莓派 400 系列和树莓派 4B 的修订版都搭载了第二个开关电源（SMPS），用于 SoC 电源轨，这使得默认的超频模式主频可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认生效。设置 `arm_boost=0` 可禁用。
+所有树莓派 400 系列和树莓派 4B 的修订版都搭载了第二个开关电源（SMPS），用于 SoC 电压轨，这使得默认的超频模式下的主频，可从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统中默认生效。设置 `arm_boost=0` 可禁用。
 
 #### `power_force_3v3_pwm`（仅适用于树莓派 5）
 
@@ -204,7 +204,7 @@ boot_partition=2
 
 ### `audio_pwm_mode`
 
-`audio_pwm_mode=1` 选择来自 3.5 mm AV 口的传统低质量模拟音频。
+`audio_pwm_mode=1` 使用 3.5 mm AV 口的传统低质量模拟音频。
 
 `audio_pwm_mode=2`（默认）使用先进的调制方案选择高质量模拟音频。
 
@@ -214,11 +214,11 @@ boot_partition=2
 
 ### `disable_audio_dither`
 
-在默认情况下，如果音频流被路由到模拟音频进行输出，则会使用 1.0LSB 抖动。在某些情况下（例如把 ALSA 的音量设置为低水平），有可能产生可听到的背景噪音。将 `disable_audio_dither` 设置为 `1` 可禁用抖动功能。
+在默认情况下，如果音频流被路由到模拟音频进行输出，则会使用 1.0LSB 抖动。在某些情况下（例如把 ALSA 的音量设置为低水平），有可能产生可感的背景噪音。将 `disable_audio_dither` 置为 `1` 可禁用抖动功能。
 
 ### `enable_audio_dither`
 
-通常在音频样本大于 16 位时禁用音频抖动（请参阅上述 `disable_audio_dither`）。将此选项置为 `1` 可强制对所有位深度使用抖动。
+通常在音频样本大于 16 位时，会禁用音频抖动（请参阅上述 `disable_audio_dither`）。将此选项置为 `1` 可强制对所有位深度使用抖动。
 
 ### `pwm_sample_bits`
 
@@ -226,7 +226,7 @@ boot_partition=2
 
 ## HDMI 音频
 
-在默认情况下，所有搭载了 HDMI 输出的树莓派型号，都启用了 HDMI 音频输出。
+在默认情况下，所有搭载了 HDMI 输出接口的树莓派型号，均启用了 HDMI 音频输出。
 
 要禁用 HDMI 音频输出，请在 `/boot/firmware/config.txt` 中的 `dtoverlay=vc4-kms-v3d` 这行末尾添加 `,noaudio` ：
 
@@ -238,7 +238,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `start_file`、`fixup_file`
 
-这些选项指定在启动前传输到 VideoCore GPU 的固件文件。
+这些选项指定：在启动前传给 VideoCore GPU 的固件文件。
 
 `start_file` 指定了要使用的 VideoCore 固件文件。`fixup_file` 指定用于修正 `start_file` 中使用的内存位置，以匹配 GPU 内存分配。
 
@@ -246,7 +246,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->精简固件（`start*cd.elf`、`fixup*cd.dat`）无法通过这种方式进行选择：系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件删除了对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp——尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替之，就像其他固件一样。
+>精简固件（`start*cd.elf`、`fixup*cd.dat`）无法通过这种方式进行设置：系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件删除了对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp——尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替之，就像其他固件一样。
 
 
 >**注意**
@@ -273,7 +273,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->64 位内核可以是未压缩的镜像文件和镜像的 gzip 压缩文件（仍可称为 kernel8.img；引导加载程序将从开头的签名 B 识别存档）。64 位内核仅适用于树莓派 3、3+、4、400，树莓派 Zero 2 W，树莓派 2B 修订版 1.2，树莓派计算模块 3、3+、4。树莓派 5 仅支持 64 位内核，因此对树莓派 5 来说，此参数无效。
+>64 位内核可以是未压缩的镜像文件，也可以是镜像的 gzip 压缩文件（仍可称为作 kernel8.img。引导加载程序能从开头的签名 B 识别压缩文件）。64 位内核仅适用于树莓派 3、3+、4、400，树莓派 Zero 2 W，树莓派 2B 修订版 1.2，树莓派计算模块 3、3+、4。树莓派 5 仅支持 64 位内核，因此对树莓派 5 来说，此参数无效。
 
 ### `ramfsfile`
 
@@ -281,7 +281,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->新固件能加载多个 `ramfs` 文件。请注意：用逗号分隔多个文件名，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
+>新固件能加载多个 `ramfs` 文件。请注意：需以逗号分隔多个文件名，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
 
 ### `ramfsaddr`
 
