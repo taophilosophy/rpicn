@@ -3320,7 +3320,7 @@ dtparam=i2c,i2s
 
 #### 更多帮助
 
-如果你在阅读本文档后，仍未找到解决设备树问题的答案，也能得到帮助。通常可在树莓派文档论坛找到答案，特别是[设备树](https://forums.raspberrypi.com/viewforum.php?f=107&_gl=1*ud7pvi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3NDM1MC4zNy4xLjE3MjA5NzU3MzQuMC4wLjA.)论坛。
+如果你在阅读本文档后，仍未找到解决设备树问题的方法，也能得到帮助。通常可在树莓派文档论坛找到答案，特别是[设备树](https://forums.raspberrypi.com/viewforum.php?f=107&_gl=1*ud7pvi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3NDM1MC4zNy4xLjE3MjA5NzU3MzQuMC4wLjA.)论坛。
 
 ## 修改默认引脚配置
 
@@ -3332,7 +3332,7 @@ dtparam=i2c,i2s
 
 在引导序列期间，GPIO 引脚经历了各种操作。
 
-* 上电 - 引脚默认为具有默认拉电阻的输入，这些电阻在[数据表](https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf?_gl=1*ud7pvi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3NDM1MC4zNy4xLjE3MjA5NzU3MzQuMC4wLjA.)中有说明
+* 上电。引脚默认为具有默认拉电阻的输入，这些电阻在[数据表](https://datasheets.raspberrypi.com/bcm2835/bcm2835-peripherals.pdf?_gl=1*ud7pvi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDk3NDM1MC4zNy4xLjE3MjA5NzU3MzQuMC4wLjA.)中有说明
 * 由 bootrom 设置
 * 通过 `bootcode.bin` 设置
 * 通过 `dt-blob.bin` 设置（本页）
@@ -3364,7 +3364,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 ### `dt-blob` 的各个部分
 
-`dt-blob.bin` 用于在启动时配置二进制区块（VideoCore）。Linux 内核目前不使用它。dt-blob 可以配置所有型号的树莓派，包括计算模块，以使用替代设置。dt-blob 中以下部分有效：
+`dt-blob.bin` 用于在启动时配置二进制区块（VideoCore）。Linux 内核目前不使用它。dt-blob 可以配置所有型号的树莓派，包括计算模块，以使用替代设置。dt-blob 中的以下部分有效：
 
 #### `videocore`
 
@@ -3375,7 +3375,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 有许多单独的 `pins_*` 部分，基于特定型号的树莓派，即：
 
 * `pins_rev1`：Rev1 引脚设置。由于移动的 I²C 引脚，存在一些差异。
-* `pins_rev2`：Rev2 引脚设置。这包括 P5 上的附加编解码器引脚。
+* `pins_rev2`：Rev2 引脚设置。包括 P5 上的附加编解码器引脚。
 * `pins_bplus1`：树莓派 1B+ 修订版 1.1，包括完整的 40 针连接器。
 * `pins_bplus2`：树莓派 1B+ 修订版 1.2，交换低功耗和 lan-run 引脚。
 * `pins_aplus`：树莓派 1A+，不带以太网。
@@ -3398,7 +3398,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 #### `pin_config`
 
-`pin_config` 部分用于配置各个引脚。该部分中的每个项目必须是一个命名的引脚部分，例如 `pin@p32`，表示 GPIO32。还有一个特殊部分 `pin@default`，其中包含未在 pin_config 部分中明确命名的任何内容的默认设置。
+`pin_config` 部分用于配置各个引脚。该部分中的每个项目必须是一个被命名的引脚部分，例如 `pin@p32`，表示 GPIO32。还有一个特殊部分 `pin@default`，其中包含未在 pin_config 部分中明确命名的任何内容的默认设置。
 
 #### `pin@pinname`
 
@@ -3433,11 +3433,12 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
   * `emmc`
   * `arm_jtag`
 * `drive_strength_mA`
+
 　　驱动强度用于设置引脚的强度。请注意，你只能为该参数指定单个驱动强度。有效值为 `<8>`、`<16>`。
 
 #### `pin_defines`
 
-此部分用于将特定的 VideoCore 功能设置为特定的引脚。这使用户可以将摄像头电源使能引脚移动到其他位置，或移动 HDMI 热插拔位置：这些是 Linux 无法控制的事情。请参考以下 DTS 示例文件。
+此部分用于将 VideoCore 的特定功能设置为特定的引脚。这使用户可以将摄像头电源使能引脚移动到其他位置，或改变 HDMI 热插拔位置：这些是 Linux 做不到的事情。请参考以下 DTS 示例文件。
 
 ### 时钟配置
 
@@ -3459,9 +3460,9 @@ clock_setup {
 };
 ```
 
-以上内容将把 PLLA 设置为运行在 1.96608GHz 的源 VCO（此 VCO 的限制为 600MHz - 2.4GHz），将 APER 通道修改为/4，并配置 GPCLK0 从 PLLA 通过 APER 进行源控制。这用于为音频编解码器提供所需的 12288000Hz，以产生 48000 范围的频率。
+以上内容将把 PLLA 设置为运行在 1.96608GHz 的源 VCO（此 VCO 的限制为 600MHz - 2.4GHz），将 APER 通道修改为 /4，并配置 GPCLK0 从 PLLA 通过 APER 进行源控制。这用于为音频编解码器提供所需的 12288000Hz，以生成范围为 48000 的频率。
 
 ### 设备树源文件实例
 
-固件存储库包含了[树莓派主分支固件](https://github.com/raspberrypi/firmware/blob/master/extra/dt-blob.dts)，通常从中派生出其他内容。
+固件存储库包含了[树莓派主分支的固件](https://github.com/raspberrypi/firmware/blob/master/extra/dt-blob.dts)，通常从中派生出其他内容。
 
