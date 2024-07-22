@@ -285,19 +285,19 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `ramfsaddr`
 
-`ramfsaddr` 指定了 `ramfsfile` 应加载到的内存地址。
+`ramfsaddr` 指定 `ramfsfile` 将加载的内存地址。
 
 ### `initramfs`
 
-命令 `initramfs` 同时指定了 `ramfs` 文件名 **及** 需要加载到的内存地址。它在一个参数中执行了 `ramfsfile` 和 `ramfsaddr` 的操作。地址也可以是 `followkernel` （或 `0` ），将其放在内核镜像后的内存中。示例值为： `initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。与 `ramfsfile` 一样，更新的固件能用逗号分隔它们的名称加载多个文件。
+命令 `initramfs` 同时指定了 `ramfs` 文件名 **及** 将加载的内存地址。它在一个参数中执行了 `ramfsfile` 和 `ramfsaddr` 的操作。地址也可以是 `followkernel` （或 `0` ），将其放在内核镜像后的内存中。示例值为： `initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。与 `ramfsfile` 一样，更新的固件能用逗号分隔它们的名称加载多个文件。
 
 >**注意**
 >
->此选项使用与所有其他选项不同的语法，你不应在此处使用 `=` 字符。
+>此选项使用与其他选项语法不一样，你不能在这个地方使用 `=` 字符。
 
 ### `auto_initramfs`
 
-如果设置 `auto_initramfs` 为 `1`，请按照内核选择的相同规则查找 `initramfs` 文件。
+如果把 `auto_initramfs` 置为 `1`，请按照内核选择的对应规则查找 `initramfs` 文件。
 
 ### `disable_poe_fan`
 
@@ -305,19 +305,19 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `disable_splash`
 
-如果将 disable_splash 置为 1，启动时不会出现彩虹闪屏。默认值为 `0`。
+如果将 `disable_splash` 置为 1，启动时将不会出现彩虹闪屏。默认值为 `0`。
 
 ### `enable_uart`
 
-`enable_uart=1` （与 `console=serial0` 结合在 cmdline.txt 中）可要求内核创建串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 引脚和 10 引脚）访问。编辑 cmdline.txt，删除 quiet 行，能把内核的启动消息也显示在那里。另请参阅 uart_2ndstage。
+`enable_uart=1` （与 `console=serial0` 在 `cmdline.txt` 中联合使用）能让内核创建串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 引脚和 10 引脚）访问。编辑 `cmdline.txt`，删除 `quiet` 字段，就能把内核的启动消息也输出到串口。另请参阅 `uart_2ndstage`。
 
 ### `force_eeprom_read`
 
-将此选项置为 `0` 可防止固件上电时尝试读取连接到 `ID_SD` 和 `ID_SC` 引脚的 I²C HAT EEPROM。另请参阅 disable_poe_fan。
+将此选项置为 `0` 可禁止：固件在上电时读取 I²C 扩展板的 EEPROM（接入 `ID_SD` 和 `ID_SC` 引脚）。另请参阅 [`disable_poe_fan`](https://www.raspberrypi.com/documentation/computers/config_txt.html#disable_poe_fan)。
 
 ### `os_prefix`
 
-os_prefix 是可选配置，能让你在同一卡上安装的内核和设备树文件的多个版本之间进行切换。os_prefix 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、initramfs、cmdline.txt、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须包含以 `/` 字符结尾。
+`os_prefix` 是可选配置，能让你在同一张卡上，安装的多个版本的内核和设备树文件间进行切换。`os_prefix` 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须包含以 ``/`` 字符结尾。
 
 为了提高系统启动的可能性，固件首先会测试所提供的前缀值是否可行 - 除非新位置/名称能够找到预期的内核和 .dtb 文件，否则前缀将被忽略（设为“”）。此可行性测试的一个特例应用于叠加层，只有从 `${os_prefix}${overlay_prefix}` （其中 overlay_prefix 的默认值为“overlays/”）才会加载叠加层，否则它会忽略 os_prefix 并将叠加层视为共享项。
 
