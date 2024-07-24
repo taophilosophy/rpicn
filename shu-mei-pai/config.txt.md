@@ -281,7 +281,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->新固件能加载多个 `ramfs` 文件。请注意：需以逗号分隔多个文件名，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
+>新固件可加载多个 `ramfs` 文件。请注意：需以逗号分隔多个文件名，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
 
 ### `ramfsaddr`
 
@@ -293,7 +293,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->此选项使用与其他选项语法不一样，你不能在这个地方使用 `=` 字符。
+>该选项使用的语法与其他选项有所不同，你不能在此处使用字符 `=`。
 
 ### `auto_initramfs`
 
@@ -359,7 +359,7 @@ otg_mode=1 请求使用更具能力的 XHCI USB 2 控制器作为 USB-C 连接�
 
 boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文件也可用于网络引导或 RPIBOOT 配置。
 
-* RAM 磁盘文件的最大大小为 96MB。
+* RAM 磁盘文件的最大值为 96MB。
 * boot.img 文件是裸磁盘 .img 文件。推荐的格式是不带 MBR 的普通 FAT32 分区。
 * RAM 磁盘文件系统的内存在操作系统启动之前被释放。
 * 如果选择了 TRYBOOT，则引导加载程序将搜索 tryboot.img 而非 boot.img。
