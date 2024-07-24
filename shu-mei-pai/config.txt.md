@@ -200,7 +200,7 @@ boot_partition=2
 
 ## 板载模拟音频（3.5 mm 插孔）
  
-板载音频输出使用配置选项来改变模拟音频驱动的方式，以及是否启用某些固件功能。
+板载音频输出使用配置选项来改变模拟音频驱动的方式，以及某些固件功能启用与否。
 
 ### `audio_pwm_mode`
 
@@ -238,20 +238,20 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `start_file`、`fixup_file`
 
-这些选项指定：在启动前传给 VideoCore GPU 的固件文件。
+这些选项指可定：在启动前传给 VideoCore GPU 的固件文件。
 
-`start_file` 指定了要使用的 VideoCore 固件文件。`fixup_file` 指定用于修正 `start_file` 中使用的内存位置，以匹配 GPU 内存分配。
+`start_file` 指定要使用的 VideoCore 固件文件。`fixup_file` 指定用于修正 `start_file` 中使用的内存位置，以匹配 GPU 内存分配。
 
-`start_file` 和 `fixup_file` 是一对关联的文件：使用不相干的文件将阻碍开发板启动。这是一个专业选项，因此我们建议你使用 `start_x` 和 `start_debug`，而不是此选项。
-
->**注意**
->
->精简固件（`start*cd.elf`、`fixup*cd.dat`）无法通过这种方式进行设置：系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件删除了对编解码器、3D 和调试日志的支持，以及将初始早期引导帧缓冲区限制为 1080p @16bpp——尽管 KMS 可以在后续阶段用高达 32bpp 4K 帧缓冲区代替之，就像其他固件一样。
-
+`start_file` 和 `fixup_file` 是一对关联的文件：使用不相干的文件将阻碍开发板启动。这是专业选项，因此我们不建议你使用它，应该用 `start_x` 和 `start_debug`。
 
 >**注意**
 >
->树莓派 5 固件内置在引导加载程序 EEPROM 中。
+>该配置参数（`start*cd.elf`、`fixup*cd.dat`）对精简固件无效：会导致系统无法启动。唯一能启用精简固件的方法是指定 `gpu_mem=16`。精简固件删除了对编解码器、3D 和调试日志的支持，以及把初始早期引导帧缓冲区限制到 1080p @16bpp——正如同其他固件那样，KMS 在后续阶段可使用高达 32bpp 4K 帧缓冲区代替之。
+
+
+>**注意**
+>
+>树莓派 5 固件内置于引导加载程序 EEPROM。
 
 ### `cmdline`
 
@@ -259,7 +259,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `kernel`
 
-`kernel` 是用于加载内核的启动分区上的可选文件名。树莓派 1，树莓派 Zero、Zero W 和计算模块 1 的默认值为 `kernel.img`。树莓派 2、3、3+，树莓派 Zero 2 W，计算模块 3、3+ 的默认值为 `kernel7.img`。树莓派 4、400 和计算模块 4 的默认值为 `kernel8.img`；如设置 `arm_64bit` 为 0，则默认值为 `kernel7l.img`。
+`kernel` 是用于加载内核的启动分区上的可选文件名。树莓派 1，树莓派 Zero、Zero W 和计算模块 1 的默认值为 `kernel.img`。树莓派 2、3、3+，树莓派 Zero 2 W，计算模块 3、3+ 的默认值为 `kernel7.img`。树莓派 4、400 和计算模块 4 的默认值为 `kernel8.img`；如将 `arm_64bit` 设置为 0，则默认值为 `kernel7l.img`。
 
 树莓派 5 固件默认加载 `kernel_2712.img`，因为此镜像为树莓派 5 进行了优化（例如 16K 页面大小）。如果此文件不存在，则会加载 64 位通用内核（ `kernel8.img`）。
 
