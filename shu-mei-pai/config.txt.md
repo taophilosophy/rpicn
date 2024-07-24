@@ -103,15 +103,15 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当激活 `tryboot` 标志位后，若将属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不加载文件 `tryboot.txt` 和 `tryboot.img`，。
+当激活标志位 `tryboot` 后，若将属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不加载文件 `tryboot.txt` 和 `tryboot.img`，。
 
-这样就可以在分区级上，而非在文件级上控制 `tryboot` 开关，且无需修改 A/B 分区中的配置文件。
+这样就可以在分区级（而非在文件级）上控制 `tryboot` 开关，且无需修改 A/B 分区中的配置文件。
 
-### A/B 启动的示例更新流程
+### A/B 启动更新流程示例
 
-以下伪代码为：假设的操作系统更新服务在 `autoboot.txt` 中使用 `tryboot` 执行安全的操作系统升级。
+以下伪代码：假设操作系统更新服务在 `autoboot.txt` 中使用 `tryboot` 执行安全的操作系统更新。
 
-初始 `autoboot.txt` :
+简单的 `autoboot.txt` :
 
 ```
 [all]
@@ -125,23 +125,23 @@ boot_partition=3
 
 * 设备上电，然后从默认分区 2 启动
 * `Update service（更新服务）`下载新版操作系统到分区 3
-* 重启到 `tryboot` 模式：用 `reboot "0 tryboot"` 来测试更新，其中 `0` 表示默认分区
+* 重启到 `tryboot` 模式：用 `reboot "0 tryboot"` 来测试更新，其中 `0` 代表默认分区
 
 **进行、取消更新**
 
-* 系统将从分区 3 启动，因为在 `tryboot mode` 中的筛选器 `[tryboot]` 结果为 true
+* 系统将从分区 3 启动，因为在 `tryboot mode` 中，筛选器 `[tryboot]` 的结果为 true
 * 如果 `tryboot` 处于激活状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
-  * 如果当前的启动分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 `autoboot.txt` 部分的 `[tryboot]` 匹配（`boot_partition`）
+  * 如果当前的启动分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 `autoboot.txt` 部分的 `[tryboot]`（`boot_partition`）相匹配
     * `Update service（更新服务）`验证系统以确保更新成功
     * 如果更新成功
       * 替换 `autoboot.txt` 以交换 `boot_partition` 配置
       * 正常重启：现在默认启动分区是分区 3
     * 如果更新失败
-      * `Update service（更新服务）`将更新标记为失败，如删除更新文件。
-      * 正常重启：默认的启动分区仍然是分区 2，因为标志位 `tryboot` 会被自动清除
-    * 结束
-  * 结束
-* 结束
+      * `Update service（更新服务）`将更新标记为失败（如删除更新文件）。
+      * 正常重启：默认的启动分区仍是分区 2，因为标志位 `tryboot` 会被自动清除
+    * 结束更新
+  * 结束更新
+* 结束更新
 
  更新 `autoboot.txt`：
 
@@ -155,7 +155,7 @@ boot_partition=2
 
 >**注意**
 >
->更新 `autoboot.txt` 后并不必须重启。然而，必须小心 `Update service（更新服务）`，谨防覆盖当前分区：因为已经修改了 `autoboot.txt`，进行了最后的更新。有关更多信息，请参阅[设备树参数](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。
+>更新 `autoboot.txt` 后并不必须重启。然而，必须小心 `Update service（更新服务）`，谨防覆盖当前分区：因为已经修改了 `autoboot.txt`，执行了最后的更新。有关更多信息，请参阅[设备树参数](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。
 
 ## 常见选项
  
@@ -164,7 +164,7 @@ boot_partition=2
 
 #### `hdmi_enable_4kp60`（仅适用于树莓派 4）
 
-在默认情况下，当接入 4K 显示器时，树莓派 4B、400 和 CM4 将使用 30Hz 刷新率。使用此选项可使用 60Hz 刷新率。树莓派 4 无法在两个 micro HDMI 接口上同时输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
+在默认情况下，当接入 4K 显示器时，树莓派 4B、400 和 CM4 将输出 30Hz 刷新率。使用此选项可输出 60Hz 刷新率。树莓派 4 无法同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
 
 ### 常见硬件配置选项
 
@@ -174,25 +174,25 @@ boot_partition=2
 
 #### `display_auto_detect`
 
-启用此设置（在树莓派系统中默认启用），固件将自动加载所识别的 DSI 显示屏的叠加层。设置 `display_auto_detect=0` 可禁用。
+启用此设置（树莓派系统默认已启用），固件将自动加载所识别的 DSI 显示屏的叠加层。设置 `display_auto_detect=0` 可禁用。
 
 #### `dtoverlay`
 
-`dtoverlay` 选项要求固件加载指定的设备树覆盖层——这是个配置文件，可启用内、外围硬件的内核支持。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
+`dtoverlay` 选项让固件加载指定的设备树覆盖层——这是个配置文件，可启用内、外围硬件的内核支持。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
 
-作为例外，如果在调用时未赋值（即 `dtoverlay=`），则表示直接覆盖至参数列表的末尾。如果在其他所有 `dtoverlay`、`dtparam` 设置之前插入，它会阻挡所有扩展板叠加层的加载。
+作为例外，如果在调用时未赋值（即 `dtoverlay=`），则表示直接覆盖至参数列表的末尾。如果定义在一切 `dtoverlay`、`dtparam` 参数之前，那么所有的扩展板叠加层均不会加载。
 
 更多有关信息，请参阅 [DTB、叠加层和 `config.txt`](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.1)。
 
 #### `dtparam`
 
-树莓派的设备树配置文件可支持很多参数（如启用 I²C 和 SPI 接口）。大部分 DT 叠加层都能用参数进行配置。这两种类型的参数都可以用 `dtparam` 进行设置。此外，可以把叠加层参数添加到选项 `dtoverlay` 里，以逗号分隔，但请注意字符长度被限制为 98 个字符。
+树莓派的设备树配置文件支持多种参数，如启用 I²C、SPI 接口。大部分 DT 叠加层也都能用参数进行配置。这两类的参数都可以用 `dtparam` 进行配置。此外，还可以把叠加层参数添加到选项 `dtoverlay` 里：以逗号分隔，但请注意，字符长度限制为 98 个字符。
 
 欲了解更多详情，请查阅 DTB、叠加层和 `config.txt`。
 
 #### `arm_boost`（仅适用于树莓派 4）
 
-所有树莓派 400 系列和树莓派 4B 的修订版都搭载了额外的开关电源（SMPS）（用于 SoC 电压轨），这使默认超频模式下的主频，能从 1.5GHz 增加到 1.8GHz。此更改在树莓派系统下默认已生效。设置 `arm_boost=0` 可禁用。
+所有树莓派 400 系列和修订版树莓派 4B 均搭载了额外的开关电源（SMPS）（用于 SoC 电压轨），这使默认超频状态下的主频，从 1.5GHz 提升到 1.8GHz。此更改在树莓派系统下默认已生效。设置 `arm_boost=0` 可禁用。
 
 #### `power_force_3v3_pwm`（仅适用于树莓派 5）
 
@@ -200,7 +200,7 @@ boot_partition=2
 
 ## 板载模拟音频（3.5 mm 插孔）
  
-板载音频输出使用配置选项来改变模拟音频驱动的方式，以及某些固件功能启用与否。
+使用配置选项可以修改板载音频输出的模拟音频驱动方式，以及是否启用某些固件功能。
 
 ### `audio_pwm_mode`
 
