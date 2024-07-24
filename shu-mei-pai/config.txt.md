@@ -2,35 +2,35 @@
 
 ## `config.txt` 是什么？
 
-树莓派设备使用配置文件（`config.txt`），来实现常规 PC [BIOS](https://en.wikipedia.org/wiki/BIOS) 的相关功能。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
+树莓派设备采用配置文件 `config.txt`，来代替常规 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS) 。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
 
 >**注意**
 >
 >*Bookworm* 之前的树莓派系统，会把启动分区放在 `/boot/`。
 
-你可以直接在你当前树莓派的系统上编辑 `config.txt`。你还可以弹出存储设备，在其他计算机上，编辑启动分区中的文件（如 `config.txt`）。
+你可以直接在你当前树莓派的系统上编辑 `config.txt`。你也可以弹出存储设备，在其他计算机上，编辑启动分区中的文件（如 `config.txt`）。
 
-任何对 `config.txt` 的修改，仅在重启后才会生效。你可以使用以下命令，查看当下使用的设置：
+任何对 `config.txt` 的修改，仅在重启后才生效。你可以使用以下命令，查看当下使用的设置：
 
-`vcgencmd get_config <配置>` 
+`vcgencmd get_config <选项>` 
 
-也可显示特定的配置数值，如 `vcgencmd get_config arm_freq`
+　　可显示指定选项的值，如 `vcgencmd get_config arm_freq`
 
 `vcgencmd get_config int` 
 
-列出所有非零整数配置选项（非 0）
+　　列出所有非零整数选项（非 0）
 
 `vcgencmd get_config str`
 
-可列出所有非空字符串配置参数
+　　列出所有非空字符串选项
 
 >**注意**
 >
->并非所有配置参数均可通过 vcgencmd 进行检索。
+>并非所有选项均可通过 vcgencmd 进行检索。
 
 ### 文件格式
 
-文件 `config.txt` 由早期启动固件所读取，因此采用的文件格式非常简单：**每行一个语句 `属性=值`，其中 `值` 可以是整数、字符串。** 可以通过在行首添加字符 `#` 来插入注释，注释掉以禁用现有的配置值。
+文件 `config.txt` 由早期启动固件读取，因此采用的文件格式非常简单：**每行一个语句 `属性=值`，其中 `值` 可以是整数、字符串。** 可以通过在行首添加字符 `#` 来插入注释，注释掉以禁用现有的配置值。
 
 每个条目的最大长度为 98 个字符。树莓派系统会忽略掉任何超出此限制的字符。
 
@@ -54,7 +54,7 @@ dtoverlay=vc4-kms-v3d
 
 #### `include`
 
-把指定文件的内容引用到当前文件中。
+引用指定文件的内容到当前文件。
 
 比如：把 `include extraconfig.txt` 这行添加到 `config.txt`——将在 `config.txt` 文件中引用文件 `extraconfig.txt` 的内容。
 
@@ -62,7 +62,7 @@ dtoverlay=vc4-kms-v3d
 >
 >`bootcode.bin`、EEPROM 引导加载程序均不支持 include 指令。
 >
->只有在 `config.txt`（而不是任何其他引用文件）中指定，由引导加载程序处理的设置才会生效：
+>由引导加载程序控制的设置，只有在 `config.txt`（而非其他附带文件）中指定时才会生效：
 >
 >* `bootcode_delay`、
 >* `gpu_mem`、`gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`、
@@ -73,29 +73,29 @@ dtoverlay=vc4-kms-v3d
 
 #### 条件筛选
 
-条件筛选器包含在[条件部分](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)中。
+条件筛选器位于[条件部分](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)。
 
 ## `autoboot.txt`
 
-`autoboot.txt` 是可选配置文件，可用于指定 `boot_partition` 的数量。
+`autoboot.txt` 是可选配置文件，可用于指定 `boot_partition` 的编号。
 
-也可以与 `tryboot` 功能一同使用，实现系统升级的 A/B 启动。
+也可与 `tryboot` 功能一同使用，实现系统更新的 A/B 启动。
 
-`autoboot.txt` 被限制为 512 字节，支持 `[all]`、`[none]` 和 `[tryboot]` [条件](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)筛选器。
+`autoboot.txt` 被限制为 512 字节，支持[条件](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)筛选器 `[all]`、`[none]` 和 `[tryboot]` 。
 
-查看 [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot) 启动流程。
+另见 [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot) 启动流程。
 
 ### `boot_partition`
 
-指定启动的分区号，除非分区号已作为参数传给了 `reboot` 命令（如 `sudo reboot 2`）。
+指定启动的分区号。也可以直接把分区号作为参数传给命令 `reboot`（如 `sudo reboot 2`）来实现。
 
-分区号从 `1` 开始，MBR 分区为 `1` 到 `4`。指定分区 `0` 表示从 **默认** 分区启动，默认分区是第一个可引导的 FAT 分区。
+分区号从 `1` 开始，MBR 分区为 `1` 到 `4`。指定分区 `0` 表示从 **默认** 分区启动，默认分区是首个可引导的 FAT 分区。
 
-作为启动分区，其文件系统仅支持 FAT12、FAT16 和 FAT32，并包含一个 `start.elf` 文件（若为树莓派 5，则改为包含文件 `config.txt`），以便引导程序将其视为可引导。
+作为启动分区，其文件系统仅支持 FAT12、FAT16 和 FAT32，并包含一个 `start.elf` 文件（若为树莓派 5，则改为文件 `config.txt`），以便引导程序将其视为可引导。
 
-### `[tryboot]` 筛选器
+### 筛选器 `[tryboot]` 
 
-如果系统启动时设置了标志位 `tryboot`，则此筛选器会被激活。
+如果系统在启动时设置了标志位 `tryboot`，则会激活此筛选器。
 
 ```
 $ sudo reboot "0 tryboot"
