@@ -289,7 +289,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `initramfs`
 
-命令 `initramfs` 同时指定了 `ramfs` 文件名 **及** 将加载的内存地址。它在一个参数中执行了 `ramfsfile` 和 `ramfsaddr` 的操作。地址也可以是 `followkernel` （或 `0` ），将其放在内核镜像后的内存中。示例值为： `initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。与 `ramfsfile` 一样，更新的固件能用逗号分隔它们的名称加载多个文件。
+命令 `initramfs` 同时指定了 ramfs 的文件名 **和** ramfs 将加载的内存地址。它在一个参数中同时执行了操作 `ramfsfile` 和 `ramfsaddr`。地址也可以是 `followkernel` （或 `0`），将其放在内核镜像后面的内存中。示例值为：`initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。与 `ramfsfile` 一样，更新的固件能加载多个文件，文件名以逗号分隔。
 
 >**注意**
 >
