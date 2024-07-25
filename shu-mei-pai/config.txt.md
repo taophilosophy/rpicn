@@ -95,7 +95,7 @@ dtoverlay=vc4-kms-v3d
 
 ### 筛选器 `[tryboot]` 
 
-如果系统在启动时设置了标志位 `tryboot`，则会激活此筛选器。
+如果系统在启动时设置了标志位 `tryboot`，则此筛选器将被激活。
 
 ```
 $ sudo reboot "0 tryboot"
@@ -103,9 +103,9 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当激活标志位 `tryboot` 后，若将属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不加载文件 `tryboot.txt` 和 `tryboot.img`，。
+当标志位 `tryboot` 被激活后，若将属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不会加载文件 `tryboot.txt` 和 `tryboot.img`，。
 
-这样就可以在分区级（而非在文件级）上控制 `tryboot` 开关，且无需修改 A/B 分区中的配置文件。
+这样就可以在分区级（而非在文件级）上控制 `tryboot` 的开关，且无需修改 A/B 分区中的配置文件。
 
 ### A/B 启动更新流程示例
 
@@ -214,7 +214,7 @@ boot_partition=2
 
 ### `disable_audio_dither`
 
-在默认情况下，如果音频流路由输出到了模拟音频，则会应用 1.0LSB 抖动。在某些情况下（例如把 ALSA 的音量降低），有可能产生可感的背景噪音。将 `disable_audio_dither` 置为 `1` 可禁用抖动功能。
+在默认情况下，如果音频流路由输出到了模拟音频，则会应用 1.0LSB 抖动。在某些情况下（如 ALSA 音量处于较低水平），就有可能产生可感的背景噪音。将 `disable_audio_dither` 置为 `1` 可禁用抖动功能。
 
 ### `enable_audio_dither`
 
@@ -242,7 +242,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 `start_file` 指定要使用的 VideoCore 固件文件。`fixup_file` 用于修正 `start_file` 所使用的内存位置，以匹配 GPU 内存分配。
 
-`start_file` 和 `fixup_file` 是一对关联文件：使用不相干的搭配将导致开发板无法启动。这是专业选项，因此我们不建议你使用，你应该用 `start_x` 和 `start_debug`。
+`start_file` 和 `fixup_file` 是一对关联文件：错误搭配将导致开发板无法启动。这是个专业选项，因此我们不建议你使用，你应该用 `start_x` 和 `start_debug`。
 
 >**注意**
 >
@@ -281,7 +281,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->新版固件可加载多个 `ramfs` 文件。请注意：需以逗号分隔多个文件名，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
+>新版固件可加载多个 `ramfs` 文件。请注意：多个文件名需以逗号分隔，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
 
 ### `ramfsaddr`
 
@@ -289,15 +289,15 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `initramfs`
 
-命令 `initramfs` 同时指定了 ramfs 的文件名 **和** ramfs 将加载的内存地址。它在一个参数中同时执行了操作 `ramfsfile` 和 `ramfsaddr`。地址也可以是 `followkernel` （或 `0`），将其放在内核镜像后面的内存中。示例值为：`initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。与 `ramfsfile` 一样，更新的固件能加载多个文件，文件名以逗号分隔。
+命令 `initramfs` 同时指定了 ramfs 的文件名 **和** ramfs 将加载的内存地址。它在一个参数中同时执行了操作 `ramfsfile` 和 `ramfsaddr`。地址也可以是 `followkernel` （或 `0`），将其放在内核镜像之后的内存中。示例值为：`initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。与 `ramfsfile` 一样，新版固件可加载多个文件，多个文件名以逗号分隔。
 
 >**注意**
 >
->该选项使用的语法与其他选项有所不同，你不能在此处使用字符 `=`。
+>选项 `initramfs` 使用的语法与其他选项有所不同，你不能在此处使用字符 `=`。
 
 ### `auto_initramfs`
 
-如果把 `auto_initramfs` 置为 `1`，请按照内核选择的对应规则查找 `initramfs` 文件。
+如果把 `auto_initramfs` 置为 `1`，将按照所选内核的匹配规则查找文件 `initramfs`。
 
 ### `disable_poe_fan`
 
@@ -305,21 +305,21 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `disable_splash`
 
-如果将 `disable_splash` 置为 1，启动时将不会出现彩虹闪屏。默认值为 `0`。
+如果将 `disable_splash` 置为 1，启动时将不会出现彩虹屏。默认值为 `0`。
 
 ### `enable_uart`
 
-`enable_uart=1` （与 `console=serial0` 在 `cmdline.txt` 中联合使用）能让内核创建串行控制台，可使用 GPIO 14 和 15（40 脚排针上的引脚 8 和引脚 10）访问。编辑 `cmdline.txt`，删除 `quiet` 字段，就能把内核的启动消息也输出到串口。另请参阅 `uart_2ndstage`。
+`enable_uart=1` （与 `console=serial0` 在 `cmdline.txt` 中联合使用）能让内核创建串口控制台——可使用 GPIO 14 和 15（40 脚排针上的引脚 8 和引脚 10）访问。编辑 `cmdline.txt`，删除 `quiet` 字段，就能把内核的启动消息也输出到这个串口上。另请参阅 `uart_2ndstage`。
 
 ### `force_eeprom_read`
 
-将此选项置为 `0` 可禁止：固件在上电时读取 I²C 扩展板的 EEPROM（接入 `ID_SD` 和 `ID_SC` 引脚）。另请参阅 [`disable_poe_fan`](https://www.raspberrypi.com/documentation/computers/config_txt.html#disable_poe_fan)。
+将此选项置为 `0` 可禁止：固件在上电时读取 I²C 扩展板的 EEPROM（连接至 `ID_SD` 和 `ID_SC` 引脚）。另请参阅 [`disable_poe_fan`](https://www.raspberrypi.com/documentation/computers/config_txt.html#disable_poe_fan)。
 
 ### `os_prefix`
 
-`os_prefix` 是可选配置，能让你在同一张卡上，安装的多个版本的内核和设备树文件间进行切换。`os_prefix` 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须以字符 `/` 结尾。
+`os_prefix` 是可选配置，能让你在同一张卡上，安装多个版本的内核和设备树文件，并进行切换。`os_prefix` 中的任何值都会被前置到固件加载的所有操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须以字符 `/` 结尾。
 
-为了提高系统启动的几率，固件首先会测试所提供的前缀值是否可行 - 除非在新位置/名称能够找到预期的内核和 .dtb 文件，否则前缀将被忽略（设为“”）。此可行性测试的一个特例应用于叠加层，只有从 `${os_prefix}${overlay_prefix}` （其中 overlay_prefix 的默认值为“overlays/”）才会加载叠加层，否则它会忽略 os_prefix 并将叠加层视为共享项。
+为了提高系统启动的几率，固件首先会测试所提供的前缀值是否可行——除非在新位置/新名称下能够找到对应的内核和文件 .dtb，否则将忽略前缀（置为“”）。对叠加层可行性测试的特例是：如果存在 `${os_prefix}${overlay_prefix}README`，将仅从 `${os_prefix}${overlay_prefix}` （其中 `overlay_prefix` 的默认值为 "overlays/"）加载覆盖层；否则，它将忽略 os_prefix，并将叠加层视为共享。
 
 （固件在检查前缀时是判断关键文件的存在与否，而非目录。原因有二：前缀可能不是目录，并非所有启动方法都支持使用测试目录。）
 
