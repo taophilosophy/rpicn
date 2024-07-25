@@ -246,7 +246,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->使用该配置参数（`start*cd.elf`、`fixup*cd.dat`）并不能调用精简固件，只会导致系统无法启动。唯一能启用精简固件的方法是指定 `gpu_mem=16`。精简固件删除了对编解码器、3D 和调试日志的支持，以及把初始早期引导帧缓冲区限制成 1080p @16bpp——正如同其他固件，KMS 在后续阶段可使用高达 32bpp 4K 帧缓冲区代替之。
+>使用配置参数 `start*cd.elf`、`fixup*cd.dat` 无法调用精简固件，只会导致系统无法启动。唯一能启用精简固件的方法是指定 `gpu_mem=16`。精简固件删除了对编解码器、3D 和调试日志的支持，以及把初始早期引导帧缓冲区限制成 1080p @16bpp——正如同其他固件，KMS 在后续阶段可使用高达 32bpp 4K 帧缓冲区代替之。
 
 
 >**注意**
@@ -281,7 +281,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->新固件可加载多个 `ramfs` 文件。请注意：需以逗号分隔多个文件名，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
+>新版固件可加载多个 `ramfs` 文件。请注意：需以逗号分隔多个文件名，不要超过 80 个字符的行长限制。所有已加载的文件在内存中拼接在一起，被视为单个 `ramfs` 二进制块。有关更多信息，请参阅[论坛](https://forums.raspberrypi.com/viewtopic.php?f=63&t=10532&_gl=1*1f9jjcx*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMTU1MzIwNy41MS4xLjE3MjE1NTMyMjIuMC4wLjA.)。
 
 ### `ramfsaddr`
 
@@ -309,7 +309,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `enable_uart`
 
-`enable_uart=1` （与 `console=serial0` 在 `cmdline.txt` 中联合使用）能让内核创建串行控制台，可使用 GPIO 14 和 15（40 引脚排针上的 8 引脚和 10 引脚）访问。编辑 `cmdline.txt`，删除 `quiet` 字段，就能把内核的启动消息也输出到串口。另请参阅 `uart_2ndstage`。
+`enable_uart=1` （与 `console=serial0` 在 `cmdline.txt` 中联合使用）能让内核创建串行控制台，可使用 GPIO 14 和 15（40 脚排针上的引脚 8 和引脚 10）访问。编辑 `cmdline.txt`，删除 `quiet` 字段，就能把内核的启动消息也输出到串口。另请参阅 `uart_2ndstage`。
 
 ### `force_eeprom_read`
 
@@ -317,11 +317,11 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `os_prefix`
 
-`os_prefix` 是可选配置，能让你在同一张卡上，安装的多个版本的内核和设备树文件间进行切换。`os_prefix` 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须包含以 ``/`` 字符结尾。
+`os_prefix` 是可选配置，能让你在同一张卡上，安装的多个版本的内核和设备树文件间进行切换。`os_prefix` 中的任何值都会被前置到固件加载的任何操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须以字符 `/` 结尾。
 
 为了提高系统启动的几率，固件首先会测试所提供的前缀值是否可行 - 除非在新位置/名称能够找到预期的内核和 .dtb 文件，否则前缀将被忽略（设为“”）。此可行性测试的一个特例应用于叠加层，只有从 `${os_prefix}${overlay_prefix}` （其中 overlay_prefix 的默认值为“overlays/”）才会加载叠加层，否则它会忽略 os_prefix 并将叠加层视为共享项。
 
-（固件在检查前缀时是判断关键文件的存在，而非目录。原因有二：前缀可能不是目录，并非所有启动方法都支持使用测试目录。）
+（固件在检查前缀时是判断关键文件的存在与否，而非目录。原因有二：前缀可能不是目录，并非所有启动方法都支持使用测试目录。）
 
 >**注意**
 >
