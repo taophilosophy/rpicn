@@ -2,19 +2,19 @@
 
 ## `config.txt` 是什么？
 
-树莓派设备采用配置文件 `config.txt`，来代替常规 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS) 。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
+树莓派设备采用配置文件——`config.txt`，来代替普通 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS) 。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
 
 >**注意**
 >
 >*Bookworm* 之前的树莓派系统，会把启动分区放在 `/boot/`。
 
-你可以直接在你当前树莓派的系统上编辑 `config.txt`。你也可以弹出存储设备，在其他计算机上，编辑启动分区中的文件（如 `config.txt`）。
+你可以直接在你当前的树莓派系统上编辑 `config.txt`。你也可弹出存储设备，在其他计算机上，编辑启动分区中的文件（如 `config.txt`）。
 
-所有对 `config.txt` 的修改，仅在重启后生效。你可以使用以下命令，查看当下使用的设置：
+所有对 `config.txt` 的修改，仅在重启后生效。你可使用以下命令，查看当下使用的设置：
 
 `vcgencmd get_config <选项>` 
 
-　　可显示指定选项的值，如 `vcgencmd get_config arm_freq`
+　　显示指定选项的值，如 `vcgencmd get_config arm_freq`
 
 `vcgencmd get_config int` 
 
@@ -26,11 +26,11 @@
 
 >**注意**
 >
->并非所有选项均可通过 vcgencmd 进行检索。
+>`vcgencmd` 并不能检索全部的选项。
 
 ### 文件格式
 
-文件 `config.txt` 由早期启动固件读取，因此采用的文件格式非常简单：**每行一个语句 `属性=值`，其中 `值` 可以是整数、字符串。** 可以通过在行首添加字符 `#` 来插入注释，注释掉以禁用现有的配置值。
+文件 `config.txt` 由早期启动固件读取，因此采用的文件格式非常简单：**每行一个语句：`属性=值`，其中 `值` 可以是整数或字符串。** 可以通过在行首添加字符 `#` 来插入注释，或注释掉现有配置值以禁用。
 
 每个条目的最大长度为 98 个字符。树莓派系统会忽略掉任何超出此限制的字符。
 
@@ -319,73 +319,73 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 `os_prefix` 是可选配置，能让你在同一张卡上，安装多个版本的内核和设备树文件，并进行切换。`os_prefix` 中的任何值都会被前置到固件加载的所有操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须以字符 `/` 结尾。
 
-为了提高系统启动的几率，固件首先会测试所提供的前缀值是否可行——除非在新位置/新名称下能够找到对应的内核和文件 .dtb，否则将忽略前缀（置为“”）。对叠加层可行性测试的特例是：如果存在 `${os_prefix}${overlay_prefix}README`，将仅从 `${os_prefix}${overlay_prefix}` （其中 `overlay_prefix` 的默认值为 "overlays/"）加载覆盖层；否则，它将忽略 os_prefix，并将叠加层视为共享。
+为了提高系统启动的几率，固件首先会测试所提供的前缀值是否可行——除非在新位置/新名称下能够找到对应的内核和文件 .dtb，否则将忽略前缀（置为“”）。对叠加层可行性测试的特例是：如果存在 `${os_prefix}${overlay_prefix}README`，将仅从 `${os_prefix}${overlay_prefix}` （其中 [`overlay_prefix`](https://www.raspberrypi.com/documentation/computers/config_txt.html#overlay_prefix) 的默认值为 "overlays/"）加载覆盖层；否则，它将忽略 `os_prefix`，并将叠加层视为共享。
 
 （固件在检查前缀时是判断关键文件的存在与否，而非目录。原因有二：前缀可能不是目录，并非所有启动方法都支持使用测试目录。）
 
 >**注意**
 >
->所有操作系统文件都可以通过用户指定使用的绝对路径（相对于启动分区）来绕过前缀-只需以 `/` 开头，如 `kernel=/my_common_kernel.img`。
+>所有操作系统文件都可以通过用户指定使用的绝对路径（相对于启动分区）来修改前缀——只需以 `/` 开头：如 `kernel=/my_common_kernel.img`。
 
-另请参阅 overlay_prefix 和 upstream_kernel。
+另请参阅 [`overlay_prefix`](https://www.raspberrypi.com/documentation/computers/config_txt.html#overlay_prefix) 和 [`upstream_kernel`](https://www.raspberrypi.com/documentation/computers/legacy_config_txt.html#upstream_kernel)。
 
 ### otg_mode （仅适用于树莓派 4）。
 
-USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 USB 设备通过搭配的 OTG 线将自己配置为 USB 主机。在旧版树莓派系列上，一个 USB2 控制器可同时用作 USB 主机模式和设备模式。
+USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 USB 设备通过相应的 OTG 线把自己配置成 USB 主机。在旧款树莓派系列上，一个 USB2 控制器可同时作为 USB 主机模式和 USB 设备模式。
 
-树莓派 4B、400（不含 CM4、CM4IO）添加了一个高性能 USB 3 控制器（通过 PCIe 连接），来驱动主 USB。传统的 USB 2 控制器仍然可以在 USB-C 电源连接器上使用为设备（在默认情况下 otg_mode=0）。
+树莓派 4B 和 400（不含 CM4、CM4IO）添加了一个连接至 PCIe 的高性能 USB 3 控制器，用于驱动主要的 USB 端口。传统的 USB 2 控制器仍然可用：它通过 Type-C 电源接口，以设备模式进行连接。（`otg_mode=0` 为默认）。
 
-otg_mode=1 请求使用功能更强的 XHCI USB 2 控制器作为 USB-C 连接器上的另一个主机控制器。
+`otg_mode=1` 可将 Type-C 接口的主控制器切换成更强大的 XHCI USB 2 控制器。
 
 >**注意**
 >
->由于 CM4 和 CM4IO 未搭载外部 USB 3 控制器，树莓派操作系统镜像在 CM4 上设置了 otg_mode=1，来获得更好的性能。
+>由于 CM4 和 CM4IO 未搭载额外的 USB 3 控制器，在树莓派操作系统镜像上，为 CM4 上设置了 `otg_mode=1`，以实现最佳性能。
 
 ### `overlay_prefix`
 
-指定从哪个子目录/前缀加载叠加层，默认为 overlays/ （注意末尾的 / ）。如果与 os_prefix 一起使用，则 os_prefix 位于 overlay_prefix 之前，即 dtoverlay=disable-bt 将尝试加载 `${os_prefix}${overlay_prefix}disable-bt.dtbo`。
+指定从哪个子目录/前缀加载叠加层，默认为 `overlays/` （注意末尾的 `/`）。如果同时使用了 [`os_prefix`](https://www.raspberrypi.com/documentation/computers/config_txt.html#os_prefix) ，则 `os_prefix` 将位于 `overlay_prefix` 之前。即 `dtoverlay=disable-bt` 将会加载 `${os_prefix}${overlay_prefix}disable-bt.dtbo`。
 
 >**注意**
 >
->除非 `${os_prefix}${overlay_prefix}README` 存在，否则叠加层与主操作系统共享（即 os_prefix 将被忽略）。
+>除非存在 `${os_prefix}${overlay_prefix}README`，否则叠加层将与主操作系统复用（即无视 `os_prefix`）。
 
 ### 配置属性
 
-树莓派 5 需要一个 config.txt 文件代表分区可启动。
+树莓派 5 需要一个文件 `config.txt` 来标识分区可启动。
 
 #### `boot_ramdisk`
 
-如果此属性置为 1，则引导程序将尝试加载一个名为 boot.img 的 ramdisk 文件，其中包含引导文件系统。随后的文件（例如 `start4.elf` ）从 ramdisk 中读取，而不是原始引导文件系统。
+如果此属性置为 `1`，则引导程序将尝试加载名为 `boot.img` 的 ramdisk 文件（其中包含[引导文件系统](https://www.raspberrypi.com/documentation/computers/configuration.html#boot-folder-contents)）。随后的文件（例如 `start4.elf` ）将从 ramdisk 中读取，而非原始引导文件系统。
 
-boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文件也可用于网络引导或 RPIBOOT 配置。
+`boot_ramdisk` 的主要目的是支持安全启动（`secure-boot`），但未签名的 `boot.img` 文件也可用于网络引导或配置 `RPIBOOT`。
 
 * RAM 磁盘文件的最大值为 96MB。
-* boot.img 文件是裸磁盘 .img 文件。推荐的格式是不带 MBR 的普通 FAT32 分区。
-* RAM 磁盘文件系统的内存在操作系统启动之前被释放。
-* 如果选择了 TRYBOOT，则引导加载程序将搜索 tryboot.img 而非 boot.img。
-* 也请参阅 autoboot.txt。
+* `boot.img` 文件是裸磁盘 `.img` 文件。推荐的格式是不带 MBR 的普通 FAT32 分区。
+* 在操作系统启动之前从内存中释放 RAM 磁盘文件系统。
+* 如果触发 [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot)，则引导加载程序将搜索 `tryboot.img` 而非 `boot.img`。
+* 另请参阅 [autoboot.txt](https://www.raspberrypi.com/documentation/computers/config_txt.html#autoboot-txt)。
 
-有关 secure-boot 和创建 boot.img 文件的更多信息，请参阅 USBBOOT。
+更多有关安全启动（`secure-boot`）和创建 `boot.img` 文件的信息，请参阅 [USBBOOT](https://github.com/raspberrypi/usbboot/blob/master/Readme.md)。
 
- 默认： `0`
+默认值： `0`
 
 #### `boot_load_flags`
 
-自定义固件（裸金属）的实验性属性。
+定制固件（裸金属）的实验性属性。
 
-位 0 (0x1) 表示 `.elf` 文件为定制固件。这将禁用任何兼容性检查（例如 USB MSD 启动是否受支持），并在启动可执行文件之前重置 PCIe。
+位 0 (0x1) 表示 `.elf` 文件为定制固件。这将禁用一切兼容性检查（如是否支持 USB MSD 启动），并在启动可执行文件之前重置 PCIe。
 
-对于树莓派 5 上无关紧要，因为没有 start.elf 文件。
+对于树莓派 5 无关紧要，因为它就没有 `start.elf` 这个文件。
 
- 默认： `0x0`
+默认值： `0x0`
 
 #### `pciex4_reset`
 
 仅适用于树莓派 5。
 
-默认情况下，在启动操作系统之前，RP1 使用的 PCIe x4 控制器会被复位。如果此参数设置为 `0|，则复位将被禁用，允许操作系统或裸金属代码继承来自引导加载程序的 PCIe 配置设置。
+默认情况下，在启动操作系统之前，会对 RP1 使用的 PCIe x4 控制器进行复位。如果此参数置为 `0`，则将禁用复位，以实现操作系统或裸金属代码继承来自引导加载程序的 PCIe 配置设置。
 
- 默认值： `1`
+默认值： `1`
 
 #### `uart_2ndstage`
 
@@ -393,13 +393,13 @@ boot_ramdisk 的主要目的是支持 secure-boot，但未签名的 boot.img 文
 
 BOOT_UART 属性还会启用引导加载程序 UART 日志记录，但不会在 start.elf 中启用 UART 日志记录，除非也设置了 uart_2ndstage=1。
 
- 默认： 0
+默认值： 0
 
 #### `erase_eeprom`
 
 如果 erase_eeprom 设置为 `1`，那么 recovery.bin 将擦除整个 SPI EEPROM 而不是刷新引导加载程序镜像。此属性在正常启动期间没有任何效果。
 
- 默认: 0
+默认值： 0
 
 #### `eeprom_write_protect`
 
@@ -429,13 +429,13 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 在树莓派 5 上，固件会自动在尝试从当前分区引导之前检查兼容的设备树文件。否则，将加载旧的不兼容内核，然后挂起。要禁用此检查（例如用于裸机开发），请在 config.txt 中设置 os_check=0。
 
- 默认： `1`
+默认值： `1`
 
 #### `bootloader_update`
 
 可将此选项设置为 `0` 以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对每个树莓派控制此选项（例如，通过 config.txt 中的串行号筛选器）。
 
- 默认： `1`
+默认值： `1`
 
 ### 安全引导配置属性
 
@@ -453,13 +453,13 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 如果将此属性设置为 1，则 recovery.bin 将哈希公钥的散列值写入 EEPROM 镜像到 OTP。设置后，引导加载程序将拒绝使用不同 RSA 密钥签名的 EEPROM 镜像或未签名镜像。
 
- 默认： `0`
+默认值： `0`
 
 #### `revoke_devkey`
 
 如果将此属性设置为 1，则 recovery.bin 将写入一个值到 OTP，防止 ROM 加载不支持 secure-boot 的旧第二阶段引导加载程序版本。这可以防止通过回滚到旧版本的引导加载程序释放 secure-boot 被关闭。
 
- 默认: `0`
+默认值： `0`
 
 #### `program_rpiboot_gpio`
 
@@ -482,7 +482,7 @@ config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
 
 如果此属性设置为 1，则 recovery.bin 将编程防止使用 VideoCore JTAG 的 OTP 值。此选项要求还设置 program_pubkey 和 revoke_devkey。此选项可以防止故障分析，应仅在设备完全测试后设置。
 
- 默认: `0`
+默认值： `0`
 
 ## GPIO 控制
 
