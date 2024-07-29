@@ -389,65 +389,65 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 #### `uart_2ndstage`
 
-如果 `uart_2ndstage` 为 `1`，则将启用 UART 调试日志记录。此选项还会自动启用 `start.elf` 中的 UART 日志记录。这也在[启动选项](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)页上有描述。
+如果 `uart_2ndstage` 为 `1`，则将启用串口调试日志记录。此选项还会自动启用 `start.elf` 中的串口日志记录。这也在[启动选项](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)页上有描述。
 
-属性 `BOOT_UART` 也会启用引导加载程序 UART 日志记录，但不会在 `start.elf` 中启用 UART 日志记录——除非同时设置了 `uart_2ndstage=1`。
+属性 `BOOT_UART` 也会启用引导加载程序的串口日志记录，但不会启用 `start.elf` 的串口日志记录——除非同时设置了 `uart_2ndstage=1`。
 
 默认值： `0`
 
 #### `erase_eeprom`
 
-如果 erase_eeprom 设置为 `1`，那么 recovery.bin 将擦除整个 SPI EEPROM 而不是刷新引导加载程序镜像。此属性在正常启动期间没有任何效果。
+如果 `erase_eeprom` 置为 `1`，那么 `recovery.bin` 将擦除整个 SPI EEPROM，而非刷新引导加载程序镜像。此属性在正常启动期间无效。
 
 默认值：`0`
 
 #### `eeprom_write_protect`
 
-配置 EEPROM write status register。这可以设置为将整个 EEPROM 标记为写保护，或清除写保护。
+配置 EEPROM 写状态寄存器（`write status register`）。可将整个 EEPROM 标记为写保护，或清除写保护。
 
-这个选项必须与控制 EEPROM 更新的 EEPROM /WP 引脚一起使用。拉低 /WP （CM4 EEPROM_nWP 或者在树莓派 4 TP5 上）不会写保护 EEPROM，除非 Write Status Register 也已配置。
+该选项必须与控制 EEPROM 写入状态寄存器更新的 EEPROM `/WP` 引脚一同使用。将 `/WP` 的引脚拉低（CM4 为 `EEPROM_nWP`、树莓派 4 为 `TP5`）——但若仅如此，并不会对 EEPROM 写保护，除非同时对写入状态寄存器进行了配置。
 
-查看 Winbond W25x40cl 或 Winbond W25Q16JV 数据手册以获取更多详细信息。
+可查看 `Winbond W25x40cl`、`Winbond W25Q16JV` 的数据手册以获取更多详细信息。
 
-config.txt 中的 eeprom_write_protect 设置为 recovery.bin。
+`config.txt` 中的 `eeprom_write_protect` 设置用于 `recovery.bin`。
 
 | 值 | 说明                              |
-| ---- | ----------------------------------- |
+| :----: | ----------------------------------- |
 | `1`  | 配置写保护区域以覆盖整个 EEPROM。|
 | `0`  | 清除写保护区域。        |
 | `-1` | 什么也不做。            |
 
 >**注意**
 >
->flashrom 不支持清除写保护区域，如果定义了写保护区域，将无法更新 EEPROM。
+>flashrom 不能清除写保护区域，如果定义了写保护区域，将无法更新 EEPROM。
 
-在树莓派 5 上，默认情况下，/WP 被拉低，因此一旦配置 Write Status Register，写保护就会启用。要清除写保护，请通过连接 TP14 和 TP1 将 /WP 拉高。
+对于树莓派 5，在默认情况下，`/WP` 已被拉低，因此只要配置了写状态寄存器，就会启用写保护。要清除写保护，请将 `/WP` 引脚拉高，方法是连接 `TP14` 和 `TP1`。
 
  默认值: `-1`
 
 #### `os_check`
 
-在树莓派 5 上，固件会自动在尝试从当前分区引导之前检查兼容的设备树文件。否则，将加载旧的不兼容内核，然后挂起。要禁用此检查（例如用于裸机开发），请在 config.txt 中设置 os_check=0。
+在树莓派 5 上，固件默认会在从当前分区引导之前，自动检查适配的设备树文件。如果没有找到，将加载旧的不兼容的内核，然后可能会卡住。要禁用此检查（如用于裸机开发），请在 `config.txt` 中设置 `os_check=0`。
 
 默认值： `1`
 
 #### `bootloader_update`
 
-可将此选项设置为 `0` 以阻止自更新，而无需更新 EEPROM 配置。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对每个树莓派控制此选项（例如，通过 config.txt 中的串行号筛选器）。
+可将此选项置为 `0` 以关闭自动更新（无需刷新 EEPROM 配置）。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对不同的树莓派控制此选项（例如，通过 `config.txt` 中的串号筛选器）。
 
 默认值： `1`
 
-### 安全引导配置属性
+### 安全启动配置属性
 
-##### [如何使用树莓派安全启动](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003466-WP/Boot-Security-Howto.pdf)
+##### 白皮书
 
-如何使用树莓派安全启动
+>[如何使用树莓派安全启动](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003466-WP/Boot-Security-Howto.pdf)
+>
+>本白皮书介了如何在基于树莓派 4 的设备上实现安全启动。有关我们实施安全启动方法的概述，请参阅[树莓派 4 启动安全](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004651-WP/Raspberry-Pi-4-Boot-Security.pdf?_gl=1*3s582g*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMjI0NDk0Mi43My4xLjE3MjIyNDQ5NDcuMC4wLjA.)白皮书。安全启动系统被设计成与基于 `buildroot` 的操作系统镜像搭配使用；不建议、或者说不支持将其与树莓派系统（Raspberry Pi O）一同使用。
 
-本白皮书介了如何在基于树莓派 4 的设备上实现安全启动。有关我们实施安全启动方法的概述，请参阅树莓派 4 启动安全白皮书。安全启动系统旨在与 buildroot -based OS 镜像一起使用；不建议或支持将其与树莓派系统一起使用。
+以下 `config.txt` 属性用于编程安全启动的 OTP 设置。这些更改是不可逆的，只能在刷写引导加载程序 EEPROM 镜像时通过 `RPIBOOT` 进行编程。这阻止了使用远程设置或通过意外插入陈旧的 SD 卡镜像进行安全启动。
 
-以下 config.txt 属性用于编程 secure-boot OTP 设置。这些更改是不可逆的，只能在刷写引导加载程序 EEPROM 镜像时通过 RPIBOOT 进行编程。这确保了 secure-boot 无法远程设置或通过意外插入陈旧的 SD 卡镜像。
-
-有关启用 secure-boot 的更多信息，请参阅 Secure Boot 自述文件和 USBBOOT 存储库中的 Secure Boot 教程。
+更多有关启用安全启动的信息，请参阅[安全启动 readme 文件](https://github.com/raspberrypi/usbboot/blob/master/Readme.md#secure-boot)和 [USBBOOT](https://github.com/raspberrypi/usbboot) 存储库中的[安全启动教程](https://github.com/raspberrypi/usbboot/blob/master/secure-boot-example/README.md)。
 
 #### `program_pubkey`
 
