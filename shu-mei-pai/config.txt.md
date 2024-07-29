@@ -383,23 +383,23 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 仅适用于树莓派 5。
 
-默认情况下，在启动操作系统之前，会对 RP1 使用的 PCIe x4 控制器进行复位。如果此参数置为 `0`，则将禁用复位，以实现操作系统或裸金属代码继承来自引导加载程序的 PCIe 配置设置。
+默认情况下，在启动操作系统之前，会对 `RP1` 使用的 PCIe x4 控制器进行复位。如果此参数置为 `0`，则将禁用复位，以实现操作系统或裸金属代码继承来自引导加载程序的 PCIe 配置设置。
 
 默认值： `1`
 
 #### `uart_2ndstage`
 
-如果 uart_2ndstage 为 `1`，则启用 UART 调试日志记录。此选项还会自动启用 start.elf 中的 UART 日志记录。这也在启动选项页面上有描述。
+如果 `uart_2ndstage` 为 `1`，则将启用 UART 调试日志记录。此选项还会自动启用 `start.elf` 中的 UART 日志记录。这也在[启动选项](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)页上有描述。
 
-BOOT_UART 属性还会启用引导加载程序 UART 日志记录，但不会在 start.elf 中启用 UART 日志记录，除非也设置了 uart_2ndstage=1。
+属性 `BOOT_UART` 也会启用引导加载程序 UART 日志记录，但不会在 `start.elf` 中启用 UART 日志记录——除非同时设置了 `uart_2ndstage=1`。
 
-默认值： 0
+默认值： `0`
 
 #### `erase_eeprom`
 
 如果 erase_eeprom 设置为 `1`，那么 recovery.bin 将擦除整个 SPI EEPROM 而不是刷新引导加载程序镜像。此属性在正常启动期间没有任何效果。
 
-默认值： 0
+默认值：`0`
 
 #### `eeprom_write_protect`
 
