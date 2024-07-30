@@ -1,4 +1,4 @@
-# 翻译日志
+# 编辑日志
 
 - 2024.6.5 同步至 <https://github.com/raspberrypi/documentation/commit/f0511a225236d2defc8c12010c315827cb3baf7d>
 -2024.6.5-2024.7.11 完全重译树莓派启动盘制作器
