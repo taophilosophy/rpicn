@@ -335,11 +335,11 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 树莓派 4B 和 400（不含 CM4、CM4IO）添加了一个连接至 PCIe 的高性能 USB 3 控制器，用于驱动主要的 USB 端口。传统的 USB 2 控制器仍然可用：它通过 Type-C 电源接口，以设备模式进行连接。（`otg_mode=0` 为默认）。
 
-`otg_mode=1` 可将 Type-C 接口的主控制器切换成更强大的 XHCI USB 2 控制器。
+`otg_mode=1` 可将 Type-C 接口的主控制器切换成更为强大的 XHCI USB 2 控制器。
 
 >**注意**
 >
->由于 CM4 和 CM4IO 未搭载额外的 USB 3 控制器，在树莓派操作系统镜像上，为 CM4 上设置了 `otg_mode=1`，以实现最佳性能。
+>由于 CM4 和 CM4IO 未搭载单独的 USB 3 控制器，在树莓派操作系统镜像上，为 CM4 上设置了 `otg_mode=1`，以实现最佳性能。
 
 ### `overlay_prefix`
 
