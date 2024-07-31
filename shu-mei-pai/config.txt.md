@@ -251,7 +251,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->树莓派 5 的固件内置于引导加载程序 EEPROM。
+>树莓派 5 的固件内置在引导加载程序 EEPROM 中。
 
 ### `cmdline`
 
@@ -289,7 +289,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `initramfs`
 
-命令 `initramfs` 同时指定了 ramfs 的文件名 **和** ramfs 将加载的内存地址。它在一个参数中同时执行了操作 `ramfsfile` 和 `ramfsaddr`。地址也可以是 `followkernel` （或 `0`），将其放在内核镜像之后的内存中。示例值为：`initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。与 `ramfsfile` 一样，新版固件可加载多个文件，多个文件名以逗号分隔。
+命令 `initramfs` 同时指定了 ramfs 的文件名 **和** ramfs 将加载的内存地址。它在一个参数中同时执行了操作 `ramfsfile` 和 `ramfsaddr`。地址也可以是 `followkernel` （或 `0`），将其放在内核镜像之后的内存中。示例值为：`initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。同 `ramfsfile` 一样，新版固件可加载多个文件，多个文件名以逗号分隔。
 
 >**注意**
 >
@@ -321,7 +321,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 为了提高系统启动的几率，固件首先会测试所提供的前缀值是否可行——除非在新位置/新名称下能够找到对应的内核和文件 .dtb，否则将忽略前缀（置为“”）。对叠加层可行性测试的特例是：如果存在 `${os_prefix}${overlay_prefix}README`，将仅从 `${os_prefix}${overlay_prefix}` （其中 [`overlay_prefix`](https://www.raspberrypi.com/documentation/computers/config_txt.html#overlay_prefix) 的默认值为 "overlays/"）加载覆盖层；否则，它将忽略 `os_prefix`，并将叠加层视为共享。
 
-（固件在检查前缀时是判断关键文件的存在与否，而非目录。原因有二：前缀可能不是目录，并非所有启动方法都支持使用测试目录。）
+（固件在检查前缀时，是判断关键文件（而非目录）的存在与否。原因有二：前缀可能不是目录，并非所有启动方法都支持使用测试目录。）
 
 >**注意**
 >
@@ -329,7 +329,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 另请参阅 [`overlay_prefix`](https://www.raspberrypi.com/documentation/computers/config_txt.html#overlay_prefix) 和 [`upstream_kernel`](https://www.raspberrypi.com/documentation/computers/legacy_config_txt.html#upstream_kernel)。
 
-### otg_mode （仅适用于树莓派 4）。
+### `otg_mode`（仅适用于树莓派 4）。
 
 USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 USB 设备通过相应的 OTG 线把自己配置成 USB 主机。在旧款树莓派系列上，一个 USB2 控制器可同时作为 USB 主机模式和 USB 设备模式。
 
