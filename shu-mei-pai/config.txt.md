@@ -744,7 +744,7 @@ initramfs initrd.img-3.18.7-v7+ followkernel
 $ ls -1 /sys/class/drm/card?-HDMI-A-?/edid
 ```
 
-在树莓派 4 上，将打印输出如下：
+在树莓派 4 上，类似打印输出如下：
 
 ```
 /sys/class/drm/card1-HDMI-A-1/edid
