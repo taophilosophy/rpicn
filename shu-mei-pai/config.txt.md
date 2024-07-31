@@ -6,7 +6,7 @@
 
 >**注意**
 >
->*Bookworm* 前的树莓派系统，会把启动分区放在 `/boot/`。
+>树莓派 *Bookworm* 之前的系统，会把启动分区放在 `/boot/`。
 
 你可以直接在你当前的树莓派系统上编辑 `config.txt`。你也可弹出存储设备，在其他计算机上，编辑启动分区中的文件（如 `config.txt`）。
 
@@ -407,13 +407,13 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 该选项必须与控制 EEPROM 写入状态寄存器更新的 EEPROM `/WP` 引脚一同使用。将 `/WP` 的引脚拉低（CM4 为 `EEPROM_nWP`、树莓派 4 为 `TP5`）——但若仅如此，并不会对 EEPROM 写保护，除非同时对写入状态寄存器进行了配置。
 
-可查看 `Winbond W25x40cl`、`Winbond W25Q16JV` 的数据手册以获取更多详细信息。
+可查看 [Winbond W25x40cl](https://www.winbond.com/resource-files/w25x40cl_f%2020140325.pdf)、[Winbond W25Q16JV](https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=en&partNo=W25Q16JV) 的数据手册以获取更多详细信息。
 
 `config.txt` 中的 `eeprom_write_protect` 设置用于 `recovery.bin`。
 
 | 值 | 说明                              |
 | :----: | ----------------------------------- |
-| `1`  | 配置写保护区域以覆盖整个 EEPROM。|
+| `1`  | 把整个 EEPROM 配置写保护区域。|
 | `0`  | 清除写保护区域。        |
 | `-1` | 什么也不做。            |
 
@@ -421,7 +421,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 >
 >flashrom 不能清除写保护区域，如果定义了写保护区域，将无法更新 EEPROM。
 
-对于树莓派 5，在默认情况下，`/WP` 已被拉低，因此只要配置了写状态寄存器，就会启用写保护。要清除写保护，请将 `/WP` 引脚拉高，方法是连接 `TP14` 和 `TP1`。
+对于树莓派 5，在默认情况下，`/WP` 已拉低，因此只要配置了写状态寄存器，就会启用写保护。要清除写保护，请将 `/WP` 引脚拉高，方法是连接 `TP14` 和 `TP1`。
 
 默认值: `-1`
 
@@ -488,7 +488,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 ### `gpio`
 
-`gpio` 指令能在启动时把 GPIO 引脚设置为特定模式、特定值，这种方式在以前需要一个自定义文件 `dt-blob.bin`。每一行都将相同的设置（或至少相同的更改）应用到一组引脚，可处理单个引脚（`3`）、某范围内的引脚（`3-4`）或以逗号分隔的列表（`3-4,6,8`）。
+`gpio` 指令能在启动时把 GPIO 引脚设置为特定模式、特定值，这种方式在以前需要一个自定义文件 `dt-blob.bin`。每一行都将相同的设置（或至少相同的更改）应用到一组引脚，可处理单个引脚（`3`）、某区间内的引脚（`3-4`）或以逗号分隔的列表（`3-4,6,8`）。
 
 引脚设置后跟一个 `=` 和此列表中的一个或多个逗号分隔属性：
 
@@ -537,40 +537,40 @@ gpio=17-21=ip
 
 >**警告**
 >
->将任何超频参数设置为非 `raspi-config` 使用的值可能会导致在 SoC 内部置一个永久位。这将使你的树莓派以往的超频情况变得可检测。当将 `force_turbo` 置为 `1` 且任一 `over_voltage_*` 参数置为大于 `0` 的值时，就会应用超频位设置。详细信息请查看有关[超频模式的博客文章](https://www.raspberrypi.com/news/introducing-turbo-mode-up-to-50-more-performance-for-free/)。
+>将任意超频参数设置为非 `raspi-config` 使用的值可能会导致在 SoC 内部置一个永久位。这将使你的树莓派以往的超频情况变得可检测。当将 `force_turbo` 置为 `1` 且任一 `over_voltage_*` 参数置为大于 `0` 的值时，就会应用超频位设置。详细信息请查看有关[超频模式的博客文章](https://www.raspberrypi.com/news/introducing-turbo-mode-up-to-50-more-performance-for-free/)。
 
 ### 超频
 
 | 选项 | 说明                                  |
 | :------: | ---------------------------------------------------------------------------- |
-| `arm_freq`     | ARM CPU 的频率，以 MHz 为单位。                                                                                                                                                                                                                                                                                                                                      |
-| `arm_boost`     | 将 `arm_freq` 增加到板型和固件支持的最高频率。置为 1 启用。                                                                                                                                                                                                                                                                                                        |
+| `arm_freq`     | ARM CPU 的频率（MHz）。                                                                                                                                                                                                                                                                                                                                      |
+| `arm_boost`     | 将 `arm_freq` 提升到主板和固件所支持的最高主频。置为 1 启用。                                                                                                                                                                                                                                                                                                        |
 | `gpu_freq`     | 与 `core_freq`、`h264_freq`、`isp_freq`、`v3d_freq` 和 `hevc_freq` 一同设置。                                                                                                                                                                                                                                                                                            |
-| `core_freq`     | GPU 处理器核心的频率，以 MHz 为单位。影响 CPU 性能，因为它驱动着 L2 缓存和内存总线；只有树莓派 Zero、Zero W，树莓派 1 受益于 L2 缓存；对树莓派 2、3 上的 SDRAM 只有微小益处。请参见下面关于在树莓派 4 上使用的部分。                                                                                                                                     |
-| `h264_freq`     | 硬件视频模块的频率，以 MHz 为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                         |
-| `isp_freq`     | 图像传感器管道块的频率，以 MHz 为单位；对 gpu_freq 设置的个别覆盖。                                                                                                                                                                                                                                                                                                   |
-| `v3d_freq`     | 在 MHz 中的 3D 块的频率；gpu_freq 设置的个别覆盖。在树莓派 5 上，V3D 与 `core_freq`、`isp_freq` 和 `hevc_freq` 相独立。                                                                                                                                                                                                                                            |
-| `hevc_freq`     | 高效视频编解码器块的频率，单位为 MHz；gpu_freq 设置的个别覆盖。仅适用于树莓派 4。                                                                                                                                                                                                                                                                            |
-| `sdram_freq`     | SDRAM 的频率，单位为 MHz。树莓派 4 及更新款上无法超频 SDRAM。                                                                                                                                                                                                                                                                                           |
-| `over_voltage`     | CPU/GPU 核心上限电压。值应在范围[-16,8]内，这相当于范围[0.95V,1.55V]（在树莓派 1 上为 [0.8V,1.4V]），步长为 0.025V。换句话说，指定-16 将使 CPU/GPU 核心电压的最大值为 0.95V（在树莓派 1 上为 0.8V），指定 8 将允许高达 1.55V（在树莓派 1 上为 1.4V）。有关默认值，请参见下表。仅当指定了 force_turbo=1 时才允许高于 6 的值：如果还设置了 over_voltage_* > 0，则会设置保修位。|
-| `over_voltage_sdram`     | 一起设置 over_voltage_sdram_c，over_voltage_sdram_i 和 over_voltage_sdram_p。                                                                                                                                                                                                                                                                                     |
-| `over_voltage_sdram_c`     | SDRAM 控制器电压调整。\[-16,8\]相当于\[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 及更新款设备。                                                                                                                                                                                                                                                                       |
-| `over_voltage_sdram_i`     | SDRAM I/O 电压调整。[-16,8] 相当于[0.8V,1.4V]，步长为 0.025V。不支持树莓派 4 及更新款的设备。                                                                                                                                                                                                                                                                      |
-| `over_voltage_sdram_p`     | SDRAM 物理电压调整。[-16,8] 相当于[0.8V,1.4V]，步长为 0.025V。不支持树莓派 4 及更新款的设备。                                                                                                                                                                                                                                                                      |
-| `force_turbo`     | 即使 ARM 核心空闲时也强制进入 Turbo 模式频率。启用此选项可能设置保修位，如果 over_voltage_* 也设置的话。                                                                                                                                                                                                                                                             |
-| `initial_turbo`     | 从引导启用提速模式，持续给定的秒数，或直到 cpufreq 设置频率。最大值为 60。                                                                                                                                                                                                                                                                                          |
-| `arm_freq_min`     | 用于动态频率时钟的最小值为 arm_freq。请注意，将该值降低到低于默认值并不会导致任何显著的节能，并且当前不受支持。                                                                                                                                                                                                                                                     |
-| `core_freq_min`     | 用于动态频率时钟的最小值为 core_freq。                                                                                                                                                                                                                                                                                                                              |
-| `gpu_freq_min`     | 用于动态频率调节的最小值 gpu_freq。                                                                                                                                                                                                                                                                                                                                 |
-| `h264_freq_min`     | 用于动态频率调节的最小值 h264_freq。                                                                                                                                                                                                                                                                                                                                |
-| `isp_freq_min`     | 用于动态频率调节的最小值 isp_freq。                                                                                                                                                                                                                                                                                                                                 |
-| `v3d_freq_min`     | 用于动态频率时钟的最小值 v3d_freq。                                                                                                                                                                                                                                                                                                                                 |
-| `hevc_freq_min`     | 用于动态频率时钟的最小值 hevc_freq。                                                                                                                                                                                                                                                                                                                                |
-| `sdram_freq_min`     | 用于动态频率时钟的最小值 sdram_freq。                                                                                                                                                                                                                                                                                                                               |
-| `over_voltage_min`     | 动态频率时钟的最小值 over_voltage。该值应在[-16,8]范围内，等同于[0.8V,1.4V]范围，每 0.025V 一步。换句话说，指定-16 将使 CPU/GPU 核心空闲电压为 0.8V，指定 8 将使最低电压为 1.4V。在树莓派 4、5 上，此设置已弃用。                                                                                                                                         |
-| `over_voltage_delta`     | 在树莓派 4、5 上，over_voltage_delta 参数会将给定的偏移量（以微V计算）添加到 DVFS 算法计算的数字中。                                                                                                                                                                                                                                                        |
-| `temp_limit`     | 过热保护。当 SoC 达到°C设定值时，将时钟和电压设置为默认值。超过 85 的值将被限制为 85。                                                                                                                                                                                                                                                                           |
-| `temp_soft_limit`     | 仅适用于 3A+、3B+。CPU 速度限流控制。这将设置 CPU 时钟速度限流系统激活的温度。在此温度下，时钟速度从 1400MHz 降至 1200MHz。默认为 60，最多可提高至 70，但这可能会导致不稳定。                                                                                                                                                                                       |
+| `core_freq`     | GPU 处理器主频（MHz）。将影响 CPU 性能，因为它驱动着 L2 缓存和内存总线；只有树莓派 Zero、Zero W，树莓派 1 能从 L2 缓存中受益；对树莓派 2、3 上的内存（SDRAM）来说，有好处但不大。请参见下文关于在树莓派 4 上如何使用的章节。                                                                                                                                     |
+| `h264_freq`     | 硬件视频模块的频率（MHz）；对个别 `gpu_freq` 设置的覆盖。                                                                                                                                                                                                                                                                                                         |
+| `isp_freq`     | 图像传感器管道模块的频率（MHz）；对个别 `gpu_freq` 设置的覆盖。                                                                                                                                                                                                                                                                                                   |
+| `v3d_freq`     | 3D 模块的频率（MHz）；对个别 `gpu_freq` 设置的覆盖。在树莓派 5 上，V3D 独立于 `core_freq`、`isp_freq` 和 `hevc_freq`。                                                                                                                                                                                                                                            |
+| `hevc_freq`     | 高效视频编解码器模块的频率（MHz）；对个别 `gpu_freq` 设置的覆盖。仅适用于树莓派 4。                                                                                                                                                                                                                                                                            |
+| `sdram_freq`     | 内存（SDRAM）的频率（MHz）。在树莓派 4 及后续新款设备上无法对内存（SDRAM）超频。                                                                                                                                                                                                                                                                                           |
+| `over_voltage`     | CPU/GPU 核心的电压上限。数值应位于区间 \[-16,8\]，这相当于区间 \[0.95V,1.55V\]（树莓派 1 为 \[0.8V,1.4V\]），步长为 0.025V。换言之，设定 -16 将把 CPU/GPU 核心电压的最大值变成为 0.95V（树莓派 1 为 0.8V）；设定为 8 将高达 1.55V（树莓派 1 为 1.4V）。有关默认值，请参见下表。仅当指定 `force_turbo=1` 时，才能允许高于 6 的值：如果同时设定 `over_voltage_*` 大于 `0`，则会设置保修位。|
+| `over_voltage_sdram`     | 与 `over_voltage_sdram_c`，`over_voltage_sdram_i` 和 `over_voltage_sdram_p` 一同设置。                                                                                                                                                                                                                                                                                     |
+| `over_voltage_sdram_c`     | 调整内存（SDRAM）控制器电压。\[-16,8\] 等同于 \[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 及后续新款设备。                                                                                                                                                                                                                                                                       |
+| `over_voltage_sdram_i`     | 调整内存（SDRAM）I/O 电压。\[-16,8\] 等同于 \[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 及更新款设备。                                                                                                                                                                                                                                                                      |
+| `over_voltage_sdram_p`     | 调整内存（SDRAM）物理电压。\[-16,8\] 等同于 \[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 及更新款设备。                                                                                                                                                                    |
+| `force_turbo`     | 强制进入超频模式频率，无论 ARM 核心是否空闲。如同时设定 `over_voltage_*`，启用该选项可能导致设置保修位。                                                                                                                                                                                                                                                             |
+| `initial_turbo`     | 启用[启动加速模式](https://forums.raspberrypi.com/viewtopic.php?f=29&t=6201&start=425&_gl=1*xfo3n1*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMjQ2MzY2My43NS4xLjE3MjI0NjM2NjguMC4wLjA.#p180099)，持续给定的秒数，或直至设置 cpufreq 频率。最大值为 `60`。                                                                                                                                                                                                                                                                                          |
+| `arm_freq_min`     |  动态频率时钟 `arm_freq` 的最小值。请注意，将该值降低至低于默认值的数值并不会触发任何实质上的节能，且当前并不支持。                                                                                                                                                                                                                                                     |
+| `core_freq_min`     | 动态频率时钟 `core_freq` 的最小值。                                                                                                                                                                                                                                                                                                                              |
+| `gpu_freq_min`     | 动态频率调节 `gpu_freq` 的最小值。                                                                                                                                                                                                                                                                                                                                 |
+| `h264_freq_min`     | 动态频率调节 `h264_freq` 的最小值。                                                                                                                                                                                                                                                                                                                                |
+| `isp_freq_min`     | 动态频率调节 `isp_freq` 的最小值。                                                                                                                                                                                                                                                                                                                                 |
+| `v3d_freq_min`     | 动态频率时钟 `v3d_freq` 的最小值。                                                                                                                                                                                                                                                                                                                                 |
+| `hevc_freq_min`     | 动态频率时钟 `hevc_freq` 的最小值。                                                                                                                                                                                                                                                                                                                                |
+| `sdram_freq_min`     | 动态频率时钟 `sdram_freq` 的最小值。                                                                                                                                                                                                                                                                                                                               |
+| `over_voltage_min`     | 动态频率时钟 `over_voltage` 的最小值。该值应位于区间 \[-16,8\] 内，等同于 \[0.8V,1.4V\]，步进为 0.025V。换言之，指定 -16 将使 CPU/GPU 核心空闲电压变为 0.8V；设定为 8 将把最低电压变为 1.4V。在树莓派 4、5 上，该参数已弃用。                                                                                                                                         |
+| `over_voltage_delta`     | 在树莓派 4、5 上，参数 `over_voltage_delta` 会将给定的偏移量（µV）添加到 DVFS 算法计算的数值中。                                                                                                                                                                                                                                                        |
+| `temp_limit`     | 过热保护。当 SoC 达到设定值（°C）时，会将时钟和电压设置为默认值。超过 85 的值仍为 85。                                                                                                                                                                                                                                                                          |
+| `temp_soft_limit`     | **仅适用于 3A+、3B+。**  CPU 速度节流控制。它设定了启动 CPU 时钟速度节流系统的温度。在此温度下，时钟速度将从 1400MHz 降至 1200MHz。默认值为 `60`，最大可升至 `70`，但可能会大不稳定。                                                                                                                                                                                    |
 
 该表提供了各种树莓派型号选项的默认值，所有频率均以 MHz 表示。
 
@@ -604,7 +604,7 @@ gpio=17-21=ip
 | `over_voltage_sdram_i`     | 0 (1.2 V)                   |
 | `over_voltage_sdram_p`     | 0 (1.2 V)                   |
 
-固件使用自适应电压调整（AVS）来确定在 over_voltage 和 over_voltage_min 定义的范围内的最佳 CPU/GPU 核心电压。
+固件使用自适应电压调整（AVS）来确定在 over_voltage 和 over_voltage_min 定义的区间内的最佳 CPU/GPU 核心电压。
 
 #### 适用于树莓派 4、400 和 CM4
 
