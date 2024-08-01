@@ -3,7 +3,7 @@
 ## 什么是 MicroPython？
 
 
-MicroPython 是 Python 3 编程语言的完整实现，直接运行在嵌入式硬件上，例如树莓派 Pico。你可以通过 USB 串口获得交互式提示（REPL），立即执行命令，并且具备内置文件系统。Pico 版的 MicroPython 包括用于访问低级别芯片特定硬件的模块。
+MicroPython 是编程语言 Python 3 的完整实现，直接运行在嵌入式硬件（如树莓派 Pico）上。你可以用 USB 串口获得交互提示（REPL），立即执行命令，并且内置了文件系统。Pico 版的 MicroPython 包含了用于访问底层芯片特定硬件的模块。
 
 * [MicroPython Wiki](https://github.com/micropython/micropython/wiki)
 * [MicroPython 论坛 ](https://forum.micropython.org/)
@@ -21,8 +21,9 @@ MicroPython 是 Python 3 编程语言的完整实现，直接运行在嵌入式�
 
 要在树莓派 Pico W 上使用 Wi-Fi 和蓝牙，可以使用 C/C++ 或 MicroPython，参见 [Connecting to the Internet with 树莓派 Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)。有关支持的蓝牙协议和配置文件的详细信息，请查看 Blue Kitchen 的 [BTStack](https://github.com/bluekitchen/btstack) GitHub 仓库。
 
-| 注意 | 其他基于 RP2040 的板子的 MicroPython 发行版可在 [MicroPython 下载页面 ](https://micropython.org/download/) 上找到。 |
-| ------ | -------------------------------------------------------------------------------- |
+>**注意**
+>
+>其他基于 RP2040 的板子的 MicroPython 发行版可在 [MicroPython 下载页面 ](https://micropython.org/download/) 上找到。 
 
 要编程你的设备，请按照以下步骤操作：
 
@@ -39,7 +40,7 @@ MicroPython 是 Python 3 编程语言的完整实现，直接运行在嵌入式�
 
 [树莓派 Pico Python SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf) - 用于 RP2040 微控制器的 MicroPython 环境
 
-[Connecting to the Internet with 树莓派 Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf) - 使用 C/C++ 或 MicroPython 将 树莓派 Pico W 连接到互联网
+[Connecting to the Internet with 树莓派 Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf) - 使用 C/C++ 或 MicroPython 将树莓派 Pico W 连接到互联网
 
 [RP2 Quick Reference](https://docs.micropython.org/en/latest/rp2/quickref.html) - 关于 MicroPython RP2040 端口的官方文档
 
@@ -58,15 +59,14 @@ MicroPython 是 Python 3 编程语言的完整实现，直接运行在嵌入式�
 * 将树莓派 Pico W 转换为物联网的网络连接节点
 * 将你的 Pico W 与智能手机、平板电脑或另一个 Pico W 通过蓝牙低功耗（BLE）连接起来
 
-## 我正在哪种硬件上运行？
-
+## 我正在用的硬件是哪个？
 
 在 MicroPython 中，没有直接的方法可以通过查看硬件来判断是在树莓派 Pico 还是 Pico W 上运行的软件。然而，你可以间接地通过查看你的特定 MicroPython 固件中是否包含网络功能来判断：
 
 ```python
 import network
 if hasattr(network, "WLAN"):
-   # 该板具有 WLAN 功能
+   # 该主板搭载了 WLAN 功能
 ```
 
 另外，你可以使用`sys`模块检查 MicroPython 固件的版本，以确定它是否为树莓派 Pico 或 Pico W 编译而成：
@@ -74,7 +74,7 @@ if hasattr(network, "WLAN"):
 ```python
 >>> import sys
 >>> sys.implementation
-(name='micropython', version=(1, 19, 1), _machine='树莓派 Pico W with RP2040', _mpy=4102)
+(name='micropython', version=(1, 19, 1), _machine='Raspberry Pi Pico W with RP2040', _mpy=4102)
 ```
 
-如果`sys.implementation._machine`中包含字符串 'Pico W'，则你的固件是为 Pico W 编译的。
+如果`sys.implementation._machine`中包含字符串 'Pico W'，那么你的固件是为 Pico W 编译的。
