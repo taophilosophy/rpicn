@@ -3,17 +3,17 @@
 
 ## 简介
 
-树莓派系统（Raspberry Pi OS）是一款免费操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有超过 35,000 个 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
+树莓派系统（Raspberry Pi OS）是一款免费的操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有超过 35,000 款 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
 
 因为树莓派系统源自 Debian，因此树莓派系统基于 Debian [发布周期](https://wiki.debian.org/DebianReleases)内的阶段发行版本。大约每 2 年发布一次。
 
-最新版本的树莓派系统基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。先前版本基于 [Debian Bullseye](https://www.raspberrypi.com/news/raspberry-pi-os-debian-bullseye/)。
+最新版的树莓派系统基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。上个版本基于 [Debian Bullseye](https://www.raspberrypi.com/news/raspberry-pi-os-debian-bullseye/)。
 
-你可在 [raspberrypi.com/software/operating-systems/](https://raspberrypi.com/software/operating-systems/) 下载树莓派系统的镜像。
+你可在 [raspberrypi.com/software/operating-systems/](https://raspberrypi.com/software/operating-systems/) 下载树莓派系统镜像。
 
 ## 更新软件
 
-请始终确保你在树莓派系统上运行的软件，其版本已更至最新。这可以使你的设备免受[漏洞](https://cve.mitre.org/index.html)的影响，并确保你能及时收到最新的补丁。
+请始终确保你在树莓派系统上运行的软件版本是最新的。这可以使你的设备免受[漏洞](https://cve.mitre.org/index.html)的影响，并确保你能及时收到最新补丁。
 
 ### 使用 APT 管理软件包
 
@@ -35,11 +35,11 @@ $ sudo apt full-upgrade
 
 >**技巧**
 >
->与 Debian 不同，树莓派系统始终处于开发状态。因此，软件包的依赖关系有时会发生变更，因此你应始终使用 `full-upgrade`，而不要用标准的 `upgrade`。
+>与 Debian 不同，树莓派系统始终处于开发状态。因此，软件包的依赖关系有时会发生变更，因此你应始终使用 `full-upgrade`，而不要用普通的 `upgrade`。
 
-请定期运行这些命令，以确保软件保持最新状态。在使用 `apt` 维持树莓派系统最新状态时，也会同时把你的 Linux 内核和固件变成最新版本（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
+请定期运行这些命令，确保软件保持最新状态。在使用 `apt` 维持树莓派系统最新状态时，也会同时把你的 Linux 内核和固件变成最新版本（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
 
-在树莓派官方发布树莓派系统大版本更新后，执行上述命令也不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
+在树莓派官方发布树莓派系统大版本更新后，执行上述命令亦不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
 
 #### 搜索软件
 
@@ -109,7 +109,7 @@ Description-md5: 19630c04463bfe7193152448b53d85a0
 $ sudo apt install <软件包名>
 ```
 
-`apt` 将显示软件包将占用的磁盘空间量。输入 **Y** 并按 **回车键** 来确认安装。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
+`apt` 会显示软件包将占用的磁盘容量。输入 **Y** 并按 **回车键** 来确认安装。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
 
 #### 卸载软件包
 
@@ -143,7 +143,7 @@ $ sudo apt clean
 
 >**警告**
 >
->请在尝试进行大版本更新时，先行备份。
+>请在尝试进行大版本更新前，先行备份。
 
 要把树莓派系统这个操作系统更新至最新大版本，请使用另外一张 SD 卡，在它上面写入新版本的镜像。从先前安装的旧系统（使用 SD 卡读卡器或网络存储）复制文件和配置到这张新的 SD 卡。然后，将这张新的 SD 卡插进树莓派上的卡槽，再启动。
 
@@ -151,7 +151,7 @@ $ sudo apt clean
 
 >**警告**
 >
->请在尝试固件更新时，先行备份。
+>请在尝试固件更新前，先行备份。
 
 >**警告**
 >
@@ -195,7 +195,7 @@ $ sudo apt install --reinstall raspi-firmware
 >$ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
 >```
 >
->最后，使用 `sudo reboot` 重启你的树莓派以使这些变更生效。
+>最后，用 `sudo reboot` 重启你的树莓派以使上述变更生效。
 
 ## 播放音频和视频
 
@@ -206,7 +206,7 @@ $ sudo apt install --reinstall raspi-firmware
 
 #### 图形界面的 VLC 
 
-要在树莓派桌面播放音视频文件，请在文件管理器中双击文件。这将自动触发 VLC 播放文件。或者，从“**声音和视频（Sound & Video）**”菜单中启动 **VLC 媒体播放器（VLC Media Player）**。然后，从“**媒体（Media）**”菜单中选择“**打开文件...（Open File…）**”，并找到到要播放的文件。
+要在树莓派桌面播放音视频文件，请在文件管理器里双击文件。这将自动触发 VLC 播放文件。或者，从“**声音和视频（Sound & Video）**”菜单中启动 **VLC 媒体播放器（VLC Media Player）**。然后，从“**媒体（Media）**”菜单中选择“**打开文件...（Open File…）**”，并找到到要播放的文件。
 
 在默认情况下，树莓派系统会通过 HDMI 将音频输出至你的显示器。要将音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选择。
 
@@ -272,7 +272,7 @@ $ cvlc --play-and-exit computer-startup-music.mp3
 $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startup-music.mp3
 ```
 
-用以下选项来替换占位符 `<alsa-设备>` ：
+用以下参数来替换占位符 `<alsa-设备>` ：
 
 | ALSA 设备 | 说明                                                              |
 | :-----------: | :-------------------------------------------------------------------: |
@@ -390,9 +390,9 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 | `h264`     | H.264 模块               |
 | `isp`     | 图像传感器管道         |
 | `v3d`     | 3D 模块                   |
-| `uart`     | UART                   |
+| `uart`     | 串口                 |
 | `pwm`     | PWM 模块（模拟音频输出） |
-| `emmc`     | SD 卡接口              |
+| `emmc`     | 存储卡接口              |
 | `pixel`     | 像素阀（Pixel valves）                 |
 | `vec`     | 模拟视频编码器         |
 | `hdmi`     | HDMI                   |
@@ -429,7 +429,7 @@ $ vcgencmd get_config total_mem
 
 ##### `codec_enabled [类型]`
 
-可报告指定类型的解码器是否已启用。可支持以下类型：AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块不属于 VideoCore GPU，因此无法用此命令查看其状态。
+可报告指定类型的解码器是否已启用。可支持以下类型：AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块并不属于 VideoCore GPU，因此无法用此命令查看状态。
 
 ##### `mem_oom`
 
@@ -459,7 +459,7 @@ $ vcgencmd get_config total_mem
 
 ## 在树莓派上使用 Python
 
-树莓派系统预装了 Python 3。对已安装的系统级 Python 进行破坏，可能会引发操作系统故障。安装第三方 Python 库时，请始终正确使用软件包管理工具。
+树莓派系统预装了 Python 3。对已安装的系统级 Python 进行破坏，可能会引发操作系统故障。在安装第三方 Python 库时，请始终正确使用软件包管理工具。
 
 在 Linux 上，你可以用两种方式来安装 `python` 依赖包：
 
@@ -481,7 +481,7 @@ $ vcgencmd get_config total_mem
 $ sudo apt install python3-build-hat
 ```
 
-要查找使用 `apt` 分发的 Python 包，请[使用 `apt search`](https://www.raspberrypi.com/documentation/computers/os.html#search-for-software)。在大多数情况下，Python 包使用前缀 `python-` 和 `python3-`：比如，你会发现，名为 `python3-numpy` 的包，它就是 `numpy`。
+要查找使用 `apt` 分发的 Python 包，请[使用 `apt search`](https://www.raspberrypi.com/documentation/computers/os.html#search-for-software)。在大多数情况下，Python 包使用前缀 `python-` 和 `python3-`：比如，你会发现，名为 `python3-numpy` 的包，即为 `numpy`。
 
 ### 使用 `pip` 安装 Python 库
 
@@ -489,7 +489,7 @@ $ sudo apt install python3-build-hat
 
 在旧版本的树莓派系统中，你可以用 `pip` 直接把库安装到系统级 Python 中。自树莓派系统 *Bookworm* 以降，用户无法直接把库安装到系统级 Python。
 
-应该[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户把库安装成系统级，[请用 `apt` 来安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
+应该[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户把库安装为系统级，[请用 `apt` 来安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
 
 若尝试在系统级安装 Python 软件包，将会输出类似以下报错：
 
@@ -691,7 +691,7 @@ while True:
         led.off()
 ```
 
- 还可这么写：
+还可这么写：
 
 ```
 from gpiozero import LED, Button
@@ -706,7 +706,7 @@ while True:
     led.off()
 ```
 
- 又或者这么写：
+亦或这么写：
 
 ```
 from gpiozero import LED, Button
@@ -722,6 +722,6 @@ button.when_released = led.off
 
 ![GPIO Zero 基础电子学](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)
 
-你可以在由树莓派出版社出版的书籍[《GPIO Zero 基础电子学》（Simple Electronics with GPIO Zero）](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)中，找到有关如何使用 GPIO Zero Python 库编程，沟通你树莓派的更多信息。该书使用 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
+你可以在由树莓派出版社出版的书籍[《GPIO Zero 基础电子学》（Simple Electronics with GPIO Zero）](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)中，找到有关如何使用 GPIO Zero Python 库编程，联系你树莓派的更多信息。该书使用 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
 
 你可以免费[下载这本书](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)的 PDF 文件，它是根据[知识共享署名-非商业性使用-相同方式共享 3.0 国际许可（CC BY NC-SA）](https://creativecommons.org/licenses/by-nc-sa/3.0/)发布的。
