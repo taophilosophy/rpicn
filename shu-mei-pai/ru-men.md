@@ -338,42 +338,42 @@
 
 ### 完成
 
-在配置向导结束时，点击“**重启（Restart）**”来重启你的树莓派。你的树莓派将应用个性化并启动至桌面。
+在配置向导结束后，点击“**重启（Restart）**”来重启你的树莓派。你的树莓派将应用个性化并启动至桌面。
 
 ![设置完成对话框，提示重启树莓派](https://www.raspberrypi.com/documentation/computers/images/initial-setup/restart.png)
 
 ## 下一步
  
 
-树莓派已设置并准备就绪，接下来做什么？
+树莓派已经设定并准备就绪，接下来做什么？
 
 ### 软件推荐
 
-树莓派操作系统预装了许多基本应用程序，因此可以开箱即用。如果你想使用我们认为有用的其他软件，请单击屏幕左上角的树莓派图标。选择 **首选项（Preferences）** > **推荐软件（Recommended Software）**，你将找到软件包管理器。你可以在此免费安装各种推荐软件。
+树莓派操作系统预装了许多基本应用程序，因此可开箱即用。如果你想使用那些我们认为有用的软件，请单击屏幕左上角的树莓派图标。选择 **首选项（Preferences）** > **推荐软件（Recommended Software）**，你能找到软件包管理器。你可以在那免费安装各种推荐软件。
 
 ![在树莓派系统中打开图形界面的软件包管理器](../.gitbook/assets/recommended-software.png)
 
-具体来说，如果你打算把树莓派当家用电脑用，你可能会需要 LibreOffice，它对于撰写和编辑文档和电子表格非常有用。你还可以通过诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序使树莓派更易于使用，这些应用程序位于通用访问下。
+具体来说，如果你打算把树莓派当家用电脑用，你可能会需要 LibreOffice，它对于撰写和编辑文档和电子表格极有用。你还可以使用诸如屏幕放大器和 Orca 屏幕阅读器之类的应用程序，来让树莓派更加易于使用，这些应用程序在通用访问里。
 
 ### 教程
 
-[我们的教程](https://www.raspberrypi.com/tutorials/)向你介绍了各种方式，都是有关你的新树莓派如何使用的。你可以跟随那些能激发你兴趣的教程，来学习编程、控制外部设备，并构建令人兴奋的新项目。
+[我们的教程](https://www.raspberrypi.com/tutorials/)向你介绍了各种有关你新树莓派使用的方法。你可以跟随那些让你感兴趣的教程，来学习编程、控制外部设备，并创建令人兴奋的新项目。
 
 ### 支持
 
-对于官方树莓派产品的支持，及与其他树莓派用户交流，请访问[树莓派论坛](https://forums.raspberrypi.com/?_gl=1*j1etrl*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDY5NTU5OC4xOC4wLjE3MjA2OTU1OTguMC4wLjA.)。
+对于树莓派官方产品的支持，与其他树莓派用户交流，请访问[树莓派论坛](https://forums.raspberrypi.com/?_gl=1*j1etrl*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDY5NTU5OC4xOC4wLjE3MjA2OTU1OTguMC4wLjA.)。
 
 ### 进一步阅读
 
 ![树莓派官方初学者指南](https://www.raspberrypi.com/documentation/computers/images/fifth-editon-cover.png)
 
-你可以在由 Gareth Halfacree 撰写的最新版《[树莓派官方初学者指南](https://store.rpipress.cc/collections/latest-releases/products/the-official-raspberry-pi-beginners-guide-5th-edition)》中找到有关如何开始使用树莓派的更多信息。
+你可以在由 Gareth Halfacree 撰写的最新版《[树莓派官方初学者指南](https://store.rpipress.cc/collections/latest-releases/products/the-official-raspberry-pi-beginners-guide-5th-edition)》中找到有关树莓派入门使用的更多信息。
 
- 可学习如何：
+可学习如何：
 
 * 配置你的树莓派，为其安装操作系统，并开始使用这台功能齐全的计算机。
 * 使用编程语言 Scratch 3、Python 和 MicroPython，通过逐步指南开始编程项目。
-* 尝试连接电子元件，并乐在其中创造令人惊叹的项目。
+* 尝试连接电子元件，乐在其中，创造令人惊叹的项目。
 
 第五版的新增内容：
 
