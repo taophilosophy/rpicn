@@ -9,7 +9,7 @@
 * USB ARM 串行线调试（SWD）接口
 * USB 串口桥接器
 * 兼容 CMSIS-DAP 标准
-* 与支持 CMSIS-DAP 的 OpenOCD 和其他工具配合使用
+* 与兼容 CMSIS-DAP 的 OpenOCD 和其他工具搭配使用
 * 易升级的开源固件
 
 >**注意**
