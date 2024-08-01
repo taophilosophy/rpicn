@@ -31,5 +31,7 @@
 
 ## 服务
 
-* [树莓派账号（Raspberry Pi ID）](fu-wu/shu-mei-pai-zhang-hao-raspberry-pi-id.md)
-* [树莓派远程访问（Raspberry Pi Connect）Beta 版](fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)
+| | | 
+|:---:|:---:|
+|  <a href="fu-wu/shu-mei-pai-zhang-hao-raspberry-pi-id.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/RP2040.png" alt="树莓派账号（Raspberry Pi ID）" /></a> <br>**树莓派账号（Raspberry Pi ID）** <br> <br>我们的身份验证服务|<a href="fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/Pico.png" alt="树莓派远程访问（Raspberry Pi Connect）Beta 版" /></a><br>**树莓派远程访问（Raspberry Pi Connect）Beta 版** <br> <br>用浏览器连接树莓派|
+
