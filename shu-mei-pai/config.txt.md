@@ -958,7 +958,7 @@ vc4.tv_norm=<视频模式>
 
 #### `ignore_lcd`
 
-在默认情况下，会在 I²C 总线上检测树莓派触摸显示屏。`ignore_lcd=1` 可跳过此检测阶段，以禁用 LCD 显示屏。
+在默认情况下，会在 I²C 总线上检测树莓派触摸显示屏。`ignore_lcd=1` 可跳过这个检测阶段，以禁用 LCD 显示屏。
 
 #### `disable_touchscreen`
 
@@ -984,4 +984,4 @@ vc4.tv_norm=<视频模式>
 
 ### `awb_auto_is_greyworld`
 
-将 `awb_auto_is_greyworld` 置为 `1`，可让自身不支持灰色世界参数的库、应用程序使用夜视（NoIR）摄像头捕捉有效的图像、视频。它将自动 awb 模式切换使用灰色世界算法。仅适用于无红外摄像机、[已移除红外滤光片](https://www.raspberrypi.com/documentation/accessories/camera.html#filter-removal)的高质量（HQ）摄像机。
+将 `awb_auto_is_greyworld` 置为 `1`，可让自身不带灰度世界算法的库和应用程序使用夜视（NoIR）摄像头捕捉到有效的图像、视频。它将自动 awb 模式切换使用灰度世界算法。仅适用于夜视 NoIR 摄像机、[移除了红外滤光片](https://www.raspberrypi.com/documentation/accessories/camera.html#filter-removal)的高质量（HQ）摄像机。
