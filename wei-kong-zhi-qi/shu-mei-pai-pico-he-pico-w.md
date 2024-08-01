@@ -71,7 +71,7 @@
 
 >**重要**
 >
-> 除了[BTstack 标准许可](https://github.com/bluekitchen/btstack/blob/master/LICENSE) 条款外，还附带了一份[补充许可证](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_btstack/LICENSE.RP)，涉及了在树莓派 Pico W、Pico WH 上 BTstack 的商业使用用途。 
+> 除了 [BTstack 标准许可](https://github.com/bluekitchen/btstack/blob/master/LICENSE)条款外，还附带了一份[补充许可证](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_btstack/LICENSE.RP)，涉及了在树莓派 Pico W、Pico WH 上 BTstack 的商业使用用途。 
 
 ### 引脚定义和设计文件
 
