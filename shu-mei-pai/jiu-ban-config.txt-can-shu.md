@@ -2,15 +2,15 @@
 
 ## 旧版参数
 
-这里所说的 config.txt 参数被视为旧参数，树莓派系统 Bookworm 不再使用，且没有官方支持。它们要么涉及旧软件（如固件图形驱动程序）、要么已弃用、要么只有极少数人才可能会使用到。然而，它们仍被记录在此，因为它们对于使用旧操作系统的用户进行裸机开发的人可能仍然有用。
+这里所说的 config.txt 参数被视为旧参数，树莓派 Bookworm 系统不再使用，且没有官方支持。它们要么涉及旧软件（如固件图形驱动程序）、要么已弃用、要么只有极少数人才可能会使用到。然而，它们仍被记录在此，因为它们对于使用旧操作系统的用户进行裸机开发的人可能仍然有用。
 
 ## 旧版启动参数
 
-(另请参阅 config.txt 启动选项。)
+(另请参阅 config.txt 启动参数。)
 
 ### `start_x`、`start_debug`
 
-这些提供了一些替代 start_file 和 fixup_file 设置的快捷方式，是选择固件配置的推荐方法。
+这里提供了一些替代 start_file 和 fixup_file 设置的快捷方式，是选择固件配置的推荐方法。
 
   start_x=1 意味着
 
@@ -30,16 +30,15 @@
 
 ### `disable_commandline_tags`
 
-将 disable_commandline_tags 命令设置为 1，以阻止 start.elf 在启动内核之前填充 ATAGS（来自 0x100 的内存）。
+将 disable_commandline_tags 参数置为 1，能在启动内核之前禁止 start.elf 填充 ATAGS（来自 0x100 的内存）。
 
 ### `arm_control`
 
 >**警告**
 >
->此设置已弃用。请改用 arm_64bit 启用 64 位内核。
+>此设置已弃用。请改用 arm_64bit 以启用 64 位内核。
 
-
-设置特定于板的控制位。
+设置特定于主板的控制位。
 
 ### `armstub`
 
@@ -49,7 +48,7 @@ stub 是在内核之前运行的一小段 ARM 代码。其工作是在将控制�
 
 ### `arm_peri_high`
 
-将 arm_peri_high 设置为 1 可以在树莓派 4 上启用高外设模式。如果加载了适当的 DTB，则会自动设置。
+将 arm_peri_high 置为 1 可在树莓派 4 上启用高外设模式。如果加载了适当的 DTB，则会自动设置。
 
 
 >**注意**
@@ -63,15 +62,15 @@ kernel_address 是内核镜像应加载到的内存地址。默认情况下，32
 
 ### `kernel_old`
 
-将 kernel_old 设置为 1 可将内核加载到内存地址 0x0。
+将 kernel_old 置为 1 可将内核加载到内存地址 0x0。
 
 ### `init_uart_baud`
 
-init_uart_baud 是初始串口波特率。默认值为 115200。
+init_uart_baud 是初始化串口波特率。默认值为 115200。
 
 ### `init_uart_clock`
 
-init_uart_clock 是初始串口时钟频率。默认值为 48000000 （48MHz）。请注意，此时钟仅适用于 UART0（Linux 中的 ttyAMA0），且串口的最大波特率受限于时钟的 1/16。树莓派 3 和树莓派 Zero 上的默认串口是 UART1（Linux 中的 ttyS0），其时钟为核心 VPU 时钟 - 至少 250MHz。
+init_uart_clock 是初始化串口时钟频率。默认值为 48000000（即 48MHz）。请注意，此时钟仅适用于 UART0（Linux 中的 ttyAMA0），且串口的最大波特率受限于时钟的 1/16。树莓派 3 和树莓派 Zero 上的默认串口是 UART1（Linux 中的 ttyS0），其时钟为核心 VPU 时钟 - 至少 250MHz。
 
 ### `bootcode_delay`
 
@@ -89,7 +88,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 ### enable_gic （仅适用于树莓派 4）
 
-在树莓派 4B 上，如果将此值置为 0，则中断将通过以前的中断控制器路由到 Arm 内核，而不是通过 GIC-400。默认值为 1。
+在树莓派 4B 上，如果将此值置为 0，则中断将通过以前的中断控制器路由到 Arm 内核，而不经 GIC-400。默认值为 1。
 
 ### `sha256`
 
@@ -99,13 +98,13 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 设置 uart_2ndstage=1 会导致第二阶段加载程序（在树莓派 4 之前的设备上为 bootcode.bin，在树莓派 4 设备上为 EEPROM 中的引导代码）和主固件（ start*.elf ）将诊断信息输出到 UART0。
 
-请注意，输出可能会干扰蓝牙操作，除非将其禁用（ dtoverlay=disable-bt ）或切换到另一个 UART（ dtoverlay=miniuart-bt ），如果 UART 同时访问 Linux 输出，则可能会导致数据丢失，从而导致输出损坏。只有在尝试诊断早期引导加载问题时才应该需要此功能。
+请注意，输出可能会干扰蓝牙工作，除非将其禁用（ dtoverlay=disable-bt ）或切换到另一个 UART（ dtoverlay=miniuart-bt ），如果 UART 同时访问 Linux 输出，则可能会导致数据丢失，从而导致输出损坏。只有在尝试诊断早期引导加载问题时才应该需要此功能。
 
 ### `upstream_kernel`
 
 如果使用 upstream_kernel=1，固件会将 os_prefix 设置为"upstream/"，除非已明确设置为其他内容，但与其他 os_prefix 值一样，如果在使用前缀时找不到所需的内核和.dtb 文件，则会被忽略。
 
-固件还会优先使用 DTB 的上游 Linux 名称（如 bcm2837-rpi-3-b.dtb 而不是 bcm2710-rpi-3-b.dtb）。如果找不到上游文件，则固件将加载下游衍生，并自动应用"upstream"叠加以进行一些调整。请注意，此过程发生在 os_prefix 最终确定之后。
+固件还会优先使用 DTB 的上游 Linux 名称（bcm2837-rpi-3-b.dtb 先于 bcm2710-rpi-3-b.dtb）。如果找不到上游文件，则固件将加载下游衍生文件，并自动应用"upstream"叠加以进行一些调整。请注意，此过程发生在 os_prefix 最终确定之后。
 
 ## 旧版 GPIO 控制
 
@@ -116,7 +115,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 设置 enable_jtag_gpio=1 选择 GPIO 引脚 22-27 的 Alt4 模式，并设置一些内部 SoC 连接，启用 Arm CPU 的 JTAG 接口。它适用于所有型号的树莓派。
 
 | 引脚号 | 功能     |
-| -------- | ---------- |
+| :--------: | :----------: |
 | GPIO22 | ARM_TRST |
 | GPIO23 | ARM_RTCK |
 | GPIO24 | ARM_TDO  |
@@ -132,7 +131,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 #### `never_over_voltage`
 
-在一次性可编程（OTP）存储器中置一个位，防止设备过电压。旨在锁定树莓派，以防止无意或恶意地使用无效过电压改变保修位。
+在一次性可编程（OTP）存储器中置一个位，防止设备过压。旨在锁定树莓派，以防止无意、或恶意地使用无效过电压篡改保修位。
 
 #### `disable_auto_turbo`
 
@@ -148,7 +147,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 >
 >此过滤器仅适用于树莓派 4。
 
-树莓派 4 有两个 HDMI，对于和 HDMI 相关的 config.txt 命令有许多个，有必要指定所指的 HDMI 接口。HDMI 条件过滤器将后续 HDMI 配置限制到特定接口。
+树莓派 4 有两个 HDMI 端口，同 HDMI 相关的 config.txt 命令有许多，有必要指定所针对的 HDMI 端口。HDMI 条件过滤器将后续 HDMI 配置限制到特定端口。
 
 ```
  [HDMI:0]
@@ -159,7 +158,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
    hdmi_mode=67
 ```
 
-所有特定接口 HDMI 命令都提供了另一种 variable:index 语法。你可以使用以下内容，这与前面的示例相同：
+所有特定端口的 HDMI 命令都提供了另一种 variable:index 语法。你可以使用以下内容，这与前面的示例相同：
 
 ```
  hdmi_group:0=2
@@ -174,7 +173,7 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 
 >**注意**
 >
->树莓派 5 不会代表操作系统分配 GPU 内存，因此以下设置无效。
+>树莓派 5 不会代表操作系统分配 GPU 内存，因此以下参数无效。
 
 ### `gpu_mem`
 
@@ -193,31 +192,31 @@ boot_delay_ms 命令意味着在加载内核之前在 start.elf 中等待给定�
 建议的最大值如下：
 
 | 总内存     |  推荐的 gpu_mem 最大值             |
-| ------------ | ---------------------------------- |
+| :------------: | :----------------------------------: |
 | 256MB      | `128`                                 |
 | 512MB      | `384`                                 |
-| 1GB 及更大 | 在树莓派 4 上，为 512，76 |
+| 1GB 及更大 | 树莓派 4 为 512，76 |
 
 >**重要**
 >
->树莓派系统上的相机堆栈（libcamera）使用 Linux CMA 内存来分配缓冲区，而非 GPU 显存，因此增加 GPU 显存大小没有任何好处。
+>树莓派系统上的相机堆栈（libcamera）使用 Linux CMA 内存来分配缓冲区，而不使用 GPU 显存，所以增加 GPU 显存大小不会得到任何好处。
 
 
-可以把 gpu_mem 设置为较大值，但应避免这样做，因为可能会导致问题（如妨碍 Linux 启动）。gpu_mem 的最小值为 16，但这会禁用某些 GPU 功能。
+允许把 gpu_mem 设置成较大的值，但不建议这么做，因为可能会导致故障（如妨碍 Linux 启动）。gpu_mem 的最小值为 16，但此值将禁用某些 GPU 功能。
 
 你还可以使用 gpu_mem_256、gpu_mem_512、gpu_mem_1024，以便在不同内存量的树莓派之间交换相同的 SD 卡，而无需每次都编辑 config.txt ：
 
 ### `gpu_mem_256`
 
-gpu_mem_256 命令为具有 256MB 内存的树莓派设置以 MB 为单位的 GPU 内存。如果内存容量不是 256MB，则会被忽略。这会覆盖 gpu_mem。
+gpu_mem_256 命令为搭载 256 MB 内存的树莓派设置 GPU 内存（MB）。如果内存容量不是 256MB，则无效。该参数会覆盖 gpu_mem。
 
 ### `gpu_mem_512`
 
-gpu_mem_512 命令设置树莓派内存为 512MB 时的 GPU 内存（以 MB 为单位）。如果内存容量不是 512MB，则会被忽略。这将覆盖 gpu_mem。
+gpu_mem_512 命令为搭载 512 MB 内存的树莓派设置 GPU 内存（以 MB 为单位）。如果内存容量不是 512MB，则会被忽略。这将覆盖 gpu_mem。
 
 ### `gpu_mem_1024`
 
-gpu_mem_1024 命令设置树莓派内存为 1GB 或更多时的 GPU 内存（以 MB 为单位）。如果内存容量小于 1GB，则会被忽略。这将覆盖 gpu_mem。
+gpu_mem_1024 命令为搭载 1GB（及更大容量）内存的树莓派设置 GPU 内存（以 MB 为单位）。如果内存容量小于 1GB，则会被忽略。这将覆盖 gpu_mem。
 
 ### `disable_l2cache`
 
