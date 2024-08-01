@@ -46,16 +46,16 @@
 
 ## 树莓派 Pico W、Pico WH
 
-树莓派 Pico W 在维系 Pico 外形尺寸的同时，搭载了内置的 2.4GHz 单频无线接口（802.11n），基于 Infineon CYW43439 芯片。内置的 2.4GHz 无线接口具有以下特性：
+树莓派 Pico W 在维系 Pico 外形尺寸的同时，搭载了内置的 2.4GHz 单频无线接口（802.11n），基于英飞凌（Infineon）CYW43439 芯片。内置的 2.4GHz 无线接口拥有以下功能：
 
-- 无线（802.11n），单频段（2.4 GHz）
+- 无线（802.11n），单频（2.4 GHz）
 - WPA3
-- 软接入点，支持最多四个客户端
+- 软接入点，最多支持四个客户端
 - 蓝牙 5.2
   - 支持蓝牙低功耗中心与外围角色
-  - 支持经典蓝牙
+  - 兼容传统蓝牙
 
-天线是来自 ABRACON（前身为 ProAnt）的内置天线。无线接口通过 SPI 连接到 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040) 微控制器。
+内置天线来自艾博康（ABRACON，前身为 ProAnt）。无线接口通过 SPI 连接到 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040) 微控制器。
 
 由于引脚限制，部分无线接口引脚是共享的。CLK 与 VSYS 监视器共享，因此只有在没有 SPI 事务进行时才能通过 ADC 读取 VSYS。Infineon CYW43439 的 DIN/DOUT 和 IRQ 都共用一个 RP2040 引脚。只有在没有 SPI 事务进行时才适合检查 IRQ。接口通常以 33MHz 运行。
 
