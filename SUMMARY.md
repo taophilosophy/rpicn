@@ -40,7 +40,7 @@
 
 * [RP2040](wei-kong-zhi-qi/rp2040.md)
 * [树莓派 Pico 和 Pico W](wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md)
-* [树莓派调试器（Raspberry Pi Debug Probe）](wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md)
+* [树莓派调试套件（Raspberry Pi Debug Probe）](wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md)
 * [RP1](wei-kong-zhi-qi/rp1.md)
 * [MicroPython](wei-kong-zhi-qi/micropython.md)
 * [C/C++ SDK](wei-kong-zhi-qi/c-c++-sdk.md)
