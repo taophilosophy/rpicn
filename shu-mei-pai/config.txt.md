@@ -2,7 +2,7 @@
 
 ## `config.txt` 是什么？
 
-树莓派设备采用了配置文件——`config.txt`，来代替普通 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS) 。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 及 Linux。树莓派设备会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
+树莓派设备采用了配置文件——`config.txt`，来代替普通 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS) 。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 及 Linux。树莓派系统（Raspberry Pi OS）会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
 
 >**注意**
 >
