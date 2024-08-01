@@ -16,7 +16,7 @@
 
 ## 版本说明
 
-目前已校对章节指向最后校对日期。
+目前已校对章节指向最后校对日期，参见[编辑日志](qian-yan/fan-yi-ri-zhi.md)。
 
 其他内容的版本指向 2024.7.10 <https://github.com/raspberrypi/documentation/commit/b68a629c7212e668fdfba94d227cc9ec32d9bfbb>
 
