@@ -44,9 +44,9 @@
 >
 >更多有关 Fritzing 的信息请访问 [fritzing.org](https://fritzing.org/) 网站。
 
-## 树莓派 Pico W 和 Pico WH
+## 树莓派 Pico W、Pico WH
 
-树莓派 Pico W 在保持 Pico 形态因素的同时，添加了内置的单频段 2.4GHz 无线接口（802.11n），使用 Infineon CYW43439 芯片。内置的 2.4GHz 无线接口具有以下特性：
+树莓派 Pico W 在维系 Pico 外形尺寸的同时，搭载了内置的 2.4GHz 单频无线接口（802.11n），基于 Infineon CYW43439 芯片。内置的 2.4GHz 无线接口具有以下特性：
 
 - 无线（802.11n），单频段（2.4 GHz）
 - WPA3
