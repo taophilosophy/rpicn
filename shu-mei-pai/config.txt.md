@@ -2,23 +2,23 @@
 
 ## `config.txt` 是什么？
 
-树莓派设备采用配置文件——`config.txt`，来代替普通 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS) 。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 和 Linux。树莓派系统会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
+树莓派设备采用了配置文件——`config.txt`，来代替普通 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS) 。GPU 会先读取 `config.txt`，然后再初始化 Arm CPU 及 Linux。树莓派设备会在 **启动分区**（`/boot/firmware/`）中查找 `config.txt`。
 
 >**注意**
 >
 >树莓派 *Bookworm* 之前的系统，会把启动分区放在 `/boot/`。
 
-你可以直接在你当前的树莓派系统上编辑 `config.txt`。你也可弹出存储设备，在其他计算机上，编辑启动分区中的文件（如 `config.txt`）。
+你可以直接在你当前的树莓派系统上编辑 `config.txt`。你也可弹出存储设备，在其他计算机上，编辑启动分区中的文件（含 `config.txt`）。
 
-所有对 `config.txt` 的修改，仅在重启后生效。你可使用以下命令，查看当下使用的设置：
+所有对 `config.txt` 的修改，均仅在重启后生效。你可使用以下命令，获取当下使用的设置：
 
 `vcgencmd get_config <参数>` 
 
-　　显示指定参数的值，如 `vcgencmd get_config arm_freq`
+　　打印指定参数的值，如 `vcgencmd get_config arm_freq`
 
 `vcgencmd get_config int` 
 
-　　列出所有非零整数参数（非 0）
+　　列出所有非零（`0`）的整数参数
 
 `vcgencmd get_config str`
 
@@ -26,11 +26,11 @@
 
 >**注意**
 >
->`vcgencmd` 并不能检索全部的参数。
+>`vcgencmd` 无法检索所有参数。
 
 ### 文件格式
 
-文件 `config.txt` 由早期启动固件读取，因此采用的文件格式非常简单：**每行一个语句：`属性=值`，其中 `值` 可以是整数或字符串。** 可以通过在行首添加字符 `#` 来插入注释，或注释掉现有配置值以禁用。
+`config.txt` 文件会由早期启动固件读取，因此所采取的文件格式非常简单：**每行一个语句：`属性=值`，其中 `值` 可以是整数、字符串。** 可以在行首添加字符 `#` 来插入注释，或注释掉现有配置值以禁用。
 
 每行条目的最大长度为 98 个字符。树莓派系统会忽略掉任何超出此限制的字符。
 
@@ -56,13 +56,13 @@ dtoverlay=vc4-kms-v3d
 
 在当前文件引用指定文件的内容。
 
-比如：把 `include extraconfig.txt` 这行添加到 `config.txt`——将在 `config.txt` 文件中引用文件 `extraconfig.txt` 的内容。
+比如：把 `include extraconfig.txt` 这行添加到 `config.txt`，就会在 `config.txt` 文件中引用 `extraconfig.txt` 文件的内容。
 
 >**注意**
 >
 >`bootcode.bin`、EEPROM 引导加载程序均不支持 include 指令。
 >
->由引导加载程序控制的设置，只有在 `config.txt`（而非其他附带文件）中指定时才会生效：
+>以下由引导加载程序控制的设置，仅在 `config.txt`（而非其他附带文件）中指定时才能生效：
 >
 >* `bootcode_delay`、
 >* `gpu_mem`、`gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`、
@@ -87,7 +87,7 @@ dtoverlay=vc4-kms-v3d
 
 ### `boot_partition`
 
-指定启动的分区号。也可以直接把分区号作为参数传给命令 `reboot`（如 `sudo reboot 2`）来实现。
+指定启动的分区号。也可以直接把分区号作为参数传给 `reboot`（如 `sudo reboot 2`）命令来实现。
 
 分区号从 `1` 开始，MBR 分区号为 `1` 到 `4`。指定分区 `0` 意味着从 **默认** 分区启动，默认分区是首个可引导的 FAT 分区。
 
@@ -95,7 +95,7 @@ dtoverlay=vc4-kms-v3d
 
 ### 筛选器 `[tryboot]` 
 
-如果系统在启动时设置了标志位 `tryboot`，则将激活此筛选器。
+如果在启动时系统已设置标志位 `tryboot`，则将激活此筛选器。
 
 ```
 $ sudo reboot "0 tryboot"
@@ -103,7 +103,7 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当激活标志位 `tryboot` 后，若将属性 `tryboot_a_b` 置为 `1`，会加载通常的文件 `config.txt`、`boot.img`，而不会加载文件 `tryboot.txt`、`tryboot.img`，。
+当标志位 `tryboot` 被激活后，若将属性 `tryboot_a_b` 置为 `1`，会加载通常的文件 `config.txt`、`boot.img`，而不会加载文件 `tryboot.txt`、`tryboot.img`。
 
 这样就可以在分区级（而非在文件级）上控制 `tryboot` 的开关，且无需修改 A/B 分区中的配置文件。
 
@@ -155,7 +155,7 @@ boot_partition=2
 
 >**注意**
 >
->更新 `autoboot.txt` 后并不必须重启。然而，必须小心 `Update service（更新服务）`，谨防覆盖当前分区：因为已经修改了 `autoboot.txt`，执行了最后的更新。有关更多信息，请参阅[设备树参数](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。
+>`autoboot.txt` 修改后并不必须重启。然而，必须小心不要让 `Update service（更新服务）` 覆盖当前分区：因为已经修改了 `autoboot.txt`，执行了最后的更新。有关更多信息，请参阅[设备树参数](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。
 
 ## 常见参数
  
@@ -164,7 +164,7 @@ boot_partition=2
 
 #### `hdmi_enable_4kp60`（仅适用于树莓派 4）
 
-在默认情况下，当接入 4K 显示器时，树莓派 4B、400 和 CM4 将输出 30Hz 刷新率。使用此参数可输出 60Hz 刷新率。树莓派 4 无法同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
+在默认情况下，当接入 4K 显示器时，树莓派 4B、400 和 CM4 将输出 30Hz 的刷新率。使用此参数可输出 60Hz 的刷新率。树莓派 4 无法在两个 micro HDMI 接口上同时输出 4Kp60。设置 `hdmi_enable_4kp60` 将增加功耗和温度。
 
 ### 常见硬件配置参数
 
