@@ -1,4 +1,4 @@
-# 旧版 config.txt 参数
+# config.txt 旧参数
 
 ## 旧版参数
 
