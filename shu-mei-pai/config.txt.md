@@ -12,21 +12,21 @@
 
 所有对 `config.txt` 的修改，仅在重启后生效。你可使用以下命令，查看当下使用的设置：
 
-`vcgencmd get_config <选项>` 
+`vcgencmd get_config <参数>` 
 
-　　显示指定选项的值，如 `vcgencmd get_config arm_freq`
+　　显示指定参数的值，如 `vcgencmd get_config arm_freq`
 
 `vcgencmd get_config int` 
 
-　　列出所有非零整数选项（非 0）
+　　列出所有非零整数参数（非 0）
 
 `vcgencmd get_config str`
 
-　　列出所有非空字符串选项
+　　列出所有非空字符串参数
 
 >**注意**
 >
->`vcgencmd` 并不能检索全部的选项。
+>`vcgencmd` 并不能检索全部的参数。
 
 ### 文件格式
 
@@ -34,7 +34,7 @@
 
 每行条目的最大长度为 98 个字符。树莓派系统会忽略掉任何超出此限制的字符。
 
-此处是示例文件：
+示例文件如下：
 
 ```
 # 开启音频（加载 snd_bcm2835）
@@ -54,7 +54,7 @@ dtoverlay=vc4-kms-v3d
 
 #### `include`
 
-引用指定文件的内容到当前文件。
+在当前文件引用指定文件的内容。
 
 比如：把 `include extraconfig.txt` 这行添加到 `config.txt`——将在 `config.txt` 文件中引用文件 `extraconfig.txt` 的内容。
 
@@ -71,15 +71,15 @@ dtoverlay=vc4-kms-v3d
 >* `start_x`、`start_debug`、`start_file`、`fixup_file`、
 >* `uart_2ndstage`。
 
-#### 条件筛选
+#### 条件筛选器
 
 条件筛选器位于[条件部分](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)。
 
 ## `autoboot.txt`
 
-`autoboot.txt` 是可选配置文件，可用于指定 `boot_partition` 的编号。
+`autoboot.txt` 是可选配置文件，用于指定 `boot_partition` 的编号。
 
-也可与功能 `tryboot` 一同使用，实现系统更新的 A/B 启动。
+亦可与 `tryboot` 功能一同使用，实现系统更新的 A/B 启动。
 
 `autoboot.txt` 被限制为 512 字节，支持[条件](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)筛选器 `[all]`、`[none]` 和 `[tryboot]` 。
 
@@ -89,13 +89,13 @@ dtoverlay=vc4-kms-v3d
 
 指定启动的分区号。也可以直接把分区号作为参数传给命令 `reboot`（如 `sudo reboot 2`）来实现。
 
-分区号从 `1` 开始，MBR 分区为 `1` 到 `4`。指定分区 `0` 表示从 **默认** 分区启动，默认分区是首个可引导的 FAT 分区。
+分区号从 `1` 开始，MBR 分区号为 `1` 到 `4`。指定分区 `0` 意味着从 **默认** 分区启动，默认分区是首个可引导的 FAT 分区。
 
-作为启动分区，其文件系统仅支持 FAT12、FAT16 和 FAT32，并包含一个 `start.elf` 文件（若为树莓派 5，则改为文件 `config.txt`），以便引导程序将其视为可引导。
+作为启动分区，其文件系统仅支持 FAT12、FAT16 和 FAT32，并包含了 `start.elf` 文件（若为树莓派 5，则改为文件 `config.txt`），以便引导程序将其视为可引导。
 
 ### 筛选器 `[tryboot]` 
 
-如果系统在启动时设置了标志位 `tryboot`，则此筛选器将被激活。
+如果系统在启动时设置了标志位 `tryboot`，则将激活此筛选器。
 
 ```
 $ sudo reboot "0 tryboot"
@@ -103,13 +103,13 @@ $ sudo reboot "0 tryboot"
 
 ### `tryboot_a_b`
 
-当标志位 `tryboot` 被激活后，若将属性 `tryboot_a_b` 置为 `1`，会加载普通文件 `config.txt` 和 `boot.img`，而不会加载文件 `tryboot.txt` 和 `tryboot.img`，。
+当激活标志位 `tryboot` 后，若将属性 `tryboot_a_b` 置为 `1`，会加载通常的文件 `config.txt`、`boot.img`，而不会加载文件 `tryboot.txt`、`tryboot.img`，。
 
 这样就可以在分区级（而非在文件级）上控制 `tryboot` 的开关，且无需修改 A/B 分区中的配置文件。
 
 ### A/B 启动更新流程示例
 
-以下伪代码：假设操作系统更新服务在 `autoboot.txt` 中使用 `tryboot` 执行安全的操作系统更新。
+以下伪代码：假设了操作系统更新服务在 `autoboot.txt` 中使用 `tryboot` 执行安全的操作系统更新。
 
 简单的 `autoboot.txt` :
 
@@ -125,11 +125,11 @@ boot_partition=3
 
 * 设备上电，然后从默认分区 2 启动
 * `Update service（更新服务）`下载新版操作系统到分区 3
-* 重启到 `tryboot` 模式：用 `reboot "0 tryboot"` 来测试更新，其中 `0` 代表默认分区
+* 重启到 `tryboot` 模式：用 `reboot "0 tryboot"` 来测试更新，其中 `0` 意味着默认分区
 
 **进行、取消更新**
 
-* 系统将从分区 3 启动，因为在 `tryboot mode` 中，筛选器 `[tryboot]` 的结果为 true
+* 系统将从分区 3 启动，因为在 `tryboot mode` 中，筛选器 `[tryboot]` 的结果为真（true）
 * 如果 `tryboot` 处于激活状态 ( `/proc/device-tree/chosen/bootloader/tryboot == 1` )
   * 如果当前的启动分区（ `/proc/device-tree/chosen/bootloader/partition` ）与 `autoboot.txt` 部分的 `[tryboot]`（`boot_partition`）相匹配
     * `Update service（更新服务）`验证系统以确保更新成功
@@ -157,16 +157,16 @@ boot_partition=2
 >
 >更新 `autoboot.txt` 后并不必须重启。然而，必须小心 `Update service（更新服务）`，谨防覆盖当前分区：因为已经修改了 `autoboot.txt`，执行了最后的更新。有关更多信息，请参阅[设备树参数](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。
 
-## 常见选项
+## 常见参数
  
 
-### 常见显示选项
+### 常见显示参数
 
 #### `hdmi_enable_4kp60`（仅适用于树莓派 4）
 
-在默认情况下，当接入 4K 显示器时，树莓派 4B、400 和 CM4 将输出 30Hz 刷新率。使用此选项可输出 60Hz 刷新率。树莓派 4 无法同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
+在默认情况下，当接入 4K 显示器时，树莓派 4B、400 和 CM4 将输出 30Hz 刷新率。使用此参数可输出 60Hz 刷新率。树莓派 4 无法同时在两个 micro HDMI 接口上输出 4Kp60。设置 `hdmi_enable_4kp60` 会增加功耗和温度。
 
-### 常见硬件配置选项
+### 常见硬件配置参数
 
 #### `camera_auto_detect`
 
@@ -178,7 +178,7 @@ boot_partition=2
 
 #### `dtoverlay`
 
-`dtoverlay` 选项将要求固件加载指定的设备树覆盖层——这是个配置文件，可启用内、外围硬件的内核支持。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
+`dtoverlay` 参数将要求固件加载指定的设备树覆盖层——这是个配置文件，可启用内、外围硬件的内核支持。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
 
 作为例外，如果在调用时未赋值（即 `dtoverlay=`），则表示直接覆盖至参数列表的末尾。如果定义在一切 `dtoverlay`、`dtparam` 参数之前，那么所有的扩展板叠加层均不会加载。
 
@@ -186,7 +186,7 @@ boot_partition=2
 
 #### `dtparam`
 
-树莓派的设备树配置文件支持多种参数，如启用 I²C、SPI 接口。大部分 DT 叠加层也都能用参数进行配置。这两类的参数都可以用 `dtparam` 进行配置。此外，还可以把叠加层参数添加到选项 `dtoverlay` 里：以逗号分隔，但请注意，字符长度限制为 98 个字符。
+树莓派的设备树配置文件支持多种参数，如启用 I²C、SPI 接口。大部分 DT 叠加层也都能用参数进行配置。这两类的参数都可以用 `dtparam` 进行配置。此外，还可以把叠加层参数添加到参数 `dtoverlay` 里：以逗号分隔，但请注意，字符长度限制为 98 个字符。
 
 欲了解更多详情，请查阅 DTB、叠加层和 `config.txt`。
 
@@ -200,7 +200,7 @@ boot_partition=2
 
 ## 板载模拟音频（3.5 mm 插孔）
  
-使用配置选项可以修改板载音频输出的模拟音频驱动方式，以及是否启用某些固件功能。
+使用配置参数可以修改板载音频输出的模拟音频驱动方式，以及是否启用某些固件功能。
 
 ### `audio_pwm_mode`
 
@@ -210,7 +210,7 @@ boot_partition=2
 
 >**注意**
 >
->此选项将占用更多的 GPU 计算资源，可能会对某些型号的特定用例造成影响。
+>此参数将占用更多的 GPU 计算资源，可能会对某些型号的特定用例造成影响。
 
 ### `disable_audio_dither`
 
@@ -218,7 +218,7 @@ boot_partition=2
 
 ### `enable_audio_dither`
 
-当音频样本大于 16 位时，通常就会禁用音频抖动（请参阅上述 `disable_audio_dither`）。将此选项置为 `1` 可强制对所有位深度都应用抖动。
+当音频样本大于 16 位时，通常就会禁用音频抖动（请参阅上述 `disable_audio_dither`）。将此参数置为 `1` 可强制对所有位深度都应用抖动。
 
 ### `pwm_sample_bits`
 
@@ -234,15 +234,15 @@ boot_partition=2
 dtoverlay=vc4-kms-v3d,noaudio
 ```
 
-## 启动选项
+## 启动参数
 
 ### `start_file`、`fixup_file`
 
-这些选项指可指定：在启动前传给 VideoCore GPU 的固件文件。
+这些参数指可指定：在启动前传给 VideoCore GPU 的固件文件。
 
 `start_file` 指定要使用的 VideoCore 固件文件。`fixup_file` 用于修正 `start_file` 所使用的内存位置，以匹配 GPU 内存分配。
 
-`start_file` 和 `fixup_file` 是一对关联文件：错误搭配将导致开发板无法启动。这是个专业选项，因此我们不建议你使用，你应该用 `start_x` 和 `start_debug`。
+`start_file` 和 `fixup_file` 是一对关联文件：错误搭配将导致开发板无法启动。这是个专业参数，因此我们不建议你使用，你应该用 `start_x` 和 `start_debug`。
 
 >**注意**
 >
@@ -267,9 +267,9 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 如果置为 1，则内核将以 64 位模式启动。设置为 0 会选择 32 位模式。
 
-在 64 位模式下，固件将选择合适的内核（例如 `kernel8.img`）。如未显式设置参数 `kernel`，则将使用该选项。
+在 64 位模式下，固件将选择合适的内核（例如 `kernel8.img`）。如未显式设置参数 `kernel`，则将使用该参数。
 
-在树莓派 4 系列（4B、400、CM4 和 CM4S）上默认值为 1，在其他所有平台上默认值为 0。但是，如果显式设置的选项 `kernel` 中给定的名称与已知的任一内核匹配，则 `arm_64bit` 将应用相应设置。
+在树莓派 4 系列（4B、400、CM4 和 CM4S）上默认值为 1，在其他所有平台上默认值为 0。但是，如果显式设置的参数 `kernel` 中给定的名称与已知的任一内核匹配，则 `arm_64bit` 将应用相应设置。
 
 >**注意**
 >
@@ -293,7 +293,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->选项 `initramfs` 使用的语法与其他选项有所不同，你不能在此处使用字符 `=`。
+>参数 `initramfs` 使用的语法与其他参数有所不同，你不能在此处使用字符 `=`。
 
 ### `auto_initramfs`
 
@@ -313,7 +313,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `force_eeprom_read`
 
-将此选项置为 `0` 可禁止：固件在上电时读取 I²C 扩展板的 EEPROM（连接至 `ID_SD` 和 `ID_SC` 引脚）。另请参阅 [`disable_poe_fan`](https://www.raspberrypi.com/documentation/computers/config_txt.html#disable_poe_fan)。
+将此参数置为 `0` 可禁止：固件在上电时读取 I²C 扩展板的 EEPROM（连接至 `ID_SD` 和 `ID_SC` 引脚）。另请参阅 [`disable_poe_fan`](https://www.raspberrypi.com/documentation/computers/config_txt.html#disable_poe_fan)。
 
 ### `os_prefix`
 
@@ -389,7 +389,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 #### `uart_2ndstage`
 
-如果 `uart_2ndstage` 为 `1`，则将启用串口调试日志记录。此选项还会自动启用 `start.elf` 中的串口日志记录。这也在[启动选项](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)页上有描述。
+如果 `uart_2ndstage` 为 `1`，则将启用串口调试日志记录。此参数还会自动启用 `start.elf` 中的串口日志记录。这也在[启动参数](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)页上有描述。
 
 属性 `BOOT_UART` 也会启用引导加载程序的串口日志记录，但不会启用 `start.elf` 的串口日志记录——除非同时设置了 `uart_2ndstage=1`。
 
@@ -405,7 +405,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 配置 EEPROM 写状态寄存器（`write status register`）。可将整个 EEPROM 标记为写保护，或清除写保护。
 
-该选项必须与控制 EEPROM 写入状态寄存器更新的 EEPROM `/WP` 引脚一同使用。将 `/WP` 的引脚拉低（CM4 为 `EEPROM_nWP`、树莓派 4 为 `TP5`）——但若仅如此，并不会对 EEPROM 写保护，除非同时对写入状态寄存器进行了配置。
+该参数必须与控制 EEPROM 写入状态寄存器更新的 EEPROM `/WP` 引脚一同使用。将 `/WP` 的引脚拉低（CM4 为 `EEPROM_nWP`、树莓派 4 为 `TP5`）——但若仅如此，并不会对 EEPROM 写保护，除非同时对写入状态寄存器进行了配置。
 
 可查看 [Winbond W25x40cl](https://www.winbond.com/resource-files/w25x40cl_f%2020140325.pdf)、[Winbond W25Q16JV](https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/?__locale=en&partNo=W25Q16JV) 的数据手册以获取更多详细信息。
 
@@ -433,7 +433,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 #### `bootloader_update`
 
-可将此选项置为 `0` 以关闭自动更新（无需刷新 EEPROM 配置）。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对不同的树莓派控制此选项（例如，通过 `config.txt` 中的串号筛选器）。
+可将此参数置为 `0` 以关闭自动更新（无需刷新 EEPROM 配置）。在通过网络引导更新多个树莓派时，有时会很有用，因为可以针对不同的树莓派控制此参数（例如，通过 `config.txt` 中的串号筛选器）。
 
 默认值： `1`
 
@@ -463,7 +463,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 #### `program_rpiboot_gpio`
 
-由于树莓派 4B 和树莓派 400 上没有专用的 `nRPIBOOT` 跳线，因此必须使用别的 GPIO 配置 `RPIBOOT` 模式，可通过拉低 GPIO 来实现。请从以下选项中选择这个 GPIO：
+由于树莓派 4B 和树莓派 400 上没有专用的 `nRPIBOOT` 跳线，因此必须使用别的 GPIO 配置 `RPIBOOT` 模式，可通过拉低 GPIO 来实现。请从以下参数中选择这个 GPIO：
 
 * `2`
 * `4`
@@ -474,13 +474,13 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 此属性不要求安全启动，但要确认该 GPIO 配置不会与其他扩展板冲突，因为扩展板可能会在启动期间将 GPIO 拉低。
 
-出于安全考量，此属性仅可通过 `RPIBOOT` 进行编程，因此必须首先用 `erase_eeprom` 擦除引导加载程序 EEPROM。这将触发 BCM2711 ROM 故障转移到 `RPIBOOT` 模式，然后才能设置此选项。
+出于安全考量，此属性仅可通过 `RPIBOOT` 进行编程，因此必须首先用 `erase_eeprom` 擦除引导加载程序 EEPROM。这将触发 BCM2711 ROM 故障转移到 `RPIBOOT` 模式，然后才能设置此参数。
 
 默认值：` `
 
 #### `program_jtag_lock`
 
-如果将此属性置为 `1`，则 `recovery.bin` 将编程一个 OTP 值，来禁用 VideoCore JTAG（调试接口）。此选项必须与 `program_pubkey` 和 `revoke_devkey` 同时使用。启用此选项可禁用故障诊断，应仅在设备经过全面测试后设置此选项。
+如果将此属性置为 `1`，则 `recovery.bin` 将编程一个 OTP 值，来禁用 VideoCore JTAG（调试接口）。此参数必须与 `program_pubkey` 和 `revoke_devkey` 同时使用。启用此参数可禁用故障诊断，应仅在设备经过全面测试后设置此参数。
 
 默认值： `0`
 
@@ -525,7 +525,7 @@ gpio=17-21=ip
 
 还请注意，从上电到修改生效会有几秒钟的延迟——如果通过网络启动或从 USB 大容量存储设备启动，那么延迟会更大。
 
-## 超频选项
+## 超频参数
 
 内核会默认启用驱动程序 [CPUFreq](https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html)：安装 [raspi-config](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config) 后，在启动时会把调度程序从 powersave 切换到 ondemand。通过调度程序 ondemand，CPU 频率将随处理器负载而变化。如果你把配置参数 `*_min` 调整为最小值、使用了静态缩放调度程序（powersave、performance），亦或使用 `force_turbo=1`——他们都会禁用动态频率调整。
 
@@ -557,7 +557,7 @@ gpio=17-21=ip
 | `over_voltage_sdram_c`     | 调整内存（SDRAM）控制器电压。\[-16,8\] 等同于 \[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 及后续新款设备。                                                                                                                                                                                                                                                                       |
 | `over_voltage_sdram_i`     | 调整内存（SDRAM）I/O 电压。\[-16,8\] 等同于 \[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 及更新款设备。                                                                                                                                                                                                                                                                      |
 | `over_voltage_sdram_p`     | 调整内存（SDRAM）物理电压。\[-16,8\] 等同于 \[0.8V,1.4V\]，步长为 0.025V。不支持树莓派 4 及更新款设备。                                                                                                                                                                    |
-| `force_turbo`     | 强制进入超频模式频率，无论 ARM 核心是否空闲。如同时设定 `over_voltage_*`，启用该选项可能导致设置保修位。                                                                                                                                                                                                                                                             |
+| `force_turbo`     | 强制进入超频模式频率，无论 ARM 核心是否空闲。如同时设定 `over_voltage_*`，启用该参数可能导致设置保修位。                                                                                                                                                                                                                                                             |
 | `initial_turbo`     | 启用[启动加速模式](https://forums.raspberrypi.com/viewtopic.php?f=29&t=6201&start=425&_gl=1*xfo3n1*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMjQ2MzY2My43NS4xLjE3MjI0NjM2NjguMC4wLjA.#p180099)，持续给定的秒数，或直至设置 cpufreq 频率。最大值为 `60`。                                                                                                                                                                                                                                                                                          |
 | `arm_freq_min`     |  动态频率时钟 `arm_freq` 的最小值。请注意，将该值降低至低于默认值的数值并不会触发任何实质上的节能，且当前并不支持。                                                                                                                                                                                                                                                     |
 | `core_freq_min`     | 动态频率时钟 `core_freq` 的最小值。                                                                                                                                                                                                                                                                                                                              |
@@ -854,7 +854,7 @@ Serial          : 0000000012345678
 
 使用筛选器 `[all]` 可重置先前所有筛选器，避免意外地组合不同类型的筛选器。
 
-## 内存选项
+## 内存参数
 
 ### `total_mem`
 
@@ -984,4 +984,4 @@ vc4.tv_norm=<视频模式>
 
 ### `awb_auto_is_greyworld`
 
-将 `awb_auto_is_greyworld` 置为 `1`，可让自身不支持灰色世界选项的库、应用程序使用夜视（NoIR）摄像头捕捉有效的图像、视频。它将自动 awb 模式切换使用灰色世界算法。仅适用于无红外摄像机、[已移除红外滤光片](https://www.raspberrypi.com/documentation/accessories/camera.html#filter-removal)的高质量（HQ）摄像机。
+将 `awb_auto_is_greyworld` 置为 `1`，可让自身不支持灰色世界参数的库、应用程序使用夜视（NoIR）摄像头捕捉有效的图像、视频。它将自动 awb 模式切换使用灰色世界算法。仅适用于无红外摄像机、[已移除红外滤光片](https://www.raspberrypi.com/documentation/accessories/camera.html#filter-removal)的高质量（HQ）摄像机。
