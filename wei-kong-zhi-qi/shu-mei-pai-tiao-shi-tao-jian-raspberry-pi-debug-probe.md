@@ -16,11 +16,11 @@
 >
 > 有关树莓派三针调试连接器的更多信息，请参阅规格书。
 
-这使得在 Windows、macOS 和 Linux 等没有 GPIO 引脚头来直连 Pico 串口或 SWD 接口的设备也可轻松使用树莓派 Pico。
+这使得在 Windows、macOS 和 Linux 等没有 GPIO 引脚来直连 Pico 串口或 SWD 接口的设备也可轻松使用树莓派 Pico。
 
 ### 调试器
 
-调试器在 3.3V 名义 I/O 电压下运行。
+调试器在 3.3V 容忍 I/O 电压下运行。
 
 ![the probe](https://www.raspberrypi.com/documentation/microcontrollers/images/the-probe.png)
 
