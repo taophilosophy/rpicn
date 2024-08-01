@@ -22,7 +22,7 @@
 
 >**警告**
 >
-> 电视扩展板不支持北美所使用的数字电视标准——ATSC。
+> 电视扩展板不兼容北美所使用的数字电视标准——ATSC。
 
 
 数字视频广播 - 地面（DVB-T）是 DVB 欧洲联盟的广播数字地面电视传输标准。世界其他地方使用其他的数字电视标准，例如在北美使用的 ATSC。但是这个电视扩展板仅支持 DVB-T 和 DVB-T2 标准。
@@ -73,7 +73,8 @@ Found services: 172
 
 要在浏览器中观看电视频道，请单击频道列表左侧的小电视图标，就在 i 图标的右侧。这将在浏览器中打开一个媒体播放器。根据你的浏览器内置的解码功能和正在播放的流类型，你可能会发现播放会有些卡顿。在这些情况下，我们建议使用本地媒体播放器作为播放应用程序。
 
-要在本地媒体播放器（例如 VLC）中观看电视频道，你需要将其下载为流。单击频道列表左侧的 i 图标，以打开该频道的信息面板。在这里，你可以看到一个可以下载的流文件。
+要在本地媒体播放器（例如 VLC）中观看电视频道，你需要将其下载为流。单击频道列表左侧的 i 图标，以打开该频道的信息面板。在这里，你可以看到一个可以下载的流文件。![TV-HAT](https://github.com/user-attachments/assets/a16d008d-e703-42de-88c3-5007f7ea583d)
+
 
 >**注意**
 >
@@ -81,6 +82,4 @@ Found services: 172
 
 ## 机械图纸
 
-![mechanical](https://www.raspberrypi.com/documentation/accessories/images/mechanical.png)
-
-树莓派电视扩展板
+![树莓派电视扩展板](https://www.raspberrypi.com/documentation/accessories/images/mechanical.png)
