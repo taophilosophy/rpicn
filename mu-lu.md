@@ -22,7 +22,15 @@
 
 ## 微控制器
 
-* [RP5040](wei-kong-zhi-qi/rp5040.md)
+
+| | | |
+|:---:|:---:|:---:|
+|  <a href="wei-kong-zhi-qi/rp2040.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/RP2040.png" alt="RP2040" /></a> <br>**RP2040** <br> <br>树莓派旗舰级微控制器设备|<a href="wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/Pico.png" alt="树莓派 Pico 和 Pico W" /></a><br>**树莓派 Pico 和 Pico W** <br> <br>支持树莓派 Pico、Pico H、Pico W 和 Pico WH| <a href="wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/Debug-Probe.png" alt="树莓派调试器（Raspberry Pi Debug Probe）" /></a> <br>**树莓派调试器（Raspberry Pi Debug Probe）** <br> <br>支持 Arm 串行线调试 (SWD)，并充当串口桥接器|
+| <a href="wei-kong-zhi-qi/rp1.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/RP1.png" alt="RP1" /></a> <br>**RP1** <br> <br>我们为树莓派 5 开发的南桥 | <a href="wei-kong-zhi-qi/micropython.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/MP.png" alt="MicroPython" /></a> <br>**MicroPython** <br> <br>MicroPython 入门|  <a href="wei-kong-zhi-qi/micropython.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/TV-HAT.png" alt="C/C++ SDK" /></a> <br>**C/C++ SDK** <br> <br>C/C++ SDK 入门|
+
+
+
+
 * [树莓派 Pico 和 Pico W](wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md)
 * [树莓派调试器（Raspberry Pi Debug Probe）](wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md)
 * [RP1](wei-kong-zhi-qi/rp1.md)
