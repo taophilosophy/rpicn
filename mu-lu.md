@@ -29,14 +29,6 @@
 | <a href="wei-kong-zhi-qi/rp1.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/RP1.png" alt="RP1" /></a> <br>**RP1** <br> <br>我们为树莓派 5 开发的南桥 | <a href="wei-kong-zhi-qi/micropython.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/MP.png" alt="MicroPython" /></a> <br>**MicroPython** <br> <br>MicroPython 入门|  <a href="wei-kong-zhi-qi/micropython.md"><img style="width:121;height:121;" src="https://www.raspberrypi.com/documentation/images/full-sized/TV-HAT.png" alt="C/C++ SDK" /></a> <br>**C/C++ SDK** <br> <br>C/C++ SDK 入门|
 
 
-
-
-* [树莓派 Pico 和 Pico W](wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md)
-* [树莓派调试器（Raspberry Pi Debug Probe）](wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md)
-* [RP1](wei-kong-zhi-qi/rp1.md)
-* [MicroPython](wei-kong-zhi-qi/micropython.md)
-* [C/C++ SDK](wei-kong-zhi-qi/c-c++-sdk.md)
-
 ## 服务
 
 * [树莓派账号（Raspberry Pi ID）](fu-wu/shu-mei-pai-zhang-hao-raspberry-pi-id.md)
