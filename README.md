@@ -4,6 +4,16 @@
 >
 >**当前正在施工，具体进度请参考[编辑日志](qian-yan/fan-yi-ri-zhi.md)。**
 
+## PDF 文档
+
+> **PDF 文档**
+>
+> - 使用由 [safreya](https://github.com/safreya) 提供的脚本：
+>   
+>> 　　<https://github.com/FreeBSD-Ask/gitbook-pdf-export> 用于导出本书的 PDF 文档。该脚本使用 Python 3 编写，仅在 Windows 10、FreeBSD 14 上测试过。
+>> 
+>> 具体使用方法见该项目的 README.
+
 ## 关于我们
 
 本项目由 FreeBSD 中文社区发起。
