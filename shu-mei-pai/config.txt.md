@@ -666,7 +666,7 @@ $ cat /sys/class/thermal/thermal_zone0/temp
 
 要监测树莓派的电源供电电压，你需要用万用表测量 GPIO 排针的 VCC 引脚和 GND 引脚。有关更多信息，请查看文档的[电源](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply)部分。
 
-如电压降至 4.63V 以下（±5％），ARM 核心、GPU 将降频，并将在内核日志中打印标识低电压状态的信息。
+如电压降至 4.63V（±5％）以下，ARM 核心、GPU 将降频，并将在内核日志中打印标识低电压状态的信息。
 
 树莓派 5 的电源管理芯片（PMIC）内置了模数转换器（ADC），可测量供电电压。要查看当前供电电压，请运行以下命令：
 
