@@ -918,7 +918,7 @@ hdmi_mode=87
 hdmi_cvt=1360 768 60
 ```
 
- …到 config.txt。
+……到 config.txt。
 
 通过 hdmi_timings= 行手动指定的时间也需要遵守所有水平定时参数必须是 2 的倍数的限制。
 
