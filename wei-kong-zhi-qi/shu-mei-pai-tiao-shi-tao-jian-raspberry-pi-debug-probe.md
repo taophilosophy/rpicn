@@ -1,13 +1,13 @@
-# 树莓派调试器（Raspberry Pi Debug Probe）
+# 树莓派调试套件（Raspberry Pi Debug Probe）
 
-## 关于调试器
+## 调试套件简介
 
 ![debug probe](https://www.raspberrypi.com/documentation/microcontrollers/images/debug-probe.jpg)
 
-树莓派调试器是一种提供了 UART 串口和标准 Arm 串行线调试（SWD）接口的 USB 设备。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
+树莓派调试套件是一款提供了 UART 串口和标准 Arm 串行线调试（SWD）接口的 USB 设备。该调试器设计用于简单、无需焊接的即插即用调试。它具有以下功能：
 
-* USB 到 ARM 串行线调试（SWD）接口
-* USB 到 UART 桥接器
+* USB ARM 串行线调试（SWD）接口
+* USB 串口桥接器
 * 兼容 CMSIS-DAP 标准
 * 与支持 CMSIS-DAP 的 OpenOCD 和其他工具配合使用
 * 开源，易升级的固件
@@ -202,7 +202,7 @@ GDB 不适用于所有平台。根据你的操作系统和设备，请使用以�
 树莓派 Pico UART0 的默认引脚如下：
 
 | 默认 UART0 | 物理引脚 | GPIO 引脚 |
-| ------------ | ---------- | ----------- |
+| :------------: | :----------: | :-----------: |
 | GND        | 3        | 不适用    |
 | UART0_TX   | 1        | GP0       |
 | UART0_RX   | 2        | GP1       |
