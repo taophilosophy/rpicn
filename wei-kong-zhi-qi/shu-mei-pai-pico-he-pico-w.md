@@ -57,9 +57,9 @@
 
 内置天线来自艾博康（ABRACON，前身为 ProAnt）。无线端口通过 SPI 连接至 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040) 微控制器。
 
-由于引脚限制，部分无线接口引脚是复用的。CLK 与 VSYS 监视器复用，因此仅在没有运行时 SPI 事务才能通过 ADC 读取 VSYS。英飞凌 CYW43439 的 DIN/DOUT 和 IRQ 都复用一个 RP2040 引脚。只有在没有运行时 SPI 事务才适合检查 IRQ。接口通常以 33MHz 运行。
+由于引脚限制，部分无线接口引脚是复用的。CLK 与 VSYS 监视器复用，因此仅在没有运行时 SPI 事务才能通过 ADC 读取 VSYS。英飞凌 CYW43439 的 DIN/DOUT 和 IRQ 都复用一个 RP2040 引脚。只有在没有运行时 SPI 事务才适合检查 IRQ。端口通常运行在 33MHz。
 
-为了使无线性能最佳，天线应位于开放空间中。假如在天线下方（及附近）放置金属会降低天线增益和带宽性能。在天线的两侧添加接地金属可以提高天线的带宽。
+为了使无线性能呈最佳，天线应位于开放空间中。如果在天线下方（及附近）放置金属将会干扰天线增益，降低带宽性能。在天线的两侧添加接地金属可以提高天线的带宽。
 
 >**注意**
 >
@@ -84,12 +84,12 @@
 
 ## 文档
 
-关于树莓派 Pico 和其他基于 RP2040 的板的文档。
+关于树莓派 Pico 和其他基于 RP2040 的主板文档。
 
 ### RP2040 设备
 
-- [RP2040 数据手册](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf)：Raspberry Pi 开发的微控制器
-- [使用 RP2040 进行硬件设计](https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf)：使用 RP2040 微控制器构建板和产品
+- [RP2040 数据手册](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf)：树莓派开发的微控制器
+- [使用 RP2040 进行硬件设计](https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf)：使用 RP2040 微控制器构建主板和产品
 
 ### 树莓派 Pico
 
@@ -100,57 +100,62 @@
 ### 树莓派 Pico W
 
 [树莓派 Pico W Datasheet](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
+
 一款基于 RP2040 芯片的无线微控制器板。
 
-[连接树莓派 Pico W 到互联网](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
-使用 C/C++ 或 MicroPython 将树莓派 Pico W 连接到互联网的指南。
+[将树莓派 Pico W 接入互联网](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
 
-| 注意 | 关于如何在树莓派 Pico W 上使用 C/C++ 或 MicroPython 连接 Wi-Fi 和蓝牙的文档可以在 [连接树莓派 Pico W 到互联网](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf) 中找到。 |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+使用 C/C++、MicroPython 将树莓派 Pico W 接入互联网的指南。
+
+>**注意**
+>
+>在树莓派 Pico W 上使用 C/C++、MicroPython 连接 WiFi 和蓝牙的文档可以在[连接树莓派 Pico W 到互联网](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf) 中找到。 
 
 ### 软件开发
 
 [树莓派 Pico C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
-用于在 RP2040 微控制器上进行 C/C++ 开发的库和工具。
+
+在 RP2040 微控制器上进行 C/C++ 开发的库和工具。
 
 [树莓派 Pico Python SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf)
+
 为 RP2040 微控制器提供的 MicroPython 开发环境。
 
-树莓派 Pico C/C++ SDK 的 API 级别的 Doxygen 文档也可以作为一个微型网站访问，链接为 [这里](https://rptl.io/pico-doxygen)。
+在一个小型网站中能访问树莓派 Pico C/C++ SDK 的 API 级的 Doxygen 文档，链接在[此处](https://rptl.io/pico-doxygen)。
 
 >**注意**
 >
->可以通过 [一键安装程序](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe) 在 Windows 10 和 Windows 11 上安装 Pico C/C++ SDK。 
+>可以用[一键安装程序](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe) 在 Windows 10 和 Windows 11 上安装 Pico C/C++ SDK。 
 
 ## 软件工具
 
 ### Pico 上的内容是什么？
 
-如果你忘记了已编程到树莓派 Pico 上的内容，并且该程序是使用我们的 Pico C/C++ SDK 构建的，则通常会在二进制文件中嵌入名称和其他有用信息。你可以使用 [Picotool](https://github.com/raspberrypi/picotool) 命令行实用程序查找这些详细信息。关于如何使用 Picotool 的完整说明可以在我们的 '[入门指南](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)' 文档中找到。
+如果你忘记了已编程到树莓派 Pico 上的内容，且该程序是由我们的 Pico C/C++ SDK 构建的，则通常会在二进制文件中嵌入名称和其他有用信息。你可以使用 [Picotool](https://github.com/raspberrypi/picotool) 命令行实用程序查找这些详细信息。可以在我们的 '[入门指南](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)' 文档中找到有关Picotool 的完整使用说明。
 
-* 访问 [Picotool GitHub 仓库](https://github.com/raspberrypi/picotool)。
+* 访问 [Picotool GitHub 存储库](https://github.com/raspberrypi/picotool)。
 
 ### 使用另一个树莓派 Pico 进行调试
 
-你可以使用一个树莓派 Pico 来调试另一个 Pico。这可以通过 `debugprobe` 实现，它允许一个 Pico 充当 USB → SWD 和 UART 转换器。
+你可以使用一个树莓派 Pico 来调试另一个 Pico。这可以用 `debugprobe` 做到，它能让一个 Pico 充当 USB → SWD 和 UART 转换器。
 
-你可以在 [debugprobe GitHub 仓库](https://github.com/raspberrypi/debugprobe/releases/latest) 中找到最新版本的固件。
+你可以在 [debugprobe GitHub 存储库](https://github.com/raspberrypi/debugprobe/releases/latest) 中找到最新版固件。
 
-从最新版本中下载 `debugprobe_on_pico.uf2`。
+下载最新版本 `debugprobe_on_pico.uf2`。
 
-在将调试器 Pico 插入计算机时，按住 BOOTSEL 按钮以挂载名为 "RPI-RP2" 的卷。
+将调试器 Pico 插入计算机，同时按住 BOOTSEL 按钮以挂载卷，显示为 "RPI-RP2"。
 
-将 `debugprobe_on_pico.uf2` 复制到该卷上。文件复制完成后，卷将自动卸载。
+将 `debugprobe_on_pico.uf2` 复制到该卷上。文件复制完成后，卷会自动弹出。
 
-你的 Pico 将重新启动，并且现在运行更新版本的 `debugprobe` 固件。现在可以开始进行调试了。
+你的 Pico 将重启，且现在运行着新版本的 `debugprobe` 固件。现在可以着手进行调试了。
 
 >**技巧**
 >
->如需了解如何使用调试器，请参阅 [Getting Started with Pico](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)。
+>如需了解调试器的使用方法，请参阅 [Getting Started with Pico](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)。
 
 ### 重置 Flash 存储器
 
-Pico 的 BOOTSEL 模式存储在 RP2040 芯片内的只读存储器中，不会意外被覆盖。无论如何，如果你在插入 Pico 时按住 BOOTSEL 按钮，它将显示为一个驱动器，你可以将新的 UF2 文件拖放到其中。没有办法通过软件使板子变砖。但是，在某些情况下，你可能希望确保 Flash 存储器为空。你可以在 Pico 处于大容量存储模式时通过拖放一个特殊的 UF2 二进制文件来实现这一点。
+Pico 的 BOOTSEL 模式存储在 RP2040 芯片内的只读存储器中，不会被意外覆盖。无论如何，只要你在插入 Pico 时按住 BOOTSEL 按钮，它将呈现为一个硬盘驱动器，你可以将新的 UF2 文件拖放到里面。软件无法把开发板变砖。但是，在某些情况下，你可能希望确保 Flash 存储器为空。你可以在 Pico 位于大容量存储模式时，拖放一个特殊的 UF2 二进制文件来做到这一点。
 
 * 下载 [UF2 文件](https://datasheets.raspberrypi.com/soft/flash_nuke.uf2)
 * 在 Github 上查看[代码](https://github.com/raspberrypi/pico-examples/blob/master/flash/nuke/nuke.c)
