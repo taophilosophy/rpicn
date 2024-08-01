@@ -71,7 +71,7 @@
 树莓派支持以下显示输出功能：
 
 | 型号                    | 显示输出                                             |
-| ------------------------- | ------------------------------------------------------ |
+| :-------------------------: | :------------------------------------------------------: |
 | 树莓派 5                | micro HDMI ×2                                       |
 | 树莓派 4（所有型号）    | micro HDMI ×2，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出 |
 | 树莓派 3（所有型号）    | HDMI，可通过 3.5 mm [TRRS 插孔](http://en.wikipedia.org/wiki/Phone_connector_(audio)#TRRS_standards)实现音频和复合输出          |
