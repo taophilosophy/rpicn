@@ -5,7 +5,7 @@
 ## 前言
 
 * [词汇表](qian-yan/ci-hui-biao.md)
-* [编辑日志](qian-yan/fan-yi-ri-zhi.md)
+* [编辑日志](CHANGELOG.md)
 * [关于我们](qian-yan/guan-yu-wo-men.md)
 * [版权说明](qian-yan/ban-quan-shuo-ming.md)
 
