@@ -1,6 +1,6 @@
 # Table of contents
 
-* [树莓派官方文档简体中文版](README.md)
+* [树莓派（Raspberry Pi）官方文档简体中文版](README.md)
 
 ## 前言
 
