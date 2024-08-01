@@ -204,7 +204,7 @@ boot_partition=2
 
 ### `audio_pwm_mode`
 
-`audio_pwm_mode=1` 选择传统低质量模拟音频，基于 3.5 mm AV 接口。
+`audio_pwm_mode=1` 选择传统低质量模拟音频，基于 3.5 mm AV 端子。
 
 `audio_pwm_mode=2` 选择使用高级调制方案的高质量模拟音频。（默认）
 
@@ -914,7 +914,7 @@ total_mem=1024
 | 树莓派 Zero     | 未焊接的 `TV` 接口      |
 | 树莓派 Zero 2 W | 主板底部的测试点      |
 | 树莓派 5        | HDMI 插口旁的 J7 触点 |
-| 其他型号    | 3.5 mm AV 插孔      |
+| 其他型号    | 3.5 mm AV 端子      |
 
 >**注意**
 >
