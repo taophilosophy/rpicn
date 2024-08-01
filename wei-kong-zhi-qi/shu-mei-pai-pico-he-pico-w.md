@@ -27,7 +27,7 @@
 
 >**注意**
 >
->两款板均有三针串行线调试（SWD）头。但是，Pico H 将其拆分为一个小型的、带键向连接器的 [3 针连接器](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf)，而 Pico 则有三个铸边过孔引脚，靠近板的边缘。 
+>两款主板均带有三针串行线调试（SWD）接头。但是，Pico H 将其拆分为一个小型的、带键向连接器的 [3 针连接器](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf)，而 Pico 则有三个铸边过孔引脚，靠近主板边缘。 
 
 
 ### 引脚定义和设计文件
@@ -42,7 +42,7 @@
 
 >**注意**
 >
->更多关于 Fritzing 的信息请访问 [fritzing.org](https://fritzing.org/) 网站。
+>更多有关 Fritzing 的信息请访问 [fritzing.org](https://fritzing.org/) 网站。
 
 ## 树莓派 Pico W 和 Pico WH
 
