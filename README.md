@@ -16,7 +16,9 @@
 
 ## 版本说明
 
-当前版本指向 2024.7.10 <https://github.com/raspberrypi/documentation/commit/b68a629c7212e668fdfba94d227cc9ec32d9bfbb>
+目前已校对章节指向最后校对日期。
+
+其他内容的版本指向 2024.7.10 <https://github.com/raspberrypi/documentation/commit/b68a629c7212e668fdfba94d227cc9ec32d9bfbb>
 
 ## 更新需求请看贡献指南文件
 
