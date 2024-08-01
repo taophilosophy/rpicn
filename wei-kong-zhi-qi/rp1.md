@@ -2,17 +2,17 @@
 
 ## 关于 RP1
 
-![Architecture diagram of the RP1](https://www.raspberrypi.com/documentation/microcontrollers/images/rp1.jpg)
+![RP1 架构图](https://www.raspberrypi.com/documentation/microcontrollers/images/rp1.jpg)
 
  架构
 
-RP1 是一款 12×12mm，间距为 0.65mm 的 BGA 南桥芯片，它为树莓派 5 提供了大部分 I/O 功能。
+RP1 是一款 12×12mm，间距 0.65mm 的 BGA 南桥芯片，它为树莓派 5 提供了大部分 I/O 功能。
 
  它提供了：
 
 * 4 通道 PCIe 2.0
 * 千兆以太网 MAC
-* 2× USB 3 主机控制器
+* USB 3 主机控制器 x2
   * 每个都有 1× USB 3 和 1× USB 2 通道
   * 与树莓派 4 相比，USB 可用带宽超过两倍
 * 2× SDIO 通道/eMMC（树莓派 5 上未使用）
