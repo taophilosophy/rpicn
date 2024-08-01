@@ -1,4 +1,4 @@
-# config.txt
+# `config.txt`
 
 ## `config.txt` 是什么？
 
