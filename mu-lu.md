@@ -4,7 +4,7 @@
 
 | | | |
 |:---:|:---:|:---:|
-|  <a href="shu-mei-pai/ru-men.md"><img style="width:60%;" src="https://www.raspberrypi.com/documentation/images/full-sized/Getting-Started.png" alt="入门" /></a>|<a href="shu-mei-pai/raspberry-pi-os.md"><img style="width:60%;" src="https://www.raspberrypi.com/documentation/images/full-sized/Raspberry-Pi-OS.png" alt="树莓派系统（Raspberry Pi OS）" /></a>| [链接 3](path/to/directory3) |
+|  <a href="shu-mei-pai/ru-men.md"><img style="width:60%;" src="https://www.raspberrypi.com/documentation/images/full-sized/Getting-Started.png" alt="入门" /></a>|<a href="shu-mei-pai/raspberry-pi-os.md"><img style="width:60%;" src="https://www.raspberrypi.com/documentation/images/full-sized/Raspberry-Pi-OS.png" alt="树莓派系统（Raspberry Pi OS）" /></a>| <a href="shu-mei-pai/xi-tong-pei-zhi.md"><img style="width:60%;" src="https://www.raspberrypi.com/documentation/images/full-sized/Configuration.png" alt="系统配置" /></a> |
 | ![Image 4](path/to/image4.jpg) | ![Image 5](path/to/image5.jpg) | ![Image 6](path/to/image6.jpg) |
 | [链接 4](path/to/directory4) | [链接 5](path/to/directory5) | [链接 6](path/to/directory6) |
 | ![Image 7](path/to/image7.jpg) | ![Image 8](path/to/image8.jpg) | ![Image 9](path/to/image9.jpg) |
