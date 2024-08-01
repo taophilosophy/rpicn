@@ -2,19 +2,19 @@
 
 ## 介绍
 
-树莓派推出了 **多个** 系列的计算机：
+树莓派推出了 **多种** 系列的计算机：
 
-* **旗舰系列** 通常被简称为“Raspberry Pi（树莓派）”，搭载高性能硬件、完整的 Linux 操作系统。其外形尺寸与信用卡大小相当，内置了大量常见接口。
+* **旗舰级** 通常简称为“Raspberry Pi（树莓派）”，搭载了高性能硬件、完整的 Linux 操作系统。其外形尺寸与信用卡大小相当，内置了大量常见接口。
 * **Zero** 系列搭载了完整的 Linux 操作系统和最基本的接口，价格实惠，体积小，功耗低。
-* 计算模块系列，一般简称为 "CM"。计算模块系列搭载了高性能硬件和完整的 Linux 操作系统，适合工业和嵌入式的小尺寸用途。计算模块拥有与相应旗舰型号相当的硬件，但接口较少，甚至没有板载 GPIO 引脚。用户需将计算模块连接到一块独立的基板上，它提供了使用接口和引脚。
+* 计算模块系列，一般简称为 "CM"。计算模块系列搭载了高性能硬件和完整的 Linux 操作系统，适合工业和嵌入式的小尺寸用途。计算模块的硬件与相应旗舰型号相当，但接口较少，甚至不带板载 GPIO 引脚。用户需将计算模块连接到一块单独的基板上，它提供了使用接口和引脚。
 
-此外，树莓派还推出了 Pico 系列微型多用途微控制器板。Pico 型号不运行 Linux，也不支持可移动存储，只能通过把二进制文件刷入到板载闪存存储器的方式进行编程。
+此外，树莓派还推出了 Pico 系列微型多用途微控制器板。Pico 型号不支持 Linux，也不支持可移动存储，只能以把二进制文件刷入到板载闪存存储器的方式进行编程。
 
 ### 旗舰系列
 
-B 代表其带有以太网口。A 代表低成本产品线——他们体积更小，没有以太网口，内存也小；因受开发版高度限制，USB 接口也更少。
+B 代表其带有以太网口。A 代表低成本产品线——他们的体积更小，没有以太网口，内存也不大；因受开发版高度限制，USB 接口也更少。
 
-| Model                                                                                                                                                             | SoC                                    | 存储                     | GPIO              | 外设接口                                                                                                                                                                                                                                                                                                                                            |
+| 型号                                                                                                                                                            | SoC                                    | 内存                     | GPIO              | 外设接口                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------- | ---------------------------------------- | -------------------------- | ------------------- | -------------------------------------- |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/model-b.jpg?hash=caa7985f73e4fb3af8fb7b0a614d88b3" /> <br> 树莓派 A                | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB<br><br>512MB           | 26 脚 GPIO 排针 |* HDMI<br>* 2 × USB 2.0<br>* CSI 相机接口 <br>* DSI 显示器接口 <br>* 3.5 mm 音频插孔 <br>* RCA 复合视频 <br>* 以太网（100Mb/s）<br>* SD 卡插槽 <br>* micro USB 电源                                                                                                                                                                                                           |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/model-a.jpg?hash=9b8ad338273f437641f74eb13a32adc1" /><br> 树莓派 A        | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)                                       | 256MB                    | 26 脚 GPIO 排针 | * HDMI<br>* USB 2.0<br>* CSI 摄像头接口 <br>* DSI 显示接口 <br>* 3.5 mm 音频插孔 <br>* RCA 复合视频 <br>* SD 卡插槽 <br>* micro USB 电源                                                                                                                                                                                                                                         |
@@ -32,16 +32,16 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 ### Zero 系列
 
-带 H 后缀的型号在 GPIO 母座上预先焊接了排针。不带 H 后缀的型号 GPIO 母座上没有焊接排针；用户必须手动焊接排针或者使用第三方排针套件。
+带 H 后缀的型号在 GPIO 引脚上预先焊接了排针。不带 H 后缀的型号 GPIO 引脚上没有焊接排针；用户必须手动焊接排针或使用第三方排针套件。
 
-所有 Zero 系列型号具有以下连接功能：
+所有 Zero 系列的型号搭载了以下连接功能：
 
 * 一个 microSD 卡槽
-* 一个 CSI 摄像头接口 (早期的 Zero 1.3 版引入了该接口)
-* 一个 mini HDMI 接口
-* 2 × micro USB 接口（一个用于电源输入，另一个供外部设备使用）
+* 一个 CSI 摄像头接口 (由早期的 Zero 1.3 引入)
+* 一个 mini HDMI 端口
+* 2 × micro USB 端口（一个用于电源输入，另一个供外部设备使用）
 
-| Model                                                                                                                                                   | SoC | 存储器 | GPIO                          | 无线连接                                                             |
+| 型号                                                                                                                                                  | SoC | 内存| GPIO                          | 无线连接                                                             |
 | ---------------------------------------- | ----- | -------- | ------------------------------- | ---------------------------------------------------------------------- |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/zero.jpg?hash=2d93a49cf668312604cfc00fc0660214" /><br> 树莓派 Zero             | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)    | 512MB  | 40 脚 GPIO 排针（未焊接）   | 无                                                                   |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/zero-w.jpg?hash=3752f16ba033177e867614e87292076d" /><br> 树莓派 Zero W       | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)    | 512MB  | 40 脚 GPIO 排针（未焊接）   | * 2.4GHz 单频 802.11n Wi-Fi（35Mb/s）<br>* 蓝牙 4.0，蓝牙低功耗（BLE）   |
@@ -50,7 +50,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 ### 计算模块系列
 
-| Model                                                                                                                                                                           | SoC | 存储器                   | 存储                                 | 外形尺寸                | 无线连接                                                                    |
+| 型号                                                                                                                                                                          | SoC |内存                 | 存储                                | 外形尺寸                | 无线连接                                                                    |
 |---------------------------------------------- | ----- | -------------------------- | -------------------------------------- | ------------------------- | ----------------------------------------------------------------------------- |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/compute-module-1.jpg?hash=725d6ee61d958098dc68dc7739deab88" /><br> 树莓派计算模块 1 | [BCM2835](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2835)    | 512MB                    | 0GB（精简版）<br><br>4GB                 | DDR2 SO-DIMM            | none                                                                        |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/compute-module-3.jpg?hash=3a5ff7c853190d7a07c51bf67c1082b8" /><br> 树莓派计算模块 3        | [BCM2837](https://www.raspberrypi.com/documentation/computers/processors.html#bcm2837)    | 1GB                      | 0GB（精简版）<br><br>4GB                 | DDR2 SO-DIMM            | 无                                                                          |
@@ -60,22 +60,22 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 >**注意**
 >
->几个计算模块外形尺寸与物理 DDR2 SO-DIMM 兼容，但与 DDR2 SO-DIMM 电气规格不兼容。
+>某些计算模块与 DDR2 SO-DIMM 的物理规格兼容，但不兼容其电气规格。
 
-有关树莓派计算模块的更多信息，请参阅计算模块文档。
+更多有关树莓派计算模块的信息，请参阅计算模块文档。
 
 ### Pico 微控制器
 
-带 H 后缀的型号在 GPIO 母座上预先焊接了排针。不带 H 后缀的型号不附带已连接到 GPIO 母座的排针；用户必须手动焊接排针或者连接第三方排针套件。
+带 H 后缀的型号在 GPIO 引脚上预先焊接了排针。不带 H 后缀的型号没有焊接到 GPIO 引脚的排针；用户必须手动焊接排针或连接第三方排针套件。
 
-| Model                                                                                                                                                   | SoC | 存储       | 存储空间 | GPIO                      | 无线连接                                                             |
+| 型号                                                                                                                                                  | SoC | 内存       | 存储空间 | GPIO                      | 无线连接                                                             |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------ | ---------- | --------------------------- | ---------------------------------------------------------------------- |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/pico.png?hash=950c52fb95a01a3eec3b225e71a14bc9" /><br> 树莓派 Pico             | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 脚 GPIO 排针（未焊接） | 无                                                                   |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/pico-h.png?hash=26d4f02827ffd2c911119d36da30bb27" /><br> 树莓派 Pico H       | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 脚 GPIO 排针（未焊接） | 无                                                                   |
 | <img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/pico-w.png?hash=ab356bc12db87ee6d8d3d62388baf4bd" /><br> 树莓派 Pico W | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 脚 GPIO 排针（未焊接） | * 2.4GHz 单频 802.11n Wi-Fi（10Mb/s）<br>* 蓝牙 5.2，蓝牙低功耗（BLE） |
 |<img style="width:60%;"  src="https://www.raspberrypi.com/documentation/computers/images/pico-wh.png?hash=a6be966c70758bbcd9f5115c4096cf2c" /><br> 树莓派 Pico WH    | [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040)    | 264  KB | 2MB      | 40 脚 GPIO 排针        | * 2.4GHz 单频 802.11n Wi-Fi（10Mb/s）<br>* 蓝牙 5.2，蓝牙低功耗（BLE） |
 
-有关各种型号树莓派 Pico 的更多信息，请参阅 Pico 文档。
+有关各种树莓派 Pico 的更多信息，请参阅 Pico 文档。
 
 ## 电路图和机械图纸
 
@@ -128,6 +128,8 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 >**注意**
 >
 >树莓派 3 A+ 的机械图也适用于树莓派 1 A+。
+
+
 ### 树莓派 Zero 2 W
 
 * [线路图](https://datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-reduced-schematics.pdf)
@@ -175,17 +177,17 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 * [原理图，修订版 1.3](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-mechanical-drawing.pdf)
-* [外壳图纸，PDF - 空白盖](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-mechanical-drawing.pdf)
-* [外壳图纸，PDF - GPIO 盖](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-gpio-mechanical-drawing.pdf)
-* [外壳图纸，PDF - 相机盖](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-camera-mechanical-drawing.pdf)
+* [外壳图纸，PDF - Zero 外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-mechanical-drawing.pdf)
+* [外壳图纸，PDF - GPIO 外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-gpio-mechanical-drawing.pdf)
+* [外壳图纸，PDF - 相机外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-camera-mechanical-drawing.pdf)
 
 ## 产品合规性和安全性
 
-所有树莓派产品均通过了大量的合规测试。有关更多信息，请参阅产品信息网站。
+所有树莓派产品均通过了充分的合规测试。更多有关信息，请参阅产品信息网站。
 
 ### 阻燃等级
 
-树莓派设备中使用的 PCB 符合 UL94-V0 标准。
+树莓派设备所使用的 PCB 符合 UL94-V0 标准。
 
 >**注意**
 >
@@ -207,11 +209,11 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 ## 频率管理和发热控制
 
-所有型号的树莓派在重负荷情况下，都会进行一定程度的发热管理，以避免过热。SoC 内部有温度传感器，GPU 上的软件会轮询以确保温度不超过我们定义的上限，所有型号均为 85°C。可以将此值设定为更低的数值，但不能设置为更高。当设备接近极限时，芯片（Arm，GPU）上使用的各种频率和有时电压会降低。这会减少产生的热量，保持温度控制在一定范围内。
+在重负荷情况下，全部型号的树莓派，都会进行一定程度的发热管理，以避免过热。SoC 内部有温度传感器，GPU 上的软件会轮询以确保温度不超过我们设定的上限，所有型号均为 85°C。可以将此值设定为更低值，但不能提高上限。当设备靠近极限时，芯片（Arm、GPU）上使用的各种频率和有时电压会降低。这会减少产生的热量，保持温度控制在一定范围内。
 
 当核心温度在 80°C 和 85°C 之间时，Arm 核心将逐渐降频。如果温度达到 85°C，那么 Arm 核心和 GPU 都将开始降频。
 
-树莓派 3 B+ 采用了新的 PCB 技术，以提供更好的散热性能和增加热量质量。此外，引入了软温度限制，旨在最大化延长设备在达到硬限制 85°C 之前的 "冲刺" 时间。当达到软限制时，时钟速度从 1.4GHz 降至 1.2GHz，并略微降低操作电压。这减缓了温度升高的速度：我们以短暂的 1.4GHz 时间换取了更长时间的 1.2GHz 运行。默认情况下，软限制为 60°C，可以通过 config.txt 中的 temp_soft_limit 参数进行更改。
+树莓派 3B+ 采用了新的 PCB 技术，可提供更好的散热性能，并提高热质量。此外，引入了软温度限制，旨在最大化延长设备在达到硬限制 85°C 之前的 "冲刺" 时间。当达到软限制时，时钟速度从 1.4GHz 降至 1.2GHz，并略微降低操作电压。这减缓了温度升高的速度：我们以短暂的 1.4GHz 时间换取了更长时间的 1.2GHz 运行。默认情况下，软限制为 60°C，可以通过 config.txt 中的 temp_soft_limit 参数进行更改。
 
 树莓派 4 B 继续采用与树莓派 3 B+ 相同的 PCB 技术，以帮助散热。目前尚未进行软限制。
 
@@ -227,19 +229,19 @@ B 代表其带有以太网口。A 代表低成本产品线——他们体积更�
 
 由于可能引发系统稳定性问题，特别是在使用电压降低固定时钟外设（例如 PCIe）时，存在潜在的系统稳定性问题，有三种 DVFS 模式，可在 /boot/firmware/config.txt 中配置，具有以下特性。大多数系统应该使用 dvfs=3，不带显示的设备可能会因为较小的功耗降低而从 dvfs=1 中受益，但会面临 PCIe 稳定性问题的风险。
 
-| 属性=值 | 描述                                                                                                                 |
+| 属性=值 | 说明                                                                                                               |
 | --------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `dvfs=1`        | 允许欠压                                                                                                             |
 | `dvfs=2`        | 固定默认操作频率的电压                                                                                               |
-| `dvfs=3`        | 根据需求增加超频电压（默认）。如果在 config.txt 中指定了 over_voltage，则会禁用动态电压调节，使设备退回 dvfs=2。|
+| `dvfs=3`        | 按需增加超频电压（默认）。如果在 config.txt 中指定了 over_voltage，则会禁用动态电压调节，即使设备退回 dvfs=2。|
 
 >**注意**
 >
->该参数已在树莓派 5 上移除，并将处于模式 3。
+>该参数已在树莓派 5 移除，且将始终处于模式 3。
 
-此外，还使用了更细粒度的 CPU 调度器，用来更精细地控制 ARM 核频率，这意味着 DVFS 更有用。现在的步进频率为 1500MHz、1000MHz、750MHz 和 600MHz。这些步进可以在 SoC 限流时有益，意味着几乎不会完全降至 600MHz，从而大大提高了全负载时的性能。
+此外，还使用了更细粒度的 CPU 调度器，用来更精细地控制 ARM 核频率，这意味着 DVFS 更有效。现在的步进频率为 1500MHz、1000MHz、750MHz 和 600MHz。这些步进在 SoC 限流时可能有益，意味着几乎不会完全降至 600MHz，从而大大提高了全负载时的性能。
 
-默认的 CPU 调度器是 ondemand。可以使用 cpufrequtils 软件包中的 cpufreq-set 命令手动更改调度器以减少空闲功耗：
+默认的 CPU 调度器是 ondemand。可以使用软件包 cpufrequtils 中的命令 cpufreq-set 手动更改调度器以减少空闲功耗：
 
 ```
 $ sudo apt install cpufrequtils
@@ -248,7 +250,7 @@ $ sudo cpufreq-set -g powersave
 
 ### 测量温度
 
-由于树莓派设备使用的 SoC 架构，如果在树莓派系统发行版中使用上游温度监控代码（如基于 Linux 的温度测量）可能不准确。但是，vcgencmd 命令能够提供准确且即时的 SoC 温度的实时数值，因为它直接与 GPU 通信：
+由于树莓派设备使用的 SoC 架构，如果在树莓派系统发行版中使用了上游的温度监控代码（如基于 Linux 的温度测量）可能不准确。但是，vcgencmd 命令能够提供准确且即时的 SoC 温度的实时数值，因为它与 GPU 直接通信：
 
 ```
 $ vcgencmd measure_temp
@@ -256,7 +258,7 @@ $ vcgencmd measure_temp
 
 ### 添加散热片
 
-由于内置限流功能，不用散热片也不会造成 SoC 过热损坏。不过，安装散热片和小型风扇可以缓解发热限流并提高性能。要获得最佳气流，并略微改善散热效果，可考虑将树莓派竖着放。
+由于内置节流功能，不用散热片也不会导致 SoC 过热损坏。不过，安装散热片和小型风扇可以缓解发热限流并改善性能。要获得最佳气流，并略微改善散热效果，可考虑将树莓派竖着放。
 
 ### 风扇套件
 
@@ -265,7 +267,7 @@ $ vcgencmd measure_temp
 * [主动散热器](https://www.raspberrypi.com/products/active-cooler/)
 * [用于树莓派 5 的外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)
 
-这两款均应插入至主板右上方的风扇连接器（四针 JST-SH PWM），位于 40 针 GPIO 母座和 USB 2 之间。风扇连接器与 USB 外围设备一同受电流限额。我们为超频用户使用主动散热器外壳，因为它有更好的散热能力。
+这两款均应插入至主板右上方的风扇连接器（四针 JST-SH PWM），位于 40 脚 GPIO 排针和 USB 2 之间。风扇连接器与 USB 外围设备一同受电流限额。我们为超频用户使用主动散热器外壳，因为它有更好的散热能力。
 
 以上两种可选官方配件都由树莓派固件主动管理。随着树莓派的温度升高，风扇的反应如下：
 
@@ -292,7 +294,7 @@ $ vcgencmd measure_temp
 
 ### 树莓派启动 EEPROM
 
-树莓派 5、树莓派 4、400、计算模块 4 和计算模块 4S 计算机使用 EEPROM 启动系统。其他型号的树莓派 计算机使用位于启动文件系统中的 bootcode.bin 文件。
+树莓派 4、400、5，计算模块 4、4S 计算机使用 EEPROM 启动系统。其他型号的树莓派 计算机使用位于启动文件系统中的 bootcode.bin 文件。
 
 >**注意**
 >
