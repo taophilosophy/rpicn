@@ -4,7 +4,7 @@
 
 ![RP1 架构图](https://www.raspberrypi.com/documentation/microcontrollers/images/rp1.jpg)
 
-RP1 是一款 12×12mm，引脚中心距 0.65mm 的 BGA 南桥芯片，它为树莓派 5 提供了大部分 I/O（输入／输出）功能。
+RP1 是一款 12×12mm，引脚中心距为 0.65mm 的 BGA 南桥芯片，它为树莓派 5 提供了主要的 I/O（输入/输出）功能。
 
 RP1 可提供：
 
