@@ -12,7 +12,7 @@
 $ sudo raspi-config
 ```
 
-你将会在灰色窗口中，看到一个蓝色背景的界面，上面有各种选项：
+你会在灰色窗口中，看到一个蓝色背景的界面，上面有各种选项：
 
 ![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
@@ -90,7 +90,7 @@ $ sudo raspi-config
 
 用于[无头](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi)设置所用的显示分辨率。
 
-#### Composite——复合
+#### Composite——复合视频
 
 启用或禁用复合视频（composite video）。
 
