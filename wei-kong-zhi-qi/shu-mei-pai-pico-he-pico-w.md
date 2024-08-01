@@ -4,26 +4,26 @@
 
 ![四款 Pico](https://www.raspberrypi.com/documentation/microcontrollers/images/four_picos.jpg?hash=3f928dff64ab31c4f3b1caecf4fb83a4)
 
-树莓派 Pico 家族目前包括四款板子：树莓派 Pico（最左侧）、Pico H（中间左侧）、Pico W（中间右侧）和 Pico WH（最右侧）。
+树莓派 Pico 家族目前拥有四款开发板：树莓派 Pico（最左侧）、Pico H（中左）、Pico W（中右）和 Pico WH（最右侧）。
 
-## 树莓派 Pico 和 Pico H
+## 树莓派 Pico、Pico H
 
-树莓派 Pico 是一款低成本、高性能的微控制器板，具有灵活的数字接口。其主要特点包括：
+树莓派 Pico 是一款低成本、高性能的微控制器板，搭载了灵活的数字接口。其主要特性包括：
 
 * 由英国树莓派设计的 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040) 微控制器芯片
-* 双核 Arm Cortex M0+ 处理器，最高可灵活运行至 133 MHz
-* 264kB 的 SRAM 和 2MB 的板载闪存存储器
+* 双核 Arm Cortex M0+ 处理器，最高可动态提升至 133 MHz
+* 264kB SRAM，2MB 板载闪存存储器
 * USB 1.1，支持设备和主机模式
-* 低功耗睡眠和休眠模式
+* 低功耗睡眠模式，低功耗休眠模式
 * 通过 USB 实现拖放式编程
-* 26 个多功能 GPIO 引脚
-* 2 个 SPI，2 个 I²C，2 个 UART，3 个 12 位 ADC，16 个可控 PWM 通道
+* 26 针多功能 GPIO 引脚
+* 2 个 SPI，2 个 I²C，2 个串口，3 个 12 位 ADC，16 位可调 PWM 通道
 * 内置精准时钟和定时器
 * 温度传感器
 * 芯片内加速浮点库支持
 * 8 个可编程 I/O（PIO）状态机，用于自定义外设支持
 
-树莓派 Pico 以铸边模块形式提供，可直接焊接到载板上，而 Pico H 则预先焊接了引脚。
+树莓派 Pico 以铸边模块形式提供，可直接焊接到基板上，而 Pico H 则预焊接了引脚。
 
 >**注意**
 >
