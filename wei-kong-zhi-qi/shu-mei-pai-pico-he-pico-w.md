@@ -4,7 +4,7 @@
 
 ![四款 Pico](https://www.raspberrypi.com/documentation/microcontrollers/images/four_picos.jpg?hash=3f928dff64ab31c4f3b1caecf4fb83a4)
 
-目前树莓派 Pico 家族拥有四款开发板：树莓派 Pico（最左侧）、Pico H（中左）、Pico W（中右）和 Pico WH（最右侧）。
+目前树莓派 Pico 家族拥有四款开发板：树莓派 Pico（最左）、Pico H（中左）、Pico W（中右）和 Pico WH（最右）。
 
 ## 树莓派 Pico、Pico H
 
