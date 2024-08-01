@@ -8,7 +8,7 @@
 
 ## 树莓派 Pico、Pico H
 
-树莓派 Pico 是一款低成本、高性能的微控制器板，搭载了灵活的数字接口。其主要特性包括：
+树莓派 Pico 是一块低成本、高性能的微控制器板，搭载了灵活的数字接口。其主要特性包括：
 
 * 由英国树莓派设计的 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/rp2040.html#welcome-to-rp2040) 微控制器芯片
 * 双核 Arm Cortex M0+ 处理器，最高可动态提升至 133 MHz
