@@ -251,7 +251,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->树莓派 5 的固件内置在EEPROM 引导加载程序。
+>树莓派 5 的固件内置在 EEPROM 引导加载程序中。
 
 ### `cmdline`
 
