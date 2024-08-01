@@ -8,7 +8,7 @@
 要开始使用你的树莓派，你需要准备以下物品：
 
 * [电源适配器](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply)
-* 启动介质（比如[大容量的高速 microSD 卡](https://www.raspberrypi.com/documentation/computers/getting-started.html#recommended-sd-cards)）
+* 启动介质（如[大容量高速 microSD 卡](https://www.raspberrypi.com/documentation/computers/getting-started.html#recommended-sd-cards)）
 
 你可以将树莓派配置成带桌面的交互式计算机，也可以将其配置为仅通过网络访问的无头设备（headless）。不需要其他任何外部设备，你就能无头设置树莓派：你可以[在安装操作系统](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system)时预先设置主机名、用户账户、网络连接和 SSH。但如果你要直接使用树莓派，还需要以下其余配件：
 
