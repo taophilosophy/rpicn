@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d131bafa-07fa-4442-b297-f1bdc5114d44)# Table of contents
+# Table of contents
 
 * [Raspberry Pi 树莓派中文文档](README.md)
 * [目录](mu-lu.md)
