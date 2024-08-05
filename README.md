@@ -1,4 +1,4 @@
-# 树莓派（Raspberry Pi）官方文档简体中文版 翻译项目
+# Raspberry Pi 树莓派中文文档 翻译项目
 
 **[点击此处可浏览目录](mu-lu.md)**
 
