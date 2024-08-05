@@ -1,27 +1,27 @@
-# `config.txt` 旧参数
+# 旧的 `config.txt` 参数
 
-## 旧版参数
+## 旧的参数
 
-这里所说的 config.txt 参数被视为旧版本，树莓派 Bookworm 系统不再使用，且没有官方支持。它们要么涉及旧软件（如固件图形驱动程序）、要么已弃用、要么只有极少数人才可能会使用到。然而，它们仍被记录在此，因为它们对于使用旧操作系统的用户、进行裸机开发的人可能仍然有用。
+此处所述的 `config.txt` 被视为旧参数，树莓派 Bookworm 系统不再使用，亦无官方支持。它们要么涉及旧软件（如固件中的图形驱动程序）、要么已弃用、要么罕有人使用。然而，它们仍被记录在此，因为它们对于使用旧操作系统的用户，进行裸机开发的人来说，可能仍有用。
 
-## 旧版启动参数
+## 旧的启动参数
 
-(另请参阅 config.txt 启动参数。)
+(另请参阅 [config.txt](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options) 启动参数。)
 
 ### `start_x`、`start_debug`
 
-这里提供了一些替代 start_file 和 fixup_file 设置的快捷方式，是选择固件配置的推荐方法。
+这里提供了参数 `start_file`、`fixup_file` 的简易替代方法，这是推荐的固件配置的设定方式。
 
-  start_x=1 意味着
+`start_x=1` 意味着
 
 ```
   start_file=start_x.elf
   fixup_file=fixup_x.dat
 ```
 
-在树莓派 4 上，如果存在文件 start4x.elf 和 fixup4x.dat，则将使用这些文件。
+对于树莓派 4，如果有文件 `start4x.elf`、`fixup4x.dat`，则将使用这些文件。
 
-  start_debug=1 意味着
+`start_debug=1` 意味着
 
 ```
   start_file=start_db.elf
@@ -30,15 +30,15 @@
 
 ### `disable_commandline_tags`
 
-将 disable_commandline_tags 参数置为 1，能在启动内核之前禁止 start.elf 填充 ATAGS（来自 0x100 的内存）。
+若参数 `disable_commandline_tags` 置为 `1`，会在启动内核之前禁止 `start.elf` 覆盖 ATAGS（从 `0x100` 开始的内存）。
 
 ### `arm_control`
 
 >**警告**
 >
->此设置已弃用。请改用 arm_64bit 以启用 64 位内核。
+>此设置已弃用。请改用 `arm_64bit` 来启用 64 位内核。
 
-设置特定于主板的控制位。
+此设置特定于主板的控制位。
 
 ### `armstub`
 
