@@ -1,7 +1,7 @@
 # Table of contents
 
-* [Raspberry Pi 树莓派中文文档](README.md)
 * [目录](mu-lu.md)
+* [Raspberry Pi 树莓派中文文档翻译项目](README.md)
 
 ## 前言
 
