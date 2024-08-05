@@ -16,7 +16,7 @@
 * [树莓派系统（Raspberry Pi OS）](shu-mei-pai/raspberry-pi-os.md)
 * [系统配置](shu-mei-pai/xi-tong-pei-zhi.md)
 * [`config.txt`](shu-mei-pai/config.txt.md)
-* [`config.txt` 旧参数](shu-mei-pai/jiu-ban-config.txt-can-shu.md)
+* [旧的 `config.txt` 参数](shu-mei-pai/jiu-ban-config.txt-can-shu.md)
 * [Linux 内核](shu-mei-pai/linux-nei-he.md)
 * [远程访问](shu-mei-pai/yuan-cheng-fang-wen.md)
 * [摄像头软件](shu-mei-pai/she-xiang-tou-ruan-jian.md)
