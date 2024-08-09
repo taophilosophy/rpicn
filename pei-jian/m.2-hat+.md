@@ -42,7 +42,7 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附�
 1. 首先，请确保你的树莓派运行的是最新软件。运行以下命令进行更新：
 
     ```
-    $ sudo apt update && sudo apt upgrade
+    $ sudo apt update && sudo apt full-upgrade
     ```
 2. 接下来，请确保你的树莓派固件也是最新的。运行以下命令查看你正在运行的固件版本：
 
