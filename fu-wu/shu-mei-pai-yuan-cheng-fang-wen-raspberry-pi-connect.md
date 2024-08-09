@@ -23,7 +23,7 @@ Connect 目前处于 BETA 开发阶段。
 
 ```
 $ sudo apt update
-$ sudo apt upgrade
+$ sudo apt full-upgrade
 ```
 
 在你的树莓派上，运行以下命令安装 Connect：
