@@ -6,7 +6,7 @@
 
 ![Sense HAT](https://www.raspberrypi.com/documentation/accessories/images/Sense-HAT.jpg?hash=e095672e700544fc89a62dad3d9fc164)
 
-传感器扩展板最初是为国际空间站开发的：作为由树莓派基金会与欧洲航天局（ESA）合作，开展的 Astro Pi 教育计划的一部分。它非常适合许多需要位置、运动、方向或环境感知的项目。传感器扩展板从连接的树莓派上取电。
+Sense HAT 最初是为在国际空间站上使用而开发的，是[树莓派基金会](https://raspberrypi.org/)与[欧洲航天局](https://www.esa.int/)合作开展的 [Astro Pi](https://astro-pi.org/) 教育计划的一部分。它可以帮助完成任何需要位置、运动、方向或环境传感的项目。
 
 由官方支持的 Python 库提供了对所有板载传感器、LED 矩阵和操纵杆的控制。传感器扩展板兼容带有 40 针 GPIO 引脚排针型号的树莓派计算机。
 
