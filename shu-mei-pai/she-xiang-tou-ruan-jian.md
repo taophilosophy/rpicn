@@ -1029,7 +1029,7 @@ $ rpicam-hello --config example_configuration.txt
 
 该选项仅适用于某些摄像头模块。
 
-#### `autofocus-range`
+#### `autofocus-window`
 
  默认值： normal
 
