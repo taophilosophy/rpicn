@@ -1419,7 +1419,7 @@ $ mkvmerge -o test.mkv --timecodes 0:timestamps.txt test.h264
 
  默认值： aac
 
-选择用于输出的音频编解码器。要查看可用编解码器的列表，请运行 ffmpeg -codec。
+选择用于输出的音频编解码器。要查看可用编解码器的列表，请运行 ffmpeg -codecs。
 
 #### `audio-bitrate`
 
