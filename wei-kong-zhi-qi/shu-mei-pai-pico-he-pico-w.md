@@ -25,17 +25,16 @@ Pico 系列设备根据产品代次划分 **系列**。
 树莓派 Pico 2 是一款低成本、高性能的微控制器开发板，具有灵活的数字接口。主要特点包括：
 
 - 由 Raspberry Pi 在英国设计的 [RP2350](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2350) 微控制器芯片
-- 双 Cortex-M33 或 Hazard3 处理器，最高可达 150MHz
+- 双核 Cortex-M33、或双核 Hazard3 处理器，最高可达 150MHz
 - 520KB 的 SRAM 和 4MB 的板载闪存
-- 支持设备和主机模式的 USB 1.1
+- 带设备模式和主机模式支持的 USB 1.1
 - 低功耗睡眠和休眠模式
 - 通过 USB 大容量存储拖放编程
-- 26× 多功能 GPIO 引脚，其中 3 个可用于 ADC
-- 2× SPI，2× I2C，2× UART，3× 12 位 500ksps 模拟到数字转换器 (ADC)，24× 可控 PWM 通道
-- 2× 定时器，带 4 个报警，1× AON 定时器
+- 多功能 GPIO 引脚 ×26，其中 3 个可用于 ADC
+- SPI ×2，I²C ×2，UART ×2，12 位 500ksps 模拟到数字转换器 (ADC) ×3，可控 PWM 通道 ×24
+- 定时器 ×2，带 4 个报警，AON 定时器 ×1
 - 温度传感器
 - 3× 可编程 IO (PIO) 模块，总共 12 个状态机，支持自定义外围设备
-
   - 灵活、用户可编程的高速 IO
   - 可以模拟接口，如 SD 卡和 VGA
 
@@ -69,16 +68,16 @@ Pico 系列设备根据产品代次划分 **系列**。
 
 - 由 Raspberry Pi 在英国设计的 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2040) 微控制器芯片
 - 双核 Arm Cortex M0+ 处理器，灵活的时钟频率最高可达 133 MHz
-- 264KB 的 SRAM 和 2MB 的板载闪存
-- 支持设备和主机模式的 USB 1.1
+- SRAM 为 264KB，板载闪存 2MB
+- 带设备模式和主机模式支持的 USB 1.1
 - 低功耗睡眠和休眠模式
 - 通过 USB 大容量存储拖放编程
-- 26× 多功能 GPIO 引脚
-- 2× SPI，2× I2C，2× UART，3× 12 位 ADC，16× 可控 PWM 通道
+- 多功能 GPIO 引脚 ×26
+- SPI ×2，I²C ×2，串口 ×2，3× 12 位 ADC，可控 PWM 通道 ×2
 - 精确的片上时钟和定时器
 - 温度传感器
 - 片上加速浮点库
-- 8× 可编程 IO (PIO) 状态机，支持自定义外围设备
+- 可编程 IO (PIO) 状态机 ×8，支持自定义外围设备
 
 树莓派 Pico 采用镀边模块设计，便于直接焊接到载板上，而 Pico H 则预装有插针。
 
@@ -109,7 +108,6 @@ Pico 系列设备根据产品代次划分 **系列**。
 * WPA3 安全协议
 * 支持最多四个客户端的软接入点
 * 蓝牙 5.2
-
   * 支持蓝牙低功耗（LE）中央和外围角色
   * 支持经典蓝牙
 
