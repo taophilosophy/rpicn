@@ -17,19 +17,19 @@
 确保你的 APT 软件源是最新的：
 
 ```
- sudo apt update
+$ sudo apt update && sudo apt full-upgrade
 ```
 
 接下来，安装传感器扩展板软件包，这将确保内核是最新的，启用 I²C，并安装必要的库和程序：
 
 ```
- sudo apt install sense-hat
+$ sudo apt install sense-hat
 ```
 
 最后，如果 I²C 被禁用或在安装之前内核是旧的，则可能需要重启：
 
 ```
- sudo reboot
+$ sudo reboot
 ```
 
 ## 入门指南
