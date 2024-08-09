@@ -4,15 +4,15 @@ Pico 系列设备根据产品代次划分 **系列**。
 
 第一代树莓派 Pico 系列被称为 Pico（或 Pico 1），包含四个型号：
 
--树莓派 Pico
--树莓派 Pico H
--树莓派 Pico W
--树莓派 Pico WH
+- 树莓派 Pico
+- 树莓派 Pico H
+- 树莓派 Pico W
+- 树莓派 Pico WH
 
 第二代树莓派 Pico 系列被称为 Pico 2，包含两个型号：
 
--树莓派 Pico 2
-- 带有插针的树莓派 Pico 2
+- 树莓派 Pico 2
+  - 带有插针的树莓派 Pico 2
 
 ## Pico 2 系列
 
