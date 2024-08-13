@@ -4,6 +4,7 @@
 | English          | 翻译           |
 |:------------------:|:---------------:|
 |Raspberry Pi OS|树莓派系统|
+|microSD|存储卡|
 |HAT|扩展板|
 |Raspberry Pi OS Lite|精简版树莓派系统|
 | APT              | APT           |
