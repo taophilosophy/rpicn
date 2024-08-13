@@ -2,7 +2,7 @@
 
 ## 旧的参数
 
-此处所述的 `config.txt` 被视为旧参数，树莓派 Bookworm 系统不再使用，亦无官方支持。它们要么涉及旧软件（如固件中的图形驱动程序）、要么已弃用、要么罕有人使用。然而，它们仍被记录在此，因为它们对于使用旧操作系统的用户，进行裸机开发的人来说，可能仍有用。
+此处所述的 `config.txt` 被视为旧参数，树莓派 Bookworm 系统不再使用，亦无官方支持。它们要么涉及旧软件（如固件中的图形驱动程序）、要么已弃用、要么罕有人使用。然而，它们仍被记录在此，因为它们对于那些使用旧操作系统的用户，或者进行裸机开发的人来说，可能仍有用。
 
 ## 旧的启动参数
 
@@ -10,7 +10,7 @@
 
 ### `start_x`、`start_debug`
 
-这里提供了参数 `start_file`、`fixup_file` 的简易替代方法，这是推荐的固件配置的设定方式。
+这里提供了代替参数 `start_file`、`fixup_file` 的简单方法，这是推荐的设定固件配置之方式。
 
 `start_x=1` 意味着
 
@@ -19,7 +19,7 @@
   fixup_file=fixup_x.dat
 ```
 
-对于树莓派 4，如果有文件 `start4x.elf`、`fixup4x.dat`，则将使用这些文件。
+对于树莓派 4，如果有文件 `start4x.elf`、`fixup4x.dat`，则会使用之。
 
 `start_debug=1` 意味着
 
@@ -30,7 +30,7 @@
 
 ### `disable_commandline_tags`
 
-若参数 `disable_commandline_tags` 置为 `1`，会在启动内核之前禁止 `start.elf` 覆盖 ATAGS（从 `0x100` 开始的内存）。
+若将参数 `disable_commandline_tags` 置为 `1`，会在启动内核之前禁用 `start.elf` 覆盖 ATAGS（从 `0x100` 开始的内存）。
 
 ### `arm_control`
 
