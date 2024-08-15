@@ -100,11 +100,10 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附�
 
 ## 框图
 
-![m2 hat plus schematics](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-schematics.png)
+![树莓派 M.2 HAT+ 的原理图](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-schematics.png)
 
-树莓派 M.2 HAT+ 的原理图
 
-PDF 格式的原理图。
+[PDF 格式](https://datasheets.raspberrypi.com/m2-hat-plus/raspberry-pi-m2-hat-plus-schematics.pdf?_gl=1*1qlaav3*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMzcwMjM3Ny44NC4xLjE3MjM3MDI0MTAuMC4wLjA.)的原理图。
 
 ## 产品简介
 
