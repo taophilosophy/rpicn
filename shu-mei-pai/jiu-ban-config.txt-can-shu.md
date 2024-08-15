@@ -229,13 +229,13 @@
 
 >**注意**
 >
->因为树莓派 4、400 有两个 HDMI 端口，某些 HDMI 命令可以应用于特定接口。你可以使用语法 `<命令>:<端口>`，其中端口为 0 或 1，以指定设置应适用于哪个端口。如果未指定端口，则默认为 0。如果在不需要端口号的命令上指定端口号，则端口将被忽略。有关语法和替代机制的更多详细信息，请参阅文档的条件部分中 HDMI 的部分。
+>因为树莓派 4、400 有两个 HDMI 端口，某些 HDMI 命令可以应用于特定接口。你可以使用语法 `<命令>:<端口>`，其中端口为 `0` 或 `1`，以指定设置应适用于哪个端口。如果未指定端口，则默认为 `0`。如果在不需要端口号的命令上指定了端口号，则端口将被忽略。有关语法和替代机制的更多详细信息，请参阅文档的条件部分中 HDMI 的部分。
 
 #### `hdmi_safe`
 
-将 hdmi_safe 置为 1 将触发使用“安全模式”，尝试以最大的 HDMI 兼容性启动。等同于设定以下参数：
+若将 `hdmi_safe` 置为 `1`，将触发使用“安全模式”，尝试以最大的 HDMI 兼容性启动。等同于设定以下参数：
 
-```bash
+```sh
 hdmi_force_hotplug=1
 hdmi_ignore_edid=0xa5000080
 config_hdmi_boost=4
@@ -250,19 +250,19 @@ overscan_bottom=24
 
 #### `hdmi_ignore_edid`
 
-将 hdmi_ignore_edid 设置为 0xa5000080 可以启用忽略 EDID/显示数据，如果你的显示器没有准确的 EDID。它需要这个不寻常的值来确保不会意外触发。
+若将 `hdmi_ignore_edid` 置为 `0xa5000080`，可以启用忽略 EDID/显示数据，如果你的显示器没有准确的 EDID。它需要这个不寻常的值来确保不会意外触发。
 
 #### `hdmi_edid_file`
 
-将 hdmi_edid_file 置为 1 将使 GPU 从引导分区里的 edid.dat 文件中读取 EDID 数据，而不是从显示器读取。
+若将 `hdmi_edid_file` 置为 `1`，将使 GPU 从引导分区里的 `edid.dat` 文件中读取 EDID 数据，而非显示器。
 
 #### `hdmi_edid_filename`
 
-在树莓派 4B 上，你可以使用 hdmi_edid_filename 命令指定要使用的 EDID 文件的文件名，并指定要应用文件的端口。这还需要 hdmi_edid_file=1 来启用 EDID 文件。
+在树莓派 4B 上，你可以使用 `hdmi_edid_filename` 命令指定要使用的 EDID 文件的文件名，并指定要应用文件的端口。这还需要 `hdmi_edid_file=1` 来启用 EDID 文件。
 
  例如：
 
-```bash
+```sh
 hdmi_edid_file=1
 hdmi_edid_filename:0=FileForPortZero.edid
 hdmi_edid_filename:1=FileForPortOne.edid
@@ -270,39 +270,39 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_force_edid_audio`
 
-将 hdmi_force_edid_audio 设置为 1 会假装显示器支持所有音频格式，即使实际上不支持 DTS/AC3，也允许进行音频透传。
+若将 `hdmi_force_edid_audio` 置为 `1`，会假装显示器支持所有音频格式，即使实际上不支持 DTS/AC3，也能进行音频透传。
 
 #### `hdmi_ignore_edid_audio`
 
-将 hdmi_ignore_edid_audio 设置为 1 会假装显示器不支持一切音频格式。这意味着 ALSA 会默认使用模拟音频（耳机）插孔。
+若将 `hdmi_ignore_edid_audio` 置为 `1`，会假装显示器无法支持任何音频格式。这意味着 ALSA 会默认使用模拟音频（耳机）插孔。
 
 #### `hdmi_force_edid_3d`
 
-将 hdmi_force_edid_3d 设置为 1 会假装所有 CEA 模式都支持 3D，即使 EDID 没有指示支持。
+若将 `hdmi_force_edid_3d` 置为 `1`，会假装所有 CEA 模式都支持 3D，即使 EDID 没有指示支持。
 
 #### `hdmi_ignore_cec_init`
 
-将 hdmi_ignore_cec_init 设置为 1 将阻止在启动过程中发送初始活动源消息。这可以防止在重启树莓派时，CEC 启用的电视机从待机状态中唤醒并切换频道。
+若将 `hdmi_ignore_cec_init` 置为 `1`，将阻止在启动过程中发送初始活动源信息。这可以防止在重启树莓派时，CEC 启用的电视机从待机状态中唤醒并切换频道。
 
 #### `hdmi_ignore_cec`
 
-将 hdmi_ignore_cec 设置为 1 会假装显示器根本不支持 CEC。将不支持一切 CEC 功能。
+若将 `hdmi_ignore_cec` 置为 `1`，会假装显示器不支持 CEC。将不支持任何 CEC 功能。
 
 #### `cec_osd_name`
 
-cec_osd_name 命令设置设备的初始 CEC 名称。默认为 `Raspberry Pi`.
+`cec_osd_name` 命令可设置设备的初始 CEC 名称。默认为 `Raspberry Pi`.
 
 #### `hdmi_pixel_encoding`
 
-hdmi_pixel_encoding 命令强制使用像素编码模式。默认情况下，它将使用从 EDID 请求的模式，因此你不应该需要更改它。
+`hdmi_pixel_encoding` 命令强制使用像素编码模式。默认情况下，它将使用从 EDID 请求的模式，因此你不应该需要更改它。
 
-| hdmi_pixel_encoding | 结果                                     |
+| `hdmi_pixel_encoding` | 结果                                     |
 | :---------------------: | ------------------------------------------ |
-| 0                   | 默认值（CEA 为 RGB 有限，DMT 为 RGB 全） |
-| 1                   | RGB 有限（16-235）                       |
-| 2                   | RGB 全（0-255）                          |
-| 3                   | YCbCr 有限 (16-235)                      |
-| 4                   | YCbCr 全范围 (0-255)                     |
+| `0`                   | 默认值（CEA 为 RGB 有限，DMT 为 RGB 全） |
+| `1`                   | RGB 有限（16-235）                       |
+| `2`                   | RGB 全（0-255）                          |
+| `3`                   | YCbCr 有限 (16-235)                      |
+| `4`                   | YCbCr 全范围 (0-255)                     |
 
 #### `hdmi_max_pixel_freq`
 
@@ -311,57 +311,57 @@ hdmi_pixel_encoding 命令强制使用像素编码模式。默认情况下，它
 
 #### `hdmi_blanking`
 
-当操作系统要求将显示器置于待机模式以节省电源时，hdmi_blanking 命令控制发生的情况。如果未设置此参数或将其设置为 0，则 HDMI 输出将被清空但不会关闭。为了模仿其他计算机的行为，你可以将 HDMI 输出也设置为关闭，方法是将此参数设置为 1：连接的显示器将进入低功耗待机模式。
+当操作系统要求将显示器置于待机模式以节省电源时，`hdmi_blanking` 命令控制发生的情况。如果未设置此参数或将其设置为 `0`，则 HDMI 输出将被清空但不会关闭。为了模仿其他计算机的行为，你可以将 HDMI 输出也设置为关闭，方法是将此参数设置为 `1`：连接的显示器将进入低功耗待机模式。
 
 >**注意**
 >
->在树莓派 4 上，设置 hdmi_blanking=1 不会停止 HDMI 输出，因为此功能尚未实现。当使用不使用 framebuffer 的应用程序时，此功能可能会导致问题，例如 omxplayer。
+>在树莓派 4 上，设置 `hdmi_blanking=1` 不会停止 HDMI 输出，因为此功能尚未实现。当使用不使用 framebuffer 的应用程序时，此功能可能会导致问题，例如 omxplayer。
 
-| hdmi_blanking | 结果                    |
+| `hdmi_blanking` | 结果                    |
 | :---------------: | :-------------------------: |
-| 0             | HDMI 输出将被屏蔽       |
-| 1             | HDMI 输出将被关闭并屏蔽 |
+| `0`             | HDMI 输出将被屏蔽       |
+| `1`             | HDMI 输出将被关闭并屏蔽 |
 
 #### `hdmi_drive`
 
-hdmi_drive 命令能让你在 HDMI 和 DVI 输出模式之间进行切换。
+`hdmi_drive` 命令能让你在 HDMI 和 DVI 输出模式之间进行切换。
 
-| hdmi_drive | 结果                                             |
+| `hdmi_drive` | 结果                                             |
 | :------------: | -------------------------------------------------- |
-| 1          | 普通的 DVI 模式（无声音）                        |
-| 2          | 普通的 HDMI 模式（如果支持且已启用，则有声音） |
+| `1`          | 普通 DVI 模式（无声音）                        |
+| `2`          | 普通 HDMI 模式（如果支持且已启用，则有声音） |
 
 #### `config_hdmi_boost`
 
-配置 HDMI 接口的信号强度。最小值为 0，最大值为 11。
+配置 HDMI 接口的信号强度。最小值为 `0`，最大值为 `11`。
 
-早期型号 B、A 的默认值为 2。B+ 及所有后续型号的默认值为 5。
+早期型号 B、A 的默认值为 `2`。B+ 及所有后续型号的默认值为 `5`。
 
-如果你遇到 HDMI 问题（雪花，干扰），请尝试 7。特别长的 HDMI 线可能需要 11 这么大才行，但除非绝对必要，否则不应使用这么高的值。
+如果你遇到 HDMI 问题（雪花等干扰），请尝试 `7`。特别长的 HDMI 线可能需要 `11` 这么大才行，但除非绝对必要，否则不应使用这么高的值。
 
-旧的树莓派 4 会忽略此参数。
+旧款树莓派 4 会忽略此参数。
 
 #### `hdmi_group`
 
-hdmi_group 命令定义 HDMI 输出组，可以是 CEA（消费类电子协会，通常由电视使用的标准）或 DMT（显示器定时，通常由显示器使用的标准）。此设置应与 hdmi_mode 一起使用。
+`hdmi_group` 命令定义了 HDMI 输出组，可以是 CEA（消费类电子协会，通常由电视使用的标准）或 DMT（显示器定时，通常由显示器使用的标准）。此设置应与 `hdmi_mode` 联合使用。
 
 | HDMI 组 | 结果             |
 | :---------: | :------------------: |
-| 0       | 从 EDID 自动检测 |
-| 1       | CEA              |
-| 2       | DMT              |
+| `0`       | 从 EDID 自动检测 |
+| `1`       | CEA              |
+| `2`       | DMT              |
 
 #### `hdmi_mode`
 
-与 hdmi_group 一起，hdmi_mode 定义 HDMI 输出格式。格式模式编号遵守 CTA 规范。
+与 `hdmi_group` 一起，`hdmi_mode` 定义了 HDMI 输出格式。格式模式编号遵守 CTA 规范。
 
 >**注意**
 >
 >并非所有型号都能使用以下所有模式。
 
-这些值仅在 hdmi_group=1 (CEA) 有效：
+这些值仅在 `hdmi_group=1` (CEA) 有效：
 
-| hdmi_mode | 分辨率         | 刷新率   | 屏幕比例 | 注释               |
+| `hdmi_mode` | 分辨率         | 刷新率   | 屏幕比例 | 注释               |
 | :-----------: | :----------------: | :----------: | :----------: | :--------------------: |
 | 1         | VGA（640x480） | 60Hz  | 4:3      |                    |
 | 2         | 480p           | 60Hz  | 4:3      |                    |
@@ -471,13 +471,13 @@ hdmi_group 命令定义 HDMI 输出组，可以是 CEA（消费类电子协会�
 | 106       | 2160p          | 50Hz     | 64:27    | 树莓派 4           |
 | 107       | 2160p          | 60Hz     | 64:27    | 树莓派 4           |
 
-1. 仅在超频核心频率下可用：设置 core_freq_min=600 和 core_freq=600。请参阅超频。
+1. 仅在超频核心频率下可用：设置 `core_freq_min=600` 和 `core_freq=600`。请参阅超频。
 
 像素加倍和四倍表示更高的时钟速率，每个像素分别重复两次或四次。
 
-如果 hdmi_group=2（DMT）有效，则这些值有效：
+如果 `hdmi_group=2`（DMT）有效，则这些值有效：
 
-| hdmi_mode | 分辨率    | 刷新率    | 屏幕比例 | 备注                 |
+| `hdmi_mode` | 分辨率    | 刷新率    | 屏幕比例 | 备注                 |
 | :-----------: | :-----------: | :----------: | :------------: | :------------------------: |
 | 1         | 640x350   | 85Hz     |            |                        |
 | 2         | 640x400   | 85Hz     | 16:10      |                        |
@@ -573,7 +573,7 @@ hdmi_group 命令定义 HDMI 输出组，可以是 CEA（消费类电子协会�
 
 #### `hdmi_timings`
 
-允许设置原始 HDMI 定时值，用 hdmi_group=2 和 hdmi_mode=87 选择自定义模式。
+允许设置原始 HDMI 定时值，用 `hdmi_group=2` 和 `hdmi_mode=87` 选择自定义模式。
 
 ```bash
 hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <h_back_porch> <v_active_lines> <v_sync_polarity> <v_front_porch> <v_sync_pulse> <v_back_porch> <v_sync_offset_a> <v_sync_offset_b> <pixel_rep> <frame_rate> <interlaced> <pixel_freq> <aspect_ratio>
@@ -616,7 +616,7 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 
 #### `hdmi_force_mode`
 
-将设置为 1 将从内部列表中删除除 hdmi_mode 和 hdmi_group 指定的模式之外的所有其他模式，这意味着它们不会出现在所有模式的枚举列表中。如果显示似乎忽略 hdmi_mode 和 hdmi_group 设置，此参数可能有所帮助。
+若置为 `1`，将从内部列表中删除除 `hdmi_mode` 和 hdmi_group 指定的模式之外的所有其他模式，这意味着它们不会出现在所有模式的枚举列表中。如果显示似乎忽略 `hdmi_mode` 和 `hdmi_group` 设置，此参数可能有所帮助。
 
 #### `edid_content_type`
 
@@ -624,11 +624,11 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 
  参数如下：
 
-* 0 = EDID_ContentType_NODATA，内容类型为 none
-* 1 = EDID_ContentType_Graphics，内容类型为图形，ITC 必须设置为 1
-* 2 = EDID_ContentType_Photo，内容类型为照片
-* 3 = EDID_ContentType_Cinema，内容类型为电影
-* 4 = EDID_ContentType_Game，内容类型游戏
+* `0 = EDID_ContentType_NODATA`，内容类型为 none
+* `1 = EDID_ContentType_Graphics`，内容类型为图形，ITC 必须设置为 1
+* `2 = EDID_ContentType_Photo`，内容类型为照片
+* `3 = EDID_ContentType_Cinema`，内容类型为电影
+* `4 = EDID_ContentType_Game`，内容类型游戏
 
 ### 我的显示器能使用哪些值？
 
@@ -677,22 +677,22 @@ hdmi_drive=2
 
 #### `sdtv_mode`
 
-sdtv_mode 命令定义了用于复合视频输出的电视标准。
+`sdtv_mode` 命令定义了用于复合视频输出的电视标准。
 
 | 标准电视模式 | 意义                                              |
 | :--------------: | --------------------------------------------------- |
-| 0（默认）    | 通用 NTSC                                       |
-| 1            | NTSC 的日本版本-没有基座                          |
-| 2            | 通用 PAL                                        |
-| 3            | PAL 的巴西版本-525/60 而不是 625/50，不同的子载波 |
-| 16           | 逐行扫描 NTSC                                     |
-| 18           | 逐行扫描 PAL                                      |
+| `0`（默认）    | 通用 NTSC                                       |
+| `1`            | NTSC 的日本版本-没有基座                          |
+| `2`            | 通用 PAL                                        |
+| `3`            | PAL 的巴西版本-525/60 而不是 625/50，不同的子载波 |
+| `16`           | 逐行扫描 NTSC                                     |
+| `18`           | 逐行扫描 PAL                                      |
 
 #### `sdtv_aspect`
 
-sdtv_aspect 命令定义了复合视频输出的纵横比。默认值为 1。
+`sdtv_aspect` 命令定义了复合视频输出的纵横比。默认值为 1。
 
-| sdtv_aspect | 结果 |
+| `sdtv_aspect` | 结果 |
 | :-------------: | :--------: |
 | 1           | 4:3    |
 | 2           | 14:9   |
@@ -700,13 +700,13 @@ sdtv_aspect 命令定义了复合视频输出的纵横比。默认值为 1。
 
 #### `sdtv_disable_colourburst`
 
-将 sdtv_disable_colourburst 设置为 1 会禁用复合视频输出上的彩色爆发。图片将以单色显示，但可能会更清晰。
+若将 `sdtv_disable_colourburst` 置为 `1`，会禁用复合视频输出上的彩色爆发。图片将以单色显示，但可能会更清晰。
 
 ### 液晶显示屏和触摸屏
 
 #### `display_default_lcd`
 
-如果检测到树莓派触摸显示屏，它将被用作默认显示器，并显示帧缓冲区。设置 display_default_lcd=0 将确保液晶显示屏不是默认显示器，这通常意味着 HDMI 输出将是默认的。仍然可以通过从支持的应用程序中选择其显示编号来使用液晶显示屏，例如，omxplayer。
+如果检测到树莓派触摸显示屏，它将被用作默认显示器，并显示帧缓冲区。设置 `display_default_lcd=0` 将确保液晶显示屏不是默认显示器，这通常意味着 HDMI 输出将是默认的。仍然可以通过从支持的应用程序中选择其显示编号来使用液晶显示屏，例如，omxplayer。
 
 #### `lcd_framerate`
 
@@ -716,7 +716,7 @@ sdtv_aspect 命令定义了复合视频输出的纵横比。默认值为 1。
 
 这会使用 LCD 内置的翻转功能翻转显示，这比使用基于 GPU 的旋转操作更省计算资源。
 
-例如，lcd_rotate=2 将补偿倒置显示。
+例如，`lcd_rotate=2` 将补偿倒置显示。
 
 #### `enable_dpi_lcd`
 
@@ -724,13 +724,13 @@ sdtv_aspect 命令定义了复合视频输出的纵横比。默认值为 1。
 
 #### `dpi_group`, `dpi_mode`, `dpi_output_format`
 
-dpi_group 和 dpi_mode config.txt 参数用于设置预定模式（DMT 或 CEA 模式，与 HDMI 上使用的相同）。用户可以以与 HDMI 相同的方式生成自定义模式（请参阅 dpi_timings 部分）。
+参数 `dpi_group` 和 `dpi_mode config.txt` 用于设置预定模式（DMT 或 CEA 模式，与 HDMI 上使用的相同）。用户可以以与 HDMI 相同的方式生成自定义模式（请参阅 `dpi_timings` 部分）。
 
-dpi_output_format 是一个位掩码，指定用于设置显示格式的各种参数。
+`dpi_output_format` 是一个位掩码，指定用于设置显示格式的各种参数。
 
 #### `dpi_timings`
 
-允许设置原始 DPI 定时值，用于自定义模式，通过 dpi_group=2 和 dpi_mode=87 选择。
+允许设置原始 DPI 定时值，用于自定义模式，通过 `dpi_group=2` 和 `dpi_mode=87` 选定。
 
 ```bash
 dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <h_back_porch> <v_active_lines> <v_sync_polarity> <v_front_porch> <v_sync_pulse> <v_back_porch> <v_sync_offset_a> <v_sync_offset_b> <pixel_rep> <frame_rate> <interlaced> <pixel_freq> <aspect_ratio>
@@ -775,55 +775,55 @@ dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <
 
 #### `hdmi_force_hotplug`
 
-将 hdmi_force_hotplug 设置为 1 会假装 HDMI 热插拔信号已被断开，因此看起来好像没有连接 HDMI 显示器。换句话说，即使没有检测到 HDMI 监视器，也会使用 HDMI 输出模式。
+若将 `hdmi_force_hotplug` 置为 `1`，会假装 HDMI 热插拔信号已断开，因此看起来好像没有连接 HDMI 显示器。换句话说，即使没有检测到 HDMI 监视器，也会使用 HDMI 输出模式。
 
 #### `hdmi_ignore_hotplug`
 
-将 hdmi_ignore_hotplug 设置为 1 会假装 HDMI 热插拔信号已被断开，因此看起来好像没有连接 HDMI 显示器。因此，即使连接了监视器，HDMI 输出也将被禁用。
+若将 `hdmi_ignore_hotplug` 置为 `1`，会假装 HDMI 热插拔信号已被断开，因此看起来好像没有连接 HDMI 显示器。因此，即使连接了监视器，HDMI 输出也将被禁用。
 
 #### `disable_overscan`
 
-disable_overscan 的默认值为 0，这为 HD CEA 模式的左、右、上和下边缘以及 SD CEA 模式的 32 和 DMT 模式的 0 提供了默认的过扫描值。
+`disable_overscan` 的默认值为 `0`，这为 HD CEA 模式的左、右、上和下边缘以及 SD CEA 模式的 32 和 DMT 模式的 `0` 提供了默认的过扫描值。
 
-将 disable_overscan 设置为 1 以禁用固件设置的过扫描的默认值。
+若将 `disable_overscan` 置为 `1`，将禁用固件设置的过扫描的默认值。
 
 #### `overscan_left`
 
-overscan_left 命令指定要添加到屏幕左边缘的固件默认过扫描值的像素数。默认值为 0。
+`overscan_left` 命令可指定要添加到屏幕左边缘的固件默认过扫描值的像素数。默认值为 `0`。
 
-如果文本超出屏幕左边缘，请增加此值；如果屏幕左边缘和文本之间有黑色边框，请降低此值。
+如果文本超出屏幕左边缘，请增加此值；如果屏幕左边缘和文本之间有黑色边框，请调低此值。
 
 #### `overscan_right`
 
-overscan_right 命令指定要添加到屏幕右边缘超扫描的固件默认值的像素数。默认值为 0。
+`overscan_right` 命令可指定要添加到屏幕右边缘超扫描的固件默认值的像素数。默认值为 `0`。
 
 如果文本超出屏幕右边缘，请增加此值；如果屏幕右边缘和文本之间有黑色边框，请降低此值。
 
 #### `overscan_top`
 
-overscan_top 命令指定要添加到屏幕顶部超扫描的固件默认值的像素数。默认值为 0。
+`overscan_top` 命令可指定要添加到屏幕顶部超扫描的固件默认值的像素数。默认值为 `0`。
 
 如果文本超出屏幕顶部边缘，请增加此值；如果屏幕顶部边缘和文本之间有黑色边框，请降低此值。
 
 #### `overscan_bottom`
 
-overscan_bottom 命令指定要添加到屏幕底部边缘超扫描的像素数。默认值为 0。
+`overscan_bottom` 命令可指定要添加到屏幕底部边缘超扫描的像素数。默认值为 `0`。
 
 如果文本超出屏幕底部边缘，请增加此值；如果屏幕底部边缘和文本之间有黑色边框，请降低此值。
 
 #### `overscan_scale`
 
-将 overscan_scale 设置为 1 以强制所有非帧缓冲层符合过扫描设置。默认值为 0。
+若将 `overscan_scale` 置为 `1`，以强制所有非帧缓冲层符合过扫描设置。默认值为 `0`。
 
 注意：通常不建议使用此功能：因为显示器上的所有图层都将由 GPU 缩放，这可能会降低图像质量。建议在显示器本身上禁用过扫描，以避免图像被 GPU 和显示器两次缩放。
 
 #### `framebuffer_width`
 
-framebuffer_width 命令指定像素中的控制台帧缓冲区宽度。默认值为显示宽度减去总水平超扫描量。
+`framebuffer_width` 命令指定像素中的控制台帧缓冲区宽度。默认值为显示宽度减去总水平超扫描量。
 
 #### `framebuffer_height`
 
-framebuffer_height 命令指定控制台帧缓冲区的像素高度。默认值为显示高度减去总垂直过扫描。
+`framebuffer_height` 命令指定控制台帧缓冲区的像素高度。默认值为显示高度减去总垂直过扫描。
 
 #### `max_framebuffer_height`, `max_framebuffer_width`
 
@@ -831,22 +831,22 @@ framebuffer_height 命令指定控制台帧缓冲区的像素高度。默认值�
 
 #### `framebuffer_depth`
 
-使用 framebuffer_depth 来指定每像素位的控制台帧缓冲区深度。默认值为 16。
+使用 `framebuffer_depth` 来指定每像素位的控制台帧缓冲区深度。默认值为 `16`。
 
 | 帧缓冲深度 | 结果          | 注解                                           |
 | :------------: | :---------------: | ------------------------------------------------ |
 | 8          | 8 位帧缓冲区  | 默认 RGB 调色板使屏幕难以阅读                  |
 | 16         | 16 位帧缓冲区 |                                                |
 | 24         | 24 位帧缓冲区 | 可能导致显示损坏                               |
-| 32         | 32 位帧缓冲区 | 可能需要与 framebuffer_ignore_alpha=1 一起使用 |
+| 32         | 32 位帧缓冲区 | 可能需要与 `framebuffer_ignore_alpha=1` 联合使用 |
 
 #### `framebuffer_ignore_alpha`
 
-将 framebuffer_ignore_alpha 设置为 1 以禁用 alpha 通道。可以改善 32 位 framebuffer_depth 的显示。
+若将 `framebuffer_ignore_alpha` 置为 `1`，会禁用 alpha 通道。可以改善 32 位 `framebuffer_depth` 的显示。
 
 #### `framebuffer_priority`
 
-如设备接入了多个显示器，此时使用旧（KMS 之前）图形驱动程序，将强制特定的内部显示设备成为第一个 Linux 帧缓冲区（即 /dev/fb0 ）。
+如设备接入了多个显示器，此时使用旧（KMS 之前）图形驱动程序，将强制特定的内部显示设备成为第一个 Linux 帧缓冲区（即 `/dev/fb0`）。
 
 可设置的参数有：
 
@@ -860,21 +860,21 @@ framebuffer_height 命令指定控制台帧缓冲区的像素高度。默认值�
 
 #### `max_framebuffers`
 
-此配置条目设置可创建的固件帧缓冲区的最大数量。有效参数为 0、1 和 2。在旧的的设备上，默认设置为 1，因此在使用多个显示器时（例如 HDMI、DSI、DPI 显示器），需要将其增加到 2。树莓派 4 的配置将此默认设置为 2，因为它有两个 HDMI 端口。
+此配置条目设置可创建的固件帧缓冲区的最大数量。有效参数为 `0`、`1` 和 `2`。在旧的的设备上，默认设置为 `1`，因此在使用多个显示器时（例如 HDMI、DSI、DPI 显示器），需要将其增加到 `2`。树莓派 4 的配置将此默认设置为 `2`，因为它有两个 HDMI 端口。
 
-在大多数情况下将其设置为 2 是安全的，因为只有在实际检测到连接的设备时才会创建帧缓冲区。
+在大多数情况下将其设置为 `2` 是安全的，因为只有在实际检测到连接的设备时才会创建帧缓冲区。
 
-将此值设置为 0 可用于在无头模式下减少内存需求，因为这将阻止分配帧缓冲区。
+若将此值置为 `0` 可用于在无头模式下减少内存需求，因为这将阻止分配帧缓冲区。
 
 #### `test_mode`
 
-test_mode 命令在启动过程中显示测试图像和声音（仅输出至复合视频和模拟音频），持续给定的秒数，然后继续正常启动操作系统。这用作工厂测试；默认值为 0。
+`test_mode` 命令在启动过程中显示测试图像和声音（仅输出至复合视频和模拟音频），持续给定的秒数，然后继续正常启动操作系统。用作工厂测试；默认值为 `0`。
 
 #### `display_hdmi_rotate`
 
-使用 display_hdmi_rotate 旋转或翻转 HDMI 显示方向。默认值为 0。
+使用 `display_hdmi_rotate` 旋转或翻转 HDMI 显示方向。默认值为 `0`。
 
-| 显示 `_hdmi_` 旋转 | 结果              |
+|  `display_hdmi_rotate`  | 结果              |
 | :----------------: | :-------------------: |
 | 0              | 不改变屏幕方向            |
 | 1              | 顺时针旋转 90 度  |
@@ -885,17 +885,17 @@ test_mode 命令在启动过程中显示测试图像和声音（仅输出至复�
 
 请注意，90 度和 270 度旋转参数需要更多的 GPU 内存，因此这些参数在 16MB 的 GPU 分配下不可用。
 
-你可以通过将旋转设置与翻转相结合来将它们相加。你也可以以相同的方式同时进行水平和垂直翻转。例如，180 度旋转与垂直和水平翻转将为 0x20000 + 0x10000 + 2 = 0x30002。
+你可以通过将旋转设置与翻转相结合来将它们相加。你也可以以相同的方式同时进行水平和垂直翻转。例如，180 度旋转与垂直和水平翻转将为 `0x20000 + 0x10000 + 2 = 0x30002`。
 
 #### `display_lcd_rotate`
 
-对于旧的图形驱动程序（适用于树莓派 4 先前的型号），请使用 display_lcd_rotate 旋转或翻转 LCD 方向。参数与 display_hdmi_rotate 相同。另请参阅 lcd_rotate。
+对于旧的图形驱动程序（适用于树莓派 4 先前的型号），请使用 `display_lcd_rotate` 旋转或翻转 LCD 方向。参数与 `display_hdmi_rotate` 相同。另请参阅 `lcd_rotate`。
 
 #### `display_rotate`
 
-在最新固件中，display_rotate 已弃用。仅保留以确保向下兼容。请改用 display_lcd_rotate、display_hdmi_rotate。
+在最新固件中，`display_rotate` 已弃用。仅保留以确保向下兼容。请改用 `display_lcd_rotate`、`display_hdmi_rotate`。
 
-使用 display_rotate 旋转或翻转屏幕方向。参数与 display_hdmi_rotate 相同。
+使用 `display_rotate` 旋转或翻转屏幕方向。参数与 `display_hdmi_rotate` 相同。
 
 ### 其他参数
 
@@ -910,7 +910,7 @@ test_mode 命令在启动过程中显示测试图像和声音（仅输出至复�
 >
 >当使用 VC4 KMS 图形驱动程序时，完整的显示管道由 Linux 管理 - 包括 HDMI 输出。这些设置仅兼容于旧的 FKMS 和基于固件的图形驱动程序。
 
-树莓派 4 无法在 HDMI 输出 1366×768 @ 60Hz。对于某些显示器，可以配置它们使用 1360×768 @ 60Hz。它们通常不通过 EDID 广播此模式，因此无法自动进行选择，但可以以手动添加来选定：
+树莓派 4 无法在 HDMI 输出 `1366×768 @ 60Hz`。对于某些显示器，可以配置它们使用 `1360×768 @ 60Hz`。它们通常不通过 EDID 广播此模式，因此无法自动进行选择，但可以以手动添加来选定：
 
 ```bash
 hdmi_group=2
@@ -920,15 +920,15 @@ hdmi_cvt=1360 768 60
 
 ……到 config.txt。
 
-在 hdmi_timings= 这一行，手动指定的时间也需要遵守限制：所有水平定时参数必须是 2 的倍数。
+在 `hdmi_timings=` 这一行，手动指定的时间也需要遵守限制：所有水平定时参数必须是 2 的倍数。
 
-dpi_timings= 不受相同限制，因为该管道仍然每个时钟周期仅运行一个像素。
+`dpi_timings=` 不受相同限制，因为该管道仍然每个时钟周期仅运行一个像素。
 
 ## 其他旧版参数
 
 ### `avoid_warnings`
 
-avoid_warnings=2 即使处于低电压也允许使用超频模式。
+`avoid_warnings=2`：即使处于低电压也允许使用超频模式。
 
 ### `logging_level`
 
