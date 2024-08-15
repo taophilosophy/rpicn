@@ -82,7 +82,7 @@
 
 >**注意**
 >
->所有型号的树莓派都不支持 USB-C 视频传输（DisplayPort alt mode）。
+>所有型号的树莓派都不支持 Type-C 视频传输（DisplayPort alt mode）。
 
 如果你的树莓派有多个 HDMI 接口，请将主显示器插入到标有 `HDMI0` 的那个口。
 
