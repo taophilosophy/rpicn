@@ -840,7 +840,7 @@ Wayland 支持以下 `transform` 参数：
 
 ##### 专业音频配置文件
 
-在 **音频输出选择器（audio output selector）** 中查看音频设备时，你也许会看到一个名为专业音频（Pro Audio）的设备配置文件。该配置文件在每个音频设备上暴露了最大数量的通道，使你能够更好地控制信号的路由。除非你要对音频输出进行细粒度调整控制，否则请使用其他设备配置文件。
+在 **音频输出选择器（audio output selector）** 中查看音频设备时，你大概会看到一个叫专业音频（Pro Audio）的设备配置文件。该配置文件在每个音频设备上暴露了最大数量的通道，使你能够更好地控制信号的路由。除非你要对音频输出进行细粒度调整控制，否则请使用其他设备配置文件。
 
 更多有关专业音频配置文件的内容，请访问 [PipeWire 常见问题解答](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ#what-is-the-pro-audio-profile)。
 
@@ -856,7 +856,7 @@ $ sudo raspi-config
 
 1. 选择 `System options` 并按  **回车键**。
 2. 选择 `Audio options` 并按  **回车键**。
-3. 选择所需模式，然后按 **回车键** 选择该模式。
+3. 选择所需模式，然后按 **回车键** 选定该模式。
 4. 按 **右、方向键** 退出选项列表。选择 `Finish` 退出配置工具。
 
 ## 网络
@@ -865,13 +865,13 @@ $ sudo raspi-config
 
 >**注意**
 >
->自树莓派系统 *Bookworm* 以降，默认的网络配置工具变成了 Network Manager。旧的树莓派系统使用 `dhcpd` 和其他工具进行网络配置。
+>自树莓派系统 *Bookworm* 以降，默认的网络配置工具变成了 Network Manager。旧款树莓派系统使用 `dhcpd` 和别的工具进行网络配置。
 
 ### 连接到无线网络
 
 #### 通过桌面连接到无线网络
 
-通过菜单栏右端的网络图标打开网络管理器。如果你使用的树莓派搭载了内置无线连接功能（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP——正在扫描……（No APs found - scanning…​）”，请等待几秒，网络管理器应该就能搜到你的网络。
+点击菜单栏右侧的网络图标打开网络管理器。如果你使用的树莓派搭载了内置无线连接功能（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP——正在扫描……（No APs found - scanning…​）”，请等待几秒，网络管理器应该就能搜到你的网络。
 
 >**注意**
 >
@@ -879,7 +879,7 @@ $ sudo raspi-config
 
 ![WiFi](../.gitbook/assets/wifi2.png)
 
-右侧的图标会提示网络是否加密，并指示其信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
+右侧的图标会提示网络是否加密，并指示了信号强度。单击要连接的网络。如果是加密网络，对话框将让你输入网络密钥：
 
 ![密码](../.gitbook/assets/key.png)
 
@@ -887,7 +887,7 @@ $ sudo raspi-config
 
 ##### 连接到隐藏的网络
 
-要使用隐藏的网络，请在网络菜单中导航到 **高级选项（Advanced options）** > **连接到隐藏的 WiFi 网络（Connect to a hidden Wi-Fi network）**：
+要使用隐藏的网络，请在网络菜单中导航到 **高级选项（Advanced options）** -> **连接到隐藏的 WiFi 网络（Connect to a hidden Wi-Fi network）**：
 
 ![高级选项中的连接到隐藏的网络](../.gitbook/assets/network-hidden.png)
 
@@ -1061,7 +1061,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 你可以使用树莓派配置（Raspberry Pi Configuration）菜单中的屏幕节能选项来控制屏幕节能（无操作时关闭屏幕）。
 
-#### 配置树莓派
+#### 通过树莓派配置设置屏幕节能
 
 单击菜单栏中的树莓派按钮。导航到 **首选项（Preferences）** -> **树莓派配置（Raspberry Pi Configuration）**。
 
