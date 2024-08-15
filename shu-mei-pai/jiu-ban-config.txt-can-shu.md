@@ -928,7 +928,7 @@ hdmi_cvt=1360 768 60
 
 ### `avoid_warnings`
 
-`avoid_warnings=2`：即使处于低电压也允许使用超频模式。
+`avoid_warnings=2`：在低电压下也允许进入超频模式。
 
 ### `logging_level`
 
