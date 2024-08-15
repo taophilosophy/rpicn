@@ -834,7 +834,7 @@ Wayland 支持以下 `transform` 参数：
 
 本节介绍了在树莓派系统中，多种配置音频输出的方法。
 
-#### 通过桌面音量控制
+#### 通过桌面控制音频
 
 单击系统托盘上的音量图标，打开音频输出选择器。该界面可让你选择音频输出设备。单击音频输出设备，能切换音频输出到该设备。
 
@@ -844,7 +844,7 @@ Wayland 支持以下 `transform` 参数：
 
 更多有关专业音频配置文件的内容，请访问 [PipeWire 常见问题解答](https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/FAQ#what-is-the-pro-audio-profile)。
 
-#### 使用 `raspi-config`
+#### 使用 `raspi-config` 控制音频
 
 要修改音频输出，请使用 [`raspi-config`](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config)，运行以下命令：
 
@@ -1069,7 +1069,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 选择选项卡显示（**Display**）。将选项按钮切换到屏幕节能（**Screen Blanking**）。按下 **完成（OK）**，确认你的选择。
 
-![toggle Screen Blanking on in the Raspberry Pi Configuration menu](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
+![在树莓派配置菜单中的“屏幕节能”选项。](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
 #### 通过命令行配置屏幕节能
 
