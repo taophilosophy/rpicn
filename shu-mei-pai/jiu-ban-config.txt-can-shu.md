@@ -6,7 +6,7 @@
 
 ## 旧版启动参数
 
-(另请参阅 [config.txt](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options) 启动参数。)
+（另请参阅 [config.txt](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options) 启动参数。）
 
 ### `start_x`、`start_debug`
 
@@ -87,7 +87,7 @@
 
 ### `enable_gic`（仅适用于树莓派 4）
 
-在树莓派 4B 上，如果将此值置为 `0`，则中断将从旧的中断控制器（而不经 GIC-400）路由到 Arm 处理器。默认值为 `1`。
+在树莓派 4B 上，如果将此值置为 `0`，则中断将从旧的中断控制器（不经过 GIC-400）路由到 Arm 处理器。默认值为 `1`。
 
 ### `sha256`
 
@@ -107,7 +107,7 @@
 
 ## 旧版 GPIO 控制
 
-(另请参阅 [config.txt GPIO 控制](https://www.raspberrypi.com/documentation/computers/config_txt.html#gpio-control)。)
+（另请参阅 [config.txt GPIO 控制](https://www.raspberrypi.com/documentation/computers/config_txt.html#gpio-control)。）
 
 ### `enable_jtag_gpio`
 
@@ -201,7 +201,7 @@
 >树莓派系统上的相机堆栈（libcamera）使用 Linux CMA（连续内存分配器）的内存来分配缓冲区，并不占用 GPU 显存，所以增大 GPU 显存没有任何好处可言。
 
 
-能把 `gpu_mem` 设置成更大的值，但不建议这么做，因为可能会导致故障（如妨碍 Linux 启动）。`gpu_mem` 的最小值为 `16`——但此值会禁用 GPU 的某些功能。
+能把 `gpu_mem` 设置成更大的值，但不建议这么做，因为可能会导致故障（可能妨碍 Linux 启动）。`gpu_mem` 的最小值为 `16`——但此值会禁用 GPU 的某些功能。
 
 你还可以使用 `gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`，以便在不同内存量的树莓派之间交换相同的存储卡，而无需每次都编辑 `config.txt`：
 
@@ -223,7 +223,7 @@
 
 ## 旧版视频参数
 
-(另请参阅 config.txt 视频参数)
+（另请参阅 config.txt 视频参数。）
 
 ### HDMI 模式
 
@@ -250,7 +250,7 @@ overscan_bottom=24
 
 #### `hdmi_ignore_edid`
 
-若将 `hdmi_ignore_edid` 置为 `0xa5000080`，可以启用忽略 EDID/显示数据，如果你的显示器没有准确的 EDID。它需要这个不寻常的值来确保不会意外触发。
+若将 `hdmi_ignore_edid` 置为 `0xa5000080`，可以启用忽略 EDID/显示器数据，如果你的显示器没有准确的 EDID。它需要这个不寻常的值来确保不会意外触发。
 
 #### `hdmi_edid_file`
 
@@ -568,7 +568,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 >**注意**
 >
->旧款树莓派 4 之前的型号支持的最高模式为 1920×1200，带有降低清屏（reduced blanking）时间的 60Hz，而树莓派 4 可以支持高达 4096×2160（俗称 4k）的 60Hz。还请注意，如果你正在使用树莓派 4 的两个 HDMI 端口进行 4k 输出，则两者的输出都将限制为 30Hz。
+>旧款树莓派 4 之前的型号支持的最高模式为 1920×1200，带降低清屏（reduced blanking）时间，60Hz，而树莓派 4 可以支持高达 4096×2160（俗称 4k）60Hz。还请注意，如果你正在使用树莓派 4 的两个 HDMI 端口进行 4k 输出，则两者的输出都将限制至 30Hz。
 
 
 #### `hdmi_timings`
@@ -682,7 +682,7 @@ hdmi_drive=2
 | 标准电视模式 | 意义                                              |
 | :--------------: | :---------------------------------------------------: |
 | `0`（默认）    |  普通 NTSC                                       |
-| `1`            | 日式 NTSC ——无黑电平（pedestal）                        |
+| `1`            | 日式 NTSC ——无黑电平（pedestal）                      |
 | `2`            | 普通 PAL                                        |
 | `3`            | 巴西式 PAL：使用 525/60 而非 625/50，副载波不同 |
 | `16`           |  逐行扫描的 NTSC                                      |
