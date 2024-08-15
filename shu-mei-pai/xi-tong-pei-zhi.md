@@ -1079,7 +1079,7 @@ AUTOCONNECT-PRIORITY  NAME
 $ sudo raspi-config
 ```
 
-使用 **方向键** 导航，使用 **回车键** 选择。选择 `Display Options` > 。使用  **方向键**：选择 `yes` 启用屏幕节能；选择 `no` 禁用屏幕节能。
+使用 **方向键** 导航，使用 **回车键** 选择。选择 `Display Options` 。再使用  **方向键**：选择 `yes` 可启用屏幕节能；选择 `no` 可禁用屏幕节能。
 
 你还可以编辑添加以下行到 `~/.config/wayfire.ini`：
 
