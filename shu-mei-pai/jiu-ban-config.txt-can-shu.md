@@ -4,7 +4,7 @@
 
 此处所述的 `config.txt` 参数被视为陈旧设置，树莓派 Bookworm 系统不再使用，亦无官方支持。它们要么涉及旧软件（如固件中的图形驱动程序）、要么已弃用、要么罕有人使用。然而，它们仍被记录在此，因为它们对于那些使用旧操作系统的用户，或者进行裸机开发的人来说，可能仍有用。
 
-## 旧版图启动参数
+## 旧版启动参数
 
 (另请参阅 [config.txt](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options) 启动参数。)
 
