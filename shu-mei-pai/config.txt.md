@@ -36,7 +36,7 @@
 
 示例文件如下：
 
-```
+```bash
 # 开启音频（加载 snd_bcm2835）
 dtparam=audio=on
 
@@ -97,7 +97,7 @@ dtoverlay=vc4-kms-v3d
 
 如果在启动时系统已设置标志位 `tryboot`，则将激活此筛选器。
 
-```
+```bash
 $ sudo reboot "0 tryboot"
 ```
 
@@ -113,7 +113,7 @@ $ sudo reboot "0 tryboot"
 
 简单的 `autoboot.txt` :
 
-```
+```bash
 [all]
 tryboot_a_b=1
 boot_partition=2
@@ -145,7 +145,7 @@ boot_partition=3
 
  更新 `autoboot.txt`：
 
-```
+```bash
 [all]
 tryboot_a_b=1
 boot_partition=3
@@ -230,7 +230,7 @@ boot_partition=2
 
 要禁用 HDMI 音频输出，请在 `/boot/firmware/config.txt` 中的 `dtoverlay=vc4-kms-v3d` 这行末尾添加 `,noaudio` ：
 
-```
+```cpp
 dtoverlay=vc4-kms-v3d,noaudio
 ```
 
@@ -505,7 +505,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，它能让受支持的 US
 
 示例：
 
-```
+```bash
 # 将 GPIO 引脚 0-27 配置成 Alt2 模式（用于 DPI24）
 gpio=0-27=a2
 
@@ -648,7 +648,7 @@ GPU 核心、CPU、内存（SDRAM）和 GPU 各自拥有自己的锁相环（PLL
 
 要查看树莓派的温度，请运行以下命令：
 
-```
+```bash
 $ cat /sys/class/thermal/thermal_zone0/temp
 ```
 
@@ -670,7 +670,7 @@ $ cat /sys/class/thermal/thermal_zone0/temp
 
 树莓派 5 的电源管理芯片（PMIC）内置了模数转换器（ADC），可测量供电电压。要查看当前供电电压，请运行以下命令：
 
-```
+```bash
 $ vcgencmd pmic_read_adc EXT5V_V
 ```
 
@@ -710,7 +710,7 @@ $ vcgencmd pmic_read_adc EXT5V_V
 
 对于设置不同的 `kernel`、`initramfs` 和 `cmdline` 设置极为有用，因为树莓派 1、2 所需内核不同。它们还有助于定义不同的超频设置，因为树莓派 1、2 默认的主频各异。比如，为每块树莓派设置不同的 `initramfs` 映像：
 
-```
+```bash
 [pi1]
 initramfs initrd.img-3.18.7+ followkernel
 [pi2]
@@ -740,13 +740,13 @@ initramfs initrd.img-3.18.7-v7+ followkernel
 
 要查看已连接显示器的 EDID 名称，你需按照以下步骤操作。运行以下命令，查看你的树莓派上有哪些输出设备：
 
-```
+```bash
 $ ls -1 /sys/class/drm/card?-HDMI-A-?/edid
 ```
 
 在树莓派 4 上，打印类似如下输出：
 
-```
+```bash
 /sys/class/drm/card1-HDMI-A-1/edid
 /sys/class/drm/card1-HDMI-A-2/edid
 ```
@@ -759,7 +759,7 @@ $ edid-decode /sys/class/drm/card1-HDMI-A-1/edid
 
 如果没有显示器连接为输出设备，它将告诉你 EDID 为空；若已连接显示器，将为你提供有关显示器功能的丰富信息。你需查找`Manufacturer`、`Display Product Name` 所在行。然后，“EDID 名称”为 `<Manufacturer>-<Display Product Name>`，并将字符串中的所有空格都将换成下划线。比如，如果你的 `edid-decode` 输出为：
 
-```
+```bash
 ....
   Vendor & Product Identification:
     Manufacturer: DEL
@@ -772,7 +772,7 @@ $ edid-decode /sys/class/drm/card1-HDMI-A-1/edid
 
 然后，你可以将其用作条件筛选器，指定仅在连接此特定显示器时才适用的设置：
 
-```
+```bash
 [EDID=DEL-DELL_U2422H]
 cmdline=cmdline_U2422H.txt
 [all]
@@ -792,13 +792,13 @@ cmdline=cmdline_U2422H.txt
 
 要查看你树莓派的串号，请运行以下命令：
 
-```
+```bash
 $ cat /proc/cpuinfo
 ```
 
 尾部输出将打印一个 16 位十六进制值。你树莓派的串号是最后八位数字（十六进制）。比如，若你看到：
 
-```
+```bash
 Serial          : 0000000012345678
 ```
 
@@ -810,7 +810,7 @@ Serial          : 0000000012345678
 
 你可以定义仅用于特定树莓派的设置：
 
-```
+```bash
 [0x12345678]
 # 此处设置仅适用于符合该序列号的树莓派
 
@@ -839,7 +839,7 @@ Serial          : 0000000012345678
 
 不同类型的筛选器可通过逐个列出筛选器来进行组合，例如:
 
-```
+```bash
 # 此处设置用于所有硬件
 
 [EDID=VSC-TD2220]
@@ -860,7 +860,7 @@ Serial          : 0000000012345678
 
 此参数可用于强制限制树莓派的内存容量：指定你想要让树莓派使用的总内存量（MB）。如，要让 4GB 的树莓派 4B 表现为 1GB 款，请使用以下内容：
 
-```
+```bash
 total_mem=1024
 ```
 
@@ -935,13 +935,13 @@ total_mem=1024
 
 要启用复合输出，请在 `/boot/firmware/config.txt` 的 `dtoverlay=vc4-kms-v3d` 这行末尾添加 `,composite` ：
 
-```
+```bash
 dtoverlay=vc4-kms-v3d,composite
 ```
 
 在默认情况下，会输出复合视频（NTSC）。要选择其他模式，请将以下内容添加到 `/boot/firmware/cmdline.txt` 中这一行：
 
-```
+```bash
 vc4.tv_norm=<视频模式>
 ```
 
