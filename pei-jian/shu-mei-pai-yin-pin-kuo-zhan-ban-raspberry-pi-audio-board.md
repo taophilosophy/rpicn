@@ -143,7 +143,7 @@ Codec Zero 是小型项目的理想设计起点，如对讲机、智能门铃、
 $ sudo nano /boot/firmware/config.txt
 ```
 
-在文件中找到 dtparam=audio=on 行，并通过在该行开头放置 `#` 符号来注释掉它。任何给定行中 `#` 符号之后的内容将被程序忽略。你的 /boot/firmware/config.txt 文件现在应包含以下条目：
+在文件中找到 dtparam=audio=on 行，并通过在该行开头放置 `#` 符号来注释掉它。在任意给定行中 `#` 符号之后的内容将被程序忽略。你的 /boot/firmware/config.txt 文件现在应包含以下条目：
 
 ```
 #dtparam=audio=on
@@ -330,7 +330,7 @@ $ sudo sh -c "echo 0 >/sys/class/gpio/gpio22/value"
 
 ### 硬件和接线
 
-对于这个项目，任何小型被动扬声器都应该足够。我们使用了一个在这里可用的扬声器，它在 4Ω 时承载 5W 功率。我们还使用了一个发光的瞬时按键和一个激光切割的盒子来容纳所有组件；但这两者都是完全可选的。这个示例将仅使用 Codec Zero 的板载按钮，该按钮预先连接到 GPIO 27。（或者，你可以使用任何瞬时按键，比如这里提供的。）
+对于这个项目，随便一款小型被动扬声器都应该足够。我们使用了一个在这里可用的扬声器，它在 4Ω 时承载 5W 功率。我们还使用了一个发光的瞬时按键和一个激光切割的盒子来容纳所有组件；但这两者都是完全可选的。这个示例将仅使用 Codec Zero 的板载按钮，该按钮预先连接到 GPIO 27。（或者，你可以使用瞬时按键，比如这里提供的。）
 
 ![Chatterbox Labels](https://www.raspberrypi.com/documentation/accessories/images/Chatterbox_Labels.png)
 

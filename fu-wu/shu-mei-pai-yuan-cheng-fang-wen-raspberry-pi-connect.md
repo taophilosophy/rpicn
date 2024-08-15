@@ -2,7 +2,7 @@
 
 ## 简介
 
-树莓派远程访问（Raspberry Pi Connect）可让你在世界上任何地方，安全地访问你的树莓派。
+树莓派远程访问（Raspberry Pi Connect）可让你在世界上的任意地点，安全地访问你的树莓派。
 
 ![hero](https://www.raspberrypi.com/documentation/services/images/hero.png?hash=abae19beca53f018d9c434ddee214cd9)
 
@@ -134,7 +134,7 @@ $ rpi-connect signin
 
 ## 访问你的树莓派
 
-现在你的树莓派会出现在 Connect 仪表板上，你可以通过浏览器在任何地方访问你的树莓派。Connect 提供了多种远程交互方式。
+现在你的树莓派会出现在 Connect 仪表板上，你可以通过浏览器在所有地方访问你的树莓派。Connect 提供了多种远程交互方式。
 
 ### 屏幕共享
 
@@ -203,7 +203,7 @@ $ rpi-connect vnc off
 
 Connect 包含从浏览器访问在 Raspberry Pi 上运行的 shell 的功能。按照以下说明访问远程 shell。
 
-在任何计算机上访问 [connect.raspberrypi.com](https://connect.raspberrypi.com/)。
+在其他计算机上访问 [connect.raspberrypi.com](https://connect.raspberrypi.com/)。
 
 Connect 会重定向到 Raspberry Pi ID 服务以进行登录。登录后，Connect 显示已链接设备的列表。可远程访问 shell 的设备在设备名称下方显示灰色的 **Remote shell** 标记。
 

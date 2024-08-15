@@ -317,7 +317,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `os_prefix`
 
-`os_prefix` 是可选配置，能让你在同一张卡上，安装多个版本的内核和设备树文件，并进行切换。`os_prefix` 中的任何值都会被前置到固件加载的所有操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须以字符 `/` 结尾。
+`os_prefix` 是可选配置，能让你在同一张卡上，安装多个版本的内核和设备树文件，并进行切换。`os_prefix` 中的一切值都会被前置到固件加载的所有操作系统文件的名称之前，其中“操作系统文件”的定义是指内核、`initramfs`、`cmdline.txt`、`.dtbs` 和叠加层。该前缀通常是目录名称，但也可以是文件名的一部分，比如“test-”。因此，目录前缀必须以字符 `/` 结尾。
 
 为了提高系统启动的几率，固件首先会测试所提供的前缀值是否可行——除非在新位置/新名称下能够找到对应的内核和文件 .dtb，否则将忽略前缀（置为“”）。对叠加层可行性测试的特例是：如果存在 `${os_prefix}${overlay_prefix}README`，将仅从 `${os_prefix}${overlay_prefix}` （其中 [`overlay_prefix`](https://www.raspberrypi.com/documentation/computers/config_txt.html#overlay_prefix) 的默认值为 "overlays/"）加载覆盖层；否则，它将忽略 `os_prefix`，并将叠加层视为共享。
 

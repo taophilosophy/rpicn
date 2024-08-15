@@ -28,7 +28,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 * 控制 SPIKE™ Portfolio 中包含的 4 个 LEGO® Technic™ 电机和传感器。
 * 控制你的 LEGO® Technic™ 设备的易于使用的 Python 库
-* 适用于带有 40 针 GPIO 引脚的任何树莓派计算机
+* 适用于带有 40 针 GPIO 引脚的所有树莓派计算机
 * Onboard RP2040 微控制器管理 LEGO® Technic™设备的低级控制
 * 单独提供外部 8V PSU 以为 Build 扩展板和树莓派供电
 
@@ -93,7 +93,7 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 ![raspi config 5](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-5.png)
 
-如果你已经进行了任何更改，此时需要重启。
+如果你已经进行了一些更改，此时需要重启。
 
 ### 为 Build 扩展板供电
 
@@ -223,7 +223,7 @@ pause()
 
 >**警告**
 >
-> 安装脚本以 APT 运行。你应该先阅读它，并确保你理解它在做什么。如果你有任何疑问，应该按照官方说明手动操作。
+> 安装脚本以 APT 运行。你应该先阅读它，并确保你理解它在做什么。如果你有什么疑问，应该按照官方说明手动操作。
 
 ```
 $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/install.sh | sudo bash
@@ -263,7 +263,7 @@ Hello World!
 
 在下面的说明中，你将编辑生成的 C# 程序文件 buildhat/Program.cs，该文件是在运行上述命令时生成的。
 
-任何文本编辑器都可以用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。Visual Studio Code（通常称为 "VS Code"）也是一个流行的替代方案。
+所有文本编辑器都可能用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。Visual Studio Code（通常称为 "VS Code"）也是一个流行的替代方案。
 
 ### 使用 .NET 从 Build 扩展板进行操作
 
@@ -310,7 +310,7 @@ Console.WriteLine($"Vin = {brick.InputVoltage.Volts} V");
 
 #### 获取传感器和电机详细信息
 
-函数 GetSensorType，GetSensor 将允许你检索连接传感器上的任何信息。
+函数 GetSensorType，GetSensor 将允许你检索连接传感器上的所有信息。
 
 ```
 SensorType sensor = brick.GetSensorType((SensorPort)i);

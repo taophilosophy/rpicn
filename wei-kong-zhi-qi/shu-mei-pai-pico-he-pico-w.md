@@ -123,7 +123,7 @@ Pico 设备根据产品代次划分**系列**。
 
 >**重要**
 >
->一般情况下，`libcyw43` 仅授权用于非商业用途，但 Pico W 用户以及任何其他围绕 RP2040 和 CYW43439 构建其产品的用户都可以享受免费的[商业使用许可证](https://github.com/georgerobotics/cyw43-driver/blob/195dfcc10bb6f379e3dea45147590db2203d3c7b/LICENSE.RP)。 
+>一般情况下，`libcyw43` 仅授权用于非商业用途，但 Pico W 用户以及其他所有围绕 RP2040 和 CYW43439 构建其产品的用户都可以享受免费的[商业使用许可证](https://github.com/georgerobotics/cyw43-driver/blob/195dfcc10bb6f379e3dea45147590db2203d3c7b/LICENSE.RP)。 
 
 >**重要**
 >

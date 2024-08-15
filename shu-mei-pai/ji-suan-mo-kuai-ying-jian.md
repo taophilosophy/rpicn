@@ -303,7 +303,7 @@ $ ./rpiboot -d recovery
 
 SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示接口、HDMI 等）可用于连接。通常可以将未使用的引脚保持未连接状态。
 
-具有 DDR2 SODIMM 外形规格的计算模块可以使用任何 DDR2 SODIMM 插槽。但是，引脚分配与 SODIMM 内存模块不同。
+具有 DDR2 SODIMM 外形规格的计算模块可以使用任意 DDR2 SODIMM 插槽。但是，引脚分配与 SODIMM 内存模块不同。
 
 要使用计算模块，用户设计的主板必须满足：
 
@@ -328,7 +328,7 @@ SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示�
 
 BCM283x 具有三个通用输入/输出（GPIO）引脚组：BANK0 上有 28 个引脚，BANK1 上有 18 个引脚，BANK2 上有 8 个引脚，总共 54 个引脚。这些引脚可以用作真正的 GPIO 引脚：软件可以将它们设置为输入或输出，读取和/或设置状态，并将它们用作中断。它们还可以运行诸如 I²C、SPI、I²S、UART、SD 卡等其他功能。
 
-任何计算模块上都可以使用 BANK0 或 BANK1。不要使用 BANK2：它控制 eMMC、HDMI 热插拔检测和 ACT LED/USB 引导控制。
+所有计算模块上都可以使用 BANK0 或 BANK1。不要使用 BANK2：它控制 eMMC、HDMI 热插拔检测和 ACT LED/USB 引导控制。
 
 使用 pinctrl 来检查 GPIO 引脚的电压和功能，以查看你的设备树是否按预期工作。
 
@@ -342,7 +342,7 @@ BCM283x 设备配有 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理器
 
 * GPU DSP 退出复位并从小型内部引导 ROM 执行代码。此代码通过外部接口加载第二阶段引导加载程序。此代码首先在称为 bootcode.bin 的引导分区上查找第二阶段引导加载程序。如果未找到引导设备或未找到 bootcode.bin，引导 ROM 将在 USB 引导模式下等待主机提供第二阶段引导加载程序（ usbbootcode.bin ）。
 * 第二阶段引导加载程序负责设置 LPDDR2 SDRAM 接口和其他关键系统功能。设置完成后，第二阶段引导加载程序加载并执行主 GPU 固件（ start.elf ）。
-* start.elf 处理额外的系统设置并启动 Arm 处理器子系统。它包含 GPU 固件。GPU 固件首先读取 dt-blob.bin 以确定初始 GPIO 引脚状态和 GPU 特定接口和时钟，然后解析 config.txt。然后加载特定于模型的 Arm 设备树文件和在 config.txt 中指定的任何设备树叠加，然后启动 Arm 子系统并将设备树数据传递给正在引导的 Linux 内核。
+* start.elf 处理额外的系统设置并启动 Arm 处理器子系统。它包含 GPU 固件。GPU 固件首先读取 dt-blob.bin 以确定初始 GPIO 引脚状态和 GPU 特定接口和时钟，然后解析 config.txt。然后加载特定于模型的 Arm 设备树文件和在 config.txt 中指定的任意设备树叠加，然后启动 Arm 子系统并将设备树数据传递给正在引导的 Linux 内核。
 
 ### 设备树
 
@@ -413,7 +413,7 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 如果与 dt-blob.bin 不同，此文件将通过覆盖引脚状态来设置 GPIO，并尝试为特定设备加载驱动程序。
 
-特定型号的设备树文件包含了对外围设备的禁用条目。除了 eMMC/SD 卡外设备的 GPIO 引脚定义外，它不包含任何 GPIO 引脚定义，并且始终使用相同的引脚。
+特定型号的设备树文件包含了对外围设备的禁用条目。除了 eMMC/SD 卡外设备的 GPIO 引脚定义外，它不包含其他 GPIO 引脚定义，并且始终使用相同的引脚。
 
 ### 设备树源码和编译
 
@@ -425,7 +425,7 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 ### 设备树调试
 
-当启动 Linux 内核时，GPU 使用基础 dts 和任何叠加层创建完整的设备树。这个完整的树可以通过 Linux proc 接口在 /proc/device-tree 中访问。节点变成目录，属性变成文件。
+当启动 Linux 内核时，GPU 使用基础 dts 和任意叠加层创建完整的设备树。这个完整的树可以通过 Linux proc 接口在 /proc/device-tree 中访问。节点变成目录，属性变成文件。
 
 你可以使用 dtc 将其写成可供人类阅读的 dts 文件以进行调试。要查看完整的组装设备树，请运行以下命令：
 

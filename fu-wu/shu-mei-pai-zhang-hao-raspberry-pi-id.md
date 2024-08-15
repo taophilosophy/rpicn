@@ -33,7 +33,7 @@
 
 ### 安装双因素认证应用
 
-首先，在你的手机上下载一个生成 TOTP 的应用程序。安装任何 2FA 应用程序，如 [Authy](https://authy.com/) 或 Google Authenticator。
+首先，在你的手机上下载一个生成 TOTP 的应用程序。安装一款 2FA 应用程序，如 [Authy](https://authy.com/) 或 Google Authenticator。
 
 ### 启用双因素身份验证
 

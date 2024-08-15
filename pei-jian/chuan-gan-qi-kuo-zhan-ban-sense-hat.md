@@ -6,7 +6,7 @@
 
 ![Sense HAT](https://www.raspberrypi.com/documentation/accessories/images/Sense-HAT.jpg?hash=e095672e700544fc89a62dad3d9fc164)
 
-Sense HAT 最初是为在国际空间站上使用而开发的，是[树莓派基金会](https://raspberrypi.org/)与[欧洲航天局](https://www.esa.int/)合作开展的 [Astro Pi](https://astro-pi.org/) 教育计划的一部分。它可以帮助完成任何需要位置、运动、方向或环境传感的项目。
+Sense HAT 最初是为在国际空间站上使用而开发的，是[树莓派基金会](https://raspberrypi.org/)与[欧洲航天局](https://www.esa.int/)合作开展的 [Astro Pi](https://astro-pi.org/) 教育计划的一部分。它可以帮助完成一切需要位置、运动、方向或环境传感的项目。
 
 由官方支持的 Python 库提供了对所有板载传感器、LED 矩阵和操纵杆的控制。传感器扩展板兼容带有 40 针 GPIO 引脚排针型号的树莓派计算机。
 
@@ -84,7 +84,7 @@ LED 点阵是一个带有 id“RPi-Sense FB”的 RGB565 帧缓冲区。适当�
 
 ### 操纵杆
 
-操纵杆显示为名为“Raspberry Pi Sense HAT Joystick”的输入事件设备，映射到方向键和`回车键`。它应该受到任何能够处理输入的库的支持，或直接通过 evdev 接口。适用的库包括 SDL、pygame 和 python-evdev。包含的“snake”示例显示了如何直接访问操纵杆。
+操纵杆显示为名为“Raspberry Pi Sense HAT Joystick”的输入事件设备，映射到方向键和`回车键`。它应该受到任意能够处理输入的库的支持，或直接通过 evdev 接口。适用的库包括 SDL、pygame 和 python-evdev。包含的“snake”示例显示了如何直接访问操纵杆。
 
 ## 硬件校准
 

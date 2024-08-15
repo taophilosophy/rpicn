@@ -20,7 +20,7 @@ $ sudo raspi-config
 
 按 **右箭头（→）**、**Tab 键** 可切换按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上级菜单。
 
-`raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别选项可能需要重启才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
+`raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别选项可能需要重启才能生效：如果你修改了他们当中随便一个，在退出时，`raspi-config` 会要求你重启。
 
 >**技巧**
 >
@@ -736,7 +736,7 @@ $ sudo raspi-config nonint do_update
 
 树莓派 4 和 400 可以同时输出到两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出至两台 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单台 4K 显示器。
 
-无需任何专门配置，树莓派 5 就可以 4K 分辨率、60Hz 刷新率，输出至两台显示器。
+无需什么专门配置，树莓派 5 就可以 4K 分辨率、60Hz 刷新率，输出至两台显示器。
 
 ### 设置分辨率和方向
 
@@ -2580,7 +2580,7 @@ phonetic = <&node>,"letter{a=alpha,b=bravo,c=charlie,d,e,='tango uniform'}";
 bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 ```
 
-不含 `=value` 的键意味着把键作为值，不含键的 = 表示在没有匹配项的情况下是默认值，并且以逗号开始或结束列表（或在任何地方使用空键=值对）表示未匹配的输入值应该保持不变；否则，找不到匹配项将会报错。
+不含 `=value` 的键意味着把键作为值，不含键的 = 表示在没有匹配项的情况下是默认值，并且以逗号开始或结束列表（或在任意处使用 `空键=值` 对）表示未匹配的输入值应该保持不变；否则，找不到匹配项将会报错。
 
 >**注意**
 >
@@ -2886,7 +2886,7 @@ fragment@0 {
 
 树莓派扩展板（HAT）是搭载了嵌入式 EEPROM 的扩展板，专为带有 40 脚 GPIO 排针的树莓派设计。EEPROM 包括启用板（或要从文件系统加载的叠加层的名称）所需的所有 DT 叠加层，此叠加层还可以公开参数。但
 
-扩展板叠加层在基本 DTB 之后由固件自动加载，因此其参数可在加载任何其他叠加层之前访问，或者在使用 `dtoverlay=` 结束叠加层范围之前访问。如果出于某种原因你想要抑制 HAT 叠加层的加载，请在任何其他 `dtoverlay` 或 `dtparam` 指令之前放置 `dtoverlay=`。
+扩展板叠加层在基本 DTB 之后由固件自动加载，因此其参数可在加载其他所有叠加层之前访问，或者在使用 `dtoverlay=` 结束叠加层范围之前访问。如果出于某种原因你想要抑制 HAT 叠加层的加载，请在任何其他 `dtoverlay` 或 `dtparam` 指令之前放置 `dtoverlay=`。
 
 #### 动态设备树
 
@@ -3176,7 +3176,7 @@ $ dtc -I fs -O dtb -o base.dtb /proc/device-tree
 
 将包含你迄今为止在 `config.txt` 中应用的所有叠加层和参数，或者通过在运行时加载它们，这可能是你想要的，也可能不是。或者：
 
-从 `/boot/firmware/` 中的源 DTB 复制它。这不会包括叠加层和参数，但也不会包括固件的任何其他修改。为了允许测试所有叠加层，`dtmerge` 工具将创建一些特定于板的别名（"i2c_arm" 等），但这意味着合并的结果将与原始 DTB 有更多差异。你可能期望的不同。解决此问题的方法是使用 dtmerge 进行复制：
+从 `/boot/firmware/` 中的源 DTB 复制它。这不会包括叠加层和参数，但也不会包括固件的一切其他修改。为了允许测试所有叠加层，`dtmerge` 工具将创建一些特定于板的别名（"i2c_arm" 等），但这意味着合并的结果将与原始 DTB 有更多差异。你可能期望的不同。解决此问题的方法是使用 dtmerge 进行复制：
 
 ```bash
 $ dtmerge /boot/firmware/bcm2710-rpi-3-b.dtb base.dtb -
@@ -3398,7 +3398,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 #### `pin_config`
 
-`pin_config` 部分用于配置各个引脚。该部分中的每个项目必须是一个被命名的引脚部分，例如 `pin@p32`，表示 GPIO32。还有一个特殊部分 `pin@default`，其中包含未在 pin_config 部分中明确命名的任何内容的默认设置。
+`pin_config` 部分用于配置各个引脚。该部分中的每个项目必须是一个被命名的引脚部分，例如 `pin@p32`，表示 GPIO32。还有一个特殊部分 `pin@default`，其中包含未在 pin_config 部分中明确命名的所有内容的默认设置。
 
 #### `pin@pinname`
 

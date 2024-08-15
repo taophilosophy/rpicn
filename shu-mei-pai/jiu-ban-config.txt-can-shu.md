@@ -274,7 +274,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_ignore_edid_audio`
 
-将 hdmi_ignore_edid_audio 设置为 1 会假装显示器不支持任何音频格式。这意味着 ALSA 会默认使用模拟音频（耳机）插孔。
+将 hdmi_ignore_edid_audio 设置为 1 会假装显示器不支持一切音频格式。这意味着 ALSA 会默认使用模拟音频（耳机）插孔。
 
 #### `hdmi_force_edid_3d`
 
@@ -286,7 +286,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_ignore_cec`
 
-将 hdmi_ignore_cec 设置为 1 会假装显示器根本不支持 CEC。将不支持任何 CEC 功能。
+将 hdmi_ignore_cec 设置为 1 会假装显示器根本不支持 CEC。将不支持一切 CEC 功能。
 
 #### `cec_osd_name`
 
@@ -616,7 +616,7 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 
 #### `hdmi_force_mode`
 
-将设置为 1 将从内部列表中删除除 hdmi_mode 和 hdmi_group 指定的模式之外的所有其他模式，这意味着它们不会出现在任何模式的枚举列表中。如果显示似乎忽略 hdmi_mode 和 hdmi_group 设置，此参数可能有所帮助。
+将设置为 1 将从内部列表中删除除 hdmi_mode 和 hdmi_group 指定的模式之外的所有其他模式，这意味着它们不会出现在所有模式的枚举列表中。如果显示似乎忽略 hdmi_mode 和 hdmi_group 设置，此参数可能有所帮助。
 
 #### `edid_content_type`
 
@@ -813,7 +813,7 @@ overscan_bottom 命令指定要添加到屏幕底部边缘超扫描的像素数�
 
 #### `overscan_scale`
 
-将 overscan_scale 设置为 1 以强制任何非帧缓冲层符合过扫描设置。默认值为 0。
+将 overscan_scale 设置为 1 以强制所有非帧缓冲层符合过扫描设置。默认值为 0。
 
 注意：通常不建议使用此功能：因为显示器上的所有图层都将由 GPU 缩放，这可能会降低图像质量。建议在显示器本身上禁用过扫描，以避免图像被 GPU 和显示器两次缩放。
 
@@ -864,7 +864,7 @@ framebuffer_height 命令指定控制台帧缓冲区的像素高度。默认值�
 
 在大多数情况下将其设置为 2 是安全的，因为只有在实际检测到连接的设备时才会创建帧缓冲区。
 
-将此值设置为 0 可用于在无头模式下减少内存需求，因为这将阻止分配任何帧缓冲区。
+将此值设置为 0 可用于在无头模式下减少内存需求，因为这将阻止分配帧缓冲区。
 
 #### `test_mode`
 
