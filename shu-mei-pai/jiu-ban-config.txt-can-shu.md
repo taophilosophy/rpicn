@@ -634,11 +634,11 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 
 你的 HDMI 显示器可能仅支持有限的格式。要找出支持的格式，请使用以下方法：
 
-* 将输出格式设置为 VGA 60Hz ( `hdmi_group=1` 和 `hdmi_mode=1` ) 并启动你的树莓派
-* 输入以下命令以列出支持的 CEA 模式: `/opt/vc/bin/tvservice -m CEA`
-* 输入以下命令以列出支持的 DMT 模式: `/opt/vc/bin/tvservice -m DMT`
-* 输入以下命令以显示当前状态： `/opt/vc/bin/tvservice -s`
-* 输入以下命令以从你的监视器中获取更详细的信息： `/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
+* 将输出格式设置为 VGA 60Hz ( `hdmi_group=1` 和 `hdmi_mode=1` ) ，然后启动你的树莓派
+* 输入以下命令可列出支持的 CEA 模式: `/opt/vc/bin/tvservice -m CEA`
+* 输入以下命令可列出支持的 DMT 模式: `/opt/vc/bin/tvservice -m DMT`
+* 输入以下命令可显示当前状态： `/opt/vc/bin/tvservice -s`
+* 输入以下命令可从你的显示器中获取更详细的信息： `/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
 
 在故障排除默认 HDMI 模式问题时，还应提供 `edid.dat`。
 
@@ -652,9 +652,9 @@ hdmi_cvt=<宽> <高> <帧数> <屏幕比例> <边距> <交错> <降低清屏时�
 
 | 值     | 默认值   | 说明                                               |
 |:--------: | :--------: | ------------------------------------------------------ |
-| 宽度   | (必填) | 像素宽度                                             |
-| 高度   | (必填) | 像素高度                                             |
-| 帧速 | (必填) | 每秒帧数                                             |
+| 宽度   | （必填） | 像素宽度                                             |
+| 高度   | （必填） | 像素高度                                             |
+| 帧速 | （必填） | 每秒帧数                                             |
 | 屏幕比例 | 3      | 宽高比 1=4:3、2=14:9、3=16:9、4=5:4、5=16:10、6=15:9 |
 | 边距   | 0      | 0=禁用边距、1=启用边距                               |
 | 交错   | 0      | 0=逐行扫描、1=隔行扫描                               |
@@ -758,7 +758,7 @@ dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <
 <aspect_ratio>    = [see footnote]
 ```
 
-可将宽高比设置为八个值之一。从以下参数中选择一个代表与你屏幕最相似的宽高比的值：
+可将宽高比设置为以下八个值。从以下参数中选择一个代表与你屏幕最相似的宽高比的值：
 
 | 宽高比 | 名称              | 值 |
 | :--------: | :-------------------: | :----: |
@@ -815,7 +815,7 @@ dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <
 
 若将 `overscan_scale` 置为 `1`，以强制所有非帧缓冲层符合过扫描设置。默认值为 `0`。
 
-注意：通常不建议使用此功能：因为显示器上的所有图层都将由 GPU 缩放，这可能会降低图像质量。建议在显示器本身上禁用过扫描，以避免图像被 GPU 和显示器两次缩放。
+注意：通常不建议使用此功能：因为显示器上的所有图层都将由 GPU 缩放，这可能会降低图像质量。建议在显示器本身上禁用过扫描，以避免图像被 GPU 和显示器缩放两回。
 
 #### `framebuffer_width`
 
@@ -889,13 +889,13 @@ dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <
 
 #### `display_lcd_rotate`
 
-对于旧的图形驱动程序（适用于树莓派 4 先前的型号），请使用 `display_lcd_rotate` 旋转或翻转 LCD 方向。参数与 `display_hdmi_rotate` 相同。另请参阅 `lcd_rotate`。
+对于旧的图形驱动程序（适用于树莓派 4 先前的型号），请使用 `display_lcd_rotate` 来旋转和翻转 LCD 方向。参数与 `display_hdmi_rotate` 相同。另请参阅 `lcd_rotate`。
 
 #### `display_rotate`
 
 在最新固件中，`display_rotate` 已弃用。仅保留以确保向下兼容。请改用 `display_lcd_rotate`、`display_hdmi_rotate`。
 
-使用 `display_rotate` 旋转或翻转屏幕方向。参数与 `display_hdmi_rotate` 相同。
+使用 `display_rotate` 可旋转和翻转屏幕方向。参数与 `display_hdmi_rotate` 相同。
 
 ### 其他参数
 
@@ -910,7 +910,7 @@ dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <
 >
 >当使用 VC4 KMS 图形驱动程序时，完整的显示管道由 Linux 管理 - 包括 HDMI 输出。这些设置仅兼容于旧的 FKMS 和基于固件的图形驱动程序。
 
-树莓派 4 无法在 HDMI 输出 `1366×768 @ 60Hz`。对于某些显示器，可以配置它们使用 `1360×768 @ 60Hz`。它们通常不通过 EDID 广播此模式，因此无法自动进行选择，但可以以手动添加来选定：
+树莓派 4 无法在 HDMI 输出 `1366×768 @ 60Hz`。对于某些显示器，可以配置它们使用 `1360×768 @ 60Hz`。它们通常不通过 EDID 广播此模式，因此无法自动选定，但可以以手动添加来选定：
 
 ```bash
 hdmi_group=2
