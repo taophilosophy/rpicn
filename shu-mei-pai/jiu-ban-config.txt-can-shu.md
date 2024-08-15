@@ -101,20 +101,20 @@
 
 ### `upstream_kernel`
 
-如果使用 upstream_kernel=1，固件会将 os_prefix 设置为"upstream/"，除非已明确设置为其他内容，但与其他 os_prefix 值一样，如果在使用前缀时找不到所需的内核和.dtb 文件，则会被忽略。
+如果设定 `upstream_kernel=1`，固件会将 `os_prefix` 设置为"upstream/"——除非已明确将其设置为其他内容。但就像其他 `os_prefix` 值一样，如果在使用前缀时找不到所需的内核和 .dtb 文件，则会被忽略。
 
-固件还会优先使用 DTB 的上游 Linux 名称（bcm2837-rpi-3-b.dtb 先于 bcm2710-rpi-3-b.dtb）。如果找不到上游文件，则固件将加载下游衍生文件，并自动应用"upstream"叠加以进行一些调整。请注意，此过程发生在 os_prefix 最终确定之后。
+固件还会优先使用上游 Linux 的 DTB 名称（`bcm2837-rpi-3-b.dtb` 先于 `bcm2710-rpi-3-b.dtb`）。如果找不到上游文件，则固件将加载下游衍生文件，并自动加载"upstream"叠加层来进行调整。请注意，此过程发生在 `os_prefix` 最终确定后。
 
 ## 旧的 GPIO 控制
 
-(另请参阅 config.txt GPIO 控制。)
+(另请参阅 [config.txt GPIO 控制](https://www.raspberrypi.com/documentation/computers/config_txt.html#gpio-control)。)
 
 ### `enable_jtag_gpio`
 
-设置 enable_jtag_gpio=1 选择 GPIO 引脚 22-27 的 Alt4 模式，并设置一些内部 SoC 连接，启用 Arm CPU 的 JTAG 接口。它适用于所有型号的树莓派。
+设置 `enable_jtag_gpio=1`：会把 GPIO 引脚 22-27 设为 Alt4 模式，并在 SoC 内部进行相关配置，从而启用 Arm CPU 的 JTAG 接口。此设置适用于所有型号的树莓派。
 
 | 引脚号 | 功能     |
-| :--------: | :----------: |
+| :----: | :------: |
 | GPIO22 | ARM_TRST |
 | GPIO23 | ARM_RTCK |
 | GPIO24 | ARM_TDO  |
@@ -124,13 +124,13 @@
 
 ## 旧的超频参数
 
-（另请参阅 config.txt 超频参数。）
+（另请参阅 [config.txt 超频参数](https://www.raspberrypi.com/documentation/computers/config_txt.html#overclocking-options)。）
 
 ### 超频
 
 #### `never_over_voltage`
 
-在一次性可编程（OTP）存储器中置一个位，防止设备过压。旨在锁定树莓派，以防止无意、或恶意地使用无效过电压篡改保修位。
+会在一次性可编程（OTP）存储器中置一个位，防止设备过压。旨在锁定树莓派，以防止无意、或恶意地使用无效过电压篡改保修位。
 
 #### `disable_auto_turbo`
 
