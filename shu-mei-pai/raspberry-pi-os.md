@@ -23,13 +23,13 @@
 
 `apt` 会把软件源列表存放在文件 `/etc/apt/sources.list` 中。在安装软件之前，请运行以下命令，来 **刷新（update）** 位于 `/etc/apt/sources.list` 的本地软件源：
 
-```
+```bash
 $ sudo apt update
 ```
 
 运行以下命令，能把所有已安装的软件包 **更新（upgrade）** 至最新版本：
 
-```
+```bash
 $ sudo apt full-upgrade
 ```
 
@@ -45,13 +45,13 @@ $ sudo apt full-upgrade
 
 要搜索软件包，请用 `apt-cache search` 搜索（search）关键字：
 
-```
+```bash
 $ apt-cache search <关键字>
 ```
 
 例如，下面是关键字“raspi”的搜索结果：
 
-```
+```bash
 $ apt-cache search raspi
 raspi3-firmware - Raspberry Pi 2 and 3 GPU firmware and bootloaders
 libcamera-apps - libcamera-apps
@@ -72,13 +72,13 @@ raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 
 使用以下命令可查看其详细信息：
 
-```
+```bash
 $ apt-cache show <软件包名>
 ```
 
 例如，假设要查询“raspi-config”这个软件包，结果如下：
 
-```
+```bash
 $ apt-cache show raspi-config
 Package: raspi-config
 Version: 20210212
@@ -105,7 +105,7 @@ Description-md5: 19630c04463bfe7193152448b53d85a0
 
 要在你的树莓派上安装软件包，请把软件包名传给以下命令：
 
-```
+```bash
 $ sudo apt install <软件包名>
 ```
 
@@ -115,7 +115,7 @@ $ sudo apt install <软件包名>
 
 要在树莓派上卸载软件包，请将软件包名传给以下命令：
 
-```
+```bash
 $ sudo apt remove <软件包名>
 ```
 
@@ -129,13 +129,13 @@ $ sudo apt remove <软件包名>
 
 在执行之前，`sudo apt full-upgrade`会显示要完成更新所需的下载和存储会占用的磁盘容量。要查看你的剩余磁盘空间是否充足，请运行以下命令：
 
-```
+```bash
 $ df -h
 ```
 
 `apt` 会把已下载的软件包（ `.deb` 文件）存放到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到对应的安装位置。视你安装的软件而定，软件包自身可能会占用大量空间。要删除所有遗留的软件包本体，请运行以下命令：
 
-```
+```bash
 $ sudo apt clean
 ```
 
@@ -182,7 +182,7 @@ $ sudo reboot
 
 如果你在把固件更新到最新版本后遇到问题，请使用以下命令把固件回滚到最新稳定版：
 
-```
+```bash
 $ sudo apt-get update
 $ sudo apt install --reinstall raspi-firmware
 ```
@@ -191,7 +191,7 @@ $ sudo apt install --reinstall raspi-firmware
 >
 >如果你仍在使用树莓派操作系统 Bullseye，则必须用以下命令重装 `raspberrypi-kernel`：
 >
->```
+>```bash
 >$ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
 >```
 >
@@ -214,25 +214,25 @@ $ sudo apt install --reinstall raspi-firmware
 
 你还可以用命令行启动 VLC。在以下示例中，我们使用了来自《大雄兔》（Big Buck Bunny）的片段。要在树莓派上下载该片段，请执行以下命令：
 
-```
+```bash
 $ wget --trust-server-names http://rptl.io/big-buck-bunny
 ```
 
 要用命令行 VLC 播放视频，请运行以下命令：
 
-```
+```bash
 $ vlc big-buck-bunny-1080p.mp4
 ```
 
 要在文件播放完成后关闭 VLC 的图形界面，请添加参数 `--play-and-exit`：
 
-```
+```bash
 $ vlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
 要全屏播放视频（在某些情况下播放会更流畅），请添加参数 `--fullscreen`：
 
-```
+```bash
 $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 ```
 
@@ -240,7 +240,7 @@ $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 
 如果你在以上这些命令中把 `vlc` 换成 `cvlc`，那么将不会显示 VLC 的图形界面：
 
-```
+```bash
 $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
@@ -248,7 +248,7 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 
 与完整版本的树莓派系统（所有 with desktop 版本）相比，精简版树莓派系统上并未预装 VLC。要在精简版树莓派系统上使用 VLC 播放音视频，请安装用于无需桌面播放的软件包：
 
-```
+```bash
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
 ```
 
@@ -260,7 +260,7 @@ $ wget --trust-server-names http://rptl.io/startup-music
 
 要在命令行让 VLC 播放片段，请运行以下命令：
 
-```
+```bash
 $ cvlc --play-and-exit computer-startup-music.mp3
 ```
 
@@ -268,7 +268,7 @@ $ cvlc --play-and-exit computer-startup-music.mp3
 
 要强制把音频输出到特定设备，请使用 [ALSA](https://www.alsa-project.org/wiki/Main_Page) 音频输出：把 `alsa` 值传给参数 `-A`。同时使用参数 `--alsa-audio-device` 来指定音频输出设备：
 
-```
+```bash
 $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startup-music.mp3
 ```
 
@@ -285,7 +285,7 @@ $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startu
 >
 >使用以下命令，可获取树莓派上所有 ALSA 设备列表：
 > 
->```
+>```bash
 >$ aplay -L | grep sysdefault
 >```
 
@@ -293,7 +293,7 @@ $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startu
 
 为了强制视频输出到特定设备，即指定视频输出设备，请使用参数 `--drm-vout-display`：
 
-```
+```bash
 $ cvlc --play-and-exit --drm-vout-display <drm-设备> big-buck-bunny-1080p.mp4
 ```
 
@@ -309,7 +309,7 @@ $ cvlc --play-and-exit --drm-vout-display <drm-设备> big-buck-bunny-1080p.mp4
 >
 >使用以下命令，可获取树莓派上所有 DRM 设备列表：
 >
->```
+>```bash
 >$ kmsprint | grep Connector
 >```
 
@@ -317,7 +317,7 @@ $ cvlc --play-and-exit --drm-vout-display <drm-设备> big-buck-bunny-1080p.mp4
 
 你可以对音频和视频输出选项进行组合。例如，要把视频定向输出到触摸屏，而把音频定向输出到耳机插孔，根据上述需求，应执行的命令组合为：
 
-```
+```bash
 $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audio-device sysdefault:CARD=Headphones your_video.mp4
 ```
 
@@ -325,7 +325,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 如果你有 H.264 原始码流（裸流，raw H.264 stream），比如用树莓派摄像头模块捕获的码流，你可以通过把码流封装成诸如 MP4 之类的文件格式，来提升在 VLC 上的播放性能。你可以使用 `ffmpeg` 把码流内容转成容器文件。例如，以下命令可把名为 `video.h264` 的码流，转成 MP4 文件 `video.mp4`（30fps）：
 
-```
+```bash
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 ```
 
@@ -419,7 +419,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 它将显示指定配置项目的值。或者如要查看给定类型的所有配置项目，可指定参数 `int`（整数）或`str`（字符串）。例如，以下命令会返回设备上的全部内存大小（单位为 Mb）：
 
-```
+```bash
 $ vcgencmd get_config total_mem
 ```
 
@@ -477,7 +477,7 @@ $ vcgencmd get_config total_mem
 
 例如，要安装使用树莓派 [Build 扩展板](https://www.raspberrypi.com/documentation/accessories/build-hat.html)的 Python 3 库，请运行以下命令：
 
-```
+```bash
 $ sudo apt install python3-build-hat
 ```
 
@@ -493,7 +493,7 @@ $ sudo apt install python3-build-hat
 
 若尝试在系统级安装 Python 软件包，将会输出类似以下报错：
 
-```
+```python
 $ pip install buildhat
 error: externally-managed-environment
 
@@ -523,7 +523,7 @@ hint: See PEP 668 for the detailed specification.
 
 运行以下命令可创建一个虚拟环境配置文件夹，把 `<环境名>` 改成你想要的虚拟环境名称（如 `env`）:
 
-```
+```bash
 $ python -m venv <环境名>
 ```
 
@@ -533,13 +533,13 @@ $ python -m venv <环境名>
 
 然后，在虚拟环境配置文件夹中执行命令 `bin/activate` 以进入虚拟环境：
 
-```
+```python
 $ source <环境名>/bin/activate
 ```
 
 然后，你应该会看到类似如下提示，其内容为：
 
-```
+```python
 (<环境名>) $
 ```
 
@@ -547,7 +547,7 @@ $ source <环境名>/bin/activate
 
 要查看当前是否位于虚拟环境，请使用 `pip list`，查看已安装软件包的列表：
 
-```
+```python
 (<环境名>) $ pip list
 Package    Version
 ---------- -------
@@ -559,7 +559,7 @@ setuptools 66.1.1
 
 要退出虚拟环境，请运行以下命令：
 
-```
+```python
 (<环境名>) $ deactivate
 ```
 
@@ -567,25 +567,25 @@ setuptools 66.1.1
 
 许多用户会为每个 Python 项目都创建一个单独的虚拟环境。然后将虚拟环境放置在每个项目的根目录中（通常使用名称 `env`）。在每个项目的根目录下，运行以下命令可创建虚拟环境配置文件夹。
 
-```
+```python
 $ python -m venv env
 ```
 
 在开始你的项目工作之前，请在项目根目录下运行以下命令，以开始使用虚拟环境：
 
-```
+```python
 $ source env/bin/activate
 ```
 
 然后，你应该会看到类似提示如下，内容为：
 
-```
+```python
 (env) $
 ```
 
 当你完成项目工作后，可在任意目录下运行命令，来退出虚拟环境：
 
-```
+```python
 (env) $ deactivate
 ```
 
@@ -597,25 +597,25 @@ $ source env/bin/activate
 
 使用以下命令，在当前用户的主目录中，隐藏文件夹下，创建虚拟环境：
 
-```
+```python
 $ python -m venv ~/.env
 ```
 
 在其他目录，运行命令，即可开始使用虚拟环境：
 
-```
+```python
 $ source ~/.env/bin/activate
 ```
 
 然后你应该会看到类似如下提示信息：
 
-```
+```python
 (.env) $
 ```
 
 在任意目录，运行以下命令即可退出虚拟环境：
 
-```
+```python
 (.env) $ deactivate
 ```
 
@@ -637,7 +637,7 @@ $ source ~/.env/bin/activate
 
 以下示例代码用于控制接入到 GPIO17 的 LED：
 
-```
+```python
 from gpiozero import LED
 from time import sleep
 
@@ -658,7 +658,7 @@ LED 方法包括 `on()`、`off()`、`toggle()` 和 `blink()`。
 
 以下示例代码，可读取接入到 GPIO2 按钮的状态：
 
-```
+```python
 from gpiozero import Button
 from time import sleep
 
@@ -678,7 +678,7 @@ while True:
 
 以下示例代码可读取接入 GPIO2 的按钮状态，并在按下按钮时，点亮接入到 GPIO17 的 LED：
 
-```
+```python
 from gpiozero import LED, Button
 
 led = LED(17)
@@ -693,7 +693,7 @@ while True:
 
 还可这么写：
 
-```
+```python
 from gpiozero import LED, Button
 
 led = LED(17)
@@ -708,7 +708,7 @@ while True:
 
 亦或这么写：
 
-```
+```python
 from gpiozero import LED, Button
 
 led = LED(17)
