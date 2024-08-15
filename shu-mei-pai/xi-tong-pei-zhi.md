@@ -8,7 +8,7 @@
 
 `raspi-config` 能帮你对树莓派进行配置。对于不同的树莓派型号，可配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -236,7 +236,7 @@ SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在�
 
 工具 `raspi-config` 还支持非交互式选项及参数，无需可视化组件，就可以用命令行修改所有选项。可用选项可能因树莓派型号而异。
 
-```
+```bash
 $ sudo raspi-config nonint <命令> <参数> [可选参数]
 ```
 
@@ -250,7 +250,7 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 
 配置 WiFi 网络名称（SSID）和密码。
 
-```
+```bash
 $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐藏的网络] [明文]
 ```
 
@@ -264,17 +264,17 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐�
 
 * 未隐藏的网络 `myssid`，密码为 `mypassphrase`：
 
-  ```
+  ```bash
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid mypassphrase
   ```
 * 隐藏的网络 `myssid`，密码为 `mypassphrase`：
 
-  ```
+  ```bash
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid mypassphrase 1
   ```
 * 未隐藏的网络 `myssid`，密码为 `my passphrase`：
 
-  ```
+  ```bash
   $ sudo raspi-config nonint do_wifi_ssid_passphrase myssid "my passphrase" 0 0
   ```
 
@@ -282,7 +282,7 @@ $ sudo raspi-config nonint do_wifi_ssid_passphrase <网络名称> <密码> [隐�
 
 指定音频输出位置。
 
-```
+```bash
 $ sudo raspi-config nonint do_audio <数字>
 ```
 
@@ -300,7 +300,7 @@ $ sudo raspi-config nonint do_audio <数字>
 
 有关修改用户密码的更多信息，请参阅[修改用户密码](https://www.raspberrypi.com/documentation/computers/configuration.html#change-user-password)。
 
-```
+```bash
 $ sudo raspi-config nonint do_change_pass
 ```
 
@@ -320,7 +320,7 @@ $ sudo raspi-config nonint do_hostname <主机名>
 
 选择：启动到控制台，还是桌面；在接通电源时，是否自动登录到当前用户账户。
 
-```
+```bash
 $ sudo raspi-config nonint do_boot_behaviour <B1/B2/B3/B4>
 ```
 
@@ -333,7 +333,7 @@ $ sudo raspi-config nonint do_boot_behaviour <B1/B2/B3/B4>
 
 是否在启动前等待网络连接。
 
-```
+```bash
 $ sudo raspi-config nonint do_boot_wait <0/1>
 ```
 
@@ -344,7 +344,7 @@ $ sudo raspi-config nonint do_boot_wait <0/1>
 
 启用或禁用：启动时显示的启动画面。
 
-```
+```bash
 $ sudo raspi-config nonint do_boot_splash <0/1>
 ```
 
@@ -355,7 +355,7 @@ $ sudo raspi-config nonint do_boot_splash <0/1>
 
 如果你的树莓派型号支持，可以改变 LED 电源灯的行为。
 
-```
+```bash
 $ sudo raspi-config nonint do_leds <0/1>
 ```
 
@@ -367,7 +367,7 @@ $ sudo raspi-config nonint do_leds <0/1>
 
 修改默认的网络浏览器。如所选网络浏览器，在当前并未安装，将不生效。
 
-```
+```bash
 $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 ```
 
@@ -381,7 +381,7 @@ $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 
 如果屏幕上显示的文本开端在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把镜像填充到整个屏幕，且不带黑边。
 
-```
+```bash
 $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 ```
 
@@ -399,7 +399,7 @@ $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
 
 启用或禁用：屏幕节能（无操作时关闭屏幕信号）。
 
-```
+```bash
 $ sudo raspi-config nonint do_blanking <0/1>
 ```
 
@@ -410,7 +410,7 @@ $ sudo raspi-config nonint do_blanking <0/1>
 
 用于[无头](https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi)设置所使用的显示分辨率。
 
-```
+```bash
 $ sudo raspi-config nonint do_vnc_resolution <宽>x<高>
 ```
 
@@ -420,7 +420,7 @@ $ sudo raspi-config nonint do_vnc_resolution <宽>x<高>
 
 在树莓派 4 上：
 
-```
+```bash
 $ sudo raspi-config nonint do_pi4video <V1或V2或V3>
 ```
 
@@ -430,7 +430,7 @@ $ sudo raspi-config nonint do_pi4video <V1或V2或V3>
 
 对于其他型号：
 
-```
+```bash
 $ sudo raspi-config nonint do_composite <0或1>
 ```
 
@@ -445,7 +445,7 @@ $ sudo raspi-config nonint do_composite <0或1>
 
 SSH 能让你在另一台计算机远程访问树莓派的命令行。有关 SSH 的更多信息，请参阅 [SSH 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)。
 
-```
+```bash
 $ sudo raspi-config nonint do_ssh <0或1>
 ```
 
@@ -456,7 +456,7 @@ $ sudo raspi-config nonint do_ssh <0或1>
 
 启用或禁用：虚拟网络计算服务（virtual network computing，VNC）。有关 VNC 的更多信息，请参阅 [VNC 文档](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)。
 
-```
+```bash
 $ sudo raspi-config nonint do_vnc <0或1>
 ```
 
@@ -467,7 +467,7 @@ $ sudo raspi-config nonint do_vnc <0或1>
 
 启用或禁用：SPI 接口，是否自动加载 SPI 内核模块。
 
-```
+```bash
 $ sudo raspi-config nonint do_spi <0或1>
 ```
 
@@ -478,7 +478,7 @@ $ sudo raspi-config nonint do_spi <0或1>
 
 启用或禁用：I²C 接口，是否自动加载 I²C 内核模块。
 
-```
+```bash
 $ sudo raspi-config nonint do_i2c <0或1>
 ```
 
@@ -489,7 +489,7 @@ $ sudo raspi-config nonint do_i2c <0或1>
 
 启用或禁用：串口硬件。
 
-```
+```bash
 $ sudo raspi-config nonint do_serial_hw <0或1或2>
 ```
 
@@ -500,7 +500,7 @@ $ sudo raspi-config nonint do_serial_hw <0或1或2>
 
 启用或禁用： shell 及内核信息的串口输出。
 
-```
+```bash
 $ sudo raspi-config nonint do_serial_cons <0或1或2>
 ```
 
@@ -511,7 +511,7 @@ $ sudo raspi-config nonint do_serial_cons <0或1或2>
 
 启用或禁用：Dallas 1-wire（单总线）接口，通常用于 DS18B20 温度传感器。
 
-```
+```bash
 $ sudo raspi-config nonint do_onewire <0或1>
 ```
 
@@ -522,7 +522,7 @@ $ sudo raspi-config nonint do_onewire <0或1>
 
 启用或禁用：GPIO 引脚的远程访问。
 
-```
+```bash
 $ sudo raspi-config nonint do_rgpio <0或1>
 ```
 
@@ -540,7 +540,7 @@ $ sudo raspi-config nonint do_rgpio <0或1>
 >
 >**超频可能会缩短你树莓派的使用寿命。** 如因某个特定级别的超频造成系统不稳定，可尝试更为保守的超频。在启动过程中按住 **Shift** 键可暂时禁用超频。
 
-```
+```bash
 $ sudo raspi-config nonint do_overclock <设置>
 ```
 
@@ -556,7 +556,7 @@ $ sudo raspi-config nonint do_overclock <设置>
 
 修改向 GPU 提供的内存量。
 
-```
+```bash
 $ sudo raspi-config nonint do_memory_split <megabytes>
 ```
 
@@ -564,7 +564,7 @@ $ sudo raspi-config nonint do_memory_split <megabytes>
 
 启用或禁用：只读文件系统。
 
-```
+```bash
 $ sudo raspi-config nonint do_overlayfs <0或1>
 ```
 
@@ -575,7 +575,7 @@ $ sudo raspi-config nonint do_overlayfs <0或1>
 
 可自定义接入 GPIO 的风扇行为（[树莓派 4 外壳](https://www.raspberrypi.com/products/raspberry-pi-4-case-fan/)自带）。对[树莓派 5 外壳自带风扇](https://www.raspberrypi.com/products/raspberry-pi-5-case/)、[树莓派 5 主动散热器](https://www.raspberrypi.com/products/active-cooler/)（使用特殊四针风扇接头接入）无效。
 
-```
+```bash
 $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
 ```
 
@@ -592,7 +592,7 @@ $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
 
 选择语言环境，如 `en_GB.UTF-8 UTF-8`（英语）（译者注：中文为 `zh_CN.UTF-8 UTF-8`）。
 
-```
+```bash
 $ sudo raspi-config nonint do_change_locale <语言环境>
 ```
 
@@ -602,7 +602,7 @@ $ sudo raspi-config nonint do_change_locale <语言环境>
 
 设置你的本地时区，从地区开始，然后选择城市，如"Asia/Shanghai"。
 
-```
+```bash
 $ sudo raspi-config nonint do_change_timezone <时区>
 ```
 
@@ -612,7 +612,7 @@ $ sudo raspi-config nonint do_change_timezone <时区>
 
 设置键盘布局。一般来说，修改会立即生效，但也可能需重启才能生效。
 
-```
+```bash
 $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 ```
 
@@ -622,7 +622,7 @@ $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 
 设置无线网络的区域码。
 
-```
+```bash
 $ sudo raspi-config nonint do_wifi_country <区域码>
 ```
 
@@ -638,7 +638,7 @@ $ sudo raspi-config nonint do_wifi_country <区域码>
 >
 >没有再确认的步骤。选择该选项将立即执行分区扩展操作。
 
-```
+```bash
 $ sudo raspi-config nonint do_expand_rootfs
 ```
 
@@ -646,7 +646,7 @@ $ sudo raspi-config nonint do_expand_rootfs
 
 启用或禁用：可预测的网络接口名称。
 
-```
+```bash
 $ sudo raspi-config nonint do_net_names <0或1>
 ```
 
@@ -658,7 +658,7 @@ $ sudo raspi-config nonint do_net_names <0或1>
 配置网络代理。
 
 
-```
+```bash
 $ sudo raspi-config nonint do_proxy <代理服务器的协议类型> <代理服务器的地址>
 ```
 
@@ -667,7 +667,7 @@ $ sudo raspi-config nonint do_proxy <代理服务器的协议类型> <代理服�
 对于树莓派 4 及后续新款设备，在未插入 SD 卡的情况下，指定：是否进行 USB 启动和网络启动。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 
-```
+```bash
 $ sudo raspi-config nonint do_boot_order <B1或B2或B3>
 ```
 
@@ -681,7 +681,7 @@ $ sudo raspi-config nonint do_boot_order <B1或B2或B3>
 
 对于树莓派 4 及后续新款设备，要更新到最新版的 ROM 引导软件。或者，倘若最新版本引发了故障，你也可以在此恢复出厂默认设置。
 
-```
+```bash
 $ sudo raspi-config nonint do_boot_rom <E1或E2>
 ```
 
@@ -692,7 +692,7 @@ $ sudo raspi-config nonint do_boot_rom <E1或E2>
 
 在 X11 后端和 Wayland 后端间进行切换。对于树莓派 4 及后续新款设备，默认使用 Wayland。其他型号的树莓派默认为 X11。
 
-```
+```bash
 $ sudo raspi-config nonint do_wayland <W1或W2>
 ```
 
@@ -707,7 +707,7 @@ $ sudo raspi-config nonint do_wayland <W1或W2>
 
 使用此参数在 PulseAudio 和 PipeWire 音频后端间进行切换。在树莓派系统 Bookworm 之前，树莓派系统使用 PulseAudio。
 
-```
+```bash
 $ sudo raspi-config nonint do_audioconf <1或2>
 ```
 
@@ -718,7 +718,7 @@ $ sudo raspi-config nonint do_audioconf <1或2>
 
 将 `raspi-config` 更新至最新版本。
 
-```
+```bash
 $ sudo raspi-config nonint do_update
 ```
 
@@ -748,7 +748,7 @@ $ sudo raspi-config nonint do_update
 
 使用以下命令能打开 **屏幕配置（Screen Configuration）** 工具：
 
-```
+```bash
 $ arandr
 ```
 
@@ -760,7 +760,7 @@ $ arandr
 
 要手动配置分辨率和方向，你得知道显示设备的名称。要确定设备名称，请运行以下命令，来显示已接入设备的信息：
 
-```
+```bash
 $ kmsprint | grep Connector
 ```
 
@@ -768,7 +768,7 @@ $ kmsprint | grep Connector
 
 如果你正在使用 Wayland 桌面混成器，你可以通过编辑你主目录中的文件来，设置自定义显示分辨率：`.config/wayfire.ini`。可编辑现有的 `[output:<device>]` 部分。倘若没有，则添加新部分 `[output:<device>]`，以适配你的显示设备。要修改显示分辨率，请添加 `mode` 这行。例如，对于以下示例，配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz：
 
-```
+```bash
 [output:HDMI-A-1]
 mode = 1920x1080@60
 ```
@@ -781,7 +781,7 @@ mode = 1920x1080@60
 
 如果你正在运行 Wayland 桌面混成器，可以通过设置 `wlr-randr` 自定义屏幕显示方向。以下命令分别将屏幕方向配置为 0°、90°、180° 和 270°：
 
-```
+```bash
 $ wlr-randr --output HDMI-A-1 --transform normal
 $ wlr-randr --output HDMI-A-1 --transform 90
 $ wlr-randr --output HDMI-A-1 --transform 180
@@ -800,7 +800,7 @@ $ wlr-randr --output HDMI-A-1 --transform 270
 当然，你还可以通过编辑你主目录（home）中的文件，来旋转屏幕方向：`.config/wayfire.ini`。请编辑现有的 `[output:<device>]` 部分。倘若没有，则添加新的 `[output:<device>]` 部分以适配你的[显示设备](https://www.raspberrypi.com/documentation/computers/configuration.html#determine-display-device-name)。要旋转屏幕方向，需添加 `transform` 这行。以下示例配置：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz，旋转角度是 270°：
 
 
-```
+```bash
 [output:HDMI-A-1]
 mode = 1920x1080@60
 transform = 270
@@ -848,7 +848,7 @@ Wayland 支持以下 `transform` 参数：
 
 要修改音频输出，请使用 [`raspi-config`](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config)，运行以下命令：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -911,7 +911,7 @@ $ sudo raspi-config
 
 要做到这一点，请使用命令行工具 `raspi-config`，设置你的无线局域网区域。运行以下命令：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -919,13 +919,13 @@ $ sudo raspi-config
 
 现在，你应该已经可以访问无线网络了。运行以下命令来检查你的 WiFi 无线电是否已启用：
 
-```
+```bash
 $ nmcli radio wifi
 ```
 
 如果此命令返回文本“enabled（已启用）”，则可以继续准备配置连接。如果此命令返回“disabled（已禁用）”，请尝试使用以下命令启用 WiFi：
 
-```
+```bash
 $ nmcli radio wifi on
 ```
 
@@ -933,7 +933,7 @@ $ nmcli radio wifi on
 
 要扫描无线网络，请运行以下命令：
 
-```
+```bash
 $ nmcli dev wifi list
 ```
 
@@ -953,7 +953,7 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 运行以下命令来配置网络连接，将占位符 `<网络名称>` 替换为你要配置的网络名称：
 
-```
+```bash
 $ sudo nmcli --ask dev wifi connect <网络名称>
 ```
 
@@ -965,13 +965,13 @@ $ sudo nmcli --ask dev wifi connect <网络名称>
 
 要检查是否已接入网络，请运行以下命令：
 
-```
+```bash
 $ nmcli dev wifi list
 ```
 
 应该看到类似输出如下：
 
-```
+```bash
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
 *       90:72:40:1B:42:05  myNetwork       Infra  132   405 Mbit/s  89      ****  WPA2
         90:72:42:1B:78:04  myNetwork5G     Infra  11    195 Mbit/s  79      ***   WPA2
@@ -989,7 +989,7 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 如果你要连接的网络未使用密码，请运行以下命令：
 
-```
+```bash
 $ sudo nmcli dev wifi connect <网络名称>
 ```
 
@@ -1001,7 +1001,7 @@ $ sudo nmcli dev wifi connect <网络名称>
 
 如果你正在使用着隐藏的网络，请在运行 `nmcli` 时指定参数 “hidden”，并赋值为“yes”。
 
-```
+```bash
 $ sudo nmcli --ask dev wifi connect <网络名称> hidden yes
 ```
 
@@ -1009,13 +1009,13 @@ $ sudo nmcli --ask dev wifi connect <网络名称> hidden yes
 
 如果你的设备同时检测到了多个已知网络，它可能会随机接入到任意某个被检测到的已知网络。可使用优先级参数，强制让你的树莓派优先连接到某些网络。在范围内，你的设备将连接到具有最高优先级的网络。运行以下命令，查看已知网络的优先级：
 
-```
+```bash
 $ nmcli --fields autoconnect-priority,name connection
 ```
 
 你应该看到类似输出如下：
 
-```
+```bash
 AUTOCONNECT-PRIORITY  NAME
 0                     myNetwork
 0                     lo
@@ -1026,13 +1026,13 @@ AUTOCONNECT-PRIORITY  NAME
 
 使用命令 `nmcli connection modify` 可设置网络的优先级。以下示例命令：把叫做 "Pi Towers" 的网络的优先级设置为 `10`：
 
-```
+```bash
 $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 ```
 
 在范围内，你的设备将始终尝试连接到具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
 
-```
+```bash
 AUTOCONNECT-PRIORITY  NAME
 -1                    snake
 0                     rabbit
@@ -1075,7 +1075,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 你可以使用命令行工具 `raspi-config`，来启用和禁用屏幕节能。运行以下命令打开该工具：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -1083,7 +1083,7 @@ $ sudo raspi-config
 
 你还可以编辑添加以下行到 `~/.config/wayfire.ini`：
 
-```
+```bash
 [idle]
 dpms_timeout=600
 ```
@@ -1098,7 +1098,7 @@ dpms_timeout=600
 
 要修改控制台模式下的屏幕节能配置，请以管理员身份，在文本编辑器中打开 `/boot/firmware/cmdline.txt`：
 
-```
+```bash
 $ sudo nano /boot/firmware/cmdline.txt
 ```
 
@@ -1106,7 +1106,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 
 修改 `cmdline.txt` 后，只有在重启后才会生效。使用以下命令重启你的树莓派：
 
-```
+```bash
 $ sudo reboot
 ```
 
@@ -1114,7 +1114,7 @@ $ sudo reboot
 
 你可以使用以下命令，显示当前控制台屏幕关闭时间（以秒为单位）：
 
-```
+```bash
 $ cat /sys/module/kernel/parameters/consoleblank
 ```
 
@@ -1124,7 +1124,7 @@ $ cat /sys/module/kernel/parameters/consoleblank
 
 你可以用工具 `raspi-config`，在命令行来修改当前用户账户的密码：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -1132,7 +1132,7 @@ $ sudo raspi-config
 
 还可以使用工具 `passwd`：
 
-```
+```bash
 $ passwd
 ```
 
@@ -1140,7 +1140,7 @@ $ passwd
 
 要添加新用户，请输入以下命令：把占位符 `<用户名>` 换成新用户的用户名：
 
-```
+```bash
 $ sudo adduser <用户名>
 ```
 
@@ -1150,13 +1150,13 @@ $ sudo adduser <用户名>
 
 为了授予新用户必要的权限，比如 `sudo`，运行以下命令将该用户添加到相关用户组，请把占位符 `<用户名>` 换成新用户的用户名：
 
-```
+```bash
 $ sudo usermod -a -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,gpio,i2c,spi <用户名>
 ```
 
 要检查权限是否成功授予，请运行以下命令，请将占位符 `<用户名>` 换成新用户的用户名：
 
-```
+```bash
 $ sudo su - <用户名>
 ```
 
@@ -1166,7 +1166,7 @@ $ sudo su - <用户名>
 
 要删除用户，请运行以下命令，请将占位符 `<用户名>` 换成要删除的用户名：
 
-```
+```bash
 $ sudo deluser -remove-home <用户名>
 ```
 
@@ -1176,7 +1176,7 @@ $ sudo deluser -remove-home <用户名>
 
 要修改在启动时自动登录到你树莓派的用户，请运行以下命令：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -1200,7 +1200,7 @@ $ sudo raspi-config
 
 将存储设备插入树莓派上的 USB 口，并使用以下命令列出树莓派上的所有磁盘分区：
 
-```
+```bash
 $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
 ```
 
@@ -1208,21 +1208,21 @@ $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
 
 使用 SIZE、LABEL 和 MODEL 这几列来辨别指向存储设备的磁盘分区的名称（如 `sda1`）。FSTYPE 这列包含了文件系统类型。如果你的存储设备使用的是 exFAT 文件系统，请安装 exFAT 驱动程序：
 
-```
+```bash
 $ sudo apt update
 $ sudo apt install exfat-fuse
 ```
 
 如果你的存储设备使用 NTFS 文件系统，你将只能以只读方式使用它。如果你想要对设备进行写操作，可以安装驱动程序 ntfs-3g：
 
-```
+```bash
 $ sudo apt update
 $ sudo apt install ntfs-3g
 ```
 
 运行以下命令以获取磁盘分区的位置：
 
-```
+```bash
 $ sudo blkid
 ```
 
@@ -1230,19 +1230,19 @@ $ sudo blkid
 
 创建一个目标文件夹，用作存储设备的挂载点。在这种情况下，使用的挂载点名称是 `mydisk`。你可以指定成自己想要的名称：
 
-```
+```bash
 $ sudo mkdir /mnt/mydisk
 ```
 
 将存储设备挂载到你创建的挂载点上：
 
-```
+```bash
 $ sudo mount /dev/sda1 /mnt/mydisk
 ```
 
 要检查存储设备是否挂载成功，可通过列出内容来确认：
 
-```
+```bash
 $ ls /mnt/mydisk
 ```
 
@@ -1252,19 +1252,19 @@ $ ls /mnt/mydisk
 
 获取磁盘分区的 UUID：
 
-```
+```bash
 $ sudo blkid
 ```
 
 从列表中找到磁盘分区并标记 UUID。（如 `5C24-1453`）使用诸如 nano 之类的命令行编辑器打开 fstab 文件：
 
-```
+```bash
 $ sudo nano /etc/fstab
 ```
 
 在 `fstab` 文件中添加以下几行：
 
-```
+```bash
 UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 ```
 
@@ -1284,7 +1284,7 @@ UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 
 当树莓派关机时，系统会负责卸载存储设备，以便安全拔出。如果你想手动卸载设备，可以使用以下命令：
 
-```
+```bash
 $ sudo umount /mnt/mydisk
 ```
 
@@ -1298,14 +1298,14 @@ $ sudo umount /mnt/mydisk
 
 如果你仍然无法卸载存储设备，你可以使用工具 `lsof` 检查是哪个程序在设备上打开了文件。首先你要用 `apt` 安装 `lsof`：
 
-```
+```bash
 $ sudo apt update
 $ sudo apt install lsof
 ```
 
  使用 lsof 命令：
 
-```
+```bash
 $ lsof /mnt/mydisk
 ```
 
@@ -1313,7 +1313,7 @@ $ lsof /mnt/mydisk
 
 在启动时，Linux 内核可接受一组命令行参数。对于树莓派，这个命令行被定义在启动分区中的文件 `cmdline.txt` 里。你可使用任意文本编辑器编辑该文本文件。
 
-```
+```bash
 $ sudo nano /boot/firmware/cmdline.txt
 ```
 
@@ -1324,7 +1324,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 
 要查看在启动时传递给内核的命令行，请运行以下命令：
 
-```
+```bash
 $ cat /proc/cmdline
 ```
 
@@ -1361,13 +1361,13 @@ $ cat /proc/cmdline
 
 如果在 `cmdline.txt` 中没有 `video` 这个条目，树莓派操作系统将根据 HDMI 接入显示器的 [EDID](https://en.wikipedia.org/wiki/Extended_Display_Identification_Data)，自动选择（基于 Linux 内核信息）显示器支持最佳分辨率。在精简版树莓派系统、控制台模式中，你必须自己手动修改 `video` 这个条目，才能修改分辨率和屏幕方向。
 
-```
+```bash
 video=HDMI-A-1:1920x1080M@60
 ```
 
 还可以添加屏幕旋转和翻转（屏幕镜像）参数，请参考 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst) 标准。以下示例定义了一台显示器：名为 `HDMI-A-`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
 
-```
+```bash
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 ```
 
@@ -1428,13 +1428,13 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 要强制 `sudo` 需要密码，请编辑你用户账户的 sudoers 文件中的 `nopasswd`，并将文件名中的占位符 `<用户名>` 换成你的用户名：
 
-```
+```bash
 $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 ```
 
 将 `<用户名>` 这个条目修改为如下内容，并把 `<用户名>` 换成你的用户名：
 
-```
+```bash
 <用户名> ALL=(ALL) PASSWD: ALL
 ```
 
@@ -1448,7 +1448,7 @@ $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 
 如果你通过 SSH 连接至树莓派，通过添加 `cron` 作业，专门更新 SSH 服务器可能是值得的。可把以下命令，作为每日 `cron` 作业运行，确保你能及时获得最新的 SSH 安全修复程序。它独立于你的正常更新流程。
 
-```
+```bash
 $ apt install openssh-server
 ```
 
@@ -1460,25 +1460,25 @@ $ apt install openssh-server
 
 你还可以通过修改 `sshd` 配置，**允许（allow）**、**拒绝（deny）** 特定用户。
 
-```
+```bash
 $ sudo nano /etc/ssh/sshd_config
 ```
 
 将以下行添加、编辑或追加到文件末尾，其中涉及了你想要允许登录的用户名：
 
-```
+```bash
 AllowUsers alice bob
 ```
 
 你还可以使用 `DenyUsers` 来明确禁止某些用户名的登录：
 
-```
+```bash
 DenyUsers jane john
 ```
 
 修改后，请使用以下命令重启 `sshd` 服务，以使修改生效：
 
-```
+```bash
 $ sudo systemctl restart ssh
 ```
 
@@ -1486,7 +1486,7 @@ $ sudo systemctl restart ssh
 
 Linux 上有许多防火墙解决方案可用。大多数通过底层的 [iptables](http://www.netfilter.org/projects/iptables/index.html) 项目来进行数据包过滤。该项目基于 Linux netfiltering 系统。在默认情况下，树莓派系统上预装了 `iptables`，但未设置。设置它可能是一件非常麻烦的事情。[Uncomplicated Firewall (UFW) ](https://www.linux.com/learn/introduction-uncomplicated-firewall-ufw)项目提供了比 `iptables` 更易用的界面。UFW 是 Ubuntu 中默认的防火墙工具，也可以安装到你的树莓派上：
 
-```
+```bash
 $ sudo apt install ufw
 ```
 
@@ -1494,43 +1494,43 @@ $ sudo apt install ufw
 
 启用防火墙，同时也会使其开机自启：
 
-```
+```bash
 $ sudo ufw enable
 ```
 
 要禁用防火墙，同时禁用其开机自启，请使用：
 
-```
+```bash
 $ sudo ufw disable
 ```
 
 允许特定端口访问（我们在示例中使用了 22 端口）：
 
-```
+```bash
 $ sudo ufw allow 22
 ```
 
 拒绝访问端口也非常简单（我们再次以 22 端口为例）：
 
-```
+```bash
 $ sudo ufw deny 22
 ```
 
 你还可以指定在端口上允许和拒绝哪种服务。在此示例中，我们拒绝了 22 端口上的 TCP：
 
-```
+```bash
 $ sudo ufw deny 22/tcp
 ```
 
 如果你不知道服务会使用哪个端口，那么可以指定服务。此示例允许 ssh 服务通过防火墙访问：
 
-```
+```bash
 $ sudo ufw allow ssh
 ```
 
-命令 status 可列出当前防火墙的所有设置：
+命令 `status` 可列出当前防火墙的所有设置：
 
-```
+```bash
 $ sudo ufw status
 ```
 
@@ -1538,13 +1538,13 @@ $ sudo ufw status
 
 在 ssh 端口上（TCP）限制登录尝试。如果 IP 地址在过往 30 秒内有过六次及更多次连接尝试，则拒绝连接：
 
-```
+```bash
 $ sudo ufw limit ssh/tcp
 ```
 
 拒绝从 IP 地址 192.168.2.1 访问端口 30
 
-```
+```bash
 $ sudo ufw deny from 192.168.2.1 port 30
 ```
 
@@ -1554,19 +1554,19 @@ $ sudo ufw deny from 192.168.2.1 port 30
 
 运行以下命令安装 `fail2ban`：
 
-```
+```bash
 $ sudo apt install fail2ban
 ```
 
 在安装过程中，Fail2ban 会创建 `/etc/fail2ban/jail.conf`。要启用 Fail2ban，请把 `jail.conf` 复制到 `jail.local`：
 
-```
+```bash
 $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
 在此配置文件中包含了一组默认选项，以及用于检查特定服务异常的选项。要查看用于 `ssh` 的规则，请用编辑器打开 `jail.local`：
 
-```
+```bash
 $ sudo nano /etc/fail2ban/jail.local
 ```
 
@@ -1585,7 +1585,7 @@ maxretry = 6
 
 在同一文件中，此 `[default]` 部分定义了默认的封禁操作 `iptables-multiport`，当达到检测阈值时运行 `/etc/fail2ban/action.d/iptables-multiport.conf` 文件：
 
-```
+```bash
 # 默认禁止操作（例如：iptables、iptables-new、
 # iptables-multiport、shorewall 等）。用于定义
 # 变量 action_*，可以全局或部分覆盖
@@ -1597,7 +1597,7 @@ multiport（多端口）会禁止全部端口上的一切访问。`action.d` 文
 
 例如，如果要在三次失败尝试后永久拉黑 IP 地址，请将 `[ssh]` 部分中的 `maxretry` 值修改为 `3`，并将 `bantime` 设置为负数：
 
-```
+```bash
 [ssh]
 enabled  = true
 port     = ssh
@@ -1654,7 +1654,7 @@ bantime  = -1
 
 要生成加密密码，请在其他计算机上使用 [OpenSSL](https://www.openssl.org/)。打开终端并输入以下内容：
 
-```
+```bash
 $ openssl passwd -6
 ```
 
@@ -1680,7 +1680,7 @@ $ openssl passwd -6
 
 要在命令行上创建发射无线网络，请运行以下命令，把占位符 `<网络名称>` 和 `<密码>` 改成你自己的值：
 
-```
+```bash
 $ sudo nmcli device wifi hotspot ssid <网络名称> password <密码>
 ```
 
@@ -1690,13 +1690,13 @@ $ sudo nmcli device wifi hotspot ssid <网络名称> password <密码>
 
 要禁用热点网络，并将你的树莓派还原成无线客户端，请运行以下命令：
 
-```
+```bash
 $ sudo nmcli device disconnect wlan0
 ```
 
 在禁用热点后，运行以下命令，可重新连接到其他 WiFi 网络：
 
-```
+```bash
 $ sudo nmcli device up wlan0
 ```
 
@@ -1716,13 +1716,13 @@ $ sudo nmcli device up wlan0
 
 首先，创建一个网桥接口：
 
-```
+```bash
 $ sudo nmcli connection add type bridge con-name 'Bridge' ifname bridge0
 ```
 
 接下来，把你设备的以太网连接添加到父网桥：
 
-```
+```bash
 $ sudo nmcli connection add type ethernet slave-type bridge \
     con-name 'Ethernet' ifname eth0 master bridge0
 ```
@@ -1731,12 +1731,12 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
 
 * 如果你已经按照上述说明创建了无线热点连接，请使用以下命令将现有接口添加至桥接中：
 
-  ```
+  ```bash
   $ sudo nmcli connection modify 'Hotspot' master bridge0
   ```
 * 如果你尚未创建无线热点连接，请使用单个命令（所有内容是一个命令）来创建新接口并将其添加到桥接中，把占位符 `<热点密码>` 改成你选择的密码：
 
-  ```
+  ```bash
   $ sudo nmcli connection add con-name 'Hotspot' \
       ifname wlan0 type wifi slave-type bridge master bridge0 \
       wifi.mode ap wifi.ssid Hotspot wifi-sec.key-mgmt wpa-psk \
@@ -1746,13 +1746,13 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
 
 现在你已配置好桥接，是时候激活它了。运行以下命令以激活桥接：
 
-```
+```bash
 $ sudo nmcli connection up Bridge
 ```
 
 运行以下命令，开始托管你的无线网络：
 
-```
+```bash
 $ sudo nmcli connection up Hotspot
 ```
 
@@ -1777,13 +1777,13 @@ $ sudo nmcli connection up Hotspot
 
 打开终端，并使用 nano 打开文件 `/etc/environment`：
 
-```
+```bash
 $ sudo nano /etc/environment
 ```
 
 将以下内容添加到文件 `/etc/environment`，以创建变量 `http_proxy`：
 
-```
+```bash
 export http_proxy="http://<代理IP地址>:<代理端口>"
 ```
 
@@ -1793,7 +1793,7 @@ export http_proxy="http://<代理IP地址>:<代理端口>"
 >
 >如果你使用的代理需要用户名和密码，请使用以下格式：
 >
->```
+>```bash
 >export http_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 >```
 >
@@ -1802,19 +1802,19 @@ export http_proxy="http://<代理IP地址>:<代理端口>"
 
 为环境变量 `https_proxy` 输入相同的信息：
 
-```
+```bash
 export https_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 ```
 
 创建环境变量 `no_proxy`，这是一个由逗号分隔的地址列表，你的树莓派不应该使用代理。
 
-```
+```bash
 export no_proxy="localhost, 127.0.0.1"
 ```
 
 你的 `/etc/environment` 文件现在应该如下所示：
 
-```
+```bash
 export http_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 export https_proxy="http://<用户名>:<密码>@代理IP地址:代理端口"
 export no_proxy="localhost, 127.0.0.1"
@@ -1828,13 +1828,13 @@ export no_proxy="localhost, 127.0.0.1"
 
 使用以下命令打开 `sudoers`：
 
-```
+```bash
 $ sudo visudo
 ```
 
 将以下行添加到文件中，这样 `sudo` 将使用你刚刚创建的环境变量：
 
-```
+```bash
 Defaults	env_keep+="http_proxy https_proxy no_proxy"
 ```
 
@@ -2016,7 +2016,7 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 
 所有型号的计算模块，在默认情况下均禁用了串口，但可以通过使用设备树叠加层来显式启用。你还可以指定要使用的 GPIO 引脚，例如：
 
-```
+```bash
 dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 ```
 
@@ -2061,7 +2061,7 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 
 由于 Bookworm 的变更，在默认情况没有 `/dev/serial1`。你可以在 `config.txt` 中，设置以下参数再次启用 `serial1`：
 
-```
+```bash
 dtparam=krnbt=off
 ```
 
@@ -2108,27 +2108,27 @@ dtparam=krnbt=off
 
 对于树莓派 5，`earlycon` 仅能通过以下设置输出至调试接口（3 针）：
 
-```
+```bash
 earlycon=pl011,0x107d001000,115200n8
 ```
 
 对于树莓派 4、400 和计算模块 4：
 
-```
+```bash
 earlycon=uart8250,mmio32,0xfe215040
 earlycon=pl011,mmio32,0xfe201000
 ```
 
 对于树莓派 2、3 和计算模块 3：
 
-```
+```bash
 earlycon=uart8250,mmio32,0x3f215040
 earlycon=pl011,mmio32,0x3f201000
 ```
 
 对于树莓派 1，树莓派 Zero 和计算模块 1：
 
-```
+```bash
 earlycon=uart8250,mmio32,0x20215040
 earlycon=pl011,mmio32,0x20201000
 ```
@@ -2196,7 +2196,7 @@ mini 串口和基于 BCM2835 的 PL011 实现均不支持 DCD、DSR、DTR 和 RI
 
 下面是个简单的树，文件格式是 `.dts`：
 
-```
+```cpp
 /dts-v1/;
 /include/ "common.dtsi";
 
@@ -2242,13 +2242,13 @@ mini 串口和基于 BCM2835 的 PL011 实现均不支持 DCD、DSR、DTR 和 RI
 
 文本字符串（以 NUL 结尾）用英文双引号表示：
 
-```
+```cpp
 string-property = "a string";
 ```
 
 cell 是由尖括号分隔的 32 位无符号整数：
 
-```
+```cpp
 cell-property = <0xbeef 123 0xabcd1234>;
 ```
 
@@ -2260,13 +2260,13 @@ binary-property = [01 23 45 67 89 ab cd ef];
 
 可以使用逗号把不同表示形式的数字连接起来：
 
-```
+```cpp
 mixed-property = "a string", [01 23 45 67], <0x12345678>;
 ```
 
 逗号也用于创建字符串列表：
 
-```
+```cpp
 string-list = "red fish", "blue fish";
 ```
 
@@ -2276,7 +2276,7 @@ string-list = "red fish", "blue fish";
 
 在以上示例中，第二次出现的 `/node2` 会把新属性添加到原始属性中：
 
-```
+```cpp
 /node2 {
     an-empty-property;
     a-cell-property = <1 2 3 4>; /* 每个数字（cell）都是 uint32 */
@@ -2331,7 +2331,7 @@ string-list = "red fish", "blue fish";
 
 DT 叠加层包含多个片段，每个片段都针对一个节点及其子节点。尽管概念听起来十分简单，但刚开始的语法似乎非常奇怪：
 
-```
+```cpp
 // 开启 i2s 接口
 /dts-v1/;
 /plugin/;
@@ -2356,7 +2356,7 @@ DT 叠加层包含多个片段，每个片段都针对一个节点及其子节�
 
 每个片段都由两部分组成：一个 `target` 属性，用于标识要应用叠加层的节点；以及 `__overlay__` 本身，其主体将添加到目标节点。如果它是这样编写的，上面的示例可以解释为：
 
-```
+```cpp
 /dts-v1/;
 /plugin/;
 
@@ -2377,13 +2377,13 @@ DT 叠加层包含多个片段，每个片段都针对一个节点及其子节�
 
 将该叠加层与标准树莓派基础设备树（如 `bcm2708-rpi-b-plus.dtb`）合并的效果，前提是叠加层在之后加载，将启用 I²S 接口，将其状态修改为 `okay`。但是，如果尝试使用以下方式编译此叠加层：
 
-```
+```bash
 $ dtc -I dts -O dtb -o 2nd.dtbo 2nd-overlay.dts
 ```
 
 ……你将收到错误消息：
 
-```
+```bash
 Label or path i2s not found
 ```
 
@@ -2391,25 +2391,25 @@ Label or path i2s not found
 
 再试一次，这次使用原始示例并添加选项 `-@` 以允许未解决的引用（和 `-Hepapr` 以解决一些麻烦）：
 
-```
+```bash
 $ dtc -@ -Hepapr -I dts -O dtb -o 1st.dtbo 1st-overlay.dts
 ```
 
 如果 `dtc` 返回的报错有关第三行，则它没有工作所需的扩展工具。请运行 `sudo apt install device-tree-compiler`，然后重试一次。这次，编译应该成功完成。请注意，适当的编译器也可在内核树中作为 `scripts/dtc/dtc` 使用，当使用 `dtbs` make target 时构建：
 
-```
+```bash
 $ make ARCH=arm dtbs
 ```
 
 转储 DTB 文件的内容，查看编译器生成了什么：
 
-```
+```bash
 $ fdtdump 1st.dtbo
 ```
 
 输出应类似如下：
 
-```
+```cpp
 /dts-v1/;
 // magic:		0xd00dfeed
 // totalsize:		0x207 (519)
@@ -2471,7 +2471,7 @@ $ fdtdump 1st.dtbo
 
 字符串参数的声明方式如下：
 
-```
+```cpp
 name = <&label>,"property";
 ```
 
@@ -2483,7 +2483,7 @@ name = <&label>,"property";
 
 整数参数是这样声明的：
 
-```
+```cpp
 name = <&label>,"property.offset"; // 8-bit
 name = <&label>,"property;offset"; // 16-bit
 name = <&label>,"property:offset"; // 32-bit
@@ -2496,19 +2496,19 @@ name = <&label>,"property#offset"; // 64-bit
 
 设备树将布尔值编码为零长度属性；如果存在，则该属性为真；如果不存在，则该属性为假。它们的定义如下：
 
-```
+```cpp
 boolean_property; // 设置 “boolean_property” 为 true
 ```
 
 通过不定义属性将其分配值 `false`。布尔参数的声明如下，用适当的值替换占位符 `label` 和 `property` ：
 
-```
+```cpp
 name = <&label>,"property?";
 ```
 
 倒置布尔在应用相同方式之前反转输入值，就像常规布尔一样；它们的声明方式类似，但使用 `!` 表示反转：
 
-```
+```cpp
 name = <&label>,"<property>!";
 ```
 
@@ -2518,13 +2518,13 @@ name = <&label>,"<property>!";
 
 字节字符串属性是任意字节序列（如 MAC 地址）。它们接受十六进制字节的字符串，字节间的英文冒号可有可无。
 
-```
+```cpp
 mac_address = <&ethernet0>,"local_mac_address[";
 ```
 
 选择 `[` 是为了与声明字节字符串的 DT 语法匹配：
 
-```
+```cpp
 local_mac_address = [aa bb cc dd ee ff];
 ```
 
@@ -2532,7 +2532,7 @@ local_mac_address = [aa bb cc dd ee ff];
 
 在设备树中的某些情况下，能够在多个位置设置相同的值是很方便的。与创建多个参数的笨拙方法不同，可以通过将它们连接起来，将多个目标添加到单个参数中，就像这样：
 
-```
+```cpp
 __overrides__ {
     gpiopin = <&w1>,"gpios:4",
               <&w1_pins>,"brcm,pins:0";
@@ -2552,7 +2552,7 @@ DT 参数机制允许从同一参数中修补多个目标，但其效用受到�
 
 分配出现在声明的末尾，并由 `=` 表示：
 
-```
+```cpp
 str_val  = <&target>,"strprop=value";              // 1
 int_val  = <&target>,"intprop:0=42"                // 2
 int_val2 = <&target>,"intprop:0=",<42>;            // 3
@@ -2561,7 +2561,7 @@ bytes    = <&target>,"bytestr[=b8:27:eb:01:23:45"; // 4
 
 第 1、2 和 4 行相当明显，但第 3 行更有趣，因为该值显示为整数（单元）值。DT 编译器在编译时评估整数表达式，这可能很方便（特别是如果使用宏值），但该单元也可以包含对标签的引用：
 
-```
+```cpp
 // 强制 LED 使用内置 GPIO 控制器上的 GPIO。
 exp_led = <&led1>,"gpios:0=",<&gpio>,
           <&led1>,"gpios:4";
@@ -2575,7 +2575,7 @@ exp_led = <&led1>,"gpios:0=",<&gpio>,
 
 查找表可在使用之前转换参数输入值。它们充当关联数组，有点像 switch/case 语句：
 
-```
+```cpp
 phonetic = <&node>,"letter{a=alpha,b=bravo,c=charlie,d,e,='tango uniform'}";
 bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 ```
@@ -2596,7 +2596,7 @@ bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 
 通过将 `__overlay__` 节点重命名为 `__dormant__`，可以将片段从最终合并过程中排除（禁用）。参数声明语法已增补，以允许否则非法的零目标 phandle 指示以下字符串包含片段或叠加层范围的操作。到目前为止，已实现了四种操作：
 
-```
+```cpp
 +<n>    // 启用片段 <n>
 -<n>    // 禁用片段 <n>
 =<n>    // 如果指定的参数值为 true，则启用片段 <n>，否则禁用片段 <n>。
@@ -2605,7 +2605,7 @@ bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 
  例子：
 
-```
+```cpp
 just_one    = <0>,"+1-2"; // 开启 1，禁用 2
 conditional = <0>,"=3!4"; // 如果值为 true，则启用 3，禁用 4。
                           // 如果值为 false，则禁用 3，启用 4。
@@ -2621,7 +2621,7 @@ conditional = <0>,"=3!4"; // 如果值为 true，则启用 3，禁用 4。
 
 `reg` 属性用于指定设备地址，即内存映射硬件块的位置，I²C 总线上的地址等。子节点的名称应该用十六进制地址加以限定，使用 `@` 作为分隔符：
 
-```
+```cpp
 bmp280@76 {
     reg = <0x77>;
     ...
@@ -2642,7 +2642,7 @@ bmp280@76 {
 
 这是当前映射文件的节选（请参阅[完整版本](https://github.com/raspberrypi/linux/blob/rpi-6.6.y/arch/arm/boot/dts/overlays/overlay_map.dts)）:
 
-```
+```cpp
 / {
     disable-bt {
         bcm2835;
@@ -2698,7 +2698,7 @@ bmp280@76 {
 
 这里有一些不同类型的属性示例，带有修改它们的参数：
 
-```
+```cpp
 / {
     fragment@0 {
         target-path = "/";
@@ -2767,7 +2767,7 @@ bmp280@76 {
 
 有时，创建一个标签并从另一个叠加层中使用它非常有用。自 2020 年 2 月 14 日发布的固件具有将某些标签声明为全局的能力：`__exports__` 节点：
 
-```
+```cpp
     ...
     public: ...
 
@@ -2802,7 +2802,7 @@ bmp280@76 {
 
 为了管理设备树和叠加层，加载程序可使用一些 `config.txt` 指令：
 
-```
+```cpp
 dtoverlay=acme-board
 dtparam=foo=bar,level=42
 ```
@@ -2824,7 +2824,7 @@ dtparam=foo=bar,level=42
 
 如上所述，DT 参数是一种方便的方式：可以对设备的配置进行小的修改。当前的基本 DTB 支持用于启用和控制板载音频、I²C、I²S 和 SPI 接口的参数，而无需使用专用叠加层。在使用中，参数看起来像这样：
 
-```
+```cpp
 dtparam=audio=on,i2c_arm=on,i2c_arm_baudrate=400000,spi=on
 ```
 
@@ -2835,7 +2835,7 @@ dtparam=audio=on,i2c_arm=on,i2c_arm_baudrate=400000,spi=on
 
 如果你有一个定义了某些参数的叠加层，可在后续行上指定这些参数，就像这样：
 
-```
+```cpp
 dtoverlay=lirc-rpi
 dtparam=gpio_out_pin=16
 dtparam=gpio_in_pin=17
@@ -2844,13 +2844,13 @@ dtparam=gpio_in_pull=down
 
 …或者像这样将参数附加到叠加层行：
 
-```
+```cpp
 dtoverlay=lirc-rpi,gpio_out_pin=16,gpio_in_pin=17,gpio_in_pull=down
 ```
 
 叠加层参数仅在加载下一个叠加层之前有效。如果同名参数同时被叠加层和基础导出，叠加层中的参数优先；但建议不要这么做。要暴露基础 DTB 导出的参数，可以结束当前叠加层范围：
 
-```
+```cpp
 dtoverlay=
 ```
 
@@ -2860,7 +2860,7 @@ dtoverlay=
 
 为了使所有树莓派都能使用同一组叠加层和参数，固件创建了一些特定于主板的 DT 参数。这些是：
 
-```
+```sh
 i2c/i2c_arm
 i2c_vc
 i2c_baudrate/i2c_arm_baudrate
@@ -2871,7 +2871,7 @@ i2c_vc_baudrate
 
 对于编写叠加层的人，相同的别名已应用于 I²C DT 节点上的标签。因此，你应该编写：
 
-```
+```cpp
 fragment@0 {
     target = <&i2c_arm>;
     __overlay__ {
@@ -2902,7 +2902,7 @@ fragment@0 {
 
 使用 `dtoverlay -h` 获取使用信息：
 
-```
+```sh
 Usage:
   dtoverlay <overlay> [<param>=<val>...]
                            Add an overlay (with parameters)
@@ -3106,7 +3106,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 从 [rpi-eeprom-update](https://github.com/raspberrypi/rpi-eeprom/blob/master/rpi-eeprom-update) 读取 NVMEM 模式的示例 shell 脚本代码。
 
-```
+```sh
 blconfig_alias="/sys/firmware/devicetree/base/aliases/blconfig"
 blconfig_nvmem_path=""
 
@@ -3136,7 +3136,7 @@ fi
 
 加载程序将跳过缺少的叠加层和错误参数，但如果存在严重错误，比如缺少或损坏的基本 DTB 或失败的叠加层合并，那么加载程序将退回到非 DT 引导。如果发生这种情况，或者如果你的设置不符合你的期望，需要检查加载程序的警告或错误：
 
-```
+```bash
 $ sudo vclog --msg
 ```
 
@@ -3144,7 +3144,7 @@ $ sudo vclog --msg
 
 你可以这样创建当前 DT 状态，以人类可读的形式表示：
 
-```
+```bash
 $ dtc -I fs /proc/device-tree
 ```
 
@@ -3152,13 +3152,13 @@ $ dtc -I fs /proc/device-tree
 
 如果内核模块未按预期加载，请检查它们是否在 `/etc/modprobe.d/raspi-blacklist.conf` 中，即是否被列入了黑名单；在使用设备树时，不应该有黑名单的使用需求。如果没有发现任何异常，你还可以通过在 `/lib/modules/<版本>/modules.alias` 中搜索 `compatible` 值来检查模块是否导出了正确的别名。否则，你的驱动程序可能缺少以下内容之一：
 
-```
+```cpp
 .of_match_table = xxx_of_match,
 ```
 
  要么：
 
-```
+```cpp
 MODULE_DEVICE_TABLE(of, xxx_of_match);
 ```
 
@@ -3170,7 +3170,7 @@ MODULE_DEVICE_TABLE(of, xxx_of_match);
 
 从 `/proc/device-tree` 中的实时 DT 状态生成它：
 
-```
+```bash
 $ dtc -I fs -O dtb -o base.dtb /proc/device-tree
 ```
 
@@ -3178,7 +3178,7 @@ $ dtc -I fs -O dtb -o base.dtb /proc/device-tree
 
 从 `/boot/firmware/` 中的源 DTB 复制它。这不会包括叠加层和参数，但也不会包括固件的任何其他修改。为了允许测试所有叠加层，`dtmerge` 工具将创建一些特定于板的别名（"i2c_arm" 等），但这意味着合并的结果将与原始 DTB 有更多差异。你可能期望的不同。解决此问题的方法是使用 dtmerge 进行复制：
 
-```
+```bash
 $ dtmerge /boot/firmware/bcm2710-rpi-3-b.dtb base.dtb -
 ```
 
@@ -3186,14 +3186,14 @@ $ dtmerge /boot/firmware/bcm2710-rpi-3-b.dtb base.dtb -
 
 你现在可以尝试应用叠加层或参数：
 
-```
+```bash
 $ dtmerge base.dtb merged.dtb - sd_overclock=62
 $ dtdiff base.dtb merged.dtb
 ```
 
  将返回：
 
-```
+```cpp
 --- /dev/fd/63  2016-05-16 14:48:26.396024813 +0100
 +++ /dev/fd/62  2016-05-16 14:48:26.396024813 +0100
 @@ -594,7 +594,7 @@
@@ -3209,7 +3209,7 @@ $ dtdiff base.dtb merged.dtb
 
 你还可以比较不同的叠加层或参数。
 
-```
+```sh
 $ dtmerge base.dtb merged1.dtb /boot/firmware/overlays/spi1-1cs.dtbo
 $ dtmerge base.dtb merged2.dtb /boot/firmware/overlays/spi1-2cs.dtbo
 $ dtdiff merged1.dtb merged2.dtb
@@ -3217,7 +3217,7 @@ $ dtdiff merged1.dtb merged2.dtb
 
  要获得：
 
-```
+```cpp
 --- /dev/fd/63  2016-05-16 14:18:56.189634286 +0100
 +++ /dev/fd/62  2016-05-16 14:18:56.189634286 +0100
 @@ -453,7 +453,7 @@
@@ -3263,7 +3263,7 @@ $ dtdiff merged1.dtb merged2.dtb
 
 如果你有非常特定的需求，而默认 DTB 无法满足，或者你只是想尝试编写自己的 DT，请让加载程序加载指定的 DTB 文件，就像这样：
 
-```
+```cpp
 device_tree=my-pi.dtb
 ```
 
@@ -3271,7 +3271,7 @@ device_tree=my-pi.dtb
 
 树莓派的 Linux 内核需要使用设备树。对于裸机和其他操作系统，可通过添加以下内容来禁用设备树加载：
 
-```
+```cpp
 device_tree=
 ```
 
@@ -3281,14 +3281,14 @@ device_tree=
 
 加载程序使用的一些快捷方式：
 
-```
+```cpp
 dtparam=i2c_arm=on
 dtparam=i2s=on
 ```
 
 可以简写成：
 
-```
+```cpp
 dtparam=i2c,i2s
 ```
 
@@ -3352,13 +3352,13 @@ dtparam=i2c,i2s
 
 为了将设备树源代码文件（`.dts`）编译成 DTB（`.dtb`）文件，必须安装设备树编译器，方法是运行 `sudo apt install device-tree-compiler`。然后可以使用 `dtc` 命令，如下：
 
-```
+```bash
 $ sudo dtc -I dts -O dtb -o /boot/firmware/dt-blob.bin dt-blob.dts
 ```
 
 同样，如有需要，可将 `.dtb` 文件转换回 `.dts` 文件。
 
-```
+```bash
 $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 ```
 
@@ -3446,7 +3446,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 这里有一些示例配置，你可以用来修改特定的时钟。当请求时钟配置时，我们将添加到此资源。
 
-```
+```cpp
 clock_routing {
    vco@PLLA  {    freq = <1966080000>; };
    chan@APER {    div  = <4>; };
