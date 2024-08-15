@@ -1,5 +1,7 @@
 # Raspberry Pi 树莓派中文文档翻译项目
 
+本文档是对 [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/) 的简体中文翻译成果。
+
 **[点击此处可浏览目录](mu-lu.md)**
 
 >**警告**
