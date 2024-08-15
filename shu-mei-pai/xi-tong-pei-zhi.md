@@ -4,7 +4,7 @@
 
 >**技巧**
 >
->桌面版树莓派用户可以使用图形化版本的 `raspi-config`，位于“**首选项（Preferences）**”-->“**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
+>桌面版树莓派用户可以使用图形化版本的 `raspi-config`，位于“**首选项（Preferences）**”->“**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
 
 `raspi-config` 能帮你对树莓派进行配置。对于不同的树莓派型号，可配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
 
@@ -166,11 +166,11 @@ $ sudo raspi-config
 
 #### Locale——语言环境
 
-可选择语言环境，如 `en_GB.UTF-8 UTF-8`（英语）（译者注：中文为`zh_CN.UTF-8 UTF-8`）。
+可选择语言环境，如 `en_GB.UTF-8 UTF-8`（英语）（**译者注：中文为`zh_CN.UTF-8 UTF-8`**）。
 
 #### Time zone——时区
 
-设置你的本地时区，从地区（译者注：Asia，亚洲）开始，然后选择城市（译者注：北京时间为 Shanghai），例如"Asia/Shanghai"（译者注：IANA 规范）。键入单个字母可跳转到列表中的该字母。
+设置你的本地时区，从地区（**译者注：Asia，亚洲**）开始，然后选择城市（**译者注：北京时间为 Shanghai**），例如"Asia/Shanghai"（**译者注：IANA 规范**）。键入单个字母可跳转到列表中的该字母。
 
 #### Keyboard——键盘
 
@@ -732,7 +732,7 @@ $ sudo raspi-config nonint do_update
 
 树莓派 Zero、Zero W 和 Zero 2 W 均搭载了 mini HDMI 接口，因此你需要 mini HDMI 转全尺寸 HDMI 转接线（转接头）。
 
-树莓派 4、5 和 400 均搭载了两个 micro HDMI，因此你需要为每台你想使用的显示器，都准备一份 micro HDMI 转标准 HDMI 转接线（转接头）。请在树莓派开机之前接入上述适配器。
+树莓派 4、5 和 400 均搭载了两个 micro HDMI 端口，因此你需要为每台你想使用的显示器，都准备一份 micro HDMI 转标准 HDMI 转接线（转接头）。请在树莓派开机之前接入上述适配器。
 
 树莓派 4 和 400 可以同时输出到两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出至两台 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单台 4K 显示器。
 
@@ -869,7 +869,7 @@ $ sudo raspi-config
 
 ### 连接到无线网络
 
-#### 通过桌面
+#### 通过桌面连接到无线网络
 
 通过菜单栏右端的网络图标打开网络管理器。如果你使用的树莓派搭载了内置无线连接功能（或插入了无线适配器），则单击此图标即可显示可用无线网络列表。如果看到信息“未找到 AP——正在扫描……（No APs found - scanning…​）”，请等待几秒，网络管理器应该就能搜到你的网络。
 
@@ -897,7 +897,7 @@ $ sudo raspi-config
 
 单击“**连接（Connect）**”按钮可启动网络连接。
 
-#### 通过命令行
+#### 通过命令行连接到无线网络
 
 本指南将帮你：在不使用图形化工具（且无需附加软件）的情况下，在树莓派上配置使用无线连接。
 
@@ -1057,13 +1057,13 @@ AUTOCONNECT-PRIORITY  NAME
 
 你可以配置你的树莓派使用 **屏幕节能（Screen Blanking）**：在一段时间内无操作后，关闭屏幕信号。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
 
-### 桌面
+### 通过桌面配置屏幕节能
 
 你可以使用树莓派配置（Raspberry Pi Configuration）菜单中的屏幕节能选项来控制屏幕节能（无操作时关闭屏幕）。
 
 #### 配置树莓派
 
-单击菜单栏中的树莓派按钮。导航到 **首选项（Preferences）** > **树莓派配置（Raspberry Pi Configuration）**。
+单击菜单栏中的树莓派按钮。导航到 **首选项（Preferences）** -> **树莓派配置（Raspberry Pi Configuration）**。
 
 ![从桌面打开菜单“树莓派配置（Raspberry Pi Configuration）”](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
@@ -1071,7 +1071,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 ![toggle Screen Blanking on in the Raspberry Pi Configuration menu](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
-#### 命令行
+#### 通过命令行配置屏幕节能
 
 你可以使用命令行工具 `raspi-config`，来启用和禁用屏幕节能。运行以下命令打开该工具：
 
@@ -1090,7 +1090,7 @@ dpms_timeout=600
 
 变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作时间（秒）。如，值若为 `600`，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 `0`，屏幕将永不熄灭。
 
-### 控制台
+### 通过控制台配置屏幕节能
 
 树莓派配置使用的屏幕节能配置 `dpms_timeout` 仅涉及桌面会话。在 **控制台模式** 下，即当你的树莓派仅接入至带有终端输入的监控器和键盘时，请在内核命令行下，使用设置 `consoleblank`。
 
@@ -1246,7 +1246,7 @@ $ sudo mount /dev/sda1 /mnt/mydisk
 $ ls /mnt/mydisk
 ```
 
-### 存储设备自动挂载
+### 自动挂载存储设备
 
 你可以修改 `fstab` 文件，设定树莓派在启动时，存储设备自动挂载的位置。在 `fstab` 文件中，磁盘分区由全局唯一标识符（UUID）标记。
 
