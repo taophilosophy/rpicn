@@ -78,7 +78,7 @@ YellowRX/SD（输入到调试器或 I/O）
 
 要安装 OpenOCD，请在终端中运行以下命令：
 
-```
+```bash
 $ sudo apt install openocd
 ```
 
@@ -88,13 +88,13 @@ $ sudo apt install openocd
 
 首先，安装包管理器 Homebrew：
 
-```
+```bash
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 在 macOS 上安装 OpenOCD，请运行以下命令：
 
-```
+```bash
 $ brew install openocd
 ```
 
@@ -108,7 +108,7 @@ $ brew install openocd
 
  安装 gdb-multiarch ：
 
-```
+```bash
 $ sudo apt install gdb-multiarch
 ```
 
@@ -116,7 +116,7 @@ $ sudo apt install gdb-multiarch
 
 运行以下命令安装 gdb ：
 
-```
+```bash
 $ brew install gdb
 ```
 
@@ -158,7 +158,7 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 它还将让你在服务器模式下使用 openocd，并连接 GDB，这将为你提供断点和“正确”的调试。
 
-```
+```bash
 $ cd ~/pico/pico-examples/
 $ rm -rf build
 $ mkdir build
@@ -175,13 +175,13 @@ $ make -j4
 
 要启动 OpenOCD 服务器，请运行以下命令：
 
-```
+```bash
 $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000"
 ```
 
 然后打开第二个终端窗口，切换到包含你构建的二进制文件的目录，并启动调试器以将其附加到 OpenOCD 服务器：
 
-```
+```bash
 $ gdb blink.elf
 > target remote localhost:3333
 > monitor reset init
@@ -211,13 +211,13 @@ GDB 不适用于所有平台。根据你的操作系统和设备，请使用以�
 
 如果你尚未安装 minicom，请执行以下操作：
 
-```
+```bash
 $ sudo apt install minicom
 ```
 
 并打开串口：
 
-```
+```bash
 $ minicom -b 115200 -o -D /dev/ttyACM0
 ```
 
@@ -229,7 +229,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 进入 pico-examples 树中的 hello_world 目录，并运行 make。之后，你可以使用 openocd 将其上传到你的树莓派 Pico。要了解构建 hello_serial 示例程序的完整步骤，请参阅《开始使用树莓派 Pico》第 4 章。
 
-```
+```bash
 $ cd pico-examples
 $ mkdir build
 $ cd build
