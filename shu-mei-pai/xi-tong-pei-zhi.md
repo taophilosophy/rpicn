@@ -1658,7 +1658,7 @@ bantime  = -1
 $ openssl passwd -6
 ```
 
-在有提示时输入密码并进行验证。然后，该命令将输出所提供密码的加密形式。
+在提示后输入密码进行验证。然后，该命令将输出该密码的加密形式。
 
 ## 从你的树莓派发射无线网络
 
@@ -1674,7 +1674,7 @@ $ openssl passwd -6
 
 >**注意**
 >
->树莓派 5、4、3，树莓派 Zero W、2 W 可使用内置的无线模块发射无线网络。未搭载内置无线网卡的树莓派型号可以使用外置无线模块来实现此功能。
+>树莓派 5、4、3，树莓派 Zero W、2 W 可使用内置的无线模块发射无线网络。未搭载内置无线网卡的树莓派型号可使用外置无线模块来实现此功能。
 
 ### 启用热点
 
@@ -1684,7 +1684,7 @@ $ openssl passwd -6
 $ sudo nmcli device wifi hotspot ssid <网络名称> password <密码>
 ```
 
-使用其他的无线客户端（如笔记本电脑和智能手机）连接至网络。查找与网络名称（SSID）与 `<网络名称>` 一致的网络。输入你的网络密码，你应成功连接至网络。如果你的树莓派用以太网连接和另外的无线适配器接入互联网，你也应该能上网。
+使用其他的无线客户端（如笔记本电脑和智能手机）连接至网络。查找与网络名称（SSID）与 `<网络名称>` 一致的网络。输入你的网络密码，你应成功连接至网络。如果你的树莓派通过以太网连接或者别的无线适配器接入互联网，你应该也能上网。
 
 ### 禁用热点
 
@@ -1706,7 +1706,7 @@ $ sudo nmcli device up wlan0
 
 ### 将你的树莓派用作网桥
 
-在默认情况下，你用树莓派发射的无线网络与接入以太网的父网络相分离。在这种拓扑下，连接到父网络的设备无法直接与树莓派托管的无线网络所接入的设备进行通信。如果你希望连接的无线设备能够与父网络上的设备通信，你可以将你的树莓派配置为[网桥](https://en.wikipedia.org/wiki/Network_bridge)。有了网桥，所有接入树莓派托管的无线网络的设备都会被分配一个父网络中的 IP 地址。
+在默认情况下，你用树莓派发射的无线网络与已接入以太网的父网络相分离。在这种拓扑下，连接到父网络的设备无法直接与接入树莓派发射的无线网络的设备进行通信。如果你希望连接的无线设备能够与父网络上的设备通信，你可以将你的树莓派配置成[网桥](https://en.wikipedia.org/wiki/Network_bridge)。有了网桥，所有接入树莓派托管的无线网络的设备都会被分配一个父网络中的 IP 地址。
 
 在以下拓扑中，笔记本电脑、路由器和有线客户端位于相同的 IP 段：
 
@@ -1729,12 +1729,12 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
 
 最后，把你的无线热点连接添加到桥接中。你可以添加现有的热点接口，亦可创建新的：
 
-* 如果你已经按照上述说明创建了无线热点连接，请使用以下命令将现有接口添加至桥接中：
+* 如果你已经按照上述说明创建了无线热点连接，请使用以下命令将现有接口添加至桥接：
 
   ```bash
   $ sudo nmcli connection modify 'Hotspot' master bridge0
   ```
-* 如果你尚未创建无线热点连接，请使用单个命令（所有内容是一个命令）来创建新接口并将其添加到桥接中，把占位符 `<热点密码>` 改成你选择的密码：
+* 如果你尚未创建无线热点连接，请使用单个命令（所有内容是一个命令）来创建新接口并将其添加到桥接中，把占位符 `<热点密码>` 改成你选定的密码：
 
   ```bash
   $ sudo nmcli connection add con-name 'Hotspot' \
@@ -1744,7 +1744,7 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
       wifi-sec.psk <热点密码>
   ```
 
-现在你已配置好桥接，是时候激活它了。运行以下命令以激活桥接：
+现在你已配置好了桥接，是时候激活它了。运行以下命令以激活桥接：
 
 ```bash
 $ sudo nmcli connection up Bridge
@@ -1760,7 +1760,7 @@ $ sudo nmcli connection up Hotspot
 
 >**技巧**
 >
->可使用诸如 [arp-scan](https://github.com/royhills/arp-scan) 之类的工具，检查接入热点后，是否可访问父网络上的设备。
+>可使用诸如 [arp-scan](https://github.com/royhills/arp-scan) 之类的工具，检查在接入热点后，是否能访问父网络上的设备。
 
 ## 使用代理服务器
 
@@ -1768,7 +1768,7 @@ $ sudo nmcli connection up Hotspot
 
  你将需要：
 
-* 代理服务器的 IP 地址或者主机名和端口
+* 代理服务器的 IP 地址/主机名、端口
 * 如果需要，为你的代理设置用户名和密码
 
 ### 配置你的树莓派
@@ -1846,11 +1846,11 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 ## 文件夹 `boot` 的内容
 
-树莓派系统把引导文件放在 SD 卡上的第一个分区中，该分区使用 FAT 文件系统。
+树莓派系统把引导文件放在存储卡上的第一个分区中，该分区使用 FAT 文件系统。
 
-所有型号的树莓派在启动时，都会先从启动分区加载文件，来启动全部的处理器，继而加载 Linux 内核。
+所有型号的树莓派在启动时，都会先从启动分区加载文件，来启动所有的处理器核心，继而再加载 Linux 内核。
 
-在启动时，Linux 把启动分区挂载到 `/boot/firmware/`。
+在启动时，Linux 会把启动分区挂载到 `/boot/firmware/`。
 
 >**注意**
 >
@@ -1858,7 +1858,7 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 ### `bootcode.bin`
 
-SoC 在启动时会加载引导加载程序（bootloader）。引导加载程序会执行一些最基本的设置，继而加载某个 `start*.elf` 文件。
+在启动时，SoC 会加载引导加载程序（bootloader）。引导加载程序会执行一些最基本的设置，继而加载某个 `start*.elf` 文件。
 
 树莓派 4、5 不使用 `bootcode.bin`。它们使用的引导代码位于[板载 EEPROM](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-boot-eeprom) 中。
 
