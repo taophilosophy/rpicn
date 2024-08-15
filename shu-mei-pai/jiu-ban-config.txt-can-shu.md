@@ -634,13 +634,13 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 
 你的 HDMI 显示器可能仅支持有限的格式。要找出支持的格式，请使用以下方法：
 
-* 将输出格式设置为 VGA 60Hz ( hdmi_group=1 和 hdmi_mode=1 ) 并启动你的树莓派
-* 输入以下命令以列出支持的 CEA 模式: /opt/vc/bin/tvservice -m CEA
-* 输入以下命令以列出支持的 DMT 模式: /opt/vc/bin/tvservice -m DMT
-* 输入以下命令以显示当前状态： /opt/vc/bin/tvservice -s
-* 输入以下命令以从你的监视器中获取更详细的信息： /opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat
+* 将输出格式设置为 VGA 60Hz ( `hdmi_group=1` 和 `hdmi_mode=1` ) 并启动你的树莓派
+* 输入以下命令以列出支持的 CEA 模式: `/opt/vc/bin/tvservice -m CEA`
+* 输入以下命令以列出支持的 DMT 模式: `/opt/vc/bin/tvservice -m DMT`
+* 输入以下命令以显示当前状态： `/opt/vc/bin/tvservice -s`
+* 输入以下命令以从你的监视器中获取更详细的信息： `/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
 
-在故障排除默认 HDMI 模式问题时，还应提供 edid.dat。
+在故障排除默认 HDMI 模式问题时，还应提供 `edid.dat`。
 
 ### 自定义模式
 
@@ -694,9 +694,9 @@ hdmi_drive=2
 
 | `sdtv_aspect` | 结果 |
 | :-------------: | :--------: |
-| 1           | 4:3    |
-| 2           | 14:9   |
-| 3           | 16:9   |
+| `1`           | 4:3    |
+| `2`           | 14:9   |
+| `3`           | 16:9   |
 
 #### `sdtv_disable_colourburst`
 
