@@ -1,10 +1,10 @@
-# 旧的 `config.txt` 参数
+# 旧版 `config.txt` 参数
 
-## 旧的参数
+## 旧版参数
 
 此处所述的 `config.txt` 参数被视为陈旧设置，树莓派 Bookworm 系统不再使用，亦无官方支持。它们要么涉及旧软件（如固件中的图形驱动程序）、要么已弃用、要么罕有人使用。然而，它们仍被记录在此，因为它们对于那些使用旧操作系统的用户，或者进行裸机开发的人来说，可能仍有用。
 
-## 旧的启动参数
+## 旧版图启动参数
 
 (另请参阅 [config.txt](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options) 启动参数。)
 
@@ -105,7 +105,7 @@
 
 固件还会优先使用上游 Linux 的 DTB 名称（`bcm2837-rpi-3-b.dtb` 先于 `bcm2710-rpi-3-b.dtb`）。如果找不到上游文件，则固件将加载下游衍生文件，并自动加载"upstream"叠加层来进行调整。请注意，此过程发生在 `os_prefix` 最终确定后。
 
-## 旧的 GPIO 控制
+## 旧版 GPIO 控制
 
 (另请参阅 [config.txt GPIO 控制](https://www.raspberrypi.com/documentation/computers/config_txt.html#gpio-control)。)
 
@@ -122,7 +122,7 @@
 | GPIO26 | ARM_TDI  |
 | GPIO27 | ARM_TMS  |
 
-## 旧的超频参数
+## 旧版超频参数
 
 （另请参阅 [config.txt 超频参数](https://www.raspberrypi.com/documentation/computers/config_txt.html#overclocking-options)。）
 
@@ -136,7 +136,7 @@
 
 对于树莓派 2、3，设置此参数将禁止 GPU 超频。而在特定负载下 GPU 原本可进入超频模式。
 
-## 旧的条件筛选器
+## 旧版条件筛选器
 
 （另请参阅 [config.txt 条件筛选器](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)。）
 
@@ -166,7 +166,7 @@
  hdmi_mode:1=67
 ```
 
-## 旧的内存参数
+## 旧版内存参数
 
 （另请参阅 [config.txt 内存参数](https://www.raspberrypi.com/documentation/computers/config_txt.html#memory-options)）
 
@@ -221,7 +221,7 @@ gpu_mem_1024 命令为搭载 1GB（及更大容量）内存的树莓派设置 GP
 
 将该参数置为 1，会禁用 CPU 对 GPU 的 L2 缓存的访问，且需同时禁用 L2 缓存的相关内核。BCM2835 的默认值为 0。基于 BCM2836、BCM2837、BCM2711 和 BCM2712 的 ARM 有自己的 L2 缓存，因此默认值为 1。标准版本的树莓派 kernel.img 和 kernel7.img 反映了缓存设置的差异。
 
-## 旧的视频参数
+## 旧版视频参数
 
 (另请参阅 config.txt 视频参数)
 
@@ -903,7 +903,7 @@ test_mode 命令在启动过程中显示测试图像和声音（仅输出至复�
 
 强制 dispmanx 组合在两个离屏帧缓冲区中离线完成。这样可以允许更多的 dispmanx 元素进行合成，但速度较慢，可能会将屏幕帧速率限制在大约 30fps 左右。
 
-## 旧的树莓派 4 HDMI 通道
+## 旧版树莓派 4 HDMI 通道
 
 
 >**重要**
@@ -924,7 +924,7 @@ hdmi_cvt=1360 768 60
 
 dpi_timings= 不受相同限制，因为该管道仍然每个时钟周期仅运行一个像素。
 
-## 其他旧的参数
+## 其他旧版参数
 
 ### `avoid_warnings`
 
