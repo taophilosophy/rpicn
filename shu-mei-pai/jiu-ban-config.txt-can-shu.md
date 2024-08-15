@@ -10,7 +10,7 @@
 
 ### `start_x`、`start_debug`
 
-这里提供了代替参数 `start_file`、`fixup_file` 的简单方法，这是所推荐的固件配置的设定方法。
+这里提供了代替参数 `start_file`、`fixup_file` 的简单方法，这是受推荐的，设定固件配置的方法。
 
 `start_x=1` 意味着
 
