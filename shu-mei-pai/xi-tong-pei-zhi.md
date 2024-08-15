@@ -100,7 +100,7 @@ $ sudo raspi-config
 
 ### Interface options——接口选项
 
-启用和禁用各种物理、虚拟接口。
+启用和禁用各种物理接口、虚拟接口。
 
 ![raspi-config interface options（接口选项）](../.gitbook/assets//raspi-interface.png)
 
@@ -351,7 +351,7 @@ $ sudo raspi-config nonint do_boot_splash <0/1>
 * `0`：启用启动画面
 * `1`：禁用启动画面
 
-#### Power LED—— LED 电源灯
+#### Power LED——LED 电源灯
 
 如果你的树莓派型号支持，可以改变 LED 电源灯的行为。
 
@@ -939,7 +939,7 @@ $ nmcli dev wifi list
 
 你应看到类似输出如下：
 
-```
+```sh
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
         90:72:40:1B:42:05  myNetwork       Infra  132   405 Mbit/s  89      ****  WPA2
         90:72:42:1B:78:04  myNetwork5G     Infra  11    195 Mbit/s  79      ***   WPA2
@@ -1190,7 +1190,7 @@ $ sudo raspi-config
 
 >**注意**
 >
->精简版树莓派系统未实现自动挂载功能。
+>精简版树莓派系统（Raspberry Pi OS Lite）未实现自动挂载功能。
 
 要设置存储设备，必须手动挂载，把它挂载到你选择的特定位置。
 
