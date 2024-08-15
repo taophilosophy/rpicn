@@ -740,11 +740,11 @@ $ sudo raspi-config nonint do_update
 
 ### 设置分辨率和方向
 
-#### 用桌面设置
+#### 通过桌面设置分辨率和方向
 
 在树莓派桌面上，打开菜单“**首选项（Preferences）**”，然后选择工具“**屏幕配置（Screen Configuration）**”。你应该会看到当前树莓派已接入的显示器（用图标表示）。右键单击要修改的显示器，然后选择一个选项。单击“**应用（Apply）**”并退出“**屏幕配置（Screen Configuration）**”以保存修改。
 
-#### 在命令行设置
+#### 通过命令行设置分辨率和方向
 
 使用以下命令能打开 **屏幕配置（Screen Configuration）** 工具：
 
