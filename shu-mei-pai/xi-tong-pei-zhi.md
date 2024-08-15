@@ -4,7 +4,7 @@
 
 >**技巧**
 >
->桌面版树莓派用户可以使用图形化版本的 `raspi-config`，位于“**首选项（Preferences）**”>“**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
+>桌面版树莓派用户可以使用图形化版本的 `raspi-config`，位于“**首选项（Preferences）**”-->“**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
 
 `raspi-config` 能帮你对树莓派进行配置。对于不同的树莓派型号，可配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
 
@@ -108,7 +108,7 @@ $ sudo raspi-config
 
 启用或禁用：树莓派终端 SSH 远程访问。
 
-SSH 能让你在另一台计算机上，远程访问树莓派的命令行。在默认情况下，SSH 处于禁用状态。在 [SSH 文档页](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)上能阅读更多关于 SSH 的使用信息。如果你将树莓派直接接入到了公共网络，请不要启用 SSH，除非你为所有用户都设置了安全的密码。
+你可以在另一台计算机上，使用 SSH 远程访问树莓派的命令行。在默认情况下，SSH 处于禁用状态。在 [SSH 文档页](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)上能阅读更多关于 SSH 的使用信息。如果你将树莓派直接接入到了公共网络，请不要启用 SSH，除非你为所有用户都设置了安全的密码。
 
 #### VNC
 
@@ -414,7 +414,7 @@ $ sudo raspi-config nonint do_blanking <0/1>
 $ sudo raspi-config nonint do_vnc_resolution <宽>x<高>
 ```
 
-#### Composite——复合
+#### Composite——复合视频
 
 启用或禁用复合视频（composite video）输出。
 
@@ -664,7 +664,7 @@ $ sudo raspi-config nonint do_proxy <代理服务器的协议类型> <代理服�
 
 #### Boot order——启动顺序
 
-对于树莓派 4 及后续新款设备，在未插入 SD 卡的情况下，指定：是否进行 USB 启动和网络启动。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+对于树莓派 4 及后续新款设备，在未插入存储卡的情况下，指定：是否进行 USB 启动和网络启动。有关更多信息，请参阅[引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 
 ```bash
@@ -673,9 +673,9 @@ $ sudo raspi-config nonint do_boot_order <B1或B2或B3>
 
 视你的设备而定，你可以在以下选项中进行选择：
 
-* B1 ：SD 卡启动：如果 SD 卡可用，则优先从 SD 卡启动；如 SD 卡不可用，再从 NVMe 启动；如果 SD 卡、NVMe 均不可用，那么从 USB 启动
-* B2 ：NVMe/USB 启动：如果 NVMe 可用，则优先从 NVMe 启动；如果 NVMe 不可用，再从 USB 启动；如果 NVMe、USB 均不可用，那么从 SD 卡启动
-* B3 ：网络启动：**如果 SD 卡可用**，则优先从 SD 卡启动；如果 SD 卡不可用，则从网络启动
+* B1 ：存储卡启动：如果存储卡可用，则优先从存储卡启动；如存储卡不可用，再从 NVMe 启动；如果存储卡、NVMe 均不可用，那么则从 USB 启动
+* B2 ：NVMe/USB 启动：如果 NVMe 可用，则优先从 NVMe 启动；如果 NVMe 不可用，再从 USB 启动；如果 NVMe、USB 均不可用，那么则从存储卡启动
+* B3 ：网络启动：**如果存储卡可用**，则优先从存储卡启动；如果存储卡不可用，则从网络启动
 
 #### Bootloader version——引导加载程序版本
 
@@ -734,9 +734,9 @@ $ sudo raspi-config nonint do_update
 
 树莓派 4、5 和 400 均搭载了两个 micro HDMI，因此你需要为每台你想使用的显示器，都准备一份 micro HDMI 转标准 HDMI 转接线（转接头）。请在树莓派开机之前接入上述适配器。
 
-树莓派 4 和 400 可以同时输出到两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出两个 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单个 4K 显示器。
+树莓派 4 和 400 可以同时输出到两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出至两台 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单台 4K 显示器。
 
-树莓派 5 无需任何专门配置，就可以 4K 分辨率、60Hz 刷新率，输出到两个显示器。
+无需任何专门配置，树莓派 5 就可以 4K 分辨率、60Hz 刷新率，输出至两台显示器。
 
 ### 设置分辨率和方向
 
@@ -766,7 +766,7 @@ $ kmsprint | grep Connector
 
 #### 设置自定义分辨率
 
-如果你正在使用 Wayland 桌面混成器，你可以通过编辑你主目录中的文件来，设置自定义显示分辨率：`.config/wayfire.ini`。可编辑现有的 `[output:<device>]` 部分。倘若没有，则添加新部分 `[output:<device>]`，以适配你的显示设备。要修改显示分辨率，请添加 `mode` 这行。例如，对于以下示例，配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz：
+如果你使用着 Wayland 桌面混成器，你可以通过编辑你主目录中的文件来，设置自定义显示分辨率：`.config/wayfire.ini`。可编辑现有的 `[output:<device>]` 部分。倘若没有，则添加新部分 `[output:<device>]`，以适配你的显示设备。要修改显示分辨率，请添加 `mode` 这行。例如，对于以下示例，配置为：设备名称是 `HDMI-A-1`、分辨率是 1080p 60Hz：
 
 ```bash
 [output:HDMI-A-1]
@@ -777,7 +777,7 @@ mode = 1920x1080@60
 
 将相同的配置段落添加到 `/usr/share/greeter.ini`，可以配置登录屏幕分辨率。
 
-#### 设置自定义屏幕方向
+#### 设定自定义屏幕方向
 
 如果你正在运行 Wayland 桌面混成器，可以通过设置 `wlr-randr` 自定义屏幕显示方向。以下命令分别将屏幕方向配置为 0°、90°、180° 和 270°：
 
