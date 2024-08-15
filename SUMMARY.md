@@ -38,7 +38,7 @@
 
 ## 微控制器
 
-* [树莓派自研芯片](wei-kong-zhi-qi/rp2040.md)
+* [芯片](wei-kong-zhi-qi/rp2040.md)
 * [Pico 系列微控制器](wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md)
 * [树莓派调试套件（Raspberry Pi Debug Probe）](wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md)
 * [MicroPython](wei-kong-zhi-qi/micropython.md)
