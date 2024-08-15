@@ -6,13 +6,13 @@
 >
 >桌面版树莓派用户可以使用图形化版本的 `raspi-config`，位于“**首选项（Preferences）**” → “**树莓派配置（Raspberry Pi Configuration）**”。但是，某些高级配置仅存在于 `raspi-config`。
 
-`raspi-config` 能帮你对树莓派进行配置。对于不同的树莓派型号，可配置的选项也不尽相同。若要打开这个配置工具，请执行以下命令：
+`raspi-config` 能帮你配置树莓派。对于不同的树莓派型号，可配置的选项也不尽相同。若要打开这款配置工具，请执行如下命令：
 
 ```bash
 $ sudo raspi-config
 ```
 
-你会在灰色窗口中，看到一个蓝色背景的界面，上面有各种选项：
+你将在灰色窗口中，看到出现的蓝色背景界面，上面带有各种选项：
 
 ![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
