@@ -4,8 +4,9 @@
 
 要全面了解如何使用 C/C++ SDK，请阅读我们的[入门指南 ](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)文档。然而，如果你打算在 [树莓派 ](https://www.raspberrypi.com/documentation/computers/os.html) 上开发 Pico，可以通过命令行快速设置 C/C++ 工具链，只需运行我们的[设置脚本](https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh)。
 
-| 注意 | 在运行设置脚本之前，请确保你的树莓派操作系统已经[更新到最新版本](https://www.raspberrypi.com/documentation/computers/os.html#update-software)。 |
-| ------ | --------------------------------------------------------------------------------------- |
+>**注意**
+>
+>在运行设置脚本之前，请确保你的树莓派操作系统已经[更新到最新版本](https://www.raspberrypi.com/documentation/computers/os.html#update-software)。 
 
 ## 树莓派 Pico C/C++ SDK
 
@@ -24,11 +25,13 @@
 
 [API 级文档](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html)Raspberry Pi Pico C/C++ SDK 的文档
 
-| 注意 | 如果你正在使用 C/C++ SDK 构建应用程序，并且目标板不仅限于 Raspberry Pi Pico，你需要在 CMake 中传递 `-DPICO_BOARD=boardname`。这里的 `boardname` 是你的开发板名称，例如，对于 Adafruit Feather RP2040，你应该传递 `-DPICO_BOARD=adafruit_feather_rp2040`。更多信息请参考 Raspberry Pi Pico SDK 中的 [`boards/`](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards) 目录和[论坛](https://forums.raspberrypi.com/viewtopic.php?f=147&t=304393)。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+>**注意**
+>
+>如果你正在使用 C/C++ SDK 构建应用程序，并且目标板不仅限于 Raspberry Pi Pico，你需要在 CMake 中传递 `-DPICO_BOARD=boardname`。这里的 `boardname` 是你的开发板名称，例如，对于 Adafruit Feather RP2040，你应该传递 `-DPICO_BOARD=adafruit_feather_rp2040`。更多信息请参考 Raspberry Pi Pico SDK 中的 [`boards/`](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards) 目录和[论坛](https://forums.raspberrypi.com/viewtopic.php?f=147&t=304393)。 
 
-| 注意 | 关于在 Raspberry Pi Pico W 上使用 C/C++ SDK 构建应用程序并连接到网络，你需要在 CMake 中传递 `-DPICO_BOARD=pico_w -DWIFI_SSID="你的网络" -DWIFI_PASSWORD="你的密码"`。如果只需启用蓝牙支持，则无需传递 SSID 和密码，但仍需传递 `-DPICO_BOARD=pico_w` 字符串至 CMake。 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>关于在 Raspberry Pi Pico W 上使用 C/C++ SDK 构建应用程序并连接到网络，你需要在 CMake 中传递 `-DPICO_BOARD=pico_w -DWIFI_SSID="你的网络" -DWIFI_PASSWORD="你的密码"`。如果只需启用蓝牙支持，则无需传递 SSID 和密码，但仍需传递 `-DPICO_BOARD=pico_w` 字符串至 CMake。 
 
 ## 第一个二进制程序
 
@@ -61,7 +64,7 @@
 4. 将 'Hello World' UF2 二进制文件拖放到 RPI-RP2 卷上。Pico 将重新启动。
 5. 打开终端窗口并键入：
 
-    ```
+    ```bash
     $ sudo apt install minicom
     $ minicom -b 115200 -o -D /dev/ttyACM0
     ```
@@ -72,19 +75,19 @@
 
 ## 快速启动你的项目
 
-| 注意 | 以下说明简洁，并且仅适用于基于 Linux 的系统。有关详细步骤、其他平台的说明以及一般建议，请参阅 [Getting started with Raspberry Pi Pico](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) 和 [Raspberry Pi Pico C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf) 书籍。 |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-
+>**注意**
+>
+>以下说明简洁，并且仅适用于基于 Linux 的系统。有关详细步骤、其他平台的说明以及一般建议，请参阅 [Getting started with Raspberry Pi Pico](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf) 和 [Raspberry Pi Pico C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf) 书籍。
 
 安装 CMake（版本不低于 3.13）和 GCC 交叉编译器
 
-```
+```bash
 $ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
 ```
 
 设置项目以使用树莓派 Pico SDK，通过将 SDK 克隆到本地：
 
-```
+```bash
 $ git clone https://github.com/raspberrypi/pico-sdk.git
 ```
 
@@ -94,7 +97,7 @@ $ git clone https://github.com/raspberrypi/pico-sdk.git
 
 设置一个 `CMakeLists.txt` 如下：
 
-```
+```c
 cmake_minimum_required(VERSION 3.13)
 
 # 基于 PICO_SDK_PATH 初始化 SDK
@@ -113,7 +116,7 @@ pico_sdk_init()
 
 最简单的例子可以是一个单一源文件（例如 `hello_world.c`）：
 
-```
+```c
 #include <stdio.h>
 #include "pico/stdlib.h"
 
@@ -126,7 +129,7 @@ int main() {
 
 并将以下内容添加到你的 CMakeLists.txt 中：
 
-```
+```c
 add_executable(hello_world
     hello_world.c
 )
@@ -138,12 +141,13 @@ target_link_libraries(hello_world pico_stdlib)
 pico_add_extra_outputs(hello_world)
 ```
 
-| 注意 | 此示例使用默认的 UART 作为 stdout；如果要使用默认的 USB，请参见 hello-usb 示例。 |
-| ------ | -------------------------------------------------------------------------------------------------------------- |
+>**注意**
+>
+>此示例使用默认的 UART 作为 stdout；如果要使用默认的 USB，请参见 hello-usb 示例。 
 
 设置一个 CMake 构建目录。例如，如果不使用 IDE：
 
-```
+```bash
 $ mkdir build
 $ cd build
 $ cmake ..
@@ -157,7 +161,7 @@ $ cmake ..
 
 从你创建的构建目录中制作你的目标。
 
-```
+```bash
 $ make hello_world
 ```
 
