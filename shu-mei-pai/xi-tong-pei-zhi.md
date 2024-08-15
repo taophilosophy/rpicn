@@ -18,7 +18,7 @@ $ sudo raspi-config
 
 用 **上箭头（↑）**、**下箭头（↓）**，你就能在可选条目间自由切换，当前所选会被高亮。
 
-按 **右箭头（→）**、**Tab 键** 可选择按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上级菜单。
+按 **右箭头（→）**、**Tab 键** 可切换按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上级菜单。
 
 `raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别选项可能需要重启才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
 
