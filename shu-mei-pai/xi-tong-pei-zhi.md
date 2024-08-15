@@ -2196,7 +2196,7 @@ mini 串口和基于 BCM2835 的 PL011 实现均不支持 DCD、DSR、DTR 和 RI
 
 下面是个简单的树，文件格式是 `.dts`：
 
-```cpp
+```c
 /dts-v1/;
 /include/ "common.dtsi";
 
@@ -2242,13 +2242,13 @@ mini 串口和基于 BCM2835 的 PL011 实现均不支持 DCD、DSR、DTR 和 RI
 
 文本字符串（以 NUL 结尾）用英文双引号表示：
 
-```cpp
+```c
 string-property = "a string";
 ```
 
 cell 是由尖括号分隔的 32 位无符号整数：
 
-```cpp
+```c
 cell-property = <0xbeef 123 0xabcd1234>;
 ```
 
@@ -2260,13 +2260,13 @@ binary-property = [01 23 45 67 89 ab cd ef];
 
 可以使用逗号把不同表示形式的数字连接起来：
 
-```cpp
+```c
 mixed-property = "a string", [01 23 45 67], <0x12345678>;
 ```
 
 逗号也用于创建字符串列表：
 
-```cpp
+```c
 string-list = "red fish", "blue fish";
 ```
 
@@ -2276,7 +2276,7 @@ string-list = "red fish", "blue fish";
 
 在以上示例中，第二次出现的 `/node2` 会把新属性添加到原始属性中：
 
-```cpp
+```c
 /node2 {
     an-empty-property;
     a-cell-property = <1 2 3 4>; /* 每个数字（cell）都是 uint32 */
@@ -2331,7 +2331,7 @@ string-list = "red fish", "blue fish";
 
 DT 叠加层包含多个片段，每个片段都针对一个节点及其子节点。尽管概念听起来十分简单，但刚开始的语法似乎非常奇怪：
 
-```cpp
+```c
 // 开启 i2s 接口
 /dts-v1/;
 /plugin/;
@@ -2356,7 +2356,7 @@ DT 叠加层包含多个片段，每个片段都针对一个节点及其子节�
 
 每个片段都由两部分组成：一个 `target` 属性，用于标识要应用叠加层的节点；以及 `__overlay__` 本身，其主体将添加到目标节点。如果它是这样编写的，上面的示例可以解释为：
 
-```cpp
+```c
 /dts-v1/;
 /plugin/;
 
@@ -2409,7 +2409,7 @@ $ fdtdump 1st.dtbo
 
 输出应类似如下：
 
-```cpp
+```c
 /dts-v1/;
 // magic:		0xd00dfeed
 // totalsize:		0x207 (519)
@@ -2471,7 +2471,7 @@ $ fdtdump 1st.dtbo
 
 字符串参数的声明方式如下：
 
-```cpp
+```c
 name = <&label>,"property";
 ```
 
@@ -2483,7 +2483,7 @@ name = <&label>,"property";
 
 整数参数是这样声明的：
 
-```cpp
+```c
 name = <&label>,"property.offset"; // 8-bit
 name = <&label>,"property;offset"; // 16-bit
 name = <&label>,"property:offset"; // 32-bit
@@ -2496,19 +2496,19 @@ name = <&label>,"property#offset"; // 64-bit
 
 设备树将布尔值编码为零长度属性；如果存在，则该属性为真；如果不存在，则该属性为假。它们的定义如下：
 
-```cpp
+```c
 boolean_property; // 设置 “boolean_property” 为 true
 ```
 
 通过不定义属性将其分配值 `false`。布尔参数的声明如下，用适当的值替换占位符 `label` 和 `property` ：
 
-```cpp
+```c
 name = <&label>,"property?";
 ```
 
 倒置布尔在应用相同方式之前反转输入值，就像常规布尔一样；它们的声明方式类似，但使用 `!` 表示反转：
 
-```cpp
+```c
 name = <&label>,"<property>!";
 ```
 
@@ -2518,13 +2518,13 @@ name = <&label>,"<property>!";
 
 字节字符串属性是任意字节序列（如 MAC 地址）。它们接受十六进制字节的字符串，字节间的英文冒号可有可无。
 
-```cpp
+```c
 mac_address = <&ethernet0>,"local_mac_address[";
 ```
 
 选择 `[` 是为了与声明字节字符串的 DT 语法匹配：
 
-```cpp
+```c
 local_mac_address = [aa bb cc dd ee ff];
 ```
 
@@ -2532,7 +2532,7 @@ local_mac_address = [aa bb cc dd ee ff];
 
 在设备树中的某些情况下，能够在多个位置设置相同的值是很方便的。与创建多个参数的笨拙方法不同，可以通过将它们连接起来，将多个目标添加到单个参数中，就像这样：
 
-```cpp
+```c
 __overrides__ {
     gpiopin = <&w1>,"gpios:4",
               <&w1_pins>,"brcm,pins:0";
@@ -2552,7 +2552,7 @@ DT 参数机制允许从同一参数中修补多个目标，但其效用受到�
 
 分配出现在声明的末尾，并由 `=` 表示：
 
-```cpp
+```c
 str_val  = <&target>,"strprop=value";              // 1
 int_val  = <&target>,"intprop:0=42"                // 2
 int_val2 = <&target>,"intprop:0=",<42>;            // 3
@@ -2561,7 +2561,7 @@ bytes    = <&target>,"bytestr[=b8:27:eb:01:23:45"; // 4
 
 第 1、2 和 4 行相当明显，但第 3 行更有趣，因为该值显示为整数（单元）值。DT 编译器在编译时评估整数表达式，这可能很方便（特别是如果使用宏值），但该单元也可以包含对标签的引用：
 
-```cpp
+```c
 // 强制 LED 使用内置 GPIO 控制器上的 GPIO。
 exp_led = <&led1>,"gpios:0=",<&gpio>,
           <&led1>,"gpios:4";
@@ -2575,7 +2575,7 @@ exp_led = <&led1>,"gpios:0=",<&gpio>,
 
 查找表可在使用之前转换参数输入值。它们充当关联数组，有点像 switch/case 语句：
 
-```cpp
+```c
 phonetic = <&node>,"letter{a=alpha,b=bravo,c=charlie,d,e,='tango uniform'}";
 bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 ```
@@ -2596,7 +2596,7 @@ bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 
 通过将 `__overlay__` 节点重命名为 `__dormant__`，可以将片段从最终合并过程中排除（禁用）。参数声明语法已增补，以允许否则非法的零目标 phandle 指示以下字符串包含片段或叠加层范围的操作。到目前为止，已实现了四种操作：
 
-```cpp
+```c
 +<n>    // 启用片段 <n>
 -<n>    // 禁用片段 <n>
 =<n>    // 如果指定的参数值为 true，则启用片段 <n>，否则禁用片段 <n>。
@@ -2605,7 +2605,7 @@ bus      = <&fragment>,"target:0{0=",<&i2c0>,"1=",<&i2c1>,"}";
 
  例子：
 
-```cpp
+```c
 just_one    = <0>,"+1-2"; // 开启 1，禁用 2
 conditional = <0>,"=3!4"; // 如果值为 true，则启用 3，禁用 4。
                           // 如果值为 false，则禁用 3，启用 4。
@@ -2621,7 +2621,7 @@ conditional = <0>,"=3!4"; // 如果值为 true，则启用 3，禁用 4。
 
 `reg` 属性用于指定设备地址，即内存映射硬件块的位置，I²C 总线上的地址等。子节点的名称应该用十六进制地址加以限定，使用 `@` 作为分隔符：
 
-```cpp
+```c
 bmp280@76 {
     reg = <0x77>;
     ...
@@ -2642,7 +2642,7 @@ bmp280@76 {
 
 这是当前映射文件的节选（请参阅[完整版本](https://github.com/raspberrypi/linux/blob/rpi-6.6.y/arch/arm/boot/dts/overlays/overlay_map.dts)）:
 
-```cpp
+```c
 / {
     disable-bt {
         bcm2835;
@@ -2698,7 +2698,7 @@ bmp280@76 {
 
 这里有一些不同类型的属性示例，带有修改它们的参数：
 
-```cpp
+```c
 / {
     fragment@0 {
         target-path = "/";
@@ -2767,7 +2767,7 @@ bmp280@76 {
 
 有时，创建一个标签并从另一个叠加层中使用它非常有用。自 2020 年 2 月 14 日发布的固件具有将某些标签声明为全局的能力：`__exports__` 节点：
 
-```cpp
+```c
     ...
     public: ...
 
@@ -2802,7 +2802,7 @@ bmp280@76 {
 
 为了管理设备树和叠加层，加载程序可使用一些 `config.txt` 指令：
 
-```cpp
+```c
 dtoverlay=acme-board
 dtparam=foo=bar,level=42
 ```
@@ -2824,7 +2824,7 @@ dtparam=foo=bar,level=42
 
 如上所述，DT 参数是一种方便的方式：可以对设备的配置进行小的修改。当前的基本 DTB 支持用于启用和控制板载音频、I²C、I²S 和 SPI 接口的参数，而无需使用专用叠加层。在使用中，参数看起来像这样：
 
-```cpp
+```c
 dtparam=audio=on,i2c_arm=on,i2c_arm_baudrate=400000,spi=on
 ```
 
@@ -2835,7 +2835,7 @@ dtparam=audio=on,i2c_arm=on,i2c_arm_baudrate=400000,spi=on
 
 如果你有一个定义了某些参数的叠加层，可在后续行上指定这些参数，就像这样：
 
-```cpp
+```c
 dtoverlay=lirc-rpi
 dtparam=gpio_out_pin=16
 dtparam=gpio_in_pin=17
@@ -2844,13 +2844,13 @@ dtparam=gpio_in_pull=down
 
 …或者像这样将参数附加到叠加层行：
 
-```cpp
+```c
 dtoverlay=lirc-rpi,gpio_out_pin=16,gpio_in_pin=17,gpio_in_pull=down
 ```
 
 叠加层参数仅在加载下一个叠加层之前有效。如果同名参数同时被叠加层和基础导出，叠加层中的参数优先；但建议不要这么做。要暴露基础 DTB 导出的参数，可以结束当前叠加层范围：
 
-```cpp
+```c
 dtoverlay=
 ```
 
@@ -2871,7 +2871,7 @@ i2c_vc_baudrate
 
 对于编写叠加层的人，相同的别名已应用于 I²C DT 节点上的标签。因此，你应该编写：
 
-```cpp
+```c
 fragment@0 {
     target = <&i2c_arm>;
     __overlay__ {
@@ -3152,13 +3152,13 @@ $ dtc -I fs /proc/device-tree
 
 如果内核模块未按预期加载，请检查它们是否在 `/etc/modprobe.d/raspi-blacklist.conf` 中，即是否被列入了黑名单；在使用设备树时，不应该有黑名单的使用需求。如果没有发现任何异常，你还可以通过在 `/lib/modules/<版本>/modules.alias` 中搜索 `compatible` 值来检查模块是否导出了正确的别名。否则，你的驱动程序可能缺少以下内容之一：
 
-```cpp
+```c
 .of_match_table = xxx_of_match,
 ```
 
  要么：
 
-```cpp
+```c
 MODULE_DEVICE_TABLE(of, xxx_of_match);
 ```
 
@@ -3193,7 +3193,7 @@ $ dtdiff base.dtb merged.dtb
 
  将返回：
 
-```cpp
+```c
 --- /dev/fd/63  2016-05-16 14:48:26.396024813 +0100
 +++ /dev/fd/62  2016-05-16 14:48:26.396024813 +0100
 @@ -594,7 +594,7 @@
@@ -3217,7 +3217,7 @@ $ dtdiff merged1.dtb merged2.dtb
 
  要获得：
 
-```cpp
+```c
 --- /dev/fd/63  2016-05-16 14:18:56.189634286 +0100
 +++ /dev/fd/62  2016-05-16 14:18:56.189634286 +0100
 @@ -453,7 +453,7 @@
@@ -3263,7 +3263,7 @@ $ dtdiff merged1.dtb merged2.dtb
 
 如果你有非常特定的需求，而默认 DTB 无法满足，或者你只是想尝试编写自己的 DT，请让加载程序加载指定的 DTB 文件，就像这样：
 
-```cpp
+```c
 device_tree=my-pi.dtb
 ```
 
@@ -3271,7 +3271,7 @@ device_tree=my-pi.dtb
 
 树莓派的 Linux 内核需要使用设备树。对于裸机和其他操作系统，可通过添加以下内容来禁用设备树加载：
 
-```cpp
+```c
 device_tree=
 ```
 
@@ -3281,14 +3281,14 @@ device_tree=
 
 加载程序使用的一些快捷方式：
 
-```cpp
+```c
 dtparam=i2c_arm=on
 dtparam=i2s=on
 ```
 
 可以简写成：
 
-```cpp
+```c
 dtparam=i2c,i2s
 ```
 
@@ -3446,7 +3446,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 这里有一些示例配置，你可以用来修改特定的时钟。当请求时钟配置时，我们将添加到此资源。
 
-```cpp
+```c
 clock_routing {
    vco@PLLA  {    freq = <1966080000>; };
    chan@APER {    div  = <4>; };
