@@ -1906,7 +1906,7 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 ### `issue.txt`
 
-文本化的维护信息，包含发行版日期和 Git 提交 ID。
+文本格式的维护信息，包含发行版日期和 Git 提交 ID。
 
 ### `initramfs*`
 
@@ -1916,13 +1916,13 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 ### `ssh`（`ssh.txt`）
 
-若存在此文件，在启动时会启用 SSH。在默认情况下不存在该文件，因此会禁用 SSH。该文件内容随意，即使是空的也会启用 SSH。
+若存在此文件，在启动时会开启 SSH。在默认情况下，没有该文件，因此会禁用 SSH。该文件内容随意，即使是空的也会启用 SSH。
 
-### DTB 文件(`*.dtb`)
+### DTB 文件（`*.dtb`）
 
 DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检测到的树莓派型号](https://www.raspberrypi.com/documentation/computers/configuration.html#part3.1)，在启动时设置内核。
 
-### 内核文件(`*.img`)
+### 内核文件（`*.img`）
 
 适用于各种树莓派型号的[内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#kernel)镜像文件：
 
@@ -1940,11 +1940,11 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 
 ### `overlays` 文件夹
 
-涉及设备树叠加层。用于配置各种硬件设备（如第三方声卡）。可使用 `config.txt` 中的条目对这些叠加层进行选择。更多有关信息，请参阅[设备树、叠加层和参数](https://www.raspberrypi.com/documentation/computers/configuration.html#part2)。
+包含设备树叠加层。用于配置各种硬件设备（如第三方声卡）。可使用 `config.txt` 中的条目对这些叠加层进行选择。更多有关信息，请参阅[设备树、叠加层和参数](https://www.raspberrypi.com/documentation/computers/configuration.html#part2)。
 
 ## LED 警告指示灯
 
-在大多数情况下，如果树莓派由于某种原因无法启动（或必须关机），LED 灯将闪烁特定次数以传达状态信息。LED 将发出特定次数（0 或更多）的长闪烁，然后发出短闪烁，以传达确切状态。在大多数情况下，重复间隔为两秒。
+在大多数情况下，如果由于某种原因树莓派无法启动（或必须关机），LED 灯将闪烁特定次数以传达状态信息。LED 将发出特定次数（0 或更多）的长闪烁，然后发出短闪烁，以传达确切状态。在大多数情况下，重复间隔为两秒。
 
 | 长闪烁 | 短闪烁 | 状态                               |
 | :--------: | :--------: | :------------------------------------: |
@@ -1957,7 +1957,7 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 | 2      | 1      | 分区不是 FAT                       |
 | 2      | 2      | 无法读取分区                 |
 | 2      | 3      | 扩展分区不是 FAT                   |
-| 2      | 4      | 文件签名/哈希不匹配（树莓派 4、5） |
+| 2      | 4      | 文件签名/哈希值不匹配（树莓派 4、5） |
 | 3      | 1      | SPI EEPROM 错误（树莓派 4、5）     |
 | 3      | 2      | SPI EEPROM 写保护（树莓派 4、5） |
 | 3      | 3      | I²C 错误（树莓派 4、5）            |
@@ -1970,9 +1970,9 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 
 ## 配置串口
 
-在树莓派上有两种串口可用——[PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini 串口。PL011 是一款功能强大、符合 16550 标准的串口，而 mini 串口则功能较少。
+在树莓派上有两种串口可用——[PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini 串口。PL011 是一款功能强大、符合 16550 标准的串口，而 mini 串口则功能有所欠缺。
 
-树莓派上所有的串口均仅支持 3.3V（接入 5V 会损坏）。可使用适配器转接到 5V 设备。此外，也可以使用各种第三方的廉价 USB 转 3.3V 串口转换器。
+树莓派上的所有串口均仅支持 3.3V（接入 5V 会损坏）。可使用适配器转接到 5V 设备。此外，也可以使用各种第三方的廉价 USB 转 3.3V 串口转换器。
 
 ### 树莓派 Zero，树莓派 1、2、3
 
@@ -2022,13 +2022,13 @@ dtoverlay=uart1,txd1_pin=32,rxd1_pin=33
 
 ### 主串口
 
-在树莓派上，使用 GPIO 14（TX）和 15（RX）的串口——就是主串口。在默认情况下，大概率也会同时把 Linux 控制台输出到该串口。请注意，GPIO 14 是 GPIO 排针上的引脚 8，而 GPIO 15 是引脚 10。
+在树莓派上，使用 GPIO 14（TX）和 15（RX）的串口——就是主串口。在默认情况下，大概率也会同时把 Linux 控制台输出到该串口。请注意，在 GPIO 排针上，GPIO 14 是引脚 8，而 GPIO 15 是引脚 10。
 
-在树莓派 5 上，主串口就是调试接口。
+在树莓派 5 上，调试接口就是主串口。
 
 ### 副串口
 
-副串口通常并未接入 GPIO 连接器。在默认情况下，副串口连接至无线局域网/蓝牙控制器（复合）的蓝牙一侧（如果该型号搭载了此控制器）。
+副串口通常并未接入 GPIO 连接器。在默认情况下，副串口连接至无线局域网/蓝牙控制器（复合）的蓝牙侧（如果该型号搭载了此控制器）。
 
 ### 主串口和副串口
 
@@ -2143,15 +2143,15 @@ earlycon=pl011,mmio32,0x20201000
 
 在[内核 GitHub](https://github.com/raspberrypi/linux) 中，可以找到各种串口设备树叠加层定义。最有用的两个叠加层是 [`disable-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/disable-bt-overlay.dts) 和 [`miniuart-bt`](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/miniuart-bt-overlay.dts)。
 
-`disable-bt` 禁用蓝牙设备，并把第一个 PL011（UART0）设置为主串口。你还必须禁用初始化调制解调器的系统服务，以防它连接到串口：可使用 `sudo systemctl disable hciuart`。
+`disable-bt` 将禁用蓝牙设备，并把第一个 PL011（UART0）设置成主串口。你还必须禁用初始化调制解调器的系统服务，以防它连接到串口：可使用 `sudo systemctl disable hciuart`。
 
-`miniuart-bt` 将蓝牙功能切换到 mini 串口，并将第一个 PL011（UART0）设置为主串口。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini 串口限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
+`miniuart-bt` 将蓝牙功能切换到 mini 串口，并将第一个 PL011（UART0）设置成主串口。请注意，这可能会降低最大可用波特率（请参阅下文有关 mini 串口限制的内容）。你还必须使用 `force_turbo=1` 或 `core_freq=250` 将 VPU 核心时钟设置为固定频率。
 
 叠加层 `uart2`、`uart3`、`uart4` 和 `uart5` 用于在树莓派 4 上启用另外四个串口。在文件夹中还有其他特定于串口的叠加层。有关设备树叠加层的详细信息，请参考 `/boot/firmware/overlays/README`，或运行 `dtoverlay -h overlay-name` 查看描述和使用信息。
 
 向 `config.txt` 文件添加一行以应用[设备树叠加层](https://www.raspberrypi.com/documentation/computers/configuration.html#device-trees-overlays-and-parameters)。请注意，请去掉文件名中的 `-overlay.dts` 部分。例如：
 
-```
+```c
 dtoverlay=disable-bt
 ```
 
