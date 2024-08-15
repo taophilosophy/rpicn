@@ -235,7 +235,7 @@ gpu_mem_1024 命令为搭载 1GB（及更大容量）内存的树莓派设置 GP
 
 将 hdmi_safe 置为 1 将触发使用“安全模式”，尝试以最大的 HDMI 兼容性启动。等同于设定以下参数：
 
-```
+```bash
 hdmi_force_hotplug=1
 hdmi_ignore_edid=0xa5000080
 config_hdmi_boost=4
@@ -262,7 +262,7 @@ overscan_bottom=24
 
  例如：
 
-```
+```bash
 hdmi_edid_file=1
 hdmi_edid_filename:0=FileForPortZero.edid
 hdmi_edid_filename:1=FileForPortOne.edid
@@ -575,11 +575,11 @@ hdmi_group 命令定义 HDMI 输出组，可以是 CEA（消费类电子协会�
 
 允许设置原始 HDMI 定时值，用 hdmi_group=2 和 hdmi_mode=87 选择自定义模式。
 
-```
+```bash
 hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <h_back_porch> <v_active_lines> <v_sync_polarity> <v_front_porch> <v_sync_pulse> <v_back_porch> <v_sync_offset_a> <v_sync_offset_b> <pixel_rep> <frame_rate> <interlaced> <pixel_freq> <aspect_ratio>
 ```
 
-```
+```bash
 <h_active_pixels> = horizontal pixels (width)
 <h_sync_polarity> = invert hsync polarity
 <h_front_porch>   = horizontal forward padding from DE active edge
@@ -646,7 +646,7 @@ hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> 
 
 如果你的显示器需要的模式不在上述表格中，那么可以为其定义一个自定义 CVT 模式：
 
-```
+```bash
 hdmi_cvt=<width> <height> <framerate> <aspect> <margins> <interlace> <rb>
 ```
 
@@ -664,7 +664,7 @@ hdmi_cvt=<width> <height> <framerate> <aspect> <margins> <interlace> <rb>
 
 请注意，这只是创建模式（第 2 组模式 87）。要使树莓派默认使用此模式，你必须添加一些附加设置。例如，要选择 800×480 分辨率并启用音频驱动：
 
-```
+```bash
 hdmi_cvt=800 480 60 6
 hdmi_group=2
 hdmi_mode=87
@@ -732,11 +732,11 @@ dpi_output_format 是一个位掩码，指定用于设置显示格式的各种�
 
 允许设置原始 DPI 定时值，用于自定义模式，通过 dpi_group=2 和 dpi_mode=87 选择。
 
-```
+```bash
 dpi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <h_back_porch> <v_active_lines> <v_sync_polarity> <v_front_porch> <v_sync_pulse> <v_back_porch> <v_sync_offset_a> <v_sync_offset_b> <pixel_rep> <frame_rate> <interlaced> <pixel_freq> <aspect_ratio>
 ```
 
-```
+```bash
 <h_active_pixels> = horizontal pixels (width)
 <h_sync_polarity> = invert hsync polarity
 <h_front_porch>   = horizontal forward padding from DE active edge
@@ -912,7 +912,7 @@ test_mode 命令在启动过程中显示测试图像和声音（仅输出至复�
 
 树莓派 4 无法在 HDMI 输出 1366×768 @ 60Hz。对于某些显示器，可以配置它们使用 1360×768 @ 60Hz。它们通常不通过 EDID 广播此模式，因此无法自动进行选择，但可以以手动添加来选定：
 
-```
+```bash
 hdmi_group=2
 hdmi_mode=87
 hdmi_cvt=1360 768 60
