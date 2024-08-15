@@ -1055,7 +1055,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 ## Screen Blanking 屏幕节能（无操作时关闭屏幕信号）
 
-你可以配置你的树莓派使用 **屏幕节能（Screen Blanking）**：在一段时间内无操作后，把屏幕信号关闭。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
+你可以配置你的树莓派使用 **屏幕节能（Screen Blanking）**：在一段时间内无操作后，关闭屏幕信号。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
 
 ### 桌面
 
@@ -1088,7 +1088,7 @@ $ sudo raspi-config
 dpms_timeout=600
 ```
 
-变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作秒数。如，值若为 `600`，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 `0`，屏幕将永不熄灭。
+变量 `dpms_timeout` 控制了在树莓派系统在屏幕关闭之前所需的无操作时间（秒）。如，值若为 `600`，则意味着会在 600 秒（十分钟）后关闭屏幕。将值置 `0`，屏幕将永不熄灭。
 
 ### 控制台
 
@@ -1186,7 +1186,7 @@ $ sudo raspi-config
 
 你可以将外置硬盘、固态硬盘和 USB 闪存接入树莓派上的任意某 USB 口，然后挂载文件系统，访问里面存储的数据。
 
-在默认情况下，对于常见的文件系统（FAT、NTFS 和 HFS+），你的树莓派会自动挂载，挂载位置在 `/media/pi/<HARD-DRIVE-LABEL>`。
+在默认情况下，对于常见的文件系统（FAT、NTFS 和 HFS+），你的树莓派会自动挂载，挂载位置是 `/media/pi/<HARD-DRIVE-LABEL>`。
 
 >**注意**
 >
@@ -1353,7 +1353,7 @@ $ cat /proc/cmdline
 
 `quiet` 
 
-　　将默认内核日志级别设置为 `KERN_WARNING`，在启动过程中将屏蔽除非常严重级别外的内核信息。
+　　将默认的内核日志级别设置为 `KERN_WARNING`，在启动过程中将屏蔽除非常严重级别外的内核信息。
 
 #### 设置 KMS 显示模式
 
@@ -1396,7 +1396,7 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 `dwc_otg.lpm_enable=0` 
 
-  关闭在驱动程序 `dwc_otg` 中设置的链接状态电源管理（Link Power Management，LPM）。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，此控制器默认已禁用，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由别的，与此设置无关的 USB 控制器驱动。
+  禁用驱动程序 `dwc_otg` 中设置的链接状态电源管理（Link Power Management，LPM）。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，此控制器默认已禁用，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由别的，与此设置无关的 USB 控制器驱动。
 
 `dwc_otg.speed` 
 
@@ -1424,7 +1424,7 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 ### 让 `sudo` 命令要求密码
 
-使用前缀 `sudo` 运行的命令，将会以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 `sudo` 运行的命令，均需输入密码，来改善你树莓派的安全性。
+以 `sudo` 开头运行的命令，将会以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 `sudo` 运行的命令，均需输入密码，来改善你树莓派的安全性。
 
 要强制 `sudo` 需要密码，请编辑你用户账户的 sudoers 文件中的 `nopasswd`，并将文件名中的占位符 `<用户名>` 换成你的用户名：
 
@@ -1438,7 +1438,7 @@ $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 <用户名> ALL=(ALL) PASSWD: ALL
 ```
 
-保存文件。你的新设置会立即生效。
+保存文件。你的设置会立即生效。
 
 ### 更新树莓派系统
 
@@ -1446,7 +1446,7 @@ $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 
 ### 自动更新你的 SSH 服务器
 
-如果你通过 SSH 连接至树莓派，通过添加 `cron` 作业，专门更新 SSH 服务器可能是值得的。可把以下命令，作为每日 `cron` 作业运行，确保你能及时获得最新的 SSH 安全修复程序。它独立于你的正常更新流程。
+如果你通过 SSH 连接至树莓派，通过添加 `cron` 作业，专门更新 SSH 服务器可能是值得的。可把以下命令，作为每日 `cron` 作业运行，确保你能及时收到最新的 SSH 安全修复程序。它独立于你的正常更新流程。
 
 ```bash
 $ apt install openssh-server
@@ -1454,23 +1454,23 @@ $ apt install openssh-server
 
 ### 改善 SSH 安全性
 
-远程访问树莓派的常用方式是 SSH。在默认情况下，SSH 要求用户名和密码。为了改善 SSH 的安全性，请[使用基于密钥的身份验证](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
+SSH 是远程访问树莓派的常用方式。在默认情况下，SSH 要求用户名和密码。为了改善 SSH 的安全性，请[使用基于密钥的身份验证](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
 
 #### 启用和禁用 SSH 用户
 
-你还可以通过修改 `sshd` 配置，**允许（allow）**、**拒绝（deny）** 特定用户。
+你还可以通过修改 `sshd` 配置，**允许（allow）** 或 **拒绝（deny）** 特定用户。
 
 ```bash
 $ sudo nano /etc/ssh/sshd_config
 ```
 
-将以下行添加、编辑或追加到文件末尾，其中涉及了你想要允许登录的用户名：
+将以下行添加、编辑或添加到文件末尾，其中涉及了你想要允许登录的用户名：
 
 ```bash
 AllowUsers alice bob
 ```
 
-你还可以使用 `DenyUsers` 来明确禁止某些用户名的登录：
+你还可以使用 `DenyUsers` 来明确禁止某些用户名登录：
 
 ```bash
 DenyUsers jane john
@@ -1484,21 +1484,21 @@ $ sudo systemctl restart ssh
 
 ### 使用防火墙
 
-Linux 上有许多防火墙解决方案可用。大多数通过底层的 [iptables](http://www.netfilter.org/projects/iptables/index.html) 项目来进行数据包过滤。该项目基于 Linux netfiltering 系统。在默认情况下，树莓派系统上预装了 `iptables`，但未设置。设置它可能是一件非常麻烦的事情。[Uncomplicated Firewall (UFW) ](https://www.linux.com/learn/introduction-uncomplicated-firewall-ufw)项目提供了比 `iptables` 更易用的界面。UFW 是 Ubuntu 中默认的防火墙工具，也可以安装到你的树莓派上：
+Linux 上有许多防火墙解决方案可用。大多数通过底层的 [iptables](http://www.netfilter.org/projects/iptables/index.html) 项目来进行数据包过滤。该项目基于 Linux netfiltering 系统。在默认情况下，树莓派系统上预装了 `iptables`，但未设置。设置它可能是一件非常麻烦的事情。[Uncomplicated Firewall (UFW)](https://www.linux.com/learn/introduction-uncomplicated-firewall-ufw) 项目提供了比 `iptables` 更为易用的界面。UFW 是 Ubuntu 中默认的防火墙工具，也可以安装到你的树莓派上：
 
 ```bash
 $ sudo apt install ufw
 ```
 
-`ufw` 是个命令行工具，然而也有图形界面可用。请注意，`ufw` 需以 root 权限运行，因此所有命令都以 `sudo` 开头。还可以使用参数 `--dry-run` 执行所有 `ufw` 命令，这表示仅输出命令的执行结果，而不进行任何实质性修改。
+`ufw` 是款命令行工具，然而也有图形界面可用。请注意，`ufw` 须以 root 权限运行，因此所有命令都以 `sudo` 开头。还可以使用参数 `--dry-run` 执行所有 `ufw` 命令，这表示仅输出命令的执行结果，而不进行任何实质性修改。
 
-启用防火墙，同时也会使其开机自启：
+启用防火墙，同时设定防火墙开机自启：
 
 ```bash
 $ sudo ufw enable
 ```
 
-要禁用防火墙，同时禁用其开机自启，请使用：
+要禁用防火墙，同时禁用防火墙开机自启，请使用：
 
 ```bash
 $ sudo ufw disable
@@ -1528,13 +1528,13 @@ $ sudo ufw deny 22/tcp
 $ sudo ufw allow ssh
 ```
 
-命令 `status` 可列出当前防火墙的所有设置：
+命令 `status` 可列出当前防火墙的所有配置：
 
 ```bash
 $ sudo ufw status
 ```
 
-规则可能相当复杂：允许阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（如有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 `ufw` 手册页（`man ufw`）以获取除下面命令之外的完整详细信息。
+规则可能十分复杂：允许阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 `ufw` 手册页（`man ufw`）以获取除下面命令之外的完整详细信息。
 
 在 ssh 端口上（TCP）限制登录尝试。如果 IP 地址在过往 30 秒内有过六次及更多次连接尝试，则拒绝连接：
 
