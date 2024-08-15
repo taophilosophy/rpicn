@@ -1292,11 +1292,11 @@ $ sudo umount /mnt/mydisk
 
 #### 解决“device is busy”
 
-报错“device is busy”意味在着存储设备上，有被程序占用的文件。要关闭这些文件，请执行以下步骤。
+“device is busy”这个报错意味在着存储设备上，有文件被程序占用。要关闭这些文件，请执行如下步骤。
 
-关闭任何打开了存储设备上的文件的软件。如果你打开了一个终端，请确保你未处于存储设备所挂载的文件夹（及其子文件夹）下。
+关闭所有打开了存储设备上的文件的软件。如果你打开了一个终端，请确保你未处于存储设备所挂载的文件夹（及其子文件夹）下。
 
-如果你仍然无法卸载存储设备，你可以使用工具 `lsof` 检查是哪个程序在设备上打开了文件。首先你要用 `apt` 安装 `lsof`：
+如果你仍然无法卸载存储设备，你可以使用工具 `lsof` 检查是哪个程序，在设备上打开了文件。首先你要用 `apt` 安装 `lsof`：
 
 ```bash
 $ sudo apt update
@@ -1311,7 +1311,7 @@ $ lsof /mnt/mydisk
 
 ## 内核命令行（`cmdline.txt`）
 
-在启动时，Linux 内核可接受一组命令行参数。对于树莓派，这个命令行被定义在启动分区中的文件 `cmdline.txt` 里。你可使用任意文本编辑器编辑该文本文件。
+在启动时，Linux 内核可接受一组命令行参数。对于树莓派，可在启动分区中的文件 `cmdline.txt` 里定义该命令行。你可使用任意文本编辑器编辑该文本文件。
 
 ```bash
 $ sudo nano /boot/firmware/cmdline.txt
@@ -1328,11 +1328,11 @@ $ sudo nano /boot/firmware/cmdline.txt
 $ cat /proc/cmdline
 ```
 
-因为树莓派固件会在启动内核之前对命令行进行修改，所以此命令行的输出不会与 `cmdline.txt` 的内容完全吻合。
+因为树莓派固件会在启动内核之前对命令行进行修改，所以此命令行的输出与 `cmdline.txt` 的内容并不会完全吻合。
 
 ### 命令行参数
 
-有许多内核命令行参数，其中某些由内核本身定义。其他的可能由内核正在使用的代码定义，如 Plymouth 闪屏系统。
+内核命令行参数有很多，其中某些由内核本身定义。其他的可能由内核正在使用的代码定义，如 Plymouth 闪屏系统。
 
 #### 标准条目
 
@@ -1353,13 +1353,13 @@ $ cat /proc/cmdline
 
 `quiet` 
 
-　　将默认内核日志级别设置为 `KERN_WARNING`，在启动过程中屏蔽任何不是非常严重级别的内核信息。
+　　将默认内核日志级别设置为 `KERN_WARNING`，在启动过程中将屏蔽除非常严重级别外的内核信息。
 
 #### 设置 KMS 显示模式
 
-旧版树莓派系统中使用的传统固件和 FKMS 显示模式，已不再支持。作为代替，最新版本的操作系统使用 KMS（内核模式设置）。
+旧版树莓派系统中所使用的传统固件和 FKMS 显示模式，已不再支持。作为代替，最新版本的操作系统使用 KMS（内核模式设置）。
 
-如果在 `cmdline.txt` 中没有 `video` 这个条目，树莓派操作系统将根据 HDMI 接入显示器的 [EDID](https://en.wikipedia.org/wiki/Extended_Display_Identification_Data)，自动选择（基于 Linux 内核信息）显示器支持最佳分辨率。在精简版树莓派系统、控制台模式中，你必须自己手动修改 `video` 这个条目，才能修改分辨率和屏幕方向。
+如果在 `cmdline.txt` 中没有 `video` 这个条目，树莓派操作系统将根据接入 HDMI 显示器的 [EDID](https://en.wikipedia.org/wiki/Extended_Display_Identification_Data)，自动选定（基于 Linux 内核信息）显示器能支持的最佳分辨率。在精简版树莓派系统（Raspberry Pi OS Lite）、控制台模式中，你必须自己手动修改 `video` 这个条目，才能调整分辨率和屏幕方向。
 
 ```bash
 video=HDMI-A-1:1920x1080M@60
@@ -1371,7 +1371,7 @@ video=HDMI-A-1:1920x1080M@60
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 ```
 
-要指定屏幕旋转方向和翻转参数，必须同时显式定义分辨率。
+要指定屏幕旋转方向和翻转参数，必须同时显式声明分辨率。
 
 显示类型的支持选项——`video=` 条目 `=` 后的部分，支持：
 
@@ -1380,7 +1380,7 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 | `HDMI-A-1`         | HDMI 1（树莓派 4B 主板上标为 HDMI 0；单个 HDMI 主板上标为 HDMI） |
 | `HDMI-A-2`         | HDMI 2（树莓派 4B 主板上标为 HDMI 1）                          |
 | `DSI-1`         | DSI 或 DPI                                                             |
-| `Composite-1`         | 复合                                                                   |
+| `Composite-1`         | 复合视频                                                                   |
 
 #### 其他条目
 
@@ -1392,27 +1392,27 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 `plymouth.ignore-serial-consoles` 
 
-  如启用 Plymouth 模块，它通常会屏蔽掉一切出现在串口控制台上的启动信息。此参数能让 Plymouth 忽略所有串口控制台，使启动消息再次重现，就像没有运行 Plymouth 一样。
+  如启用 Plymouth 模块，它通常会屏蔽掉出现在串口控制台上的所有启动信息。此参数能让 Plymouth 忽略所有串口控制台，重现启动消息，如同没有运行 Plymouth 一样。
 
 `dwc_otg.lpm_enable=0` 
 
-  关闭链接状态电源管理（Link Power Management，LPM）在驱动程序 `dwc_otg` 中的设置。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，此控制器默认已禁用，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由其他的，与此设置无关的，USB 控制器驱动。
+  关闭在驱动程序 `dwc_otg` 中设置的链接状态电源管理（Link Power Management，LPM）。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，此控制器默认已禁用，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由别的，与此设置无关的 USB 控制器驱动。
 
 `dwc_otg.speed` 
 
-  可设置树莓派计算机 USB 控制器的速率（内置于处理器）。将其设置 `dwc_otg.speed=1` 则为全速（USB 1.0），低于高速（USB 2.0）。除非要排除 USB 设备故障，否则不应设置此参数。
+  可设置树莓派计算机 USB 控制器的速率（处理器内置）。设置 `dwc_otg.speed=1` 则为全速（USB 1.0），但低于高速（USB 2.0）。除非要排除 USB 设备故障，否则不应设置此参数。
 
 `smsc95xx.turbo_mode` 
 
-  启用或禁用：有线网络驱动程序超频模式。`smsc95xx.turbo_mode=N` 则关闭超频模式。
+  启用或禁用：有线网络驱动程序超频。`smsc95xx.turbo_mode=N` 则关闭超频模式。
 
 `usbhid.mousepoll` 
 
-  指定鼠标轮询间隔。如果你遇到了无线鼠标移动缓慢、不稳定等问题，将其置 `0`（`usbhid.mousepoll=0`）也许有用。
+  指定鼠标轮询间隔。如果你遇到了无线鼠标移动缓慢、不稳定等故障，将其置 `0`（`usbhid.mousepoll=0`）也许有用。
 
 `drm.edid_firmware=HDMI-A-1:edid/your_edid.bin`
 
-  使用它能覆盖你显示器内置的 EDID（`/usr/lib/firmware/edid/your_edid.bin`） 信息。
+  使用它能覆盖你显示器内置 EDID（`/usr/lib/firmware/edid/your_edid.bin`）信息。
 
 ## 本地化你的树莓派
 
