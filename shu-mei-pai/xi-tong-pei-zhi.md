@@ -971,7 +971,7 @@ $ nmcli dev wifi list
 
 应该看到类似输出如下：
 
-```bash
+```sh
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
 *       90:72:40:1B:42:05  myNetwork       Infra  132   405 Mbit/s  89      ****  WPA2
         90:72:42:1B:78:04  myNetwork5G     Infra  11    195 Mbit/s  79      ***   WPA2
@@ -1015,7 +1015,7 @@ $ nmcli --fields autoconnect-priority,name connection
 
 你应该看到类似输出如下：
 
-```bash
+```sh
 AUTOCONNECT-PRIORITY  NAME
 0                     myNetwork
 0                     lo
@@ -1032,7 +1032,7 @@ $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 
 在范围内，你的设备将始终尝试连接到具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
 
-```bash
+```sh
 AUTOCONNECT-PRIORITY  NAME
 -1                    snake
 0                     rabbit
