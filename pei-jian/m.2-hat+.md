@@ -82,8 +82,8 @@ M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附�
 
 要从连接到 M.2 HAT+ 的 NVMe 存储设备启动，请完成以下步骤：
 
-1. 使用 Raspberry Pi Imager 格式化你的 NVMe 存储设备。如果你已经有带有树莓派系统镜像的 SD 卡，可以在你的树莓派上执行此操作。
-2. 使用 SD 卡或 USB 存储设备将树莓派启动到树莓派系统，以持久性更改板载 EEPROM 配置中的引导顺序。
+1. 使用 Raspberry Pi Imager 格式化你的 NVMe 存储设备。如果你已经有带有树莓派系统镜像的存储卡，可以在你的树莓派上执行此操作。
+2. 使用存储卡或 USB 存储设备将树莓派启动到树莓派系统，以持久性更改板载 EEPROM 配置中的引导顺序。
 3. 在树莓派终端上运行 sudo raspi-config 以打开树莓派配置 CLI。
 4. 在 Advanced Options > Boot Order 下，选择 NVMe/USB boot。然后，使用 Finish 或 Esc 键退出 raspi-config。
 5. 使用 sudo reboot 重启你的树莓派。

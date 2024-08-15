@@ -202,7 +202,7 @@ $ sudo raspi-config
 
 #### Boot order——启动顺序
 
-在树莓派 4 及后续新款设备上，设定如下：在未插入 SD 卡的情况下，是否使用 USB 启动、网络启动。有关更多信息，请参阅[启动加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+在树莓派 4 及后续新款设备上，设定如下：在未插入存储卡的情况下，是否使用 USB 启动、网络启动。有关更多信息，请参阅[启动加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 #### Bootloader version——引导加载程序版本
 
@@ -230,7 +230,7 @@ $ sudo raspi-config
 
 ### Finish——完成
 
-退出 `raspi-config`。如果你进行的修改需要重启，`raspi-config` 会提示你重启。首次进行修改时，最好重启。如果选择了调整 SD 卡大小，重启可能会花比平时更久的时间。
+退出 `raspi-config`。如果你进行的修改需要重启，`raspi-config` 会提示你重启。首次进行修改时，最好重启。如果选择了调整存储卡大小，重启可能会花比平时更久的时间。
 
 ## 非交互式 `raspi-config`
 
@@ -1638,7 +1638,7 @@ bantime  = -1
 如果没有键盘和显示器，你需要某种方法来[远程控制](https://www.raspberrypi.com/documentation/computers/remote-access.html)你的无头树莓派。在首次启动时，唯一的办法是 SSH。要在全新安装的树莓派系统上启用 SSH，请选择以下某种方法：
 
 * 在树莓派启动盘制作工具的操作系统自定义菜单中启用 SSH，然后输入用户名和密码
-* 在 SD 卡的根目录下创建一个文件 `ssh`，然后按照下面部分的说明手动配置用户 `userconf.txt`
+* 在存储卡的根目录下创建一个文件 `ssh`，然后按照下面部分的说明手动配置用户 `userconf.txt`
 
 欲了解更多信息，请参阅[设置 SSH 服务器](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)。通过 SSH 连接，你就可以使用 `raspi-config` 来启[用 VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)，如果你更喜欢图形桌面环境。
 
@@ -2792,7 +2792,7 @@ bmp280@76 {
 
 #### DTB、叠加层和 `config.txt`
 
-在树莓派上，加载程序（如 `start.elf` 镜像）的任务是把叠加层与适当的基础设备树相结合，然后将完全解析的设备树传给内核。基础设备树位于 FAT 分区（Linux 在 `/boot/firmware/`）中与 `start.elf` 相邻，命名是 `bcm2711-rpi-4-b.dtb`、`bcm2710-rpi-3-b-plus.dtb` 等。请注意，某些型号（3A+，A，A+）将使用对应的“b”款等效型号（3B+，B，B+）。此选择是自动的，并允许在所有设备中使用相同的 SD 卡镜像。
+在树莓派上，加载程序（如 `start.elf` 镜像）的任务是把叠加层与适当的基础设备树相结合，然后将完全解析的设备树传给内核。基础设备树位于 FAT 分区（Linux 在 `/boot/firmware/`）中与 `start.elf` 相邻，命名是 `bcm2711-rpi-4-b.dtb`、`bcm2710-rpi-3-b-plus.dtb` 等。请注意，某些型号（3A+，A，A+）将使用对应的“b”款等效型号（3B+，B，B+）。此选择是自动的，并允许在所有设备中使用相同的存储卡镜像。
 
 >**注意**
 >
