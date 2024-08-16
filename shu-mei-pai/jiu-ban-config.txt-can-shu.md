@@ -575,33 +575,32 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 允许设置原始 HDMI 定时值，用 `hdmi_group=2` 和 `hdmi_mode=87` 选择自定义模式。
 
-```bash
-hdmi_timings=<h_active_pixels> <h_sync_polarity> <h_front_porch> <h_sync_pulse> <h_back_porch> <v_active_lines> <v_sync_polarity> <v_front_porch> <v_sync_pulse> <v_back_porch> <v_sync_offset_a> <v_sync_offset_b> <pixel_rep> <frame_rate> <interlaced> <pixel_freq> <aspect_ratio>
+```sh
+hdmi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水平同步脉冲> <水平后沿填充> <垂直有效行数> <垂直同步极性> <垂直前沿填充> <垂直同步脉冲> <垂直后沿填充> <垂直同步偏移量A> <垂直同步偏移量B> <像素复制> <帧率> <隔行> <像素频率> <宽高比>
+```
+```sh
+<水平有效像素>    = 水平像素（宽度）
+<水平同步极性>    = 反转水平同步信号极性
+<水平前沿填充>    = 从数据使能（DE）信号激活后的水平上沿填充
+<水平同步脉冲>    = 水平同步信号脉冲宽度（以像素时钟为单位）
+<水平后沿填充>    = 从数据使能（DE）信号激活后的水平下沿填充
+<垂直有效行数>    = 垂直像素高度（行数）
+<垂直同步极性>    = 反转垂直同步信号极性
+<垂直前沿填充>    = 从数据使能（DE）信号激活后的垂直上沿填充
+<垂直同步脉冲>    = 垂直同步信号脉冲宽度（以像素时钟为单位）
+<垂直后沿填充>    = 从数据使能（DE）信号激活后的垂直下沿填充
+<垂直同步偏移量A> = 保持为零
+<垂直同步偏移量B> = 保持为零
+<像素复制>        = 保持为零
+<帧率>            = 屏幕刷新率（以赫兹为单位）
+<隔行>            = 保持为零
+<像素频率>        = 时钟频率（水平有效像素 + 水平前沿填充 + 水平同步脉冲 + 水平后沿填充）
+                            * （垂直有效行数 + 垂直前沿填充 + 垂直同步脉冲 + 垂直后沿填充）
+                            * 刷新率
+<宽高比>          = [参见脚注]
 ```
 
-```bash
-<h_active_pixels> = horizontal pixels (width)
-<h_sync_polarity> = invert hsync polarity
-<h_front_porch>   = horizontal forward padding from DE active edge
-<h_sync_pulse>    = hsync pulse width in pixel clocks
-<h_back_porch>    = vertical back padding from DE active edge
-<v_active_lines>  = vertical pixels height (lines)
-<v_sync_polarity> = invert vsync polarity
-<v_front_porch>   = vertical forward padding from DE active edge
-<v_sync_pulse>    = vsync pulse width in pixel clocks
-<v_back_porch>    = vertical back padding from DE active edge
-<v_sync_offset_a> = leave at zero
-<v_sync_offset_b> = leave at zero
-<pixel_rep>       = leave at zero
-<frame_rate>      = screen refresh rate in Hz
-<interlaced>      = leave at zero
-<pixel_freq>      = clock frequency (h_active_pixels + h_front_porch + h_sync_pulse + h_back_porch)
-                                    * (v_active_lines + v_front_porch + v_sync_pulse + v_back_porch)
-                                    * framerate
-<aspect_ratio>    = [see footnote]
-```
-
-可将宽高比设置为八个值之一。从以下内容中选择一个代表与你屏幕最相似的宽高比的值：
+可将宽高比设置为八个值。从以下内容中选择一个代表与你屏幕最相似的宽高比的值：
 
 | 宽高比 | 名称              | 值 |
 | :--------: | :-------------------: | :----: |
@@ -737,30 +736,30 @@ dpi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水�
 ```
 
 ```bash
-<水平有效像素>    = 水平像素（宽度）
-<水平同步极性>    = 反转水平同步信号极性
-<水平前沿填充>    = 从数据使能（DE）信号激活后的水平上沿填充
-<水平同步脉冲>    = 水平同步信号脉冲宽度（以像素时钟为单位）
-<水平后沿填充>    = 从数据使能（DE）信号激活后的水平下沿填充
-<垂直有效行数>    = 垂直像素高度（行数）
-<垂直同步极性>    = 反转垂直同步信号极性
-<垂直前沿填充>    = 从数据使能（DE）信号激活后的垂直上沿填充
-<垂直同步脉冲>    = 垂直同步信号脉冲宽度（以像素时钟为单位）
-<垂直后沿填充>    = 从数据使能（DE）信号激活后的垂直下沿填充
+<水平有效像素>     = 水平像素（宽度）
+<水平同步极性>     = 反转水平同步信号极性
+<水平前沿填充>     = 从数据使能（DE）信号激活后的水平上沿填充
+<水平同步脉冲>     = 水平同步信号脉冲宽度（以像素时钟为单位）
+<水平后沿填充>     = 从数据使能（DE）信号激活后的水平下沿填充
+<垂直有效行数>     = 垂直像素高度（行数）
+<垂直同步极性>     = 反转垂直同步信号极性
+<垂直前沿填充>     = 从数据使能（DE）信号激活后的垂直上沿填充
+<垂直同步脉冲>     = 垂直同步信号脉冲宽度（以像素时钟为单位）
+<垂直后沿填充>     = 从数据使能（DE）信号激活后的垂直下沿填充
 <垂直同步偏移量 A> = 保持为零
 <垂直同步偏移量 B> = 保持为零
-<像素复制>       = 保持为零
-<帧率>           = 屏幕刷新率（Hz）
-<隔行>           = 保持为零
-<像素频率>       = 时钟频率（水平有效像素 + 水平前沿填充 + 水平同步脉冲 + 水平后沿填充）
-                          *（垂直有效行数 + 垂直前沿填充 + 垂直同步脉冲 + 垂直后沿填充）
-                          * 刷新率
-<宽高比>         = [参见脚注]
+<像素复制>        = 保持为零
+<帧率>            = 屏幕刷新率（Hz）
+<隔行>            = 保持为零
+<像素频率>        = 时钟频率（水平有效像素 + 水平前沿填充 + 水平同步脉冲 + 水平后沿填充）
+                           *（垂直有效行数 + 垂直前沿填充 + 垂直同步脉冲 + 垂直后沿填充）
+                           * 刷新率
+<宽高比>          = [参见脚注]
 ```
 
 可将宽高比设置为以下八个值。从以下参数中选择一个代表与你屏幕最相似的宽高比的值：
 
-| 宽高比（`aspect_ratio`） | 名称              | 值 |
+| 宽高比 | 名称              | 值 |
 | :--------: | :-------------------: | :----: |
 | 4:3    | HDMI_ASPECT_4_3   | 1  |
 | 14:9   | HDMI_ASPECT_14_9  | 2  |
