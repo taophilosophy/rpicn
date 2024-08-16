@@ -19,7 +19,7 @@
   fixup_file=fixup_x.dat
 ```
 
-对于树莓派 4，如果有文件 `start4x.elf`、`fixup4x.dat`，则会使用之。
+对于树莓派 4，如果存在文件 `start4x.elf`、`fixup4x.dat`，则会使用之。
 
 `start_debug=1` 意味着
 
