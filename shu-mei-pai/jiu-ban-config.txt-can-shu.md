@@ -228,11 +228,11 @@
 
 >**注意**
 >
->因为树莓派 4、400 有两个 HDMI 端口，某些 HDMI 命令可以应用于特定接口。你可以使用语法 `<命令>:<端口>`，其中端口为 `0` 或 `1`，以指定设置应适用于哪个端口。如果未指定端口，则默认为 `0`。如果在不需要端口号的命令上指定了端口号，则端口将被忽略。有关语法和替代机制的更多详细信息，请参阅文档的条件部分中 HDMI 的部分。
+>因为树莓派 4、400 搭载了两个 HDMI 端口，故某些 HDMI 命令可以应用于特定接口。你可以使用语法 `<命令>:<端口>`，其中端口值为 `0` 或 `1`，用来指定此设置应用于哪个端口。如未指定端口，则默认为 `0`。如果在不支持端口号的命令上指定了端口号，则端口将被忽略。更多有关语法和可选机制的详细信息，请参阅文档的[条件部分](https://www.raspberrypi.com/documentation/computers/legacy_config_txt.html#legacy-conditional-filters)中的 HDMI 章节。
 
 #### `hdmi_safe`
 
-若将 `hdmi_safe` 置为 `1`，将触发使用“安全模式”，尝试以最大的 HDMI 兼容性启动。等同于设定以下参数：
+若将 `hdmi_safe` 置为 `1`，将触发使用“safe mode（安全模式）”，尝试以最大化 HDMI 兼容性启动。等同于设定以下参数：
 
 ```sh
 hdmi_force_hotplug=1
@@ -249,11 +249,11 @@ overscan_bottom=24
 
 #### `hdmi_ignore_edid`
 
-若将 `hdmi_ignore_edid` 置为 `0xa5000080`，可以启用忽略 EDID/显示器数据，如果你的显示器没有准确的 EDID。它需要这个不寻常的值来确保不会意外触发。
+若将 `hdmi_ignore_edid` 置为 `0xa5000080`，可忽略显示器的 EDID（扩展显示识别数据）信息，如果你的显示器没有精准的 EDID。它需要此异常值来避免触发故障。
 
 #### `hdmi_edid_file`
 
-若将 `hdmi_edid_file` 置为 `1`，将使 GPU 从引导分区里的 `edid.dat` 文件中读取 EDID 数据，而非显示器。
+若将 `hdmi_edid_file` 置为 `1`，将使 GPU 从启动分区中的 `edid.dat` 文件（而非显示器）读取 EDID 数据，。
 
 #### `hdmi_edid_filename`
 
