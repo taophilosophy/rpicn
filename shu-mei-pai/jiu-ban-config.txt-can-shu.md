@@ -257,9 +257,9 @@ overscan_bottom=24
 
 #### `hdmi_edid_filename`
 
-在树莓派 4B 上，你可以使用 `hdmi_edid_filename` 命令指定要使用的 EDID 文件的文件名，并指定要应用文件的端口。这还需要 `hdmi_edid_file=1` 来启用 EDID 文件。
+在树莓派 4B 上，你可以使用命令 `hdmi_edid_filename` 指定要使用的 EDID 文件的文件名，并指定文件要应用的 HDMI 端口。同时还需要 `hdmi_edid_file=1` 来启用 EDID 文件。
 
- 例如：
+例如：
 
 ```sh
 hdmi_edid_file=1
@@ -269,23 +269,23 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_force_edid_audio`
 
-若将 `hdmi_force_edid_audio` 置为 `1`，会假装显示器支持所有音频格式，即使实际上不支持 DTS/AC3，也能进行音频透传。
+若将 `hdmi_force_edid_audio` 置为 `1`，显示器会伪装成支持一切音频格式，即使实际上不支持 DTS/AC3，也能进行音频透传。
 
 #### `hdmi_ignore_edid_audio`
 
-若将 `hdmi_ignore_edid_audio` 置为 `1`，会假装显示器无法支持任何音频格式。这意味着 ALSA 会默认使用模拟音频（耳机）插孔。
+若将 `hdmi_ignore_edid_audio` 置为 `1`，显示器会伪装成不支持一切音频格式。这意味着 ALSA 将默认使用模拟音频（耳机）插孔。
 
 #### `hdmi_force_edid_3d`
 
-若将 `hdmi_force_edid_3d` 置为 `1`，会假装所有 CEA 模式都支持 3D，即使 EDID 没有指示支持。
+若将 `hdmi_force_edid_3d` 置为 `1`，会将所有 CEA 模式伪装成支持 3D，即使 EDID 信息并未标称支持。
 
 #### `hdmi_ignore_cec_init`
 
-若将 `hdmi_ignore_cec_init` 置为 `1`，将阻止在启动过程中发送初始活动源信息。这可以防止在重启树莓派时，CEC 启用的电视机从待机状态中唤醒并切换频道。
+若将 `hdmi_ignore_cec_init` 置为 `1`，将在启动过程中禁止发送初始活动源信息。这可以防止在重启树莓派时，CEC 启用的电视机从待机状态中唤醒并切换频道。
 
 #### `hdmi_ignore_cec`
 
-若将 `hdmi_ignore_cec` 置为 `1`，会假装显示器不支持 CEC。将不支持任何 CEC 功能。
+若将 `hdmi_ignore_cec` 置为 `1`，会伪装显示器不支持 CEC。将不支持任何 CEC 功能。
 
 #### `cec_osd_name`
 
@@ -775,11 +775,11 @@ dpi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水�
 
 #### `hdmi_force_hotplug`
 
-若将 `hdmi_force_hotplug` 置为 `1`，会假装 HDMI 热插拔信号已断开，因此看起来好像没有连接 HDMI 显示器。换句话说，即使没有检测到 HDMI 监视器，也会使用 HDMI 输出模式。
+若将 `hdmi_force_hotplug` 置为 `1`，会伪装 HDMI 热插拔信号已断开，因此看起来好像没有连接 HDMI 显示器。换句话说，即使没有检测到 HDMI 监视器，也会使用 HDMI 输出模式。
 
 #### `hdmi_ignore_hotplug`
 
-若将 `hdmi_ignore_hotplug` 置为 `1`，会假装 HDMI 热插拔信号已被断开，因此看起来好像没有连接 HDMI 显示器。因此，即使连接了监视器，HDMI 输出也将被禁用。
+若将 `hdmi_ignore_hotplug` 置为 `1`，会伪装 HDMI 热插拔信号已被断开，因此看起来好像没有连接 HDMI 显示器。因此，即使连接了监视器，HDMI 输出也将被禁用。
 
 #### `disable_overscan`
 
