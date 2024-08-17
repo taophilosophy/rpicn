@@ -886,7 +886,7 @@ total_mem=1024
 
 ## 视频参数
 
-### HDMI 分辨率
+### HDMI 信号格式
 
 要控制 HDMI 设置，请使用`cmdline.txt` 中的 [屏幕配置实用程序](https://www.raspberrypi.com/documentation/computers/configuration.html#set-resolution-and-rotation)、[KMS 视频设置](https://www.raspberrypi.com/documentation/computers/configuration.html#set-the-kms-display-mode)。
 
