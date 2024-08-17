@@ -200,32 +200,31 @@
 >
 >树莓派系统上的相机堆栈（libcamera）使用 Linux CMA（连续内存分配器）的内存来分配缓冲区，并不占用 GPU 显存，所以增大 GPU 显存没有任何好处可言。
 
+能把 `gpu_mem` 设置成更大的值，但不建议这么做，因为可能会引发故障（可能妨碍 Linux 启动）。`gpu_mem` 的最小值为 `16`——但此值会禁用 GPU 的某些功能。
 
-能把 `gpu_mem` 设置成更大的值，但不建议这么做，因为可能会导致故障（可能妨碍 Linux 启动）。`gpu_mem` 的最小值为 `16`——但此值会禁用 GPU 的某些功能。
-
-你还可以使用 `gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`，以便在不同内存量的树莓派之间交换相同的存储卡，而无需每次都编辑 `config.txt`：
+你还可以使用 `gpu_mem_256`、`gpu_mem_512`、`gpu_mem_1024`，以便在不同内存容量间的树莓派交换同一张存储卡，无需每次都编辑 `config.txt`：
 
 ### `gpu_mem_256`
 
-命令 `gpu_mem_256` 为搭载 256MB 内存的树莓派设置 GPU 内存（MB）。如果内存容量不是 256MB，则会被忽略。该参数会覆盖 `gpu_mem`。
+命令 `gpu_mem_256` 可为搭载 256MB 内存的树莓派设置 GPU 内存（MB）。如果内存容量不是 256MB，则会被忽略。该参数会覆盖 `gpu_mem`。
 
 ### `gpu_mem_512`
 
-命令 `gpu_mem_512` 为搭载 512MB 内存的树莓派设置 GPU 内存（MB）。如果内存容量不是 512MB，则会被忽略。这将覆盖 `gpu_mem`。
+命令 `gpu_mem_512` 可为搭载 512MB 内存的树莓派设置 GPU 内存（MB）。如果内存容量不是 512MB，则会被忽略。该参数会覆盖 `gpu_mem`。
 
 ### `gpu_mem_1024`
 
-命令 `gpu_mem_1024` 为搭载 1GB（及更大容量）内存的树莓派设置 GPU 内存（MB）。如果内存容量小于 1GB，则会被忽略。这将覆盖 `gpu_mem`。
+命令 `gpu_mem_1024` 可为搭载 1GB（及更大容量）内存的树莓派设置 GPU 内存（MB）。如果内存容量小于 1GB，则会被忽略。该参数会覆盖 `gpu_mem`。
 
 ### `disable_l2cache`
 
-将该参数置为 `1`，会禁用 CPU 对 GPU 的 L2 缓存的访问，且需同时禁用 L2 缓存的相关内核。BCM2835 的默认值为 `0`。基于 BCM2836、BCM2837、BCM2711 和 BCM2712 的 ARM 有自己的 L2 缓存，因此默认值为 `1`。标准版本的树莓派 kernel.img 和 kernel7.img 对应了缓存设置的差异。
+将该参数置为 `1`，会禁止 CPU 使用 GPU 的 L2 缓存，且须同时禁用 L2 缓存的相关内核。BCM2835 的默认值为 `0`。基于 BCM2836、BCM2837、BCM2711 和 BCM2712 的 ARM 有自己的 L2 缓存，故默认值为 `1`。标准版本的树莓派 `kernel.img` 和 `kernel7.img` 对应了缓存设置的差异。
 
 ## 旧版视频参数
 
-（另请参阅 config.txt 视频参数。）
+（另请参阅 [`config.txt` 视频参数](https://www.raspberrypi.com/documentation/computers/config_txt.html#video-options)。）
 
-### HDMI 模式
+### HDMI 信号格式
 
 >**注意**
 >
