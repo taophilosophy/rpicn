@@ -281,7 +281,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_ignore_cec_init`
 
-若将 `hdmi_ignore_cec_init` 置为 `1`，将在启动过程中禁止发送初始活动源信息。这可以防止在重启树莓派时，CEC 启用的电视机从待机状态中唤醒并切换频道。
+若将 `hdmi_ignore_cec_init` 置为 `1`，将在启动过程中禁止发送初始活动源信息。这可以防止在重启树莓派时，支持 CEC 的电视机从待机状态中唤醒而切换频道。
 
 #### `hdmi_ignore_cec`
 
