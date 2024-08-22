@@ -2951,7 +2951,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 #### 支持的叠加层和参数
 
-要获取受支持的叠加层及参数，请参阅 `/boot/firmware/overlays` 下，叠加层文件 `.dtbo` 附加的 [firmware README](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README) 文件。它会不断地添加和修改，以保持最新。
+要获取受支持的叠加层及参数，请参阅 `/boot/firmware/overlays` 下，叠加层文件 `.dtbo` 附加的 [README](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README) 文件。它会不断地添加和修改，以保持最新。
 
 ### 固件参数
 
