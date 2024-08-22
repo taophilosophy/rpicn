@@ -32,9 +32,9 @@
 
 ## 版本说明
 
-目前已校对章节指向 2024.8.9 的[树莓派官方文档](https://raspberrypi.com/documentation)。
+目前已校对章节指向 2024.8.23 的[树莓派官方文档](https://raspberrypi.com/documentation)。
 
-其他内容的版本指向 2024.8.9 的[树莓派官方文档](https://raspberrypi.com/documentation)。
+其他内容的版本指向 2024.8.23 的[树莓派官方文档](https://raspberrypi.com/documentation)。
 
 ## 更新需求请看贡献指南文件
 
