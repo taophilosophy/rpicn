@@ -44,12 +44,11 @@ Pico 设备根据产品代次划分**系列**。
 >
 >两款开发板均配备三针串行线调试 (SWD) 插针。然而，带有插针的 Pico 2 使用的是小型、带定位的 [3 针连接器](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf)，而 Pico 2 则是板边相邻的三个镀边通孔插针。 
 
-### 引脚分布图和设计文件
+#### 引脚分布图和设计文件
 
 ![Pico 2 R4 引脚分布图](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-2-r4-pinout.svg)
 
 - 下载 [引脚分布图](https://datasheets.raspberrypi.com/pico/Pico-2-Pinout.pdf) (PDF)
-- 下载 [设计文件](https://datasheets.raspberrypi.com/pico/RPi-Pico-2-PUBLIC-20240708.zip) (Cadence Allegro)
 - 下载 [STEP 文件](https://datasheets.raspberrypi.com/pico/Pico-2-step-20240708.zip)
 - 下载树莓派 Pico 的 [Fritzing 部件](https://datasheets.raspberrypi.com/pico/Pico-2-Fritzing-20240708.fzpz)
 
