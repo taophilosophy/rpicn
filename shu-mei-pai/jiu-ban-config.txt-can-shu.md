@@ -618,31 +618,31 @@ hdmi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水
 
 #### `edid_content_type`
 
-强制将 EDID 内容类型设置为特定值。
+强制将 EDID 的内容类型设置为特定值。
 
  参数如下：
 
-* `0 = EDID_ContentType_NODATA`，内容类型为 none
-* `1 = EDID_ContentType_Graphics`，内容类型为图形，ITC 必须设置为 1
+* `0 = EDID_ContentType_NODATA`，内容类型为无
+* `1 = EDID_ContentType_Graphics`，内容类型为图形，必须把 ITC 置为 `1`
 * `2 = EDID_ContentType_Photo`，内容类型为照片
 * `3 = EDID_ContentType_Cinema`，内容类型为电影
 * `4 = EDID_ContentType_Game`，内容类型游戏
 
 ### 我的显示器能使用哪些值？
 
-你的 HDMI 显示器可能仅支持有限的格式。要找出支持的格式，请使用以下方法：
+你的 HDMI 显示器可能仅支持有限的格式。要找出受支持的格式，请使用以下方法：
 
 * 将输出格式设置为 VGA 60Hz ( `hdmi_group=1` 和 `hdmi_mode=1` ) ，然后启动你的树莓派
-* 输入以下命令可列出支持的 CEA 模式: `/opt/vc/bin/tvservice -m CEA`
-* 输入以下命令可列出支持的 DMT 模式: `/opt/vc/bin/tvservice -m DMT`
+* 输入以下命令可列出受支持的 CEA 信号格式: `/opt/vc/bin/tvservice -m CEA`
+* 输入以下命令可列出受支持的 DMT 信号格式: `/opt/vc/bin/tvservice -m DMT`
 * 输入以下命令可显示当前状态： `/opt/vc/bin/tvservice -s`
 * 输入以下命令可从你的显示器中获取更详细的信息： `/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
 
-在故障排除默认 HDMI 信号格式问题时，还应提供 `edid.dat`。
+在排除默认 HDMI 信号格式的故障时，也应附带 `edid.dat`。
 
 ### 自定义信号格式
 
-如果你的显示器需要的信号格式不在上述表格中，那么可以为其自定义一种 CVT 模式：
+如果你的显示器所需的信号格式未列在上述表格中，那么可以为其自定义一种 CVT 信号格式：
 
 ```bash
 hdmi_cvt=<宽> <高> <帧率> <宽高比> <边距> <交错> <降低清屏时间>
@@ -658,9 +658,9 @@ hdmi_cvt=<宽> <高> <帧率> <宽高比> <边距> <交错> <降低清屏时间>
 | 交错   | 0      | 0=逐行扫描、1=隔行扫描                               |
 | 降低清屏时间   | 0      | 0=正常、1=降低清屏时间                                   |
 
-结尾处的字段可以省略，会使用默认值。
+结尾处的字段可省略，会使用默认值。
 
-请注意，这只是创建信号格式（第 2 组信号格式 87）。要使树莓派默认使用此信号格式，你必须添加一些附加设置。例如，要选择 800×480 分辨率并启用音频驱动：
+请注意，这仅 **创建了** 信号格式（group 2 mode 87）。要使树莓派默认应用该信号格式，你需要进行一些额外设置。例如，要选择分辨率 800×480 并启用音频驱动：
 
 ```bash
 hdmi_cvt=800 480 60 6
@@ -675,9 +675,9 @@ hdmi_drive=2
 
 #### `sdtv_mode`
 
-`sdtv_mode` 命令定义了用于复合视频输出的电视标准。
+命令 `sdtv_mode` 定义了用于复合视频输出的电视标准。
 
-| 标准电视信号格式 | 意义                                              |
+| `sdtv_mode` | 意义                                              |
 | :--------------: | :---------------------------------------------------: |
 | `0`（默认）    |  普通 NTSC                                       |
 | `1`            | 日式 NTSC ——无黑电平（pedestal）                      |
@@ -698,13 +698,13 @@ hdmi_drive=2
 
 #### `sdtv_disable_colourburst`
 
-若将 `sdtv_disable_colourburst` 置为 `1`，会禁用复合视频输出上的彩色爆发。图片将以单色显示，但可能会更清晰。
+若将 `sdtv_disable_colourburst` 置为 `1`，会禁用复合视频输出上的彩色突发信号。图片将以单色显示，但可能会更清晰。
 
 ### 液晶显示屏和触摸屏
 
 #### `display_default_lcd`
 
-如果检测到树莓派触摸显示屏，它将被用作默认显示器，并显示帧缓冲区。设置 `display_default_lcd=0` 将确保液晶显示屏不是默认显示器，这通常意味着 HDMI 输出将是默认的。仍然可以通过从支持的应用程序中选择其显示编号来使用液晶显示屏，例如，omxplayer。
+如果检测到了树莓派触摸显示屏，它将被用作默认显示器，并显示帧缓冲区。设置 `display_default_lcd=0` 可确保液晶显示屏并非是默认显示器，这通常意味着使用 HDMI 的默认输出。仍可通过在受支持的应用程序（如 omxplayer）中选择显示器编号来使用液晶显示屏。
 
 #### `lcd_framerate`
 
