@@ -80,7 +80,7 @@ $ sudo raspi-config
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开端消失在屏幕边缘，可启用 overscan（过扫描）调整边框。在某些显示器（特别是监控器）上，禁用过扫描会使画面填充到整个屏幕，且去除黑边。
+如果在屏幕上显示的文本开头于屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器（特别是监控器）上，禁用过扫描会使画面填充到整个屏幕，且去除黑边。
 
 #### Screen blanking——屏幕节能（无操作时关闭信号输出）
 
@@ -379,7 +379,7 @@ $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 >
 >在 Wayland 下不可用。
 
-如果屏幕上显示的文本开端在屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把镜像填充到整个屏幕，且不带黑边。
+如果在屏幕上显示的文本开头于屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把镜像填充到整个屏幕，且不带黑边。
 
 ```bash
 $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
