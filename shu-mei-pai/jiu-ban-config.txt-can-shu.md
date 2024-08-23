@@ -146,7 +146,7 @@
 >
 >此筛选器仅适用于树莓派 4。
 
-树莓派 4 有两个 HDMI 端口，有许多个同 HDMI 相关的 `config.txt` 命令，有必要指明所选定的 HDMI 端口。HDMI 条件筛选器将后续 HDMI 配置限定到特定端口。
+树莓派 4 有两个 HDMI 端口，有许多个同 HDMI 相关的 `config.txt` 参数，有必要指明所选定的 HDMI 端口。HDMI 条件筛选器将后续 HDMI 配置限定到特定端口。
 
 ```sh
  [HDMI:0]
@@ -157,7 +157,7 @@
    hdmi_mode=67
 ```
 
-所有特定于端口的 HDMI 命令都提供了另外一种语法：`变量:值`。你可以使用以下内容，这与前面的示例相同：
+所有特定于端口的 HDMI 参数都提供了另外一种语法：`变量:值`。你可以使用以下内容，这与前面的示例相同：
 
 ```sh
  hdmi_group:0=2
@@ -228,7 +228,7 @@
 
 >**注意**
 >
->因为树莓派 4、400 搭载了两个 HDMI 端口，故某些 HDMI 命令可以应用于特定接口。你可以使用语法 `<命令>:<端口>`，其中端口值为 `0` 或 `1`，用来指定此设置应用于哪个端口。如未指定端口，则默认为 `0`。如果在不支持端口号的命令上指定了端口号，则端口将被忽略。更多有关语法和可选机制的详细信息，请参阅文档的[条件部分](https://www.raspberrypi.com/documentation/computers/legacy_config_txt.html#legacy-conditional-filters)中的 HDMI 章节。
+>因为树莓派 4、400 搭载了两个 HDMI 端口，故某些 HDMI 参数可以应用于特定接口。你可以使用语法 `<参数>:<端口>`，其中端口值为 `0` 或 `1`，用来指定此设置应用于哪个端口。如未指定端口，则默认为 `0`。如果在不支持端口号的参数上指定了端口号，则端口将被忽略。更多有关语法和可选机制的详细信息，请参阅文档的[条件部分](https://www.raspberrypi.com/documentation/computers/legacy_config_txt.html#legacy-conditional-filters)中的 HDMI 章节。
 
 #### `hdmi_safe`
 
@@ -277,7 +277,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_force_edid_3d`
 
-若将 `hdmi_force_edid_3d` 置为 `1`，会将所有 CEA 模式伪装成支持 3D，即使 EDID 信息并未标称支持。
+若将 `hdmi_force_edid_3d` 置为 `1`，会将所有的 CEA 信号格式伪装成支持 3D，即使 EDID 信息并未标称支持。
 
 #### `hdmi_ignore_cec_init`
 
@@ -322,7 +322,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_drive`
 
-`hdmi_drive` 命令能让你在输出信号格式 HDMI 和 DVI 间进行切换。
+`hdmi_drive` 参数能让你在输出信号格式 HDMI 和 DVI 间进行切换。
 
 | `hdmi_drive` | 说明                                            |
 | :------------: | -------------------------------------------------- |
@@ -341,7 +341,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_group`
 
-`hdmi_group` 命令定义了 HDMI 输出组，可以是 CEA（美国消费电子协会标准，一般由电视使用）和 DMT（显示监视器时序标准，一般由显示器使用）。此设置应与 `hdmi_mode` 联合使用。
+`hdmi_group` 参数定义了 HDMI 输出组，可以是 CEA（美国消费电子协会标准，一般由电视使用）和 DMT（显示监视器时序标准，一般由显示器使用）。此设置应与 `hdmi_mode` 联合使用。
 
 | `hdmi_group` | 说明             |
 | :---------: | :------------------: |
@@ -633,10 +633,10 @@ hdmi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水
 你的 HDMI 显示器可能仅支持有限的格式。要找出受支持的格式，请使用以下方法：
 
 * 将输出格式设置为 VGA 60Hz ( `hdmi_group=1` 和 `hdmi_mode=1` ) ，然后启动你的树莓派
-* 输入以下命令可列出受支持的 CEA 信号格式: `/opt/vc/bin/tvservice -m CEA`
-* 输入以下命令可列出受支持的 DMT 信号格式: `/opt/vc/bin/tvservice -m DMT`
-* 输入以下命令可显示当前状态： `/opt/vc/bin/tvservice -s`
-* 输入以下命令可从你的显示器中获取更详细的信息： `/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
+* 输入以下参数可列出受支持的 CEA 信号格式: `/opt/vc/bin/tvservice -m CEA`
+* 输入以下参数可列出受支持的 DMT 信号格式: `/opt/vc/bin/tvservice -m DMT`
+* 输入以下参数可显示当前状态： `/opt/vc/bin/tvservice -s`
+* 输入以下参数可从你的显示器中获取更详细的信息： `/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
 
 在排除默认 HDMI 信号格式的故障时，也应附带 `edid.dat`。
 
@@ -688,7 +688,7 @@ hdmi_drive=2
 
 #### `sdtv_aspect`
 
-`sdtv_aspect` 命令定义了复合视频输出的纵横比。默认值为 `1`。
+`sdtv_aspect` 参数定义了复合视频输出的纵横比。默认值为 `1`。
 
 | `sdtv_aspect` | 意义 |
 | :-------------:| :--------: |
@@ -799,13 +799,13 @@ dpi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水�
 
 #### `overscan_top`
 
-`overscan_top` 命令可指定将添加到屏幕顶部过扫描的固件默认值的像素数。默认值为 `0`。
+`overscan_top` 参数可指定将添加到屏幕顶部过扫描的固件默认值的像素数。默认值为 `0`。
 
 若文本超出屏幕顶部边缘，请增加此值；若屏幕顶部边缘和文本之间有黑色边框，请减少此值。
 
 #### `overscan_bottom`
 
-`overscan_bottom` 命令可指定将添加到屏幕底部边缘过扫描的像素数。默认值为 `0`。
+`overscan_bottom` 参数可指定将添加到屏幕底部边缘过扫描的像素数。默认值为 `0`。
 
 若文本超出屏幕底部边缘，请增加此值；若屏幕底部边缘和文本之间有黑色边框，请减少此值。
 
