@@ -437,7 +437,7 @@ $ rpicam-detect -t 0 -o cat%04d.jpg --lores-width 400 --lores-height 300 --post-
 | HQ 相机 (IMX477)       | `dtoverlay=imx477`                                                                                                                                                                    |
 | GS 相机（IMX296）      | `dtoverlay=imx296`                                                                                                                                                                    |
 | 摄像头模块 3（IMX708） | `dtoverlay=imx708`                                                                                                                                                                    |
-| IMX290、IMX327       | dtoverlay=imx290,clock-frequency=74250000 或 dtoverlay=imx290,clock-frequency=37125000 （两个模块共享 imx290 内核驱动程序；请参考模块供应商的说明以获取正确的频率） |
+| IMX290、IMX327       | `dtoverlay=imx290,clock-frequency=74250000` 或 `dtoverlay=imx290,clock-frequency=37125000`（两个模块共享 imx290 内核驱动程序；请参考模块供应商的说明以获取正确的频率） |
 | IMX378                 | `dtoverlay=imx378`                                                                                                                                                                    |
 | OV9281                 | `dtoverlay=ov9281`                                                                                                                                                                    |
 
@@ -2760,7 +2760,7 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
   * 色彩效果 ( `--colfx` )
   * 注释（ `--annotate`，`--annotateex` ）
   * 动态范围压缩，或 DRC（ `--drc` ）
-  * 立体声（ `--stereo，`--decimate` 和 `--3dswap` ）
+  * 立体声（ `--stereo`，`--decimate` 和 `--3dswap` ）
   * 图像稳定 ( `--vstab` )
   * 演示模式 ( `--demo` ) 后期处理替换了许多这些功能。
 * rpicam-apps 移除了参数 `rotation` 支持 90° 和 270° 旋转。
