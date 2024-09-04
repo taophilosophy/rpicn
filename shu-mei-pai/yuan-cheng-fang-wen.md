@@ -631,7 +631,7 @@ $ sudo mkdir -p /export/users
 授予 `/export` 和 `/export/users` 读取、写入和执行权限（`777`），这样你就可以在没有 LDAP/NIS 身份验证的情况下从客户端访问 NFS 共享：
 
 ```sh
-$ chmod -R 777 777 /export
+$ chmod -R 777 /export
 ```
 
 接下来，使用以下命令挂载真实的 users 目录：
