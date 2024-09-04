@@ -244,7 +244,7 @@ B 代表其带有以太网口。A 代表低成本产品线——他们的体积�
 
 默认的 CPU 调度器是 ondemand。可以使用软件包 cpufrequtils 中的命令 cpufreq-set 手动更改调度器以减少空闲功耗：
 
-```
+```bash
 $ sudo apt install cpufrequtils
 $ sudo cpufreq-set -g powersave
 ```
@@ -253,7 +253,7 @@ $ sudo cpufreq-set -g powersave
 
 由于树莓派设备使用的 SoC 架构，如果在树莓派系统发行版中使用了上游的温度监控代码（如基于 Linux 的温度测量）可能不准确。但是，vcgencmd 命令能够提供准确且即时的 SoC 温度的实时数值，因为它与 GPU 直接通信：
 
-```
+```bash
 $ vcgencmd measure_temp
 ```
 
@@ -321,9 +321,18 @@ $ vcgencmd measure_temp
 2. 选择一张未使用的 SD 卡（引导加载程序镜像会格式化整个卡）
 3. 启动树莓派镜像制作工具
 4. 选择 Choose OS
-5. 选择 Misc utility images ![Select Misc utility images](https://www.raspberrypi.com/documentation/computers/images/misc-utility-images.png?hash=662b949f2e370649419c8efc7fc522f4)
-6. 为你的树莓派选择 Bootloader (Pi 400 是 4 系列的一部分)![Choose a family for your bootloader](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png?hash=26cda00ff3f46580eac44af916437614)
-7. 选择引导模式： SD （推荐），USB 或 Network ![Choose the storage from which you’d like to boot](https://www.raspberrypi.com/documentation/computers/images/bootloader-storage-select.png?hash=08b572c18e189ab4dd7688838fc0a97b)
+5. 选择 Misc utility images 
+
+![Select Misc utility images](https://www.raspberrypi.com/documentation/computers/images/misc-utility-images.png?hash=662b949f2e370649419c8efc7fc522f4)
+
+6. 为你的树莓派选择 Bootloader (Pi 400 是 4 系列的一部分)
+
+![Choose a family for your bootloader](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png?hash=26cda00ff3f46580eac44af916437614)
+
+7. 选择引导模式： SD （推荐），USB 或 Network 
+
+![Choose the storage from which you’d like to boot](https://www.raspberrypi.com/documentation/computers/images/bootloader-storage-select.png?hash=08b572c18e189ab4dd7688838fc0a97b)
+
 8. 选择 SD card 然后 Write
 9. 单击 Yes 继续
 10. 使用新的镜像引导树莓派，并等待至少十秒钟
@@ -349,19 +358,19 @@ $ vcgencmd measure_temp
 
 运行以下命令以启动 raspi-config。
 
-```
+```bash
 $ sudo raspi-config
 ```
 
 转到 Advanced Options，然后选择 Bootloader Version。选择 Latest 并选择 Yes 确认。选择 Finish 并确认要重启。重启后，再次打开命令提示符并更新你的系统：
 
-```
+```bash
 $ sudo apt update
 ```
 
 如果运行 sudo rpi-eeprom-update，你会看到引导加载程序的更新版本是 latest 发布。
 
-```
+```bash
 *** UPDATE AVAILABLE ***
 BOOTLOADER: update available
    CURRENT: Thu 18 Jan 13:59:23 UTC 2024 (1705586363)
@@ -377,14 +386,14 @@ BOOTLOADER: update available
 
 现在你可以更新你的引导加载程序。
 
-```
+```bash
 $ sudo rpi-eeprom-update -a
 $ sudo reboot
 ```
 
 重启，然后运行 sudo rpi-eeprom-update。现在你应该看到 CURRENT 日期已更新为引导程序的最新版本。
 
-```
+```bash
 BOOTLOADER: up to date
    CURRENT: Mon 22 Jan 10:41:21 UTC 2024 (1705920081)
     LATEST: Mon 22 Jan 10:41:21 UTC 2024 (1705920081)
@@ -401,7 +410,7 @@ BOOTLOADER: up to date
 
 要查看当前运行引导程序使用的配置，请运行以下命令：
 
-```
+```bash
 $ rpi-eeprom-config
 ```
 
@@ -409,7 +418,7 @@ $ rpi-eeprom-config
 
 要从引导加载程序镜像中读取配置：
 
-```
+```bash
 $ rpi-eeprom-config pieeprom.bin
 ```
 
@@ -417,7 +426,7 @@ $ rpi-eeprom-config pieeprom.bin
 
 执行以下命令以将当前引导加载程序配置加载到文本编辑器中。当编辑器关闭时，rpi-eeprom-config 将更新后的配置应用于最新的可用引导加载程序版本，并使用 rpi-eeprom-update 在系统重启时安排更新：
 
-```
+```bash
 $ sudo -E rpi-eeprom-config --edit
 $ sudo reboot
 ```
@@ -430,7 +439,7 @@ $ sudo reboot
 
 以下命令将 boot.conf 应用于最新的可用引导加载程序镜像，并使用 rpi-eeprom-update 安排在系统重启时更新。
 
-```
+```bash
 $ sudo rpi-eeprom-config --apply boot.conf
 $ sudo reboot
 ```
@@ -441,13 +450,13 @@ rpi-eeprom-update systemd 服务在启动时运行，并在新镜像可用时应
 
 要禁用自动更新：
 
-```
+```bash
 $ sudo systemctl mask rpi-eeprom-update
 ```
 
 要重新启用自动更新：
 
-```
+```bash
 $ sudo systemctl unmask rpi-eeprom-update
 ```
 
@@ -461,32 +470,32 @@ $ sudo systemctl unmask rpi-eeprom-update
 
 读取当前引导加载程序版本：
 
-```
+```bash
 $ vcgencmd bootloader_version
 ```
 
 检查是否有可用更新：
 
-```
+```bash
 $ sudo rpi-eeprom-update
 ```
 
  安装更新：
 
-```
+```bash
 $ sudo rpi-eeprom-update -a
 $ sudo reboot
 ```
 
 取消待定更新：
 
-```
+```bash
 $ sudo rpi-eeprom-update -r
 ```
 
 安装特定的引导程序镜像:
 
-```
+```bash
 $ sudo rpi-eeprom-update -d -f pieeprom.bin
 ```
 
@@ -494,7 +503,7 @@ $ sudo rpi-eeprom-update -d -f pieeprom.bin
 
 显示内置文档:
 
-```
+```bash
 $ rpi-eeprom-update -h
 ```
 
@@ -517,7 +526,7 @@ $ rpi-eeprom-update -h
 
 以下命令将 pieeprom.bin 中的启动加载器配置替换为 boot.conf 并将新镜像写入 new.bin ：
 
-```
+```bash
 $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 ```
 
@@ -612,13 +621,13 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 可以启用早期阶段的 UART 来调试引导问题（与上述 bootcode.bin 仅引导模式非常有用）。要做到这一点，请确保你的固件版本是新的（包括 bootcode.bin ）。要检查当前固件是否支持 UART：
 
-```
+```bash
 $ strings bootcode.bin | grep BOOT_UART
 ```
 
 要从 bootcode.bin 启用 UART：
 
-```
+```bash
 $ sed -i -e "s/BOOT_UART=0/BOOT_UART=1/" bootcode.bin
 ```
 
@@ -737,13 +746,13 @@ USB 大容量存储启动能让你从 USB 大容量存储设备（如闪存驱�
 
 要启用 USB 主机启动模式，请将以下行添加到 config.txt 中：
 
-```
+```bash
 program_usb_boot_mode=1
 ```
 
 然后使用 sudo reboot 重启你的 Raspberry Pi。要检查 OTP 是否已正确编程，请运行以下命令：
 
-```
+```bash
 $ vcgencmd otp_dump | grep 17:
 17:3020000a
 ```
@@ -822,7 +831,7 @@ $ vcgencmd otp_dump | grep 17:
 
 首先要检查的是 OTP 位是否被正确编程。为此，你需要将 program_usb_boot_mode=1 添加到 config.txt，然后重启（使用可以正确引导到树莓派系统的标准存储卡）。完成后，你应该可以执行以下操作：
 
-```
+```bash
 $ vcgencmd otp_dump | grep 17:
 ```
 
@@ -830,7 +839,7 @@ $ vcgencmd otp_dump | grep 17:
 
 要在服务器上捕获以太网数据包，请在 tftpboot 服务器上（如果未使用，则在 DHCP 服务器上）使用 tcpdump。否则，你将无法看到发送的数据包，因为网络交换机不是集线器！
 
-```
+```bash
 $ sudo tcpdump -i eth0 -w dump.pcap
 ```
 
@@ -840,7 +849,7 @@ $ sudo tcpdump -i eth0 -w dump.pcap
 
 至少你应该看到一个类似以下内容的 DHCP 请求和回复：
 
-```
+```json
 6:44:38.717115 IP (tos 0x0, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 348)
     0.0.0.0.68 > 255.255.255.255.67: [no cksum] BOOTP/DHCP, Request from b8:27:eb:28:f6:6d, length 320, xid 0x26f30339, Flags [none] (0x0000)
 	  Client-Ethernet-Address b8:27:eb:28:f6:6d
@@ -882,7 +891,7 @@ Vendor-Option Option 43 包含了回复的重要部分。这个部分必须包�
 
 当供应商参数被正确指定时，你将看到随后发送的 TFTP RRQ 数据包。RRQ 可以通过第一个数据块或错误消息来回复，表明文件未找到。在少数情况下，他们甚至会收到第一个数据包，然后由 树莓派 中止传输（当检查文件是否存在时会发生这种情况）。下面的示例仅包括三个数据包：原始读取请求、第一个数据块（始终是包含一个标头和 512 B 数据的 516 B，尽管最后一个块始终少于 512 B 且可能为零长度），以及第三个数据包（包含与数据块中帧编号匹配的确认帧号）。
 
-```
+```json
 16:44:41.224964 IP (tos 0x0, ttl 128, id 0, offset 0, flags [none], proto UDP (17), length 49)
     192.168.1.139.49152 > 192.168.1.1.69: [no cksum]  21 RRQ "bootcode.bin" octet
 16:44:41.227223 IP (tos 0x0, ttl 64, id 57714, offset 0, flags [none], proto UDP (17), length 544)
@@ -943,7 +952,7 @@ DHCP UUID 设置为常量值。
 
 要启用 GPIO 引导模式，请将以下行添加到 config.txt 文件中：
 
-```
+```bash
 program_gpio_bootmode=n
 ```
 
@@ -967,7 +976,7 @@ program_gpio_bootmode=n
 
 #### 后续的树莓派 3B（带金属盖的 BCM2837B0）、树莓派 3A+、3B+ 和 Compute Module 3+
 
-| 银行 1 | 银行 2 | 引导类型                  |
+| 引脚 1 | 引脚 2 | 引导类型                  |
 | -------- | -------- | --------------------------- |
 | 20     | 37     | SD0                       |
 | 21     | 38     | SD1                       |
@@ -997,13 +1006,12 @@ NVMe（高速非易失性内存）是通过 PCIe 总线进行外部存储访问�
 
 * NVMe M.2 固态硬盘
 * 一款从 PCIe 转标准 M.2 的转接器
-
   * 对于树莓派 5，我们推荐使用 M.2 HAT+，它能把树莓派的 PCIe FFC 槽转换为 M Key 接口。
-  * 对于 CM4，可搜索 "PCIe 3.0 ×1 转 M.2 NGFF M-Key SSD NVMe PCIe 转接器"
+  * 对于 CM4，可搜索 "PCIe 3.0 ×1 转 M.2 NGFF M 键 SSD NVMe PCIe 转接器"
 
 要检查你的 NVMe 驱动器是否正确连接，请从其他存储设备（如存储卡）引导你的 Raspberry Pi，并运行 ls -l /dev/nvme*。示例输出如下所示。
 
-```
+```bash
 crw------- 1 root root 245, 0 Mar  9 14:58 /dev/nvme0
 brw-rw---- 1 root disk 259, 0 Mar  9 14:58 /dev/nvme0n1
 ```
@@ -1012,7 +1020,7 @@ brw-rw---- 1 root disk 259, 0 Mar  9 14:58 /dev/nvme0n1
 
 运行以下命令查看你正在运行的固件版本：
 
-```
+```bash
 $ sudo rpi-eeprom-update
 ```
 
@@ -1032,7 +1040,7 @@ $ sudo rpi-eeprom-update
 
 使用树莓派配置命令行界面来更新启动加载程序：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -1040,7 +1048,7 @@ $ sudo raspi-config
 
 运行以下命令以将固件更新至最新版本：
 
-```
+```bash
 $ sudo rpi-eeprom-update -a
 ```
 
@@ -1060,7 +1068,7 @@ EEPROM 配置中的 BOOT_ORDER 设置控制引导行为。对于 NVMe 引导，�
 
 以下是引导加载程序检测到 NVMe 驱动器时 UART 输出的示例：
 
-```
+```bash
 Boot mode: SD (01) order f64
 Boot mode: USB-MSD (04) order f6
 Boot mode: NVME (06) order f
@@ -1070,13 +1078,13 @@ NVME on
 
 然后它将找到一个 FAT 分区并加载 start4.elf ：
 
-```
+```bash
 Read start4.elf bytes  2937840 hnd 0x00050287 hash ''
 ```
 
 然后加载内核并引导操作系统：
 
-```
+```json
 MESS:00:00:07.096119:0: brfs: File read: /mfs/sd/kernel8.img
 MESS:00:00:07.098682:0: Loading 'kernel8.img' to 0x80000 size 0x1441a00
 MESS:00:00:07.146055:0:[   0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd083]
@@ -1084,7 +1092,7 @@ MESS:00:00:07.146055:0:[   0.000000] Booting Linux on physical CPU 0x0000000000 
 
 在 Linux 中，SSD 显示为 /dev/nvme0，而“namespace”显示为 /dev/nvme0n1。将会有两个分区 /dev/nvme0n1p1 （FAT）和 /dev/nvme0n1p2 （EXT4）。使用 lsblk 来检查分区分配：
 
-```
+```bash
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 nvme0n1     259:0    0 232.9G  0 disk
 ├─nvme0n1p1 259:1    0   256M  0 part /boot/firmware
@@ -1105,7 +1113,7 @@ nvme0n1     259:0    0 232.9G  0 disk
 
 例如，如果将以下内容添加到你的 EEPROM 配置中，且 GPIO 8（默认状态为 1 或高电平）被拉低，将下载文件 http://downloads.raspberrypi.org:80/net_install/boot.img、http://downloads.raspberrypi.org:80/net_install/boot.sig。如果启用开机网络安装，则会使用相同的网址。如果 GPIO 8 未被拉低，则行为将保持不变。
 
-```
+```bash
 [gpio8=0]
 BOOT_ORDER=0xf7
 HTTP_HOST=downloads.raspberrypi.org
@@ -1134,19 +1142,19 @@ USBBOOT 包含了编程公钥所需的全部工具。
 
 使用以下命令将你的公钥添加到 EEPROM。boot.conf 包含你的修改：
 
-```
+```bash
 $ rpi-eeprom-config -c boot.conf -p mypubkey.pem -o pieeprom.upd pieeprom.original.bin
 ```
 
 使用以下命令可为你的 EEPROM 生成签名：
 
-```
+```bash
 $ rpi-eeprom-digest -i pieeprom.upd -o pieeprom.sig
 ```
 
 然后，使用以下命令使用你的私钥对网络安装镜像进行签名：
 
-```
+```bash
 $ rpi-eeprom-digest -i boot.img -o boot.sig -k myprivkey.pem
 ```
 
@@ -1160,25 +1168,25 @@ $ rpi-eeprom-digest -i boot.img -o boot.sig -k myprivkey.pem
 
 运行以下命令生成 DER 编码的证书：
 
-```
+```bash
 $ openssl x509 -in your_ca_root_cert.pem -out cert.der -outform DER
 ```
 
 然后，运行以下命令生成证书的 SHA-256 哈希：
 
-```
+```bash
 $ sha256sum cert.der
 ```
 
 应该会看到类似输出如下：
 
-```
+```json
 701bd97f67b0f5483a9734e6e5cf72f9a123407b346088638f597878563193fc  cert.der
 ```
 
 接下来，更新 boot.conf 以包含证书的哈希值：
 
-```
+```bash
 $ sudo rpi-eeprom-config --edit
 ```
 
@@ -1188,7 +1196,7 @@ $ sudo rpi-eeprom-config --edit
 * 将 <path_to_files> 替换为托管在你的网站上的 OS 镜像的路径，例如 path/to/files
 * 使用上面生成的哈希值 701bd97f67b0f5483a9734e6e5cf72f9a123407b346088638f597878563193fc，例如 <hash>
 
-```
+```bash
 [all]
 BOOT_UART=1
 POWER_OFF_ON_HALT=0
@@ -1206,14 +1214,14 @@ HTTP_CACERT_HASH=<hash>
 
 最后，使用以下命令将所有内容加载到 EEPROM 中：
 
-```
+```bash
 $ rpi-eeprom-config -c boot.conf -p mypubkey.pem -o pieeprom.bin --cacertder cert.der pieeprom.original.bin
 $ rpi-eeprom-digest -k myprivkey.pem -i pieeprom.bin -o pieeprom.sig
 ```
 
 在网络启动过程中，你的树莓派应该使用 HTTPS 而不是 HTTP。要查看由网络安装解析的完整的 HTTPS 下载链接，请查看引导输出：
 
-```
+```json
 Loading boot.img ...
 HTTP: GET request for https://yourserver.org:443/path/to/files/boot.sig
 HTTP: GET request for https://yourserver.org:443/path/to/files/boot.img
@@ -1366,7 +1374,7 @@ ROM（第一阶段）的引导流程如下：
 
 要设置 tryboot 标志，请在 reboot 命令中的分区号后添加 tryboot。通常，分区号默认为 0。但如果要添加额外的参数，则必须指定分区号。传递参数给 reboot 时始终使用引号：它只接受一个参数：
 
-```
+```bash
 $ sudo reboot '0 tryboot'
 ```
 
@@ -1388,13 +1396,13 @@ $ sudo reboot '0 tryboot'
 
 要查看当前的 EEPROM 配置，请运行以下命令：
 
-```
+```bash
 $ rpi-eeprom-config
 ```
 
 要编辑当前的 EEPROM 配置并将更新应用于最新的 EEPROM 版本，请运行以下命令：
 
-```
+```bash
 $ sudo -E rpi-eeprom-config --edit
 ```
 
@@ -1572,7 +1580,7 @@ DHCP DISCOVER 或 DHCP REQ 重试之前的超时时间（毫秒）。
 
 例如，要使用存储在 Customer OTP 的行 0 和 1 中的 MAC 地址。
 
-```
+```bash
 MAC_ADDRESS_OTP=0,1
 ```
 
@@ -1716,7 +1724,7 @@ NETCONSOLE 复制调试消息到网络接口。IP 地址和接口由 NETCONSOLE 
 
 有关更多信息，请参阅 Netconsole 文档。
 
-```
+```bash
 src_port@src_ip/dev_name,dst_port@dst_ip/dst_mac
 E.g. 6665@169.254.1.1/,6666@/
 ```
@@ -1733,7 +1741,7 @@ E.g. 6665@169.254.1.1/,6666@/
 
 默认情况下不应启用 NETCONSOLE，因为这可能会导致网络问题。可以通过 GPIO 过滤器按需启用。
 
-```
+```bash
 # Enable debug if GPIO 7 is pulled low
 [gpio7=0]
 NETCONSOLE=6665@169.254.1.1/,6666@/
@@ -1747,7 +1755,7 @@ NETCONSOLE=6665@169.254.1.1/,6666@/
 
 如果未显式地由 reboot 命令 (例如 sudo reboot N ) 或 boot_partition=N 在 autoboot.txt 中设置，则可以使用 PARTITION 选项来指定引导分区号。用户可以按下按钮来从救援分区启动。
 
-```
+```bash
 # Boot from partition 2 if GPIO 7 is pulled low
 [gpio7=0]
 PARTITION=2
@@ -1841,7 +1849,7 @@ PARTITION=2
 
 要合并值，请将它们相加。例如：
 
-```
+```bash
 # Enable mass storage and USB descriptor logging
 XHCI_DEBUG=0x3
 ```
@@ -1929,7 +1937,7 @@ XHCI_DEBUG=0x3
 
 必须禁用使用冲突 GPIO 引脚的所有其他外设叠加层。在 config.txt 中，请注意注释或反转启用 I²C 或 SPI 的所有 dtparams：
 
-```
+```bash
 dtparam=i2c_arm=off
 dtparam=spi=off
 ```
@@ -1942,7 +1950,7 @@ dtparam=spi=off
 
 自动检测允许你的树莓派与显示器连接，无需手动配置设备树叠加。默认情况下启用了自动检测。你可以通过将以下行添加到 config.txt 来启用显示器自动检测：
 
-```
+```bash
 display_auto_detect=1
 ```
 
@@ -1956,7 +1964,7 @@ display_auto_detect=1
 
 要使用除树莓派官方显示屏之外的其他显示屏，必须在配置文件中指定 dtoverlay 条目。面板制造商应在 Linux 内核代码中配置你的显示屏的定时，并提供一个叠加层来启用这些设置。请参阅 Adafruit Kippah 显示屏条目以获取示例。以下示例演示如何在你的 txt 文件中为 Kippah 显示屏设置一个 dtoverlay 条目：
 
-```
+```bash
 dtoverlay=vc4-kms-kippah-7inch-overlay
 ```
 
@@ -1964,7 +1972,7 @@ dtoverlay=vc4-kms-kippah-7inch-overlay
 
 以下示例演示如何使用设备树参数定义定时：
 
-```
+```bash
 dtoverlay=vc4-kms-v3d
 dtoverlay=vc4-kms-dpi-generic,hactive=480,hfp=26,hsync=16,hbp=10
 dtparam=vactive=640,vfp=25,vsync=10,vbp=16
@@ -1981,13 +1989,13 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 | ------ | ---------------------------------------------------- |
 | `clock-frequency`     | 显示时钟频率（Hz）                                 |
 | `hactive`     | 水平活动像素                                       |
-| `hfp`     | 水平前廊                                           |
+| `hfp`     | 水平上沿                                          |
 | `hsync`     | 水平同步脉冲宽度                                   |
-| `hbp`     | 水平后廊                                           |
+| `hbp`     | 水平下沿                                          |
 | `vactive`     | 纵向活动线                                         |
-| `vfp`     | 纵向前肩                                           |
+| `vfp`     | 纵向上沿                                          |
 | `vsync`     | 纵向同步脉冲宽度                                   |
-| `vbp`     | 垂直后肩                                           |
+| `vbp`     | 垂直下沿                                          |
 | `hsync-invert`     | 水平同步低电平                                     |
 | `vsync-invert`     | 垂直同步低电平                                     |
 | `de-invert`     | 数据使能低电平                                     |
@@ -2036,7 +2044,7 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 
 为了使用 GPIO 接口，你的用户必须是 gpio 组的成员。默认用户账户已经是了，但对于其他用户，你必须使用以下命令手动加入：
 
-```
+```bash
 $ sudo usermod -a -G gpio <username>
 ```
 
@@ -2213,7 +2221,7 @@ GPIO 引脚的物理特性有更多信息。
 
 有许多可以使用的 OTP 值。要查看所有 OTP 值的列表，请运行以下命令：
 
-```
+```bash
 $ vcgencmd otp_dump
 ```
 
@@ -2233,13 +2241,13 @@ $ vcgencmd otp_dump
 
 vcmailbox 应用程序可以直接在树莓派系统的命令行上使用。一个示例用法是：
 
-```
+```bash
 $ vcmailbox 0x00010004 8 8 0 0
 ```
 
 ...会返回类似于：
 
-```
+```bash
 0x00000020 0x80000000 0x00010004 0x00000008 0x800000008 0xnnnnnnnn 0x00000000 0x00000000
 ```
 
@@ -2253,7 +2261,7 @@ $ vcmailbox 0x00010004 8 8 0 0
 
 要设置定制 OTP 值，你需要使用 SET_CUSTOMER_OTP (0x38021) 标签如下：
 
-```
+```bash
 $ vcmailbox 0x00038021 [8 + number * 4] [8 + number * 4] [start_num] [number] [value] [value] [value] ...
 ```
 
@@ -2263,7 +2271,7 @@ $ vcmailbox 0x00038021 [8 + number * 4] [8 + number * 4] [start_num] [number] [v
 
 因此，要将 OTP 客户行 4、5 和 6 编程为分别为 0x11111111、0x22222222、0x33333333，你将使用：
 
-```
+```bash
 $ vcmailbox 0x00038021 20 20 4 3 0x11111111 0x22222222 0x33333333
 ```
 
@@ -2271,13 +2279,13 @@ $ vcmailbox 0x00038021 20 20 4 3 0x11111111 0x22222222 0x33333333
 
 要读回值，你可以使用：
 
-```
+```bash
 $ vcmailbox 0x00030021 20 20 4 3 0 0 0
 ```
 
  这应该显示：
 
-```
+```bash
 0x0000002c 0x80000000 0x00030021 0x00000014 0x80000014 0x00000000 0x00000003 0x11111111 0x22222222 0x33333333
 ```
 
@@ -2289,7 +2297,7 @@ $ vcmailbox 0x00030021 20 20 4 3 0 0 0
 
 这可以通过使用带有 OTP 写邮箱的特殊参数来完成。
 
-```
+```bash
 $ vcmailbox 0x00038021 8 8 0xffffffff 0xaffe0000
 ```
 
@@ -2299,7 +2307,7 @@ $ vcmailbox 0x00038021 8 8 0xffffffff 0xaffe0000
 
 可以使用以下命令将客户区域标记为只读。
 
-```
+```bash
 $ vcmailbox 0x00030086 4 4 0
 ```
 
@@ -2309,7 +2317,7 @@ $ vcmailbox 0x00030086 4 4 0
 
 可以完全阻止读取客户一次性密码位。这可以通过在一次性密码写邮箱中使用特殊参数来实现：
 
-```
+```bash
 $ vcmailbox 0x00038021 8 8 0xffffffff 0xaffebabe
 ```
 
@@ -2321,20 +2329,20 @@ $ vcmailbox 0x00038021 8 8 0xffffffff 0xaffebabe
 
 获取客户端的 MAC 地址 vcmailbox 0x00030082/3/4 6 6 0 0，其中 2 是以太网，3 是 Wi-Fi，4 是蓝牙：
 
-```
+```bash
 $ vcmailbox 0x00030083 6 6 0 0
 0x00000020 0x80000000 0x00030083 0x00000006 0x80000006 0xddccbbaa 0x0000ffee 0x00000000
 ```
 
 要设置客户端的 MAC 地址，必须按正确顺序将其发送为两个 32 字的单词。你可以运行一个命令来检查它是否格式正确：
 
-```
+```bash
 $ vcmailbox 0x00030085 6 6 0x44332211 0x6655
 ```
 
 检查日志以查看 MAC 地址是否符合你的预期：
 
-```
+```bash
 $ sudo vclog -m
 1057826.701: read mac address 11:22:33:44:55:66
 ```
@@ -2343,7 +2351,7 @@ $ sudo vclog -m
 
 然后可以使用命令 vcmailbox 0x00038082/3/4 6 6 <row1> <row0> 设置客户 MAC 地址：
 
-```
+```bash
 $ vcmailbox 0x00038082 6 6 0x44332211 0x6655
 ```
 
@@ -2371,14 +2379,14 @@ rpi-otp-private-key 脚本包装设备私钥 vcmailbox API，使得更容易以 
 
 把这个 32 B 的密钥读取为 64 个字符的十六进制数：
 
-```
+```bash
 $ cd usbboot/tools
 $ rpi-otp-private-key
 ```
 
  示例输出：
 
-```
+```bash
 f8dbc7b0a4fcfb1d706e298ac9d0485c2226ce8df7f7596ac77337bd09fbe160
 ```
 
@@ -2388,7 +2396,7 @@ f8dbc7b0a4fcfb1d706e298ac9d0485c2226ce8df7f7596ac77337bd09fbe160
 >
 >此操作无法撤销。
 
-```
+```bash
 $ rpi-otp-private-key -w $(openssl rand -hex 32)
 ```
 
@@ -2400,25 +2408,25 @@ $ rpi-otp-private-key -w $(openssl rand -hex 32)
 
 读取所有行。
 
-```
+```bash
 $ vcmailbox 0x00030081 40 40 0 8 0 0 0 0 0 0 0 0
 ```
 
  示例输出：
 
-```
+```bash
 0x00000040 0x80000000 0x00030081 0x00000028 0x80000028 0x00000000 0x00000008 0xf8dbc7b0 0xa4fcfb1d 0x706e298a 0xc9d0485c 0x2226ce8d 0xf7f7596a 0xc77337bd 0x09fbe160 0x00000000
 ```
 
 将所有行写入（用密钥数据替换末尾的八个零）：
 
-```
+```bash
 $ vcmailbox 0x00038081 40 40 0 8 0 0 0 0 0 0 0 0
 ```
 
 写入前一个示例中显示的密钥：
 
-```
+```bash
 $ vcmailbox 0x38081 40 40 0 8 0xf8dbc7b0 0xa4fcfb1d 0x706e298a 0xc9d0485c 0x2226ce8d 0xf7f7596a 0xc77337bd 0x09fbe160
 ```
 
@@ -2433,7 +2441,7 @@ $ vcmailbox 0x38081 40 40 0 8 0xf8dbc7b0 0xa4fcfb1d 0x706e298a 0xc9d0485c 0x2226
 
 要显示 OTP 的内容，请运行以下命令：
 
-```
+```bash
 $ vcgencmd otp_dump
 ```
 
@@ -2567,7 +2575,7 @@ $ vcgencmd otp_dump
 
 默认情况下，除非连接到了 HAT+ 设备，否则不会启用 PCIe 连接器。要启用连接器，请将以下行添加到 /boot/firmware/config.txt ：
 
-```
+```bash
 dtparam=pciex1
 ```
 
@@ -2581,19 +2589,19 @@ dtparam=pciex1
 
 默认情况下，树莓派设备不会从 PCIe 存储启动。要启用从 PCIe 启动，请更改引导加载程序配置中的 BOOT_ORDER。使用以下命令编辑 EEPROM 配置：
 
-```
+```bash
 $ sudo rpi-eeprom-config --edit
 ```
 
 将 BOOT_ORDER 行替换为如下行：
 
-```
+```bash
 BOOT_ORDER=0xf416
 ```
 
 若要从非 HAT+ 设备启动，还需添加以下行：
 
-```
+```bash
 PCIE_PROBE=1
 ```
 
@@ -2609,7 +2617,7 @@ PCIE_PROBE=1
 
 连接已被证明符合 Gen 2.0 速度（5 GT/sec），但你可以强制使用 Gen 3.0（10 GT/sec）速度。要启用 PCIe Gen 3.0 速度，请向 /boot/firmware/config.txt 添加以下行：
 
-```
+```bash
 dtparam=pciex1_gen=3
 ```
 
@@ -2619,7 +2627,7 @@ dtparam=pciex1_gen=3
 
 运行以下命令打开树莓派配置 CLI：
 
-```
+```bash
 $ sudo raspi-config
 ```
 
@@ -2727,7 +2735,7 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 
 运行以下命令检查输出到 USB 的电力状态：
 
-```
+```bash
 $ vcgencmd get_config usb_max_current_enable
 ```
 
@@ -2758,7 +2766,7 @@ $ vcgencmd get_config usb_max_current_enable
 
 默认情况下，树莓派 5 关闭后仍会消耗电力，约 1 瓦至 1.4 瓦。可以减少这种功率消耗：手动编辑 EEPROM 配置来，使用 sudo rpi-eeprom-config -e。将设置更改为以下内容：
 
-```
+```bash
 BOOT_UART=1
 POWER_OFF_ON_HALT=1
 BOOT_ORDER=0xf416
@@ -2798,7 +2806,7 @@ PDO 转储 - 高级用户的调试
 
 电源管理芯片（PMIC）带有内置 ADC，可以测量供电电压 EXT5V_V 等等。使用以下命令查看 ADC 测量值：
 
-```
+```bash
 $ vcgencmd pmic_read_adc
 ```
 
@@ -2820,20 +2828,20 @@ J5 电池连接器
 
 编辑引导加载程序配置以支持唤醒警报的低功率模式：
 
-```
+```bash
 $ sudo -E rpi-eeprom-config --edit
 ```
 
 添加以下两行。
 
-```
+```bash
 POWER_OFF_ON_HALT=1
 WAKE_ON_GPIO=0
 ```
 
 你可以使用以下方式测试功能：
 
-```
+```bash
 $ echo +600 | sudo tee /sys/class/rtc/rtc0/wakealarm
 $ sudo halt
 ```
@@ -2842,7 +2850,7 @@ $ sudo halt
 
 RTC 还提供了启动时的时间，例如 dmesg，适用于缺乏 NTP 访问权限的用例：
 
-```
+```bash
 [    1.295799] rpi-rtc soc:rpi_rtc: setting system clock to 2023-08-16T15:58:50 UTC (1692201530)
 ```
 
@@ -2872,7 +2880,7 @@ RTC 配备了恒流（3mA）恒压充电器。
 
 默认情况下，禁用电池充电。有 sysfs 个文件显示充电电压和限制：
 
-```
+```bash
 /sys/devices/platform/soc/soc:rpi_rtc/rtc/rtc0/charging_voltage:0
 /sys/devices/platform/soc/soc:rpi_rtc/rtc/rtc0/charging_voltage_max:4400000
 /sys/devices/platform/soc/soc:rpi_rtc/rtc/rtc0/charging_voltage_min:1300000
@@ -2880,7 +2888,7 @@ RTC 配备了恒流（3mA）恒压充电器。
 
 要以设定电压为电池充电，请添加 rtc_bbat_vchg 到 /boot/firmware/config.txt ：
 
-```
+```bash
 dtparam=rtc_bbat_vchg=3000000
 ```
 
@@ -3053,7 +3061,7 @@ SCLK 核心时钟 / CDIV
 
 要启用 SPI1，你可以使用 1、2 或 3 个芯片选择线。将适当的线添加到 /boot/firmware/config.txt 中：
 
-```
+```bash
 #1 chip select
 dtoverlay=spi1-1cs
 #2 chip select
@@ -3127,7 +3135,7 @@ $ echo -ne "\x01\x02\x03" > /dev/spidev0.0
 
 这可以用来测试 SPI 发送和接收。在 MOSI 和 MISO 之间放一根电线。它不测试 CE0 和 CE1。
 
-```
+```bash
 $ wget https://raw.githubusercontent.com/raspberrypi/linux/rpi-6.1.y/tools/spi/spidev_test.c
 $ gcc -o spidev_test spidev_test.c
 $ ./spidev_test -D /dev/spidev0.0
@@ -3216,13 +3224,13 @@ USB 2.0 和 3.0 集线器具有一种机制，用于与连接到其下游接口�
 
 每个不同的树莓派型号修订版都有一个唯一的修订代码。你可以通过运行以下命令查找树莓派的修订代码：
 
-```
+```bash
 $ cat /proc/cpuinfo
 ```
 
 最后三行显示硬件类型、修订代码和树莓派的唯一序列号。例如：
 
-```
+```bash
 Hardware    : BCM2835
 Revision    : a02082
 Serial      : 00000000765fc593
@@ -3260,7 +3268,7 @@ Serial      : 00000000765fc593
 
 使用树莓派 2 的推出，引入了新样式的修订代码。不同于顺序的是，十六进制代码的每一位代表修订的一部分信息：
 
-```
+```bash
 NOQuuuWuFMMMCCCCPPPPTTTTTTTTRRRR
 ```
 
@@ -3381,7 +3389,7 @@ NOQuuuWuFMMMCCCCPPPPTTTTTTTTRRRR
 
 从命令行，我们可以使用以下命令获取板的修订代码：
 
-```
+```bash
 $ cat /proc/cpuinfo | grep Revision
 Revision      : c03111
 ```
@@ -3394,7 +3402,7 @@ Revision      : c03111
 
 很明显，有这么多编程语言，不可能为所有这些语言都举例，但这里有两个快速例子，分别针对 C 和 Python。这两个例子都使用系统调用运行一个 bash 命令，获取 cpuinfo 并将结果传送给 awk 以恢复所需的修订代码。然后，它们使用位操作来提取代码中的 New、Model 和 Memory 字段。
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -3423,7 +3431,7 @@ int main( int argc, char *argv[] )
 
 同样的 Python 代码：
 
-```
+```python
 import subprocess
 
 cmd = "cat /proc/cpuinfo | awk '/Revision/ {print $3}'"
@@ -3459,7 +3467,7 @@ if new and model == 0x11 and mem >= 3 : # Note, 3 in the mem field is 2GB
 
 在各个 Linux 发行版中，/proc/cpuinfo 的支持和格式会有所不同。要检查树莓派设备在任何 Linux 发行版（包括树莓派系统）上的型号或 CPU，请检查设备树：
 
-```
+```bash
 $ cat /proc/device-tree/compatible | tr '\0' '\n'
 raspberrypi,5-model-b
 brcm,bcm2712
