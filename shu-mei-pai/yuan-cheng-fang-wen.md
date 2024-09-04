@@ -459,7 +459,7 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
     ```
 2. 导航至接口选项。按 **回车键** 选择。
 3. 选择 VNC。按 **回车键** 选择。
-4. 在你想要启用 VNC 服务器吗? 下，突出显示 <Yes> 并按  **回车键**。
+4. 在你想要启用 VNC 服务器吗? 使 <Yes> 高亮并按  **回车键**。
 5. 按 **回车键** 返回菜单。按 **Esc 键** 退出 raspi-config。
 
 ### 连接到 VNC 服务器
@@ -473,7 +473,7 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 如果你不知道设备的 IP 地址，请参阅有关查找 IP 地址的说明。
 
 1. 下载 TigerVNC。你可以从其 GitHub 存储库的 Releases 页面安装最新版本。单击最新版本中的链接，找到适用于你平台的二进制文件。Windows 用户应下载 exe；macOS 用户应下载 dmg；Linux 用户应下载 jar。
-2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<版本>.jar`，将占位符 `<版本>` 替换为你下载的版本。
+2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<版本号>.jar`，将占位符 `<版本号>` 替换为你下载的版本。
 3. 在“VNC 服务器”字段中输入你树莓派的 IP 地址。
 
 ![将树莓派的局域网 IP 地址输入到 TigerVNC 中](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-enter-ip.png)
@@ -505,7 +505,7 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 ## 使用 SCP 共享文件
 
-安全复制协议（ scp ）通过 SSH 发送文件。你可以使用 scp 在你的树莓派和另一台计算机间复制文件。
+安全复制协议（scp）通过 SSH 发送文件。你可以使用 scp 在你的树莓派和另一台计算机间复制文件。
 
 要使用 scp，请查找你树莓派的 IP 地址。
 
@@ -531,7 +531,7 @@ $ scp myfile.txt <用户名>@<树莓派IP地址>:project/
 $ scp <用户名>@<树莓派IP地址>:myfile.txt .
 ```
 
-### 一次性使用一个命令复制多个文件
+### 一次性使用单个命令复制多个文件
 
 复制多个文件，请在单个命令中列出以空格分隔的文件名：
 
@@ -601,12 +601,12 @@ $ scp -r project/ <用户名>@<树莓派IP地址>:
 
 NFS 是在 Linux/Unix 环境中创建简单 NAS（网络附加存储）的通行方法。
 
-NFS 也许更适用于相对固定的网络挂载目录，例如目录 `/home` 等经常访问的共享资源。如果你想让一位让访客用户能轻松连接到网络共享，Samba 更适合。在各种操作系统中，用于临时挂载和卸载 Samba 共享的工具更容易获得。
+NFS 也许更适用于相对固定的网络挂载目录，例如目录 `/home` 等经常访问的共享资源。如果你想让一位让访客用户能轻松连接到网络共享，Samba 更适合。在各种操作系统中，用于临时挂载和卸载 Samba 共享的工具更易获得。
 
 在部署 NFS 之前，你应该熟悉：
 
 * Linux 文件和目录权限
-* 挂载和卸载文件系统
+* 挂载、卸载文件系统
 
 ### 设置基本的 NFS 服务器
 
@@ -640,7 +640,7 @@ $ chmod -R 777 /export
 $ sudo mount --bind /home/users /export/users
 ```
 
-为了避免在每次重启后重复输入，我们把以下行添加到 `/etc/fstab`：
+为了避免在每次重启后重复操作，我们把以下行添加到 `/etc/fstab`：
 
 ```sh
 /home/users    /export/users   none    bind  0  0
@@ -652,9 +652,9 @@ $ sudo mount --bind /home/users /export/users
 2. `/etc/default/nfs-common`
 3. `/etc/exports`
 
-目前，`/etc/default/nfs-kernel-server` 中唯一重要的选项是 `NEED_SVCGSSD`。默认设置为“no”，这没有问题，因为这次我们不会激活 NFSv4 安全性。
+现在，`/etc/default/nfs-kernel-server` 里唯一重要的参数是 `NEED_SVCGSSD`。默认设置为“no”，这没有问题，因为这次我们不会启用 NFSv4 安全功能。
 
-为了使 ID 名称自动映射，文件 `/etc/idmapd.conf` 必须在客户端和服务器上都存在，并且具有相同的内容和正确的域名。此外，该文件应在 Mapping 部分中包含以下行：
+为了自动映射 ID 名称，文件 `/etc/idmapd.conf` 必须同时存在于客户端和服务器上，并且内容一致且带有正确的域名。此外，该文件应在 Mapping 部分中包含以下行：
 
 ```sh
 [Mapping]
@@ -663,14 +663,14 @@ Nobody-User = nobody
 Nobody-Group = nogroup
 ```
 
-但是，请注意，客户端可能对 Nobody-User 和 Nobody-Group 有不同的要求。例如，在 RedHat 的衍生上，它们都是 nfsnobody。如果不确定，请通过以下命令检查 nobody 和 nogroup 是否存在：
+但请注意，客户端可能对 `Nobody-User` 和 `Nobody-Group` 有不同的要求。例如，在 RedHat 的衍生版上，它们都是 `nfsnobody`。如果不确定，请通过以下命令检查是否存在 `nobody` 和 `nogroup`：
 
 ```sh
 $ cat /etc/passwd
 $ cat /etc/group
 ```
 
-这样，服务器和客户端不需要用户共享相同的 UID/GUID。对于使用基于 LDAP 的身份验证的用户，在你的客户端中添加以下行：
+这样，服务器和客户端就无需用户共享相同的 UID/GUID。对于使用基于 LDAP 的身份验证的用户，在你的客户端中添加以下行：
 
 ```sh
 [Translation]
@@ -678,9 +678,9 @@ $ cat /etc/group
 Method = nsswitch
 ```
 
-这将导致 idmapd 知道要查看 `nsswitch.conf` 以确定它应该查找凭据信息的位置。如果你已经使用 LDAP 身份验证，nsswitch 不需要进一步解释。
+这将触发 idmapd 查看 `nsswitch.conf`，以确定其应该查找凭据信息的位置。如果你已经使用 LDAP 身份验证，nsswitch 无需进一步解释。
 
-要将我们的目录导出到本地网络 `192.168.1.0/24`，请在 `/etc/exports` 中添加以下两行：
+要将我们的目录 export 到本地网络 `192.168.1.0/24`，请在 `/etc/exports` 中添加以下两行：
 
 ```sh
 /export       192.168.1.0/24(rw,fsid=0,insecure,no_subtree_check,async)
@@ -689,7 +689,7 @@ Method = nsswitch
 
 #### 端口映射锁定（可选）
 
-你的 NFS 上的文件对网络上的任何人都是开放的。作为安全措施，你可以限制对指定客户端的访问。
+你 NFS 上的文件对网络上的所有人都是开放的。作为安全措施，你可以限制对指定客户端的访问。
 
 将以下行添加到 `/etc/hosts.deny`：
 
@@ -697,17 +697,17 @@ Method = nsswitch
 rpcbind mountd nfsd statd lockd rquotad : ALL
 ```
 
-通过首先阻止所有客户端，只有在下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
+首先，阻止所有客户端，仅在下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
 
-现在将以下行添加到 `/etc/hosts.allow` 中：
+现在把以下行添加到 `/etc/hosts.allow` 中：
 
 ```sh
 rpcbind mountd nfsd statd lockd rquotad : <IPv4地址列表>
 ```
 
-其中 `<IPv4地址列表>` 是服务器和所有客户端的 IP 地址列表（由于 rpcbind 中的限制不喜欢主机名，这些必须是 IP 地址）。请注意，如果你设置了 NIS，你可以将这些添加到同一行中。
+其中 `<IPv4地址列表>` 是服务器和所有客户端的 IP 地址列表（由于 rpcbind 中的限制不支持主机名，他们必须是 IP 地址）。请注意，如果你设置了 NIS，你可以将这些添加到同一行里。
 
-请确保授权 IP 地址列表包括地址 `localhost` （ `127.0.0.1` ），因为最新版本 Ubuntu 中的启动脚本使用命令 `rpcinfo` 来发现 NFSv3 支持，如果 `localhost` 无法连接，将被禁用。
+请确保授权 IP 地址列表包含地址 `localhost` （`127.0.0.1`），因为最新版本的 Ubuntu 中启动脚本使用命令 `rpcinfo` 来发现 NFSv3 支持，如果 `localhost` 无法连接，将被禁用。
 
 最后，要使更改生效，请重启服务：
 
@@ -717,37 +717,37 @@ $ sudo systemctl restart nfs-kernel-server
 
 ### 配置 NFS 客户端
 
-现在你的服务器正在运行，你需要设置客户端以便能够访问它。首先，安装所需的软件包：
+现在你的服务器正运行着，你需要设置客户端，就能够访问它了。首先，安装所需的软件包：
 
 ```sh
 $ sudo apt install nfs-common
 ```
 
-在客户端上，我们可以使用一个命令挂载完整的导出树：
+在客户端上，我们可以使用一个命令挂载完整的 export 树：
 
 ```sh
 $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/ /mnt
 ```
 
-你还可以指定 NFS 服务器主机名，而不是其 IP 地址，但在这种情况下，你需要确保主机名可以在客户端上解析为 IP。确保这将始终解析的一种稳健方法是使用 `/etc/hosts` 文件。
+你还可以指定 NFS 服务器主机名，而非 IP 地址，但在这种情况下，你需要确保主机名可以在客户端上被解析为 IP。确保能始终被解析的一种稳健方法是使用 `/etc/hosts` 文件。
 
-请注意，在 NFSv4 中，`<nfs服务器IP>:/export` 非必需，就像在 NFSv3 中一样。根导出 `:/` 默认导出为 fsid=0。
+请注意，在 NFSv4 中，`<nfs服务器IP>:/export` 非必需，就像在 NFSv3 中一样。根 export 为 `:/` 默认 export 为 fsid=0。
 
-我们还可以挂载导出的子树：
+我们还可以挂载 export 的子树：
 
 ```sh
 $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/users /home/users
 ```
 
-为了确保在每次重启时都挂载这个，请将以下行添加到 /etc/fstab ：
+为了确保在每次重启时都挂载这个，请把以下行添加到 `/etc/fstab`：
 
 ```sh
 <nfs服务器IP>:/   /mnt   nfs    auto  0  0
 ```
 
-如果在挂载后，`/proc/mounts appears` 中的条目为 `<nfs服务器IP>://` （带有两个斜杠），那么你可能需要在 `/etc/fstab` 中指定两个斜杠，否则 `umount` 可能会抱错找不到该挂载点。
+如在挂载后，`/proc/mounts appears` 中的条目为 `<nfs服务器IP>://` （带有两个斜杠），那么你可能需要在 `/etc/fstab` 中指定两个斜杠，否则 `umount` 可能会报错找不到该挂载点。
 
-#### 端口映射锁定（可选）
+#### 锁定端口映射（可选）
 
 将以下行添加到 `/etc/hosts.deny`：
 
@@ -755,7 +755,7 @@ $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/users /home/users
 rpcbind : ALL
 ```
 
-通过首先阻止所有客户端，只有在下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
+首先，阻止所有客户端，仅在下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
 
 现在将以下行添加到 `/etc/hosts.allow`：
 
@@ -774,7 +774,7 @@ NFS 用户权限基于用户 ID（UID）。客户端上所有用户的 UID 必�
 * 使用 DNS
 * 使用 NIS
 
-请注意，在具有 root 访问权限的系统上，你必须小心：该用户可以更改系统上的 UID 以允许自己访问任何人的文件。本页面假定管理团队是唯一具有 root 访问权限的群组，并且他们都是受信任的。其他任何情况都代表更高级的配置，这里不会涉及。
+请注意，在持有 root 访问权限的系统上，你必须小心：该用户可以更改系统上的 UID 以允许自己访问任何人的文件。本页面假定管理团队是唯一具有 root 访问权限的群组，并且他们都是受信任的。其他任何情况都代表着更高级的配置，这里不会涉及。
 
 #### 群组权限
 
