@@ -24,7 +24,7 @@
 
 本项目由 FreeBSD 中文社区发起。
 
-如有问题请请 PR 或 Issue。
+如有问题请 PR 或 Issue。
 
 - 微信公众号: rpicn2025 （扫码关注）
 
