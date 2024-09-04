@@ -14,13 +14,13 @@
 
 首先安装你的摄像头模块。然后，依此部分的指南，使用摄像头模块。
 
-## `rpicam-apps`
+## `rpicam-软件`
 
 >**注意**
 >
 >树莓派系统 Bookworm 把相机捕获应用程序从 `libcamera-*` 重命名为 `rpicam-*`。用户可暂时通过符号链接使用旧名称。请尽快采用新的软件名。之前的旧版树莓派系统仍使用 `libcamera-*` 这个名称。
 
-树莓派提供了一小组示例 `rpicam-apps`。这些 CLI 应用程序基于 libcamera，从相机捕获图像和视频。这些应用程序包括：
+树莓派提供了一小组示例 `rpicam-软件`。这些 CLI 应用程序基于 libcamera，从相机捕获图像和视频。这些应用程序包括：
 
 * `rpicam-hello` ：相机版的“hello world”，将启动相机预览流并在屏幕上显示它。
 * `rpicam-jpeg` ：打开预览窗口，随后捕获高分辨率的静止图像。
@@ -29,15 +29,15 @@
 * `rpicam-raw` ：直接从传感器捕获原始（未经处理的 Bayer）帧。
 * `rpicam-detect`：默认情况下未构建，但如果用户在其树莓派上安装了 TensorFlow Lite，则可构建。当检测到特定对象时，可捕获 JPEG 图像。
 
-最新版的树莓派系统内置了五款基本的 `rpicam-apps`，因此即使在全新安装的树莓派系统上，你也可以使用摄像头记录图像和视频。
+最新版的树莓派系统内置了五款基本的 `rpicam-软件`，因此即使在全新安装的树莓派系统上，你也可以使用摄像头记录图像和视频。
 
-用户可以创建基于 rpicam 的应用程序，定制其功能，足以满足用户需求。`rpicam-apps` 的源代码在 BSD-2-Clause 许可下自由提供。
+用户可以创建基于 rpicam 的应用程序，定制其功能，足以满足用户需求。`rpicam-软件` 的源代码在 BSD-2-Clause 许可下自由提供。
 
 ### `libcamera`
 
 libcamera 是一款开源软件库，旨在直接在基于 Arm 处理器上运行的 Linux 操作系统来使用相机设备。在博通 GPU 上运行的私有代码已被最小化。有关 libcamera 的更多信息，请参阅 libcamera 网站。
 
-libcamera 提供了 C++ API，用于配置相机，能让应用程序请求图像帧。这些图像缓冲区驻留在系统内存中，并可以直接传参给静态图像编码器（如 JPEG）或视频编码器（如 H.264）。libcamera 不会对图像进行编码及显示：要使用该功能，请使用 `rpicam-apps`。
+libcamera 提供了 C++ API，用于配置相机，能让应用程序请求图像帧。这些图像缓冲区驻留在系统内存中，并可以直接传参给静态图像编码器（如 JPEG）或视频编码器（如 H.264）。libcamera 不会对图像进行编码及显示：要使用该功能，请使用 `rpicam-软件`。
 
 你可以在 libcamera 官方存储库中找到源代码。树莓派系统发行版使用分支控制更新。
 
@@ -78,7 +78,7 @@ $ rpicam-hello --timeout 0
 
 #### 显示图像传感器预览
 
-大多数 `rpicam-apps` 都在窗口中显示预览图像。如果没有正在运行的桌面环境，则将直接使用 Linux Direct Rendering Manager（DRM，直接渲染管理器）把预览绘制到显示器。如果都没有，`rpicam-apps` 会尝试使用桌面环境。这两种路径都使用零拷贝 GPU 缓冲区共享：即导致不支持 X 转发。
+大多数 `rpicam-软件` 都在窗口中显示预览图像。如果没有正在运行的桌面环境，则将直接使用 Linux Direct Rendering Manager（DRM，直接渲染管理器）把预览绘制到显示器。如果都没有，`rpicam-软件` 会尝试使用桌面环境。这两种路径都使用零拷贝 GPU 缓冲区共享：即导致不支持 X 转发。
 
 如果你运行着 X 窗口服务器，想要使用 X 转发，请使用参数 `qt-preview`，可在 Qt 窗口中渲染预览窗口。与其他方案相比，用 Qt 预览窗口将消耗更多资源。
 
@@ -410,7 +410,7 @@ $ rpicam-raw -t 5000 --width 4056 --height 3040 -o test.raw --framerate 8
 
 >**注意**
 >
->树莓派系统不包括 `rpicam-detect`。但是，如果你已安装了 TensorFlow Lite，可以编译 `rpicam-detect`。有关更多信息，请参阅 rpicam-apps 编译说明。运行 `cmake` 时，请不要忘记参数 `-DENABLE_TFLITE=1`。
+>树莓派系统不包括 `rpicam-detect`。但是，如果你已安装了 TensorFlow Lite，可以编译 `rpicam-detect`。有关更多信息，请参阅 rpicam-软件 编译说明。运行 `cmake` 时，请不要忘记参数 `-DENABLE_TFLITE=1`。
 
 `rpicam-detect` 显示一个预览窗口，并使用经过训练的 Google MobileNet v1 SSD（Single Shot Detector）神经网络监视内容，以识别大约 80 种对象类别，使用 Coco 数据集。`rpicam-detect` 可以识别人、汽车、猫和许多其他对象。
 
@@ -462,7 +462,7 @@ libcamera 维护着多种摄像头的调整文件，包括第三方型号。例�
 
 ### 使用多个摄像头
 
-`rpicam-apps` 对多个摄像头有基本支持。你可以通过以下方式将多个摄像头连接到树莓派：
+`rpicam-软件` 对多个摄像头有基本支持。你可以通过以下方式将多个摄像头连接到树莓派：
 
 * 对于树莓派计算模块，你可以直接连接两个摄像头到树莓派计算模块 I/O 板。有关详细信息，请参阅摄像头模块文档。使用此方法，你可以同时使用两个摄像头。
 * 对于树莓派 5，你可以使用双 MIPI 连接器直接将两个摄像头连接到主板上。
@@ -474,22 +474,22 @@ libcamera 维护着多种摄像头的调整文件，包括第三方型号。例�
 >
 >libcamera 尚不支持立体摄像头。当同时运行两个摄像头时，它们必须在单独的进程中运行。这意味着它们之间没有同步传感器帧及 3A 操作的方法。一种解决方法是，你可以通过外部同步信号同步摄像头，对于 HQ（IMX477）摄像头，如果需要，就将 3A 切换到手动模式。
 
-### 安装 libcamera 和 rpicam-apps
+### 安装 libcamera 和 rpicam-软件
 
-树莓派提供了两种 `rpicam-apps` 包：
+树莓派提供了两种 `rpicam-软件` 包：
 
-* `rpicam-apps` 包含完整的应用程序，支持使用桌面环境进行预览。此软件包已预装在树莓派系统中。
-* `rpicam-apps-lite` 不支持桌面环境，仅提供 DRM 预览。此软件包已预装在精简版树莓派系统中。
+* `rpicam-软件` 包含完整的应用程序，支持使用桌面环境进行预览。此软件包已预装在树莓派系统中。
+* `rpicam-软件-lite` 不支持桌面环境，仅提供 DRM 预览。此软件包已预装在精简版树莓派系统中。
 
 #### 依赖关系
 
-`rpicam-apps` 依赖于名为 `library-名称<版本>` 的库，其中 `<版本>` 是 ABI 版本。这些你的软件包管理器应能自动安装。
+`rpicam-软件` 依赖于名为 `library-名称<版本>` 的库，其中 `<版本>` 是 ABI 版本。这些你的软件包管理器应能自动安装。
 
 #### 开发包
 
-你可以重新构建 `rpicam-apps` 而无需从头开始构建 libcamera 和 libepoxy。有关更多信息，请参阅在不重新构建 libcamera 的情况下构建 `rpicam-apps`。
+你可以重新构建 `rpicam-软件` 而无需从头开始构建 libcamera 和 libepoxy。有关更多信息，请参阅在不重新构建 libcamera 的情况下构建 `rpicam-软件`。
 
-## 使用 `rpicam-apps` 在网络上进行视频流传输
+## 使用 `rpicam-软件` 在网络上进行视频流传输
 
 本节说明了使用 `rpicam-vid` 进行本地流传输。你还可以使用 libav 后端进行网络流传输。
 
@@ -621,11 +621,11 @@ $ gst-launch-1.0 libcamerasrc ! capsfilter caps=video/x-raw,width=1280,height=72
 
 在客户端上，我们使用与以前相同的播放管道。
 
-## rpicam-apps 参数参考
+## rpicam-软件 参数参考
 
 ### 常见参数
 
-适用于所有具有相似或相同语义的 rpicam-apps 的以下参数，除非另有说明。
+适用于所有具有相似或相同语义的 rpicam-软件 的以下参数，除非另有说明。
 
 要将以下参数之一传参给应用程序，请在参数名称前加上 `--`。如果参数需要一个值，请在参数名称后立即传参该值，用单个空格分隔。如果值包含空格，请用引号括起来。
 
@@ -639,12 +639,12 @@ $ gst-launch-1.0 libcamerasrc ! capsfilter caps=video/x-raw,width=1280,height=72
 
 #### `version`
 
-以字符串打印出 libcamera 和 rpicam-apps 的版本。不接受值。
+以字符串打印出 libcamera 和 rpicam-软件 的版本。不接受值。
 
  示例输出：
 
 ```
-rpicam-apps build: ca559f46a97a 27-09-2021 (14:10:24)
+rpicam-软件 build: ca559f46a97a 27-09-2021 (14:10:24)
 libcamera build: v0.0.0+3058-c29143f7
 ```
 
@@ -1467,9 +1467,9 @@ Name: alsa_input.usb-GN_Netcom_A_S_Jabra_EVOLVE_LINK_000736B1214E0A-00.mono-fall
 
 在捕获之间至少等待这么多帧。接受数值。
 
-## 使用 rpicam-apps 进行后处理
+## 使用 rpicam-软件 进行后处理
 
-rpicam-apps 共享一个通用的后处理框架。这使它们能够通过一系列自定义图像处理和图像分析例程传参从相机系统接收到的图像。每个这样的例程被称为一个阶段。要运行后处理阶段，请提供一个 JSON 文件，指示应用程序应用哪些阶段和参数。你可以在 rpicam-apps 存储库的 assets 文件夹中找到使用内置后处理阶段的示例 JSON 文件。
+rpicam-软件 共享一个通用的后处理框架。这使它们能够通过一系列自定义图像处理和图像分析例程传参从相机系统接收到的图像。每个这样的例程被称为一个阶段。要运行后处理阶段，请提供一个 JSON 文件，指示应用程序应用哪些阶段和参数。你可以在 rpicam-软件 存储库的 assets 文件夹中找到使用内置后处理阶段的示例 JSON 文件。
 
 例如，否定阶段将亮像素变暗，暗像素变亮。由于否定阶段是基本的，不需要配置，negate.json 只是命名该阶段：
 
@@ -1505,11 +1505,11 @@ Sobel 阶段使用 OpenCV，因此具有 cv 后缀。它具有一个可由用户
 
 一些阶段，如 negate，以某种方式改变图像。其他阶段分析图像以生成元数据。后处理阶段可以将此元数据传参给其他阶段甚至应用程序。
 
-为了提高性能，图像分析通常使用降低的分辨率。rpicam-apps 直接从 ISP 提供专用的低分辨率馈送。
+为了提高性能，图像分析通常使用降低的分辨率。rpicam-软件 直接从 ISP 提供专用的低分辨率馈送。
 
 >**注意**
 >
->使用树莓派系统附带的 rpicam-apps 不包括 OpenCV 和 TensorFlow Lite。因此，依赖于它们的某些后处理阶段被禁用。要使用这些阶段，请重新编译 rpicam-apps。在运行 32 位内核的树莓派 3、4 上，使用参数 `-DENABLE_COMPILE_FLAGS_FOR_TARGET=armv8-neon` 进行编译能加快某些阶段的速度。
+>使用树莓派系统附带的 rpicam-软件 不包括 OpenCV 和 TensorFlow Lite。因此，依赖于它们的某些后处理阶段被禁用。要使用这些阶段，请重新编译 rpicam-软件。在运行 32 位内核的树莓派 3、4 上，使用参数 `-DENABLE_COMPILE_FLAGS_FOR_TARGET=armv8-neon` 进行编译能加快某些阶段的速度。
 ### 内置阶段
 
 #### negate 阶段
@@ -1694,7 +1694,7 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 
 >**注意**
 >
->这些阶段需要安装 OpenCV。你可能需要重新构建带有 OpenCV 支持的 rpicam-apps。
+>这些阶段需要安装 OpenCV。你可能需要重新构建带有 OpenCV 支持的 rpicam-软件。
 
 #### sobel_cv 阶段
 
@@ -1811,7 +1811,7 @@ face_detect_cv 阶段仅在预览和视频捕获期间运行。它会忽略静�
 
 这些阶段需要导出 C++ API 的 TensorFlow Lite（TFLite）库。TFLite 不以这种形式分发库，但你可以从 lindevs.com 下载并安装一个导出 API 的版本。
 
-安装后，你必须重新编译 rpicam-apps 以支持 TensorFlow Lite。
+安装后，你必须重新编译 rpicam-软件 以支持 TensorFlow Lite。
 
 #### object_classify_tf 阶段
 
@@ -2011,7 +2011,7 @@ $ rpicam-hello --post-process-file segmentation_tf.json --lores-width 258 --lore
 
 ### 编写自己的后处理阶段
 
-使用 rpicam-apps 后处理框架，用户可以创建自己的自定义后处理阶段。甚至可以包括来自 OpenCV 和 TensorFlow Lite 的算法和例程。
+使用 rpicam-软件 后处理框架，用户可以创建自己的自定义后处理阶段。甚至可以包括来自 OpenCV 和 TensorFlow Lite 的算法和例程。
 
 #### 基本的后处理阶段
 
@@ -2065,20 +2065,20 @@ TfStage 类实现了所有后处理阶段通常必须实现的成员函数，除
 
 有关示例实现，请参见 `object_classify_tf_stage.cpp` 和 `pose_estimation_tf_stage.cpp`。
 
-## 高级 `rpicam-apps`
+## 高级 `rpicam-软件`
 
-### 构建 libcamera 和 rpicam-apps
+### 构建 libcamera 和 rpicam-软件
 
-为自己构建 libcamera 和 rpicam-apps 以获得以下好处：
+为自己构建 libcamera 和 rpicam-软件 以获得以下好处：
 
 * 你可以获取最新的增强功能和特性。
-* `rpicam-apps` 可以针对运行 32 位操作系统的树莓派 3 和树莓派 4 设备进行额外优化编译。
+* `rpicam-软件` 可以针对运行 32 位操作系统的树莓派 3 和树莓派 4 设备进行额外优化编译。
 * 你可以包括可选的 OpenCV 和/或 TFLite 后处理阶段，或添加你自己的内容。
-* 你可以定制或添加从 rpicam-apps 派生的应用程序。
+* 你可以定制或添加从 rpicam-软件 派生的应用程序。
 
-#### 构建 rpicam-apps 而不构建 libcamera。
+#### 构建 rpicam-软件 而不构建 libcamera。
 
-要构建 `rpicam-apps` 而不必先重新构建 libcamera 和 libepoxy，请使用 apt 安装 libcamera、libepoxy 及其依赖项：
+要构建 `rpicam-软件` 而不必先重新构建 libcamera 和 libepoxy，请使用 apt 安装 libcamera、libepoxy 及其依赖项：
 
 ```bash
 $ sudo apt install -y libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng-dev
@@ -2106,7 +2106,7 @@ $ sudo apt install libavcodec-dev libavdevice-dev libavformat-dev libswresample-
 $ sudo apt install -y git
 ```
 
-接下来，构建 rpicam-apps。
+接下来，构建 rpicam-软件。
 
 #### 构建 libcamera
 
@@ -2169,36 +2169,36 @@ $ sudo ninja -C build install
 >
 >在内存小于 1GB 的设备上，构建过程可能超出可用内存。在 ninja 命令中添加 -j 1 标志以将构建限制为单个进程。这应该可以防止在树莓派 Zero 和树莓派 3 等设备上超出可用内存。
 
-libcamera 尚未具有稳定的二进制接口。始终在构建 libcamera 之后构建 rpicam-apps。
+libcamera 尚未具有稳定的二进制接口。始终在构建 libcamera 之后构建 rpicam-软件。
 
-#### 构建 rpicam-apps
+#### 构建 rpicam-软件
 
-首先获取 rpicam-apps 的必要依赖项。
+首先获取 rpicam-软件 的必要依赖项。
 
 ```bash
 $ sudo apt install -y cmake libboost-program-options-dev libdrm-dev libexif-dev
 $ sudo apt install -y meson ninja-build
 ```
 
-下载树莓派的 rpicam-apps GitHub 存储库的本地副本：
+下载树莓派的 rpicam-软件 GitHub 存储库的本地副本：
 
 ```bash
-$ git clone https://github.com/raspberrypi/rpicam-apps.git
+$ git clone https://github.com/raspberrypi/rpicam-软件.git
 ```
 
 导航到存储库的根目录：
 
 ```bash
-$ cd rpicam-apps
+$ cd rpicam-软件
 ```
 
-对于像树莓派系统这样的基于桌面的操作系统，使用以下 meson 命令配置 rpicam-apps 构建：
+对于像树莓派系统这样的基于桌面的操作系统，使用以下 meson 命令配置 rpicam-软件 构建：
 
 ```bash
 $ meson setup build -Denable_libav=enabled -Denable_drm=enabled -Denable_egl=enabled -Denable_qt=enabled -Denable_opencv=disabled -Denable_tflite=disabled
 ```
 
-对于像精简版树莓派系统这样的无头操作系统，使用以下 meson 命令配置 rpicam-apps 构建：
+对于像精简版树莓派系统这样的无头操作系统，使用以下 meson 命令配置 rpicam-软件 构建：
 
 ```bash
 $ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=disabled -Denable_qt=disabled -Denable_opencv=disabled -Denable_tflite=disabled
@@ -2208,7 +2208,7 @@ $ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=di
 >
 >使用 `-Dneon_flags=armv8-neon` 来启用树莓派 3 或树莓派 4 上 32 位操作系统的优化。如果已安装 OpenCV 并希望使用基于 OpenCV 的后处理阶段，请使用 `-Denable_opencv=enabled`。如果已安装 TensorFlow Lite 并希望在后处理阶段中使用它，请使用 `-Denable_tflite=enabled`。
 
-现在可以使用以下命令构建 rpicam-apps ：
+现在可以使用以下命令构建 rpicam-软件 ：
 
 ```bash
 $ meson compile -C build
@@ -2217,7 +2217,7 @@ $ meson compile -C build
 >**技巧**
 >
 >在内存为 1GB 或更小的设备上，编译可能会超出可用内存。在 meson 命令中附加参数 `-j 1`以将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。
-最后，运行以下命令安装你新构建的 rpicam-apps 二进制文件：
+最后，运行以下命令安装你新构建的 rpicam-软件 二进制文件：
 
 ```bash
 $ sudo meson install -C build
@@ -2227,7 +2227,7 @@ $ sudo meson install -C build
 
 最后，在“配置”部分遵循 dtoverlay 和显示驱动程序说明。
 
-#### rpicam-apps 墨森标志参考
+#### rpicam-软件 墨森标志参考
 
 meson 构建配置支持以下标志：
 
@@ -2300,16 +2300,16 @@ $ sudo ninja install
 
 ### 编写你自己的 rpicam 应用程序
 
-rpicam-apps 并未提供所有摄像头相关功能，所有人都可能需要。相反，这些应用程序体积小巧灵活。需要不同行为的用户可以自行实现。
+rpicam-软件 并未提供所有摄像头相关功能，所有人都可能需要。相反，这些应用程序体积小巧灵活。需要不同行为的用户可以自行实现。
 
-所有的 rpicam-apps 使用一个事件循环，当从摄像头系统接收到一组新的帧时会收到消息。这组帧被称为 CompletedRequest。这个 `CompletedRequest` 包含：
+所有的 rpicam-软件 使用一个事件循环，当从摄像头系统接收到一组新的帧时会收到消息。这组帧被称为 CompletedRequest。这个 `CompletedRequest` 包含：
 
 * 所有从单个摄像头帧派生的图像：通常是低分辨率图像和全尺寸输出
 * 来自摄像头和后处理系统的元数据
 
 #### `rpicam-hello`
 
-rpicam-hello 是最小的应用程序，也是理解 rpicam-apps 设计的最佳起点。它从消息中提取 `CompletedRequestPtr`，一个指向 `CompletedRequest` 的共享指针，并将其转发到预览窗口：
+rpicam-hello 是最小的应用程序，也是理解 rpicam-软件 设计的最佳起点。它从消息中提取 `CompletedRequestPtr`，一个指向 `CompletedRequest` 的共享指针，并将其转发到预览窗口：
 
 ```cpp
 CompletedRequestPtr &completed_request = std::get<CompletedRequestPtr>(msg.payload);
@@ -2339,7 +2339,7 @@ rpicam-raw 类似于 rpicam-vid。它也在事件循环中进行编码。然而�
 
 rpicam-raw 不会将任何内容转发到预览窗口。
 
-NullEncoder 在 rpicam-raw 可能过度。我们可能直接将图像发送到 Output 对象，而不是。但是，rpicam-apps 需要限制事件循环中的工作。NullEncoder 演示了如何在其他线程中处理大多数进程（甚至保持引用）。
+NullEncoder 在 rpicam-raw 可能过度。我们可能直接将图像发送到 Output 对象，而不是。但是，rpicam-软件 需要限制事件循环中的工作。NullEncoder 演示了如何在其他线程中处理大多数进程（甚至保持引用）。
 
 #### `rpicam-jpeg`
 
@@ -2356,11 +2356,11 @@ app.StartCamera();
 
 ### 使用 libcamera 与 Qt
 
-Qt 是一种流行的应用程序框架和 GUI 工具包。rpicam-apps 包括一个参数，可以在相机预览窗口中使用 Qt。
+Qt 是一种流行的应用程序框架和 GUI 工具包。rpicam-软件 包括一个参数，可以在相机预览窗口中使用 Qt。
 
 不幸的是，Qt 在全局命名空间中将某些符号（如 slot 和 emit ）定义为宏。这会导致包含 libcamera 文件时出错。这个问题在所有同时使用 Qt 和 libcamera 的平台上都很常见。尝试以下解决方法以避免这些错误：
 
-* 尽可能在全部情况下在 Qt 头文件之前列出 libcamera 包含文件，或包含 libcamera 文件的文件（如 rpicam-apps 文件）。
+* 尽可能在全部情况下在 Qt 头文件之前列出 libcamera 包含文件，或包含 libcamera 文件的文件（如 rpicam-软件 文件）。
 * 如果确实需要将 Qt 应用程序文件与 libcamera 包含混合在一起，请用 `Q_SIGNALS:` 替换 `signals:`，用 `Q_SLOTS:` 替换 `slots:`，用 `Q_EMIT` 替换 `emit`，用 `Q_FOREACH` 替换 `foreach`。
 * 在所有 libcamera 包含文件的顶部添加以下内容：
 
@@ -2501,7 +2501,7 @@ Writing JPEG image to 'image3.jpg'.
 
 ### 自动化图像捕获
 
-与 rpicam-apps 不同，fswebcam 没有内置什么功能来替换输出图像名称中的时间戳和数字。在捕获多个图像时，手动编辑文件名可能会很繁琐。相反，使用 Bash 脚本来实现这个功能。
+与 rpicam-软件 不同，fswebcam 没有内置什么功能来替换输出图像名称中的时间戳和数字。在捕获多个图像时，手动编辑文件名可能会很繁琐。相反，使用 Bash 脚本来实现这个功能。
 
 在你的主文件夹中创建一个名为 `webcam.sh` 的新文件。添加以下示例代码，该代码使用 bash 编程语言将图像保存到文件中，文件名包含年、月、日、小时、分钟和秒：
 
@@ -2750,11 +2750,11 @@ HDMI 通过接收设备广告 EDID 来协商分辨率，其中包含其支持的
 
 ### rpicam 和 raspicam 之间的差异
 
-rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用户可能会注意到以下差异：
+rpicam-软件 模拟旧版 raspicam 应用程序的大多数功能。然而，用户可能会注意到以下差异：
 
 * `Boost program_options` 不允许参数的多字符短版本，因此这些参数不得不被删除。长格式参数以相同的方式命名，并保留任意单字符短格式。
 * `rpicam-still` 和 `rpicam-jpeg` 在预览窗口中不显示捕获的图像。
-* `rpicam-apps` 移除了以下 raspicam 功能：
+* `rpicam-软件` 移除了以下 raspicam 功能：
 
   * 不透明度 ( `--opacity` )
   * 图像效果 ( `--imxfx` )
@@ -2764,15 +2764,15 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
   * 立体声（ `--stereo`，`--decimate` 和 `--3dswap` ）
   * 图像稳定 ( `--vstab` )
   * 演示模式 ( `--demo` ) 后期处理替换了许多这些功能。
-* rpicam-apps 移除了参数 `rotation` 支持 90° 和 270° 旋转。
-* raspicam 混淆了计量和曝光；rpicam-apps 将这些参数分开。
-* 要在 rpicam-apps 中禁用自动白平衡（AWB），请使用一对色彩增益设置 awbgains （例如 1.0,1.0 ）。
-* rpicam-apps 无法将 NoIR 相机模块的自动白平衡（AWB）设置为灰世界模式。相反，将参数 `tuning-file` 传参给一个 NoIR 特定的调整文件，如 `imx219_noir.json`。
-* rpicam-apps 不提供对数字增益的显式控制。相反，参数 `gain` 隐式设置它。
-* rpicam-apps 移除了参数 `--ISO` 参数。相反，计算所需 ISO 值对应的增益。供应商可以提供增益到 ISO 的映射。
-* rpicam-apps 不支持设置闪烁周期。
+* rpicam-软件 移除了参数 `rotation` 支持 90° 和 270° 旋转。
+* raspicam 混淆了计量和曝光；rpicam-软件 将这些参数分开。
+* 要在 rpicam-软件 中禁用自动白平衡（AWB），请使用一对色彩增益设置 awbgains （例如 1.0,1.0 ）。
+* rpicam-软件 无法将 NoIR 相机模块的自动白平衡（AWB）设置为灰世界模式。相反，将参数 `tuning-file` 传参给一个 NoIR 特定的调整文件，如 `imx219_noir.json`。
+* rpicam-软件 不提供对数字增益的显式控制。相反，参数 `gain` 隐式设置它。
+* rpicam-软件 移除了参数 `--ISO` 参数。相反，计算所需 ISO 值对应的增益。供应商可以提供增益到 ISO 的映射。
+* rpicam-软件 不支持设置闪烁周期。
 * rpicam-still 不支持连拍。相反，考虑在 MJPEG 模式下使用 rpicam-vid，并使用 `--segment 1` 强制将每帧保存为单独的文件。
-* rpicam-apps 使用开源驱动程序来驱动所有图像传感器，因此启用或禁用传感器上的瑕疵像素校正（DPC）的机制是不同的。树莓派 HQ 摄像头上的 imx477 驱动程序默认启用传感器上的 DPC。要在 HQ 摄像头上禁用传感器上的 DPC，请运行以下命令：
+* rpicam-软件 使用开源驱动程序来驱动所有图像传感器，因此启用或禁用传感器上的瑕疵像素校正（DPC）的机制是不同的。树莓派 HQ 摄像头上的 imx477 驱动程序默认启用传感器上的 DPC。要在 HQ 摄像头上禁用传感器上的 DPC，请运行以下命令：
 
   ```bash
   $ sudo echo 0 > /sys/module/imx477/parameters/dpc_enable
@@ -2797,10 +2797,10 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 
 ## 获取帮助
 
-要获取有关 libcamera 和 `rpicam-apps` 的进一步帮助，请查看树莓派摄像头论坛。在发帖之前：
+要获取有关 libcamera 和 `rpicam-软件` 的进一步帮助，请查看树莓派摄像头论坛。在发帖之前：
 
 * 记下你的操作系统版本（ `uname -a` ）。
-* 记下你 libcamera 和 `rpicam-apps` 的版本（ `rpicam-hello --version` ）。
+* 记下你 libcamera 和 `rpicam-软件` 的版本（ `rpicam-hello --version` ）。
 * 报告你正在使用的摄像头模块的制造商和型号。
 * 报告你正在尝试使用的软件。我们不支持第三方摄像头模块供应商的软件。
 * 报告你的树莓派型号，包括内存大小。
