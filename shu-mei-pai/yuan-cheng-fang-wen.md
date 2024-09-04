@@ -601,7 +601,7 @@ $ scp -r project/ <用户名>@<树莓派IP地址>:
 
 NFS 是在 Linux/Unix 环境中创建简单 NAS（网络附加存储）的流行方式。
 
-NFS 可能更适合于更为永久的网络挂载目录，例如 /home 目录或经常访问的共享资源。如果你想要一个让访客用户可以轻松连接的网络共享，Samba 更适合这项任务。在各种操作系统中，用于临时挂载和分离 Samba 共享的工具更容易获得。
+NFS 可能更适合于更为永久的网络挂载目录，例如目录 `/home` 或经常访问的共享资源。如果你想要一个让访客用户可以轻松连接的网络共享，Samba 更适合这项任务。在各种操作系统中，用于临时挂载和分离 Samba 共享的工具更容易获得。
 
 在部署 NFS 之前，你应该熟悉：
 
@@ -626,9 +626,9 @@ $ sudo mkdir -p /export/users
 
 >**技巧**
 >
->如果你计划配置 LDAP/NIS 身份验证，请跳过下面的 chmod 步骤。
+>如果你计划配置 LDAP/NIS 身份验证，请跳过下面的 `chmod` 步骤。
 
-授予 `/export` 和 `/export/users` 读取、写入和执行权限（ 777 ），这样你就可以在没有 LDAP/NIS 身份验证的情况下从客户端访问 NFS 共享：
+授予 `/export` 和 `/export/users` 读取、写入和执行权限（`777`），这样你就可以在没有 LDAP/NIS 身份验证的情况下从客户端访问 NFS 共享：
 
 ```sh
 $ chmod -R 777 777 /export
@@ -652,7 +652,7 @@ $ sudo mount --bind /home/users /export/users
 2. `/etc/default/nfs-common`
 3. `/etc/exports`
 
-目前，`/etc/default/nfs-kernel-server` 中唯一重要的选项是 `NEED_SVCGSSD`。默认设置为“no”，这很好，因为这次我们不会激活 NFSv4 安全性。
+目前，`/etc/default/nfs-kernel-server` 中唯一重要的选项是 `NEED_SVCGSSD`。默认设置为“no”，这没有问题，因为这次我们不会激活 NFSv4 安全性。
 
 为了使 ID 名称自动映射，文件 `/etc/idmapd.conf` 必须在客户端和服务器上都存在，并且具有相同的内容和正确的域名。此外，该文件应在 Mapping 部分中包含以下行：
 
@@ -697,17 +697,17 @@ Method = nsswitch
 rpcbind mountd nfsd statd lockd rquotad : ALL
 ```
 
-通过首先阻止所有客户端，只有在下面添加的 /etc/hosts.allow 中的客户端才能访问服务器。
+通过首先阻止所有客户端，只有在下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
 
 现在将以下行添加到 `/etc/hosts.allow` 中：
 
 ```sh
-rpcbind mountd nfsd statd lockd rquotad : <list of IPv4s>
+rpcbind mountd nfsd statd lockd rquotad : <IPv4地址列表>
 ```
 
-其中 `<list of IPv4s>` 是服务器和所有客户端的 IP 地址列表。（由于 rpcbind 中的限制不喜欢主机名，这些必须是 IP 地址。）请注意，如果你设置了 NIS，你可以将这些添加到同一行中。
+其中 `<IPv4地址列表>` 是服务器和所有客户端的 IP 地址列表（由于 rpcbind 中的限制不喜欢主机名，这些必须是 IP 地址）。请注意，如果你设置了 NIS，你可以将这些添加到同一行中。
 
-请确保授权 IP 地址列表包括 localhost 地址（ `127.0.0.1` ），因为最新版本 Ubuntu 中的启动脚本使用命令 `rpcinfo` 来发现 NFSv3 支持，如果 `localhost` 无法连接，将被禁用。
+请确保授权 IP 地址列表包括地址 `localhost` （ `127.0.0.1` ），因为最新版本 Ubuntu 中的启动脚本使用命令 `rpcinfo` 来发现 NFSv3 支持，如果 `localhost` 无法连接，将被禁用。
 
 最后，要使更改生效，请重启服务：
 
@@ -729,9 +729,9 @@ $ sudo apt install nfs-common
 $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/ /mnt
 ```
 
-你还可以指定 NFS 服务器主机名，而不是其 IP 地址，但在这种情况下，你需要确保主机名可以在客户端上解析为 IP。确保这将始终解析的一种稳健方法是使用 /etc/hosts 文件。
+你还可以指定 NFS 服务器主机名，而不是其 IP 地址，但在这种情况下，你需要确保主机名可以在客户端上解析为 IP。确保这将始终解析的一种稳健方法是使用 `/etc/hosts` 文件。
 
-请注意，在 NFSv4 中，`<nfs服务器IP>:/export` 不是必需的，就像在 NFSv3 中一样。根导出 `:/` 默认导出为 fsid=0。
+请注意，在 NFSv4 中，`<nfs服务器IP>:/export` 非必需，就像在 NFSv3 中一样。根导出 `:/` 默认导出为 fsid=0。
 
 我们还可以挂载导出的子树：
 
@@ -745,7 +745,7 @@ $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/users /home/users
 <nfs服务器IP>:/   /mnt   nfs    auto  0  0
 ```
 
-如果在挂载后，/proc/mounts appears 中的条目为 `<nfs服务器IP>://` （带有两个斜杠），那么你可能需要在 /etc/fstab 中指定两个斜杠，否则 umount 可能会抱怨找不到该挂载点。
+如果在挂载后，`/proc/mounts appears` 中的条目为 `<nfs服务器IP>://` （带有两个斜杠），那么你可能需要在 `/etc/fstab` 中指定两个斜杠，否则 `umount` 可能会抱错找不到该挂载点。
 
 #### 端口映射锁定（可选）
 
@@ -1010,7 +1010,7 @@ $ chmod 0740 shared
 
 现在我们需要告诉 Samba 关于你的默认用户账户在访问该文件夹时。在提示时，请输入你的密码，并用你的主用户账户的用户名替换 `<用户名>` 占位符：
 
-```
+```sh
 $ sudo smbpasswd -a <用户名>
 ```
 
@@ -1090,7 +1090,7 @@ drwxr-xr-x 12 root root 4096 Jan  8 01:28 ..
 
 这表明默认情况下，`/var/www/html/` 中有一个名为 `index.html` 的文件，由 root 用户拥有（就像包含文件的文件夹一样）。要编辑该文件，你需要将其所有权更改为你自己的用户名。使用以下命令更改文件的所有者，将占位符 `<用户名>` 替换为你的主用户账户的用户名：
 
-```
+```sh
 $ sudo chown <用户名>: index.html
 ```
 
