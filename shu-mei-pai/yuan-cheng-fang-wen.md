@@ -10,7 +10,7 @@
 
 * [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)
 * [VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)
-* [Raspberry Pi connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
+* [树莓派 connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
 
 SSH（Secure SHell）提供了对树莓派上终端会话的安全访问。VNC（Virtual Network Computing，虚拟网络计算）提供了对树莓派桌面屏幕共享的安全访问。你仅需一台其他计算机、本地网络及树莓派的局域网 IP 地址。Raspberry Pi Connect 可安全地共享你的树莓派屏幕，且无需确认树莓派的 IP 地址。
 
@@ -427,152 +427,160 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 ### 启用 VNC 服务器
 
-树莓派系统支持在图形界面和命令行两种方式下启用 VNC 服务器。
+树莓派系统能以图形界面和命令行两种方式启用 VNC 服务器。
 
 >**技巧**
 >
->启用后，你可以在 /etc/wayvnc/ 访问你的 WayVNC 配置。
+>启用后，你可在 `/etc/wayvnc/` 编辑你的 WayVNC 配置。
 
-#### 图形化启用 VNC 服务器
+#### 使用图形化启用 VNC 服务器
 
 1. 在树莓派上启动图形桌面。
 2. 单击桌面系统托盘中的树莓派图标。
-3. 从菜单中选择 Preferences > Raspberry Pi Configuration。![Select Raspberry Pi Configuration from the Preferences menu in the system tray](https://www.raspberrypi.com/documentation/computers/images/raspberry-pi-configuration.png)
-4. 导航到 Interfaces 选项卡。
-5. 单击活动位置旁边的单选按钮以 VNC。![In the Interfaces tab](https://www.raspberrypi.com/documentation/computers/images/vnc-enable.png)
+3. 从菜单中选择 Preferences > Raspberry Pi Configuration。
+![Select Raspberry Pi Configuration from the Preferences menu in the system tray](https://www.raspberrypi.com/documentation/computers/images/raspberry-pi-configuration.png)
+4. 导航到选项卡 Interfaces。
+5. 单击活动位置旁边的单选按钮以 VNC。
+![In the Interfaces tab](https://www.raspberrypi.com/documentation/computers/images/vnc-enable.png)
 6. 单击“确定”按钮以保存配置更改。
 
-#### 在命令行上启用 VNC 服务器。
+#### 使用命令行启用 VNC 服务器。
 
-使用 raspi-config 命令行启用 VNC 服务器。
+使用命令 `raspi-config` 行启用 VNC 服务器。
 
-1. 打开 raspi-config 并输入以下内容：
+1. 打开 raspi-config，输入以下内容：
 
-    ```
+    ```sh
     $ sudo raspi-config
     ```
 2. 导航至接口选项。按 **回车键** 选择。
 3. 选择 VNC。按 **回车键** 选择。
 4. 在你想要启用 VNC 服务器吗? 下，突出显示 <Yes> 并按  **回车键**。
-5. 按 **回车键** 返回菜单。按 Esc 退出 raspi-config。
+5. 按 **回车键** 返回菜单。按 **Esc 键** 退出 raspi-config。
 
 ### 连接到 VNC 服务器
 
-要连接到你的树莓派，你需要以下内容：
+要接入你的树莓派，你需要如下内容：
 
-* 你的树莓派和运行 VNC 客户端的设备连接到同一网络（例如家庭无线网络或 VPN）
+* 你的树莓派和运行 VNC 客户端的设备接入到同一网络（如家庭无线网络或 VPN）
 * 你的树莓派的主机名或 IP 地址
-* 树莓派上账户的有效用户名和密码组合
+* 树莓派上账户的有效用户名和对应的密码
 
 如果你不知道设备的 IP 地址，请参阅有关查找 IP 地址的说明。
 
-1. 下载 TigerVNC。你可以从其 GitHub 存储库的 Releases 页面安装最新版本。单击最新版本中的链接，找到适用于你平台的二进制文件。Windows 用户应下载 exe；macOS 用户应下载 dmg；Linux 用户应安装 jar。
-2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<version>.jar`，将 `<version>` 占位符替换为你下载的版本。
-3. 在“VNC 服务器”字段中输入你树莓派的 IP 地址。![Entering the Raspberry Pi’s local IP address into TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-enter-ip.png)
-4. 单击“Options”按钮。导航到“Input”选项卡。选中“在没有光标时显示点”旧版，以确保你始终可以在 TigerVNC 中看到光标。![TigerVNC option to render the cursor at all times as a dot](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-show-dot.png)
+1. 下载 TigerVNC。你可以从其 GitHub 存储库的 Releases 页面安装最新版本。单击最新版本中的链接，找到适用于你平台的二进制文件。Windows 用户应下载 exe；macOS 用户应下载 dmg；Linux 用户应下载 jar。
+2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<版本>.jar`，将占位符 `<版本>` 替换为你下载的版本。
+3. 在“VNC 服务器”字段中输入你树莓派的 IP 地址。
+![Entering the Raspberry Pi’s local IP address into TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-enter-ip.png)
+4. 单击按钮“Options”。切换到选项卡“Input”。选中“在没有光标时显示点”旧版，以确保你始终可以在 TigerVNC 中看到光标。
+![TigerVNC option to render the cursor at all times as a dot](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-show-dot.png)
 5. 单击“Connect”按钮以与服务器建立连接。
-    * 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。![TigerVNC warning about mismatched certificates](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-warning.png)
-    * 如果 TigerVNC 警告你“证书由未知机构签署”，请单击“是”按钮以为你的树莓派授予异常。![TigerVNC warning about certificates signed by an unknown authority](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
-6. 在提示输入用户名和密码时，请输入你的凭据。![Entering a username and password to authenticate via TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-username-password.png)
-7. 单击“确定”按钮以与 VNC 服务器进行身份验证。如果你的凭据正确，TigerVNC 应打开一个包含与树莓派上你账户对应的桌面的窗口。你应该能够移动鼠标和键盘以输入文本并与桌面交互。![The desktop of a Raspberry Pi after successfully authenticating with TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-desktop.png)
+    * 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。
+![TigerVNC warning about mismatched certificates](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-warning.png)
+    * 如果 TigerVNC 警告你“证书由未知机构签署”，请单击“是”按钮以为你的树莓派授予异常。
+![TigerVNC warning about certificates signed by an unknown authority](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
+6. 在提示输入用户名和密码后，请输入你的凭据。
+![Entering a username and password to authenticate via TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-username-password.png)
+7. 单击“确定”按钮以与 VNC 服务器进行身份验证。如果你的凭据正确，TigerVNC 将打开一个包含与树莓派上你账户对应的桌面的窗口。你应该能够移动鼠标和键盘以输入文本并与桌面交互。
+![The desktop of a Raspberry Pi after successfully authenticating with TigerVNC](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-desktop.png)
 
-## 通过 Raspberry Pi Connect 进行屏幕共享
+## 通过树莓派 Connect 进行屏幕共享
 
-你可以使用 Raspberry Pi Connect 从另一设备的浏览器远程访问树莓派的桌面。Raspberry Pi Connect 会自动处理配置，因此你无需查找树莓派的本地 IP 地址或修改本地网络。
+你可以使用树莓派 Connect 从别的设备的浏览器远程访问树莓派的桌面。树莓派 Connect 会自动处理配置，因此你无需查找树莓派的本地 IP 地址或修改局域网。
 
 欲了解更多信息，请参阅 Connect 文档。
 
 ## 使用 SCP 共享文件
 
-安全复制协议（ scp ）通过 SSH 发送文件。你可以使用 scp 在你的树莓派和另一台计算机之间复制文件。
+安全复制协议（ scp ）通过 SSH 发送文件。你可以使用 scp 在你的树莓派和另一台计算机间复制文件。
 
 要使用 scp，请查找你树莓派的 IP 地址。
 
 ### 将文件复制到你的树莓派
 
-要将名为 myfile.txt 的文件从你的个人计算机复制到树莓派上用户的主文件夹，请从包含 myfile.txt 的目录中运行以下命令，将 `<username>` 占位符替换为你用于登录到树莓派的用户名，将 `<pi_ip_address>` 占位符替换为你的树莓派的 IP 地址：
+要将名为 `myfile.txt` 的文件从你的个人计算机复制到树莓派上用户的主文件夹，请从包含 `myfile.txt` 的目录中运行以下命令，把占位符 `<用户名>` 替换成你用于登录到树莓派的用户名，把占位符 `<树莓派IP地址>` 替换成你的树莓派的 IP 地址：
 
 ```
-$ scp myfile.txt <username>@<pi_ip_address>:
+$ scp myfile.txt <用户名>@<树莓派IP地址>:
 ```
 
-要将文件复制到特定目录，请在 scp 命令中的 `:` 后附加目录路径。在运行 scp 之前创建文件夹，因为 scp 不会自动创建文件夹。例如，以下命令将名为 myfile.txt 的文件复制到用户主文件夹中的 project/ 目录中：
+要把文件复制到特定目录，请在 scp 命令中的 `:` 后附带目录路径。请在运行 scp 之前创建文件夹，因为 scp 不会自动创建文件夹。例如，以下命令将名为 `myfile.txt` 的文件复制到用户主文件夹中的 `project/` 目录中：
 
-```
-$ scp myfile.txt <username>@<pi_ip_address>:project/
+```sh
+$ scp myfile.txt <用户名>@<树莓派IP地址>:project/
 ```
 
 ### 从你的树莓派复制文件
 
-要将名为 myfile.txt 的文件从树莓派上的用户主目录复制到另一台计算机的当前目录，请运行以下命令：
+要将名为 `myfile.txt` 的文件从树莓派上的用户主目录复制到另一台计算机的当前目录，请运行以下命令：
 
-```
-$ scp <username>@<pi_ip_address>:myfile.txt .
+```sh
+$ scp <用户名>@<树莓派IP地址>:myfile.txt .
 ```
 
 ### 一次性使用一个命令复制多个文件
 
 复制多个文件，请在单个命令中列出以空格分隔的文件名：
 
-```
-$ scp myfile.txt myfile2.txt <username>@<pi_ip_address>:
+```sh
+$ scp myfile.txt myfile2.txt <用户名>@<树莓派IP地址>:
 ```
 
-或者，使用通配符复制所有匹配特定筛选器的文件。以下命令复制所有以 .txt 结尾的文件：
+或者，使用通配符复制所有匹配特定筛选器的文件。以下命令复制所有以 `.txt` 结尾的文件：
 
-```
-$ scp *.txt <username>@<pi_ip_address>:
+```sh
+$ scp *.txt <用户名>@<树莓派IP地址>:
 ```
 
 以下命令复制所有以 m 开头的文件：
 
-```
-$ scp m* <username>@<pi_ip_address>:
-```
-
-以下命令复制所有以 m 开头且以 .txt 结尾的文件：
-
-```
-$ scp m*.txt <username>@<pi_ip_address>:
+```sh
+$ scp m* <用户名>@<树莓派IP地址>:
 ```
 
+以下命令复制所有以 `m` 开头且以 `.txt` 结尾的文件：
+
+```sh
+$ scp m*.txt <用户名>@<树莓派IP地址>:
 ```
-$ scp "my file.txt" <username>@<pi_ip_address>:
+
+```sh
+$ scp "my file.txt" <用户名>@<树莓派IP地址>:
 ```
 
 ### 复制文件夹
 
-要复制文件夹及其所有内容，请传递文件夹名称和 -r （递归）参数：
+要复制文件夹及其所有内容，请传参文件夹名称和参数 `-r`（递归）：
 
-```
-$ scp -r project/ <username>@<pi_ip_address>:
+```sh
+$ scp -r project/ <用户名>@<树莓派IP地址>:
 ```
 
-## 使用 rsync 在计算机之间同步文件夹
+## 使用 rsync 在计算机间同步文件夹
 
 你可以使用 rsync 在计算机之间同步文件夹。例如，你可以使用 rsync 将树莓派拍摄的新照片自动传输到个人电脑。
 
 在配置 rsync 之前，确定以下数值的值：
 
-* `<pi_ip_address>` ：你树莓派的本地 IP 地址：有关更多信息，请参阅查找你的树莓派的 IP 地址
-* `<pi_username>` ：你用于登录到树莓派的用户名
-* `<pi_folder_name>` ：你要从树莓派复制文件的文件夹名称
-* `<pc_folder_name>` ：你想要在个人计算机上同步的文件夹名称
+* `<树莓派IP地址>` ：你树莓派的本地 IP 地址：有关更多信息，请参阅查找你的树莓派的 IP 地址
+* `<树莓派用户名>` ：你用于登录到树莓派的用户名
+* `<树莓派文件夹名>` ：你要从树莓派复制文件的文件夹名称
+* `<个人计算机文件夹名>` ：你想要在个人计算机上同步的文件夹名称
 
 要配置 rsync 以同步文件，请在个人计算机上完成以下步骤，并使用上面确定的值替换命令中的占位符：
 
 1. 创建你想要同步到的文件夹：
 
-    ```
-    $ mkdir <pc_folder_name>
+    ```sh
+    $ mkdir <个人计算机文件夹名>
     ```
 2. 将文件同步到带有 rsync 的文件夹：
 
-    ```
-    $ rsync -avz -e ssh <pi_username>@<pi_ip_address>:<pi_folder_name>/ <pc_folder_name>/
+    ```sh
+    $ rsync -avz -e ssh <树莓派用户名>@<树莓派IP地址>:<树莓派文件夹名>/ <个人计算机文件夹名>/
     ```
 
-此命令将所有文件从你的树莓派上的选定文件夹复制到个人计算机上的选定文件夹。如果多次运行该命令，rsync 会跟踪你已经下载的文件并跳过它们。如果你在树莓派上删除或修改已同步的文件，rsync 会相应地更新个人计算机上的文件。
+此命令将所有文件从你的树莓派上的选定文件夹复制到个人计算机上的选定文件夹。若多次运行该命令，rsync 会跟踪你已经下载的文件并跳过它们。如果你在树莓派上删除或修改已同步的文件，rsync 会相应地更新个人计算机上的文件。
 
 ## 网络文件系统（NFS）
 
