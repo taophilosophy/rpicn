@@ -12,7 +12,7 @@
 
 有关摄像头硬件的更多信息，请参阅摄像头硬件文档。
 
-首先安装你的摄像头模块。然后，依本部分的指南，使用摄像头模块。
+首先安装你的摄像头模块。然后，依此部分的指南，使用摄像头模块。
 
 ## `rpicam-apps`
 
@@ -27,17 +27,17 @@
 * `rpicam-still` ：模拟了旧应用程序 raspistill 的许多功能。
 * `rpicam-vid` ：捕获视频。
 * `rpicam-raw` ：直接从传感器捕获原始（未经处理的 Bayer）帧。
-* `rpicam-detect`：默认情况下未构建，但如果用户在其树莓派上安装了 TensorFlow Lite，则可构建。当检测到特定对象时，捕获 JPEG 图像。
+* `rpicam-detect`：默认情况下未构建，但如果用户在其树莓派上安装了 TensorFlow Lite，则可构建。当检测到特定对象时，可捕获 JPEG 图像。
 
-最新版的树莓派系统内置了五款基本的 `rpicam-apps`，因此即使在全新的树莓派系统安装上，你也可以使用摄像头记录图像和视频。
+最新版的树莓派系统内置了五款基本的 `rpicam-apps`，因此即使在全新安装的树莓派系统上，你也可以使用摄像头记录图像和视频。
 
-用户可以创建基于 rpicam 的应用程序，其定制功能，足以满足用户需求。`rpicam-apps` 的源代码在 BSD-2-Clause 许可下免费提供。
+用户可以创建基于 rpicam 的应用程序，定制其功能，足以满足用户需求。`rpicam-apps` 的源代码在 BSD-2-Clause 许可下自由提供。
 
 ### `libcamera`
 
-libcamera 是一个开源软件库，旨在直接使用基于 Arm 处理器上，运行的 Linux 操作系统来使用相机设备。在博通 GPU 上运行的私有代码已被最小化。有关 libcamera 的更多信息，请参阅 libcamera 网站。
+libcamera 是一款开源软件库，旨在直接在基于 Arm 处理器上运行的 Linux 操作系统来使用相机设备。在博通 GPU 上运行的私有代码已被最小化。有关 libcamera 的更多信息，请参阅 libcamera 网站。
 
-libcamera 提供了 C++ API，用于配置相机，然后能让应用程序请求图像帧。这些图像缓冲区驻留在系统内存中，并可以直接传参给静态图像编码器（如 JPEG）或者视频编码器（如 H.264）。libcamera 不会对图像进行编码及显示：要使用该功能，请使用 `rpicam-apps`。
+libcamera 提供了 C++ API，用于配置相机，能让应用程序请求图像帧。这些图像缓冲区驻留在系统内存中，并可以直接传参给静态图像编码器（如 JPEG）或视频编码器（如 H.264）。libcamera 不会对图像进行编码及显示：要使用该功能，请使用 `rpicam-apps`。
 
 你可以在 libcamera 官方存储库中找到源代码。树莓派系统发行版使用分支控制更新。
 
@@ -58,42 +58,43 @@ libcamera 提供了 C++ API，用于配置相机，然后能让应用程序请�
   * IMX519
   * OV9281
 
-要增加对新传感器的支持，请贡献至 libcamera。
+要增加对新传感器的支持，请向 libcamera 贡献。
 
 ### `rpicam-hello`
 
-`rpicam-hello` 简要显示预览窗口，来自接入摄像头的视频源。要使用 `rpicam-hello` 在终端中，显示五秒钟的预览窗口，请运行以下命令：
+`rpicam-hello` 能在简单的预览窗口中，显示来自接入摄像头的视频源。要让 `rpicam-hello` 在终端里显示五秒钟的预览窗口，请运行以下命令：
 
-```
+```bash
 $ rpicam-hello
 ```
 
-你可以使用 timeout 参数指定可选的持续时间（毫秒）。值为 `0` 会无限期运行预览：
+你可以使用参数 `timeout` 指定可选的持续时间（毫秒）。值为 `0` 会无限期运行预览：
 
-```
+```bash
 $ rpicam-hello --timeout 0
 ```
 
-在终端中使用 **Ctrl** + **C** 或在预览窗口上使用关闭按钮停止 `rpicam-hello`。
+在终端中使用 **Ctrl** + **C** 或在预览窗口上点击关闭按钮结束 `rpicam-hello`。
 
 #### 显示图像传感器预览
 
-大多数 `rpicam-apps` 都在窗口中显示预览图像。如果没有运行中的桌面环境，则将直接使用 Linux Direct Rendering Manager（DRM，直接渲染管理器）把预览绘制到显示器。如果都没有，`rpicam-apps` 会尝试使用桌面环境。这两种路径都使用零拷贝 GPU 缓冲区共享：结果是不支持 X 转发。
+大多数 `rpicam-apps` 都在窗口中显示预览图像。如果没有正在运行的桌面环境，则将直接使用 Linux Direct Rendering Manager（DRM，直接渲染管理器）把预览绘制到显示器。如果都没有，`rpicam-apps` 会尝试使用桌面环境。这两种路径都使用零拷贝 GPU 缓冲区共享：即导致不支持 X 转发。
 
-如果你运行着 X 窗口服务器，并希望使用 X 转发，请使用参数 `qt-preview` 在 Qt 窗口中渲染预览窗口。与其他方案相比，用 Qt 预览窗口会消耗更多资源。
+如果你运行着 X 窗口服务器，想要使用 X 转发，请使用参数 `qt-preview`，可在 Qt 窗口中渲染预览窗口。与其他方案相比，用 Qt 预览窗口将消耗更多资源。
 
 >**注意**
 >
->使用 Gtk2 的旧版系统在与 OpenCV 链接时，可能会产生 Glib-GObject 报错，且无法显示 Qt 预览窗口。在这种情况下，请以 root 身份，编辑文件 `/etc/xdg/qt5ct/qt5ct.conf`，把 `style=gtk2` 这一行改成 `style=gtk3`。
+>使用 Gtk2 的旧版系统在与 OpenCV 链接时，可能会产生 `Glib-GObject` 报错，且无法显示 Qt 预览窗口。在这种情况下，请以 root 身份，编辑文件 `/etc/xdg/qt5ct/qt5ct.conf`，把 `style=gtk2` 这行改成 `style=gtk3`。
+
 要彻底禁止预览窗口，请使用参数 `nopreview` ：
 
-```
+```bash
 $ rpicam-hello -n
 ```
 
-参数 `info-text` 使用指令 `%` 在窗口标题栏上显示图像信息。例如，以下命令会显示当前的红色和蓝色增益值：
+参数 `info-text` 使用可指令 `%` 在窗口标题栏上显示图像信息。例如，以下命令会显示当前的红色和蓝色增益值：
 
-```
+```bash
 $ rpicam-hello --info-text "red gain %rg, blue gain %bg"
 ```
 
@@ -101,29 +102,29 @@ $ rpicam-hello --info-text "red gain %rg, blue gain %bg"
 
 ### `rpicam-jpeg`
 
-rpicam-jpeg 可帮助你在树莓派设备上捕获图像。
+`rpicam-jpeg` 可帮助你在树莓派设备上捕获图像。
 
-要捕获全分辨率 JPEG 图像并将其保存为名为 `test.jpg` 的文件，请运行以下命令：
+要捕获全分辨率 JPEG 图像并将其保存成名为 `test.jpg` 的文件，请运行以下命令：
 
-```
+```bash
 $ rpicam-jpeg --output test.jpg
 ```
 
-你会在五秒钟内看到预览窗口。然后，`rpicam-jpeg` 会捕获全分辨率 JPEG 图像并保存。
+你将在五秒内看到预览窗口。然后，`rpicam-jpeg` 会捕获保存全分辨率的 JPEG 图像。
 
-可使用参数 `timeout` 来修改预览窗口的显示时间。参数 `width` 和 `height` 更改保存图像的分辨率。例如，以下命令显示预览窗口 2 秒，然后捕获并保存分辨率为 640×480 像素的图像：
+可使用参数 `timeout` 来修改预览窗口的显示时间。参数 `width` 和 `height` 可更改保存图像的分辨率。例如，以下命令显示预览窗口 2 秒，然后捕获并保存分辨率为 640×480 像素的图像：
 
-```
+```bash
 $ rpicam-jpeg --output test.jpg --timeout 2000 --width 640 --height 480
 ```
 
 ### `rpicam-still`
 
-`rpicam-still`，同 `rpicam-jpeg` 一样，帮助你在树莓派设备上捕获图像。与 `rpicam-jpeg` 不同，`rpicam-still` 兼容许多旧版应用程序中提供的参数。
+`rpicam-still`，同 `rpicam-jpeg` 一样，帮助你在树莓派设备上捕获图像。与 `rpicam-jpeg` 不同，`rpicam-still` 能兼容许多旧版应用程序中提供的参数。
 
-要捕获全分辨率的 JPEG 图像并将其保存到名为 `test.jpg` 的文件中，请运行以下命令：
+要捕获全分辨率的 JPEG 图像并将其保存成名为 `test.jpg` 的文件，请运行以下命令：
 
-```
+```bash
 $ rpicam-still --output test.jpg
 ```
 
@@ -133,9 +134,9 @@ $ rpicam-still --output test.jpg
 
 使用参数 `encoding` 能指定输出格式。传参给 `output` 的文件名不会影响输出文件类型。
 
-要捕获全分辨率的 PNG 图像并将其保存到名为 `test.png` 的文件中，请运行以下命令：
+要捕获全分辨率的 PNG 图像并将其保存成名为 `test.png` 的文件，请运行以下命令：
 
-```
+```bash
 $ rpicam-still --encoding png --output test.png
 ```
 
@@ -143,19 +144,19 @@ $ rpicam-still --encoding png --output test.png
 
 #### 捕获原始图像
 
-原始图像是直接由图像传感器生成的图像，未经图像信号处理器（ISP）和 CPU 的处理。彩色图像传感器通常使用 Bayer 格式。使用 raw 参数来捕获原始图像。
+原始图像是直接由图像传感器生成的图像，未经图像信号处理器（ISP）和 CPU 的处理。彩色图像传感器通常使用 Bayer 格式。使用参数 `raw` 来捕获原始图像。
 
-要捕获图像，并将其保存到名为 `test.jpg` 的文件中，再把图像的原始版本保存到名为 `test.dng` 的文件中，请运行以下命令：
+要捕获图像，并将其保存成名为 `test.jpg` 的文件，再把图像的原始版本保存成名为 `test.dng` 的文件，请运行以下命令：
 
-```
+```bash
 $ rpicam-still --raw --output test.jpg
 ```
 
-`rpicam-still` 以 DNG（Adobe 数字负片）格式保存原始图像。要确定原始图像的文件名，rpicam-still 使用与输出文件相同的文件名，并将其扩展名更改为 `.dng`。要处理 DNG 图像，请使用类似于 Dcraw、RawTherapee 的应用程序。
+`rpicam-still` 以 DNG（Adobe 数字负片）格式保存原始图像。要确定原始图像的文件名，`rpicam-still` 使用与输出文件相同的文件名，但将其扩展名更改为 `.dng`。要处理 DNG 图像，请使用类似于 Dcraw、RawTherapee 的应用程序。
 
 DNG 文件包含了有关图像捕获的元数据，包括黑电平、白平衡信息以及 ISP 用于生成 JPEG 的色彩矩阵。使用 ExifTool 查看 DNG 元数据。以下输出显示了通过使用 HQ 相机捕获的原始图像中存储的典型元数据：
 
-```
+```json
 File Name                       : test.dng
 Directory                       : .
 File Size                       : 24 MB
@@ -210,7 +211,7 @@ Shutter Speed                   : 1/20
 
 运行以下命令执行 100 秒曝光捕捉：
 
-```
+```bash
 $ rpicam-still -o long_exposure.jpg --shutter 100000000 --gain 1 --awbgains 1,1 --immediate
 ```
 
@@ -226,21 +227,21 @@ $ rpicam-still -o long_exposure.jpg --shutter 100000000 --gain 1 --awbgains 1,1 
 
 首先，创建一个目录，用于存储你的延时摄影照片：
 
-```
+```bash
 $ mkdir timelapse
 ```
 
-运行以下命令，会创建一个 30 秒的延时摄影，每两秒记录一张照片，将输出保存为 `image0000.jpg` 至 `image0013.jpg`：
+运行以下命令，将创建一项 30 秒的延时摄影，每两秒记录一张照片，将输出保存为 `image0000.jpg` 至 `image0013.jpg`：
 
-```
+```bash
 $ rpicam-still --timeout 30000 --timelapse 2000 -o timelapse/image%04d.jpg
 ```
 
 ##### 通过 cron
 
-你还可以使用 cron 自动化延时摄影。首先，创建脚本，命名为 `timelapse.sh` 包含以下命令。将 `<用户名>` 占位符替换为你的树莓派上的用户账户名称：
+你还可以使用 cron 自动化延时摄影。首先，创建脚本，命名为 `timelapse.sh` 包含以下命令。将占位符 `<用户名>` 改成你树莓派上的用户账户名：
 
-```
+```bash
 #!/bin/bash
 DATE=$(date +"%Y-%m-%d_%H%M")
 rpicam-still -o /home/<用户名>/timelapse/$DATE.jpg
@@ -248,31 +249,31 @@ rpicam-still -o /home/<用户名>/timelapse/$DATE.jpg
 
 然后，使脚本可执行：
 
-```
+```bash
 $ chmod +x timelapse.sh
 ```
 
 创建目录 `timelapse` ，你将在其中保存延时摄影图片：
 
-```
+```bash
 $ mkdir timelapse
 ```
 
 打开你的 crontab 进行编辑：
 
-```
+```bash
 $ crontab -e
 ```
 
-请你在编辑器中打开文件后，添加以下行以安排每分钟捕获图像，将 `<用户名>` 占位符替换为你的主用户账户的用户名：
+请你在编辑器中打开文件后，添加以下行以安排每分钟捕获图像，把占位符 `<用户名>` 换成你主用户账户的用户名：
 
-```
+```bash
 * * * * * /home/<用户名>/timelapse.sh 2>&1
 ```
 
 保存并退出，你应该看到此消息：
 
-```
+```bash
 crontab: installing new crontab
 ```
 
@@ -286,13 +287,13 @@ crontab: installing new crontab
 
  首先，安装 ffmpeg ：
 
-```
+```bash
 $ sudo apt install ffmpeg
 ```
 
 从包含目录 timelapse 的目录中运行以下命令，将你的 JPEG 文件转换为 mp4 视频：
 
-```
+```bash
 $ ffmpeg -r 10 -f image2 -pattern_type glob -i 'timelapse/*.jpg' -s 1280x720 -vcodec libx264 timelapse.mp4
 ```
 
