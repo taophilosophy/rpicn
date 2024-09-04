@@ -872,7 +872,7 @@ $ sudo systemctl restart nfs-kernel-server
 
 #### 要考虑的安全事项
 
-除了上面讨论的 UID 问题之外，还应注意到攻击者可能会冒充允许映射共享的机器，从而允许他们创建任意 UID 以访问你的文件。解决此问题的一个潜在方法是 IPSec。你可以设置所有域成员仅通过 IPSec 相互通信，这将有效地验证你的客户端是否为其所说的那个。
+除了上面讨论的 UID 问题之外，还应注意到攻击者可能会冒充允许映射共享的机器，从而允许他们创建任意 UID 以访问你的文件。解决此问题的可选方案是 IPSec。你可以设置所有域成员仅通过 IPSec 相互通信，这将有效地验证你的客户端是否为其所说的那个。
 
 IPSec 通过使用服务器的公钥加密到服务器的流量，服务器用客户端的公钥发送回所有回复。流量使用各自的私钥解密。如果客户端没有应该拥有的密钥，它就无法发送或接收数据。
 
@@ -880,7 +880,7 @@ IPSec 的替代方案是物理上分离的网络。这需要一个单独的网�
 
 ### 故障排除
 
-在加密的主目录中挂载 NFS 共享只有在成功登录并解密主目录后才能正常工作。这意味着在启动时使用 `/etc/fstab` 挂载 NFS 共享是行不通的，因为在挂载时主目录尚未解密。有一种简单的方法可以解决这个问题，即使用符号链接：
+在加密的主目录中挂载 NFS 共享只有在成功登录并解密主目录后才能正常工作。这意味着，在启动时使用 `/etc/fstab` 挂载 NFS 共享是行不通的，因为在挂载时主目录尚未解密。有一种简单的方法可以解决这个问题，即使用符号链接：
 
 1. 创建一个替代目录来挂载 NFS 共享：
 
@@ -889,13 +889,13 @@ $ sudo mkdir /nfs
 $ sudo mkdir /nfs/music
 ```
 
-1. 编辑 `/etc/fstab` 将 NFS 共享挂载到该目录中：
+2. 编辑 `/etc/fstab`，将 NFS 共享挂载到该目录中：
 
 ```sh
 nfsServer:music    /nfs/music    nfs    auto    0 0
 ```
 
-1. 在你的主目录内创建一个符号链接，指向实际的挂载位置。例如，在这种情况下，首先删除已经存在的 Music 目录：
+3. 在你的主目录下创建一个符号链接，指向实际的挂载位置。在上述情况下，首先删除已经存在的 Music 目录：
 
 ```sh
 $ rmdir /home/user/Music
@@ -904,18 +904,18 @@ $ ln -s /nfs/music/ /home/user/Music
 
 ## Samba（SMB/CIFS）
 
-Samba 是 Server Message Block（SMB，服务器消息块）网络协议的免费软件重新实现。使用 Samba，你可以在 Windows、macOS 和 Linux 机器间共享文件夹。
+Samba 是 Server Message Block（SMB，服务器消息块）网络协议的自由软件之重新实现。使用 Samba，你可以在 Windows、macOS 和 Linux 机器间共享文件夹。
 
 ### 在你的树莓派上安装 Samba
 
-默认情况下，树莓派系统不包含 Samba。要在你的树莓派上安装 Samba，请运行以下命令，该命令安装你运行 Samba 服务器或客户端所需的所有依赖项：
+在默认情况下，树莓派系统未安装 Samba。要在你的树莓派上安装 Samba，请运行以下命令，该命令会安装你运行 Samba 服务器（或客户端）所需的所有依赖项：
 
 ```sh
 $ sudo apt update
 $ sudo apt install samba samba-common-bin smbclient cifs-utils
 ```
 
-### 从 Windows 共享文件夹
+### 在 Windows 共享文件夹
 
 首先，你需要在 Windows 设备上共享一个文件夹。
 
@@ -980,7 +980,7 @@ $ ls windowshare/
 
 #### 报错“Host is down”（主机已关闭）
 
-当 SMB 协议版本不匹配且 Linux Samba 客户端返回误导性错误消息时会发生此错误。默认情况下，树莓派系统使用 2.1 及以上版本，与 Windows 7 及更高版本兼容。包括一些 NAS 在内的旧版设备可能需要 1.0 版本。要解决此错误，请在你的挂载命令中添加一个版本条目（例如 ,vers=1.0 ）：
+当 SMB 协议版本不匹配且 Linux Samba 客户端返回误导性错误消息时会发生此错误。默认情况下，树莓派系统使用 2.1 及以上版本，与 Windows 7 及更高版本兼容。一些 NAS 在内的旧款设备可能需要 1.0 版本。要解决此错误，请在你的挂载命令中添加一个版本条目（例如 `,vers=1.0` ）：
 
 ```sh
 $ sudo mount.cifs //IP/share /mnt/挂载点 -o user=<用户名>,vers=1.0
@@ -1000,7 +1000,7 @@ $ sudo mount.cifs //IP/share /mnt/挂载点 -o user=<用户名>,vers=1.0
 
 ### 从你的树莓派共享文件夹
 
-首先，创建一个要共享的文件夹。此示例在当前用户的 home 文件夹中创建一个名为 shared 的文件夹：
+首先，创建一个要共享的文件夹。此示例在当前用户的 `home` 文件夹中创建一个名为 `shared` 的文件夹：
 
 ```sh
 $ cd ~
@@ -1008,7 +1008,7 @@ $ mkdir shared
 $ chmod 0740 shared
 ```
 
-现在我们需要告诉 Samba 关于你的默认用户账户在访问该文件夹时。在提示时，请输入你的密码，并用你的主用户账户的用户名替换 `<用户名>` 占位符：
+现在我们需要告诉 Samba，有关你的默认用户账户，在访问该文件夹时，在出现提示后，请输入你的密码，并用你的主用户账户的用户名替换 `<用户名>` 占位符：
 
 ```sh
 $ sudo smbpasswd -a <用户名>
@@ -1020,7 +1020,7 @@ $ sudo smbpasswd -a <用户名>
 sudo nano /etc/samba/smb.conf
 ```
 
-在文件末尾，添加以下内容以共享文件夹，为远程用户提供读写权限。用你的树莓派上主用户账户的用户名替换 占位符 `<用户名>`：
+在文件末尾，添加以下内容以共享文件夹，为远程用户提供读写权限。用你的树莓派上主用户账户的用户名替换占位符 `<用户名>`：
 
 ```sh
 [share]
@@ -1033,14 +1033,14 @@ sudo nano /etc/samba/smb.conf
 在同一文件中，找到 workgroup 这一行，如有必要，将其更改为本地 Windows 网络工作组的名称。
 
 ```sh
-workgroup = <你的 workgroup 工作组名称>
+workgroup = <你的workgroup工作组名称>
 ```
 
 共享文件夹现在应该会出现在网络上的 Windows 或 macOS 设备上。输入你的树莓派用户名和密码以挂载文件夹。
 
 ## 设置 Apache Web 服务器
 
-Apache 是一款流行的 Web 服务器应用程序，你可以在树莓派上安装它以允许其提供网页。
+Apache 是一款流行的 Web 服务器应用程序，你可以在树莓派上安装它以使其提供网页。
 
 单独使用，Apache 可以通过 HTTP 提供 HTML 文件，并且通过附加模块可以使用脚本语言（如 PHP）提供动态网页。
 
@@ -1060,9 +1060,9 @@ sudo apt install apache2 -y
 
 ### 测试 Web 服务器
 
-默认情况下，Apache 在 Web 文件夹中放置一个测试 HTML 文件。当你在树莓派本身上浏览到 `http://localhost/`，或者在网络中的另一台计算机上浏览到 `http://192.168.1.10` （无论树莓派的 IP 地址是什么）时，将提供此默认网页。要查找树莓派的 IP 地址，请在命令行中键入 hostname -I （或阅读有关查找 IP 地址的更多信息）。
+在默认情况下，Apache 会在 Web 文件夹中放置一个测试的 HTML 文件。当你在树莓派本体上浏览 `http://localhost/`，或者在网络中的其他计算机上浏览 `http://192.168.1.10`（无论树莓派的 IP 地址是什么）时，将提供该默认网页。要查找树莓派的 IP 地址，请在命令行中键入 `hostname -I`（或阅读有关查找 IP 地址的更多信息）。
 
-在树莓派上或网络中的另一台计算机上浏览到默认网页，你应该看到以下内容：
+在树莓派上或网络中的其他计算机上浏览到默认网页，你将看到以下内容：
 
 ![Apache 成功运行的信息](../.gitbook/assets/apache-it-works.png)
 
@@ -1070,9 +1070,9 @@ sudo apt install apache2 -y
 
 #### 更改默认网页
 
-此默认网页只是文件系统上的一个 HTML 文件。它位于 `/var/www/html/index.html`。
+此默认网页仅是文件系统上的一个 HTML 文件。它位于 `/var/www/html/index.html`。
 
-在终端窗口中导航到此目录，并查看其中的内容：
+在终端窗口中切换到此目录，并查看其中的内容：
 
 ```sh
 cd /var/www/html
@@ -1094,11 +1094,11 @@ drwxr-xr-x 12 root root 4096 Jan  8 01:28 ..
 $ sudo chown <用户名>: index.html
 ```
 
-你现在可以尝试编辑此文件，然后刷新浏览器以查看网页更改。如果你了解 HTML，可以将自己的 HTML 文件和其他资产放入此目录，并将它们作为网站在本地网络上提供。
+你现在可以尝试编辑此文件，然后刷新浏览器来查看网页更改。如果你了解 HTML，可以把自己的 HTML 文件和其他内容放入此目录，并将它们作为网站在局域网提供。
 
 ### 为 Apache 安装 PHP
 
-要允许你的 Apache 服务器处理 PHP 文件，你需要安装最新版本的 PHP 和 Apache 的 PHP 模块。键入以下命令以安装他们：
+要让你你的 Apache 服务器处理 PHP 文件，你需要安装最新版本的 PHP 及 Apache 的 PHP 模块。键入以下命令来安装他们：
 
 ```sh
 sudo apt install php libapache2-mod-php -y
@@ -1110,19 +1110,19 @@ sudo apt install php libapache2-mod-php -y
 sudo rm index.html
 ```
 
-并创建文件 `index.php` ：
+创建文件 `index.php` ：
 
 ```sh
 sudo nano index.php
 ```
 
-将一些 PHP 内容放入其中：
+把一些 PHP 内容放入其中：
 
 ```php
 <?php echo "hello world"; ?>
 ```
 
-现在保存并刷新你的浏览器。你应该看到“hello world”。这不是动态的，但仍由 PHP 提供。尝试一些动态内容：
+现在保存，刷新你的浏览器。你应该会看到“hello world”。这不是动态的，但仍由 PHP 提供。尝试一些动态内容：
 
 ```php
 <?php echo date('Y-m-d H:i:s'); ?>
@@ -1136,13 +1136,13 @@ sudo nano index.php
 
 ## 在树莓派上通过网络启动
 
-你可以设置一个 DHCP/TFTP 服务器，这将允许你从网络引导树莓派 3、4。
+你可以设置一台 DHCP/TFTP 服务器，这能让你从网络引导树莓派 3、4。
 
-说明假定你有一个现有的家庭网络，并且你想要使用树莓派作为服务器。你还需要另一个树莓派 3、4 作为客户端进行引导。只需要一个存储卡，因为在初始客户端配置后，客户端将从服务器引导。
+现在，假定你有一个现有的家庭网络，并且你想要使用树莓派作为服务器。你还需要另一个树莓派 3、4 作为客户端进行引导。仅需一张存储卡，因为在初始客户端配置后，客户端将从服务器引导。
 
 >**注意**
 >
->由于网络设备和路由器的种类繁多，我们无法保证网络引导能在所有设备上都正常工作。我们收到报告称，如果无法使网络引导正常工作，可以尝试在网络上禁用 STP 帧来帮助解决问题。
+>由于网络设备和路由器的种类繁多，我们无法保证网络引导能在所有设备上都正常工作。我们收到报告称，若无法使网络引导正常工作，可尝试在网络上禁用 STP 帧来帮助排除故障。
 
 ### 配置网络启动客户端
 
@@ -1150,11 +1150,11 @@ sudo nano index.php
 
 >**注意**
 >
->本部分仅适用于树莓派 3B，因为树莓派 3B+ 在出厂时已启用网络启动。
+>此部分仅适用于树莓派 3B，因为树莓派 3B+ 在出厂时已启用网络启动。
 
-在树莓派 3B 进行网络启动之前，需要从带有配置选项的存储卡启动，以启用 USB 启动模式。这将在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。完成此操作后，树莓派 3B 将尝试从 USB 和网络启动，如果无法从存储卡启动。
+在树莓派 3B 进行网络启动之前，需要从带有已配置参数的存储卡启动，启用 USB 启动模式。这会在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。完成此操作后，树莓派 3B 如果无法从存储卡启动，将尝试 USB 启动及网络启动。
 
-以通常方式在存储卡上安装精简版树莓派系统或带桌面的树莓派系统。接下来，使用以下命令启用 USB 启动模式：
+通常，在存储卡上安装精简版树莓派系统或带桌面的树莓派系统。接下来，使用以下命令启用 USB 启动模式：
 
 ```sh
 $ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
@@ -1334,7 +1334,7 @@ $ sudo tcpdump -i eth0 port bootpc
 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b8:27:eb...
 ```
 
-现在你需要修改 dnsmasq 配置以使 DHCP 能够回复设备。按下 **Ctrl** + **C** 退出 tcpdump 程序，然后输入以下内容：
+现在你需要修改 dnsmasq 配置以使 DHCP 能够回复设备。按下 **Ctrl** + **C** 退出 `tcpdump` 程序，然后输入以下内容：
 
 ```sh
 $ echo | sudo tee /etc/dnsmasq.conf
@@ -1394,7 +1394,7 @@ $ sudo systemctl restart dnsmasq
 
 现在，这应该允许你的树莓派客户端尝试启动，直到尝试加载根文件系统（它没有）。
 
-在这一点上，导出之前创建的 `/nfs/client1` 文件系统和 TFTP 引导文件夹。
+在这一点上，export 之前创建的 `/nfs/client1` 文件系统和 TFTP 引导文件夹。
 
 ```sh
 $ sudo apt install nfs-kernel-server
@@ -1440,12 +1440,12 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 >**重要**
 >
->IPv6 netboot 是一个实验性的 Alpha 功能，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于树莓派 4 和计算模块 4。
+>IPv6 网络启动是一项实验性的阿尔法功能，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于树莓派 4 和计算模块 4。
 
 
 ### 工作原理
 
-要通过 IPv6 启动，你需要一个更新的固件版本（例如 start4.elf ）和引导加载程序。使用最新版本的树莓派系统和最新的稳定引导加载程序应该足够了。
+要通过 IPv6 启动，你需要一个更新的固件版本（例如 `start4.elf`）和引导加载程序。使用最新版本的树莓派系统和最新的稳定引导加载程序应该足够了。
 
 >**注意**
 >
@@ -1467,7 +1467,7 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 #### TFTP 地址
 
-无论使用无状态还是有状态配置，DHCP 服务器用于获取 TFTP 服务器地址。这是在 BOOTFILE-URL 参数中编码的。我们发送客户端架构类型值 0x29 以识别设备。
+无论使用无状态还是有状态配置，DHCP 服务器用于获取 TFTP 服务器地址。这是在 BOOTFILE-URL 参数中编码的。我们发送客户端架构类型值 `0x29` 以识别设备。
 
 请参阅 RFC 5970 和 IANA IPv6 动态主机配置协议文档。
 
@@ -1481,7 +1481,7 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 >**注意**
 >
->通过 IPv6 通过 NFS 启动 Linux 内核的机制仍需演示。
+>通过 IPv6，NFS 启动 Linux 内核的机制仍需演示。
 
 
 ### 测试设置
@@ -1509,7 +1509,7 @@ IPv6 中的 DHCP 发生了很大变化。我们至少需要 DHCP 告诉我们 TF
 $ sudo apt-get install isc-dhcp-server
 ```
 
-修改 `/etc/default/isc-dhcp-server` 中的配置
+修改 `/etc/default/isc-dhcp-server` 中的配置：
 
 ```sh
 DHCPDv6_CONF=/etc/dhcp/dhcpd6.conf
@@ -1552,12 +1552,12 @@ $ sudo systemctl restart isc-dhcp-server.service
 修改配置以通过 IPv6 尝试网络启动，而非 IPv4。
 
 ```sh
-BOOT_ORDER=0xf21 # 2=Network boot
-USE_IPV6=1 # Enable IPv6 network boot
-BOOT_UART=1 # Debug
+BOOT_ORDER=0xf21 # 2=网络启动
+USE_IPV6=1 # 启用 IPv6 网络启动
+BOOT_UART=1 # 调试
 ```
 
-要恢复到 IPv4 网络启动，只需从 boot.conf 中删除 USE_IPV6 行。
+要恢复到 IPv4 网络启动，只需从 `boot.conf` 中删除 `USE_IPV6` 行。
 
 #### 路由器
 
@@ -1568,7 +1568,7 @@ sudo apt-get install ndisc6
 rdisc6 -1 eth0
 ```
 
-这会向你的路由器发送路由器请求，请求你的网络详细信息，如网络前缀、路由器以太网地址以及是否使用 DHCP 进行寻址。如果没有响应这个命令，很可能是你的网络和 ISP 只支持 IPv4。如果支持 IPv6，很可能会配置为使用无状态配置，其中客户端生成自己的地址。
+这会向你的路由器发送路由器请求，请求你的网络详细信息，如网络前缀、路由器以太网地址以及是否使用 DHCP 进行寻址。如未响应此命令，很可能是你的网络及 ISP 仅支持 IPv4。如果支持 IPv6，很可能会配置为使用无状态配置，其中客户端生成自己的地址。
 
 ```sh
 Soliciting ff02::2 (ff02::2) on eth0...
@@ -1601,7 +1601,7 @@ Retransmit time           :  unspecified (0x00000000)
 
 #### 日志和跟踪
 
-如果启用了引导 UART，则应该从串行端口看到类似以下内容。以 RX6 开头的行表示正在使用 IPv6。
+如果启用了引导串口，则应该从串口看到类似以下内容。以 RX6 开头的行表示正在使用 IPv6。
 
 这里 `dc:a6:32:6f:73:f4` 是 TFTP 服务器的 MAC 地址，它具有一个 IPv6 地址 `fd49:869:6f93::1`。设备本身具有一个 MAC 地址 `e4:5f:01:20:24:0b` 和一个 IPv6 地址 `fd49:869:6f93::1000`
 
@@ -1628,7 +1628,7 @@ TFTP_GET: dc:a6:32:6f:73:f4 fd49:869:6f93::1 ab5a4158/config.txt
 
 #### 有状态配置
 
-你可以使用 tcpdump 检查网络活动。
+你可以使用 `tcpdump` 检查网络活动。
 
 ```sh
 $ sudo tcpdump -i eth0 -e ip6 -XX -l -v -vv
@@ -1742,7 +1742,7 @@ TFTP 请求由应该现在通过网络引导的设备发出。
 12:55:27.838300 e4:5f:01:20:24:0b (oui Unknown) > 33:33:00:01:00:02 (oui Unknown), ethertype IPv6 (0x86dd), length 98: (hlim 255, next-header UDP (17) payload length: 44) fe80::e65f:1ff:fe20:240b.dhcpv6-client > ff02::1:2.dhcpv6-server: [udp sum ok] dhcp6 inf-req (xid=e5e0a4 (client-ID hwaddr type 1 e45f0120240b) (option-request opt_59) (opt_61) (elapsed-time 0))
 ```
 
-DHCP 服务器回复 TFTP 服务器详细信息（ opt_59 ）。
+DHCP 服务器回复 TFTP 服务器详细信息（`opt_59`）。
 
 ```sh
 12:55:27.838898 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 150: (flowlabel 0xd1248, hlim 64, next-header UDP (17) payload length: 96) fe80::537a:52c:c647:b184.dhcpv6-server > fe80::e65f:1ff:fe20:240b.dhcpv6-client: [bad udp cksum 0xd870 -> 0x78bb!] dhcp6 reply (xid=e5e0a4 (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (opt_59))
