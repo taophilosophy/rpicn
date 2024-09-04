@@ -2360,7 +2360,7 @@ Qt 是一种流行的应用程序框架和 GUI 工具包。rpicam-apps 包括一
 不幸的是，Qt 在全局命名空间中将某些符号（如 slot 和 emit ）定义为宏。这会导致包含 libcamera 文件时出错。这个问题在所有同时使用 Qt 和 libcamera 的平台上都很常见。尝试以下解决方法以避免这些错误：
 
 * 尽可能在全部情况下在 Qt 头文件之前列出 libcamera 包含文件，或包含 libcamera 文件的文件（如 rpicam-apps 文件）。
-* 如果确实需要将 Qt 应用程序文件与 libcamera 包含混合在一起，请用 Q_SIGNALS: 替换 signals:，用 Q_SLOTS: 替换 slots:，用 Q_EMIT 替换 emit，用 Q_FOREACH 替换 foreach。
+* 如果确实需要将 Qt 应用程序文件与 libcamera 包含混合在一起，请用 `Q_SIGNALS:` 替换 `signals:`，用 `Q_SLOTS:` 替换 `slots:`，用 `Q_EMIT` 替换 `emit`，用 `Q_FOREACH` 替换 `foreach`。
 * 在所有 libcamera 包含文件的顶部添加以下内容：
 
   ```
@@ -2396,7 +2396,7 @@ $ sudo apt install -y python3-picamera2 --no-install-recommends
 
 >**注意**
 >
->如果你之前使用 pip 安装了 Picamera2，请使用以下命令卸载： pip3 uninstall picamera2。
+>如果你之前使用 pip 安装了 Picamera2，请使用以下命令卸载： `pip3 uninstall picamera2`。
 
 ## 使用 USB 摄像头
 
@@ -2418,11 +2418,11 @@ $ sudo apt install fswebcam
 $ sudo usermod -a -G video <用户名>
 ```
 
-要检查用户是否已正确添加到组中，请使用 groups 命令。
+要检查用户是否已正确添加到组中，请使用命令 `groups` 。
 
 ### 拍照
 
-运行以下命令使用网络摄像头拍照并将图像保存到名为 image.jpg 的文件中：
+运行以下命令使用网络摄像头拍照并将图像保存到名为 `image.jpg` 的文件中：
 
 ```
 $ fswebcam image.jpg
@@ -2430,7 +2430,7 @@ $ fswebcam image.jpg
 
 你应该看到类似以下内容的输出：
 
-```
+```sh
 --- Opening /dev/video0...
 Trying source module v4l2...
 /dev/video0 opened.
@@ -2455,7 +2455,7 @@ $ fswebcam -r 1280x720 image2.jpg
 
 你应该看到类似以下输出：
 
-```
+```sh
 --- Opening /dev/video0...
 Trying source module v4l2...
 /dev/video0 opened.
@@ -2473,7 +2473,7 @@ Writing JPEG image to 'image2.jpg'.
 
 #### 删除横幅
 
-要从捕获的图像中删除横幅，请使用参数 --no-banner：
+要从捕获的图像中删除横幅，请使用参数 `--no-banner`：
 
 ```
 $ fswebcam --no-banner image3.jpg
@@ -2496,13 +2496,13 @@ Writing JPEG image to 'image3.jpg'.
 
 ![Specify ](../.gitbook/assets/webcam-image-no-banner.jpg)
 
-指定 --no-banner 以保存图像而不带有时间戳横幅。
+指定 `--no-banner` 以保存图像而不带有时间戳横幅。
 
 ### 自动化图像捕获
 
 与 rpicam-apps 不同，fswebcam 没有内置什么功能来替换输出图像名称中的时间戳和数字。在捕获多个图像时，手动编辑文件名可能会很繁琐。相反，使用 Bash 脚本来实现这个功能。
 
-在你的主文件夹中创建一个名为 webcam.sh 的新文件。添加以下示例代码，该代码使用 bash 编程语言将图像保存到文件中，文件名包含年、月、日、小时、分钟和秒：
+在你的主文件夹中创建一个名为 `webcam.sh` 的新文件。添加以下示例代码，该代码使用 bash 编程语言将图像保存到文件中，文件名包含年、月、日、小时、分钟和秒：
 
 ```
 #!/bin/bash
@@ -2518,7 +2518,7 @@ fswebcam -r 1280x720 --no-banner $DATE.jpg
 $ chmod +x webcam.sh
 ```
 
-使用以下命令运行脚本，捕获图像并将其保存到带有时间戳名称的文件中，类似于 2024-05-10_12-06-33.jpg :
+使用以下命令运行脚本，捕获图像并将其保存到带有时间戳名称的文件中，类似于 `2024-05-10_12-06-33.jpg`:
 
 ```
 $ ./webcam.sh
@@ -2567,8 +2567,8 @@ V4L2 驱动程序为访问摄像头和编解码器功能提供了标准的 Linux
 
 ### 使用 libcamera 时的设备节点
 
-| /dev/videoX | 默认操作                                                                              |
-| ------------- | --------------------------------------------------------------------------------------- |
+| `/dev/videoX` | 默认操作                                                                              |
+| :-------------: | :--------------------------------------------------------------------------------------- |
 | `video0`            | 第一个 CSI-2 接收器的 Unicam 驱动程序                                                 |
 | `video1`            | 第二个 CSI-2 接收器的 Unicam 驱动程序                                                 |
 | `video10`            | 视频解码                                                                              |
@@ -2602,7 +2602,7 @@ V4L2 软件接口是与 Unicam 外围设备通信的唯一方式。曾经还有�
 
 为 Unicam 块提供了一个完全开源的内核驱动程序；这个内核模块，称为 bcm2835-unicam，与 V4L2 子设备驱动程序进行交互，传参原始帧。这个 bcm2835-unicam 驱动程序控制传感器并配置摄像头串行接口 2（CSI-2）接收器。外围设备将原始帧（经过 Debayer 处理）写入 SDRAM，以便 V4L2 传参给应用程序。在摄像头传感器捕获图像和 bcm2835-unicam 驱动程序将图像数据放入 SDRAM 之间，除了 Bayer 解包到 16 位/像素之外，没有图像处理。
 
-```
+```sh
 |------------------------|
 |     bcm2835-unicam     |
 |------------------------|
@@ -2623,8 +2623,8 @@ ccp2  |             |
 
 主线 Linux 包含一系列现有驱动程序。树莓派内核树具有一些额外的驱动程序和设备树叠加，用于配置它们：
 
-| 设备               | 类型                    | 笔记                          |
-| -------------------- | ------------------------- | ------------------------------- |
+| 设备               | 类型                    | 解释                          |
+| :--------------------: | :-------------------------: | :-------------------------------: |
 | Omnivision OV5647  | 500 万像素摄像头        | 原装树莓派摄像头              |
 | 索尼 IMX219        | 800 万像素相机          | 旧版树莓派相机        |
 | 索尼 IMX477        | 1200 万像素相机         | 树莓派 HQ 相机          |
@@ -2640,14 +2640,14 @@ ccp2  |             |
 
 这是通过 Unicam 进行接口的推荐方法。
 
-当为打算与 bcm2835-unicam 模块一起使用的新设备开发驱动程序时，你需要驱动程序和相应的设备树叠加。理想情况下，应将驱动程序提交给 linux-media 邮件列表进行代码审查和合并到主线，然后移至内核树；但也可以对直接将驱动程序进行审查和合并到树莓派内核做出例外。
+当为打算与 `bcm2835-unicam` 模块一起使用的新设备开发驱动程序时，你需要驱动程序和相应的设备树叠加。理想情况下，应将驱动程序提交给 linux-media 邮件列表进行代码审查和合并到主线，然后移至内核树；但也可以对直接将驱动程序进行审查和合并到树莓派内核做出例外。
 
 >**注意**
 >
 >所有内核驱动程序均在 GPLv2 许可下授权，因此必须提供源代码。仅提供二进制模块的行为会违反 Linux 内核所授权的 GPLv2 许可。
 
 
-旧版 bcm2835-unicam 模块已经编写，以尝试适应当前在主线 Linux 内核中找到的所有类型的 CSI-2 源驱动程序。这些可以大致分为相机传感器和桥接芯片。桥接芯片允许在某些其他格式和 CSI-2 之间进行转换。
+旧版 `bcm2835-unicam` 模块已经编写，以尝试适应当前在主线 Linux 内核中找到的所有类型的 CSI-2 源驱动程序。这些可以大致分为相机传感器和桥接芯片。桥接芯片允许在某些其他格式和 CSI-2 之间进行转换。
 
 #### 相机传感器
 
@@ -2657,12 +2657,12 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 
 传感器通常支持 V4L2 用户控件。并非所有这些控件都需要在驱动程序中实现。IMX219 驱动程序仅实现了一个小子集，如下所列，其实现由 imx219_set_ctrl 函数处理。
 
-* V4L2_CID_PIXEL_RATE / V4L2_CID_VBLANK / V4L2_CID_HBLANK ：允许应用程序设置帧速率
-* V4L2_CID_EXPOSURE ：设置曝光时间（以行为单位）；应用程序需要使用 V4L2_CID_PIXEL_RATE、V4L2_CID_HBLANK 和帧宽度来计算行时间
-* V4L2_CID_ANALOGUE_GAIN ：传感器特定单位中的模拟增益
-* V4L2_CID_DIGITAL_GAIN ：传感器特定单位中的可选数字增益
-* V4L2_CID_HFLIP / V4L2_CID_VFLIP ：将图像水平或垂直翻转；此操作可能会改变帧中数据的 Bayer 顺序，就像在 IMX219 上的情况一样。
-* V4L2_CID_TEST_PATTERN / `V4L2_CID_TEST_PATTERN_*` ：启用从传感器输出各种测试图案；用于调试
+* `V4L2_CID_PIXEL_RATE` / `V4L2_CID_VBLANK` / `V4L2_CID_HBLANK` ：允许应用程序设置帧速率
+* `V4L2_CID_EXPOSURE` ：设置曝光时间（以行为单位）；应用程序需要使用 `V4L2_CID_PIXEL_RATE`、`V4L2_CID_HBLANK` 和帧宽度来计算行时间
+* `V4L2_CID_ANALOGUE_GAIN` ：传感器特定单位中的模拟增益
+* `V4L2_CID_DIGITAL_GAIN` ：传感器特定单位中的可选数字增益
+* `V4L2_CID_HFLIP` / `V4L2_CID_VFLIP` ：将图像水平或垂直翻转；此操作可能会改变帧中数据的 Bayer 顺序，就像在 IMX219 上的情况一样。
+* `V4L2_CID_TEST_PATTERN` / `V4L2_CID_TEST_PATTERN_*` ：启用从传感器输出各种测试图案；用于调试
 
 在 IMX219 的情况下，许多这些控件直接映射到对传感器本身的寄存器写入。
 
@@ -2686,17 +2686,17 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 
 ##### 模拟视频源
 
-模拟视频源使用标准 ioctls 来检测和设置视频标准。VIDIOC_G_STD，VIDIOC_S_STD，VIDIOC_ENUMSTD，和 VIDIOC_QUERYSTD 可用。
+模拟视频源使用标准 `ioctls` 来检测和设置视频标准。`VIDIOC_G_STD`，`VIDIOC_S_STD`，`VIDIOC_ENUMSTD`，和 `VIDIOC_QUERYSTD` 可用。
 
-选择错误的标准通常会导致图像损坏。设置标准通常也会在 V4L2 捕获队列上设置分辨率。无法通过 VIDIOC_S_FMT 设置。通常，在流媒体之前通过 VIDIOC_QUERYSTD 请求检测到的标准，然后用 VIDIOC_S_STD 设置是个好主意。
+选择错误的标准通常会导致图像损坏。设置标准通常也会在 V4L2 捕获队列上设置分辨率。无法通过 `VIDIOC_S_FMT` 设置。通常，在流媒体之前通过 `VIDIOC_QUERYSTD` 请求检测到的标准，然后用 `VIDIOC_S_STD` 设置是个好主意。
 
 ##### 数字视频源
 
-对于数字视频源，如 HDMI，有一组备用调用，允许指定所有数字定时参数： VIDIOC_G_DV_TIMINGS，VIDIOC_S_DV_TIMINGS，VIDIOC_ENUM_DV_TIMINGS，和 VIDIOC_QUERY_DV_TIMINGS。
+对于数字视频源，如 HDMI，有一组备用调用，允许指定所有数字定时参数： `VIDIOC_G_DV_TIMINGS`，`VIDIOC_S_DV_TIMINGS`，`VIDIOC_ENUM_DV_TIMINGS`，和 `VIDIOC_QUERY_DV_TIMINGS`。
 
-与模拟桥一样，定时通常固定 V4L2 捕获队列分辨率，并在流之前使用 VIDIOC_QUERY_DV_TIMINGS 的结果调用 VIDIOC_S_DV_TIMINGS 应确保格式正确。
+与模拟桥一样，定时通常固定 V4L2 捕获队列分辨率，并在流之前使用 `VIDIOC_QUERY_DV_TIMINGS` 的结果调用 `VIDIOC_S_DV_TIMINGS` 应确保格式正确。
 
-根据桥接芯片和驱动程序的不同，可能通过 VIDIOC_SUBSCRIBE_EVENT 和 V4L2_EVENT_SOURCE_CHANGE 向应用程序报告输入源的更改。
+根据桥接芯片和驱动程序的不同，可能通过 `VIDIOC_SUBSCRIBE_EVENT` 和 `V4L2_EVENT_SOURCE_CHANGE` 向应用程序报告输入源的更改。
 
 ##### 目前支持的设备
 
@@ -2706,13 +2706,13 @@ Analog Devices ADV728x(A)-M 模拟视频到 CSI2 桥接芯片将复合 S 视频(
 
 有关该芯片各个版本的产品详细信息，请访问 Analog Devices 网站：ADV7280A，ADV7281A 和 ADV7282A。
 
-由于当前核心 V4L2 实现中存在一些缺失的代码，选择源失败，因此树莓派内核版本添加了一个内核模块参数 dbg_input 到 ADV7180 内核驱动程序，每次调用 VIDIOC_S_STD 时设置输入源。在某个时候，主流将修复底层问题（内核 API 调用 s_routing 和用户空间调用 VIDIOC_S_INPUT 之间的不一致），并将删除此修改。
+由于当前核心 V4L2 实现中存在一些缺失的代码，选择源失败，因此树莓派内核版本添加了一个内核模块参数 dbg_input 到 ADV7180 内核驱动程序，每次调用 VIDIOC_S_STD 时设置输入源。在某个时候，主流将修复底层问题（内核 API 调用 `s_routing` 和用户空间调用 `VIDIOC_S_INPUT` 之间的不一致），并将删除此修改。
 
 不支持接收隔行视频，因此 ADV7281(A)-M 版本的芯片的用途有限，因为它没有必要的 I2P 去隔行块。在选择设备时，请确保指定-M 参数。如果没有，你将获得一个无法与树莓派接口的并行输出总线。
 
 目前没有已知商用板使用这些芯片，但此驱动程序已通过模拟器件 EVAL-ADV7282-M 评估板进行了测试。
 
-如果你使用的是基于 ADV7282-M 芯片的衍生，则可以使用 config.txt dtoverlay adv7282m 加载此驱动程序；或者如果你使用其他变体，则可以使用参数 adv7280m=1、adv7281m=1 或 adv7281ma=1 加载。
+如果你使用的是基于 ADV7282-M 芯片的衍生，则可以使用 `config.txt` `dtoverlay adv7282m` 加载此驱动程序；或者如果你使用其他变体，则可以使用参数 `adv7280m=1`、`adv7281m=1` 或 `adv7281ma=1` 加载。
 
 ```
 dtoverlay=adv728x-m,adv7280m=1
@@ -2726,49 +2726,49 @@ TC358743 将 HDMI 接口转换为 CSI-2 和 I²S 输出。它受 TC358743 内核
 
 芯片支持将传入的 HDMI 信号作为 RGB888、YUV444 或 YUV422，最高支持 1080p60。它可以转发 RGB888，或将其转换为 YUV444 或 YUV422，并在 YUV444 和 YUV422 之间双向转换。仅已测试 RGB888 和 YUV422 支持。当使用两个 CSI-2 通道时，支持的最大速率为 1080p30 作为 RGB888，或 1080p50 作为 YUV422。在计算模块上使用四个通道时，1080p60 可以以任一格式接收。
 
-HDMI 通过接收设备广告 EDID 来协商分辨率，其中包含其支持的所有模式。内核驱动程序不了解你希望接收的分辨率、帧率或格式，因此用户需要通过 VIDIOC_S_EDID ioctl 提供一个合适的文件，或者更容易地使用 v4l2-ctl --fix-edid-checksums --set-edid=file=filename.txt （添加--fix-edid-checksums 参数意味着你不必在源文件中正确获取校验和值）。生成所需的 EDID 文件（二进制 EDID 文件的文本十六进制转储）并不太繁琐，有可用工具可用于生成它们，但这超出了本页面的范围。
+HDMI 通过接收设备广告 EDID 来协商分辨率，其中包含其支持的所有模式。内核驱动程序不了解你希望接收的分辨率、帧率或格式，因此用户需要通过 `VIDIOC_S_EDID ioctl` 提供一个合适的文件，或者更容易地使用 `v4l2-ctl --fix-edid-checksums --set-edid=file=filename.txt` （添加参数 `--fix-edid-checksums` 意味着你不必在源文件中正确获取校验和值）。生成所需的 EDID 文件（二进制 EDID 文件的文本十六进制转储）并不太繁琐，有可用工具可用于生成它们，但这超出了本页面的范围。
 
-如上所述，使用 DV_TIMINGS ioctl 配置驱动程序以匹配传入视频。这样做的最简单方法是使用命令 v4l2-ctl --set-dv-bt-timings query。驱动程序确实支持生成 SOURCE_CHANGED 事件，如果你希望编写一个处理变化源的应用程序。通过设置输出像素格式来实现更改像素格式，但只有像素格式字段将被更新，因为分辨率是由 DV 定时配置的。
+如上所述，使用 `DV_TIMINGS ioctl` 配置驱动程序以匹配传入视频。这样做的最简单方法是使用命令 `v4l2-ctl --set-dv-bt-timings query`。驱动程序确实支持生成 `SOURCE_CHANGED` 事件，如果你希望编写一个处理变化源的应用程序。通过设置输出像素格式来实现更改像素格式，但只有像素格式字段将被更新，因为分辨率是由 DV 定时配置的。
 
 有几块商用板可以将该芯片连接到树莓派。Auvidea B101 和 B102 是最常见的，但也有其他等效的板可用。
 
-使用 config.txt dtoverlay tc358743 加载此驱动程序。
+使用 `config.txt` `dtoverlay tc358743` 加载此驱动程序。
 
-该芯片还支持通过 I²S 捕获立体声 HDMI 音频。Auvidea 板将相关信号引出到一个标头，可连接到树莓派的 40 引脚标头。所需的接线是：
+该芯片还支持通过 I²S 捕获立体声 HDMI 音频。Auvidea 板将相关信号引出到一个标头，可连接到树莓派的 40 引脚排针。所需的接线是：
 
-| 信号     | B101 头 | 40 针头 | BCM GPIO |
-| ---------- | --------- | --------- | ---------- |
+| 信号     | B101 头 | 40 引脚 | BCM GPIO |
+| :----------: | :---------: | :---------: | :----------: |
 | LRCK/WFS | 7       | 35      | 19       |
 | BCK/SCK  | 6       | 12      | 18       |
-| 数据/SD  | 5       | 38      | 20       |
+| DATA/SD  | 5       | 38      | 20       |
 | GND      | 8       | 39      | 不适用   |
 
-除了 tc358743 叠加层外，还需要 tc358743-audio 叠加层。这应该为 HDMI 音频创建一个 ALSA 录音设备。
+除了叠加层 tc358743 外，还需要叠加层 tc358743-audio。这应该为 HDMI 音频创建一个 ALSA 录音设备。
 
-音频不进行重新采样。音频的存在反映在 V4L2 控制 TC358743_CID_AUDIO_PRESENT (音频存在) 中，传入音频的采样率反映在 V4L2 控制 TC358743_CID_AUDIO_SAMPLING_RATE (音频采样频率) 中。当没有音频存在或者采样率与报告的不同时录制会发出警告。
+音频不进行重新采样。音频的存在反映在 V4L2 控制 `TC358743_CID_AUDIO_PRESENT` (音频存在) 中，传入音频的采样率反映在 V4L2 控制 `TC358743_CID_AUDIO_SAMPLING_RATE` (音频采样频率) 中。当没有音频存在或者采样率与报告的不同时录制会发出警告。
 
 ### rpicam 和 raspicam 之间的差异
 
 rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用户可能会注意到以下差异：
 
-* Boost program_options 不允许参数的多字符短版本，因此这些参数不得不被删除。长格式参数以相同的方式命名，并保留任意单字符短格式。
-* rpicam-still 和 rpicam-jpeg 在预览窗口中不显示捕获的图像。
-* rpicam-apps 移除了以下 raspicam 功能：
+* `Boost program_options` 不允许参数的多字符短版本，因此这些参数不得不被删除。长格式参数以相同的方式命名，并保留任意单字符短格式。
+* `rpicam-still` 和 `rpicam-jpeg` 在预览窗口中不显示捕获的图像。
+* `rpicam-apps` 移除了以下 raspicam 功能：
 
-  * 不透明度 ( --opacity )
-  * 图像效果 ( --imxfx )
-  * 色彩效果 ( --colfx )
-  * 注释（ --annotate，--annotateex ）
-  * 动态范围压缩，或 DRC（ --drc ）
-  * 立体声（ --stereo，--decimate 和 --3dswap ）
-  * 图像稳定 ( --vstab )
-  * 演示模式 ( --demo ) 后期处理替换了许多这些功能。
-* rpicam-apps 移除了 rotation 参数支持 90° 和 270° 旋转。
+  * 不透明度 ( `--opacity` )
+  * 图像效果 ( `--imxfx` )
+  * 色彩效果 ( `--colfx` )
+  * 注释（ `--annotate`，`--annotateex` ）
+  * 动态范围压缩，或 DRC（ `--drc` ）
+  * 立体声（ `--stereo，`--decimate` 和 `--3dswap` ）
+  * 图像稳定 ( `--vstab` )
+  * 演示模式 ( `--demo` ) 后期处理替换了许多这些功能。
+* rpicam-apps 移除了参数 `rotation` 支持 90° 和 270° 旋转。
 * raspicam 混淆了计量和曝光；rpicam-apps 将这些参数分开。
 * 要在 rpicam-apps 中禁用自动白平衡（AWB），请使用一对色彩增益设置 awbgains （例如 1.0,1.0 ）。
-* rpicam-apps 无法将 NoIR 相机模块的自动白平衡（AWB）设置为灰世界模式。相反，将 tuning-file 参数传参给一个 NoIR 特定的调整文件，如 imx219_noir.json。
-* rpicam-apps 不提供对数字增益的显式控制。相反，gain 参数隐式设置它。
-* rpicam-apps 移除了 `--ISO` 参数。相反，计算所需 ISO 值对应的增益。供应商可以提供增益到 ISO 的映射。
+* rpicam-apps 无法将 NoIR 相机模块的自动白平衡（AWB）设置为灰世界模式。相反，将参数 `tuning-file` 传参给一个 NoIR 特定的调整文件，如 `imx219_noir.json`。
+* rpicam-apps 不提供对数字增益的显式控制。相反，参数 `gain` 隐式设置它。
+* rpicam-apps 移除了参数 `--ISO` 参数。相反，计算所需 ISO 值对应的增益。供应商可以提供增益到 ISO 的映射。
 * rpicam-apps 不支持设置闪烁周期。
 * rpicam-still 不支持连拍。相反，考虑在 MJPEG 模式下使用 rpicam-vid，并使用 `--segment 1` 强制将每帧保存为单独的文件。
 * rpicam-apps 使用开源驱动程序来驱动所有图像传感器，因此启用或禁用传感器上的瑕疵像素校正（DPC）的机制是不同的。树莓派 HQ 摄像头上的 imx477 驱动程序默认启用传感器上的 DPC。要在 HQ 摄像头上禁用传感器上的 DPC，请运行以下命令：
@@ -2796,10 +2796,10 @@ rpicam-apps 模拟旧版 raspicam 应用程序的大多数功能。然而，用�
 
 ## 获取帮助
 
-要获取有关 libcamera 和 rpicam-apps 的进一步帮助，请查看树莓派摄像头论坛。在发帖之前：
+要获取有关 libcamera 和 `rpicam-apps` 的进一步帮助，请查看树莓派摄像头论坛。在发帖之前：
 
 * 记下你的操作系统版本（ `uname -a` ）。
-* 记下你 libcamera 和 rpicam-apps 的版本（ `rpicam-hello --version` ）。
+* 记下你 libcamera 和 `rpicam-apps` 的版本（ `rpicam-hello --version` ）。
 * 报告你正在使用的摄像头模块的制造商和型号。
 * 报告你正在尝试使用的软件。我们不支持第三方摄像头模块供应商的软件。
 * 报告你的树莓派型号，包括内存大小。
