@@ -1192,7 +1192,7 @@ $ rpicam-hello --config example_configuration.txt
 
 #### `keypress`
 
-在超时或按下 **回车键** 时捕获图像，以先发生者为准。按 x 键，然后按 Enter 键可以退出而不捕获图像。此选项不接受值。
+在超时或按下 **回车键** 时捕获图像，以先发生者为准。按 x 键，然后按 **回车键** 可以退出而不捕获图像。此选项不接受值。
 
 #### `signal`
 
@@ -1342,24 +1342,24 @@ $ mkvmerge -o test.mkv --timecodes 0:timestamps.txt test.h264
 
 #### `initial`
 
- 默认值： record
+ 默认值： `record`
 
 指定是否启动应用程序时启用或禁用视频输出。接受以下值：
 
-* record ：启用视频输出启动。
-* pause ：禁用视频输出启动。
+* `record` ：启用视频输出启动。
+* `pause` ：禁用视频输出启动。
 
-使用此参数与 keypress 或 signal 一起，以在两种状态之间切换。
+使用此参数与 `keypress` 或 `signal` 一起，以在两种状态之间切换。
 
 #### `split`
 
-当使用 keypress 或 signal 切换录制时，将来自单独录制会话的视频输出写入单独的文件中。不接受值。除非与 output 结合使用以为每个文件指定唯一名称，否则每次写入文件时都会覆盖。
+当使用 `keypress` 或 `signal` 切换录制时，将来自单独录制会话的视频输出写入单独的文件中。不接受值。除非与 output 结合使用以为每个文件指定唯一名称，否则每次写入文件时都会覆盖。
 
 #### `segment`
 
 将视频输出剪切成传参持续时间的多个文件。接受以毫秒为单位的持续时间。如果传参一个非常小的持续时间（例如，1 ），则将每帧记录到单独的输出文件中以模拟突发捕获。
 
-你可以使用字符串格式化为每个文件指定单独的文件名，例如 --output test%04d.h264。
+你可以使用字符串格式化为每个文件指定单独的文件名，例如 `--output test%04d.h264`。
 
 #### `circular`
 
@@ -1391,9 +1391,9 @@ $ mkvmerge -o test.mkv --timecodes 0:timestamps.txt test.h264
 
 要启用 libav 后端，请传参 codec 参数值为 libav。
 
-要将以下参数之一传参给应用程序，请在参数名称前加上 --。如果参数需要值，请在参数名称后立即传参值，用单个空格分隔。如果值包含空格，请用引号括起来。
+要将以下参数之一传参给应用程序，请在参数名称前加上 `--`。如果参数需要值，请在参数名称后立即传参值，用单个空格分隔。如果值包含空格，请用引号括起来。
 
-一些参数具有速记别名，例如 -h 而不是 --help。使用这些速记别名而不是完整的参数名称，以节省空间和时间，但牺牲可读性。
+一些参数具有速记别名，例如 `-h` 而不是 `--help`。使用这些速记别名而不是完整的参数名称，以节省空间和时间，但牺牲可读性。
 
 #### `libav-format`
 
@@ -1409,25 +1409,25 @@ $ mkvmerge -o test.mkv --timecodes 0:timestamps.txt test.h264
 
 #### `libav-audio`
 
-启用音频录制。启用后，你还必须指定 audio-codec。不接受值。
+启用音频录制。启用后，你还必须指定 `audio-codec`。不接受值。
 
 #### `audio-codec`
 
  默认值： aac
 
-选择用于输出的音频编解码器。要查看可用编解码器的列表，请运行 ffmpeg -codecs。
+选择用于输出的音频编解码器。要查看可用编解码器的列表，请运行 `ffmpeg -codecs`。
 
 #### `audio-bitrate`
 
 设置音频编码的比特率，单位为每秒比特数。接受数字输入。
 
-示例： rpicam-vid --codec libav -o test.mp4 --audio_codec mp2 --audio-bitrate 16384 （以 mp2 编解码器以 16 千位/秒记录音频）
+示例： `rpicam-vid --codec libav -o test.mp4 --audio_codec mp2 --audio-bitrate 16384` （以 mp2 编解码器以 16 千位/秒记录音频）
 
 #### `audio-samplerate`
 
- 默认值： 0
+ 默认值： `0`
 
-设置音频采样率（单位 Hz）。接受数字输入。0 使用输入采样率。
+设置音频采样率（单位 Hz）。接受数字输入。`0` 使用输入采样率。
 
 #### `audio-device`
 
@@ -1452,11 +1452,11 @@ Name: alsa_input.usb-GN_Netcom_A_S_Jabra_EVOLVE_LINK_000736B1214E0A-00.mono-fall
 
 ### 检测参数
 
-本节中指定的命令行参数仅适用于使用 rpicam-detect 进行目标检测。
+本节中指定的命令行参数仅适用于使用 `rpicam-detect` 进行目标检测。
 
-要将以下参数之一传参给 rpicam-detect，请在参数名称前加上 --。如果参数需要一个值，请在参数名称后立即传参该值，用单个空格分隔。如果值包含空格，请用引号括起来。
+要将以下参数之一传参给 `rpicam-detect`，请在参数名称前加上 `--`。如果参数需要一个值，请在参数名称后立即传参该值，用单个空格分隔。如果值包含空格，请用引号括起来。
 
-一些参数具有速记别名，例如 -h 而不是 --help。请使用这些速记别名，以节省空间和时间，但牺牲可读性。
+一些参数具有速记别名，例如 `-h` 而不是 `--help`。请使用这些速记别名，以节省空间和时间，但牺牲可读性。
 
 #### `object`
 
@@ -1472,7 +1472,7 @@ rpicam-apps 共享一个通用的后处理框架。这使它们能够通过一�
 
 例如，否定阶段将亮像素变暗，暗像素变亮。由于否定阶段是基本的，不需要配置，negate.json 只是命名该阶段：
 
-```
+```json
 {
     "negate": {}
 }
@@ -1486,7 +1486,7 @@ $ rpicam-hello --post-process-file negate.json
 
 要运行多个后处理阶段，请创建一个包含多个阶段作为顶级键的 JSON 文件。例如，以下配置运行 Sobel 阶段，然后是否定阶段：
 
-```
+```json
 {
     "sobel_cv":
     {
@@ -1519,7 +1519,7 @@ negate 阶段没有用户可配置的参数。
 
  默认 negate.json 文件：
 
-```
+```json
 {
     "negate" : {}
 }
@@ -1527,7 +1527,7 @@ negate 阶段没有用户可配置的参数。
 
 运行以下命令以在 rpicam-hello 中使用此阶段文件：
 
-```
+```json
 $ rpicam-hello --post-process-file negate.json
 ```
 
@@ -1548,23 +1548,23 @@ $ rpicam-hello --post-process-file negate.json
 你可以使用以下参数配置此阶段：
 
 | `num_frames` | 累积帧数；对于 DRC，请使用 1；对于 HDR，请尝试 8                                                                                                                                                                                                          |
-| -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `lp_filter_strength` | 低通 IIR 滤波器的系数。                                                                                                                                                                                                                         |
 | `lp_filter_threshold` | 将像素级别与有意义细节的阈值相关联的分段线性函数。                                                                                                                                                                                              |
-| `global_tonemap_points` | 输入图像直方图中的点映射到输出范围中的目标，我们希望将它们移动到那里。使用以下子配置：<br /> 一个在 q 和 width 之间的分位均值，作为完整输出范围的一部分（ target ），最大（ max_up ）和最小（ max_down ）增益，用于移动测量的分位均值，以防止图像变化过于剧烈 |
+| `global_tonemap_points` | 输入图像直方图中的点映射到输出范围中的目标，我们希望将它们移动到那里。使用以下子配置：<br /> 一个在 `q` 和 `width` 之间的分位均值，作为完整输出范围的一部分（ `target` ），最大（ `max_up` ）和最小（ `max_down` ）增益，用于移动测量的分位均值，以防止图像变化过于剧烈 |
 | `global_tonemap_strength` | 全局色调映射应用强度                                                                                                                                                                                                                                      |
 | `local_pos_strength` | 一个分段线性函数，定义了添加回色调映射 LP 图像时应用于局部对比度的增益，用于正（亮）细节                                                                                                                                                                  |
 | `local_neg_strength` | 定义将应用于局部对比度的增益的分段线性函数，当添加回色调映射的 LP 图像时，用于负（暗）细节                                                                                                                                                                |
 | `local_tonemap_strength` | 应用于所有局部对比度的整体增益，然后添加回去                                                                                                                                                                                                              |
 | `local_colour_scale` | 一个因子，允许输出颜色受到更强烈或更弱的影响                                                                                                                                                                                                              |
 
-控制处理强度，更改 global_tonemap_strength 和 local_tonemap_strength 参数。
+控制处理强度，更改 `global_tonemap_strength` 和 `local_tonemap_strength` 参数。
 
 在树莓派 4 上，处理单个图像需要 2 到 3 秒的时间。在累积多个帧时，此阶段仅将处理后的图像发送到应用程序。
 
-DRC 的默认 drc.json 文件：
+DRC 的默认 `drc.json` 文件：
 
-```
+```json
 {
     "hdr" : {
 		"num_frames" : 1,
@@ -1591,7 +1591,7 @@ DRC 的默认 drc.json 文件：
 
 没有 DRC 处理的图像
 
-运行以下命令以在 rpicam-still 中使用此阶段文件
+运行以下命令以在 `rpicam-still` 中使用此阶段文件
 
 ```
 $ rpicam-still -o test.jpg --post-process-file drc.json
@@ -1601,9 +1601,9 @@ $ rpicam-still -o test.jpg --post-process-file drc.json
 
 具有 DRC 处理的图像
 
-HDR 的默认 hdr.json 文件：
+HDR 的默认 `hdr.json` 文件：
 
-```
+```json
 {
     "hdr" : {
 		"num_frames" : 8,
@@ -1663,7 +1663,7 @@ motion_detect 阶段分析来自低分辨率图像流的帧。你必须配置低
 
 默认 motion_detect.json 配置文件：
 
-```
+```json
 {
     "motion_detect" : {
 		"roi_x" : 0.1,
@@ -1702,11 +1702,11 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 你可以使用以下参数配置此阶段：
 
 | `ksize` | Sobel 滤波器的内核大小 |
-| -- | ------------------------ |
+| :--: | :------------------------: |
 
- 默认 sobel_cv.json 文件：
+ 默认 `sobel_cv.json` 文件：
 
-```
+```json
 {
     "sobel_cv" : {
         "ksize": 5
@@ -1727,7 +1727,7 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 你可以使用以下参数配置此阶段：
 
 | `cascade_name` | 可找到 Haar 级联的文件名               |
-| -- | ---------------------------------------- |
+| :--: | :----------------------------------------: |
 | `scaling_factor` | 确定搜索人脸图像的比例范围             |
 | `min_neighbors` | 需要重叠邻居的最小数量才能算作人脸     |
 | `min_size` | 最小人脸尺寸                           |
@@ -1737,9 +1737,9 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 
 face_detect_cv 阶段仅在预览和视频捕获期间运行。它会忽略静态图像捕获。它在分辨率为 320×240 和 640×480 像素之间的低分辨率流上运行。
 
- 默认 face_detect_cv.json 文件:
+ 默认 `face_detect_cv.json` 文件:
 
-```
+```json
 {
     "face_detect_cv" : {
         "cascade_name" : "/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml",
@@ -1763,29 +1763,29 @@ face_detect_cv 阶段仅在预览和视频捕获期间运行。它会忽略静�
 
 该阶段使用与 info-text 参数相同的 % 替换，将文本写入图像的右上角。
 
-首先解释 info-text 指令，然后将剩余的标记传参给 strftime。
+首先解释指令 `info-text` ，然后将剩余的标记传参给 strftime。
 
-例如，要在视频上实现日期时间戳，请传参 %F %T %z ：
+例如，要在视频上实现日期时间戳，请传参 `%F %T %z` ：
 
-* %F 显示 ISO-8601 日期 (2023-03-07)
-* %T 显示 24 小时本地时间 (例如 "09:57:12")
-* %z 显示相对于 UTC 的时区 (例如 "-0800")
+* `%F` 显示 ISO-8601 日期 (2023-03-07)
+* `%T` 显示 24 小时本地时间 (例如 "09:57:12")
+* `%z` 显示相对于 UTC 的时区 (例如 "-0800")
 
 此阶段不会输出任何元数据，但会将在 JSON 配置文件中找到的元数据写入 annotate.text 的位置。这样，其他后处理阶段就可以将文本写入图像。
 
 你可以使用以下参数配置此阶段：
 
 | `text` | 要写入的文本字符串            |
-| -- | ------------------------------- |
+| :--: | :-------------------------------: |
 | `fg` | 前景颜色                      |
 | `bg` | 背景颜色                      |
 | `scale` | 与文本大小成比例的数字        |
 | `thickness` | 决定文本厚度的数字            |
 | `alpha` | 覆盖背景像素时应用的 alpha 量 |
 
- 默认 annotate_cv.json 文件:
+ 默认 `annotate_cv.json` 文件:
 
-```
+```json
 {
     "annotate_cv" : {
         "text" : "Frame %frame exp %exp ag %ag dg %dg",
@@ -1821,7 +1821,7 @@ object_classify_tf 使用 Google MobileNet v1 模型对摄像头图像中的对�
 你可以使用以下参数配置此阶段：
 
 | `top_n_results` | 要显示的结果数量                                                             |
-| -- | ------------------------------------------------------------------------------ |
+|:---: | :------------------------------------------------------------------------------ |
 | `refresh_rate` | 模型运行之间必须经过的帧数                                                   |
 | `threshold_high` | 对象被视为存在的置信度阈值（介于 0 和 1 之间）                               |
 | `threshold_low` | 对象必须下降到以下阈值以下才能被丢弃为匹配项                                 |
@@ -1830,9 +1830,9 @@ object_classify_tf 使用 Google MobileNet v1 模型对摄像头图像中的对�
 | `display_labels` | 是否在图像上显示对象标签；为 annotate_cv 阶段插入 annotate.text 元数据以渲染 |
 | `verbose` | 在控制台输出更多信息                                                         |
 
- 示例 object_classify_tf.json 文件：
+ 示例 `object_classify_tf.json` 文件：
 
-```
+```json
 {
     "object_classify_tf" : {
         "top_n_results" : 2,
@@ -1854,7 +1854,7 @@ object_classify_tf 使用 Google MobileNet v1 模型对摄像头图像中的对�
 }
 ```
 
-舞台使用尺寸为 224×224 的低分辨率流图像。运行以下命令以使用此舞台文件与 rpicam-hello ：
+舞台使用尺寸为 224×224 的低分辨率流图像。运行以下命令以使用此舞台文件与 `rpicam-hello` ：
 
 ```
 $ rpicam-hello --post-process-file object_classify_tf.json --lores-width 224 --lores-height 224
@@ -1868,12 +1868,12 @@ $ rpicam-hello --post-process-file object_classify_tf.json --lores-width 224 --l
 
 下载：<https://github.com/Qengineering/TensorFlow_Lite_Pose_RPi_32-bits>
 
-pose_estimation_tf 使用 Google MobileNet v1 模型来检测姿势信息。
+`pose_estimation_tf` 使用 Google MobileNet v1 模型来检测姿势信息。
 
 你可以使用以下参数配置此阶段：
 
 | `refresh_rate` | 模型运行之间必须经过的帧数 |
-| -- | ---------------------------- |
+| :---: | :----------------------------: |
 | `model_file` | TFLite 模型文件的文件路径  |
 | `verbose` | 将额外信息输出到控制台     |
 
@@ -1882,11 +1882,11 @@ pose_estimation_tf 使用 Google MobileNet v1 模型来检测姿势信息。
 你可以使用以下参数配置 plot_pose_cv 阶段：
 
 | `confidence_threshold` | 确定绘制程度的置信阈值；可以小于零 |
-| -- | ------------------------------------ |
+| :--: | :------------------------------------: |
 
- 示例 pose_estimation_tf.json 文件：
+ 示例 `pose_estimation_tf.json` 文件：
 
-```
+```json
 {
     "pose_estimation_tf" : {
         "refresh_rate" : 5,
@@ -1898,9 +1898,9 @@ pose_estimation_tf 使用 Google MobileNet v1 模型来检测姿势信息。
 }
 ```
 
-该阶段在尺寸为 257×257 的低分辨率流图像上运行。因为 YUV420 图像必须具有偶数尺寸，所以对于 YUV420 图像，将尺寸四舍五入为 258×258。
+该阶段在尺寸为 257×257 的低分辨率流图像上运行。因为 YUV420 图像必须具有偶数尺寸，所以对于 YUV420 图像，将尺寸四舍五入为 `258×258`。
 
-运行以下命令以在 rpicam-hello 中使用此阶段文件：
+运行以下命令以在 `rpicam-hello` 中使用此阶段文件：
 
 ```
 $ rpicam-hello --post-process-file pose_estimation_tf.json --lores-width 258 --lores-height 258
@@ -1914,12 +1914,12 @@ $ rpicam-hello --post-process-file pose_estimation_tf.json --lores-width 258 --l
 
 下载: <https://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip>
 
-object_detect_tf 使用 Google MobileNet v1 SSD（Single Shot Detector）模型来检测和标记对象。
+`object_detect_tf` 使用 Google MobileNet v1 SSD（Single Shot Detector）模型来检测和标记对象。
 
 你可以使用以下参数配置此阶段：
 
 | `refresh_rate` | 必须在模型运行之间经过的帧数                   |
-| -- | ------------------------------------------------ |
+| :---: | :------------------------------------------------: |
 | `model_file` | TFLite 模型文件的文件路径                      |
 | `labels_file` | 包含标签列表的文件的文件路径                   |
 | `confidence_threshold` | 在接受匹配之前的置信阈值                       |
@@ -1931,12 +1931,12 @@ object_detect_tf 使用 Google MobileNet v1 SSD（Single Shot Detector）模型�
 你可以使用以下参数配置 object_detect_draw_cv 阶段：
 
 | `line_thickness` | 边界框线条的粗细   |
-| -- | -------------------- |
+| :--: | :--------------------: |
 | `font_size` | 用于标签的字体大小 |
 
- 示例 object_detect_tf.json 文件：
+ 示例 `object_detect_tf.json` 文件：
 
-```
+```json
 {
     "object_detect_tf" : {
         "number_of_threads" : 2,
@@ -1974,16 +1974,16 @@ segmentation_tf 使用 Google MobileNet v1 模型。此阶段需要一个标签�
 你可以使用以下参数配置此阶段：
 
 | `refresh_rate` | 必须在模型运行之间经过的帧数                       |
-| -- | ---------------------------------------------------- |
+| :--: | :----------------------------------------------------: |
 | `model_file` | TFLite 模型文件的文件路径                          |
 | `labels_file` | 包含标签列表的文件的文件路径                       |
 | `threshold` | 当设置为详细时，打印当标签的像素数超过此数字时 |
 | `draw` | 将分割地图绘制到图像的右下角                       |
 | `verbose` | 将额外信息输出到控制台                             |
 
- 示例 segmentation_tf.json 文件：
+ 示例 `segmentation_tf.json` 文件：
 
-```
+```json
 {
     "segmentation_tf" : {
         "number_of_threads" : 2,
@@ -2016,29 +2016,29 @@ $ rpicam-hello --post-process-file segmentation_tf.json --lores-width 258 --lore
 
 要创建自己的后处理阶段，请从 PostProcessingStage 类派生一个新类。所有后处理阶段必须实现以下成员函数：
 
-char const *Name() const 返回阶段的名称。与 JSON 后处理配置文件中列出的阶段进行匹配。
+`char const *Name() const` 返回阶段的名称。与 JSON 后处理配置文件中列出的阶段进行匹配。
 
-void Read(boost::property_tree::ptree const &params) 从提供的 JSON 文件中读取阶段的配置参数。
+`void Read(boost::property_tree::ptree const &params)` 从提供的 JSON 文件中读取阶段的配置参数。
 
-void AdjustConfig(std::string const &use_case, StreamConfiguration *config) 为阶段提供影响相机配置的机会。对于不需要配置相机的阶段，通常为空。
+`void AdjustConfig(std::string const &use_case, StreamConfiguration *config)` 为阶段提供影响相机配置的机会。对于不需要配置相机的阶段，通常为空。
 
-void Configure() 在相机配置完成后调用，以分配资源并检查阶段是否可以访问必要的流。
+`void Configure()` 在相机配置完成后调用，以分配资源并检查阶段是否可以访问必要的流。
 
-void Start() 当摄像头启动时调用。对于不需要配置摄像头的阶段通常为空。
+`void Start()` 当摄像头启动时调用。对于不需要配置摄像头的阶段通常为空。
 
-bool Process(CompletedRequest &completed_request) 展示已完成的摄像头请求以供后期处理。这是你将实现像素操作和图像分析的地方。如果后期处理框架不应将此请求传参给应用程序，则返回 true。
+`bool Process(CompletedRequest &completed_request)` 展示已完成的摄像头请求以供后期处理。这是你将实现像素操作和图像分析的地方。如果后期处理框架不应将此请求传参给应用程序，则返回 true。
 
-void Stop() 当摄像头停止时调用。用于关闭异步线程上的全部活动处理。
+`void Stop()` 当摄像头停止时调用。用于关闭异步线程上的全部活动处理。
 
-当相机配置被销毁时调用 void Teardown()。将其用作析构函数，在其中可以释放在 Configure 方法中设置的资源。
+当相机配置被销毁时调用 `void Teardown()`。将其用作析构函数，在其中可以释放在 `Configure` 方法中设置的资源。
 
-在所有阶段实现中，调用 RegisterStage 来向系统注册你的阶段。
+在所有阶段实现中，调用 `RegisterStage` 来向系统注册你的阶段。
 
-不要忘记将你的阶段也添加到后处理文件夹的 CMakeLists.txt 中！
+不要忘记将你的阶段也添加到后处理文件夹的 `CMakeLists.txt` 中！
 
 写自己的阶段时，请记住以下提示：
 
-* Process 方法会阻塞成像管道。如果花费的时间太长，管道会出现卡顿。始终将耗时算法委托给异步线程。
+* `Process` 方法会阻塞成像管道。如果花费的时间太长，管道会出现卡顿。始终将耗时算法委托给异步线程。
 * 将工作委托给另一个线程时，必须复制图像缓冲区。对于像图像分析这样不需要全分辨率的应用程序，尝试使用低分辨率图像流。
 * 后处理框架使用并行处理每一帧。这提高了吞吐量。然而，一些 OpenCV 和 TensorFlow Lite 函数在每一帧内引入了另一层并行性。考虑在每一帧内序列化调用，因为后处理已经利用了多个线程。
 * 大多数流，包括低分辨率流，使用 YUV420 格式。你可能需要将其转换为另一种格式以供某些 OpenCV 或 TFLite 函数使用。
@@ -2052,32 +2052,32 @@ void Stop() 当摄像头停止时调用。用于关闭异步线程上的全部�
 
 对于使用 TensorFlow Lite (TFLite) 的阶段，请从 TfStage 类派生一个新类。该类将模型执行委托给单独的线程，以防止相机出现卡顿。
 
-TfStage 类实现了所有后处理阶段通常必须实现的成员函数，除了 Name。所有派生自 TfStage 的阶段必须实现 Name 函数，并应实现以下一个或多个虚拟成员函数：
+TfStage 类实现了所有后处理阶段通常必须实现的成员函数，除了 `Name`。所有派生自 `TfStage` 的阶段必须实现 `Name` 函数，并应实现以下一个或多个虚拟成员函数：
 
-void readExtras() 基类读取命名模型和诸如 refresh_rate 之类的某些其他参数。使用此函数读取派生阶段的额外参数，并检查加载的模型是否正确（例如，具有正确的输入和输出维度）。
+`void readExtras()` 基类读取命名模型和诸如 `refresh_rate` 之类的某些其他参数。使用此函数读取派生阶段的额外参数，并检查加载的模型是否正确（例如，具有正确的输入和输出维度）。
 
-void checkConfiguration() 基类获取 TFLite 操作的低分辨率流和派生阶段需要的完整分辨率流。使用此函数检查你的阶段所需的流。如果你的阶段无法访问所需的流之一，则可能会跳过处理或引发错误。
+`void checkConfiguration()` 基类获取 TFLite 操作的低分辨率流和派生阶段需要的完整分辨率流。使用此函数检查你的阶段所需的流。如果你的阶段无法访问所需的流之一，则可能会跳过处理或引发错误。
 
-void interpretOutputs() 使用此函数读取和解释模型输出。在模型完成时与模型在同一线程中运行。
+`void interpretOutputs()` 使用此函数读取和解释模型输出。在模型完成时与模型在同一线程中运行。
 
-void applyResults() 使用此函数将模型的结果（可能是几帧旧的）应用于当前帧。通常涉及附加元数据或绘图。在交付帧之前在主线程中运行。
+`void applyResults()` 使用此函数将模型的结果（可能是几帧旧的）应用于当前帧。通常涉及附加元数据或绘图。在交付帧之前在主线程中运行。
 
-有关示例实现，请参见 object_classify_tf_stage.cpp 和 pose_estimation_tf_stage.cpp。
+有关示例实现，请参见 `object_classify_tf_stage.cpp` 和 `pose_estimation_tf_stage.cpp`。
 
-## 高级 rpicam-apps
+## 高级 `rpicam-apps`
 
 ### 构建 libcamera 和 rpicam-apps
 
 为自己构建 libcamera 和 rpicam-apps 以获得以下好处：
 
 * 你可以获取最新的增强功能和特性。
-* rpicam-apps 可以针对运行 32 位操作系统的树莓派 3 和树莓派 4 设备进行额外优化编译。
+* `rpicam-apps` 可以针对运行 32 位操作系统的树莓派 3 和树莓派 4 设备进行额外优化编译。
 * 你可以包括可选的 OpenCV 和/或 TFLite 后处理阶段，或添加你自己的内容。
 * 你可以定制或添加从 rpicam-apps 派生的应用程序。
 
 #### 构建 rpicam-apps 而不构建 libcamera。
 
-要构建 rpicam-apps 而不必先重新构建 libcamera 和 libepoxy，请使用 apt 安装 libcamera、libepoxy 及其依赖项：
+要构建 `rpicam-apps` 而不必先重新构建 libcamera 和 libepoxy，请使用 apt 安装 libcamera、libepoxy 及其依赖项：
 
 ```
 $ sudo apt install -y libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng-dev
@@ -2085,7 +2085,7 @@ $ sudo apt install -y libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng
 
 >**技巧**
 >
->如果你不需要支持 GLES/EGL 预览窗口，请省略 libepoxy-dev。
+>如果你不需要支持 GLES/EGL 预览窗口，请省略 `libepoxy-dev`。
 
 要使用 Qt 预览窗口，请安装以下附加依赖项：
 
@@ -2142,7 +2142,7 @@ $ git clone https://github.com/raspberrypi/libcamera.git
 $ cd libcamera
 ```
 
-接下来，运行 meson 来配置构建环境：
+接下来，运行 `meson` 来配置构建环境：
 
 ```
 $ meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/vc4,rpi/pisp -Dv4l2=true -Dgstreamer=enabled -Dtest=false -Dlc-compliance=disabled -Dcam=disabled -Dqcam=disabled -Ddocumentation=disabled -Dpycamera=enabled
@@ -2150,7 +2150,7 @@ $ meson setup build --buildtype=release -Dpipelines=rpi/vc4,rpi/pisp -Dipas=rpi/
 
 >**注意**
 >
->在 meson 构建配置期间，你可以通过将 -Dgstreamer=enabled 替换为 -Dgstreamer=disabled 来禁用 gstreamer 插件。如果禁用 gstreamer，则无需安装 libglib2.0-dev 和 libgstreamer-plugins-base1.0-dev 依赖项。
+>在 meson 构建配置期间，你可以通过将 `-Dgstreamer=enabled` 替换为 `-Dgstreamer=disabled` 来禁用 gstreamer 插件。如果禁用 gstreamer，则无需安装 libglib2.0-dev 和 libgstreamer-plugins-base1.0-dev 依赖项。
 
 现在，你可以使用 ninja 构建 libcamera ：
 
@@ -2205,7 +2205,7 @@ $ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=di
 
 >**技巧**
 >
->使用 -Dneon_flags=armv8-neon 来启用树莓派 3 或树莓派 4 上 32 位操作系统的优化。如果已安装 OpenCV 并希望使用基于 OpenCV 的后处理阶段，请使用 -Denable_opencv=enabled。如果已安装 TensorFlow Lite 并希望在后处理阶段中使用它，请使用 -Denable_tflite=enabled。
+>使用 `-Dneon_flags=armv8-neon` 来启用树莓派 3 或树莓派 4 上 32 位操作系统的优化。如果已安装 OpenCV 并希望使用基于 OpenCV 的后处理阶段，请使用 `-Denable_opencv=enabled`。如果已安装 TensorFlow Lite 并希望在后处理阶段中使用它，请使用 `-Denable_tflite=enabled`。
 
 现在可以使用以下命令构建 rpicam-apps ：
 
@@ -2215,7 +2215,7 @@ $ meson compile -C build
 
 >**技巧**
 >
->在内存为 1GB 或更小的设备上，编译可能会超出可用内存。在 meson 命令中附加 -j 1 标志以将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。
+>在内存为 1GB 或更小的设备上，编译可能会超出可用内存。在 meson 命令中附加参数 `-j 1`以将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。
 最后，运行以下命令安装你新构建的 rpicam-apps 二进制文件：
 
 ```
@@ -2230,25 +2230,25 @@ $ sudo meson install -C build
 
 meson 构建配置支持以下标志：
 
--Dneon_flags=armv8-neon 在运行 32 位操作系统的树莓派 3 或树莓派 4 设备上加快某些后处理功能。
+`-Dneon_flags=armv8-neon` 在运行 32 位操作系统的树莓派 3 或树莓派 4 设备上加快某些后处理功能。
 
--Denable_libav=enabled 启用或禁用 libav 编码器集成。
+`-Denable_libav=enabled` 启用或禁用 libav 编码器集成。
 
--Denable_drm=enabled 启用或禁用 DRM/KMS 预览渲染，这是在没有桌面环境的情况下使用的预览窗口。
+`-Denable_drm=enabled` 启用或禁用 DRM/KMS 预览渲染，这是在没有桌面环境的情况下使用的预览窗口。
 
--Denable_egl=enabled 启用或禁用非 Qt 桌面环境的预览。如果你的系统缺少桌面环境，请禁用。
+`-Denable_egl=enabled` 启用或禁用非 Qt 桌面环境的预览。如果你的系统缺少桌面环境，请禁用。
 
--Denable_qt=enabled 启用或禁用对预览窗口的基于 Qt 的实现的支持。如果未安装桌面环境或者不打算使用基于 Qt 的预览窗口，则禁用它。通常不推荐使用基于 Qt 的预览，因为它在计算上非常昂贵，但它可以与 X 显示转发一起使用。
+`-Denable_qt=enabled` 启用或禁用对预览窗口的基于 Qt 的实现的支持。如果未安装桌面环境或者不打算使用基于 Qt 的预览窗口，则禁用它。通常不推荐使用基于 Qt 的预览，因为它在计算上非常昂贵，但它可以与 X 显示转发一起使用。
 
--Denable_opencv=enabled 强制 OpenCV 基于的后处理阶段链接或不链接。需要启用 OpenCV。默认为 disabled。
+`-Denable_opencv=enabled` 强制 OpenCV 基于的后处理阶段链接或不链接。需要启用 OpenCV。默认为 `disabled`。
 
--Denable_tflite=enabled 启用或禁用 TensorFlow Lite 后处理阶段。默认情况下禁用。需要启用 Tensorflow Lite。根据你构建和/或安装 TFLite 的方式，你可能需要调整 post_processing_stages 目录中的 meson.build 文件。
+`-Denable_tflite=enabled` 启用或禁用 TensorFlow Lite 后处理阶段。默认情况下禁用。需要启用 Tensorflow Lite。根据你构建和/或安装 TFLite 的方式，你可能需要调整 `post_processing_stages` 目录中的文件 `meson.build` 。
 
-以上参数中的每个参数（ neon_flags 除外）支持以下值：
+以上参数中的每个参数（ `neon_flags` 除外）支持以下值：
 
-* enabled ：启用该参数，如果依赖项不可用，则构建失败
-* disabled ：禁用该参数
-* auto ：如果有依赖项可用，则启用该参数
+* `enabled` ：启用该参数，如果依赖项不可用，则构建失败
+* `disabled` ：禁用该参数
+* `auto` ：如果有依赖项可用，则启用该参数
 
 #### 正在构建 libepoxy
 
@@ -2301,11 +2301,14 @@ $ sudo ninja install
 
 rpicam-apps 并未提供所有摄像头相关功能，所有人都可能需要。相反，这些应用程序体积小巧灵活。需要不同行为的用户可以自行实现。
 
-所有的 rpicam-apps 使用一个事件循环，当从摄像头系统接收到一组新的帧时会收到消息。这组帧被称为 CompletedRequest。这个 CompletedRequest 包含：* 所有从单个摄像头帧派生的图像：通常是低分辨率图像和全尺寸输出 * 来自摄像头和后处理系统的元数据
+所有的 rpicam-apps 使用一个事件循环，当从摄像头系统接收到一组新的帧时会收到消息。这组帧被称为 CompletedRequest。这个 `CompletedRequest` 包含：
+
+* 所有从单个摄像头帧派生的图像：通常是低分辨率图像和全尺寸输出
+* 来自摄像头和后处理系统的元数据
 
 #### `rpicam-hello`
 
-rpicam-hello 是最小的应用程序，也是理解 rpicam-apps 设计的最佳起点。它从消息中提取 CompletedRequestPtr，一个指向 CompletedRequest 的共享指针，并将其转发到预览窗口：
+rpicam-hello 是最小的应用程序，也是理解 rpicam-apps 设计的最佳起点。它从消息中提取 `CompletedRequestPtr`，一个指向 `CompletedRequest` 的共享指针，并将其转发到预览窗口：
 
 ```
 CompletedRequestPtr &completed_request = std::get<CompletedRequestPtr>(msg.payload);
