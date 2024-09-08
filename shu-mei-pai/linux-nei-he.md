@@ -2,7 +2,7 @@
 
 ## 介绍
 
-树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派内核则会集成到 **long-term releases（长期支持版本）** 的 Linux 内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期支持版的 Linux 内核生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到主分支中。
+树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派内核则会集成到 **long-term releases（长期支持版本）**的 Linux 内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期支持版的 Linux 内核生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到主分支中。
 
 ## 更新
 
@@ -10,7 +10,7 @@
 
 ## 编译内核
 
-操作系统自带的编译器，链接器通常配置为：为能在该系统上运行的可执行文件而进行编译。**本机编译**使用这些默认的编译器和链接器。而 **交叉编译** 是指为与当前编译环境不同的目标系统编译代码的流程。
+操作系统自带的编译器，链接器通常配置为：为能在该系统上运行的可执行文件而进行编译。**本机编译** 使用这些默认的编译器和链接器。而 **交叉编译** 是指为与当前编译环境不同的目标系统编译代码的流程。
 
 树莓派内核的交叉编译能让你在 32 位操作系统上编译 64 位内核，反之亦然。你还可以在非树莓派设备上交叉编译 32 位（或 64 位）的树莓派内核。
 
