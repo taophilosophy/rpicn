@@ -490,7 +490,7 @@ $ sudo raspi-config nonint do_i2c <0或1>
 启用或禁用：串口硬件。
 
 ```bash
-$ sudo raspi-config nonint do_serial_hw <0或1或2>
+$ sudo raspi-config nonint do_serial_hw <0或1>
 ```
 
 * `0`：启用串口
@@ -501,7 +501,7 @@ $ sudo raspi-config nonint do_serial_hw <0或1或2>
 启用或禁用： shell 及内核信息的串口输出。
 
 ```bash
-$ sudo raspi-config nonint do_serial_cons <0或1或2>
+$ sudo raspi-config nonint do_serial_cons <0或1>
 ```
 
 * `0`：启用串口控制台
