@@ -2,7 +2,7 @@
 
 ## 介绍
 
-树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派内核则会集成到 **long-term releases（长期支持版本）**的 Linux 内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期支持版的 Linux 内核生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到主分支中。
+树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派内核则会集成到 **long-term releases（长期支持版本）** 的 Linux 内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期支持版的 Linux 内核生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到主分支中。
 
 ## 更新
 
