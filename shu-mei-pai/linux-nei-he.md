@@ -175,12 +175,12 @@ CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
 
 #### 构建
 
-* 运行以下命令编译 64 位内核：
+* 运行以下命令可编译 64 位内核：
 
   ```bash
   $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- Image modules dtbs
   ```
-* 运行以下命令编译 32 位内核：
+* 运行以下命令可编译 32 位内核：
 
   ```bash
   $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs
@@ -188,23 +188,23 @@ CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
 
 #### 安装内核
 
-内核编译完成后，你需要将其复制到树莓派的启动介质（通常是 SD 卡或 SSD）上，并安装模块。
+内核编译完成后，你需要把内核复制到树莓派的启动介质（一般是存储卡或 SSD），然后安装模块。
 
 ##### 找到你的启动介质
 
-首先，运行 `lsblk`。然后连接启动介质，再次运行 `lsblk`；新出现的设备就是你的启动介质。你会看到类似如下的输出：
+首先，运行 `lsblk`。然后接入启动介质，再次运行 `lsblk`；新出现的设备就是你的启动介质。你将看到类似如下的输出：
 
-```
+```bash
 sdb
    sdb1
    sdb2
 ```
 
-如果 `sdb` 代表你的启动介质，`sdb1` 代表 **启动分区**（`FAT32` 格式），而 `sdb2` 代表（可能是 `ext4` 格式的）**根分区**。
+如果 `sdb` 代表你的启动介质，`sdb1` 代表 **启动分区**（`FAT32` 格式），而 `sdb2` 代表（可能为 `ext4` 格式）**根分区**。
 
-首先，将这些分区挂载为 `mnt/boot` 和 `mnt/root`，并根据启动介质的实际位置调整分区字母：
+先将这些分区分别挂载到 `mnt/boot`、`mnt/root`，并根据实际的启动介质位置来调整分区字母：
 
-```
+```bash
 $ mkdir mnt
 $ mkdir mnt/boot
 $ mkdir mnt/root
@@ -214,7 +214,7 @@ $ sudo mount /dev/sdb2 mnt/root
 
 ##### 安装
 
-接下来，将内核模块安装到启动介质上：
+接下来，把内核模块安装到启动介质上：
 
 * 对于 64 位内核：
 
@@ -229,14 +229,14 @@ $ sudo mount /dev/sdb2 mnt/root
 
 >**技巧**
 >
->在多核设备上，`make -j<n>` 选项会将工作分配到多个核心，从而显著加快编译速度。运行 `nproc` 查看你有多少处理器，我们建议传递的数字为处理器数量的 1.5 倍。
+>在多核设备上，参数 `make -j<数量>` 会把工作分配到多个核心，从而显著提高编译速度。可运行 `nproc` 查看你有多少处理器，我们建议使用的数字为处理器数量的 1.5 倍。
 
 
-接下来，将内核和设备树文件安装到启动分区中，并备份原始内核。
+接下来，把内核和设备树文件安装到启动分区中，并备份下旧内核。
 
 要安装 64 位内核：
 
-* 运行以下命令创建当前内核的备份镜像，安装新的内核镜像、覆盖文件、README 文件，并卸载分区：
+* 运行以下命令可创建当前内核的备份镜像，安装新的内核镜像、覆盖文件、README 文件，然后卸载分区：
 
   ```bash
   $ sudo cp mnt/boot/$KERNEL.img mnt/boot/$KERNEL-backup.img
@@ -250,13 +250,13 @@ $ sudo mount /dev/sdb2 mnt/root
 
 要安装 32 位内核：
 
-1. 运行以下命令创建当前内核的备份镜像并安装新的内核镜像：
+1. 运行以下命令可创建当前内核的备份镜像，然后安装新的内核镜像：
 
     ```bash
     $ sudo cp mnt/boot/$KERNEL.img mnt/boot/$KERNEL-backup.img
     $ sudo cp arch/arm/boot/zImage mnt/boot/$KERNEL.img
     ```
-2. 根据你的[内核版本](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#identify-your-kernel-version)，运行以下命令安装设备树文件：
+2. 根据你的[内核版本](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#identify-your-kernel-version)，可运行以下命令安装设备树文件：
 
     * 对于 6.4 及以下版本的内核：
 
@@ -268,7 +268,7 @@ $ sudo mount /dev/sdb2 mnt/root
       ```bash
       $ sudo cp arch/arm/boot/dts/broadcom/*.dtb mnt/boot/
       ```
-3. 最后，安装覆盖文件和 README 文件，并卸载分区：
+3. 最后，安装叠加层文件和 README 文件，然后卸载分区：
 
     ```bash
     $ sudo cp arch/arm/boot/dts/overlays/*.dtb* mnt/boot/overlays/
@@ -277,17 +277,17 @@ $ sudo mount /dev/sdb2 mnt/root
     $ sudo umount mnt/root
     ```
 
-最后，将启动介质连接到你的树莓派，并连接电源以运行你刚编译的内核。
+最后，把启动介质接入你的树莓派，然后接入电源，运行你刚编译的内核。
 
 >**技巧**
 >
->或者，可以使用不同的文件名（例如 `kernel-myconfig.img`）来复制内核，而不是覆盖 `kernel.img` 文件。然后，编辑启动分区中的 `config.txt` 文件以选择您的内核：
+>你还以使用不同的文件名（例如 `kernel-myconfig.img`）来复制内核，而非直接覆盖文件 `kernel.img`。然后，编辑启动分区中的 `config.txt` 文件来选择您的内核：
 >
 >```bash
 >kernel=kernel-myconfig.img
 >```
 >
->将这种方法与自定义 `LOCALVERSION` 结合使用，以将您的自定义内核与系统管理的标准内核镜像分开。在这种安排下，如果您的内核无法启动，您可以快速恢复到标准内核。
+>把这种方法与自定义 `LOCALVERSION` 结合使用，可将您的自定义内核与系统管理的标准内核镜像分开。在这种安排下，如果您的内核无法启动，您可以快速还原到标准内核。
 
 
 ## 配置内核
