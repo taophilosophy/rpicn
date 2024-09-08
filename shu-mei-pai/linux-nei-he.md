@@ -446,10 +446,10 @@ $ sudo apt install linux-headers-rpi-{v6,v7,v7l}
 
 首先，复刻[树莓派内核仓库](https://github.com/raspberrypi/linux) 并将其克隆到你的开发设备上。然后，你可以进行更改、测试，并将更改提交到你的复刻。
 
-接下来，将包含你更改的 pull request 提交到 [Raspberry Pi 内核仓库](https://github.com/raspberrypi/linux)。树莓派工程师会审查你的贡献并建议改进。待获得批准，我们会将你的更改合并，最终这些更改会进入树莓派内核的稳定版本。
+接下来，将包含你更改的 pull request 提交到[树莓派内核仓库](https://github.com/raspberrypi/linux)。树莓派工程师会审查你的贡献并建议改进。待获得批准，我们会将你的更改合并，最终这些更改会进入树莓派内核的稳定版本。
 
 ### 贡献到 Linux 内核
 
-首先，将 [Linux 内核树](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git) 克隆到你的开发设备上。然后，你可以进行更改、测试，并将更改提交到你的本地树中。
+首先，将 [Linux 内核树](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git)克隆到你的开发设备上。然后，你可以进行更改、测试，并将更改提交到你的本地树中。
 
-若你的更改准备好，你可以将其提交给 Linux 内核社区。Linux 内核开发是在邮件列表上进行的，而不是在 GitHub 上。为了使你的更改成为 Linux 内核的一部分，请通过电子邮件将其作为补丁提交给社区。请遵循 [提交补丁：将你的代码加入内核的基本指南](https://www.kernel.org/doc/html/latest/process/submitting-patches.html) 和 [Linux 内核编码风格](https://www.kernel.org/doc/html/latest/process/coding-style.html) 的文档。Linux 内核贡献者会审查你的贡献并建议改进。获得批准后，他们会将你的更改合并。最终，这些更改会进入 Linux 内核的长期发布版本。经过测试与树莓派内核的兼容性后，你的更改会进入树莓派内核的稳定版本。
+若你的更改准备好，你可以将其提交给 Linux 内核社区。Linux 内核开发是在邮件列表上进行的，而不是在 GitHub 上。为了使你的更改成为 Linux 内核的一部分，请通过电子邮件将其作为补丁提交给社区。请遵循[提交补丁：将你的代码加入内核的基本指南](https://www.kernel.org/doc/html/latest/process/submitting-patches.html)和[Linux 内核编码风格](https://www.kernel.org/doc/html/latest/process/coding-style.html)的文档。Linux 内核贡献者会审查你的贡献并建议改进。获得批准后，他们会将你的更改合并。最终，这些更改会进入 Linux 内核的长期发布版本。经过测试与树莓派内核的兼容性后，你的更改会进入树莓派内核的稳定版本。
