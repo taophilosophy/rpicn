@@ -2995,7 +2995,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 `tryboot`
 
-　　如果在启动时设置了参数 `tryboot` ，则置为 1。
+　　如果在启动时设置了参数 `tryboot` ，则置为 `1`。
 
 #### 电源适配器属性 `/chosen/power`
 
@@ -3019,15 +3019,15 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 `rpi_power_supply` 
 
-　　（**一对 32 位整数**）树莓派官方 27W 电源适配器的 USB VID 和 Product VDO（如接入）。
+　　（**一对 32 位整数**）树莓派官方 27W 电源适配器的 USB VID 和 Product VDO（如已接入）。
 
 `usb_max_current_enable` 
 
-　　如果 USB 接口的电流限制器在启动时被设置为低限，则为 0；如果启用了高限，则为非 0 值。如果电源适配器报告其最大电流为 5A，或在 `config.txt` 中强制使用 `usb_max_current_enable=1`，则自动启用高电平。
+　　如果 USB 接口的电流限制器在启动时被设置为低限，则为 0；如果启用了高限，则为非 `0` 值。如果电源适配器报告其最大电流为 5A，或在 `config.txt` 中强制使用 `usb_max_current_enable=1`，则自动启用高电平。
 
 `usb_over_current_detected` 
 
-　　如果在 USB 启动期间发生过 USB 过流事件，则为非 0 值。
+　　如果在 USB 启动期间发生过 USB 过流事件，则为非 `0` 值。
 
 `usbpd_power_data_objects`
 
@@ -3064,7 +3064,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 `signed` 
 
-　　如启用安全启动，此位字段为非 0。每个位指示当前的安全启动配置。
+　　如启用安全启动，此位字段为非 `0`。每个位指示当前的安全启动配置。
 
 | 位    | 说明                                            |
 | :-------: | ------------------------------------------------- |
@@ -3106,7 +3106,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 从 [rpi-eeprom-update](https://github.com/raspberrypi/rpi-eeprom/blob/master/rpi-eeprom-update) 读取 NVMEM 模式的示例 shell 脚本代码。
 
-```sh
+```bash
 blconfig_alias="/sys/firmware/devicetree/base/aliases/blconfig"
 blconfig_nvmem_path=""
 
@@ -3134,7 +3134,7 @@ fi
 
 #### 调试
 
-加载程序将跳过缺少的叠加层和错误参数，但如果存在严重错误，比如缺少或损坏的基本 DTB 或失败的叠加层合并，那么加载程序将退回到非 DT 引导。如果发生这种情况，或者如果你的设置不符合你的期望，需要检查加载程序的警告或错误：
+加载程序将跳过缺少的叠加层和错误参数，但如果存在严重错误，比如缺少或损坏的基本 DTB 或失败的叠加层合并，那么加载程序将退回到非设备树引导。如果发生这种情况，或者如果你的设置不符合你的期望，需要检查加载程序的警告或错误：
 
 ```bash
 $ sudo vclog --msg
@@ -3142,7 +3142,7 @@ $ sudo vclog --msg
 
 通过将 `dtdebug=1` 添加到 `config.txt` 可以启用其他的调试。
 
-你可以这样创建当前 DT 状态，以人类可读的形式表示：
+你可以这样创建当前设备树状态，以人类可读的形式表示：
 
 ```bash
 $ dtc -I fs /proc/device-tree
@@ -3164,11 +3164,11 @@ MODULE_DEVICE_TABLE(of, xxx_of_match);
 
 如果失败，可能因为 `depmod` 失败，或者更新的模块尚未安装在目标文件系统上。
 
-#### 使用 dtmerge、dtdiff 和 ovmerge 测试叠加层。
+#### 使用 `dtmerge`、`dtdiff` 和 `ovmerge` 测试叠加层。
 
 除了命令 `dtoverlay` 和 `dtparam`，还有一款能把叠加层应用到 DTB 的工具：`dtmerge`。要使用它，你首先需要获取基本的 DTB，可以通过以下两种方式获取：
 
-从 `/proc/device-tree` 中的实时 DT 状态生成它：
+从 `/proc/device-tree` 中的实时设备树状态生成它：
 
 ```bash
 $ dtc -I fs -O dtb -o base.dtb /proc/device-tree
@@ -3184,7 +3184,7 @@ $ dtmerge /boot/firmware/bcm2710-rpi-3-b.dtb base.dtb -
 
 ( `-` 表示不存在的叠加层名称)。
 
-你现在可以尝试应用叠加层或参数：
+你现在可以尝试应用叠加层/参数：
 
 ```bash
 $ dtmerge base.dtb merged.dtb - sd_overclock=62
@@ -3207,7 +3207,7 @@ $ dtdiff base.dtb merged.dtb
                         clocks = <0x8>;
 ```
 
-你还可以比较不同的叠加层或参数。
+你还可以比较不同的叠加层/参数。
 
 ```sh
 $ dtmerge base.dtb merged1.dtb /boot/firmware/overlays/spi1-1cs.dtbo
@@ -3257,7 +3257,7 @@ $ dtdiff merged1.dtb merged2.dtb
                 spi@7e2150C0 {
 ```
 
-[Utils](https://github.com/raspberrypi/utils) 存储库包含了另一个 DT 工具——`ovmerge`。与 `dtmerge` 不同，`ovmerge` 结合了文件并以源形式应用叠加层。由于叠加层从未被编译，标签得以保留，结果通常更易读。它还具有许多其他技巧，例如能够列出文件包含的顺序。
+[Utils](https://github.com/raspberrypi/utils) 存储库包含了另一款设备树工具——`ovmerge`。与 `dtmerge` 不同，`ovmerge` 结合了文件并以源形式应用叠加层。由于叠加层从未被编译，标签得以保留，结果通常更易读。它还具有许多其他技巧，例如能够列出文件包含的顺序。
 
 #### 强制使用特定设备树
 
@@ -3294,7 +3294,7 @@ dtparam=i2c,i2s
 
 （ `i2c` 是 `i2c_arm` 的别名，`=on` 为默认）。它仍然接受长形式版本： `device_tree_overlay` 和 `device_tree_param`。
 
-#### `config.txt` 中可用的其他 DT 命令
+#### `config.txt` 中可用的其他设备树命令
 
 `device_tree_address` 
 
@@ -3306,17 +3306,17 @@ dtparam=i2c,i2s
 
 `dtdebug` 
 
-　　如果非 0，会打开固件的设备树处理的一些详细日志记录。
+　　如果非 `0`，会打开固件的设备树处理的一些详细日志记录。
 
 `enable_uart` 
 
-　　启用主/控制台[串口](https://www.raspberrypi.com/documentation/computers/configuration.html#configure-uarts)（在树莓派 3、4、400、Zero W 和 Zero 2 W 上为 ttyS0，在其他情况下为 ttyAMA0——除非与诸如 miniuart-bt 的叠加层交换）。如果主串口是 ttyAMA0，则 `enable_uart` 默认为 1（已启用），否则默认为 0（已禁用）。这是因为有必要阻止核心频率的变化，否则会使 ttyS0 无法使用，因此 `enable_uart=1` 意味着 `core_freq=250`（除非 `force_turbo=1`）。在某些情况下，这会影响性能，因此默认情况下关闭。
+　　启用主/控制台[串口](https://www.raspberrypi.com/documentation/computers/configuration.html#configure-uarts)（在树莓派 3、4、400，树莓派 Zero W 和 Zero 2 W 上为 ttyS0，在其他情况下为 ttyAMA0——除非与诸如 miniuart-bt 的叠加层交换）。如果主串口是 ttyAMA0，则 `enable_uart` 默认为 `1`（已启用），否则默认为 `0`（已禁用）。这是因为有必要阻止核心频率的变化，否则会使 ttyS0 无法使用，因此 `enable_uart=1` 意味着 `core_freq=250`（除非 `force_turbo=1`）。在某些情况下，这会影响性能，因此默认情况下关闭。
 
 `overlay_prefix` 
 
 　　指定要从中加载叠加层的子目录/前缀。默认为 "overlays/"。请注意末尾的“/”。如果需要，你可以在最后一个“/”后添加内容以向每个文件添加前缀，尽管这可能不是必要的。
 
-可以用 DT 对端口进行进一步的控制。有关更多详细信息，请参阅[第 3 节](https://www.raspberrypi.com/documentation/computers/configuration.html#part3)。
+可以用设备树对端口进行进一步的控制。有关更多详细信息，请参阅[第 3 节](https://www.raspberrypi.com/documentation/computers/configuration.html#part3)。
 
 #### 更多帮助
 
@@ -3398,7 +3398,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 #### `pin_config`
 
-`pin_config` 部分用于配置各个引脚。该部分中的每个项目必须是一个被命名的引脚部分，例如 `pin@p32`，表示 GPIO32。还有一个特殊部分 `pin@default`，其中包含未在 pin_config 部分中明确命名的所有内容的默认设置。
+`pin_config` 部分用于配置各个引脚。该部分中的每个项目必须是一个被命名的引脚部分，例如 `pin@p32`，表示 GPIO32。还有一个特殊部分 `pin@default`，其中包含未在 `pin_config` 部分中明确命名的所有内容的默认设置。
 
 #### `pin@pinname`
 
@@ -3442,7 +3442,7 @@ $ dtc -I dtb -O dts -o dt-blob.dts /boot/firmware/dt-blob.bin
 
 ### 时钟配置
 
-可以通过此接口更改时钟的配置，尽管结果可能难以预测！时钟系统的配置异常复杂。有五个独立的锁相环（PLL），每个 PLL 都有自己的固定（PLLC 下可变）压控振荡器（VCO）频率。每个 VCO 然后有多个不同的通道，可以设置为 VCO 频率的不同分频。每个时钟目的地都可以设置为从某个时钟通道获取信号，但由于时钟信号源到目的地的映射有限，因此并非所有通道都能连接到所有时钟目的地。
+可以通过此接口修改时钟的配置，但也许结果难以预测！时钟系统的配置异常复杂。有五个独立的锁相环（PLL），每个 PLL 都有自己的固定（PLLC 下可变）压控振荡器（VCO）频率。每个 VCO 然后有多个不同的通道，可以设置为 VCO 频率的不同分频。每个时钟目的地都可以设置为从某个时钟通道获取信号，但由于时钟信号源到目的地的映射有限，因此并非所有通道都能连接到所有时钟目的地。
 
 这里有一些示例配置，你可以用来修改特定的时钟。当请求时钟配置时，我们将添加到此资源。
 
@@ -3460,7 +3460,7 @@ clock_setup {
 };
 ```
 
-以上内容会把 PLLA 使用的 VCO 频率设置为 1.96608GHz（此 VCO 的频率范围是 600MHz-2.4GHz）；将 APER 通道设置为 4 分频，并让 GPCLK0 从 PLLA 获取信号源（通过 APER）。之所以要提供 12288000 Hz 的时钟，是为了便于音频编解码器生成 48000 Hz 的频率。
+以上内容会把 PLLA 使用的 VCO 频率设置为 1.96608GHz（此 VCO 的频率范围是 600MHz-2.4GHz）；将 APER 通道设置为 4 分频，并让 GPCLK0 从 PLLA 获取信号源（通过 APER）。之所以要提供时钟 12288000 Hz，是为了便于音频编解码器生成频率 48000 Hz。
 
 ### 设备树源文件实例
 
