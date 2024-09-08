@@ -3,7 +3,7 @@
 
 ## 简介
 
-树莓派系统（Raspberry Pi OS）是一款免费的操作系统，基于 Debian，并针对树莓派的硬件进行了适配及优化。树莓派系统拥有 35,000 余款 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
+树莓派系统（Raspberry Pi OS）是一款免费的操作系统，基于 Debian，且针对树莓派的硬件进行了适配及优化。树莓派系统拥有 35,000 余款 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
 
 因为树莓派系统源自 Debian，因此树莓派系统基于 Debian [发布周期](https://wiki.debian.org/DebianReleases)内的阶段发行版本。大约每 2 年发布一次。
 
@@ -13,11 +13,11 @@
 
 ## 更新软件
 
-请始终确保你在树莓派系统上运行的软件版本是最新的。这可以使你的设备免受[漏洞](https://cve.mitre.org/index.html)的影响，并确保你能及时收到最新补丁。
+请始终确保你在树莓派系统上运行的软件版本是最新的。这可以使你的设备免受[漏洞](https://cve.mitre.org/index.html)影响，确保你能及时收到最新补丁。
 
 ### 使用 APT 管理软件包
 
-在树莓派系统中，我们推荐使用 [APT（Advanced Package Tool，高级软件包工具）](https://en.wikipedia.org/wiki/APT_(software)) 来安装、更新和卸载软件。你可以用命令行 `apt` 来调用 APT。
+在树莓派系统中，我们推荐使用 [APT（Advanced Package Tool，高级软件包工具）](https://en.wikipedia.org/wiki/APT_(software)) 来安装、更新和卸载软件。你可以用命令行 `apt` 调用 APT。
 
 #### 安装更新
 
@@ -27,7 +27,7 @@
 $ sudo apt update
 ```
 
-运行以下命令，能把所有已安装的软件包 **更新（upgrade）** 至最新版本：
+运行以下命令，可把所有已安装的软件包 **更新（upgrade）** 至最新版本：
 
 ```bash
 $ sudo apt full-upgrade
@@ -37,9 +37,9 @@ $ sudo apt full-upgrade
 >
 >与 Debian 不同，树莓派系统始终处于开发状态。因此，软件包的依赖关系有时会发生变更，因此你应始终使用 `full-upgrade`，而不要用普通的 `upgrade`。
 
-请定期运行这些命令，确保软件保持最新状态。在使用 `apt` 维持树莓派系统最新状态时，也会同时把你的 Linux 内核和固件变成最新版本（因为树莓派系统把他们以 Debian 软件包的形式进行分发）。
+请定期运行这些命令，确保软件保持最新状态。在使用 `apt` 维持树莓派系统最新状态时，也会同时把你的 Linux 内核和固件变成最新版本——因为树莓派系统把他们以 Debian 软件包的形式进行分发。
 
-在树莓派官方发布树莓派系统大版本更新后，执行上述命令亦不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
+在树莓派官方发布了树莓派系统的大版本更新后，执行上述命令亦不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
 
 #### 搜索软件
 
@@ -49,7 +49,7 @@ $ sudo apt full-upgrade
 $ apt-cache search <关键字>
 ```
 
-例如，下面是关键字“raspi”的搜索结果：
+例如，以下是关键字“raspi”的搜索结果：
 
 ```bash
 $ apt-cache search raspi
@@ -68,7 +68,7 @@ raspi-copies-and-fills - ARM-accelerated versions of selected functions from str
 raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 ```
 
-搜索结果返回了多个软件包，他们的名称或简介中均涉及关键词（raspi）。
+搜索结果返回了多个软件包，他们的名称或简介中均包含关键词（raspi）。
 
 使用以下命令可查看其详细信息：
 
@@ -121,29 +121,29 @@ $ sudo apt remove <软件包名>
 
 >**技巧**
 >
->要彻底删除软件包的所有痕迹（包括配置文件），请把 `remove` 换成 `purge`。
+>要彻底抹除软件包的全部痕迹（包括配置文件），请把 `remove` 改成 `purge`。
 
-`apt` 会显示在卸载软件包后，可释放的磁盘容量。输入 **Y** 并按 **回车键** 来确认卸载。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
+`apt` 将显示：在卸载软件包后，可释放的磁盘容量。输入 **Y**，再按 **回车键** 确认卸载。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
 
 #### 管理 `apt` 磁盘使用情况
 
-在执行之前，`sudo apt full-upgrade`会显示要完成更新所需的下载和存储会占用的磁盘容量。要查看你的剩余磁盘空间是否充足，请运行以下命令：
+在执行之前，`sudo apt full-upgrade` 将显示完成更新所需的下载及存储会占用的磁盘容量。要查看你的剩余磁盘空间是否充足，请运行以下命令：
 
 ```bash
 $ df -h
 ```
 
-`apt` 会把已下载的软件包（ `.deb` 文件）存放到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到对应的安装位置。视你安装的软件而定，软件包自身可能会占用大量空间。要删除所有遗留的软件包本体，请运行以下命令：
+`apt` 会把已下载的软件包（`.deb` 文件）存储到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到对应的安装位置。视你安装的软件而定，软件包自身可能会占用大量空间。要删除所有遗留的软件包本体，请运行以下命令：
 
 ```bash
 $ sudo apt clean
 ```
 
-### 将你的操作系统更新至最新大版本（major version）
+### 把你的操作系统更新至最新大版本（major version）
 
 >**警告**
 >
->请在尝试进行大版本更新前，先行备份。
+>在尝试进行大版本更新前，请先行备份。
 
 要把树莓派系统这个操作系统更新至最新大版本，请使用另外一张存储卡，在它上面写入新版本的镜像。从先前安装的旧系统（使用存储卡读卡器或网络存储）复制文件和配置到这张新的存储卡。然后，将这张新的存储卡插进树莓派上的卡槽，再启动。
 
@@ -151,19 +151,19 @@ $ sudo apt clean
 
 >**警告**
 >
->请在尝试固件更新前，先行备份。
+>在尝试固件更新前，请先行备份。
 
 >**警告**
 >
->软件的预发布版本能否正常工作，是无法保证的。除非得到了树莓派工程师的建议，否则不要在系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为日常更新流程的组成部分。
+>软件的预发布版本能否正常工作，是无法保证的。除非得到了树莓派工程师的建议，否则不要在系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为日常更新流程的一部分。
 
 要把你树莓派的固件更至最新版本，请使用 [`rpi-update`](https://github.com/raspberrypi/rpi-update)。
 
-`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块、设备树文件和最新版的 VideoCore 固件。然后将这些文件安装到树莓派系统中。
+`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块、设备树文件和最新的 VideoCore 固件。然后把这些文件安装到树莓派系统中。
 
 `rpi-update` 使用的所有源数据均来自 [`rpi-firmware` 存储库](https://github.com/raspberrypi/rpi-firmware)。该存储库包含来自[官方固件存储库](https://github.com/raspberrypi/firmware)的数据子集。
 
-要进行更新，请以 root 身份运行 `rpi-update`。更新完成后，需重启你的树莓派以使这些变更生效：
+要进行更新，请以 root 身份执行 `rpi-update`。更新完成后，需重启你的树莓派以使这些变更生效：
 
 ```
 $ sudo rpi-update
@@ -197,22 +197,22 @@ $ sudo apt install --reinstall raspi-firmware
 >
 >最后，用 `sudo reboot` 重启你的树莓派以使上述变更生效。
 
-## 播放音频和视频
+## 播放音视频
 
 
-树莓派系统预装了 [VLC 媒体播放器](https://www.videolan.org/)。你可以它播放音视频文件。在树莓派系统上，VLC 支持硬件加速，并兼容多种常见的音视频文件格式。
+树莓派系统预装了 [VLC 媒体播放器](https://www.videolan.org/)。你可以它播放音视频文件。在树莓派系统上，VLC 支持硬件加速，可兼容多种常见的音视频文件格式。
 
 ### VLC 媒体播放器
 
 #### 图形界面的 VLC 
 
-要在树莓派桌面播放音视频文件，请在文件管理器里双击文件。这将自动触发 VLC 播放文件。或者，从“**声音和视频（Sound & Video）**”菜单中启动 **VLC 媒体播放器（VLC Media Player）**。然后，从“**媒体（Media）**”菜单中选择“**打开文件...（Open File…）**”，并找到到要播放的文件。
+要在树莓派桌面播放音视频文件，请在文件管理器里双击文件。这将自动触发 VLC 播放文件。或者，在菜单“**声音和视频（Sound & Video）**”中启动 **VLC 媒体播放器（VLC Media Player）**。然后，从菜单“**媒体（Media）**”中选择“**打开文件...（Open File…）**”，然后找到到要播放的文件。
 
-在默认情况下，树莓派系统会通过 HDMI 将音频输出至你的显示器。要将音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选择。
+在默认情况下，树莓派系统会通过 HDMI 将音频输出至你的显示器。要把音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选用。
 
 #### `vlc` 命令行
 
-你还可以用命令行启动 VLC。在以下示例中，我们使用了来自《大雄兔》（Big Buck Bunny）的片段。要在树莓派上下载该片段，请执行以下命令：
+你还可以用命令行启动 VLC。在下面的例子中，我们使用了来自《大雄兔》（Big Buck Bunny）的片段。要在树莓派上下载该片段，请执行以下命令：
 
 ```bash
 $ wget --trust-server-names http://rptl.io/big-buck-bunny
@@ -224,7 +224,7 @@ $ wget --trust-server-names http://rptl.io/big-buck-bunny
 $ vlc big-buck-bunny-1080p.mp4
 ```
 
-要在文件播放完成后关闭 VLC 的图形界面，请添加参数 `--play-and-exit`：
+要在文件播放完成后退出 VLC 的图形界面，请添加参数 `--play-and-exit`：
 
 ```bash
 $ vlc --play-and-exit big-buck-bunny-1080p.mp4
@@ -238,15 +238,15 @@ $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 
 #### 使用 `cvlc` 播放无图形界面的媒体
 
-如果你在以上这些命令中把 `vlc` 换成 `cvlc`，那么将不会显示 VLC 的图形界面：
+如果你在以上命令中把 `vlc` 改成 `cvlc`，那么将不会显示 VLC 的图形界面：
 
 ```bash
 $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
-### 在精简版树莓派系统上播放音频和视频
+### 在精简版树莓派系统上播放音视频
 
-与完整版本的树莓派系统（所有 with desktop 版本）相比，精简版树莓派系统上并未预装 VLC。要在精简版树莓派系统上使用 VLC 播放音视频，请安装用于无需桌面播放的软件包：
+同完整版本的树莓派系统（所有 with desktop 版本）相比，精简版树莓派系统上并未预装 VLC。要在精简版树莓派系统上使用 VLC 播放音视频，请安装用于无需桌面播放的软件包：
 
 ```bash
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
@@ -258,7 +258,7 @@ $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
 $ wget --trust-server-names http://rptl.io/startup-music
 ```
 
-要在命令行让 VLC 播放片段，请运行以下命令：
+要在命令行让 VLC 播放片段，请执行以下命令：
 
 ```bash
 $ cvlc --play-and-exit computer-startup-music.mp3
@@ -266,7 +266,7 @@ $ cvlc --play-and-exit computer-startup-music.mp3
 
 ### 指定音频输出设备
 
-要强制把音频输出到特定设备，请使用 [ALSA](https://www.alsa-project.org/wiki/Main_Page) 音频输出：把 `alsa` 值传给参数 `-A`。同时使用参数 `--alsa-audio-device` 来指定音频输出设备：
+要把音频强制输出到特定设备，请使用 [ALSA](https://www.alsa-project.org/wiki/Main_Page) 音频输出：把 `alsa` 值传给参数 `-A`。同时使用参数 `--alsa-audio-device` 来指定音频输出设备：
 
 ```bash
 $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startup-music.mp3
@@ -291,13 +291,13 @@ $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startu
 
 ### 指定视频输出设备
 
-为了强制视频输出到特定设备，即指定视频输出设备，请使用参数 `--drm-vout-display`：
+为了把视频强制输出到特定设备，即指定视频输出设备，请使用参数 `--drm-vout-display`：
 
 ```bash
-$ cvlc --play-and-exit --drm-vout-display <drm-设备> big-buck-bunny-1080p.mp4
+$ cvlc --play-and-exit --drm-vout-display <drm设备> big-buck-bunny-1080p.mp4
 ```
 
-请把其中的文本 `<drm-设备>` 改成以下某设备：
+请把其中的文本 `<drm设备>` 改成以下某设备：
 
 | DRM 设备 | 说明                                                                              |
 | :----------: | :------------------------------------------------------------------------------------: |
@@ -315,7 +315,7 @@ $ cvlc --play-and-exit --drm-vout-display <drm-设备> big-buck-bunny-1080p.mp4
 
 ### 指定音视频输出设备
 
-你可以对音频和视频输出选项进行组合。例如，要把视频定向输出到触摸屏，而把音频定向输出到耳机插孔，根据上述需求，应执行的命令组合为：
+你可以对音频和视频输出参数进行组合。例如，要把视频定向输出到触摸屏，而把音频定向输出到耳机插孔，根据上述需求，应执行的命令组合为：
 
 ```bash
 $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audio-device sysdefault:CARD=Headphones your_video.mp4
@@ -323,7 +323,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果你有 H.264 原始码流（裸流，raw H.264 stream），比如用树莓派摄像头模块捕获的码流，你可以通过把码流封装成诸如 MP4 之类的文件格式，来提升在 VLC 上的播放性能。你可以使用 `ffmpeg` 把码流内容转成容器文件。例如，以下命令可把名为 `video.h264` 的码流，转成 MP4 文件 `video.mp4`（30fps）：
+如果你有 H.264 原始码流（裸流，raw H.264 stream），比如用树莓派摄像头模块捕获的码流，你可以通过把码流封装成诸如 MP4 之类的文件格式，来提升 VLC 的播放性能。你可以使用 `ffmpeg` 把码流内容转成容器文件。例如，以下命令可把名为 `video.h264` 的码流，转成 MP4 文件 `video.mp4`（30fps）：
 
 ```bash
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -331,7 +331,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 ## 实用工具
 
-树莓派系统中预装了几个有用的命令行工具。
+树莓派系统中预装了几款实用的命令行工具。
 
 ### `kmsprint`
 
@@ -362,15 +362,15 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 #### `get_throttled`
 
-返回系统的限流状态。这是位模式。设置位表示以下含义：
+将返回系统的限流状态，为位模式。设置位表示以下含义：
 
 | 位 | 十六进制（Hex）值 | 意义              |
 | :----: | :------------: | :-------------------: |
 | 0  | `0x1`           | 已检测到欠压        |
 | 1  | `0x2`           | Arm 频率已受限   |
-| 2  | `0x4`           | 当前被限流        |
+| 2  | `0x4`           | 当前已被限流        |
 | 3  | `0x8`           | 已启用温度软限制  |
-| 16 | `0x10000`           | 曾发生过欠压          |
+| 16 | `0x10000`           | 曾发生欠压          |
 | 17 | `0x20000`           | 曾发生 Arm 频率限制 |
 | 18 | `0x40000`           | 曾发生限流        |
 | 19 | `0x80000`           | 曾发生温度软限制  |
@@ -400,7 +400,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
  例如 `vcgencmd measure_clock arm`
 
-#### `measure_volts [模块 ]`
+#### `measure_volts [模块]`
 
 它可显示特定模块使用的当前电压。可接受以下值：
 
@@ -417,7 +417,7 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 #### `get_config [配置项目|int|str]`
 
-它将显示指定配置项目的值。或者如要查看给定类型的所有配置项目，可指定参数 `int`（整数）或`str`（字符串）。例如，以下命令会返回设备上的全部内存大小（单位为 Mb）：
+它将显示指定配置项目的值。或者如要查看给定类型的所有配置项目，可指定参数 `int`（整数）、`str`（字符串）。例如，以下命令会返回设备上的全部内存大小（单位为 Mb）：
 
 ```bash
 $ vcgencmd get_config total_mem
@@ -425,11 +425,11 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem 类型`
 
-`get_mem 类型` 会报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu`。如果设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
+`get_mem 类型` 将报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu`。若设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
 
 ##### `codec_enabled [类型]`
 
-可报告指定类型的解码器是否已启用。可支持以下类型：AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块并不属于 VideoCore GPU，因此无法用此命令查看状态。
+可报告是否已启用指定类型的解码器。可支持以下类型：AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块并不属于 VideoCore GPU，因此无法用此命令查看状态。
 
 ##### `mem_oom`
 
@@ -567,13 +567,13 @@ setuptools 66.1.1
 
 许多用户会为每个 Python 项目都创建一个单独的虚拟环境。然后将虚拟环境放置在每个项目的根目录中（通常使用名称 `env`）。在每个项目的根目录下，运行以下命令可创建虚拟环境配置文件夹。
 
-```python
+```bash
 $ python -m venv env
 ```
 
 在开始你的项目工作之前，请在项目根目录下运行以下命令，以开始使用虚拟环境：
 
-```python
+```bash
 $ source env/bin/activate
 ```
 
@@ -585,37 +585,37 @@ $ source env/bin/activate
 
 当你完成项目工作后，可在任意目录下运行命令，来退出虚拟环境：
 
-```python
+```bash
 (env) $ deactivate
 ```
 
 #### 为每个用户使用独立的环境
 
-与为每个 Python 项目都创建一个虚拟环境有所不同，你可以为你的用户账户，创建一个单独的虚拟环境。**在运行其他 Python 程序之前，先激活这个虚拟环境。** 这种方法对于在项目之间共享许多库的工作流可能更方便。
+与为每个 Python 项目都创建一个虚拟环境有所不同，你可以为你的用户账户，单独创建一个虚拟环境。**在运行其他 Python 程序之前，先激活这个虚拟环境。** 这种方法对于在项目之间共享许多库的工作流可能更方便。
 
 当为整个用户账户，跨多个项目创建虚拟环境时，可考虑将虚拟环境配置文件放在你的主目录下。可将其配置存储在[一个以点开头的文件夹中](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)，以便在默认情况下，隐藏该文件夹，防止在主目录里弄混。
 
 使用以下命令，在当前用户的主目录中，隐藏文件夹下，创建虚拟环境：
 
-```python
+```bash
 $ python -m venv ~/.env
 ```
 
 在其他目录，运行命令，即可开始使用虚拟环境：
 
-```python
+```bash
 $ source ~/.env/bin/activate
 ```
 
 然后你应该会看到类似如下提示信息：
 
-```python
+```bash
 (.env) $
 ```
 
 在任意目录，运行以下命令即可退出虚拟环境：
 
-```python
+```bash
 (.env) $ deactivate
 ```
 
@@ -623,7 +623,7 @@ $ source ~/.env/bin/activate
 
 我们推荐使用 [Thonny](https://thonny.org/)，来编辑树莓派上的 Python 代码。
 
-在默认情况下，Thonny 使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的 **解释器菜单（interpreter menu）** 来切换使用 Python 虚拟环境。可选择配置好的环境或使用 `配置解释器（Configure interpreter…）` 来配置一个新的虚拟环境。
+在默认情况下，Thonny 会使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的 **解释器菜单（interpreter menu）** 切换使用 Python 虚拟环境。可选择配置好的环境，或使用 `配置解释器（Configure interpreter…）` 来配置一个新的虚拟环境。
 
 ![thonny 环境](../.gitbook/assets/thonny-venv.png)
 
