@@ -857,7 +857,7 @@ $ sudo raspi-config
 1. 选择 `System options` 并按  **回车键**。
 2. 选择 `Audio options` 并按  **回车键**。
 3. 选择所需模式，然后按 **回车键** 选定该模式。
-4. 按 **左、右方向键** 退出参数列表。选择 `Finish` 退出配置工具。
+4. 按 **→右箭头** 退出参数列表。选择 `Finish` 退出配置工具。
 
 ## 网络
 
@@ -917,13 +917,13 @@ $ sudo raspi-config
 
 使用 **方向键** 选择菜单项“**本地化参数（Localisation options）**”。选择参数 **WLAN 区域（WLAN country）**。使用 **方向键** 从下拉菜单中选择你的区域。按 **回车键** 确认选择。
 
-现在，你应该已经可以访问无线网络了。运行以下命令来查看你的 WiFi 无线电是否已启用：
+现在，你应该已经可以访问无线网络了。运行以下命令来查看你是否已启用 WiFi 无线电：
 
 ```bash
 $ nmcli radio wifi
 ```
 
-如果此命令返回文本“enabled（已启用）”，则可以继续准备配置连接。若此命令返回“disabled（已禁用）”，请尝试使用以下命令启用 WiFi：
+若此命令返回文字“enabled（已启用）”，则可以继续准备配置连接。若此命令返回“disabled（已禁用）”，请尝试使用以下命令启用 WiFi：
 
 ```bash
 $ nmcli radio wifi on
@@ -951,17 +951,17 @@ IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS
 
 ##### 连接到网络
 
-运行以下命令来配置网络连接，将占位符 `<网络名称>` 替换为你要配置的网络名称：
+运行以下命令来配置网络连接，请把占位符 `<网络名称>` 改为你要配置的网络名称：
 
 ```bash
 $ sudo nmcli --ask dev wifi connect <网络名称>
 ```
 
-在有提示时输入你的网络密码。
+在出现提示后，输入你的网络密码。
 
 在你输入密码后，你的树莓派应该会自动接入网络。
 
-如果你看到报错，提示你“需要密码，但未提供密码”，则意味着你输入的密码错误。请再次运行上述命令，并仔细检查你输入的密码。
+如果你看到了报错，提示你“Secrets were required, but not provided（需要密码，但未提供密码）”，则意味着你输入的密码错误。请再次运行上述命令，并仔细检查你输入的密码。
 
 要检查是否已接入网络，请运行以下命令：
 
@@ -1007,7 +1007,7 @@ $ sudo nmcli --ask dev wifi connect <网络名称> hidden yes
 
 ##### 设置网络优先级
 
-如果你的设备同时检测到了多个已知网络，它可能会随机接入到任意某个被检测到的已知网络。可使用优先级参数，强制让你的树莓派优先连接到某些网络。在范围内，你的设备将连接到具有最高优先级的网络。运行以下命令，查看已知网络的优先级：
+如果你的设备同时检测到了多个已知网络，它可能会随机接入到任意某个已检测到的已知网络。可使用优先级参数，强制让你的树莓派优先连接到特定网络。在范围内，你的设备将连接到具有最高优先级的网络。运行以下命令，可查看已知网络的优先级：
 
 ```bash
 $ nmcli --fields autoconnect-priority,name connection
@@ -1030,7 +1030,7 @@ AUTOCONNECT-PRIORITY  NAME
 $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 ```
 
-在范围内，你的设备将始终尝试连接到具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
+在范围内，你的设备将始终尝试连接到具有最高非负优先级值的网络。你亦可以为网络分配负优先级；仅在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现有三个网络：
 
 ```json
 AUTOCONNECT-PRIORITY  NAME
@@ -1040,26 +1040,26 @@ AUTOCONNECT-PRIORITY  NAME
 1000                  dog
 ```
 
-* 在范围内，如果所有这些网络都存在，你的设备将首先尝试连接到网络“dog”。
-* 如果网络“dog”连接失败，你的设备将尝试连接到网络“cat”。
-* 如果网络“cat”连接失败，你的设备将尝试连接到网络“rabbit”。
-* 如果网络“rabbit”连接失败，并且你的设备未检测到其他已知网络，你的设备将尝试连接到网络“snake”。
+* 在范围内，若所有这些网络同时存在，你的设备将首先尝试连接到网络“dog”。
+* 若网络“dog”连接失败，你的设备将尝试连接到网络“cat”。
+* 若网络“cat”连接失败，你的设备将尝试连接到网络“rabbit”。
+* 若网络“rabbit”连接失败，且你的设备未检测到其他已知网络，你的设备将尝试连接到网络“snake”。
 
 ### 配置 DHCP
 
-在默认情况下，树莓派系统会尝试用 DHCP 自动配置所有网络接口。如果 DHCP 失败，则回滚至自动私有地址，范围是 `169.254.0.0/16`。
+在默认情况下，树莓派系统会尝试用 DHCP 自动配置所有网络接口。如果 DHCP 失败，则回滚至自动分配的私有地址，范围是 `169.254.0.0/16`。
 
 ### 分配静态 IP 地址
 
-如果要给你的树莓派分配静态 IP 地址，请在路由器上为其设置一个保留地址。你的树莓派仍将通过 DHCP 分配其地址，但每次都会收到相同的地址。可以在 DHCP 服务器中，将树莓派的 MAC 地址绑定到静态 IP 地址，来实现“静态”地址的分配。
+若要给你的树莓派分配静态 IP 地址，请在路由器上为其设定一个保留地址。你的树莓派仍将通过 DHCP 分配其地址，但每次都会收到相同的地址。可以在 DHCP 服务器中，将树莓派的 MAC 地址绑定到静态 IP 地址，来实现“静态”地址的分配。
 
 ## Screen Blanking 屏幕节能（无操作时关闭屏幕信号）
 
-你可以配置你的树莓派使用 **屏幕节能（Screen Blanking）**：在一段时间内无操作后，关闭屏幕信号。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
+你可以配置你的树莓派使用 **屏幕节能（Screen Blanking）**：在一段时间内无操作后，断开屏幕信号。在默认情况下，在启用屏幕节能后，树莓派系统将在无操作十分钟后关闭屏幕。
 
 ### 通过桌面配置屏幕节能
 
-你可以使用树莓派配置（Raspberry Pi Configuration）菜单中的屏幕节能选项来控制屏幕节能（无操作时关闭屏幕）。
+你可以使用树莓派配置（Raspberry Pi Configuration）菜单中的参数屏幕节能来控制屏幕节能（无操作时关闭屏幕）。
 
 #### 通过树莓派配置设置屏幕节能
 
@@ -1067,7 +1067,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 ![从桌面打开菜单“树莓派配置（Raspberry Pi Configuration）”](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
-选择选项卡显示（**Display**）。将选项按钮切换到屏幕节能（**Screen Blanking**）。按下 **完成（OK）**，确认你的选择。
+选择显示（**Display**）参数。将选项按钮切换到屏幕节能（**Screen Blanking**）。按下 **完成（OK）**，确认你的选择。
 
 ![在树莓派配置菜单中的“屏幕节能”选项。](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
@@ -1096,13 +1096,13 @@ dpms_timeout=600
 
 #### 设置控制台模式下的屏幕节能（screen blanking）
 
-要修改控制台模式下的屏幕节能配置，请以管理员身份，在文本编辑器中打开 `/boot/firmware/cmdline.txt`：
+要修改控制台模式下的屏幕节能配置，请以管理员身份，用文本编辑器打开 `/boot/firmware/cmdline.txt`：
 
 ```bash
 $ sudo nano /boot/firmware/cmdline.txt
 ```
 
-你可以在这儿调整树莓派系统，在关闭屏幕之前，所等待控制台的秒数。例如，添加 `consoleblank=600` 可在其无操作 600 秒后关闭显示信号输出。将值置 `0`，屏幕将永不熄灭。
+你可以在这儿调整树莓派系统，在关闭屏幕之前，等待控制台的时间（秒）。例如，添加 `consoleblank=600` 可在其无操作 600 秒后关闭显示信号输出。将值置 `0`，屏幕将永不熄灭。
 
 修改 `cmdline.txt` 后，只有在重启后才会生效。使用以下命令重启你的树莓派：
 
@@ -1112,7 +1112,7 @@ $ sudo reboot
 
 #### 查看当前屏幕节能设置
 
-你可以使用以下命令，显示当前控制台屏幕关闭时间（以秒为单位）：
+你可以使用以下命令显示当前控制台屏幕关闭时间（秒）：
 
 ```bash
 $ cat /sys/module/kernel/parameters/consoleblank
@@ -1138,7 +1138,7 @@ $ passwd
 
 ### 添加用户
 
-要添加新用户，请输入以下命令：把占位符 `<用户名>` 换成新用户的用户名：
+要添加新用户，请输入以下命令：把占位符 `<用户名>` 改成新用户的用户名：
 
 ```bash
 $ sudo adduser <用户名>
@@ -1198,7 +1198,7 @@ $ sudo raspi-config
 
 你可以将存储设备挂载到特定文件夹位置。通常挂载到文件夹 `/mnt` 下，例如 `/mnt/mydisk`。请注意，文件夹必须为空。
 
-将存储设备插入树莓派上的 USB 口，并使用以下命令列出树莓派上的所有磁盘分区：
+将存储设备插入树莓派上的 USB 端口，并使用以下命令列出树莓派上的所有磁盘分区：
 
 ```bash
 $ sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL
@@ -1264,19 +1264,19 @@ $ sudo nano /etc/fstab
 
 在 `fstab` 文件中添加以下几行：
 
-```bash
+```json
 UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 ```
 
 用你在上述步骤中找到的文件系统类型（如 `ntfs`）替换 `fstyp`。
 
-如果文件系统类型为 FAT 和 NTFS，请在紧跟 `nofail` 之后，添加 `,umask=000`。这将让所有用户完全读写存储设备上的任意文件。
+如果文件系统类型为 FAT 或 NTFS，请紧跟 `nofail` 之后，再添加 `,umask=000`。这将让所有用户完全读写存储设备上的任意文件。
 
 现在你已在 `fstab` 中设置了一个条目。在启动树莓派时，该存储设备是否接入均可开机。在拔下存储设备之前，你必须先将树莓派关机，或者手动卸载该存储设备。
 
 >**注意**
 >
->在树莓派启动时，如未接入存储设备，启动时将再多等 90 秒。你可以通过在紧跟 `nofail` 之后，添加 `,x-systemd.device-timeout=30` 来缩短时间。这将把超时时间修改为 30 秒，这意味着系统只会等待 30 秒，然后放弃磁盘挂载。
+>在树莓派启动时，如未接入存储设备，启动时将再多等 90 秒。你可以紧跟 `nofail` 之后，再添加 `,x-systemd.device-timeout=30` 来缩短时间。这将把超时时间修改为 30 秒，这意味着系统仅会等待 30 秒，然后就会放弃磁盘挂载。
 
 要获取有关每个 Linux 命令的更多信息，请使用 `man` 命令查阅特定的手册页。例如，`man fstab`。
 
@@ -1288,7 +1288,7 @@ UUID=5C24-1453 /mnt/mydisk fstype defaults,auto,users,rw,nofail 0 0
 $ sudo umount /mnt/mydisk
 ```
 
-如果收到报错“device is busy”，意味着存储设备未被卸载。如果没有显示错误，现在可以安全地拔出设备。
+如果收到报错“device is busy（设备正忙）”，意味着存储设备未被卸载。如果没有显示错误，现在可以安全地拔出设备。
 
 #### 解决“device is busy”（设备正忙）
 
@@ -1296,7 +1296,7 @@ $ sudo umount /mnt/mydisk
 
 关闭所有打开了存储设备上的文件的软件。如果你打开了一个终端，请确保你未处于存储设备所挂载的文件夹（及其子文件夹）下。
 
-如果你仍然无法卸载存储设备，你可以使用工具 `lsof` 检查是哪个程序，在设备上打开了文件。首先你要用 `apt` 安装 `lsof`：
+如果你仍然无法卸载存储设备，你可以使用工具 `lsof` 检查是哪个程序在设备上打开了文件。首先你要用 `apt` 安装 `lsof`：
 
 ```bash
 $ sudo apt update
@@ -1328,7 +1328,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 $ cat /proc/cmdline
 ```
 
-因为树莓派固件会在启动内核之前对命令行进行修改，所以此命令行的输出与 `cmdline.txt` 的内容并不会完全吻合。
+因为树莓派固件会在启动内核之前对命令行进行修改，所以此命令行的输出与 `cmdline.txt` 的内容不会完全吻合。
 
 ### 命令行参数
 
@@ -1361,21 +1361,21 @@ $ cat /proc/cmdline
 
 如果在 `cmdline.txt` 中没有 `video` 这个条目，树莓派操作系统将根据接入 HDMI 显示器的 [EDID](https://en.wikipedia.org/wiki/Extended_Display_Identification_Data)，自动选定（基于 Linux 内核信息）显示器能支持的最佳分辨率。在精简版树莓派系统（Raspberry Pi OS Lite）、控制台模式中，你必须自己手动修改 `video` 这个条目，才能调整分辨率和屏幕方向。
 
-```bash
+```json
 video=HDMI-A-1:1920x1080M@60
 ```
 
 还可以添加屏幕旋转和翻转（屏幕镜像）参数，请参考 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst) 标准。以下示例定义了一台显示器：名为 `HDMI-A-1`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
 
-```bash
+```jsin
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 ```
 
 要指定屏幕旋转方向和翻转参数，必须同时显式声明分辨率。
 
-显示类型的支持选项——`video=` 条目 `=` 后的部分，支持：
+显示类型的支持参数——`video=` 条目 `=` 后的部分，支持：
 
-| 视频选项 | 显示                                                                   |
+| 视频参数 | 显示                                                                   |
 | :------:|:-----------------------------------: |
 | `HDMI-A-1`         | HDMI 1（树莓派 4B 主板上标为 HDMI 0；单个 HDMI 主板上标为 HDMI） |
 | `HDMI-A-2`         | HDMI 2（树莓派 4B 主板上标为 HDMI 1）                          |
@@ -1420,19 +1420,19 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 ## 保护你的树莓派
 
-在这儿，我们介绍了一些常见方法，能提高你树莓派的安全性。
+在这儿，我们介绍了一些常见方法，能优化你树莓派的安全性。
 
 ### 让 `sudo` 命令要求密码
 
-以 `sudo` 开头运行的命令，将会以超级用户执行。在默认情况下，不需要密码。但是你可以要求，所有以 `sudo` 运行的命令，均需输入密码，来改善你树莓派的安全性。
+以 `sudo` 打头运行的命令，将会以超级用户执行。在默认情况下无需密码。但是你可以要求，所有以 `sudo` 运行的命令，均需输入密码，来改善你树莓派的安全性。
 
-要强制 `sudo` 需要密码，请编辑你用户账户的 sudoers 文件中的 `nopasswd`，并将文件名中的占位符 `<用户名>` 换成你的用户名：
+要强制 `sudo` 需要密码，请编辑你用户账户的 sudoers 文件中的 `nopasswd`，请将文件名中的占位符 `<用户名>` 换成你的用户名：
 
 ```bash
 $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 ```
 
-将 `<用户名>` 这个条目修改为如下内容，并把 `<用户名>` 换成你的用户名：
+将 `<用户名>` 这个条目修改为如下内容，请把 `<用户名>` 换成你的用户名：
 
 ```bash
 <用户名> ALL=(ALL) PASSWD: ALL
@@ -1442,7 +1442,7 @@ $ sudo visudo /etc/sudoers.d/010_<用户名>-nopasswd
 
 ### 更新树莓派系统
 
-只有最新版本的操作系统包含了所有最新的安全补丁。请始终将你设备中的树莓派系统[更新](https://www.raspberrypi.com/documentation/computers/os.html#update-software)至最新版本。
+仅最新版本的操作系统包含了所有最新的安全补丁。请始终将你设备中的树莓派系统[更新](https://www.raspberrypi.com/documentation/computers/os.html#update-software)至最新版本。
 
 ### 自动更新你的 SSH 服务器
 
@@ -1454,7 +1454,7 @@ $ apt install openssh-server
 
 ### 改善 SSH 安全性
 
-SSH 是远程访问树莓派的常用方式。在默认情况下，SSH 要求用户名和密码。为了改善 SSH 的安全性，请[使用基于密钥的身份验证](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
+SSH 是远程访问树莓派的常用方式。在默认情况下，SSH 要求用户名和密码。为了提高 SSH 的安全性，请[使用基于密钥的身份验证](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
 
 #### 启用和禁用 SSH 用户
 
@@ -1490,7 +1490,7 @@ Linux 上有许多防火墙解决方案可用。大多数通过底层的 [iptabl
 $ sudo apt install ufw
 ```
 
-`ufw` 是款命令行工具，然而也有图形界面可用。请注意，`ufw` 须以 root 权限运行，因此所有命令都以 `sudo` 开头。还可以使用参数 `--dry-run` 执行所有 `ufw` 命令，这表示仅输出命令的执行结果，而不进行任何实质性修改。
+`ufw` 是一款命令行工具，然而也有图形界面可用。请注意，`ufw` 须以 root 权限运行，因此所有命令都以 `sudo` 开头。还可以使用参数 `--dry-run` 执行所有的 `ufw` 命令，这表示仅输出命令的执行结果，而不进行任何实质性修改。
 
 启用防火墙，同时设定防火墙开机自启：
 
@@ -1504,7 +1504,7 @@ $ sudo ufw enable
 $ sudo ufw disable
 ```
 
-允许特定端口访问（我们在示例中使用了 22 端口）：
+允许特定端口访问（我们在本例中使用了 22 端口）：
 
 ```bash
 $ sudo ufw allow 22
@@ -1534,7 +1534,7 @@ $ sudo ufw allow ssh
 $ sudo ufw status
 ```
 
-规则可能十分复杂：允许阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 `ufw` 手册页（`man ufw`）以获取除下面命令之外的完整详细信息。
+规则可能十分复杂：允许/阻止特定 IP 地址、指定允许流量的方向、限制连接尝试的次数（有助于缓解 DDoS 攻击）。你还可以指定要应用规则的设备（如 eth0、wlan0）。请参阅 `ufw` 手册页（`man ufw`）以获取除下面命令之外的完整详细信息。
 
 在 ssh 端口上（TCP）限制登录尝试。如果 IP 地址在过往 30 秒内有过六次及更多次连接尝试，则拒绝连接：
 
@@ -1572,7 +1572,7 @@ $ sudo nano /etc/fail2ban/jail.local
 
 如果没有 `[ssh]` 这个部分，则需要手动创建：向里面添加以下几行：
 
-```
+```json
 [ssh]
 enabled  = true
 port     = ssh
@@ -1588,7 +1588,7 @@ maxretry = 6
 ```bash
 # 默认禁止操作（例如：iptables、iptables-new、
 # iptables-multiport、shorewall 等）。用于定义
-# 变量 action_*，可以全局覆盖或部分覆盖
+# 变量 action_*，可以全局/部分覆盖
 # 文件 jail.local 
 banaction = iptables-multiport
 ```
@@ -1597,7 +1597,7 @@ multiport（多端口）会禁止全部端口上的一切访问。`action.d` 文
 
 例如，如果要在三次失败尝试后永久拉黑 IP 地址，请将 `[ssh]` 部分中的 `maxretry` 值修改为 `3`，并将 `bantime` 设置为负数：
 
-```bash
+```json
 [ssh]
 enabled  = true
 port     = ssh
@@ -1619,7 +1619,7 @@ bantime  = -1
 
 >**警告**
 >
->取决于你使用的树莓派、SD 卡的型号，在首次开机时，你的树莓派，可能需要长达五分钟的时间才能启动并接入无线网络。
+>取决于你使用的树莓派、存储卡的型号，在初次开机时，你的树莓派，可能需要长达五分钟的时间才能启动，接入无线网络。
 
 ### 连接到有线网络
 
@@ -1635,7 +1635,7 @@ bantime  = -1
 
 ### 远程访问
 
-如果没有键盘和显示器，你需要某种方法来[远程控制](https://www.raspberrypi.com/documentation/computers/remote-access.html)你的无头树莓派。在首次启动时，唯一的办法是 SSH。要在全新安装的树莓派系统上启用 SSH，请选择以下某种方法：
+如果没有键盘和显示器，你需要某种方法来[远程控制](https://www.raspberrypi.com/documentation/computers/remote-access.html)你的无头树莓派。在首次启动时，唯一的办法就是 SSH。要在全新安装的树莓派系统上启用 SSH，请选择以下某种方法：
 
 * 在树莓派启动盘制作工具的操作系统自定义菜单中启用 SSH，然后输入用户名和密码
 * 在存储卡的根目录下创建一个文件 `ssh`，然后按照下面部分的说明手动配置用户 `userconf.txt`
@@ -1734,7 +1734,7 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
   ```bash
   $ sudo nmcli connection modify 'Hotspot' master bridge0
   ```
-* 如果你尚未创建无线热点连接，请使用单个命令（所有内容是一个命令）来创建新接口并将其添加到桥接中，把占位符 `<热点密码>` 改成你选定的密码：
+* 如果你尚未创建无线热点连接，请使用单个命令（所有行是一条命令）来创建新接口并将其添加到桥接中，把占位符 `<热点密码>` 改成你选定的密码：
 
   ```bash
   $ sudo nmcli connection add con-name 'Hotspot' \
@@ -1775,7 +1775,7 @@ $ sudo nmcli connection up Hotspot
 
 你需要设置三个环境变量（`http_proxy`、`https_proxy`、`no_proxy`），以便你的树莓派知道如何访问代理服务器。
 
-打开终端，并使用 nano 打开文件 `/etc/environment`：
+打开终端，使用 nano 打开文件 `/etc/environment`：
 
 ```bash
 $ sudo nano /etc/environment
@@ -1846,7 +1846,7 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 ## 文件夹 `boot` 的内容
 
-树莓派系统把引导文件放在存储卡上的第一个分区中，该分区使用 FAT 文件系统。
+树莓派系统把引导文件放在存储卡上的首个分区中，该分区使用 FAT 文件系统。
 
 所有型号的树莓派在启动时，都会先从启动分区加载文件，来启动所有的处理器核心，继而再加载 Linux 内核。
 
@@ -2067,7 +2067,7 @@ dtparam=krnbt=off
 
 >**技巧**
 >
->该参数可能不会兼容将来的所有型号。应仅在你的用例无其他替代方案时，才使用该选项。
+>该参数可能不会兼容后续的所有型号。应仅在你的用例无其他替代方案时，才使用该参数。
 
 ### mini 串口和 CPU 主频
 
@@ -2104,9 +2104,9 @@ dtparam=krnbt=off
 
 ### 启用 Linux 早期控制台（early console）
 
-尽管在 Linux 内核启动过程中，相对较早地开启了串口，但仍比一些关键基础设备的配置要晚得多。如果无法得到这些早期阶段的内核日志信息，可能很难对那个时间段出现的故障进行诊断。要为其中某个串口启用 `earlycon` 支持，请根据所选的主串口，向 `cmdline.txt` 中添加以下选项：
+尽管在 Linux 内核启动过程中，相对较早地启动了串口，但仍比一些关键基础设备的配置要晚得多。如果无法得到这些早期阶段的内核日志信息，可能很难对那个时间段出现的故障进行诊断。要为其中某个串口启用 `earlycon` 支持，请根据所选的主串口，向 `cmdline.txt` 添加以下选项：
 
-对于树莓派 5，`earlycon` 仅能通过以下设置输出至调试接口（3 针）：
+对于树莓派 5，`earlycon` 仅可通过以下设置输出至调试接口（3 针）：
 
 ```bash
 earlycon=pl011,0x107d001000,115200n8
