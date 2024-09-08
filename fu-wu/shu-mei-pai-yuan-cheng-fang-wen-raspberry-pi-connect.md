@@ -256,7 +256,7 @@ $ rpi-connect shell off
 
 ![禁用远程 shell](https://www.raspberrypi.com/documentation/services/images/remote-shell-disabled.png?hash=8f212b4f08d929bbd325ae45089eef6a)
 
-要重新启用屏幕共享，请执行以下操作之一：
+要重新启用 shell 共享，请执行以下操作之一：
 
 * 点击 Connect 系统托盘图标并选择 **Allow remote shell**
 * 运行以下命令：
