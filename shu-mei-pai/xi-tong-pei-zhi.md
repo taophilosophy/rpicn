@@ -162,7 +162,7 @@ $ sudo raspi-config
 
 配置位置、国家/地区相关参数。
 
-![raspi-config localisation options（本地化选项）](../.gitbook/assets//raspi-l18n.png)
+![raspi-config localisation options（本地化参数）](../.gitbook/assets//raspi-l18n.png)
 
 #### Locale——语言环境
 
@@ -671,7 +671,7 @@ $ sudo raspi-config nonint do_proxy <代理服务器的协议类型> <代理服�
 $ sudo raspi-config nonint do_boot_order <B1或B2或B3>
 ```
 
-视你的设备而定，你可以在以下选项中进行选择：
+视你的设备而定，你可以在以下参数中进行选择：
 
 * B1 ：存储卡启动：若存储卡可用，则优先从存储卡启动；如存储卡不可用，再从 NVMe 启动；若存储卡、NVMe 均不可用，那么则从 USB 启动
 * B2 ：NVMe/USB 启动：若 NVMe 可用，则优先从 NVMe 启动；如 NVMe 不可用，再从 USB 启动；若 NVMe、USB 均不可用，那么则从存储卡启动
@@ -1564,7 +1564,7 @@ $ sudo apt install fail2ban
 $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
-在此配置文件中包含了一组默认选项，以及用于检查特定服务异常的选项。要查看用于 `ssh` 的规则，请用编辑器打开 `jail.local`：
+在此配置文件中包含了一组默认参数，以及用于检查特定服务异常的选项。要查看用于 `ssh` 的规则，请用编辑器打开 `jail.local`：
 
 ```bash
 $ sudo nano /etc/fail2ban/jail.local
