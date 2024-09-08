@@ -6,7 +6,7 @@
 >
 >树莓派桌面版（Raspberry Pi Desktop）用户可使用图形化版本的 `raspi-config`：位于“**首选项（Preferences）**” → “**树莓派配置（Raspberry Pi Configuration）**”。不过某些高级配置仅存在于 `raspi-config`。
 
-`raspi-config` 能帮你配置树莓派。对于不同的树莓派型号，可配置的选项也不尽相同。若要打开这款配置工具，请执行如下命令：
+`raspi-config` 能帮你配置树莓派。对于不同的树莓派型号，可配置的参数也不尽相同。若要打开这款配置工具，请执行如下命令：
 
 ```bash
 $ sudo raspi-config
@@ -20,11 +20,11 @@ $ sudo raspi-config
 
 按 **右箭头（→）**、**Tab 键** 可切换按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上级菜单。
 
-`raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别选项可能需要重启后才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
+`raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别参数可能需要重启后才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
 
 >**技巧**
 >
->在选项值所提供的冗长列表中（如时区城市列表），输入单个字母即可跳转到列表中的对应部分。例如，输入 `L` 会跳转至 Lisbon（里斯本）。
+>在参数值所提供的冗长列表中（如时区城市列表），输入单个字母即可跳转到列表中的对应部分。例如，输入 `L` 会跳转至 Lisbon（里斯本）。
 
 ### System options——系统参数
 
@@ -158,9 +158,9 @@ $ sudo raspi-config
 
 可自定义接入 GPIO 的风扇行为（[树莓派 4 外壳](https://www.raspberrypi.com/products/raspberry-pi-4-case-fan/)自带）。对[树莓派 5 外壳自带风扇](https://www.raspberrypi.com/products/raspberry-pi-5-case/)、[树莓派 5 主动散热器](https://www.raspberrypi.com/products/active-cooler/)（使用特殊四针风扇头）无效。
 
-### Localisation options——本地化选项
+### Localisation options——本地化参数
 
-配置位置、国家/地区相关选项。
+配置位置、国家/地区相关参数。
 
 ![raspi-config localisation options（本地化选项）](../.gitbook/assets//raspi-l18n.png)
 
@@ -190,7 +190,7 @@ $ sudo raspi-config
 
 >**警告**
 >
->没有再次确认的步骤。选择该选项会立刻开始分区扩展操作。
+>没有再次确认的步骤。选择该参数会立刻开始分区扩展操作。
 
 #### Network interface names——网络接口名称
 
@@ -234,7 +234,7 @@ $ sudo raspi-config
 
 ## 非交互式 `raspi-config`
 
-工具 `raspi-config` 还支持非交互式选项及参数，无需可视化组件，就可以用命令行修改所有选项。可用选项可能因树莓派型号而异。
+工具 `raspi-config` 还支持非交互式选项及参数，无需可视化组件，就可以用命令行修改所有参数。可用参数可能因树莓派型号而异。
 
 ```bash
 $ sudo raspi-config nonint <命令> <参数> [可选参数]
@@ -242,7 +242,7 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 
 >**注意**
 >
-> `0` 和 `1` 的含义因选项而异。在将值赋给参数之前，请务必查阅文档。
+> `0` 和 `1` 的含义因参数而异。在将值赋给参数之前，请务必查阅文档。
 
 ### System options——系统参数
 
