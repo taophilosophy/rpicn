@@ -1367,7 +1367,7 @@ video=HDMI-A-1:1920x1080M@60
 
 还可以添加屏幕旋转和翻转（屏幕镜像）参数，请参考 [Linux 帧缓冲文档](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/Documentation/fb/modedb.rst) 标准。以下示例定义了一台显示器：名为 `HDMI-A-1`、分辨率为 1080p、刷新率为 60Hz、屏幕旋转 90 度、并在 X 轴上翻转屏幕（屏幕镜像）：
 
-```jsin
+```json
 video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 ```
 
@@ -1384,7 +1384,7 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 #### 其他条目
 
-此部分是可以在内核命令行中使用的其他条目。此列表不是完整无遗的。
+此部分是可以在内核命令行中使用的其他条目。以下列表不是完整无遗的。
 
 `splash`
 
@@ -1396,7 +1396,7 @@ video=HDMI-A-1:1920x1080M@60,rotate=90,reflect_x
 
 `dwc_otg.lpm_enable=0` 
 
-  禁用驱动程序 `dwc_otg` 中设置的链接状态电源管理（Link Power Management，LPM）。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，此控制器默认已禁用，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由别的，与此设置无关的 USB 控制器驱动。
+  禁用驱动程序 `dwc_otg` 中设置的链接状态电源管理（Link Power Management，LPM）。该驱动程序驱动着 USB 控制器（嵌入在树莓派计算机的处理器中）。在树莓派 4 上，此控制器默认已禁用，且它仅连接至 USB Type C 电源输入接口。树莓派 4 上的 USB-A 接口由其他的，同此设置无涉的 USB 控制器驱动。
 
 `dwc_otg.speed` 
 
@@ -1627,15 +1627,15 @@ bantime  = -1
 
 ### 连接到无线网络
 
-要在无头树莓派首次启动时配置无线网络访问，请使用树莓派启动盘制作工具中的高级设置菜单。输入你首选无线网络的网络名称（SSID）和密码。你的树莓派在首次启动时，将用这些凭据接入网络。某些无线适配器和某些树莓派开发板并不支持 5GHz 网络；请查阅你的无线模块文档，以确保与你首选网络的兼容性。
+要在初次启动无头树莓派时配置无线网络访问，请使用树莓派启动盘制作工具中的高级设置菜单。输入你首选无线网络的网络名称（SSID）和密码。在你的树莓派初次启动时，将用这些凭据接入网络。某些无线适配器及特定树莓派开发板并不支持 5GHz 网络；请查阅你的无线模块文档，以确保与你偏好网络的兼容性。
 
 >**注意**
 >
->旧的树莓派系统会使用一个叫 `wpa_supplicant.conf` 的文件，把该文件放入 boot 文件夹就可以配置无线网络设置。从树莓派系统 Bookworm 开始，此功能已弃用。
+>旧款树莓派系统会使用一个叫 `wpa_supplicant.conf` 的文件，把该文件放入 boot 文件夹就可以配置无线网络设置。从树莓派系统 Bookworm 开始，此功能已弃用。
 
 ### 远程访问
 
-如果没有键盘和显示器，你需要某种方法来[远程控制](https://www.raspberrypi.com/documentation/computers/remote-access.html)你的无头树莓派。在首次启动时，唯一的办法就是 SSH。要在全新安装的树莓派系统上启用 SSH，请选择以下某种方法：
+如果没有键盘和显示器，你需要某种方法来[远程控制](https://www.raspberrypi.com/documentation/computers/remote-access.html)你的无头树莓派。在初次启动时，唯一的办法就是 SSH。要在全新安装的树莓派系统上启用 SSH，请选择以下某种方法：
 
 * 在树莓派启动盘制作工具的操作系统自定义菜单中启用 SSH，然后输入用户名和密码
 * 在存储卡的根目录下创建一个文件 `ssh`，然后按照下面部分的说明手动配置用户 `userconf.txt`
@@ -1646,7 +1646,7 @@ bantime  = -1
 
 在你的存储卡根目录下，创建一个文件 `userconf.txt`。
 
-该文件应包含一行文本，由 `<用户明>:<密码>` 构成：你想要使用的用户名，紧接着是一个英文冒号，然后是你想要用的密码的 **加密** 形式。
+该文件应为一行文本，由 `<用户明>:<密码>` 组成：你想要使用的用户名，紧接一个英文冒号，然后是你想要用的密码的 **加密** 形式。
 
 >**注意**
 >
@@ -1750,7 +1750,7 @@ $ sudo nmcli connection add type ethernet slave-type bridge \
 $ sudo nmcli connection up Bridge
 ```
 
-运行以下命令，开始托管你的无线网络：
+运行以下命令，开始发射你的无线网络：
 
 ```bash
 $ sudo nmcli connection up Hotspot
@@ -1832,7 +1832,7 @@ export no_proxy="localhost, 127.0.0.1"
 $ sudo visudo
 ```
 
-将以下行添加到文件中，这样 `sudo` 将使用你刚刚创建的环境变量：
+将以下行添加到文件中，这样 `sudo` 就能使用你刚创建的环境变量：
 
 ```bash
 Defaults	env_keep+="http_proxy https_proxy no_proxy"
@@ -1886,7 +1886,7 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 要了解如何使用这些文件的详细信息，请参阅 [config.txt 文档](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)。
 
-树莓派 5 不再使用这些 `elf` 文件。固件直接嵌入到了引导加载程序（EEPROM 中的 bootloader）。
+树莓派 5 不再采用这些 `elf` 文件。固件直接嵌入到了引导加载程序（EEPROM 中的 bootloader）。
 
 ### `fixup*.dat`
 
@@ -1902,7 +1902,7 @@ Defaults	env_keep+="http_proxy https_proxy no_proxy"
 
 >**重要**
 >
->树莓派 5 要求：在启动分区中，应有一个非空的 `config.txt` 文件。
+>树莓派 5 要求：在启动分区中，须有一个非空的 `config.txt` 文件。
 
 ### `issue.txt`
 
@@ -1938,7 +1938,7 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 >
 >在使用 32 位内核的系统上，`lscpu` 会把 CPU 架构报告成 `armv7l`；在使用 64 位内核的系统上，lscpu 会把 CPU 架构报告成 `aarch64`。对于 `armv7l`，`l` 指的是小端 CPU 架构（如 `kernel7l.img` 文件名所示），而非指 `LPAE`。
 
-### `overlays` 文件夹
+### 文件夹 `overlays`（叠加层）
 
 包含设备树叠加层。用于配置各种硬件设备（如第三方声卡）。可使用 `config.txt` 中的条目对这些叠加层进行选择。更多有关信息，请参阅[设备树、叠加层和参数](https://www.raspberrypi.com/documentation/computers/configuration.html#part2)。
 
@@ -1970,7 +1970,7 @@ DTB 文件涉及各种树莓派型号的硬件定义。这些文件将根据[检
 
 ## 配置串口
 
-在树莓派上有两种串口可用——[PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini 串口。PL011 是一款功能强大、符合 16550 标准的串口，而 mini 串口则功能有所欠缺。
+在树莓派上有两类串口可用——[PL011](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0183g/index.html) 和 mini 串口。PL011 是一款功能强大、符合 16550 标准的串口，而 mini 串口则功能有所欠缺。
 
 树莓派上的所有串口均仅支持 3.3V（接入 5V 会损坏）。可使用适配器转接到 5V 设备。此外，也可以使用各种第三方的廉价 USB 转 3.3V 串口转换器。
 
@@ -2067,7 +2067,7 @@ dtparam=krnbt=off
 
 >**技巧**
 >
->该参数可能不会兼容后续的所有型号。应仅在你的用例无其他替代方案时，才使用该参数。
+>该参数可能并不会兼容后续的所有型号。应仅在你的用例无其他替代方案时，才使用该参数。
 
 ### mini 串口和 CPU 主频
 
@@ -2159,7 +2159,7 @@ dtoverlay=disable-bt
 
 PL011 串口和 mini 串口有些不同。
 
-mini 串口的 FIFO 存储比较小。再加上缺乏流量控制，导致在较高的波特率下更易丢失字符。它的功能也一般弱于 PL011，主要是因为其波特率与 VPU 时钟速度相关联。
+mini 串口的 FIFO 存储比较小。再加上缺乏流量控制，导致在较高的波特率下更易丢失字符。它的功能通常也弱于 PL011，主要是因为其波特率与 VPU 时钟速度相关联。
 
 与 PL011 相比，mini 串口的不足有：
 
