@@ -35,4 +35,5 @@
 |boot partition|启动分区|
 |rpicam-apps|不翻译，Github 存储库 <https://github.com/raspberrypi/rpicam-apps> 就是这个名|
 |navigate|切换|
+|option|参数|
 
