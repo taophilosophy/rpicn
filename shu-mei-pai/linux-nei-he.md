@@ -34,17 +34,17 @@ $ git clone --depth=1 https://github.com/raspberrypi/linux
 
 >**技巧**
 >
->The `git clone` 命令用于下载当前活动分支的代码，这个分支是我们用来构建树莓派系统 镜像的，没有任何历史记录。要下载包含所有分支完整历史的整个仓库，请省略 `--depth=1` 选项。这会花费更长时间并占用更多存储空间。
+>命令 `git clone` 用于下载当前活跃分支的代码，我们用这个分支来构建树莓派系统镜像；未包含历史记录。要下载包含全部分支一切历史的完整仓库，请省略参数 `--depth=1`。这会花费更长时间，占用更多存储空间。
 >
->如果需要下载没有历史记录的不同分支，可以在上述命令中添加 `--branch` 选项，将 `<branch>` 替换为你希望下载的分支名称：
+>如果需要下载的其他分支（不带历史记录），可在上述命令中添加参数 `--branch`，把 `<分支>` 改成你想下载的分支名：
 >
 >```bash
->$ git clone --depth=1 --branch <branch> https://github.com/raspberrypi/linux
+>$ git clone --depth=1 --branch <分支> https://github.com/raspberrypi/linux
 >```
 >
 >要查看所有可用分支的完整列表，请参见[树莓派内核仓库](https://github.com/raspberrypi/linux)。
 
-现在你已经获取了内核源码，可以选择[本机编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#natively-build-a-kernel)或通过[交叉编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compile-the-kernel)构建新内核。
+现在你已经有了内核源码，可以选择[本机编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#natively-build-a-kernel)还是用[交叉编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compile-the-kernel)构建新内核。
 
 ### 本机编译内核
 
