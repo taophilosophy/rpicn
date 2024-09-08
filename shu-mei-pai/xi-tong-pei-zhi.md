@@ -20,17 +20,17 @@ $ sudo raspi-config
 
 按 **右箭头（→）**、**Tab 键** 可切换按钮 `<Select>` 和 `<Finish>`。按 **左箭头（←）**、**Tab 键** 可返回上级菜单。
 
-`raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别选项可能需要重启才能生效：如果你修改了他们当中随便一个，在退出时，`raspi-config` 会要求你重启。
+`raspi-config` 会自动修改 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 及相关 Linux 配置文件。个别选项可能需要重启后才能生效：如果你修改了他们当中任何一个，在退出时，`raspi-config` 会要求你重启。
 
 >**技巧**
 >
 >在选项值所提供的冗长列表中（如时区城市列表），输入单个字母即可跳转到列表中的对应部分。例如，输入 `L` 会跳转至 Lisbon（里斯本）。
 
-### System options——系统选项
+### System options——系统参数
 
-系统选项（System options）子菜单：能让你对启动、登录和网络过程的相关部分进行配置修改，以及其他系统级的修改。
+系统参数（System options）的子菜单：能让你对启动、登录和网络过程的相关部分进行配置修改，以及其他系统级的修改。
 
-![raspi-config system options（系统选项）](../.gitbook/assets/raspi-system.png)
+![raspi-config system options（系统参数）](../.gitbook/assets/raspi-system.png)
 
 #### Wireless LAN——无线局域网（WLAN）
 
@@ -72,7 +72,7 @@ $ sudo raspi-config
 
 ### Display options——显示选项
 
-![raspi-config display options（显示选项）](../.gitbook/assets/raspi-display.png)
+![raspi-config display options（显示参数）](../.gitbook/assets/raspi-display.png)
 
 #### Underscan——欠扫描
 
@@ -80,7 +80,7 @@ $ sudo raspi-config
 >
 >在 Wayland 下不可用。
 
-如果在屏幕上显示的文本开头于屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器（特别是监控器）上，禁用过扫描会使画面填充到整个屏幕，且去除黑边。
+如果在屏幕上显示的文本开头于屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器（特别是监控器）上，禁用过扫描会使画面填充到整个屏幕，即去除黑边。
 
 #### Screen blanking——屏幕节能（无操作时关闭信号输出）
 
@@ -98,11 +98,11 @@ $ sudo raspi-config
 
 启用或禁用：HDMI 的 4K 60p 分辨率输出。
 
-### Interface options——接口选项
+### Interface options——接口参数
 
 启用和禁用各种物理接口、虚拟接口。
 
-![raspi-config interface options（接口选项）](../.gitbook/assets//raspi-interface.png)
+![raspi-config interface options（接口参数）](../.gitbook/assets//raspi-interface.png)
 
 #### SSH
 
@@ -134,21 +134,21 @@ $ sudo raspi-config
 
 启用或禁用：GPIO 引脚的远程访问。
 
-### Performance options——性能选项
+### Performance options——性能参数
 
-![raspi-config performance options（性能选项）](../.gitbook/assets//raspi-perf.png)
+![raspi-config performance options（性能参数）](../.gitbook/assets//raspi-perf.png)
 
 #### Overclock——超频
 
-如果你的树莓派型号支持，就能对 CPU 超频。超频能力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
+如果你的树莓派型号支持，可对 CPU 超频。超频能力视树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
 
 >**警告**
 >
->**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，可以试试较为保守的超频。在启动过程中按住 **Shift** 键可临时禁用超频。
+>**超频可能会缩短你树莓派的使用寿命。** 如果因某个特定级别的超频导致系统不稳定，可以试试较为保守的超频。在启动过程中按住 **Shift 键** 可临时禁用超频。
 
 #### GPU memory——GPU 显存
 
-修改向 GPU 提供的内存大小。
+改变向 GPU 提供的内存大小。
 
 #### Overlay file system——堆叠文件系统（OverlayFS）
 
@@ -174,23 +174,23 @@ $ sudo raspi-config
 
 #### Keyboard——键盘
 
-将打开菜单，你可以在其中选择你的键盘布局（**译者注：目前中国使用标准美式键盘布局**）。通常修改会立即生效，但可能需要重启。键入单个字母会跳转到列表中的该字母。
+将打开菜单，你可以在其中选择你的键盘布局（**译者注：目前中国使用标准美式键盘布局**）。一般修改会立即生效，但可能需要重启。键入单个字母会跳转到列表中的字母所在。
 
 #### WLAN country——无线局域网区域
 
 为你的无线网络设置区域码。
 
-### Advanced options——高级选项
+### Advanced options——高级参数
 
-![raspi-config advanced options（高级选项）](../.gitbook/assets//raspi-adv.png)
+![raspi-config advanced options（高级参数）](../.gitbook/assets//raspi-adv.png)
 
 #### Expand filesystem——扩展文件系统
 
-扩展你的操作系统分区，以便利用整个存储设备，从而带来更大的文件存储空间。要完成此操作，你需重启树莓派。通常，在首次启开机时，树莓派系统会执行此操作。如果你把你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
+扩展你的操作系统分区，可便利用整个存储设备，从而带来更大的文件存储空间。要完成此操作，你需重启树莓派。通常，在初次启开机时，树莓派系统会执行此操作。如果你把你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
 
 >**警告**
 >
->没有再确认的步骤。选择该选项将立即开始分区扩展操作。
+>没有再次确认的步骤。选择该选项会立刻开始分区扩展操作。
 
 #### Network interface names——网络接口名称
 
@@ -210,15 +210,15 @@ $ sudo raspi-config
 
 #### Wayland
 
-在 X11 后端和 Wayland 后端间进行切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
+在 X11 和 Wayland 后端间进行切换。在树莓派 4 及后续新款设备上，默认使用 Wayland。其他型号的树莓派默认使用 X11。
 
 >**注意**
 >
->要在树莓派 4 先前的型号上使用 Wayland，你还必须把 `wayland=on` 添加至 `/boot/firmware/cmdline.txt`。
+>要在树莓派 4 之前的型号上使用 Wayland，你还必须把 `wayland=on` 添加至 `/boot/firmware/cmdline.txt`。
 
 #### Audio config——音频配置
 
-在 Bookworm 以前，树莓派系统使用的是 PulseAudio。现在则可以在音频后端 PulseAudio 和 PipeWire 之间进行切换。
+在 Bookworm 以前，树莓派系统使用的是 PulseAudio。现在则可以在 PulseAudio 和 PipeWire 音频后端间进行切换。
 
 ### Update——更新
 
@@ -244,7 +244,7 @@ $ sudo raspi-config nonint <命令> <参数> [可选参数]
 >
 > `0` 和 `1` 的含义因选项而异。在将值赋给参数之前，请务必查阅文档。
 
-### System options——系统选项
+### System options——系统参数
 
 #### Wireless LAN——无线局域网（WLAN）
 
@@ -365,13 +365,13 @@ $ sudo raspi-config nonint do_leds <0/1>
 
 #### Browser——浏览器
 
-修改默认的网络浏览器。如所选网络浏览器，在当前并未安装，将不生效。
+修改默认的网络浏览器。若所选网络浏览器在当前并未安装，将不生效。
 
 ```bash
 $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 ```
 
-### Display options——显示选项
+### Display options——显示参数
 
 #### Underscan——欠扫描
 
@@ -379,7 +379,7 @@ $ sudo raspi-config nonint do_browser <chromium-browser/firefox>
 >
 >在 Wayland 下不可用。
 
-如果在屏幕上显示的文本开头于屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把镜像填充到整个屏幕，且不带黑边。
+如果在屏幕上显示的文本开头于屏幕边缘消失，可启用 overscan（过扫描）调整边框。在某些显示器上，特别是监控器上，禁用过扫描会把图像填充到整个屏幕，即去除黑边。
 
 ```bash
 $ sudo raspi-config nonint do_overscan_kms <device> <enabled>
@@ -437,7 +437,7 @@ $ sudo raspi-config nonint do_composite <0或1>
 * `0`：启用复合视频
 * `1`：禁用复合视频
 
-### Interface options——接口选项
+### Interface options——接口参数
 
 #### SSH
 
@@ -529,16 +529,16 @@ $ sudo raspi-config nonint do_rgpio <0或1>
 * `0`：启用 GPIO 远程访问
 * `1`：禁用 GPIO 远程访问
 
-### Performance options——性能选项
+### Performance options——性能参数
 
 #### Overclock——超频
 
-如果你的树莓派型号支持，就能对 CPU 超频。超频潜力因树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
+若你的树莓派型号支持，可对 CPU 超频。超频潜力视树莓派设备个体体质而异，即使是相同型号也会有所不同。超频过高可能会导致不稳定。
 
 
 >**警告**
 >
->**超频可能会缩短你树莓派的使用寿命。** 如因某个特定级别的超频造成系统不稳定，可尝试更为保守的超频。在启动过程中按住 **Shift** 键可暂时禁用超频。
+>**超频可能会缩短你树莓派的使用寿命。** 如因某个特定级别的超频造成系统不稳定，可尝试更为保守的超频。在启动过程中按住 **Shift 键** 可暂时禁用超频。
 
 ```bash
 $ sudo raspi-config nonint do_overclock <设置>
@@ -586,7 +586,7 @@ $ sudo raspi-config nonint do_fan <0/1> [gpio] [onTemp]
 
 `onTemp` 默认为 80 °C。
 
-### Localisation options——本地化选项
+### Localisation options——本地化参数
 
 #### Locale——语言环境
 
@@ -606,7 +606,7 @@ $ sudo raspi-config nonint do_change_locale <语言环境>
 $ sudo raspi-config nonint do_change_timezone <时区>
 ```
 
-要查看参数 `<时区>` 的所有缩写值列表，请参见交互版 `raspi-config`。
+要查看 `<时区>` 参数的所有缩写值列表，请参见交互版 `raspi-config`。
 
 #### Keyboard——键盘
 
@@ -626,17 +626,17 @@ $ sudo raspi-config nonint do_configure_keyboard <键盘布局>
 $ sudo raspi-config nonint do_wifi_country <区域码>
 ```
 
-要查看此参数 `<区域码>` 的所有可用值列表，请参阅交互版 `raspi-config` 中所使用的缩写。
+要查看 `<区域码>` 参数的所有可用值列表，请参阅交互版 `raspi-config` 中所使用的缩写。
 
 ### Advanced options——高级选项
 
 #### Expand filesystem——扩展文件系统
 
-扩展你的操作系统分区，以使用整个存储设备，能为你带来更多的文件存储空间。需要需重启你的树莓派才能完成该。通常，树莓派系统会在首次开机时执行此操作。如果你将你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
+扩展你的操作系统分区，可使用整个存储设备，能为你带来更多的文件存储空间。需要需重启你的树莓派才能完成该操作。通常，树莓派系统会在初次开机时执行此操作。如果你将你的操作系统克隆到了容量大于旧设备的其他存储设备上，该功能可能会极其有用。
 
 >**警告**
 >
->没有再确认的步骤。选择该选项将立即执行分区扩展操作。
+>没有再次确认的步骤。选择该参数会立刻执行分区扩展操作。
 
 ```bash
 $ sudo raspi-config nonint do_expand_rootfs
@@ -673,9 +673,9 @@ $ sudo raspi-config nonint do_boot_order <B1或B2或B3>
 
 视你的设备而定，你可以在以下选项中进行选择：
 
-* B1 ：存储卡启动：如果存储卡可用，则优先从存储卡启动；如存储卡不可用，再从 NVMe 启动；如果存储卡、NVMe 均不可用，那么则从 USB 启动
-* B2 ：NVMe/USB 启动：如果 NVMe 可用，则优先从 NVMe 启动；如果 NVMe 不可用，再从 USB 启动；如果 NVMe、USB 均不可用，那么则从存储卡启动
-* B3 ：网络启动：**如果存储卡可用**，则优先从存储卡启动；如果存储卡不可用，则从网络启动
+* B1 ：存储卡启动：若存储卡可用，则优先从存储卡启动；如存储卡不可用，再从 NVMe 启动；若存储卡、NVMe 均不可用，那么则从 USB 启动
+* B2 ：NVMe/USB 启动：若 NVMe 可用，则优先从 NVMe 启动；如 NVMe 不可用，再从 USB 启动；若 NVMe、USB 均不可用，那么则从存储卡启动
+* B3 ：网络启动：**若存储卡可用**，则优先从存储卡启动；如存储卡不可用，则从网络启动
 
 #### Bootloader version——引导加载程序版本
 
@@ -690,7 +690,7 @@ $ sudo raspi-config nonint do_boot_rom <E1或E2>
 
 #### Wayland
 
-在 X11 后端和 Wayland 后端间进行切换。对于树莓派 4 及后续新款设备，默认使用 Wayland。其他型号的树莓派默认为 X11。
+在 X11 和 Wayland 后端间进行切换。对于树莓派 4 及后续新款设备，默认使用 Wayland。其他型号的树莓派默认为 X11。
 
 ```bash
 $ sudo raspi-config nonint do_wayland <W1或W2>
@@ -705,7 +705,7 @@ $ sudo raspi-config nonint do_wayland <W1或W2>
 
 #### Audio config——音频配置
 
-使用此参数在 PulseAudio 和 PipeWire 音频后端间进行切换。在树莓派系统 Bookworm 之前，树莓派系统使用 PulseAudio。
+使用此参数在 PulseAudio 和 PipeWire 音频后端之间进行切换。在树莓派系统 Bookworm 之前，树莓派系统使用 PulseAudio。
 
 ```bash
 $ sudo raspi-config nonint do_audioconf <1或2>
@@ -724,7 +724,7 @@ $ sudo raspi-config nonint do_update
 
 ## 显示
 
-要配置你的树莓派，使用非默认显示模式，请手动设置分辨率和方向。
+要配置你的树莓派，使用非默认显示模式，请手动设定分辨率和方向。
 
 ### HDMI 显示器支持
 
@@ -732,29 +732,29 @@ $ sudo raspi-config nonint do_update
 
 树莓派 Zero、Zero W 和 Zero 2 W 均搭载了 mini HDMI 接口，因此你需要 mini HDMI 转全尺寸 HDMI 转接线（转接头）。
 
-树莓派 4、5 和 400 均搭载了两个 micro HDMI 端口，因此你需要为每台你想使用的显示器，都准备一份 micro HDMI 转标准 HDMI 转接线（转接头）。请在树莓派开机之前接入上述适配器。
+树莓派 4、5 和 400 均搭载了两个 micro HDMI 端口，因此你需要为每台你想使用的显示器，各准备一份 micro HDMI 转标准 HDMI 转接线（转接头）。请在树莓派开机之前接入上述适配器。
 
-树莓派 4 和 400 可以同时输出到两个显示器，高达 1080p 分辨率、60Hz 刷新率；或输出至两台 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单台 4K 显示器。
+树莓派 4 和 400 可以同时输出到两个显示器（高达 1080p 分辨率、60Hz 刷新率），或输出至两台 4K 30Hz 刷新率的显示器。如果你把显示器接入了 `HDMI0` 口，并在 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 设置了参数 `hdmi_enable_4kp60=1`，还可以用 60Hz 刷新率输出单台 4K 显示器。
 
-无需什么专门配置，树莓派 5 就可以 4K 分辨率、60Hz 刷新率，输出至两台显示器。
+无须专门配置，树莓派 5 就可以 4K 分辨率、60Hz 刷新率，输出至两台显示器。
 
 ### 设置分辨率和方向
 
 #### 通过桌面设置分辨率和方向
 
-在树莓派桌面上，打开菜单“**首选项（Preferences）**”，然后选择工具“**屏幕配置（Screen Configuration）**”。你应该会看到当前树莓派已接入的显示器（用图标表示）。右键单击要修改的显示器，然后选择一个选项。单击“**应用（Apply）**”并退出“**屏幕配置（Screen Configuration）**”以保存修改。
+在树莓派桌面上，打开菜单“**首选项（Preferences）**”，然后选择工具“**屏幕配置（Screen Configuration）**”。你应该会看到当前树莓派已接入的显示器（用图标表示）。右键单击要修改的显示器，然后选择一个选项。单击“**应用（Apply）**”并退出“**屏幕配置（Screen Configuration）**”保存修改。
 
 #### 通过命令行设置分辨率和方向
 
-使用以下命令能打开 **屏幕配置（Screen Configuration）** 工具：
+使用以下命令能打开工具 **屏幕配置（Screen Configuration）** ：
 
 ```bash
 $ arandr
 ```
 
-你应该会看到当前树莓派已接入的显示器（用图标表示）。右键单击要修改的显示器，然后选择一个选项。单击“**应用(Apply)**”并退出 **屏幕配置（Screen Configuration）** 以保存修改。
+你应该会看到当前树莓派已接入的显示器（以图标表示）。右键单击要修改的显示器，然后选择一个选项。单击“**应用(Apply)**”并退出 **屏幕配置（Screen Configuration）** 以保存修改。
 
-### 手动设置分辨率和屏幕方向
+### 手动设定分辨率和屏幕方向
 
 #### 确定显示设备名称
 
@@ -857,11 +857,11 @@ $ sudo raspi-config
 1. 选择 `System options` 并按  **回车键**。
 2. 选择 `Audio options` 并按  **回车键**。
 3. 选择所需模式，然后按 **回车键** 选定该模式。
-4. 按 **右、方向键** 退出选项列表。选择 `Finish` 退出配置工具。
+4. 按 **左、右方向键** 退出参数列表。选择 `Finish` 退出配置工具。
 
 ## 网络
 
-可以用图形化用户界面（GUI）对树莓派系统上的无线连接进行配置。精简版树莓派系统和无头机器的用户可以用 [`nmcli`](https://networkmanager.dev/docs/api/latest/nmcli.html)，在命令行设置无线网络连接。
+可以用图形化用户界面（GUI）配置树莓派系统的无线连接。精简版树莓派系统和无头机器的用户可以用 [`nmcli`](https://networkmanager.dev/docs/api/latest/nmcli.html)，在命令行设置无线网络连接。
 
 >**注意**
 >
@@ -915,7 +915,7 @@ $ sudo raspi-config
 $ sudo raspi-config
 ```
 
-使用 **方向键** 选择菜单项“**本地化选项（Localisation options）**”。选择选项 **WLAN 区域（WLAN country）**。使用 **方向键** 从下拉菜单中选择你的区域。按 **回车键** 确认选择。
+使用 **方向键** 选择菜单项“**本地化参数（Localisation options）**”。选择参数 **WLAN 区域（WLAN country）**。使用 **方向键** 从下拉菜单中选择你的区域。按 **回车键** 确认选择。
 
 现在，你应该已经可以访问无线网络了。运行以下命令来查看你的 WiFi 无线电是否已启用：
 
@@ -939,7 +939,7 @@ $ nmcli dev wifi list
 
 你应看到类似输出如下：
 
-```sh
+```json
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
         90:72:40:1B:42:05  myNetwork       Infra  132   405 Mbit/s  89      ****  WPA2
         90:72:42:1B:78:04  myNetwork5G     Infra  11    195 Mbit/s  79      ***   WPA2
@@ -961,7 +961,7 @@ $ sudo nmcli --ask dev wifi connect <网络名称>
 
 在你输入密码后，你的树莓派应该会自动接入网络。
 
-如果你看到错误输出，提示你“需要密码，但未提供密码”，则意味着你输入的密码错误。请再次运行上述命令，仔细检查你输入的密码。
+如果你看到报错，提示你“需要密码，但未提供密码”，则意味着你输入的密码错误。请再次运行上述命令，并仔细检查你输入的密码。
 
 要检查是否已接入网络，请运行以下命令：
 
@@ -971,7 +971,7 @@ $ nmcli dev wifi list
 
 应该看到类似输出如下：
 
-```sh
+```json
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
 *       90:72:40:1B:42:05  myNetwork       Infra  132   405 Mbit/s  89      ****  WPA2
         90:72:42:1B:78:04  myNetwork5G     Infra  11    195 Mbit/s  79      ***   WPA2
@@ -1015,7 +1015,7 @@ $ nmcli --fields autoconnect-priority,name connection
 
 你应该看到类似输出如下：
 
-```sh
+```json
 AUTOCONNECT-PRIORITY  NAME
 0                     myNetwork
 0                     lo
@@ -1032,7 +1032,7 @@ $ nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 
 在范围内，你的设备将始终尝试连接到具有最高非负优先级值的网络。你还可以为网络分配负优先级；只有在范围内，没有其他已知网络时，你的设备才会尝试连接到负优先级网络。例如，现在有三个网络：
 
-```sh
+```json
 AUTOCONNECT-PRIORITY  NAME
 -1                    snake
 0                     rabbit
@@ -1063,7 +1063,7 @@ AUTOCONNECT-PRIORITY  NAME
 
 #### 通过树莓派配置设置屏幕节能
 
-单击菜单栏中的树莓派按钮。导航到 **首选项（Preferences）** → **树莓派配置（Raspberry Pi Configuration）**。
+单击菜单栏中的树莓派按钮。切换到 **首选项（Preferences）** → **树莓派配置（Raspberry Pi Configuration）**。
 
 ![从桌面打开菜单“树莓派配置（Raspberry Pi Configuration）”](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
@@ -1079,7 +1079,7 @@ AUTOCONNECT-PRIORITY  NAME
 $ sudo raspi-config
 ```
 
-使用 **方向键** 导航，使用 **回车键** 选择。选择 `Display Options` 。再使用  **方向键**：选择 `yes` 可启用屏幕节能；选择 `no` 可禁用屏幕节能。
+使用 **方向键** 切换，使用 **回车键** 选择。选择 `Display Options` 。再使用  **方向键**：选择 `yes` 可启用屏幕节能；选择 `no` 可禁用屏幕节能。
 
 你还可以编辑添加以下行到 `~/.config/wayfire.ini`：
 
