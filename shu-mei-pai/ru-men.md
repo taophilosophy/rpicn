@@ -1,6 +1,6 @@
 # 入门
 
-## 开始使用你的树莓派
+## 开始你的树莓派之旅
 
 {% embed url="https://www.bilibili.com/video/BV1TS411N7Fs" %}
 
