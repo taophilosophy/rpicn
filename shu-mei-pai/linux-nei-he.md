@@ -2,19 +2,19 @@
 
 ## 介绍
 
-树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新通常滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派内核则会集成 Linux 内核的**long-term releases（长期支持版本）**。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中为每个长期支持的 Linux 内核版本生成一个 `next` 分支。在经过广泛的测试和讨论后，我们会将每个 `next` 分支合并到主分支中。
+树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派内核则会集成到 **long-term releases（长期支持版本）** 的 Linux 内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期支持版的 Linux 内核生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到主分支中。
 
 ## 更新
 
-树莓派系统的常规[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动将内核更新到最新的稳定版本。如果你想尝试最新的非稳定测试内核，可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
+一般的[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动将把树莓派系统的内核更新到最新稳定版本。如果你想尝试最新不稳定版测试内核，可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
 
 ## 编译内核
 
-操作系统自带的编译器和链接器通常被配置为编译运行在该系统上的可执行文件。**本机编译**使用这些默认的编译器和链接器。而**交叉编译**是指为与当前编译环境不同的目标系统编译代码的过程。
+操作系统自带的编译器，链接器通常配置为：为能在该系统上运行的可执行文件而进行编译。**本机编译**使用这些默认的编译器和链接器。而 **交叉编译** 是指为与当前编译环境不同的目标系统编译代码的流程。
 
-树莓派内核的交叉编译允许你在 32 位操作系统上编译 64 位内核，反之亦然。你还可以在非树莓派设备上交叉编译 32 位或 64 位的树莓派内核。
+树莓派内核的交叉编译能让你在 32 位操作系统上编译 64 位内核，反之亦然。你还可以在非树莓派设备上交叉编译 32 位（或 64 位）的树莓派内核。
 
-以下说明分为本机编译和交叉编译两部分。请选择适合你的部分，虽然这两种方式有许多相似步骤，但也存在一些重要的区别。
+以下说明分为本机编译和交叉编译两个部分。请选择适合你的那个部分，虽然这两种方式有许多相似步骤，但也存在一些重大的差异。
 
 ### 下载内核源码
 
