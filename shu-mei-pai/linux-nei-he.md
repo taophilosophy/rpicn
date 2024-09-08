@@ -298,17 +298,17 @@ Linux 内核高度可配置。高级用户可能希望修改默认配置以满�
 
 ### 准备配置
 
-`menuconfig` 工具需要 `ncurses` 开发头文件才能正确编译。要安装这些头文件，请运行以下命令：
+工具 `menuconfig` 需要 `ncurses` 开发头文件才能正确编译。要安装这些头文件，请运行以下命令：
 
 ```bash
 $ sudo apt install libncurses5-dev
 ```
 
-接下来，[下载内核源代码](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#download-kernel-source)。特别是，确保你已经安装了[默认的本地配置](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#native-build-configuration)或[默认的交叉编译配置](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compiled-build-configuration)。
+接下来，[下载内核源代码](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#download-kernel-source)。特别是，确保你已经安装了[默认的本地配置](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#native-build-configuration)/[默认的交叉编译配置](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compiled-build-configuration)。
 
 ### `menuconfig`
 
-待一切准备就绪，你可以按如下方式编译和运行 `menuconfig` 实用程序：
+待一切准备就绪，你可以按如下方式编译和运行实用程序 `menuconfig` ：
 
 ```bash
 $ make menuconfig
@@ -326,26 +326,26 @@ $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig
 $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 ```
 
-要使用 `menuconfig` 实用程序，使用键盘操作：
+要使用实用程序 `menuconfig` ，使用键盘操作：
 
 * 使用 **方向键** 进行方向切换
-* 要进入子菜单（由 `--->` 指示），按 **Enter** 键
-* 要返回上一级或退出，按 **Escape** 键两次
+* 要进入子菜单（由 `--->` 指示），按 **回车键** 
+* 要返回上一级或退出，按 **Esc 键** 两次
 * 要切换二进制选项的状态，按 **空格键**
-* 要选择多选项的状态，按 **Enter** 打开子菜单，使用 **方向键** 切换子菜单，再按 **Enter** 选择状态
-* 要获取选项或菜单的帮助，按 **H** 键
+* 要选择多选项的状态，按 **回车键** 打开子菜单，使用 **方向键** 切换子菜单，再按 **回车键** 选择状态
+* 要获取参数/菜单的帮助，按 **H 键** 
 
-在简短的编译之后，`menuconfig` 会显示一个包含所有可以配置选项的子菜单列表。选项很多，所以花点时间阅读。避免在第一次尝试时启用或禁用过多的选项；配置过程相对容易出错，所以从小处开始，熟悉配置和构建过程。
+在简短的编译之后，`menuconfig` 会显示一个带有所有可以配置选项的子菜单列表。参数很多，所以需要花点时间阅读。请避免在第一次尝试时启用/禁用过多的选项；配置过程相对容易出错，所以从小处开始，以熟悉配置和构建过程。
 
 ### 保存更改
 
-完成更改后，按 **Escape** 直到出现保存新配置的提示。默认情况下，这会保存到 `.config` 文件。你可以通过复制此文件来保存和加载配置。
+完成更改后，按 **Esc** 直到出现保存新配置的提示。在默认情况下，会保存到文件 `.config`。你可以通过复制此文件来保存和加载配置。
 
 自定义完成后，你现在可以[构建内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building)了。
 
 ## 打补丁
 
-在构建自定义内核时，你可能希望将补丁或补丁集合（补丁集）应用到 Linux 内核。
+在构建自定义内核时，你可能希望将补丁/补丁集应用到 Linux 内核。
 
 硬件制造商有时会提供补丁集，作为支持新硬件的临时措施，直到补丁被合并到 Linux 内核和树莓派内核中。然而，还有其他目的的补丁集，例如启用完全抢占的内核以用于实时应用。
 
@@ -378,7 +378,7 @@ SUBLEVEL = 38
 
 应用补丁的方式取决于补丁的分发格式。
 
-开发人员通常将大多数补丁以单个文件的形式分发。使用 `patch` 工具来应用这些补丁。以下命令下载、解压并将实时内核补丁应用到我们的示例内核版本中：
+开发人员通常将大多数补丁以单个文件的形式分发。使用工具 `patch` 来应用这些补丁。以下命令下载、解压并将实时内核补丁应用到我们的示例内核版本中：
 
 ```bash
 $ wget https://www.kernel.org/pub/linux/kernel/projects/rt/6.1/patch-6.1.38-rt13-rc1.patch.gz
@@ -386,11 +386,11 @@ $ gunzip patch-6.1.38-rt13-rc1.patch.gz
 $ cat patch-6.1.38-rt13-rc1.patch | patch -p1
 ```
 
-有些开发人员以**邮箱格式**分发补丁，这是一种包含多个补丁文件的文件夹。使用 Git 来应用这些补丁。
+有些开发人员以 **邮箱格式** 分发补丁，这是一种包含多个补丁文件的文件夹。可使用 Git 来应用这些补丁。
 
 >**注意**
 >
->在使用 Git 应用邮箱补丁之前，请为您的本地 Git 安装配置一个姓名和电子邮件：
+>在使用 Git 应用邮箱补丁之前，请为您的本地 Git 安装配置姓名和电子邮件：
 >
 >```bash
 >$ git config --global user.name "your name"
@@ -409,19 +409,19 @@ $ git am -3 /path/to/patches/*
 
 要编译内核模块，你需要 Linux 内核头文件。这些头文件提供了编译与内核接口的代码所需的函数和结构定义。
 
-如果你从 GitHub 克隆了整个内核，头文件已经包含在源代码树中。如果你不需要所有额外的文件，可以仅安装内核头文件，使用 `apt`。
+如果你从 GitHub 克隆了整个内核，头文件已经包含在源代码树中。如果你不需要所有额外的文件，可以仅使用 `apt` 安装内核头文件。
 
 >**技巧**
 >
->当发布新内核时，你需要与该内核版本匹配的头文件。更新 `apt` 包以反映最新内核版本可能需要几周时间。要获取最新的头文件版本，[克隆内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building)。
+>当发布新内核时，你需要与该内核版本匹配的头文件。通过更新 `apt` 包来收到最新内核版本可能需要几周时间。要下载最新版本的头文件，请[克隆内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building)。
 
-如果你使用的是 64 位版本的树莓派系统，运行以下命令安装内核头文件：
+如果你使用的是 64 位版本的树莓派系统，请运行以下命令安装内核头文件：
 
 ```
 $ sudo apt install linux-headers-rpi-v8
 ```
 
-如果你使用的是 32 位版本的树莓派系统，运行以下命令安装内核头文件：
+如果你使用的是 32 位版本的树莓派系统，可运行以下命令安装内核头文件：
 
 ```
 $ sudo apt install linux-headers-rpi-{v6,v7,v7l}
@@ -435,12 +435,12 @@ $ sudo apt install linux-headers-rpi-{v6,v7,v7l}
 
 你可能有很多理由想要将某些内容加入内核：
 
-* 你编写了一些特定于树莓派的代码，希望大家都能受益
-* 你编写了一个通用的 Linux 内核驱动，希望大家都能使用
-* 你修复了一个通用内核 bug
-* 你修复了一个特定于树莓派的内核 bug
+* 你编写了一些树莓派的特定代码，希望大家都能受益
+* 你编写了一款通用的 Linux 内核驱动，希望大家都能使用
+* 你修复了一项通用内核 bug
+* 你修复了一项树莓派的特定内核 bug
 
-对于树莓派特定的更改或 bug 修复，向树莓派内核提交一个 pull request。对于一般的 Linux 内核更改（例如新的驱动程序），首先向上游 Linux 内核提交 pull request。待 Linux 内核接受了你的更改，我们会收到这些更改。
+对于树莓派特定的更改/bug 修复，可向树莓派内核提交一个 pull request。对于一般的 Linux 内核更改（例如新的驱动程序），请首先向上游 Linux 内核提交 pull request。待 Linux 内核接受了你的更改，我们方可收到这些更改。
 
 ### 贡献到树莓派内核
 
@@ -452,4 +452,4 @@ $ sudo apt install linux-headers-rpi-{v6,v7,v7l}
 
 首先，将 [Linux 内核树](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git)克隆到你的开发设备上。然后，你可以进行更改、测试，并将更改提交到你的本地树中。
 
-若你的更改准备好，你可以将其提交给 Linux 内核社区。Linux 内核开发是在邮件列表上进行的，而不是在 GitHub 上。为了使你的更改成为 Linux 内核的一部分，请通过电子邮件将其作为补丁提交给社区。请遵循[提交补丁：将你的代码加入内核的基本指南](https://www.kernel.org/doc/html/latest/process/submitting-patches.html)和[Linux 内核编码风格](https://www.kernel.org/doc/html/latest/process/coding-style.html)的文档。Linux 内核贡献者会审查你的贡献并建议改进。获得批准后，他们会将你的更改合并。最终，这些更改会进入 Linux 内核的长期发布版本。经过测试与树莓派内核的兼容性后，你的更改会进入树莓派内核的稳定版本。
+若你的更改准备就绪，你可以将其提交给 Linux 内核社区。Linux 内核开发是在邮件列表上进行的，而非 GitHub 上。为了使你的更改成为 Linux 内核的一部分，请通过电子邮件将其作为补丁提交给社区。请遵循文档[提交补丁：将你的代码加入内核的基本指南](https://www.kernel.org/doc/html/latest/process/submitting-patches.html)和[Linux 内核编码风格](https://www.kernel.org/doc/html/latest/process/coding-style.html)。Linux 内核贡献者会审查你的贡献并建议改进。获得批准后，他们会将你的更改合并。最后，这些更改会进入 Linux 内核的长期发布版本。经过测试与树莓派内核的兼容性后，你的更改会进入树莓派内核的稳定版本。
