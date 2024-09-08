@@ -12,7 +12,7 @@
 $ sudo raspi-config
 ```
 
-你将在灰色窗口中，看到出现的蓝色背景界面，上面带有各种选项：
+你将在灰色窗口中，看到显现的蓝色背景界面，上面带有各种参数：
 
 ![raspi-config 主菜单](../.gitbook/assets/raspi-config.png)
 
