@@ -14,7 +14,7 @@
 
 树莓派内核的交叉编译能让你在 32 位操作系统上编译 64 位内核，反之亦然。你还可以在非树莓派设备上交叉编译 32 位（或 64 位）的树莓派内核。
 
-以下说明分为本机编译和交叉编译两个部分。请选择适合你的那个部分，虽然这两种方式有许多相似步骤，但也存在一些明显的差异。
+以下说明分为本机编译和交叉编译两个部分。请选择适合你的那个部分，虽然这两种方式有许多相似步骤，但也有某些明显的差异。
 
 ### 下载内核源码
 
@@ -48,9 +48,9 @@ $ git clone --depth=1 https://github.com/raspberrypi/linux
 
 ### 本机编译内核
 
-本指南假设你的树莓派运行的是最新版本的[树莓派系统](https://www.raspberrypi.com/documentation/computers/os.html)。
+本指南假设你运行着树莓派最新版本的[树莓派系统](https://www.raspberrypi.com/documentation/computers/os.html)。
 
-首先，安装编译所需的依赖包：
+先安装编译所需的依赖包：
 
 ```bash
 $ sudo apt install bc bison flex libssl-dev make
@@ -58,12 +58,12 @@ $ sudo apt install bc bison flex libssl-dev make
 
 #### 编译配置
 
-本节介绍如何在编译内核时应用默认配置。你也可以通过以下方式配置你的内核：
+本节介绍了如何在编译内核时采用默认配置。你也可以使用以下方式配置你的内核：
 
-* [启用或禁用内核功能](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)
-* [应用来自其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
+* [启用、禁用内核功能](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)
+* [打上其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
 
-要准备默认配置，请根据你的树莓派型号运行下表中的相应命令。
+要准备默认配置，请根据你的树莓派型号执行下表中的对应命令。
 
 | 架构                           | 型号             | 命令                                                  |
 | :------------------------------: | :----------------: | :----------------------------------------------------- |
@@ -94,29 +94,29 @@ $ sudo apt install bc bison flex libssl-dev make
 
 >**注意**
 >
->树莓派 4B、5、400、计算模块 4 或计算模块 4S 上的 32 位版树莓派系统使用 32 位用户空间，但运行的是**64 位内核**。如果要编译 32 位内核，设置 `ARCH=arm`。要启动 32 位内核，在 `config.txt` 中设置 `arm_64bit=0`。
+>树莓派 4B、5、400，计算模块 4、计算模块 4S 上的 32 位版树莓派系统使用 32 位用户空间，但运行的是 **64 位内核**。如果要编译 32 位内核，请设置 `ARCH=arm`。若要启动 32 位内核，在 `config.txt` 中设置 `arm_64bit=0`。
 
 
 ### 交叉编译内核
 
-首先，你需要一个合适的 Linux 交叉编译主机。我们通常使用 Ubuntu；由于树莓派系统 也是一个基于 Debian 的发行版，编译命令非常相似。
+首先，你需要一台合适的 Linux 交叉编译主机。我们一般用 Ubuntu。由于树莓派系统同样也是一款基于 Debian 的发行版，所以编译命令非常接近。
 
 #### 安装所需的依赖和工具链
 
-要为交叉编译构建源代码，请在设备上安装所需的依赖。运行以下命令安装大部分依赖：
+要为交叉编译构建源代码，请在设备上安装所需的依赖包。运行以下命令可安装大多数依赖：
 
 ```bash
 $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 ```
 
-然后，安装适用于你要编译的内核架构的工具链：
+然后，安装适用于你要编译的内核架构之工具链：
 
-* 要安装用于编译 64 位内核的 64 位工具链，运行以下命令：
+* 要安装用于编译 64 位内核的 64 位工具链，请运行以下命令：
 
   ```bash
   $ sudo apt install crossbuild-essential-arm64
   ```
-* 要安装用于编译 32 位内核的 32 位工具链，运行以下命令：
+* 要安装用于编译 32 位内核的 32 位工具链，请运行以下命令：
 
   ```bash
   $ sudo apt install crossbuild-essential-armhf
@@ -124,10 +124,10 @@ $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 
 #### 构建配置
 
-本节介绍如何在构建内核时应用默认配置。你也可以通过以下方式配置内核：
+本节介绍了如何在构建内核时采用默认配置。你也可以用下述方式配置内核：
 
-* [启用和禁用内核功能](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)
-* [应用其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
+* [启用、禁用内核功能](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)
+* [打上其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
 
 输入以下命令构建源代码和设备树文件：
 
@@ -160,9 +160,9 @@ $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 
 #### 使用 `LOCALVERSION` 自定义内核版本
 
-为防止内核覆盖 `/lib/modules` 中现有的模块，并在 `uname` 输出中表明你运行的是自定义内核，可以调整 `LOCALVERSION`。
+为防止内核覆盖现有的 `/lib/modules` 中的模块，且在 `uname` 输出中表明你运行的是自定义内核，可以调整 `LOCALVERSION`。
 
-要调整 `LOCALVERSION`，修改 `.config` 文件中的以下行：
+要调整 `LOCALVERSION`，请修改 `.config` 文件的这一行：
 
 ```bash
 CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
@@ -170,7 +170,7 @@ CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
 
 >**技巧**
 >
->你也可以通过 `menuconfig` 图形化修改此设置，路径为 **General setup** \> **Local version - append to kernel release**。更多关于 `menuconfig` 的信息，请参阅[内核配置说明](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)。
+>你也可以用 `menuconfig` 图形化修改此设置，路径为 **General setup** \> **Local version - append to kernel release**。有关 `menuconfig` 的更多信息，请参阅[内核配置说明](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)。
 
 
 #### 构建
