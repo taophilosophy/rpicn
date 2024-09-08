@@ -70,7 +70,7 @@ $ sudo raspi-config
 
 修改默认的网络浏览器。
 
-### Display options——显示选项
+### Display options——显示参数
 
 ![raspi-config display options（显示参数）](../.gitbook/assets/raspi-display.png)
 
