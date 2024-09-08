@@ -449,7 +449,7 @@ $ vcgencmd get_config total_mem
 
 视障用户能在树莓派系统菜单中“**推荐软件（Recommended Software）**”找到有用的工具。
 
-我们还提供了 [Orca 屏幕阅读器](https://help.gnome.org/users/orca/stable/introduction.html.en)来简化树莓派桌面的导航。此外，我们还提供了屏幕放大器来放大用户界面，提高屏幕内容的可读性。
+我们还提供了 [Orca 屏幕阅读器](https://help.gnome.org/users/orca/stable/introduction.html.en)来简化树莓派桌面的访问。此外，我们还提供了屏幕放大器来放大用户界面，提高屏幕内容的可读性。
 
 #### Orca 屏幕阅读器
 

@@ -2137,7 +2137,7 @@ $ sudo apt install -y libglib2.0-dev libgstreamer-plugins-base1.0-dev
 $ git clone https://github.com/raspberrypi/libcamera.git
 ```
 
-导航到存储库的根目录：
+切换到存储库的根目录：
 
 ```bash
 $ cd libcamera
@@ -2186,7 +2186,7 @@ $ sudo apt install -y meson ninja-build
 $ git clone https://github.com/raspberrypi/rpicam-apps.git
 ```
 
-导航到存储库的根目录：
+切换到存储库的根目录：
 
 ```bash
 $ cd rpicam-apps
@@ -2267,7 +2267,7 @@ $ sudo apt install -y libegl1-mesa-dev
 $ git clone https://github.com/anholt/libepoxy.git
 ```
 
-导航到存储库的根目录：
+切换到存储库的根目录：
 
 ```bash
 $ cd libepoxy

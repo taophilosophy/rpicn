@@ -887,7 +887,7 @@ $ sudo raspi-config
 
 ##### 连接到隐藏的网络
 
-要使用隐藏的网络，请在网络菜单中导航到 **高级选项（Advanced options）** → **连接到隐藏的 WiFi 网络（Connect to a hidden Wi-Fi network）**：
+要使用隐藏的网络，请在网络菜单中找到到 **高级选项（Advanced options）** → **连接到隐藏的 WiFi 网络（Connect to a hidden Wi-Fi network）**：
 
 ![高级选项中的连接到隐藏的网络](../.gitbook/assets/network-hidden.png)
 

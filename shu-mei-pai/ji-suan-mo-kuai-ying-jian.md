@@ -278,7 +278,7 @@ CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上�
 
 要修改 CM4 引导加载程序配置：
 
-* 导航到 usbboot/recovery 目录
+* 切换到 usbboot/recovery 目录
 * 如果需要特定的引导加载程序版本，请替换 pieeprom.original.bin
 * 编辑默认的 boot.conf 引导加载程序配置文件；通常至少需要更新 BOOT_ORDER：
   * 用于网络引导，请使用 BOOT_ORDER=0xf2

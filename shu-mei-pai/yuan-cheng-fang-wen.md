@@ -142,7 +142,7 @@ PING raspberrypi.local (192.168.1.131): 56 data bytes
 
 ### 检查路由器的设备列表
 
-在 Web 浏览器中，导航到你路由器的 IP 地址。然后，使用你的凭据登录。
+在 Web 浏览器中，键入到你路由器的 IP 地址。然后，使用你的凭据登录。
 
 >**技巧**
 >
@@ -231,7 +231,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 1. 在终端窗口中输入 `sudo raspi-config`。
 2. 选择 **Interfacing Options**。
-3. 导航到并选择 **SSH**。
+3. 切换到并选择 **SSH**。
 4. 选择 **Yes**。
 5. 选择 **Ok**。
 6. 选择 **Finish**。
@@ -304,7 +304,7 @@ $ geany &
 在使用启动盘制作工具配置启动镜像时，你可以预配置 SSH 密钥。你可以生成新的 SSH 密钥对或使用现有的 SSH 密钥。
 
 1. 按照使用启动盘制作工具指南安装来配置你的启动镜像。
-2. 在操作系统自定义步骤中，导航到服务选项卡，选中启用 SSH 复选框。
+2. 在操作系统自定义步骤中，切换到服务选项卡，选中启用 SSH 复选框。
 3. 选择仅允许公钥身份验证单选按钮。如果你已经在 `~/.ssh/id_rsa.pub` 中存储了一个 SSH 公钥，树莓派启动盘制作工具会自动使用该公钥来预填文本框。如果启动盘制作工具未找到 SSH 公钥，你可单击“运行 SSH-KEYGEN”按钮生成新的密钥对。
 
 #### 手动配置 SSH 密钥
@@ -441,7 +441,7 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 ![从系统托盘中的首选项菜单中选择树莓派配置](https://www.raspberrypi.com/documentation/computers/images/raspberry-pi-configuration.png)
 
-4. 导航到选项卡 Interfaces。
+4. 切换到选项卡 Interfaces。
 5. 单击活动位置旁边的单选按钮以 VNC。
 
 ![接口选项卡](https://www.raspberrypi.com/documentation/computers/images/vnc-enable.png)
@@ -457,7 +457,7 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
     ```sh
     $ sudo raspi-config
     ```
-2. 导航至接口选项。按 **回车键** 选择。
+2. 切换至接口选项。按 **回车键** 选择。
 3. 选择 VNC。按 **回车键** 选择。
 4. 在你想要启用 VNC 服务器吗? 使 <Yes> 高亮并按  **回车键**。
 5. 按 **回车键** 返回菜单。按 **Esc 键** 退出 raspi-config。
