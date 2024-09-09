@@ -65,32 +65,130 @@ $ sudo apt install bc bison flex libssl-dev make
 
 要准备默认配置，请根据你的树莓派型号执行下表中的对应命令。
 
-| 架构                           | 型号             | 命令                                                  |
-| :------------------------------: | :----------------: | :----------------------------------------------------- |
-|64 位| 树莓派 3          | `$ cd linux`<br />`$ KERNEL=kernel8`<br />`$ make bcm2711_defconfig`    |
-| |树莓派计算模块 3               |                  |                                                       |
-| |树莓派 3+                      |                  |                                                       |
-|| 树莓派计算模块 3+              |                  |                                                       |
-| |树莓派 Zero 2 W                |                  |                                                       |
-| |树莓派 4                       |                  |                                                       |
-| |树莓派 400                     |                  |                                                       |
-| |树莓派计算模块 4               |                  |                                                       |
-|| 树莓派计算模块 4S              |                  |                                                       |
-| |树莓派 5                       | `$ cd linux`<br />`$ KERNEL=kernel_2712`<br />`$ make bcm2712_defconfig`           |
-| 32 位| 树莓派 1          | `$ cd linux`<br />`$ KERNEL=kernel`<br />`$ make bcmrpi_defconfig`    |
-| |树莓派计算模块 1               |                  |                                                       |
-| |树莓派 Zero                    |                  |                                                       |
-|| 树莓派 Zero W                  |                  |                                                       |
-|| 树莓派 2                       | `$ cd linux`<br />`$ KERNEL=kernel7`<br />`$ make bcm2709_defconfig`           |
-| |树莓派 3                       |                  |                                                       |
-| |树莓派计算模块 3               |                  |                                                       |
-|| 树莓派 3+                      |                  |                                                       |
-| |树莓派计算模块 3+              |                  |                                                       |
-| |树莓派 Zero 2 W                |                  |                                                       |
-| |树莓派 4                       | `$ cd linux`<br />`$ KERNEL=kernel7l`<br />`$ make bcm2711_defconfig`           |
-| |树莓派 400                     |                  |                                                       |
-| |树莓派计算模块 4               |                  |                                                       |
-|| 树莓派计算模块 4S              |                  |                                                       |
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>架构</th>
+<th>型号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="10"><p>64-bit</p></td>
+<td><div><p>树莓派 3</p></div></td>
+<td rowspan="9"><div><div>
+<div>
+<pre>$ sudo apt install bc bison flex libssl-dev make</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3</p></td>
+</tr>
+<tr>
+<td><p>树莓派 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero 2 W</p></td>
+</tr>
+<tr>
+<td><p>树莓派 4</p></td>
+</tr>
+<tr>
+<td><p>树莓派 400</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4S</p></td>
+</tr>
+<tr>
+<td><p>树莓派 5</p></td>
+<td><div><div>
+<div>
+<pre>$ cd linux
+$ KERNEL=kernel8
+$ make bcm2711_defconfig</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td rowspan="14"><p>32-bit</p></td>
+<td><div><p>树莓派 1</p></div></td>
+<td rowspan="4"><div><div>
+<div>
+<pre>$ cd linux
+$ KERNEL=kernel_2712
+$ make bcm2712_defconfig</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 1</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero W</p></td>
+</tr>
+<tr>
+<td><p>树莓派 2</p></td>
+<td rowspan="6"><div><div>
+<div>
+<pre>$ cd linux
+$ KERNEL=kernel
+$ make bcmrpi_defconfig</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派 3</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3</p></td>
+</tr>
+<tr>
+<td><p>树莓派 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero 2 W</p></td>
+</tr>
+<tr>
+<td><p>树莓派 4</p></td>
+<td rowspan="4"><div><div>
+<div>
+<pre>$ cd linux
+$ KERNEL=kernel7
+$ make bcm2709_defconfig</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派 400</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4S</p></td>
+</tr>
+</tbody>
+</table>
+
 
 >**注意**
 >
@@ -131,32 +229,128 @@ $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 
 输入以下命令构建源代码和设备树文件：
 
-| 目标架构       | 目标型号                   | 命令                                                                                                                                                      |
-| :--------------: | :--------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 64 位          | 树莓派 3                   | `$ cd linux`<br />`$ KERNEL=kernel8`<br />`$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig`                                            |
-|| 树莓派计算模块 3                      |                                                                                                                                                           |
-|| 树莓派 3+                                |                                                                                                                                                           |
-|| 树莓派计算模块 3+                           |                                                                                                                                                           |
-|| 树莓派 Zero 2 W                           |                                                                                                                                                           |
-|| 树莓派 4                              |                                                                                                                                                           |
-|| 树莓派 400                               |                                                                                                                                                           |
-|| 树莓派计算模块 4                             |                                                                                                                                                           |
-|| 树莓派计算模块 4S                            |                                                                                                                                                           |
-|| 树莓派 5       | `$ cd linux`<br />`$ KERNEL=kernel_2712`<br />`$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2712_defconfig`                       |
-| 32 位 |        树莓派 1                   | `$ cd linux`<br />`$ KERNEL=kernel`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig`                                              |
-|| 树莓派计算模块 1                            |                                                                                                                                                           |
-|| 树莓派 Zero                               |                                                                                                                                                           |
-|| 树莓派 Zero W                             |                                                                                                                                                           |
-|| 树莓派 2       | `$ cd linux`<br />`$ KERNEL=kernel7`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig`                           |
-|| 树莓派 3       |                            |                                                                                                                                                           |
-| |树莓派计算模块 3 |                            |                                                                                                                                                           |
-| |树莓派 3+      |                            |                                                                                                                                                           |
-| |树莓派计算模块 3+ |                            |                                                                                                                                                           |
-| |树莓派 Zero 2 W |                            |                                                                                                                                                           |
-| |树莓派 4       | `$ cd linux`<br />`$ KERNEL=kernel7l`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2711_defconfig`                          |
-| |树莓派 400     |                            |                                                                                                                                                           |
-| |树莓派计算模块 4 |                            |                                                                                                                                                           |
-| |树莓派计算模块 4S |                            |                                                                                                                                                           |
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>目标架构</th>
+<th>目标型号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="10"><p>64-bit</p></td>
+<td><div><p>树莓派 3</p></div></td>
+<td rowspan="9"><div><div>
+<div>
+<pre>$ sudo apt install crossbuild-essential-arm64</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3</p></td>
+</tr>
+<tr>
+<td><p>树莓派 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero 2 W</p></td>
+</tr>
+<tr>
+<td><p>树莓派 4</p></td>
+</tr>
+<tr>
+<td><p>树莓派 400</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4S</p></td>
+</tr>
+<tr>
+<td><p>树莓派 5</p></td>
+<td><div><div>
+<div>
+<pre>$ sudo apt install crossbuild-essential-armhf</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td rowspan="14"><p>32-bit</p></td>
+<td><div><p>树莓派 1</p></div></td>
+<td rowspan="4"><div><div>
+<div>
+<pre>$ cd linux
+$ KERNEL=kernel8
+$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 1</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero W</p></td>
+</tr>
+<tr>
+<td><p>树莓派 2</p></td>
+<td rowspan="6"><div><div>
+<div>
+<pre>$ cd linux
+$ KERNEL=kernel_2712
+$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2712_defconfig</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派 3</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3</p></td>
+</tr>
+<tr>
+<td><p>树莓派 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 3+</p></td>
+</tr>
+<tr>
+<td><p>树莓派 Zero 2 W</p></td>
+</tr>
+<tr>
+<td><p>树莓派 4</p></td>
+<td rowspan="4"><div><div>
+<div>
+<pre>$ cd linux
+$ KERNEL=kernel
+$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td><p>树莓派 400</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4</p></td>
+</tr>
+<tr>
+<td><p>树莓派计算模块 4S</p></td>
+</tr>
+</tbody>
+</table>
+                                                                                                                                      |
 
 #### 使用 `LOCALVERSION` 自定义内核版本
 
