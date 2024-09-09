@@ -2,15 +2,15 @@
 
 ## 关于摄像头模块
 
-现有若干款树莓派官方摄像头模块。最早的 500 万像素型号发布于 2013 年，随后于 2016 年发布了 800 万像素的摄像头模块 2。最新款的摄像头是 1200 万像素的摄像头模块 3（发布于 2023 年）。最早的 500 万像素摄像头树莓派已停产。
+现有若干款树莓派官方摄像头模块。最早的 500 万像素型号发布于 2013 年，随后于 2016 年发布了 800 万像素的摄像头模块 2。最新款的摄像头是 1200 万像素的摄像头模块 3（发布于 2023 年）。最早的 500 万像素摄像头树莓派现已停产。
 
-所有这些摄像头都有可见光和红外版本。除此之外，摄像头模块 3 还带有标准、广角 FoV 类型，总计四种不同的版本。
+上述所有摄像头都有可见光和红外版本。除此之外，摄像头模块 3 还带有标准、广角 FoV 类型，总计四种不同的版本。
 
-![Camera Module 3 normal and wide angle](https://www.raspberrypi.com/documentation/accessories/images/cm3.jpg)
+![摄像头模块 3 标准版和广角版](https://www.raspberrypi.com/documentation/accessories/images/cm3.jpg)
 
 摄像头模块 3（左）和摄像头模块 3 广角（右）
 
-![Camera Module 3 NoIR normal and wide angle](https://www.raspberrypi.com/documentation/accessories/images/cm3_noir.jpg)
+![摄像头模块 3 红外标准版和红外广角版](https://www.raspberrypi.com/documentation/accessories/images/cm3_noir.jpg)
 
 摄像头模块 3 NoIR（左）和摄像头模块 3 NoIR 广角（右）
 
