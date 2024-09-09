@@ -80,7 +80,7 @@ BCM2711 的数据表包含更多细节。
 * 改进的 HVS 和显示管线
   * 双 4Kp60 支持
 * VideoCore V3D VII
-  * ~2-2.5× 速度（更多硬件，Pi 4 上的 1GHz 对比 600MHz）
+  * ~2-2.5× 速度（更多硬件，树莓派 4 上的 1GHz 对比 600MHz）
   * OpenGL ES 3.1，Vulkan 1.3
 * 4Kp60 HEVC 硬件解码
   * 其他 CODEC 在软件中运行
@@ -92,23 +92,23 @@ BCM2711 的数据表包含更多细节。
 
 ### BCM2712D0
 
-BCM2712D0 版本移除了 BCM2712C1 中未使用的功能。在功能上，C1 和 D0 版本之间无差异。这两种封装在物理上的规格尺寸也一致。
+BCM2712D0 版本移除了 BCM2712C1 中未使用的功能。在功能上，C1 和 D0 版本间并无差异。这两种封装在物理上的规格尺寸也一致。
 
 ## RP3A0
 
-树莓派 RP3A0 是我们首次采用系统级封装（SiP），它内置了博通 BCM2710A1 — 这是封装在博通 BCM2837 芯片内部的硅芯片，该芯片用于树莓派 3，和 512MB 的 DRAM。
+树莓派 RP3A0 是我们首次采用了系统级封装（SiP），它内置了博通 BCM2710A1——这是封装在博通 BCM2837 芯片内部的硅芯片，该芯片用于树莓派 3 和 512MB 的 DRAM。
 
 它被树莓派 Zero 2 W 使用。
 
 ![RP3A0 crosssection](https://www.raspberrypi.com/documentation/computers/images/RP3A0-crosssection.png)
 
-RP3A0 是一款四核 64 位 Arm Cortex A53 CPU，主频为 1 GHz，但是如果安装了散热片或使用其他冷却解决方案，该芯片的潜在超频频率可达 1.2 GHz。
+RP3A0 是一款四核 64 位 Arm Cortex A53 CPU，主频为 1 GHz，但是如果安装了散热片或使用了其他冷却解决方案，该芯片的潜在超频主频可达 1.2 GHz。
 
-请参考 BCM2836 文档，了解 ARM 外围设备规格的详细信息，该规格也适用于 BCM2837 和 RP3A0。
+请参考 BCM2836 文档，了解 ARM 外围设备规格的详细信息，该规格同样适用于 BCM2837 和 RP3A0。
 
-* [BCM2836 ARM 本地外围设备](https://datasheets.raspberrypi.com/bcm2836/bcm2836-peripherals.pdf)
+* [BCM2836 ARM 原生外围设备](https://datasheets.raspberrypi.com/bcm2836/bcm2836-peripherals.pdf)
 * [Cortex-A53 MPCore 处理器技术参考手册](https://developer.arm.com/documentation/ddi0500/latest/)
 
 >**注意**
 >
-> 旧版树莓派 Zero 使用堆叠封装（PoP）DRAM，其中 DRAM 直接焊接在 BCM2835 芯片顶层。
+> 旧款树莓派 Zero 使用堆叠封装（PoP）DRAM，其中 DRAM 直接焊接在 BCM2835 芯片顶层。
