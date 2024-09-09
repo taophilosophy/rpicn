@@ -118,12 +118,12 @@
 
 树莓派 CSI 摄像头连接器的原理图。
 
-![camera connector](https://www.raspberrypi.com/documentation/accessories/images/RPi-S5-conn.png)
+![摄像头连接器](https://www.raspberrypi.com/documentation/accessories/images/RPi-S5-conn.png)
 
 其他可用的原理图;
 
-* 摄像头模块 v2 PDF
-* 摄像头模块 v3 PDF
+* 摄像头模块 2 PDF
+* 摄像头模块 3 PDF
 * HQ 摄像头模块 PDF
 
 ## 摄像头滤镜
@@ -136,29 +136,29 @@
 
 ### 摄像头模块 3
 
-Camera Module 3 是围绕 IMX708 构建的，具有以下光谱灵敏度特性。
+摄像头模块 3 是基于 IMX708 开发的，具有以下光谱灵敏度特性。
 
-![Camera Module 3 Transmission Graph](https://www.raspberrypi.com/documentation/accessories/images/cm3-filter.png)
+![摄像头模块 3 传输图](https://www.raspberrypi.com/documentation/accessories/images/cm3-filter.png)
 
 ### HQ 摄像头
 
 树莓派 HQ 摄像头没有红外切除滤镜。
 
-![HQ Camera Transmission Graph without IR-Cut filter](https://www.raspberrypi.com/documentation/accessories/images/hq.png)
+![不带红外滤光片的 HQ 相机传输图](https://www.raspberrypi.com/documentation/accessories/images/hq.png)
 
 ### GS 摄像头
 
 树莓派 GS 摄像头，无红外切换滤镜。
 
-![GS Camera Transmission Graph without IR-Cut filter](https://www.raspberrypi.com/documentation/accessories/images/gs.png)
+![不带红外滤光片的 GS 相机传输图](https://www.raspberrypi.com/documentation/accessories/images/gs.png)
 
 ### HQ 和 GS 摄像头
 
 HQ 和 GS 相机使用 Hoya CM500 红外滤光片。其透射特性如下图所示。
 
-![CM500 Transmission Graph](https://www.raspberrypi.com/documentation/accessories/images/hoyacm500.png)
+![CM500 传输图](https://www.raspberrypi.com/documentation/accessories/images/hoyacm500.png)
 
-## 滤光片拆卸
+## 拆卸滤光片
 
 >**注意**
 >
@@ -167,9 +167,9 @@ HQ 和 GS 相机使用 Hoya CM500 红外滤光片。其透射特性如下图所�
 
 >**警告**
 >
-> 该步骤无法逆转：连接滤镜的粘合剂在被揭起并更换后将无法存活，而红外滤镜约 1.1 mm 厚，在被移除时可能会破裂。移除它将失去保修。然而，对一些用户来说，移除滤镜是可取的。
+> 该步骤无法逆转：连接滤镜的粘合剂在被揭起并更换后将无法存活，而红外滤镜厚约 1.1 mm，在被移除时可能会破裂。移除它将失去保修。然而，对一些用户来说，移除滤镜是可取的。
 
-![FILTER ON small](https://www.raspberrypi.com/documentation/accessories/images/FILTER_ON_small.jpg)
+![小号滤镜](https://www.raspberrypi.com/documentation/accessories/images/FILTER_ON_small.jpg)
 
 高质量摄像头和全局快门摄像头都包含一个红外滤镜，用于降低摄像头对红外光的敏感性。它使得户外照片看起来更自然。然而，可以通过移除此滤镜来增强一些自然摄影；天空、植物和水的颜色可能会受到其移除的影响。在受红外光照明的地方，摄像头也可以在没有滤镜的情况下用于夜视。
 
@@ -182,31 +182,31 @@ HQ 和 GS 相机使用 Hoya CM500 红外滤光片。其透射特性如下图所�
 * 请在干净无尘的环境中工作，因为传感器将暴露在空气中。
 * 在主电路板底部的两个 1.5 mm 六角锁定键上拧下。小心不要让触点圈滚开。在外壳和 PCB 之间有一层略带粘性的触点片，需要用一点力气才能分开。
 
-![SCREW REMOVED small](https://www.raspberrypi.com/documentation/accessories/images/SCREW_REMOVED_small.jpg)
+![拆下的小螺丝](https://www.raspberrypi.com/documentation/accessories/images/SCREW_REMOVED_small.jpg)
 
 * 将板子抬起并放在特别干净的表面上。确保传感器不会触及表面。
 
-![FLATLAY small](https://www.raspberrypi.com/documentation/accessories/images/FLATLAY_small.jpg)
+![平铺图](https://www.raspberrypi.com/documentation/accessories/images/FLATLAY_small.jpg)
 
 * 你可以尝试一些方法来溶解粘合剂，例如少量异丙醇、加热（~20-30 °C）。
 
-![SOLVENT small](https://www.raspberrypi.com/documentation/accessories/images/SOLVENT_small.jpg)
+![一些溶剂](https://www.raspberrypi.com/documentation/accessories/images/SOLVENT_small.jpg)
 
 * 将镜头底座转过来，使其朝上，并放在桌子上。
 * 使用钢笔盖或类似软塑料物品，仅在玻璃与铝相连接的边缘处施加压力，以最大程度降低破坏滤镜的风险。胶水会断裂，滤镜会从镜头座上脱落。
 
-![REMOVE FILTER small](https://www.raspberrypi.com/documentation/accessories/images/REMOVE_FILTER_small.jpg)
+![拆下的小滤镜](https://www.raspberrypi.com/documentation/accessories/images/REMOVE_FILTER_small.jpg)
 
 * 鉴于更换镜头会暴露传感器，此时你可以固定一个透明滤镜（例如 OHP 塑料）以最小化灰尘进入传感器腔的机会。
 * 将主机壳体放回电路板上。务必将壳体与仍留在电路板上的触点圈重新对齐。
 * 尼龙触点圈可防止电路板受损；先放置这个触点圈。接着，放置钢触点圈，可防止尼龙触点圈受损。
 * 将两个六角锁紧键拧紧。只要触点圈按正确顺序安装，就不需要拧得太紧。
 
-![FILTER OFF small](https://www.raspberrypi.com/documentation/accessories/images/FILTER_OFF_small.jpg)
+![已经拆下了滤镜](https://www.raspberrypi.com/documentation/accessories/images/FILTER_OFF_small.jpg)
 
 >**注意**
 >
-> 可能很难或根本不可能通过将滤镜粘回原位来使设备恢复正常光学相机的功能。
+> 可能很难或压根没法通过将滤镜粘回原位来使设备恢复正常光学相机的功能。
 
 
 ## 推荐镜头
@@ -222,7 +222,7 @@ HQ 和 GS 相机使用 Hoya CM500 红外滤光片。其透射特性如下图所�
 我们推荐两款镜头，一款 6mm 广角镜头和一款 16mm 远摄镜头。这些镜头应该可以在你最近的授权经销商处购买到。
 
 |                              | 16mm 远摄             | 6 mm 广角              |
-| ------------------------------ | ----------------------- | ------------------------- |
+| :------------------------------: | :----------------------- | :------------------------- |
 | 分辨率                       | 10MP                  | 3MP                     |
 | 图像格式                     | 1"                    | 1/2"                    |
 | 光圈                         | F1.4 至 F16           | F1.2                    |
@@ -233,14 +233,14 @@ HQ 和 GS 相机使用 Hoya CM500 红外滤光片。其透射特性如下图所�
 | M.O.D.                       | 0.2 m                | 0.2 m                  |
 | 尺寸                         | φ39.00×50.00 mm   | φ30×34 mm           |
 
-### M12 镜头
+### M12 卡口
 
-![m12 lens](https://www.raspberrypi.com/documentation/accessories/images/m12-lens.jpg)
+![m12 卡口](https://www.raspberrypi.com/documentation/accessories/images/m12-lens.jpg)
 
 我们推荐由高嘉光电制造的三款镜头。这些镜头应该可以从你最近的授权经销商那里购买。
 
 |                        | 8 mm            | 25 mm                 | 鱼眼                     |
-| ------------------------ | ------------------- | ------------------------- | -------------------------- |
+| :------------------------: | :------------------- | :------------------------- | :-------------------------- |
 | 分辨率                 | 12MP              | 5MP                     | 15MP                     |
 | 图像格式               | 1/1.7 英寸        | 1/2 英寸                | 1/2.3 英寸               |
 | 光圈                   | F1.8              | F2.4                    | F2.5                     |
@@ -255,7 +255,7 @@ HQ 摄像头和全局快门摄像头都支持同步捕获。利用 XVS 引脚（
 
 为了正确运行，两个摄像头都需要在 XVS 线上提供 1.65V 的上拉电压，这是通过树莓派上的 3.3V 和 GND 引脚通过电位分压器创建的。
 
-![Image showing potential divider setup](https://www.raspberrypi.com/documentation/accessories/images/synchronous_camera_wiring.jpg)
+![间隔设置图](https://www.raspberrypi.com/documentation/accessories/images/synchronous_camera_wiring.jpg)
 
 从两个 10kΩ 电阻器到 3.3V 和地（通过有效源阻抗为 5kΩ 制造 1.65V）创建一个电位分压器。这可以连接到任一款树莓派。
 
@@ -265,9 +265,9 @@ HQ 摄像头和全局快门摄像头都支持同步捕获。利用 XVS 引脚（
 
 #### 启动两台树莓派
 
-文件 /sys/module/imx477/parameters/trigger_mode 确定哪个板输出脉冲，或等待接收脉冲（源和汇）。此参数只能在超级用户模式下更改。
+文件 `/sys/module/imx477/parameters/trigger_mode` 可确定哪个板输出脉冲，或等待接收脉冲（接受端和发送端）。此参数只能在超级用户模式下更改。
 
-在水槽上运行：
+在接收端运行：
 
 ```
 sudo su
@@ -275,27 +275,27 @@ echo 2 > /sys/module/imx477/parameters/trigger_mode
 exit
 ```
 
-在源端运行：
+在发送端运行：
 
-```
+```bash
 sudo su
 echo 1 > /sys/module/imx477/parameters/trigger_mode
 exit
 ```
 
-启动水槽运行：
+启动接收端，运行：
 
-```
+```bash
 rpicam-vid --frames 300 --qt-preview -o sink.h264
 ```
 
-启动源运行
+启动发送端，运行
 
-```
+```bash
 rpicam-vid --frames 300 --qt-preview -o source.h264
 ```
 
-帧应该是同步的。使用 --frames 来确保捕获相同数量的帧，并且录制的长度完全相同。首先运行接收器可以确保不会丢失任何帧。
+帧应该是同步的。使用 `--frames` 来确保捕获相同数量的帧，并且录制的长度完全相同。首先运行接收器可以确保不会丢失任何帧。
 
 >**注意**
 >
@@ -319,23 +319,23 @@ rpicam-vid --frames 300 --qt-preview -o source.h264
 
 在你希望作为接收端的板上，将 MAS 焊盘的两半焊接在一起。这告诉传感器要作为接收端，并等待信号来捕获一帧。
 
-#### 启动两个树莓派。
+#### 启动发送端和接收端。
 
-启动水槽运行：
+启动接收端，运行：
 
-```
+```bash
 rpicam-vid --frames 300 -o sync.h264
 ```
 
-在启动源之前允许延迟（见下面的说明）。需要大约 > 2 秒。
+在启动发送之前允许延迟（见下面的说明）。需要大约 > 2 秒。
 
-启动源运行：
+启动发送端，运行：
 
-```
+```bash
 rpicam-vid --frames 299 -o sync.h264
 ```
 
-```
+```bash
 ffmpeg -i source.h264 -vf select="gte(n\, 1)" source.h264
 ```
 
@@ -345,7 +345,7 @@ ffmpeg -i source.h264 -vf select="gte(n\, 1)" source.h264
 
 曝光时间等于低脉冲宽度时间加上额外的 14.26 微秒。即低脉冲为 10000 微秒时，曝光时间为 10014.26 微秒。帧速率直接受控于脉冲引脚的频率。30Hz 的 PWM 频率将导致帧速率为 30 帧每秒。
 
-![Image showing pulse format](https://www.raspberrypi.com/documentation/accessories/images/external_trigger.jpg)
+![脉冲格式的显示图片](https://www.raspberrypi.com/documentation/accessories/images/external_trigger.jpg)
 
 ### 准备工作
 
@@ -353,21 +353,21 @@ ffmpeg -i source.h264 -vf select="gte(n\, 1)" source.h264
 >
 > 此修改包含了对一个 SMD 焊接部件的拆除。除非你觉得你有能力完成此修改，否则请勿尝试。在焊接到摄像头板时，请摘下塑料背盖以避免损坏。
 
-如果你的主板上安装了晶体管 Q2（如下图中蓝色所示），那么你需要从主板上移除 R11（如下图中红色所示）。这将 GP1 连接到 XTR，如果不移除 R11，则摄像头将无法在外部触发模式下运行。组件的位置如下图所示。
+如果你的主板上安装了晶体管 Q2（如下图蓝色所示），那么你需要从主板上移除 R11（如下图红色所示）。这将 GP1 连接到 XTR，如果不移除 R11，则摄像头将无法在外部触发模式下运行。组件的位置如下图所示。
 
-![Image showing resistor to be removed](https://www.raspberrypi.com/documentation/accessories/images/resistor.jpg)
+![待拆除的电阻器图](https://www.raspberrypi.com/documentation/accessories/images/resistor.jpg)
 
 接下来，在 GS 摄像头板的 XTR 和 GND 的触点上焊接一根导线。请注意，XTR 是 1.8V 输入，因此你可能需要电平转换器或电位分压器。
 
-我们可以使用树莓派 Pico 来提供触发信号。将任意 Pico GPIO 引脚（此示例中使用 GP28）通过 1.5kΩ电阻连接到 XTR。还要在 XTR 和 GND 之间连接一个 1.8kΩ电阻，以将高逻辑电平降低到 1.8V。下面显示了接线图。
+我们可以使用树莓派 Pico 来提供触发信号。将任意 Pico GPIO 引脚（此示例中使用 GP28）通过 1.5kΩ 电阻连接到 XTR。还要在 XTR 和 GND 间连接一个 1.8kΩ 电阻，以将高逻辑电平降低到 1.8V。下面显示了接线图。
 
-![Image showing Raspberry Pi Pico wiring](https://www.raspberrypi.com/documentation/accessories/images/pico_wiring.jpg)
+![树莓派 Pico 接线图](https://www.raspberrypi.com/documentation/accessories/images/pico_wiring.jpg)
 
 #### 连接摄像头后启动树莓派
 
 通过超级用户模式启用外部触发：
 
-```
+```bash
 sudo su
 echo 1 > /sys/module/imx296/parameters/trigger_mode
 exit
@@ -375,7 +375,7 @@ exit
 
 #### 树莓派 Pico Mirco Python 代码
 
-```
+```python
 from machine import Pin, PWM
 
 from time import sleep
@@ -402,12 +402,12 @@ pwm.duty_u16(int((1 - (shutter - 14) / frame_length) * 65535))
 
 在 Pico 上运行代码，并启动摄像头：
 
-```
+```bash
 rpicam-hello -t 0 --qt-preview --shutter 3000
 ```
 
-每次 Pico 脉冲引脚时都应生成一帧。可接受可变帧速率，并且可以通过简单地改变脉冲之间的持续时间来控制。不需要传递什么选项给 rpicam-apps 来启用外部触发器。
+每次 Pico 脉冲引脚时都应生成一帧。可接受可变帧速率，并且可以通过简单地改变脉冲之间的持续时间来控制。不需要传递什么参数给 `rpicam-apps` 来启用外部触发器。
 
 >**注意**
 >
-> 在运行 libcamera 应用程序时，你需要指定固定的快门持续时间（数值无所谓）。这将确保 AGC 不会尝试调整摄像头的快门速度，快门速度由外部触发脉冲控制。
+> 在运行工具 libcamera 时，你需要指定固定的快门持续时间（数值无所谓）。这将确保 AGC 不会尝试调整摄像头的快门速度，快门速度由外部触发脉冲控制。
