@@ -4,9 +4,9 @@
 
 树莓派触摸显示屏是一款可通过 DSI 连接器连接到树莓派的液晶显示屏。你可以同时使用触摸显示屏和 HDMI 显示输出。
 
-![The Raspberry Pi 7-inch Touch Display](https://www.raspberrypi.com/documentation/accessories/images/display.png)
+![树莓派 7 吋触摸显示屏](https://www.raspberrypi.com/documentation/accessories/images/display.png)
 
-树莓派 7 英寸触摸显示屏
+树莓派 7 吋触摸显示屏
 
 触摸显示屏与除了树莓派 Zero 和 Zero 2 W 外的所有树莓派型号兼容（这两款型号没有 DSI 接口）。最早的树莓派型号缺少适当的安装孔，需要额外的硬件来安装显示屏 PCB 上的支架。
 
@@ -24,10 +24,10 @@
 * 对比度：500
 * 平均亮度：250 cd/m^2^
 * 视角（度）：
-  * 顶部 - 50
-  * 底部 - 70
-  * 左侧 - 70
-  * 右侧 - 70
+  * 顶部—50
+  * 底部—70
+  * 左侧—70
+  * 右侧—70
 * 功率要求：在最大亮度下，典型值为 5V 200mA。
 * 外部尺寸：192.96 × 110.76 mm
 * 可视区域：154.08 × 85.92 mm
@@ -36,7 +36,7 @@
 
 你可以使用支架将树莓派安装在触摸显示屏背面，然后连接适当的电缆。如果有可用的外壳，你也可以将触摸显示屏安装在单独的外壳中。连接保持不变，但根据外壳的不同，你可能需要更长的电缆。
 
-![Image of Raspberry Pi connected to the Touch Display](https://www.raspberrypi.com/documentation/accessories/images/GPIO_power-500x333.jpg)
+![连接到触摸显示屏的树莓派](https://www.raspberrypi.com/documentation/accessories/images/GPIO_power-500x333.jpg)
 
 连接到触摸显示屏的树莓派
 
@@ -56,19 +56,19 @@
 
 要使用树莓派为触摸显示屏供电，你需要在树莓派的 GPIO 上的 5V 和 GND 引脚之间以及显示屏上的 5V 和 GND 引脚之间连接两根跳线。如下图所示。
 
-![Illustration of display pins](https://www.raspberrypi.com/documentation/accessories/images/display_plugs.png)
+![显示屏的引脚位置](https://www.raspberrypi.com/documentation/accessories/images/display_plugs.png)
 
 显示屏的 5V 和 GND 引脚的位置
 
 在开始之前，请确保树莓派已关机且未连接到电源。将黑色跳线的一端连接到树莓派上的引脚六 ( GND )，将红色跳线的一端连接到引脚四 (5V)。如果引脚六不可用，你可以使用其他开放的 GND 引脚来连接黑线。如果引脚四不可用，你可以使用任何其他 5V 引脚来连接红线，例如引脚二。
 
-![Illustration of Raspberry Pi headers](https://www.raspberrypi.com/documentation/accessories/images/pi_plugs.png)
+![树莓派引脚的位置](https://www.raspberrypi.com/documentation/accessories/images/pi_plugs.png)
 
-树莓派标头的位置
+树莓派引脚的位置
 
 接下来，将黑线的另一端连接到显示器上的 GND 引脚，将红线的另一端连接到显示器上的 5V 引脚。完成所有连接后，下次打开树莓派时，你应该会看到触摸显示屏被点亮。
 
-使用触摸显示屏上的另外三个引脚将显示器连接到早期树莓派 1B 或 B。有关更多信息，请参考我们关于旧版支持的文档。
+使用触摸显示屏上的另外三个引脚将显示器连接到早期树莓派 1B 和 B。有关更多信息，请参考我们关于旧版支持的文档。
 
 >**注意**
 >
@@ -89,7 +89,7 @@
 
 在树莓派系统 Bookworm 及更高版本中，你可以将 wvkbd 屏幕键盘用作输入设备。要安装 wvkbd，请运行以下命令：
 
-```
+```bash
 $ sudo apt install wvkbd
 ```
 
@@ -105,17 +105,17 @@ $ sudo apt install wvkbd
 
 要从桌面环境设置屏幕方向，请从“首选项”菜单中选择“屏幕配置”。在布局编辑器中右键单击 DSI-1 显示矩形，选择“方向”，然后选择最适合你需求的选项。你还可以通过“触摸屏”选项确保触摸叠加层分配给正确的显示屏。
 
-![Screenshot of orientation options in screen configuration](https://www.raspberrypi.com/documentation/accessories/images/display-rotation.png)
+![屏幕配置中的方向参数截图](https://www.raspberrypi.com/documentation/accessories/images/display-rotation.png)
 
 #### 在没有桌面的情况下旋转屏幕
 
 要在缺少桌面环境的设备上设置屏幕方向，请编辑 /boot/firmware/cmdline.txt 配置文件，向系统传递一个方向。将以下行添加到 cmdline.txt ：
 
-```
-video=DSI-1:800x480@60,rotate=<rotation-value>
+```json
+video=DSI-1:800x480@60,rotate=<旋转值>
 ```
 
-用以下值替换 <rotation-value> 占位符，这些值对应于相对于显示器默认值的旋转度数：
+用以下值替换占位符 `<旋转值>`，这些值对应于相对于显示器默认值的旋转度数：
 
 * `0`
 * `90`
@@ -138,21 +138,21 @@ video=DSI-1:800x480@60,rotate=<rotation-value>
 
 触摸输入的旋转与显示本身的方向无关。要更改此设置，你需要在 /boot/firmware/config.txt 中手动添加 dtoverlay 指令。在 config.txt 中添加以下行：
 
-```
+```json
 dtoverlay=vc4-kms-dsi-7inch,invx,invy
 ```
 
 然后，在 config.txt 中删除以下行（如果有）来禁用自动显示检测：
 
-```
+```json
 display_auto_detect=1
 ```
 
 #### 触摸显示设备树选项参考
 
-vc4-kms-dsi-7inch 叠加支持以下选项：
+vc4-kms-dsi-7inch 叠加层支持以下选项：
 
-| DT 参数 | 行动                      |
+| 设备树参数 | 行动                      |
 | --------- | --------------------------- |
 | `sizex`        | 设置 X 分辨率（默认 800） |
 | `sizey`        | 设置 Y 分辨率（默认 480） |
@@ -161,9 +161,9 @@ vc4-kms-dsi-7inch 叠加支持以下选项：
 | `swapxy`        | 交换 X 和 Y 坐标          |
 | `disable_touch`        | 完全禁用触摸叠加          |
 
-要指定这些选项，请将它们用逗号分隔添加到你的 dtoverlay 行中的 /boot/firmware/config.txt。当存在时，布尔值默认为 true，但你可以使用后缀“=0”将其设置为 false。整数值需要一个值，例如 sizey=240。例如，要将 X 分辨率设置为 400 像素并反转 X 和 Y 坐标，请使用以下行：
+要指定这些参数，请将它们用逗号分隔添加到你的 dtoverlay 行中的 /boot/firmware/config.txt。当存在时，布尔值默认为 true，但你可以使用后缀“=0”将其设置为 false。整数值需要一个值，例如 sizey=240。例如，要将 X 分辨率设置为 400 像素并反转 X 和 Y 坐标，请使用以下行：
 
-```
+```json
 dtoverlay=vc4-kms-dsi-7inch,sizex=400,invx,invy
 ```
 
@@ -178,7 +178,7 @@ dtoverlay=vc4-kms-dsi-7inch,sizex=400,invx,invy
 
 这些主板上默认禁用了 DSI 显示自动检测。要启用检测，请在 /boot/firmware/config.txt 文件中添加以下行：
 
-```
+```json
 ignore_lcd=0
 ```
 
