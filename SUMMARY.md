@@ -27,7 +27,7 @@
 ## 配件
 
 * [摄像头](pei-jian/she-xiang-tou.md)
-* [显示器](pei-jian/xian-shi-qi.md)
+* [显示屏](pei-jian/xian-shi-qi.md)
 * [键盘和鼠标](pei-jian/jian-pan-he-shu-biao.md)
 * [Build 扩展板（Build HAT）](pei-jian/build-hat.md)
 * [传感器扩展板（Sense HAT）](pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md)
