@@ -2,7 +2,7 @@
 
 ## Build 扩展板简介
 
-树莓派 Build 扩展板是一块附加板，可连接到树莓派的 40 引脚 GPIO 排针，同乐高®教育合作设计，可轻松使用树莓派计算机控制乐高®机械组（Technic™）电机和传感器。
+树莓派 Build 扩展板是一块附加板，可连接到树莓派的 40 引脚 GPIO 排针，同乐高®教育（LEGO® Education）合作设计，可轻松使用树莓派计算机控制乐高®机械组（LEGO® Technic™）电机和传感器。
 
 ![Build 扩展板](https://www.raspberrypi.com/documentation/accessories/images/build-hat.jpg)
 
@@ -269,13 +269,13 @@ Hello World!
 
 树莓派 Build 扩展板在乐高®术语中被称为"Brick（积木）"，你可以使用 Build 扩展板串行协议直接与之通信
 
-你可以按照以下方式创建一个 brick 对象
+你可以按照以下方式创建一个积木对象
 
 ```csharp
 Brick brick = new("/dev/serial0");
 ```
 
-但是你需要记住在代码结尾处处理 brick。
+但是你需要记住在代码结尾处处理积木。
 
 ```csharp
 brick.Dispose();
@@ -397,7 +397,7 @@ train.SetBias(0.2);
 
 ![被动点击](https://www.raspberrypi.com/documentation/accessories/images/train-motor.png)
 
-训练电机，来自 Bricklink 的图片
+火车电机，来自 Bricklink 的图片
 
 典型的被动电机是火车和较旧的 Powered Up 电机。Speed 属性可以设置和读取。它既是目标，也是同时测量速度的传感器，因为这些传感器没有测量它们的方法。该值范围为 -100 到 +100。
 
@@ -475,9 +475,9 @@ active2.Stop();
 // 根据前面的示例，这将使电机回到初始位置：
 active.TargetSpeed = 100;
 active2.TargetSpeed = 100;
-// 首先是这台电机，并将堵塞线程
+// 首先是这台电机，将堵塞线程
 active.MoveToPosition(0, true);
-// 然后是这一条，也会阻塞该线程
+// 然后是这台电机，将阻塞该线程
 active2.MoveToPosition(0, true);
 ```
 
@@ -629,11 +629,11 @@ while(!force.IsPressed)
 }
 ```
 
-#### SPIKE Essential 3x3 Color Light Matrix
+#### SPIKE 科创基础 3x3 彩色矩阵灯
 
-![spike 3x3 matrix](https://www.raspberrypi.com/documentation/accessories/images/3x3matrix.png)
+![SPIKE 科创基础 3x3 彩色矩阵灯](https://www.raspberrypi.com/documentation/accessories/images/3x3matrix.png)
 
-spike 3x3 matrix, [Image from Bricklink](https://www.bricklink.com/v2/catalog/catalogitem.page?P=45608c01&name=Electric,%203%20x%203%20Color%20Light%20Matrix%20-%20SPIKE%20Prime&category=%5BElectric%5D#T=C)
+SPIKE 科创基础 3x3 彩色矩阵灯 [图片来自 Bricklink](https://www.bricklink.com/v2/catalog/catalogitem.page?P=45608c01&name=Electric,%203%20x%203%20Color%20Light%20Matrix%20-%20SPIKE%20Prime&category=%5BElectric%5D#T=C)
 
 这是一个带有 9 个不同 LED 的小型 3x3 显示屏，可以单独控制。该类公开了控制屏幕的功能。以下是一个使用它们的示例：
 
@@ -761,7 +761,7 @@ Build 扩展板库支持 SPIKE™组合中包含的所有乐高® Technic™设�
 | 系统列车电机        | 黑色      | 88011                            | 是的         | 是的             | 28740, 88011-1 | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88011-1#T=S&O=%7B%22iconly%22:0%7D)          | 货运火车，迪士尼火车和车站，客运列车                                                    |                     |                | 被动   | 2        |
 | 供电 LED 灯         | 黑色      | 88005                            | 是的         |                  |                | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88005-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 被动   | 8        |
 | 中等线性电机        | 白色/灰色 | 88008                            | 是           | 是               | 26913, 88008-1 | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88008-1#T=S&O=%7B%22iconly%22:0%7D)          | 提升, 机器人指挥官                                                                      |                     | 电机           | 主动 | 26       |
-| 技术大电机          | 灰色/灰色 | 88013                            | 是的         | 是的             | 22169          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88013-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动   | 2E       |
+| Technic 大电机          | 灰色/灰色 | 88013                            | 是的         | 是的             | 22169          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88013-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动   | 2E       |
 | Technic XL 电机     | 灰色/灰色 | 88014                            | 是的         | 是的             | 22172, 88014   | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88014-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动 | 2F       |
 | 颜色 + 距离传感器   | 白色/灰色 | 88007                            | 部分         | ？               | 26912          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88007-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动   | 25       |
 | WeDo 2.0 运动传感器 | 白色/灰色 | 45304, 6138855                   |              |                  | 5003423-1      | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=9583-1#T=S&O=%7B%22iconly%22:0%7D%7D)          |                                                                                         |                     |                | 主动   | 35       |
