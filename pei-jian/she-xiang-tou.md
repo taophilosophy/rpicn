@@ -4,17 +4,18 @@
 
 现有若干款树莓派官方摄像头模块。最早的 500 万像素型号发布于 2013 年，随后于 2016 年发布了 800 万像素的摄像头模块 2。最新款的摄像头是 1200 万像素的摄像头模块 3（发布于 2023 年）。最早的 500 万像素摄像头树莓派现已停产。
 
-上述所有摄像头都有可见光和红外版本。除此之外，摄像头模块 3 还带有标准、广角 FoV 类型，总计四种不同的版本。
+上述所有摄像头都有可见光和红外夜视版本。除此之外，摄像头模块 3 还带有标准、广角类型，总计四种不同的版本。
 
 ![摄像头模块 3 标准版和广角版](https://www.raspberrypi.com/documentation/accessories/images/cm3.jpg)
 
 摄像头模块 3（左）和摄像头模块 3 广角（右）
 
-![摄像头模块 3 红外标准版和红外广角版](https://www.raspberrypi.com/documentation/accessories/images/cm3_noir.jpg)
+![摄像头模块 3 红外夜视标准版和红外夜视广角版](https://www.raspberrypi.com/documentation/accessories/images/cm3_noir.jpg)
 
-摄像头模块 3 NoIR（左）和摄像头模块 3 NoIR 广角（右）
+摄像头模块 3 红外夜视（左）和摄像头模块 3 红外夜视广角（右）
 
-此外，分别于 2020 年和 2023 年发布了分别适用于外部镜头的 CS 或 M12 安装衍生的 1200 万像素高质量摄像头。HQ 摄像头没有红外版本（但如有需要，也可以拆除红外滤镜）。
+此外，于 2020 年推出了可与外置镜头搭配使用的 1200 万像素的高质量摄像头，配有 CS 卡口——于 2023 年推出了 M12 卡口。HQ 摄像机没有红外夜视版本，但可根据需要拆除红外滤镜。
+
 
 ![M12- and C/CS-mount versions of the HQ Camera](https://www.raspberrypi.com/documentation/accessories/images/hq.jpg)
 
