@@ -628,7 +628,7 @@ $ sudo raspi-config nonint do_wifi_country <区域码>
 
 要查看 `<区域码>` 参数的所有可用值列表，请参阅交互版 `raspi-config` 中所使用的缩写。
 
-### Advanced options——高级选项
+### Advanced options——高级参数
 
 #### Expand filesystem——扩展文件系统
 
@@ -742,7 +742,7 @@ $ sudo raspi-config nonint do_update
 
 #### 通过桌面设置分辨率和方向
 
-在树莓派桌面上，打开菜单“**首选项（Preferences）**”，然后选择工具“**屏幕配置（Screen Configuration）**”。你应该会看到当前树莓派已接入的显示器（用图标表示）。右键单击要修改的显示器，然后选择一个选项。单击“**应用（Apply）**”并退出“**屏幕配置（Screen Configuration）**”保存修改。
+在树莓派桌面上，打开菜单“**首选项（Preferences）**”，然后选择工具“**屏幕配置（Screen Configuration）**”。你应该会看到当前树莓派已接入的显示器（用图标表示）。右键单击要修改的显示器，然后选择一项参数。单击“**应用（Apply）**”并退出“**屏幕配置（Screen Configuration）**”保存修改。
 
 #### 通过命令行设置分辨率和方向
 
@@ -752,7 +752,7 @@ $ sudo raspi-config nonint do_update
 $ arandr
 ```
 
-你应该会看到当前树莓派已接入的显示器（以图标表示）。右键单击要修改的显示器，然后选择一个选项。单击“**应用(Apply)**”并退出 **屏幕配置（Screen Configuration）** 以保存修改。
+你应该会看到当前树莓派已接入的显示器（以图标表示）。右键单击要修改的显示器，然后选择一项参数。单击“**应用(Apply)**”并退出 **屏幕配置（Screen Configuration）** 以保存修改。
 
 ### 手动设定分辨率和屏幕方向
 
@@ -887,9 +887,9 @@ $ sudo raspi-config
 
 ##### 连接到隐藏的网络
 
-要使用隐藏的网络，请在网络菜单中找到到 **高级选项（Advanced options）** → **连接到隐藏的 WiFi 网络（Connect to a hidden Wi-Fi network）**：
+要使用隐藏的网络，请在网络菜单中找到到 **高级参数（Advanced options）** → **连接到隐藏的 WiFi 网络（Connect to a hidden Wi-Fi network）**：
 
-![高级选项中的连接到隐藏的网络](../.gitbook/assets/network-hidden.png)
+![高级参数中的连接到隐藏的网络](../.gitbook/assets/network-hidden.png)
 
 然后，输入隐藏网络的网络名称（SSID）。询问你的网络管理员：你所用的网络使用了哪种加密方式。目前，大多数家用网络使用的是 WPA 和 WPA2 个人加密，公共网络有时使用 WPA 和 WPA2 企业加密。选择你网络的加密方式，并输入你的凭据：
 
@@ -1067,9 +1067,9 @@ AUTOCONNECT-PRIORITY  NAME
 
 ![从桌面打开菜单“树莓派配置（Raspberry Pi Configuration）”](https://www.raspberrypi.com/documentation/computers/images/pi-configuration.png)
 
-选择显示（**Display**）参数。将选项按钮切换到屏幕节能（**Screen Blanking**）。按下 **完成（OK）**，确认你的选择。
+选择显示（**Display**）参数。将参数按钮切换到屏幕节能（**Screen Blanking**）。按下 **完成（OK）**，确认你的选择。
 
-![在树莓派配置菜单中的“屏幕节能”选项。](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
+![在树莓派配置菜单中的“屏幕节能”参数。](https://www.raspberrypi.com/documentation/computers/images/blanking.png)
 
 #### 通过命令行配置屏幕节能
 
@@ -1564,7 +1564,7 @@ $ sudo apt install fail2ban
 $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
 
-在此配置文件中包含了一组默认参数，以及用于检查特定服务异常的选项。要查看用于 `ssh` 的规则，请用编辑器打开 `jail.local`：
+在此配置文件中包含了一组默认参数，以及用于检查特定服务异常的参数。要查看用于 `ssh` 的规则，请用编辑器打开 `jail.local`：
 
 ```bash
 $ sudo nano /etc/fail2ban/jail.local
@@ -2104,7 +2104,7 @@ dtparam=krnbt=off
 
 ### 启用 Linux 早期控制台（early console）
 
-尽管在 Linux 内核启动过程中，相对较早地启动了串口，但仍比一些关键基础设备的配置要晚得多。如果无法得到这些早期阶段的内核日志信息，可能很难对那个时间段出现的故障进行诊断。要为其中某个串口启用 `earlycon` 支持，请根据所选的主串口，向 `cmdline.txt` 添加以下选项：
+尽管在 Linux 内核启动过程中，相对较早地启动了串口，但仍比一些关键基础设备的配置要晚得多。如果无法得到这些早期阶段的内核日志信息，可能很难对那个时间段出现的故障进行诊断。要为其中某个串口启用 `earlycon` 支持，请根据所选的主串口，向 `cmdline.txt` 添加以下参数：
 
 对于树莓派 5，`earlycon` 仅可通过以下设置输出至调试接口（3 针）：
 
@@ -2944,7 +2944,7 @@ ALSA 不会干预其编解码器和其他组件在使用时的卸载行为。如
 
 * 某些叠加层在运行时的效果比其他叠加层更好。某些设备树部分仅在引导时使用，所以使用叠加层修改它们是无效的。
 * 应用或移除一些叠加层可能会触发意外行为，因此应谨慎进行。这就是需要 `sudo` 的原因之一。
-* 卸载 ALSA 卡的叠加层可能会因为某些正在使用 ALSA 的活动而等待：LXPanel 音量滑块插件展示了这种效果。为了使声卡的叠加层能够被移除，`lxpanelctl` 工具已被赋予两个新选项：`alsastop` 和 `alsastart`，并且这些选项在加载或卸载叠加层之前和之后分别调用辅助脚本 `dtoverlay-pre` 和 `dtoverlay-post`。
+* 卸载 ALSA 卡的叠加层可能会因为某些正在使用 ALSA 的活动而等待：LXPanel 音量滑块插件展示了这种效果。为了使声卡的叠加层能够被移除，`lxpanelctl` 工具已被赋予两个新参数：`alsastop` 和 `alsastart`，并且这些参数在加载或卸载叠加层之前和之后分别调用辅助脚本 `dtoverlay-pre` 和 `dtoverlay-post`。
 * 移除叠加层不会触发卸载已加载的模块，但可能会导致一些模块的引用计数降至零。运行两回 `rmmod -a` 将触发卸载未使用的模块。
 * 叠加层必须按相反顺序移除。这些命令将允许你移除较早的叠加层，但所有中间的叠加层将被移除并重新应用，这可能会产生意想不到的后果。
 * 仅会探测树顶层和总线节点的子级的设备树节点。对于运行时添加的节点，进一步的限制是总线必须注册通知以添加和移除子级。但是，有一些例外情况会打破这个规则并引起混淆：内核明确扫描整个树以寻找某些设备类型（时钟和中断控制器是主要的两种），以便早期初始化它们（对于时钟）或按特定顺序初始化（对于中断控制器）。这种搜索机制仅在引导过程中进行，因此对于运行时由叠加层添加的节点无效。因此，建议将固定时钟节点放在树的根部，除非保证不会在运行时使用叠加层。
