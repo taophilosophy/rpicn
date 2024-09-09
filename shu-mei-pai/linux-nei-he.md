@@ -80,7 +80,7 @@ $ sudo apt install bc bison flex libssl-dev make
 </thead>
 <tbody>
 <tr>
-<td rowspan="10"><p>64-bit</p></td>
+<td rowspan="10"><p>64 位</p></td>
 <td><div><p>树莓派 3</p></div></td>
 <td rowspan="9"><div><div>
 <div>
@@ -123,7 +123,7 @@ $ make bcm2711_defconfig</pre>
 </div></div></td>
 </tr>
 <tr>
-<td rowspan="14"><p>32-bit</p></td>
+<td rowspan="14"><p>32 位</p></td>
 <td><div><p>树莓派 1</p></div></td>
 <td rowspan="4"><div><div>
 <div>
@@ -244,7 +244,7 @@ $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 </thead>
 <tbody>
 <tr>
-<td rowspan="10"><p>64-bit</p></td>
+<td rowspan="10"><p>64 位</p></td>
 <td><div><p>树莓派 3</p></div></td>
 <td rowspan="9"><div><div>
 <div>
@@ -285,7 +285,7 @@ $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 </div></div></td>
 </tr>
 <tr>
-<td rowspan="14"><p>32-bit</p></td>
+<td rowspan="14"><p>32 位</p></td>
 <td><div><p>树莓派 1</p></div></td>
 <td rowspan="4"><div><div>
 <div>
