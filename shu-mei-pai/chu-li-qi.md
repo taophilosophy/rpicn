@@ -3,57 +3,57 @@
 
 ## BCM2835
 
-BCM2835 是博通（Broadcom）芯片，应用于树莓派 1A、A+、B、B+、树莓派 Zero、树莓派 Zero W 和树莓派计算模块 1。可在外围规格文档中找到芯片的某些详细信息。它内置了一个 ARM1176JZF-S 单核处理器。
+BCM2835 是博通（Broadcom）芯片，应用于树莓派 1A、A+、B、B+、树莓派 Zero、树莓派 Zero W 和树莓派计算模块 1。可在外设规格文档中找到芯片的某些详细信息。它内置了一款 ARM1176JZF-S 单核处理器。
 
 >**注意**
 >
-> 外围规格文档中存在一些错误。但是有个已知勘误表。
-可在以下文档中找到处理器的其他信息;
+> 外设规格文档中有一些错误。但是有个已知勘误表。
+可在以下文档找到处理器的其他信息;
 
 * GPU 文档和开源驱动程序
 * [ARM1176JZF-S](https://developer.arm.com/documentation/ddi0301)
 
 ## BCM2836
 
-这是树莓派 2B 中使用的博通芯片。BCM2836 的底层架构与 BCM2835 相同。唯一的显著区别是删除了 ARM1176JZF-S 处理器，并用四核 Cortex-A7 簇进行替换之。
+这是树莓派 2B 中使用的博通芯片。BCM2836 的底层架构与 BCM2835 相同。唯一的显著区别是删除了 ARM1176JZF-S 处理器，并用四核 Cortex-A7 簇进行替换。
 
 你应该参考：
 
-* [BCM2836 ARM 本地外围设备](https://datasheets.raspberrypi.com/bcm2836/bcm2836-peripherals.pdf)
+* [BCM2836 ARM 原生外设设备](https://datasheets.raspberrypi.com/bcm2836/bcm2836-peripherals.pdf)
 * [Cortex-A7 MPcore 处理器参考手册](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0464f/index.html)
 
 ## BCM2837
 
 这是在树莓派 3B、2B 后续型号以及树莓派计算模块 3 中使用的博通芯片。BCM2837 的底层架构与 BCM2836 相同。唯一显著的区别是用四核 ARM Cortex A53（ARMv8）簇替换了 ARMv7 四核簇。
 
-ARM 核心运行在 1.2GHz，让设备比树莓派 2 快约 50%。VideoCore IV 运行在 400MHz。
+ARM 核心运行在 1.2GHz，使设备比树莓派 2 快约 50%。VideoCore IV 运行在 400MHz。
 
-请参考以下 BCM2836 文档，了解 ARM 外围设备规格的详细信息，该规格也适用于 BCM2837。
+请参考如下 BCM2836 文档，了解 ARM 外设设备规格的详细信息，该规格同样适用于 BCM2837。
 
-* [BCM2836 ARM 本地外围设备](https://datasheets.raspberrypi.com/bcm2836/bcm2836-peripherals.pdf)
+* [BCM2836 ARM 原生外设设备](https://datasheets.raspberrypi.com/bcm2836/bcm2836-peripherals.pdf)
 * [Cortex-A53 MPCore 处理器技术参考手册](https://developer.arm.com/documentation/ddi0500/latest/)
 
 ## BCM2837B0
 
-这是在树莓派 3B+、B+ 和树莓派计算模块 3+ 使用的博通芯片。BCM2837B0 的底层架构与其他版本的树莓派中使用的 BCM2837 芯片相同。ARM 核心硬件相同，仅频率更高。
+这是在树莓派 3B+、B+ 和树莓派计算模块 3+ 中使用的博通芯片。BCM2837B0 的底层架构与其他版本的树莓派中使用的 BCM2837 芯片相同。ARM 核心硬件相同，仅频率更高。
 
-ARM 核心可运行高达 1.4GHz，使 3B+/3A+ 比老的树莓派 3 快约 17%。VideoCore IV 运行在 400MHz。ARM 核心是 64 位的，而 VideoCore IV 是 32 位的。
+ARM 核心可运行高达 1.4GHz，使 3B+/3A+ 比旧款树莓派 3 快约 17%。VideoCore IV 运行在 400MHz。ARM 核心为 64 位，但 VideoCore IV 是 32 位的。
 
-BCM2837B0 芯片的封装略有不同于 BCM2837，并且最显著的是包括了散热片以获得更好的热管理。这使得更高的时钟频率成为可能，并且更准确地监控和控制芯片的温度。
+BCM2837B0 芯片的封装和 BCM2837 略有不同，并且最明显的是附带了散热片，能获得更好的热管理。这使得更高的时钟频率成为可能，并且能更准确地监控和控制芯片的温度。
 
 树莓派博客上的这篇文章详细介绍了 BCM2837B0 芯片。
 
 ## BCM2711
 
-这是在树莓派 4B、树莓派 400 和树莓派计算模块 4 中使用的博通芯片。BCM2711 的架构是对旧版树莓派中 SoC 使用的架构的显著升级。它延续了 BCM2837 的四核 CPU 设计，但使用了更强大的 ARM A72 核心。它具有大大改进的 GPU 功能集，由于 USB 2 和 USB 3 使用了 PCIe 通道，并且具有本地连接的以太网控制器，因此输入/输出速度更快。它能够使用的内存也比以前采用的 SoC 更大。
+这是在树莓派 4B、树莓派 400 和树莓派计算模块 4 中使用的博通芯片。BCM2711 的架构是对旧版树莓派中 SoC 使用的架构的显著升级。它延续了 BCM2837 的四核 CPU 设计，但使用了更强大的 ARM A72 核心。它带有巨大改进的 GPU 功能集，由于 USB 2 和 USB 3 使用了 PCIe 通道，并且带有局域网连接的以太网控制器，因此输入/输出速度更快。它能够应用的内存也比以前采用的 SoC 更大。
 
-ARM 核心可运行高达 1.5 GHz，使树莓派 4 比树莓派 3B+ 快约 50%。新的 VideoCore VI 3D 单元现在最高运行速度为 500 MHz。ARM 核心为 64 位，而 VideoCore 为 32 位，但有一个新的内存管理单元，这意味着它的可用内存比以前的 SoC 更大。
+ARM 核心可运行高达 1.5 GHz，使树莓派 4 比 3B+ 快约 50%。新的 VideoCore VI 3D 单元现在最高运行速度为 500 MHz。ARM 核心为 64 位，但 VideoCore 为 32 位，然而有一个新的内存管理单元，这意味着它的可用内存比以前的 SoC 更大。
 
-BCM2711 芯片继续使用自 BCM2837B0 开始的散热技术，可提供更好的热管理。
+BCM2711 芯片沿用自 BCM2837B0 以降的散热技术，提供了更好的热管理。
 
 处理器：四核 Cortex-A72（ARM v8）64 位 SoC @ 1.5 GHz。
 
-内存：根据型号可使用最高 8GB LPDDR4-2400 SDRAM
+内存：视型号而定，最高可使用 8GB LPDDR4-2400 SDRAM
 
 缓存：每个核心有 32kB 数据 + 48kB 指令 L1 缓存。1MB L2 缓存。
 
