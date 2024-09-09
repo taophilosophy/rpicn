@@ -1,61 +1,61 @@
 # Build 扩展板（Build HAT）
 
-## Build 扩展板（Build HAT）简介
+## Build 扩展板简介
 
-树莓派 Build 扩展板是一个附加板，可连接到树莓派的 40 针 GPIO 母座，与 LEGO® Education 合作设计，可轻松使用树莓派计算机控制 LEGO® Technic™ 电机和传感器。
+树莓派 Build 扩展板是一块附加板，可连接到树莓派的 40 引脚 GPIO 排针，同乐高®教育合作设计，可轻松使用树莓派计算机控制乐高®机械组（Technic™）电机和传感器。
 
-![build hat](https://www.raspberrypi.com/documentation/accessories/images/build-hat.jpg)
+![Build 扩展板](https://www.raspberrypi.com/documentation/accessories/images/build-hat.jpg)
 
 >**注意**
 >
 > 可在设备兼容性部分找到受支持设备的完整列表。
 
-它为 LEGO® Technic™ 电机和 SPIKE™ 组合中的传感器提供四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有各种尺寸，并包括集成编码器，可查询其位置。
+它为乐高®机械组电机和科创基础（SPIKE™）套装中的传感器提供了四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有各种尺寸，并包括集成编码器，可查询其位置。
 
-Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，包括通过连接排线或其他扩展设备的树莓派 400。连接的 LEGO® Technic™ 设备可以轻松在 Python 中进行控制，同时还可以连接标准的树莓派配件，如摄像头模块。
+Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机，包括通过连接排线或其他扩展设备的树莓派 400。可以轻松在 Python 中进行控制连接的乐高®机械组设备，同时还可以连接标准的树莓派配件，如摄像头模块。
 
-树莓派 Build 扩展板的电源适配器（PSU）单独出售，旨在为 Build 扩展板、树莓派计算机以及所有连接的 LEGO® Technic™ 设备供电。
+树莓派 Build 扩展板的电源适配器（PSU）单独出售，旨在为 Build 扩展板、树莓派计算机以及所有连接的乐高®机械组设备供电。
 
-![psu](https://www.raspberrypi.com/documentation/accessories/images/psu.jpg)
+![电源适配器](https://www.raspberrypi.com/documentation/accessories/images/psu.jpg)
 
-从 LEGO® Education 经销商单独提供的 SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 中，包含一组由 Build 扩展板支持的实用元件。
+从乐高®教育经销商单独提供的 SPIKE™ 科创基础套装 45678 和 SPIKE™ 科创基础扩展套装 45681 中，包含一组由 Build 扩展板支持的实用元件。
 
 受支持设备的完整列表
 
 >**注意**
 >
-> 该 HAT 与所有 40 针 GPIO 树莓派板块兼容，包括树莓派 4 和树莓派 Zero。通过添加排线电缆或其他延伸设备，也可与树莓派 400 一起使用。
+> 该 HAT 与所有 40 针 GPIO 树莓派开发板兼容，包括树莓派 4 和树莓派 Zero。通过添加排线电缆和其他扩展设备，也可与树莓派 400 一起使用。
 
 * 控制 SPIKE™ Portfolio 中包含的 4 个 LEGO® Technic™ 电机和传感器。
-* 控制你的 LEGO® Technic™ 设备的易于使用的 Python 库
+* 控制你的乐高®机械组设备的易于使用的 Python 库
 * 适用于带有 40 针 GPIO 引脚的所有树莓派计算机
-* Onboard RP2040 微控制器管理 LEGO® Technic™设备的低级控制
-* 单独提供外部 8V PSU 以为 Build 扩展板和树莓派供电
+* Onboard RP2040 微控制器管理乐高®机械组设备的低级控制
+* 单独提供的外部 8V 电源适配器，可为 Build 扩展板和树莓派供电
 
 >**注意**
 >
-> 由于不支持通过 GPIO 引脚供电，Build 扩展板不能为树莓派 400 供电。
+> 由于树莓派 400 不支持通过 GPIO 引脚供电，Build 扩展板不能为其供电。
 
 ## 准备你的 Build 扩展板
 
 >**注意**
 >
-> 在开始使用你的树莓派 Build 扩展板之前，你应该设置你的树莓派，使用 Raspberry Pi Imager 安装最新版本的操作系统。
+> 在开始使用你的树莓派 Build 扩展板之前，你应该设置你的树莓派，使用树莓派启动盘制作工具安装最新版本的操作系统。
 
-将 9mm 的间隔柱连接到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保将其正确放置。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高® 元件留出空间。
+将 9mm 的间隔柱连接到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保将其正确放置。与其他扩展板不同，所有组件都在底部，为顶部的面包板和乐高®元件留出空间。
 
 ![fitting build hat](https://www.raspberrypi.com/documentation/accessories/images/fitting-build-hat.gif)
 
 ### 访问 GPIO 引脚
 
-如果你想使用树莓派的 GPIO 引脚，你可以添加一个可选的高头并使用 15 mm 间隔柱。
+如果你想使用树莓派的 GPIO 引脚，你可以添加一个可选的长排针并使用 15 mm 间隔柱。
 
-![tall headers](https://www.raspberrypi.com/documentation/accessories/images/tall-headers.png)
+![长排针](https://www.raspberrypi.com/documentation/accessories/images/tall-headers.png)
 
 下面的引脚是 Build 扩展板本身使用的，你不应该连接其他东西到这些引脚上。
 
 | GPIO    | 使用      | 状态   |
-| --------- | ----------- | -------- |
+| :-----: | :------: | :----: |
 | GPIO0/1 | ID 识别器 |        |
 | GPIO4   | 重置      |        |
 | GPIO14  | 发送      |        |
@@ -67,25 +67,25 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 树莓派启动后，通过单击 Raspberry 菜单按钮，然后选择“首选项”，再选择“Raspberry Pi 配置”来打开 Raspberry Pi 配置工具。
 
-单击“接口”选项卡，并按照下面所示调整串行设置：
+单击“接口”选项卡，并按照下面所示调整串口设置：
 
-![setting up](https://www.raspberrypi.com/documentation/accessories/images/setting-up.png)
+![设置](https://www.raspberrypi.com/documentation/accessories/images/setting-up.png)
 
 #### 使用你的无头树莓派
 
-如果你正在无头运行你的树莓派并使用 raspi-config，请从第一个菜单中选择“接口选项”。
+如果你正在无头运行你的树莓派并使用 `raspi-config`，请从第一个菜单中选择“接口选项”。
 
 ![raspi config 1](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-1.png)
 
-然后选择“P6 串行端口”。
+然后选择“P6 Serial Port”。
 
 ![raspi config 2](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-2.png)
 
-禁用串行控制台：
+禁用串口控制台：
 
 ![raspi config 3](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-3.png)
 
-并启用串口。
+然后启用串口。
 
 ![raspi config 4](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-4.png)
 
@@ -97,31 +97,31 @@ Build 扩展板适用于所有带有 40 针 GPIO 引脚的树莓派计算机，�
 
 ### 为 Build 扩展板供电
 
-连接外部电源 — 推荐使用官方树莓派 Build 扩展板电源 — 但是凡是可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build 扩展板供电。除非你正在使用树莓派 400，否则无需额外再将树莓派接入电源。
+连接外部电源：推荐使用官方树莓派 Build 扩展板电源。但是凡是可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build 扩展板供电。除非你正在使用树莓派 400，否则无需再将树莓派接入电源。
 
 >**注意**
 >
-> 旧版 HAT 无法为树莓派 400 供电，因为它不支持通过 GPIO 引脚取电。
+> 旧款扩展板无法为树莓派 400 供电，因为它不支持通过 GPIO 引脚取电。
 
-![powering build hat](https://www.raspberrypi.com/documentation/accessories/images/powering-build-hat.gif)
+![扩展板供电](https://www.raspberrypi.com/documentation/accessories/images/powering-build-hat.gif)
 
 >**注意**
 >
-> 乐高® Technic™ 电机非常强大；因此，为了驱动它们，你需要外部的 8V 电源。如果你想从电机编码器和 SPIKE™ 力传感器读取数据，你可以通过你树莓派的 USB 电源接口以平常的方式为你的树莓派和 Build 扩展板供电。与电机一样，SPIKE™颜色和距离传感器需要外部电源供应。
+> 乐高®机械组电机非常强大；因此，为了驱动它们，你需要外部的 8V 电源。如果你想从电机编码器和 SPIKE™ 力传感器读取数据，你可以通过你树莓派的 USB 电源接口以平常的方式为你的树莓派和 Build 扩展板供电。与电机一样，SPIKE™ 颜色和距离传感器需要外部电源供应。
 
-你可以选择使用 Python 或 .NET 与 Build 扩展板一起使用。
+你可以选择使用 Python 和 .NET 与 Build 扩展板一起使用。
 
 ## 使用 Python 操作 Build 扩展板
 
 ### 安装 Python 库
 
-安装 Build HAT Python 库。打开终端，然后输入，
+安装 Build 扩展板 Python 库。打开终端，然后输入，
 
-```
+```bash
 $ sudo apt install python3-build-hat
 ```
 
-有关 Build HAT Python 库的更多信息，请参阅 ReadTheDocs。
+有关 Build 扩展板 Python 库的更多信息，请参阅 ReadTheDocs。
 
 ### 使用 Python 控制电机
 
@@ -131,13 +131,13 @@ $ sudo apt install python3-build-hat
 
 将电机连接到 Build 扩展板上的接口 A。LPF2 连接器需要正确插入。如果连接器无法轻松滑入，请旋转 180 度后重试。
 
-![connect motor](https://www.raspberrypi.com/documentation/accessories/images/connect-motor.gif)
+![接入电机](https://www.raspberrypi.com/documentation/accessories/images/connect-motor.gif)
 
 #### 使用电机
 
 启动 Thonny IDE。添加以下代码：
 
-```
+```python
 from buildhat import Motor
 
 motor_a = Motor('A')
@@ -147,21 +147,21 @@ motor_a.run_for_seconds(5)
 
 通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，那么在固件复制到板上时会有几秒钟的暂停。你应该看到红色 LED 熄灭，绿色 LED 点亮。以后再执行 Python 程序就不会有这种暂停了。
 
-![blinking light](https://www.raspberrypi.com/documentation/accessories/images/blinking-light.gif)
+![熄灭灯](https://www.raspberrypi.com/documentation/accessories/images/blinking-light.gif)
 
 你的电机应该顺时针转动 5 秒钟。
 
-![turning motor](https://www.raspberrypi.com/documentation/accessories/images/turning-motor.gif)
+![电机转动](https://www.raspberrypi.com/documentation/accessories/images/turning-motor.gif)
 
 更改代码的最后一行并重新运行。
 
-```
+```python
 motor_a.run_for_seconds(5, speed=50)
 ```
 
 电机现在应该转得更快。再做一个改变：
 
-```
+```python
 motor_a.run_for_seconds(5, speed=-50)
 ```
 
@@ -169,7 +169,7 @@ motor_a.run_for_seconds(5, speed=-50)
 
 点击 Thonny 中的加号按钮创建一个新程序。添加以下代码：
 
-```
+```python
 from buildhat import Motor
 
 motor_a = Motor('A')
@@ -194,7 +194,7 @@ while True:
 
 创建另一个新程序：
 
-```
+```python
 from signal import pause
 from buildhat import ForceSensor, ColorSensor
 
@@ -225,25 +225,25 @@ pause()
 >
 > 安装脚本以 APT 运行。你应该先阅读它，并确保你理解它在做什么。如果你有什么疑问，应该按照官方说明手动操作。
 
-```
+```bash
 $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/install.sh | sudo bash
 ```
 
 安装 .NET 框架后，你可以创建你的项目：
 
-```
+```bash
 $ dotnet new console --name buildhat
 ```
 
 这将在 buildhat 子目录中创建一个默认程序，我们需要在该目录中才能继续：
 
-```
+```bash
 $ cd buildhat
 ```
 
 你现在需要安装以下 NuGet 软件包：
 
-```
+```csharp
 $ dotnet add package System.Device.Gpio --version 2.1.0
 $ dotnet add package Iot.Device.Bindings --version 2.1.0
 ```
@@ -252,7 +252,7 @@ $ dotnet add package Iot.Device.Bindings --version 2.1.0
 
 你可以使用 dotnet run 命令运行程序。现在让我们试一下，确保一切正常。它应该打印出 "Hello World!"
 
-```
+```csharp
 $ dotnet run
 Hello World!
 ```
@@ -267,17 +267,17 @@ Hello World!
 
 ### 使用 .NET 从 Build 扩展板进行操作
 
-树莓派 Build 扩展板在 LEGO® 术语中被称为"Brick"，你可以使用 Build 扩展板串行协议直接与之通信
+树莓派 Build 扩展板在乐高®术语中被称为"Brick（积木）"，你可以使用 Build 扩展板串行协议直接与之通信
 
 你可以按照以下方式创建一个 brick 对象
 
-```
+```csharp
 Brick brick = new("/dev/serial0");
 ```
 
 但是你需要记住在代码结尾处处理 brick。
 
-```
+```csharp
 brick.Dispose();
 ```
 
@@ -287,7 +287,7 @@ brick.Dispose();
 
 如果你想避免在最后调用 brick.Dispose，那么请使用 using 语句创建你的模块：
 
-```
+```csharp
 using Brick brick = new("/dev/serial0");
 ```
 
@@ -297,7 +297,7 @@ using Brick brick = new("/dev/serial0");
 
 你可以收集各种软件版本、签名和输入电压：
 
-```
+```csharp
 var info = brick.BuildHatInformation;
 Console.WriteLine($"version: {info.Version}, firmware date: {info.FirmwareDate}, signature:");
 Console.WriteLine($"{BitConverter.ToString(info.Signature)}");
@@ -312,14 +312,14 @@ Console.WriteLine($"Vin = {brick.InputVoltage.Volts} V");
 
 函数 GetSensorType，GetSensor 将允许你检索连接传感器上的所有信息。
 
-```
+```csharp
 SensorType sensor = brick.GetSensorType((SensorPort)i);
 Console.Write($"Port: {i} {(Brick.IsMotor(sensor) ? "Sensor" : "Motor")} type: {sensor} Connected: ");
 ```
 
 在这个例子中，你也可以使用 IsMotor 静态函数来检查连接的元素是传感器还是电机。
 
-```
+```csharp
 if (Brick.IsActiveSensor(sensor))
 {
     ActiveSensor activeSensor = brick.GetActiveSensor((SensorPort)i);
@@ -339,7 +339,7 @@ ActiveSensor 具有一系列高级属性和功能，可以帮助理解传感器�
 
 当颜色变化或电机位置变化时，你可能只对此感兴趣，将其用作转速表。在这种情况下，PropertyChanged 就是你需要的！
 
-```
+```csharp
 Console.WriteLine("Move motor on Port A to more than position 100 to stop this test.");
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var active = (ActiveMotor)brick.GetMotor(SensorPort.PortA);
@@ -370,7 +370,7 @@ void MotorPropertyEvent(object? sender, PropertyChangedEventArgs e)
 
 砖块在初始化之前可能需要很长时间。已实现等待连接传感器的功能。
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortB);
 ```
 
@@ -382,7 +382,7 @@ brick.WaitForSensorToConnect(SensorPort.PortB);
 
 有一组常见的函数可用于控制电机的速度。有两个重要的函数： SetPowerLimit 和 SetBias ：
 
-```
+```csharp
 train.SetPowerLimit(1.0);
 train.SetBias(0.2);
 ```
@@ -395,15 +395,15 @@ train.SetBias(0.2);
 
 #### 被动电机
 
-![Train motor](https://www.raspberrypi.com/documentation/accessories/images/train-motor.png)
+![被动点击](https://www.raspberrypi.com/documentation/accessories/images/train-motor.png)
 
-训练电机，来自 Bricklink 的图像
+训练电机，来自 Bricklink 的图片
 
 典型的被动电机是火车和较旧的 Powered Up 电机。Speed 属性可以设置和读取。它既是目标，也是同时测量速度的传感器，因为这些传感器没有测量它们的方法。该值范围为 -100 到 +100。
 
 控制 Start、Stop 和 SetSpeed 的功能也可用。以下是如何使用它的示例：
 
-```
+```csharp
 Console.WriteLine("This will run the motor for 20 secondes incrementing the PWM");
 train.SetPowerLimit(1.0);
 train.Start();
@@ -430,17 +430,17 @@ train.Stop();
 >
 > 在火车启动后，你可以调整速度，电机会相应调整。
 
-#### 活动电机
+#### 主动电机
 
-![Active motor](https://www.raspberrypi.com/documentation/accessories/images/active-motor.png)
+![主动电机](https://www.raspberrypi.com/documentation/accessories/images/active-motor.png)
 
-活动电机，来自 Bricklink 的图片
+主动电机，来自 Bricklink 的图片
 
-活动马达具有 Speed，AbsolutePosition，Position 和 TargetSpeed 作为特殊属性。即使马达停止运行，它们也会持续读取。
+主动电机具有 Speed，AbsolutePosition，Position 和 TargetSpeed 作为特殊属性。即使马达停止运行，它们也会持续读取。
 
 代码片段显示了如何获取马达，启动它们并读取属性：
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 brick.WaitForSensorToConnect(SensorPort.PortD);
 var active = (ActiveMotor)brick.GetMotor(SensorPort.PortA);
@@ -471,19 +471,19 @@ active2.Stop();
 
 高级功能适用于活动电机。你可以请求移动几秒钟，到特定位置，到特定绝对位置。以下是一些示例：
 
-```
-// From the previous example, this will turn the motors back to their initial position:
+```csharp
+// 根据前面的示例，这将使电机回到初始位置：
 active.TargetSpeed = 100;
 active2.TargetSpeed = 100;
-// First this motor and will block the thread
+// 首先是这台电机，并将堵塞线程
 active.MoveToPosition(0, true);
-// Then this one and will also block the thread
+// 然后是这一条，也会阻塞该线程
 active2.MoveToPosition(0, true);
 ```
 
 每个功能都允许你阻塞或不阻塞线程，直到操作完成。请注意，对于绝对位置和相对位置移动，存在几度的容差。
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var active = (ActiveMotor)brick.GetMotor(SensorPort.PortA);
 active.TargetSpeed = 70;
@@ -514,14 +514,14 @@ active.Float();
 
 按钮/触摸被动传感器具有一个特定属性 IsPressed。当按钮被按下时，该属性设置为 true。这里是一个带有事件的完整示例：
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var button = (ButtonSensor)brick.GetSensor(SensorPort.PortA);
 bool continueToRun = true;
 button.PropertyChanged += ButtonPropertyEvent;
 while (continueToRun)
 {
-    // You can do many other things here
+    // 你还可以在这里做很多其他事情
     Thread.Sleep(50);
 }
 
@@ -541,22 +541,22 @@ void ButtonPropertyEvent(object? sender, PropertyChangedEventArgs e)
 
 #### 被动光
 
-![Passive light](https://www.raspberrypi.com/documentation/accessories/images/passive-light.png)
+![被动光](https://www.raspberrypi.com/documentation/accessories/images/passive-light.png)
 
-被动光，来自 Bricklink 的图像
+被动光，来自 Bricklink 的图片
 
 被动光是火车灯。它们可以打开，你可以控制它们的亮度。
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var light = (PassiveLight)brick.GetSensor(SensorPort.PortA);
-// Brightness 50%
+// 亮度 50%
 light.On(50);
 Thread.Sleep(2000);
-// 70% Brightness
+// 亮度 70%
 light.Brightness = 70;
 Thread.Sleep(2000);
-// Switch light off
+// 关灯
 light.Off()
 ```
 
@@ -568,17 +568,17 @@ light.Off()
 
 可以在组合模式中组合的模式列在 CombiModes 属性中。当你设置其中一个模式时，传感器的所有属性将自动更新。
 
-#### WeDo Tilt Sensor
+#### WeDo Tilt Sensor（倾斜传感器）
 
-![WeDo Tilt sensor](https://www.raspberrypi.com/documentation/accessories/images/wedo-tilt.png)
+![WeDo Tilt sensor（倾斜传感器）](https://www.raspberrypi.com/documentation/accessories/images/wedo-tilt.png)
 
-WeDo Tilt sensor，来自 Bricklink 的图像
+倾斜传感器，来自 Bricklink 的图片
 
-WeDo Tilt Sensor 具有特殊 Tilt 属性。类型是一个点，其中 X 是 X 倾斜，Y 是 Y 倾斜。数值范围从 -45 到 +45，它们被限制在这些值并表示度数。
+倾斜传感器具有特殊 Tilt 属性。类型是一个点，其中 X 是 X 倾斜，Y 是 Y 倾斜。数值范围从 -45 到 +45，它们被限制在这些值并表示度数。
 
 你可以使用 ContinuousMeasurement 属性为该传感器设置连续测量。
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var tilt = (WeDoTiltSensor)brick.GetSensor(SensorPort.PortA);
 tilt.ContinuousMeasurement = true;
@@ -593,13 +593,13 @@ while(!console.KeyAvailable)
 
 #### WeDo 距离传感器
 
-![WeDo Distance sensor](https://www.raspberrypi.com/documentation/accessories/images/wedo-distance.png)
+![WeDo 距离传感器](https://www.raspberrypi.com/documentation/accessories/images/wedo-distance.png)
 
-WeDo 距离传感器，来自 Bricklink 的图像
+WeDo 距离传感器，来自 Bricklink 的图片
 
 WeDo 距离传感器通过 Distance 属性以毫米为单位提供距离
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var distance = (WeDoDistanceSensor)brick.GetSensor(SensorPort.PortA);
 distance.ContinuousMeasurement = true;
@@ -612,13 +612,13 @@ while(!console.KeyAvailable)
 
 #### SPIKE Prime 力传感器
 
-![spike force sensor](https://www.raspberrypi.com/documentation/accessories/images/spike-force.png)
+![spike 力传感器](https://www.raspberrypi.com/documentation/accessories/images/spike-force.png)
 
 Spike 力传感器，来自 Bricklink 的图片
 
 这个力传感器测量施加在其上的压力，以及是否被按下。这两个属性可以通过 Force 和 IsPressed 属性访问。
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var force = (ForceSensor)brick.GetSensor(SensorPort.PortA);
 force.ContinuousMeasurement = true;
@@ -637,19 +637,19 @@ spike 3x3 matrix, [Image from Bricklink](https://www.bricklink.com/v2/catalog/ca
 
 这是一个带有 9 个不同 LED 的小型 3x3 显示屏，可以单独控制。该类公开了控制屏幕的功能。以下是一个使用它们的示例：
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var matrix = (ColorLightMatrix)brick.GetSensor(SensorPort.PortA);
 for(byte i = 0; i < 10; i++)
 {
-    // Will light every led one after the other like a progress bar
+    // 会像进度条一样逐个点亮每个 LED 灯
     matrix.DisplayProgressBar(i);
     Thread.Sleep(1000);
 }
 
 for(byte i = 0; i < 11; i++)
 {
-    // Will display the matrix with the same color and go through all of them
+    // 将显示相同颜色的矩阵，并依次显示所有矩阵
     matrix.DisplayColor((LedColor)i);
     Thread.Sleep(1000);
 }
@@ -657,7 +657,7 @@ for(byte i = 0; i < 11; i++)
 Span<byte> brg = stackalloc byte[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 Span<LedColor> col = stackalloc LedColor[9] { LedColor.White, LedColor.White, LedColor.White,
   LedColor.White, LedColor.White, LedColor.White, LedColor.White, LedColor.White, LedColor.White };
-// Shades of grey
+// 关灯
 matrix.DisplayColorPerPixel(brg, col);
 ```
 
@@ -665,21 +665,21 @@ matrix.DisplayColorPerPixel(brg, col);
 
  SPIKE 颜色传感器：
 
-![spike color sensor](https://www.raspberrypi.com/documentation/accessories/images/spike-color.png)
+![SPIKE 颜色传感器](https://www.raspberrypi.com/documentation/accessories/images/spike-color.png)
 
-SPIKE 颜色传感器，来自 Bricklink 的图像
+SPIKE 颜色传感器，来自 Bricklink 的图片
 
 颜色和距离传感器：
 
-![Color distance sensor](https://www.raspberrypi.com/documentation/accessories/images/color-distance.png)
+![颜色和距离传感器](https://www.raspberrypi.com/documentation/accessories/images/color-distance.png)
 
-颜色距离传感器，来自 Bricklink 的图像
+颜色距离传感器，来自 Bricklink 的图片
 
 这些颜色传感器具有多种属性和功能。你可以获得 Color，ReflectedLight 和 AmbiantLight。
 
 除此之外，颜色和距离传感器可以测量 Distance，并具有物体 Counter。它将自动计算进出范围的物体数量。这可以用来计算通过传感器前方的物体。距离限制在 0 到 10 厘米之间。
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortC);
 
 var colorSensor = (ColorAndDistanceSensor)brick.GetActiveSensor(SensorPort.PortC);
@@ -705,13 +705,13 @@ while (!Console.KeyAvailable)
 
 #### SPIKE Prime 超声波距离传感器
 
-![spike distance sensor](https://www.raspberrypi.com/documentation/accessories/images/spike-distance.png)
+![spike 超声波距离传感器](https://www.raspberrypi.com/documentation/accessories/images/spike-distance.png)
 
-钉距传感器，来自 Bricklink 的图像
+超声波距离传感器，来自 Bricklink 的图标
 
 这是一个距离传感器，它实现了一个 Distance 属性，可以提供 mm 距离。这个还有一个 ContinuousMeasurement 模式可用。
 
-```
+```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var distance = (UltrasonicDistanceSensor)brick.GetSensor(SensorPort.PortA);
 distance.ContinuousMeasurement = true;
@@ -771,4 +771,4 @@ Build 扩展板库支持 SPIKE™组合中包含的所有乐高® Technic™设�
 
 树莓派 Build 扩展板的机械图纸。
 
-![mech build hat](https://www.raspberrypi.com/documentation/accessories/images/mech-build-hat.png)
+![Build 扩展板机械图纸](https://www.raspberrypi.com/documentation/accessories/images/mech-build-hat.png)
