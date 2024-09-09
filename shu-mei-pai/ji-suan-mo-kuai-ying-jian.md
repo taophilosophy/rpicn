@@ -110,7 +110,7 @@ IO 板是旨在开发的分支板；在生产中，你应该使用一个更小�
 
 | IO 板                               | 兼容的计算模块                                |
 | ------------------------------------- | ----------------------------------------------- |
-|计算模块 IO 板版本 1 (CMIO)/(CMIO1) | - CM1                                         |
+|计算模块 IO 板版本 1 (CMIO)/(CMIO1) | * CM1                                         |
 |计算模块 IO 板版本 3 (CMIO)/(CMIO3) |计算模块 1 计算模块 3 计算模块 3+计算模块 4S |
 |计算模块 4 IO 板 (CM4IO)            |计算模块 4                                    |
 
@@ -352,13 +352,13 @@ BCM283x 设备搭载了 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理
 
 引导分区包含两种不同类型的设备树文件。一种仅供 GPU 使用；其余是针对每个基于 BCM283x 的树莓派产品的标准 Arm 设备树文件：
 
-* dt-blob.bin （供 GPU 使用）
-* bcm2708-rpi-b.dtb （用于树莓派 1B 和 B）
-* bcm2708-rpi-b-plus.dtb （用于树莓派 i 1B+ 和 A+）
-* bcm2709-rpi-2-b.dtb （用于树莓派 2B）
-* bcm2710-rpi-3-b.dtb （用于树莓派 3B）
-* bcm2708-rpi-cm.dtb （用于树莓派计算模块 1）
-* bcm2710-rpi-cm3.dtb （用于树莓派计算模块 3）
+* `dt-blob.bin`（供 GPU 使用）
+* `bcm2708-rpi-b.dtb`（用于树莓派 1B 和 B）
+* `bcm2708-rpi-b-plus.dtb`（用于树莓派 i 1B+ 和 A+）
+* `bcm2709-rpi-2-b.dtb`（用于树莓派 2B）
+* `bcm2710-rpi-3-b.dtb`（用于树莓派 3B）
+* `bcm2708-rpi-cm.dtb`（用于树莓派计算模块 1）
+* `bcm2710-rpi-cm3.dtb`（用于树莓派计算模块 3）
 
 在启动过程中，用户可以通过 `device_tree` 参数在 `config.txt` 中指定了要使用的特定 Arm 设备树。例如，`config.txt` 中的 `device_tree=mydt.dtb` 这行指定了一个名为 `mydt.dtb` 文件中的 Arm 设备树。
 
@@ -511,7 +511,7 @@ $ sudo hwclock
 
 在本示例中，我们不会更改 `dt-blob.bin`。而是将以下行添加到 `/boot/firmware/config.txt` 中：
 
-```
+```bash
 dtoverlay=enc28j60
 ```
 
@@ -589,12 +589,12 @@ $ sudo apt full-upgrade
 8. 向 /boot/firmware/config.txt 添加适当的指令，手动配置相机型号的驱动程序： 
 
 | 相机型号 | 参数 |
-| :------------------: | :---: |
- | v1 相机 | `dtoverlay=ov5647,cam1` |
- | v2 相机                                                                   | `dtoverlay=imx219,cam1` |
- | v3 相机                                                                   | `dtoverlay=imx708,cam1` |
-| HQ 相机                                                                   | `dtoverlay=imx477,cam1` |
- | GS 相机                                                                   | `dtoverlay=imx296,cam1` |
+| :----------: | :---: |
+| 摄像头模块 1 | `dtoverlay=ov5647,cam1` |
+| 摄像头模块 2| `dtoverlay=imx219,cam1` |
+| 摄像头模块 3 | `dtoverlay=imx708,cam1` |
+| HQ 相机  | `dtoverlay=imx477,cam1` |
+| GS 相机  | `dtoverlay=imx296,cam1` |
 
 9. 使用 sudo reboot 重启你的计算模块。
 10. 运行以下命令以检查检测到的相机列表：
@@ -636,13 +636,13 @@ $ sudo apt full-upgrade
     ```
 8. 向 `/boot/firmware/config.txt` 添加对应的参数，手动配置相机型号的驱动程序： 
 
-    | 相机型号 | 参数 | 
+| 相机型号 | 参数 | 
 | :-------------------: | :---: |
-| v1 相机                                                                   | `dtoverlay=ov5647,cam0` |
-| v2 相机                                                                   | `dtoverlay=imx219,cam0` |
-| v3 相机                                                                   | `dtoverlay=imx708,cam0` |
-| HQ 相机                                                                   | `dtoverlay=imx477,cam0` |
-| GS 相机                                                                   | `dtoverlay=imx296,cam0` |
+| 摄像头模块 1 | `dtoverlay=ov5647,cam0` |
+| 摄像头模块 2| `dtoverlay=imx219,cam0` |
+| 摄像头模块 3 | `dtoverlay=imx708,cam0` |
+| HQ 相机 | `dtoverlay=imx477,cam0` |
+| GS 相机 | `dtoverlay=imx296,cam0` |
 
 9. 使用 `sudo reboot` 重启你的计算模块。
 10. 运行以下命令以检查检测到的相机列表：
@@ -651,7 +651,7 @@ $ sudo apt full-upgrade
      $ rpicam-hello --list
      ```
 
-     你应该在上表中的驱动指令中看到两个摄像头型号的输出。
+     你应该在上表中的驱动命令中看到两款摄像头型号的输出。
 
 ### 软件
 
