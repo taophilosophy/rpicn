@@ -588,12 +588,13 @@ $ sudo apt full-upgrade
     ```
 8. 向 /boot/firmware/config.txt 添加适当的指令，手动配置相机型号的驱动程序： 
 
-    | 相机型号 | 参数 | | :---------------------------------------------------------------------------: | :--: |
-    | v1 相机                                                                   | `dtoverlay=ov5647,cam1` |
-    | v2 相机                                                                   | `dtoverlay=imx219,cam1` |
-    | v3 相机                                                                   | `dtoverlay=imx708,cam1` |
-    | HQ 相机                                                                   | `dtoverlay=imx477,cam1` |
-    | GS 相机                                                                   | `dtoverlay=imx296,cam1` |
+| 相机型号 | 参数 |
+| :------------------: | :---: |
+ | v1 相机 | `dtoverlay=ov5647,cam1` |
+ | v2 相机                                                                   | `dtoverlay=imx219,cam1` |
+ | v3 相机                                                                   | `dtoverlay=imx708,cam1` |
+| HQ 相机                                                                   | `dtoverlay=imx477,cam1` |
+ | GS 相机                                                                   | `dtoverlay=imx296,cam1` |
 
 9. 使用 sudo reboot 重启你的计算模块。
 10. 运行以下命令以检查检测到的相机列表：
@@ -636,12 +637,12 @@ $ sudo apt full-upgrade
 8. 向 `/boot/firmware/config.txt` 添加对应的参数，手动配置相机型号的驱动程序： 
 
     | 相机型号 | 参数 | 
-| :-------------------: | :--: |
-    | v1 相机                                                                   | `dtoverlay=ov5647,cam0` |
-    | v2 相机                                                                   | `dtoverlay=imx219,cam0` |
-    | v3 相机                                                                   | `dtoverlay=imx708,cam0` |
-    | HQ 相机                                                                   | `dtoverlay=imx477,cam0` |
-    | GS 相机                                                                   | `dtoverlay=imx296,cam0` |
+| :-------------------: | :---: |
+| v1 相机                                                                   | `dtoverlay=ov5647,cam0` |
+| v2 相机                                                                   | `dtoverlay=imx219,cam0` |
+| v3 相机                                                                   | `dtoverlay=imx708,cam0` |
+| HQ 相机                                                                   | `dtoverlay=imx477,cam0` |
+| GS 相机                                                                   | `dtoverlay=imx296,cam0` |
 
 9. 使用 `sudo reboot` 重启你的计算模块。
 10. 运行以下命令以检查检测到的相机列表：
