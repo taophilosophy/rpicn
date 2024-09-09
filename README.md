@@ -2,6 +2,8 @@
 
 本文档是 [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/) 的简体中文翻译版本。
 
+本项目开源地址：<https://github.com/taophilosophy/rpicn>
+
 **[点击此处可浏览目录](mu-lu.md)**
 
 >**警告**
