@@ -350,7 +350,7 @@ $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig</pre>
 </tr>
 </tbody>
 </table>
-                                                                                                                                      |
+                                                                                                                                      
 
 #### 使用 `LOCALVERSION` 自定义内核版本
 
