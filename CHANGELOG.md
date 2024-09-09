@@ -1,7 +1,7 @@
 # 编辑日志
 
 - 2024.6.5 同步至 <https://github.com/raspberrypi/documentation/commit/f0511a225236d2defc8c12010c315827cb3baf7d>
-- 2024.6.5-2024.7.11 完全重译树莓派启动盘制作器
+- 2024.6.5-2024.7.11 完全重译“树莓派启动盘制作工具”
 - 2024.7.11 同步至 <https://github.com/raspberrypi/documentation/commit/b68a629c7212e668fdfba94d227cc9ec32d9bfbb>
 - 2024.7.11 “入门”校对完成
 - 2024.7.12 “树莓派系统（Raspberry Pi OS）”校对完成
@@ -13,7 +13,7 @@
 - 2024.8.15 实现代码高亮
 - 2024.9.4 
   - 同步至官方文档的 2024.9.4 版本。“旧版 `config.txt` 参数”校对完成
-  - 将发现的一个命令错误，一个排版问题提交到树莓派上游，已经合并
+  - 将发现的一个命令错误，一个排版问题提交到树莓派上游，已合并
 - 2024.9.8 同步至官方文档的 [2024.9.8 版本](https://github.com/raspberrypi/documentation/commit/1b7709fea907aed7af8950f936ccfd1b82a29edd)。 
 
 
