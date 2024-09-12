@@ -165,7 +165,7 @@ $ sudo make -j6 modules_install
     $ sudo cp /boot/firmware/$KERNEL.img /boot/firmware/$KERNEL-backup.img
     $ sudo cp arch/arm/boot/zImage /boot/firmware/$KERNEL.img
     ```
-2. 根据你的 [内核版本](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#identify-your-kernel-version)，运行以下命令：
+2. 根据你的[内核版本](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#identify-your-kernel-version)，可运行以下命令：
 
     * 对于 6.4 版本及以下的内核：
 
