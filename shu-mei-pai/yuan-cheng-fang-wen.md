@@ -1156,11 +1156,11 @@ sudo nano index.php
 
 >**注意**
 >
->此部分仅适用于树莓派 3B，因为树莓派 3B+ 在出厂时已启用网络启动。
+>此部分仅适用于树莓派 3B，因为在出厂时树莓派 3B+ 已启用网络启动。
 
-在树莓派 3B 进行网络启动之前，需要从带有已配置参数的存储卡启动，启用 USB 启动模式。这会在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。完成此操作后，树莓派 3B 如果无法从存储卡启动，将尝试 USB 启动及网络启动。
+在树莓派 3B 进行网络启动之前，需要从带有已配置参数的存储卡启动，启用 USB 启动模式。这会在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。完成此操作后，如果树莓派 3B 无法从存储卡启动，将尝试 USB 启动和网络启动。
 
-通常，在存储卡上安装精简版树莓派系统或带桌面的树莓派系统。接下来，使用以下命令启用 USB 启动模式：
+通常，在存储卡上安装精简版树莓派系统/带桌面的树莓派系统。接下来，使用以下命令启用 USB 启动模式：
 
 ```sh
 $ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
@@ -1185,13 +1185,13 @@ $ sudo nano /boot/firmware/config.txt
 
 #### 树莓派 4B
 
-可以使用 raspi-config 工具在树莓派 4 上启用网络启动。首先，按照以下方式运行 raspi-config ：
+可以使用工具 raspi-config 在树莓派 4 上启用网络启动。首先，按照以下方式运行 raspi-config ：
 
 ```sh
 $ sudo raspi-config
 ```
 
-在 raspi-config 中，选择 Advanced Options，然后选择 Boot Order，最后选择 Network Boot。然后必须重启设备，以便将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重启后，请检查启动顺序是否现在为 `0xf21` ：
+在 raspi-config 中，选择 **Advanced Options**，然后选择 **Boot Order**，最后选择 **Network Boot**。然后必须重启设备，以将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重启后，请检查现在的启动顺序是否为 `0xf21` ：
 
 ```sh
 $ vcgencmd bootloader_config
@@ -1259,7 +1259,7 @@ $ ip -4 addr show dev eth0 | grep inet
 inet 10.42.0.211/24 brd 10.42.0.255 scope global eth0
 ```
 
-第一个地址是你的服务器树莓派在网络上的 IP 地址，斜杠后面的部分是网络大小。很可能你的是一个 `/24`。还要注意网络的 brd （广播）地址。记下前一个命令的输出，其中将包含树莓派的 IP 地址和网络的广播地址。
+第一个地址是你的服务器树莓派在网络上的 IP 地址，斜杠后面的部分是网络大小。很可能你的是一个 `/24`。还要注意网络的 brd （广播）地址。记下前一个命令的输出，其中包含了树莓派的 IP 地址和网络的广播地址。
 
 最后，记下你的 DNS 服务器地址，这与你的网关地址相同。你可以使用以下命令找到这个地址：
 
@@ -1277,7 +1277,7 @@ $ sudo nano /etc/systemd/network/10-eth0.netdev
 
 添加以下行：
 
-```sh
+```json
 [Match]
 Name=eth0
 
@@ -1293,7 +1293,7 @@ $ sudo nano /etc/systemd/network/11-eth0.network
 
 添加以下内容：
 
-```sh
+```json
 [Match]
 Name=eth0
 
@@ -1305,7 +1305,7 @@ DNS=10.42.0.1
 Gateway=10.42.0.1
 ```
 
-此时，你将没有工作的 DNS，因此你需要将之前记录的服务器添加到 `systemd/resolved.conf`。在此示例中，网关地址为 `10.42.0.1`。
+此时，你没有工作中的 DNS，因此你需要将之前记录的服务器添加到 `systemd/resolved.conf`。在此示例中，网关地址为 `10.42.0.1`。
 
 ```sh
 $ sudo nano /etc/systemd/resolved.conf
@@ -1313,7 +1313,7 @@ $ sudo nano /etc/systemd/resolved.conf
 
 取消注释 DNS 那一行，并在那里添加 DNS IP 地址。另外，如果你有备用 DNS 服务器，请也添加在那里。
 
-```sh
+```json
 [Resolve]
 DNS=10.42.0.1
 #FallbackDNS=
@@ -1349,7 +1349,7 @@ $ sudo nano /etc/dnsmasq.conf
 
 然后用以下内容替换 `dnsmasq.conf` 的内容：
 
-```sh
+```json
 # 注意：如果你希望网络上的系统使用 DNS 服务，请注释掉端口。
 port=0
 dhcp-range=10.42.0.255,proxy
@@ -1427,7 +1427,7 @@ root=/dev/nfs nfsroot=10.42.0.211:/nfs/client1,vers=3 rw ip=dhcp rootwait
 
 最后，编辑 `/nfs/client1/etc/fstab`，删除 `/dev/mmcblk0p1` 和第 2 行（只留下 `proc` ）。然后，将引导分区添加回去：
 
-```sh
+```bash
 $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo tee -a /nfs/client1/etc/fstab
 ```
 
@@ -1457,7 +1457,7 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 >
 >常用的 dnsmasq DHCP 服务器目前不支持 IPv6 网络启动所需的网络启动参数，因此在目前，你只能使用其他 DHCP 服务器，如 ISC DHCP。
 
-要通过网络挂载 rootfs，IPv4 网络引导教程建议使用 nfsroot。这不支持 IPv6，因此需要另一种方法来通过网络挂载 rootfs。
+要通过网络挂载 rootfs，IPv4 网络引导教程建议使用 nfsroot。它不支持 IPv6，因此需要其他方法来通过网络挂载 rootfs。
 
 如果你的 ISP 和路由器不支持 IPv6，你将受到限制。
 
@@ -1527,7 +1527,7 @@ INTERFACESv6="eth0"
 ```sh
 not authoritative;
 
-# Check if the client looks like a Raspberry Pi
+# 检查客户端是否像个树莓派
 if option dhcp6.client-arch-type = 00:29 {
         option dhcp6.bootfile-url "tftp://[fd49:869:6f93::1]/";
 }
@@ -1576,7 +1576,7 @@ rdisc6 -1 eth0
 
 这会向你的路由器发送路由器请求，请求你的网络详细信息，如网络前缀、路由器以太网地址以及是否使用 DHCP 进行寻址。如未响应此命令，很可能是你的网络及 ISP 仅支持 IPv4。如果支持 IPv6，很可能会配置为使用无状态配置，其中客户端生成自己的地址。
 
-```sh
+```json
 Soliciting ff02::2 (ff02::2) on eth0...
 Hop limit                 :           64 (      0x40)
 Stateful address conf.    :           No
@@ -1591,7 +1591,7 @@ Retransmit time           :  unspecified (0x00000000)
 
 你可能能够为有状态配置配置你的路由器，这意味着它将使用 DHCP 获取 IP 地址。
 
-```sh
+```json
 Hop limit                 :           64 (      0x40)
 Stateful address conf.    :          Yes
 Stateful other conf.      :          Yes
@@ -1611,7 +1611,7 @@ Retransmit time           :  unspecified (0x00000000)
 
 这里 `dc:a6:32:6f:73:f4` 是 TFTP 服务器的 MAC 地址，它具有一个 IPv6 地址 `fd49:869:6f93::1`。设备本身具有一个 MAC 地址 `e4:5f:01:20:24:0b` 和一个 IPv6 地址 `fd49:869:6f93::1000`
 
-```sh
+```json
 Boot mode: NETWORK (02) order f
 GENET: RESET_PHY
 PHY ID 600d 84a2
@@ -1644,7 +1644,7 @@ $ sudo tcpdump -i eth0 -e ip6 -XX -l -v -vv
 
 设备发送路由器请求。
 
-```sh
+```json
 12:23:35.387046 e4:5f:01:20:24:0b (oui Unknown) > 33:33:00:00:00:02 (oui Unknown), ethertype IPv6 (0x86dd), length 70: (hlim 255, next-header ICMPv6 (58) payload length: 16) fe80::e65f:1ff:fe20:240b > ip6-allrouters: [icmp6 sum ok] ICMP6, router solicitation, length 16
           source link-address option (1), length 8 (1): e4:5f:01:20:24:0b
             0x0000:  e45f 0120 240b
@@ -1652,7 +1652,7 @@ $ sudo tcpdump -i eth0 -e ip6 -XX -l -v -vv
 
 路由器发送响应，告知设备使用有状态配置。
 
-```sh
+```json
 12:23:35.498902 60:8d:26:a7:c1:88 (oui Unknown) > 33:33:00:00:00:01 (oui Unknown), ethertype IPv6 (0x86dd), length 110: (hlim 255, next-header ICMPv6 (58) payload length: 56) bthub.home > ip6-allnodes: [icmp6 sum ok] ICMP6, router advertisement, length 56
         hop limit 64, Flags [managed, other stateful], pref medium, router lifetime 180s, reachable time 0ms, retrans timer 0ms
           rdnss option (25), length 24 (3):  lifetime 60s, addr: bthub.home
@@ -1666,31 +1666,31 @@ $ sudo tcpdump -i eth0 -e ip6 -XX -l -v -vv
 
 设备发送 DHCP 请求。
 
-```
+```json
 12:23:35.502517 e4:5f:01:20:24:0b (oui Unknown) > 33:33:00:01:00:02 (oui Unknown), ethertype IPv6 (0x86dd), length 114: (hlim 255, next-header UDP (17) payload length: 60) fe80::e65f:1ff:fe20:240b.dhcpv6-client > ff02::1:2.dhcpv6-server: [udp sum ok] dhcp6 solicit (xid=8cdd56 (client-ID hwaddr type 1 e45f0120240b) (IA_NA IAID:0 T1:0 T2:0) (option-request opt_59) (opt_61) (elapsed-time 0))
 ```
 
 DHCP 服务器回复广告。
 
-```sh
+```json
 12:23:35.510478 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 172: (flowlabel 0xad54d, hlim 64, next-header UDP (17) payload length: 118) fe80::537a:52c:c647:b184.dhcpv6-server > fe80::e65f:1ff:fe20:240b.dhcpv6-client: [bad udp cksum 0xd886 -> 0x6d26!] dhcp6 advertise (xid=8cdd56 (IA_NA IAID:0 T1:3600 T2:7200 (IA_ADDR fd49:869:6f93::1000 pltime:604800 vltime:2592000)) (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (opt_59))
 ```
 
 设备向 DHCP 服务器发送地址和 TFTP 详细信息的请求。
 
-```sh
+```json
 12:23:35.510763 e4:5f:01:20:24:0b (oui Unknown) > 33:33:00:01:00:02 (oui Unknown), ethertype IPv6 (0x86dd), length 132: (hlim 255, next-header UDP (17) payload length: 78) fe80::e65f:1ff:fe20:240b.dhcpv6-client > ff02::1:2.dhcpv6-server: [udp sum ok] dhcp6 request (xid=8cdd56 (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (IA_NA IAID:0 T1:0 T2:0) (option-request opt_59) (opt_61) (elapsed-time 1))
 ```
 
-DHCP 服务器回复，opt_59 用于传递 TFTP 服务器的地址。
+DHCP 服务器回复，`opt_59` 用于传递 TFTP 服务器的地址。
 
-```sh
+```json
 12:23:35.512122 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 172: (flowlabel 0xad54d, hlim 64, next-header UDP (17) payload length: 118) fe80::537a:52c:c647:b184.dhcpv6-server > fe80::e65f:1ff:fe20:240b.dhcpv6-client: [bad udp cksum 0xd886 -> 0x6826!] dhcp6 reply (xid=8cdd56 (IA_NA IAID:0 T1:3600 T2:7200 (IA_ADDR fd49:869:6f93::1000 pltime:604800 vltime:2592000)) (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (opt_59))
 ```
 
 设备向 FTP 服务器发送邻居请求，因为它需要其 MAC 地址。
 
-```sh
+```json
 12:23:36.510768 e4:5f:01:20:24:0b (oui Unknown) > 33:33:ff:00:00:01 (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) fe80::e65f:1ff:fe20:240b > ff02::1:ff00:1: [icmp6 sum ok] ICMP6, neighbor solicitation, length 32, who has fd49:869:6f93::1
           source link-address option (1), length 8 (1): e4:5f:01:20:24:0b
             0x0000:  e45f 0120 240b
@@ -1698,7 +1698,7 @@ DHCP 服务器回复，opt_59 用于传递 TFTP 服务器的地址。
 
 FTP 服务器将以其 MAC 地址回复。
 
-```sh
+```json
 12:23:36.510854 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) fd49:869:6f93::1 > fe80::e65f:1ff:fe20:240b: [icmp6 sum ok] ICMP6, neighbor advertisement, length 32, tgt is fd49:869:6f93::1, Flags [solicited, override]
           destination link-address option (2), length 8 (1): dc:a6:32:6f:73:f4
             0x0000:  dca6 326f 73f4
@@ -1706,7 +1706,7 @@ FTP 服务器将以其 MAC 地址回复。
 
 TFTP 请求由应该现在通过网络引导的设备发出。
 
-```sh
+```json
 12:23:36.530820 e4:5f:01:20:24:0b (oui Unknown) > dc:a6:32:6f:73:f4 (oui Unknown), ethertype IPv6 (0x86dd), length 111: (hlim 255, next-header UDP (17) payload length: 57) fd49:869:6f93::1000.61785 > fd49:869:6f93::1.tftp: [udp sum ok]  49 RRQ "ab5a4158/start4.elf" octet tsize 0 blksize 1024
 ```
 
@@ -1716,7 +1716,7 @@ TFTP 请求由应该现在通过网络引导的设备发出。
 
 设备发送路由器请求。
 
-```sh
+```json
 12:55:27.541909 e4:5f:01:20:24:0b (oui Unknown) > 33:33:00:00:00:02 (oui Unknown), ethertype IPv6 (0x86dd), length 70: (hlim 255, next-header ICMPv6 (58) payload length: 16) fe80::e65f:1ff:fe20:240b > ip6-allrouters: [icmp6 sum ok] ICMP6, router solicitation, length 16
           source link-address option (1), length 8 (1): e4:5f:01:20:24:0b
             0x0000:  e45f 0120 240b
@@ -1724,7 +1724,7 @@ TFTP 请求由应该现在通过网络引导的设备发出。
 
 路由器回复网络详细信息。
 
-```sh
+```json
 12:55:27.834684 60:8d:26:a7:c1:88 (oui Unknown) > 33:33:00:00:00:01 (oui Unknown), ethertype IPv6 (0x86dd), length 174: (hlim 255, next-header ICMPv6 (58) payload length: 120) bthub.home > ip6-allnodes: [icmp6 sum ok] ICMP6, router advertisement, length 120
         hop limit 64, Flags [other stateful], pref medium, router lifetime 180s, reachable time 0ms, retrans timer 0ms
           prefix info option (3), length 32 (4): 2a00:23c5:ee00:5001::/64, Flags [onlink, auto, router], valid time 300s, pref. time 120s
@@ -1744,19 +1744,19 @@ TFTP 请求由应该现在通过网络引导的设备发出。
 
 设备向 DHCP 组播地址发送信息请求，请求 TFTP 详细信息。
 
-```sh
+```json
 12:55:27.838300 e4:5f:01:20:24:0b (oui Unknown) > 33:33:00:01:00:02 (oui Unknown), ethertype IPv6 (0x86dd), length 98: (hlim 255, next-header UDP (17) payload length: 44) fe80::e65f:1ff:fe20:240b.dhcpv6-client > ff02::1:2.dhcpv6-server: [udp sum ok] dhcp6 inf-req (xid=e5e0a4 (client-ID hwaddr type 1 e45f0120240b) (option-request opt_59) (opt_61) (elapsed-time 0))
 ```
 
 DHCP 服务器回复 TFTP 服务器详细信息（`opt_59`）。
 
-```sh
+```json
 12:55:27.838898 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 150: (flowlabel 0xd1248, hlim 64, next-header UDP (17) payload length: 96) fe80::537a:52c:c647:b184.dhcpv6-server > fe80::e65f:1ff:fe20:240b.dhcpv6-client: [bad udp cksum 0xd870 -> 0x78bb!] dhcp6 reply (xid=e5e0a4 (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (opt_59))
 ```
 
 设备请求 TFTP 服务器 MAC 地址，因为它可以知道它在同一网络上。
 
-```sh
+```json
 12:55:28.834796 e4:5f:01:20:24:0b (oui Unknown) > 33:33:ff:1d:fe:2a (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) fe80::e65f:1ff:fe20:240b > ff02::1:ff1d:fe2a: [icmp6 sum ok] ICMP6, neighbor solicitation, length 32, who has 2a00:23c5:ee00:5001:57f1:7523:2f1d:fe2a
           source link-address option (1), length 8 (1): e4:5f:01:20:24:0b
             0x0000:  e45f 0120 240b
@@ -1764,7 +1764,7 @@ DHCP 服务器回复 TFTP 服务器详细信息（`opt_59`）。
 
 FTP 服务器将以其 MAC 地址回复。
 
-```sh
+```json
 12:55:28.834875 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) 2a00:23c5:ee00:5001:57f1:7523:2f1d:fe2a > fe80::e65f:1ff:fe20:240b: [icmp6 sum ok] ICMP6, neighbor advertisement, length 32, tgt is 2a00:23c5:ee00:5001:57f1:7523:2f1d:fe2a, Flags [solicited, override]
           destination link-address option (2), length 8 (1): dc:a6:32:6f:73:f4
             0x0000:  dca6 326f 73f4
@@ -1772,6 +1772,6 @@ FTP 服务器将以其 MAC 地址回复。
 
 设备开始发出 TFTP 请求。
 
-```sh
+```json
 12:55:28.861097 e4:5f:01:20:24:0b (oui Unknown) > dc:a6:32:6f:73:f4 (oui Unknown), ethertype IPv6 (0x86dd), length 111: (hlim 255, next-header UDP (17) payload length: 57) 2a00:23c5:ee00:5001:e65f:1ff:fe20:240b.46930 > 2a00:23c5:ee00:5001:57f1:7523:2f1d:fe2a.tftp: [udp sum ok]  49 RRQ "ab5a4158/start4.elf" octet tsize 0 blksize 1024
 ```
