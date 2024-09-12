@@ -12,24 +12,24 @@
 * [VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)
 * [树莓派 connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
 
-SSH（Secure SHell）提供了对树莓派上终端会话的安全访问。VNC（Virtual Network Computing，虚拟网络计算）提供了对树莓派桌面屏幕共享的安全访问。你仅需一台其他计算机、局域网和树莓派的局域网 IP 地址。树莓派 Connect 可安全地共享你的树莓派屏幕，且无需查阅树莓派的 IP 地址。
+SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问。VNC（**V**irtual **N**etwork **C**omputing，虚拟网络计算）提供了对树莓派桌面屏幕共享的安全访问。你仅需一台其他计算机、局域网和树莓派的局域网 [IP 地址](https://en.wikipedia.org/wiki/IP_address)。树莓派 Connect 可安全地共享你的树莓派屏幕，且无需查阅树莓派的 IP 地址。
 
 ### 通过局域网在设备之间共享文件
 
-无需直接控制远程设备，NFS（网络文件系统）、SCP（安全复制协议）、Samba 等服务能让你在局域网的设备间共享文件。当你需要从其他设备访问存储在一台设备上的数据时，这些服务可能会很有用。
+无需直接控制远程设备，[NFS](https://www.raspberrypi.com/documentation/computers/remote-access.html#nfs)（网络文件系统）、[SCP](https://www.raspberrypi.com/documentation/computers/remote-access.html#scp)（Secure Copy Protocol，安全复制协议）、[Samba](https://www.raspberrypi.com/documentation/computers/remote-access.html#samba) 和 [`rsync`](https://www.raspberrypi.com/documentation/computers/remote-access.html#rsync) 等服务能让你在局域网的设备间共享文件。当你需要从其他设备访问存储在一台设备上的数据时，这些服务可能会很有用。
 
 ### 通过互联网远程控制
 
 要从接入互联网的任意设备远程控制你的树莓派，你需要：
 
-* 在树莓派上放开 SSH/VNC，可通过互联网、内部 VPN，或使用 RealVNC 的云 VNC Viewer 等外部服务。
-* 使用树莓派 Connect，这是由树莓派提供的免费屏幕共享服务。
+* 在树莓派上放开 [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)/[VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)，可通过互联网、内部 VPN，或使用 RealVNC 的云 [VNC Viewer](https://www.realvnc.com/download/viewer/) 等外部服务。
+* 使用[树莓派 Connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)，这是由树莓派提供的免费屏幕共享服务。
 
 ## 查看树莓派的 IP 地址
 
 许多连接到树莓派的方法都需要你知道树莓派的局域网 IP 地址。
 
-接入局域网的所有设备都会被分配一个 IP 地址。要使用 SSH/VNC 从别的机器连接到树莓派，你需要知道树莓派的 IP 地址。如果接入了显示器，这很容易。但还有许多方法可从网络上的其他机器远程查找它。
+接入局域网的所有设备都会被分配一个 IP 地址。要使用 [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)/[VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc) 从别的机器连接到树莓派，你需要知道树莓派的 IP 地址。如果接入了显示器，这很容易。但还有许多方法可从网络上的其他机器远程查找它。
 
 要查找树莓派的局域网 IP 地址，请使用以下若干方法。
 
@@ -53,7 +53,7 @@ $ hostname -I
 
 ### 网络管理器
 
-你可以使用内置的网络管理器命令行（ nmcli ）来获取有关你的网络的详细信息。请运行以下命令：
+你可以使用内置的网络管理器命令行（`nmcli`）来获取有关你的网络的详细信息。请运行以下命令：
 
 ```sh
 $ nmcli device show
@@ -138,7 +138,7 @@ PING raspberrypi.local (192.168.1.131): 56 data bytes
 
 >**技巧**
 >
->如果你使用 Raspberry Pi Configuration、`raspi-config`、`/etc/hostname` 修改了树莓派的系统主机名，Avahi 会更新 `.local` 的 mDNS 地址。如果你忘记了树莓派的主机名，你可以在另一台设备上安装 Avahi，然后用 avahi-browse 浏览本地网络上的所有主机和服务。
+>如果你使用树莓派配置（Raspberry Pi Configuration）、`raspi-config`、`/etc/hostname` 修改了树莓派的系统主机名，Avahi 会更新 `.local` 的 mDNS 地址。如果你忘记了树莓派的主机名，你可以在另一台设备上安装 Avahi，然后用 `avahi-browse` 浏览本地网络上的所有主机和服务。
 
 ### 检查路由器的设备列表
 
@@ -154,20 +154,20 @@ PING raspberrypi.local (192.168.1.131): 56 data bytes
 >
 >如果你用网线将你的树莓派接入网络，请尝试在列表中筛选有线设备。应该仅有为数不多的设备需要判断。
 
-### 在设备上使用 `nmap` 查看
+### 使用 `nmap` 查找设备
 
 `nmap`（Network Mapper，网络映射器）命令是用于网络发现的免费开源工具。适用于 Linux、macOS 和 Windows。
 
-* 要在 Linux 上安装，请安装软件包 nmap，如 `apt install nmap`。
-* 要在 macOS、Windows 上安装，请参阅 nmap.org 下载页。
+* 要在 **Linux** 上安装，请安装软件包 `nmap`，如 `apt install nmap`。
+* 要在 **macOS**、**Windows** 上安装，请参阅 [nmap.org 下载页](http://nmap.org/download.html)。
 
-要用 nmap 扫描你网络上的设备，你需要知道你接入的子网。先找到你正在使用的计算机局域网 IP 地址：
+要用 `nmap` 扫描你网络上的设备，你需要知道你接入的子网。先找到你正在使用的计算机局域网 IP 地址：
 
-* 在 Linux 上，将 `hostname -I` 输入到终端窗口中。
-* 在 macOS 上，转到系统设置 > 网络，选择你的活动网络连接，然后单击按钮“详细信息……”
-* 在 Windows 上，打开控制面板，然后在“网络和共享中心”下，单击“查看网络连接”，选择你的活动网络连接，然后单击“查看此连接的状态”
+* 在 **Linux** 上，将 `hostname -I` 输入到终端窗口中。
+* 在 **macOS** 上，转到**系统设置** > **网络**，选择你的活动网络连接，然后单击按钮“**详细信息……**”
+* 在 **Windows** 上，打开控制面板，然后在“**网络和共享中心**”下，单击“**查看网络状态和链接**”，选择你的活动网络连接，然后单击“**查看此连接的状态**”
 
-接下来，扫描整个子网，来查找其他设备。大多数局域网使用 IPv4，它使用四位数值：1 到 255 之间的数字来标识每个 IP 地址。你的子网设备使用的前三个数字都是相同的。如，若你的 IP 地址是 `192.168.1.5`，那么其他设备使用的地址类似于 `192.168.1.2`、`192.168.1.6` 和 `192.168.1.200`。要使用 nmap 扫描这个子网，请传参字符串 `192.168.1.0/24`，该字符串覆盖子网范围为 `192.168.1.0` 到 `192.168.1.255`。使用参数 `-sn` 将在整个子网范围上运行 `ping` 扫描：
+接下来，扫描整个**子网（subnet）**，来查找其他设备。大多数局域网使用 IPv4，它使用四位数值：1 到 255 之间的数字来标识每个 IP 地址。你的子网设备使用的前三个数字都是相同的。如，若你的 IP 地址是 `192.168.1.5`，那么其他设备使用的地址类似于 `192.168.1.2`、`192.168.1.6` 和 `192.168.1.200`。要使用 nmap 扫描这个子网，请传参字符串 `192.168.1.0/24`，该字符串覆盖子网范围为 `192.168.1.0` 到 `192.168.1.255`。使用参数 `-sn` 将在整个子网范围上运行 `ping` 扫描：
 
 ```sh
 $ sudo nmap -sn 192.168.1.0/24
@@ -196,7 +196,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 ### 使用智能手机上的应用软件查找设备
 
-应用程序 Fing 是一款免费的智能手机网络扫描器。它适用于 Android 和 iOS。
+应用程序 Fing 是一款免费的智能手机网络扫描器。它适用于 [Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing) 和 [iOS](https://itunes.apple.com/gb/app/fing-network-scanner/id430921107?mt=8)。
 
 1. 将手机接入与你树莓派的所在网络。
 2. 当你打开软件 Fing 后，请触摸屏幕右上角的刷新按钮。
@@ -205,7 +205,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 ## 使用 SSH 访问远程终端
 
-你可以使用安全外壳（Secure Shell，SSH）协议从同一网络上的其他计算机远程访问树莓派的终端。
+你可以使用安全外壳（**S**ecure **S**hell，SSH）协议从同一网络上的其他计算机远程访问树莓派的终端。
 
 ### 启用 SSH 服务器
 
@@ -213,19 +213,19 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 #### 使用桌面启用 SSH 服务器
 
-1. 在“首选项”菜单中打开树莓派配置。
-2. 切换到“接口”选项卡。
-3. 选择“SSH”旁边的“已启用”。
-4. 单击“确定”。
+1. 在“**首选项**”菜单中打开树莓派配置。
+2. 切换到“**接口**”选项卡。
+3. 选择“**SSH**”旁边的“**已启用（Enabled）**”。
+4. 单击“**确定**”。
 
 #### 写入全新的操作系统镜像时启用 SSH 服务器
 
 在全新安装的树莓派系统上配置 SSH：
 
-1. 按照树莓派启动盘制作工具指南中的说明进行安装。
-2. 在操作系统自定义步骤中，切换到服务选项卡。
-3. 选中复选框启用 SSH。
-4. 选择密码身份验证，使用与在物理上使用树莓派时相同的用户名和密码登录。选择仅允许公钥身份验证配置用于无密码登录的 SSH 密钥。
+1. 按照[树莓派启动盘制作工具](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager)指南中的说明进行安装。
+2. 在 **自定义系统配置** 这个步骤中，切换到 **服务** 选项卡。
+3. 选中复选框 **开启 SSH**。
+4. 选择 **使用密码登录**，使用与在物理上使用树莓派时相同的用户名和密码登录。选择 **仅允许公钥登录** [配置用于无密码登录的 SSH 密钥](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
 
 #### 使用终端启用 SSH 服务器
 
@@ -251,7 +251,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 ### 连接到 SSH 服务器
 
-在你的计算机上打开一个终端窗口，输入以下命令。把占位符 `<ip 地址>` 替换成你要接入的树莓派 IP 地址，再把 `<用户名>` 替换为你的用户名：
+在你的计算机上打开一个终端窗口，输入以下命令。把占位符 `<ip 地址>` [替换成你要接入的树莓派 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)，再把 `<用户名>` 替换为你的用户名：
 
 ```sh
 $ ssh <用户名>@<ip 地址>
@@ -271,7 +271,7 @@ $ ssh <用户名>@<ip 地址>
 
 >**注意**
 >
->如果你收到报错 `connection timed out`，则可能输入的树莓派 IP 地址错误。请检查树莓派的 IP 地址。
+>如果你收到报错 `connection timed out`，则可能输入的树莓派 IP 地址错误。请检查[树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
 
 #### 通过 SSH 转发 X11
 
@@ -289,7 +289,7 @@ X11 可通过 SSH 启用图形应用程序。传参 `-Y` 可通过 SSH 转发 X 
 $ ssh -Y <用户名>@<ip 地址>
 ```
 
-在经过身份验证后，你会像往常一样看到命令行。但是，你仍可打开图形窗口，X 服务器会为你渲染。例如，键入以下命令会启动 Geany 窗口：
+在经过身份验证后，你会像往常一样看到命令行。但是，你仍可打开图形窗口，X 服务器会为你渲染。例如，键入以下命令会启动 [Geany](https://www.geany.org/) 窗口：
 
 ```sh
 $ geany &
@@ -303,9 +303,9 @@ $ geany &
 
 在使用启动盘制作工具配置启动镜像时，你可以预配置 SSH 密钥。你可以生成新的 SSH 密钥对或使用现有的 SSH 密钥。
 
-1. 按照使用启动盘制作工具指南安装来配置你的启动镜像。
-2. 在操作系统自定义步骤中，切换到服务选项卡，选中启用 SSH 复选框。
-3. 选择仅允许公钥身份验证单选按钮。如果你已经在 `~/.ssh/id_rsa.pub` 中存储了一个 SSH 公钥，树莓派启动盘制作工具会自动使用该公钥来预填文本框。如果启动盘制作工具未找到 SSH 公钥，你可单击“运行 SSH-KEYGEN”按钮生成新的密钥对。
+1. 按照使用[启动盘制作工具](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager)指南安装来配置你的启动镜像。
+2. 在 **自定义系统配置** 这个步骤中，切换到 **服务** 选项卡，选中 **开启 SSH** 复选框。
+3. 选择 **仅允许公钥登录** 单选按钮。如果你已经在 `~/.ssh/id_rsa.pub` 中存储了一个 SSH 公钥，树莓派启动盘制作工具会自动使用该公钥来预填文本框。如果启动盘制作工具未找到 SSH 公钥，你可单击“**运行 SSH-KEYGEN**”按钮生成新的密钥对。
 
 #### 手动配置 SSH 密钥
 
@@ -319,13 +319,13 @@ $ geany &
 $ ls ~/.ssh
 ```
 
-如果看到了文件 `id_ed25519.pub`、`id_rsa.pub` 或 `id_dsa.pub`，则你已经拥有一个 SSH 密钥。可跳过 SSH 密钥对生成，将 SSH 密钥添加到你的 SSH 身份列表中。
+如果看到了文件 `id_ed25519.pub`、`id_rsa.pub` 或 `id_dsa.pub`，则你已经拥有一个 SSH 密钥。可跳过 SSH 密钥对生成，[将 SSH 密钥添加到你的 SSH 身份列表中](https://www.raspberrypi.com/documentation/computers/remote-access.html#add-ssh-key-identity)。
 
 #### 生成新的 SSH 密钥对
 
 >**技巧**
 >
->本指南提供了新 RSA 密钥的生成说明。为了增加安全性，你可以选择生成 Ed25519 密钥。要使用 Ed25519 密钥：在引用你的公钥和私钥文件名称时，把 `-t ed25519` 传参给 ssh-keygen；并把 `rsa` 替换为 `ed25519`。
+>本指南提供了新 RSA 密钥的生成说明。为了增加安全性，你可以选择生成 [Ed25519](http://ed25519.cr.yp.to/) 密钥。要使用 Ed25519 密钥：在引用你的公钥和私钥文件名称时，把 `-t ed25519` 传参给 `ssh-keygen`；并把 `rsa` 替换为 `ed25519`。
 
 要生成新的 SSH 密钥对，请输入以下命令：
 
@@ -401,7 +401,7 @@ $ scp .ssh/id_rsa.pub <用户名>@<ip 地址>:.ssh/authorized_keys
 
 >**技巧**
 >
->上面的命令假定你以前从未授权过任何密钥访问你的树莓派。如果你之前添加过密钥，你应在 authorized_keys 文件的末尾添加包含公钥的新行，可保留现有密钥。
+>上面的命令假定你以前从未授权过任何密钥访问你的树莓派。如果你之前添加过密钥，你应在 `authorized_keys` 文件的末尾添加包含公钥的新行，可保留现有密钥。
 
 在提示后，在树莓派上输入你用户账户的密码。
 
@@ -421,7 +421,7 @@ VNC 依赖于客户端和服务器。客户端运行在你可直接与之交互�
 
 VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓派本身上工作一样同桌面交互。
 
-树莓派系统内置了 wayvnc。它提供了一个 VNC 服务器，你可以在设备首选项中启用它。
+树莓派系统内置了 [wayvnc](https://github.com/any1/wayvnc)。它提供了一个 VNC 服务器，你可以在设备首选项中启用它。
 
 在使用 VNC 之前，必须先在你的树莓派上启用 VNC 服务器。
 
@@ -437,29 +437,29 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 1. 在树莓派上启动图形桌面。
 2. 单击桌面系统托盘中的树莓派图标。
-3. 从菜单中选择 **Preferences** \> **Raspberry Pi Configuration**。
+3. 从菜单中选择 **偏好（Preferences）** \> **树莓派配置（Raspberry Pi Configuration）**。
 
 ![从系统托盘中的首选项菜单中选择树莓派配置](https://www.raspberrypi.com/documentation/computers/images/raspberry-pi-configuration.png)
 
-4. 切换到选项卡 **Interfaces**。
-5. 点击活动位置旁边的单选按钮来使用 VNC。
+4. 切换到选项卡 **接口（Interfaces）**。
+5. 单击 **VNC** 旁边的单选按钮，将其改为活动状态。。
 
 ![接口选项卡](https://www.raspberrypi.com/documentation/computers/images/vnc-enable.png)
 
-6. 单击“确定”按钮以保存配置更改。
+6. 单击“**确定（OK）**”按钮以保存配置更改。
 
 #### 使用命令行启用 VNC 服务器。
 
-可使用命令行 `raspi-config` 启用 VNC 服务器。
+可使用命令行 [raspi-config](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config) 启用 VNC 服务器。
 
 1. 打开 `raspi-config`，输入以下内容：
 
     ```sh
     $ sudo raspi-config
     ```
-2. 切换到接口选项。按 **回车键** 选择。
-3. 选择 VNC。按 **回车键** 选择。
-4. 在你想要启用 VNC 服务器吗? 使 `<Yes>` 高亮并按  **回车键**。
+2. 切换到 **接口选项（Interface Option）**。按 **回车键** 选择。
+3. 选择 **VNC**。按 **回车键** 选择。
+4. 在“**Would you like the VNC Server to be enabled?（你想要启用 VNC 服务器吗? ）**”使 `<Yes>` 高亮并按  **回车键**。
 5. 按 **回车键** 返回菜单。按 **Esc 键** 退出 `raspi-config`。
 
 ### 连接到 VNC 服务器
@@ -470,9 +470,9 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 * 你的树莓派的主机名/IP 地址
 * 树莓派上账户的有效用户名和对应的密码
 
-如果你不知道设备的 IP 地址，请参阅有关查找 IP 地址的说明。
+如果你不知道设备的 IP 地址，请[参阅有关查找 IP 地址的说明](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
 
-1. 下载 TigerVNC。你可以从其 GitHub 存储库的 Releases 页面安装最新版本。单击最新版本中的链接，找到适用于你平台的二进制文件。Windows 用户应下载 exe；macOS 用户应下载 dmg；Linux 用户应下载 jar。
+1. 下载 [TigerVNC](https://tigervnc.org/)。你可以从其 [GitHub 存储库的 Releases 页面](https://github.com/TigerVNC/tigervnc/releases)安装最新版本。单击最新版本中的链接，找到适用于你平台的二进制文件。Windows 用户应下载 `exe`；macOS 用户应下载 `dmg`；Linux 用户应下载 `jar`。
 2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<版本号>.jar`，将占位符 `<版本号>` 替换为你下载的版本。
 3. 在“VNC 服务器”字段中输入你树莓派的 IP 地址。
 
@@ -503,13 +503,13 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 你可以使用树莓派 Connect 从别的设备的浏览器远程访问树莓派的桌面。树莓派 Connect 会自动处理配置，因此你无需查找树莓派的本地 IP 地址或更改局域网。
 
-欲了解更多信息，请参阅 Connect 文档。
+欲了解更多信息，请参阅 [Connect 文档](https://www.raspberrypi.com/documentation/services/connect.html)。
 
 ## 使用 SCP 共享文件
 
-安全复制协议（scp）通过 SSH 发送文件。你可以使用 scp 在你的树莓派和另一台计算机间复制文件。
+安全复制协议（`scp`）通过 SSH 发送文件。你可以使用 scp 在你的树莓派和另一台计算机间复制文件。
 
-要使用 scp，请查找你树莓派的 IP 地址。
+要使用 `scp`，[请查找你树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
 
 ### 将文件复制到你的树莓派
 
@@ -519,7 +519,7 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 $ scp myfile.txt <用户名>@<树莓派IP地址>:
 ```
 
-要把文件复制到特定目录，请在 scp 命令中的 `:` 后附带目录路径。请在运行 scp 之前创建文件夹，因为 scp 不会自动创建文件夹。例如，以下命令将名为 `myfile.txt` 的文件复制到用户主文件夹中的目录 `project/` 下：
+要把文件复制到特定目录，请在 `scp` 命令中的 `:` 后附带目录路径。请在运行 `scp` 之前创建文件夹，因为 `scp` 不会自动创建文件夹。例如，以下命令将名为 `myfile.txt` 的文件复制到用户主文件夹中的目录 `project/` 下：
 
 ```sh
 $ scp myfile.txt <用户名>@<树莓派IP地址>:project/
@@ -575,35 +575,35 @@ $ scp m*.txt <用户名>@<树莓派IP地址>:
 $ scp -r project/ <用户名>@<树莓派IP地址>:
 ```
 
-## 使用 rsync 在计算机间同步文件夹
+## 使用 `rsync` 在计算机间同步文件夹
 
-你可以使用 rsync 在计算机之间同步文件夹。例如，你可以使用 rsync 将树莓派拍摄的新照片自动传输到个人电脑。
+你可以使用 `rsync` 在计算机之间同步文件夹。例如，你可以使用 `rsync` 将树莓派拍摄的新照片自动传输到个人电脑。
 
-在配置 rsync 之前，请确定如下信息：
+在配置 `rsync` 之前，请确定如下信息：
 
-* `<树莓派IP地址>`：你树莓派的局域网 IP 地址：更多有关信息，请参阅查找你的树莓派的 IP 地址
+* `<树莓派IP地址>`：你树莓派的局域网 IP 地址：更多有关信息，请参阅[查找你的树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)
 * `<树莓派用户名>`：你用于登录到树莓派的用户名
 * `<树莓派文件夹名>`：你要从树莓派复制文件的文件夹名称
 * `<个人计算机文件夹名>`：你想要在个人计算机上同步的文件夹名称
 
-要配置 rsync 以同步文件，请在个人计算机上完成以下步骤，并使用上面确定的值替换命令中的占位符：
+要配置 `rsync` 以同步文件，请在个人计算机上完成以下步骤，并使用上面确定的值替换命令中的占位符：
 
 1. 创建你想要同步到的文件夹：
 
     ```sh
     $ mkdir <个人计算机文件夹名>
     ```
-2. 将文件同步到带有 rsync 的文件夹：
+2. 将文件同步到带有 `rsync` 的文件夹：
 
     ```sh
     $ rsync -avz -e ssh <树莓派用户名>@<树莓派IP地址>:<树莓派文件夹名>/ <个人计算机文件夹名>/
     ```
 
-此命令将所有文件从你的树莓派上的选定文件夹复制到个人计算机上的选定文件夹。若反复运行该命令，rsync 会跟踪你已经下载的文件并跳过它们。如果你在树莓派上删除/修改已同步的文件，rsync 会相应地更新个人计算机上的文件。
+此命令将所有文件从你的树莓派上的选定文件夹复制到个人计算机上的选定文件夹。若反复运行该命令，`rsync` 会跟踪你已经下载的文件并跳过它们。如果你在树莓派上删除/修改已同步的文件，`rsync` 会相应地更新个人计算机上的文件。
 
 ## 网络文件系统（Network File System，NFS）
 
-网络文件系统（Network File System，NFS）能让你在一台网络计算机上共享一个目录，该目录与同一网络上的其他计算机和设备共享。目录所在的计算机称为服务器，连接到该服务器的计算机和设备被称为客户端。客户端通常被挂载为共享目录，使其成为其自身目录结构的一部分。共享目录就是共享资源/网络共享的一个例子。
+网络文件系统（Network File System，NFS）能让你在一台网络计算机上共享一个目录，该目录与同一网络上的其他计算机和设备共享。目录所在的计算机称为**服务器**，连接到该服务器的计算机和设备被称为客户端。客户端通常被挂载（`mount`）为共享目录，使其成为其自身目录结构的一部分。共享目录就是共享资源/网络共享的一个例子。
 
 NFS 是在 Linux/Unix 环境中创建简单 NAS（网络附加存储）的通行方法。
 
@@ -658,9 +658,9 @@ $ sudo mount --bind /home/users /export/users
 2. `/etc/default/nfs-common`
 3. `/etc/exports`
 
-现在，`/etc/default/nfs-kernel-server` 里唯一重要的参数是 `NEED_SVCGSSD`。默认设置为“no”，这没有问题，因为这次我们不会启用 NFSv4 安全功能。
+现在，`/etc/default/nfs-kernel-server` 里唯一重要的参数是 `NEED_SVCGSSD`。默认设置为`"no"`，这没有问题，因为这次我们不会启用 NFSv4 安全功能。
 
-为了自动映射 ID 名称，文件 `/etc/idmapd.conf` 必须同时存在于客户端和服务器上，并且内容一致且带有正确的域名。此外，该文件应在 Mapping 部分中包含以下行：
+为了自动映射 ID 名称，文件 `/etc/idmapd.conf` 必须同时存在于客户端和服务器上，并且内容一致且带有正确的域名。此外，该文件应在 `Mapping` 部分中包含以下行：
 
 ```json
 [Mapping]
@@ -684,7 +684,7 @@ $ cat /etc/group
 Method = nsswitch
 ```
 
-这将触发 idmapd 查看 `nsswitch.conf`，以确定其应该查找凭据信息的位置。如果你已经使用 LDAP 身份验证，nsswitch 无需进一步解释。
+这将触发 `idmapd` 查看 `nsswitch.conf`，以确定其应该查找凭据信息的位置。如果你已经使用 LDAP 身份验证，`nsswitch` 无需进一步解释。
 
 要将我们的目录 export 到本地网络 `192.168.1.0/24`，请在 `/etc/exports` 中添加以下两行：
 
@@ -711,7 +711,7 @@ rpcbind mountd nfsd statd lockd rquotad : ALL
 rpcbind mountd nfsd statd lockd rquotad : <IPv4地址列表>
 ```
 
-其中 `<IPv4地址列表>` 是服务器和所有客户端的 IP 地址列表（由于 rpcbind 中的限制不支持主机名，他们必须是 IP 地址）。请注意，如果你设置了 NIS，你可以将这些添加到同一行里。
+其中 `<IPv4地址列表>` 是服务器和所有客户端的 IP 地址列表（由于 `rpcbind` 中的限制不支持主机名，他们必须是 IP 地址）。请注意，如果你设置了 NIS，你可以将这些添加到同一行里。
 
 请确保授权 IP 地址列表包含地址 `localhost` （`127.0.0.1`），因为最新版本的 Ubuntu 中启动脚本使用命令 `rpcinfo` 来发现 NFSv3 支持，如果 `localhost` 无法连接，将被禁用。
 
@@ -857,7 +857,7 @@ $ sudo apt install rpcbind nfs-kernel-server
 /usr/local 192.168.0.0/255.255.255.0(rw,sync,no_subtree_check)
 ```
 
-在这里，rw 使共享变为读/写模式，而 sync 要求服务器只在全部更改已刷新到磁盘后才回复请求。这是最安全的选项；async 更快，但有风险。强烈建议你阅读 `man exports`，如果你正在考虑其他选项。
+在这里，`rw` 使共享变为读/写模式，而 `sync` 要求服务器只在全部更改已刷新到磁盘后才回复请求。这是最安全的选项；`async` 更快，但有风险。强烈建议你阅读 `man exports`，如果你正在考虑其他选项。
 
 设置完 `/etc/exports` 后，导出共享：
 
@@ -869,7 +869,7 @@ $ sudo exportfs -ra
 
 #### 重启服务
 
-重启 rpcbind 和 NFS 以使更改生效：
+重启 `rpcbind` 和 NFS 以使更改生效：
 
 ```sh
 $ sudo systemctl restart rpcbind
@@ -901,7 +901,7 @@ $ sudo mkdir /nfs/music
 nfsServer:music    /nfs/music    nfs    auto    0 0
 ```
 
-3. 在你的主目录下创建一个符号链接，指向实际的挂载位置。在上述情况下，首先删除已经存在的 Music 目录：
+3. 在你的主目录下创建一个符号链接，指向实际的挂载位置。在上述情况下，首先删除已经存在的 `Music` 目录：
 
 ```sh
 $ rmdir /home/user/Music
@@ -910,7 +910,7 @@ $ ln -s /nfs/music/ /home/user/Music
 
 ## Samba（SMB/CIFS）
 
-Samba 是 Server Message Block（SMB，服务器消息块）网络协议的自由软件之重新实现。使用 Samba，你可以在 Windows、macOS 和 Linux 机器间共享文件夹。
+Samba 是 [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block)（SMB，服务器消息块）网络协议的自由软件之重新实现。使用 Samba，你可以在 Windows、macOS 和 Linux 机器间共享文件夹。
 
 ### 在你的树莓派上安装 Samba
 
@@ -927,27 +927,27 @@ $ sudo apt install samba samba-common-bin smbclient cifs-utils
 
 #### 打开共享功能
 
-1. 单击系统托盘，从菜单中选择“网络和共享中心”。
-2. 选择“更改高级共享设置”。
-3. 选择“打开网络发现”。
-4. 选择打开文件和打印机共享。
-5. 单击保存按钮以保存更改。
+1. 单击系统托盘，从菜单中选择“**网络和共享中心**”。
+2. 选择“**更改高级共享设置**”。
+3. 选择“**网络发现**”。
+4. 选择“**文件和打印机共享**”。
+5. 单击 **保存** 按钮以保存更改。
 
 #### 共享文件夹
 
 跟随这些步骤在 Windows 上共享文件夹：
 
-1. 右键单击要共享的文件夹，然后选择属性。
-2. 选择共享选项卡。
-3. 单击“高级共享”按钮。
-4. 选择“共享此文件夹”；在默认情况下，Windows 会使用文件夹名称作为共享名称。
-5. 单击“权限”按钮。
-6. 配置“Everyone”和“完全控制”权限。
-7. 单击“确定”按钮以离开权限页面。
-8. 再次单击“确定”按钮以离开高级共享页面。
-9. 选择“安全”选项卡。
-10. 配置“每个人”和“完全控制”权限。
-11. 单击“确定”按钮。
+1. 右键单击要共享的文件夹，然后选择**属性**。
+2. 选择 **共享** 选项卡。
+3. 单击“**高级共享**”按钮。
+4. 选择“**共享此文件夹**”；在默认情况下，Windows 会使用文件夹名称作为共享名称。
+5. 单击“**权限**”按钮。
+6. 配置“**Everyone**”和“**完全控制**”权限。
+7. 单击“**确定**”按钮以离开 **权限** 页面。
+8. 再次单击“**确定**”按钮以离开 **高级共享** 页面。
+9. 选择“**安全**”选项卡。
+10. 配置“*Everyone*”和“**完全控制**”权限。
+11. 单击“**确定**”按钮。
 
 现在应该共享文件夹了。你可以通过在权限和安全性页面上更改权限来修改共享文件夹权限。
 
@@ -955,18 +955,18 @@ $ sudo apt install samba samba-common-bin smbclient cifs-utils
 
 在 Windows 10 上有一个共享向导，可以帮助完成其中某些步骤。
 
-1. 从“开始”菜单中运行计算机管理应用程序。
-2. 选择“共享文件夹” > “共享”。
-3. 单击鼠标右键，选择“新建共享”以开始共享向导。
-4. 单击“下一步”按钮。
-5. 选择要共享的文件夹，然后单击“下一步”按钮。
-6. 单击“下一步”以使用共享默认设置，或选择“自定义”并设置所需权限。
-7. 点击“确定”按钮。
-8. 点击“完成”按钮以共享文件夹。
+1. 从“开始”菜单中运行 **计算机管理** 应用程序。
+2. 选择“**共享文件夹**” > “**共享**”。
+3. 单击鼠标右键，选择“**新建共享**”以开始共享向导。
+4. 单击“**下一步**”按钮。
+5. 选择要共享的文件夹，然后单击“**下一步**”按钮。
+6. 单击“**下一步**”以使用共享默认设置，或选择“**自定义**”并设置所需权限。
+7. 点击“**确定**”按钮。
+8. 点击“**完成**”按钮以共享文件夹。
 
 #### 在树莓派上挂载文件夹。
 
-在 Linux 中，挂载即是将文件夹添加到某位置的过程，因此我们首先需要该位置。
+在 Linux 中，**挂载** 即是将文件夹添加到某位置的过程，因此我们首先需要该位置。
 
 ```sh
 $ mkdir windowshare
@@ -1066,7 +1066,7 @@ sudo apt install apache2 -y
 
 ### 测试 Web 服务器
 
-在默认情况下，Apache 会在 Web 文件夹中放置一个用于测试的 HTML 文件。当你在树莓派本体上访问 `http://localhost/`，或者在网络中的其他计算机上访问 `http://192.168.1.10`（无论树莓派的 IP 地址是什么）时，将提供该默认网页。要查找树莓派的 IP 地址，请在命令行中键入 `hostname -I`（或阅读更多来查找 IP 地址的有关信息）。
+在默认情况下，Apache 会在 Web 文件夹中放置一个用于测试的 HTML 文件。当你在树莓派本体上访问 `http://localhost/`，或者在网络中的其他计算机上访问 `http://192.168.1.10`（无论树莓派的 IP 地址是什么）时，将提供该默认网页。要查找树莓派的 IP 地址，请在命令行中键入 `hostname -I`（或阅读更多来查找 [IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)的有关信息）。
 
 在树莓派上或网络中的其他计算机上浏览默认网页，你将看到以下内容：
 
@@ -1144,7 +1144,7 @@ sudo nano index.php
 
 你可以设置一台 DHCP/TFTP 服务器，这能让你从网络引导树莓派 3、4。
 
-现在，假定你有一个既有的家庭网络，并且你想要使用树莓派作为服务器。你还需要其他树莓派 3、4 作为客户端进行引导。仅需一张存储卡，因为在初始客户端配置后，客户端将从服务器引导。
+现在，假定你有一个既有的家庭网络，并且你想要使用树莓派作为**服务器**。你还需要其他树莓派 3、4 作为客户端进行引导。仅需一张存储卡，因为在初始客户端配置后，**客户端**将从服务器引导。
 
 >**注意**
 >
@@ -1166,7 +1166,7 @@ sudo nano index.php
 $ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
 ```
 
-将 `program_usb_boot_mode=1` 添加到 `/boot/firmware/config.txt` 的末尾。使用 `sudo reboot` 重启树莓派。在客户端树莓派重启后，请检查 OTP 是否已编程为：
+将 `program_usb_boot_mode=1` 添加到 [`/boot/firmware/config.txt`](https://www.raspberrypi.com/documentation/computers/config_txt.html#what-is-config-txt) 的末尾。使用 `sudo reboot` 重启树莓派。在客户端树莓派重启后，请检查 OTP 是否已编程为：
 
 ```sh
 $ vcgencmd otp_dump | grep 17:
@@ -1197,13 +1197,13 @@ $ sudo raspi-config
 $ vcgencmd bootloader_config
 ```
 
-要了解如何配置树莓派 4 启动加载程序的更多详细信息，请参阅树莓派引导加载程序配置。
+要了解如何配置树莓派 4 启动加载程序的更多详细信息，请参阅[树莓派引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 ### 以太网 MAC 地址
 
 在配置网络引导之前，请记下序列号和 MAC 地址，以便 TFTP/DHCP 服务器可以识别开发板。
 
-在树莓派 4 上，MAC 地址是在制造时编程的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在启动加载程序的 HDMI 诊断屏幕上。
+在树莓派 4 上，MAC 地址是在制造时编程的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在启动加载程序的 [HDMI 诊断](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot-diagnostics-on-the-raspberry-pi-4)屏幕上。
 
 要查找以太网 MAC 地址：
 
@@ -1446,7 +1446,7 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 >**重要**
 >
->IPv6 网络启动是一项实验性的阿尔法功能，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于树莓派 4 和计算模块 4。
+>IPv6 网络启动是一项 **实验性的阿尔法** 功能，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于树莓派 4 和计算模块 4。
 
 
 ### 工作原理
@@ -1455,9 +1455,9 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 >**注意**
 >
->目前常用的 dnsmasq DHCP 服务器不支持 IPv6 网络启动所需的网络启动参数，因此在当下，你只能使用其他 DHCP 服务器，如 ISC DHCP。
+>目前常用的 DHCP 服务器 `dnsmasq` 不支持 IPv6 网络启动所需的网络启动参数，因此在当下，你只能使用其他 DHCP 服务器，如 I[SC DHCP](https://www.isc.org/dhcp/)。
 
-要通过网络挂载 rootfs，IPv4 网络引导教程建议使用 nfsroot。它不支持 IPv6，因此需要其他方法来通过网络挂载 rootfs。
+要通过网络挂载 `rootfs`，[IPv4 网络引导教程](https://www.raspberrypi.com/documentation/computers/remote-access.html#network-boot-your-raspberry-pi)建议使用 `nfsroot`。它不支持 IPv6，因此需要其他方法来通过网络挂载 `rootfs`。
 
 如果你的 ISP 和路由器不支持 IPv6，你将受到限制。
 
@@ -1475,7 +1475,7 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 无论使用无状态还是有状态配置，DHCP 服务器用于获取 TFTP 服务器地址。这是在 BOOTFILE-URL 参数中编码的。我们发送客户端架构类型值 `0x29` 以识别设备。
 
-请参阅 RFC 5970 和 IANA IPv6 动态主机配置协议文档。
+请参阅 [RFC 5970](https://datatracker.ietf.org/doc/html/rfc5970) 和 [IANA IPv6 动态主机配置协议](https://www.iana.org/assignments/dhcpv6-parameters/dhcpv6-parameters.xhtml)文档。
 
 #### 引导过程
 
