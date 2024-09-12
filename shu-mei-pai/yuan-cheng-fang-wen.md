@@ -1334,7 +1334,7 @@ $ sudo systemctl enable dnsmasq
 $ sudo tcpdump -i eth0 port bootpc
 ```
 
-将客户端树莓派连接到你的网络并打开电源。检查客户端的 LED 是否在大约 10 秒后亮起，然后你应该从客户端收到一个数据包“DHCP/BOOTP, Request from …”。
+把客户端树莓派接入你的网络，再打开电源。检查客户端的 LED 是否在大约 10 秒后亮起，然后你应该从客户端收到一个数据包“DHCP/BOOTP, Request from …”。
 
 ```sh
 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b8:27:eb...
@@ -1455,7 +1455,7 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 >**注意**
 >
->常用的 dnsmasq DHCP 服务器目前不支持 IPv6 网络启动所需的网络启动参数，因此在目前，你只能使用其他 DHCP 服务器，如 ISC DHCP。
+>目前常用的 dnsmasq DHCP 服务器不支持 IPv6 网络启动所需的网络启动参数，因此在当下，你只能使用其他 DHCP 服务器，如 ISC DHCP。
 
 要通过网络挂载 rootfs，IPv4 网络引导教程建议使用 nfsroot。它不支持 IPv6，因此需要其他方法来通过网络挂载 rootfs。
 
@@ -1463,7 +1463,7 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 #### 网络地址
 
-引导加载程序要做的第一件事是发送路由器请求，以获取网络的详细信息。路由器会以广告数据包回应，标识其以太网地址，如果 TFTP 服务器位于不同的网络上，引导加载程序可能会需要这些信息。
+引导加载程序要做的第一件事是发送路由器请求，以获取网络的详细信息。路由器会以通告数据包回应，标识其以太网地址，如果 TFTP 服务器位于不同的网络上，引导加载程序可能会需要这些信息。
 
 路由器通告包含一个标志，告诉它是否使用有状态（托管）或无状态（非托管）配置来获取其 IP 地址。无状态配置意味着设备配置自己的 IP 地址。目前，引导加载程序生成一个从其以太网 MAC 地址和路由器提供的网络前缀派生的地址。
 
@@ -1487,7 +1487,7 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 >**注意**
 >
->通过 IPv6 利用 NFS 启动 Linux 内核的机制仍有待论证。
+>通过 IPv6 利用 NFS 启动 Linux 内核的机制仍有待演示。
 
 
 ### 测试设置
