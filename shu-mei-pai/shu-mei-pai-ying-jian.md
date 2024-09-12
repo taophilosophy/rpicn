@@ -2564,7 +2564,7 @@ $ vcgencmd otp_dump
 
 109-114 工厂设备 UUID 目前是一个 16 位数字 id，应与设备上的条形码匹配。使用零字符填充并进行 c40 编码。
 
-此项信息可通过设备树在 /proc/device-tree/chosen/rpi-duid 中获取。
+此项信息可通过设备树在 `/proc/device-tree/chosen/rpi-duid` 中获取。
 
 ## 树莓派连接器用于 PCIe
 
@@ -2572,7 +2572,7 @@ $ vcgencmd otp_dump
 
 树莓派连接器用于 PCIe
 
-树莓派 5 版在主板的右侧有一个 FPC 连接器。该连接器提供了 PCIe Gen 2.0 ×1 接口，用于连接快速外设。
+树莓派 5 在主板的右侧有一个 FPC 连接器。该连接器提供了 PCIe Gen 2.0 ×1 接口，用于连接高速外设。
 
 将 PCIe HAT+ 设备连接到树莓派。你的树莓派应该会自动检测到该设备。要连接非 HAT+ 设备，请将其连接到树莓派，然后手动启用 PCIe。
 
@@ -2584,13 +2584,13 @@ $ vcgencmd otp_dump
 
 ### 启用 PCIe
 
-默认情况下，除非连接到了 HAT+ 设备，否则不会启用 PCIe 连接器。要启用连接器，请将以下行添加到 /boot/firmware/config.txt ：
+默认情况下，除非连接到了 HAT+ 设备，否则不会启用 PCIe 连接器。要启用连接器，请将以下行添加到 `/boot/firmware/config.txt` ：
 
 ```bash
 dtparam=pciex1
 ```
 
-使用 sudo reboot 重启以使配置更改生效。
+使用 `sudo reboot` 重启以使配置更改生效。
 
 >**注意**
 >
@@ -2598,13 +2598,13 @@ dtparam=pciex1
 
 ### 从 PCIe 启动
 
-默认情况下，树莓派设备不会从 PCIe 存储启动。要启用从 PCIe 启动，请更改引导加载程序配置中的 BOOT_ORDER。使用以下命令编辑 EEPROM 配置：
+默认情况下，树莓派设备不会从 PCIe 存储启动。要启用从 PCIe 启动，请更改引导加载程序配置中的 `BOOT_ORDER`。使用以下命令编辑 EEPROM 配置：
 
 ```bash
 $ sudo rpi-eeprom-config --edit
 ```
 
-将 BOOT_ORDER 行替换为如下行：
+将 `BOOT_ORDER` 行替换为如下行：
 
 ```bash
 BOOT_ORDER=0xf416
@@ -2616,7 +2616,7 @@ BOOT_ORDER=0xf416
 PCIE_PROBE=1
 ```
 
-保存更改后，使用 sudo reboot 重启你的树莓派以更新 EEPROM。
+保存更改后，使用 `sudo reboot` 重启你的树莓派以更新 EEPROM。
 
 ### PCIe 3.0
 
@@ -2624,17 +2624,17 @@ PCIE_PROBE=1
 >
 >树莓派 5 未获 3.0 速度认证。PCIe 3.0 连接可能不稳定。
 
-#### 通过 config.txt
+#### 通过 `config.txt`
 
-连接已被证明符合 Gen 2.0 速度（5 GT/sec），但你可以强制使用 Gen 3.0（10 GT/sec）速度。要启用 PCIe Gen 3.0 速度，请向 /boot/firmware/config.txt 添加以下行：
+连接已被证明符合 Gen 2.0 速度（5 GT/sec），但你可以强制使用 Gen 3.0（10 GT/sec）速度。要启用 PCIe Gen 3.0 速度，请向 `/boot/firmware/config.txt` 添加以下行：
 
 ```bash
 dtparam=pciex1_gen=3
 ```
 
-重启你的 Raspberry Pi，并使用 sudo reboot 使这些设置生效。
+重启你的树莓派，可使用 `sudo reboot` 使这些设置生效。
 
-#### 通过 raspi-config
+#### 通过 `raspi-config`
 
 运行以下命令打开树莓派配置 CLI：
 
@@ -2644,12 +2644,12 @@ $ sudo raspi-config
 
 完成以下步骤以启用 PCIe Gen 3.0 速度：
 
-1. 选择 Advanced Options。
-2. 选择 PCIe Speed。
-3. 选择 Yes 以启用 PCIe Gen 3 模式。
-4. 选择 Finish 以退出。
+1. 选择 **Advanced Options**。
+2. 选择 **PCIe Speed**。
+3. 选择 **Yes** 以启用 PCIe Gen 3 模式。
+4. 选择 **Finish** 以退出。
 
-使用 sudo reboot 重启你的 Raspberry Pi，以使这些设置生效。
+使用 `sudo reboot` 重启你的树莓派，以使这些设置生效。
 
 ## 电源按钮
 
@@ -2673,7 +2673,7 @@ $ sudo raspi-config
 
 >**注意**
 >
->重置电源管理芯片（PMIC）也可以重启。连接 HAT 会重置 PMIC。在连接 HAT 之前，应始终断开设备与电源的连接。
+>重置电源管理芯片（PMIC）也可以重启。连接扩展板会重置 PMIC。在连接扩展板之前，应始终断开设备与电源的连接。
 
 ### 硬关机
 
@@ -2695,7 +2695,7 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 
 ### 推荐的电源适配器
 
-对于树莓派 1、2、3，我们推荐使用 2.5A micro USB 适配器。对于树莓派 4、400，我们推荐使用 3A USB-C 适配器。对于树莓派 5，我们推荐使用 27W USB-C 电源适配器。
+对于树莓派 1、2、3，我们推荐使用 2.5A micro USB 适配器。对于树莓派 4、400，我们推荐使用 3A Type-C 适配器。对于树莓派 5，我们推荐使用 27W Type-C 电源适配器。
 
 >**注意**
 >
