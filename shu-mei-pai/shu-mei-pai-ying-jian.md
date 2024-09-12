@@ -323,15 +323,15 @@ $ vcgencmd measure_temp
 4. 选择 **选择操作系统（Choose OS）**
 5. 选择 **Misc utility images**
 
-![Select Misc utility images](https://www.raspberrypi.com/documentation/computers/images/misc-utility-images.png?hash=662b949f2e370649419c8efc7fc522f4)
+![选择 Misc utility images](../.gitbook/assets/misc-utility-images.png)
 
 6. 为你的树莓派选择 `Bootloader` (树莓派 400 属于 4 系列)
 
-![为你的树莓派选择 `Bootloader`](https://www.raspberrypi.com/documentation/computers/images/bootloader-family-select.png?hash=26cda00ff3f46580eac44af916437614)
+![为你的树莓派选择 `Bootloader`](../.gitbook/assets/bootloader-family-select.png)
 
 7. 选择引导模式：存储卡（建议）、USB、网络
 
-![选择你的存储设备](https://www.raspberrypi.com/documentation/computers/images/bootloader-storage-select.png?hash=08b572c18e189ab4dd7688838fc0a97b)
+![选择你的存储设备](../.gitbook/assets/bootloader-storage-select.png)
 
 8. 选择 **存储卡** 然后 **写入（Write）**
 9. 单击 **确认（Yes）** 继续
@@ -776,7 +776,7 @@ $ vcgencmd otp_dump | grep 17:
 * 检查可引导 USB 设备的默认超时时间为两秒。某些闪存驱动器和硬盘启动速度过慢。可以将此超时时间延长到五秒（需在存储卡中新建文件 timeout），但要注意某些设备可能需要更长时间来响应。
 * 某些闪存驱动器采用了非常罕见的协议，引导码无法处理，因此造成不兼容。
 
-### 特殊 bootcode.bin -仅引导模式
+### 特殊 bootcode.bin——仅引导模式
 
 对于树莓派 2B v1.2、3A+、3B 和 3B+，如果你无法使用特定的 USB 设备来启动，你可以使用 bootcode.bin 专用启动模式。树莓派 仍会从存储卡启动，但只会从存储卡中读取 bootcode.bin；你操作系统的其余部分仍存储于 USB 设备。
 
