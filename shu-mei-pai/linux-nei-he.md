@@ -6,7 +6,7 @@
 
 ## 更新
 
-普通的树莓派系统[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动把你的内核更新到最新稳定版本。如果你想尝试最新不稳定版测试内核，你可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
+日常的树莓派系统[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动把你的内核更新到最新稳定版本。如果你想尝试最新不稳定版测试内核，你可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
 
 ## 编译内核
 
@@ -514,11 +514,11 @@ $ git am -3 /path/to/patches/*
 
 要编译内核模块，你需要 Linux 内核头文件。这些头文件提供了编译与内核接口的代码所需的函数和结构定义。
 
-如果你从 GitHub 克隆了整个内核，头文件已经包含在源代码树中。如果你不需要其他额外的文件，可以仅使用 `apt` 安装内核头文件。
+如果你从 GitHub 克隆了整个内核，头文件已经包含在源代码树中了。如果你不需要其他额外的文件，可以仅使用 `apt` 安装内核头文件。
 
 >**技巧**
 >
->当发布新内核时，你需要与该内核版本匹配的头文件。通过更新 `apt` 包来收到最新内核版本可能需要几周时间。要下载最新版本的头文件，请[克隆内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building)。
+>当发布新内核时，你需要与该内核版本匹配的头文件。通过更新 `apt` 包来获取最新版内核可能需要几周时间。要下载最新版本的头文件，请[克隆内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building)。
 
 如果你使用的是 64 位版本的树莓派系统，请运行以下命令安装内核头文件：
 
@@ -526,7 +526,7 @@ $ git am -3 /path/to/patches/*
 $ sudo apt install linux-headers-rpi-v8
 ```
 
-如果你使用的是 32 位版本的树莓派系统，可运行以下命令安装内核头文件：
+如果你使用的是 32 位版本的树莓派系统，请运行以下命令安装内核头文件：
 
 ```
 $ sudo apt install linux-headers-rpi-{v6,v7,v7l}
@@ -534,7 +534,7 @@ $ sudo apt install linux-headers-rpi-{v6,v7,v7l}
 
 >**注意**
 >
->安装可能需要几分钟，没有进度指示器。 
+>安装可能需要几分钟，没有进度指示工具。 
 
 ## 贡献
 
@@ -545,16 +545,16 @@ $ sudo apt install linux-headers-rpi-{v6,v7,v7l}
 * 你修复了一项通用内核 bug
 * 你修复了一项树莓派的特定内核 bug
 
-对于树莓派特定的更改/bug 修复，可向树莓派内核提交一个 pull request。对于一般的 Linux 内核更改（例如新的驱动程序），请首先向上游 Linux 内核提交 pull request。待 Linux 内核接受了你的更改，我们方可收到这些更改。
+对于树莓派特定的更改/bug 修复，可向树莓派内核提交一个 pull request。对于一般的 Linux 内核更改（例如新的驱动程序），请先向上游 Linux 内核提交 pull request。待 Linux 内核接受了你的更改，我们方可收到这些更改。
 
 ### 贡献到树莓派内核
 
 首先，复刻[树莓派内核仓库](https://github.com/raspberrypi/linux) 并将其克隆到你的开发设备上。然后，你可以进行更改、测试，并将更改提交到你的复刻。
 
-接下来，将包含你更改的 pull request 提交到[树莓派内核仓库](https://github.com/raspberrypi/linux)。树莓派工程师会审查你的贡献并建议改进。待获得批准，我们会将你的更改合并，最终这些更改会进入树莓派内核的稳定版本。
+接下来，将涉及你更改的 pull request 提交到[树莓派内核仓库](https://github.com/raspberrypi/linux)。树莓派工程师会审查你的贡献并提出改进建议。一旦获得批准，我们就会将你的更改合并，最终这些更改会进入稳定版本的树莓派内核。
 
 ### 贡献到 Linux 内核
 
 首先，将 [Linux 内核树](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git)克隆到你的开发设备上。然后，你可以进行更改、测试，并将更改提交到你的本地树中。
 
-若你的更改准备就绪，你可以将其提交给 Linux 内核社区。Linux 内核开发是在邮件列表上进行的，而非 GitHub 上。为了使你的更改成为 Linux 内核的一部分，请通过电子邮件将其作为补丁提交给社区。请遵循文档[提交补丁：如何让你的改动进入内核](https://www.kernel.org/doc/html/latest/translations/zh_CN/process/submitting-patches.html)和[Linux 内核代码风格](https://www.kernel.org/doc/html/latest/translations/zh_CN/process/coding-style.html)。Linux 内核贡献者会审查你的贡献并建议改进。获得批准后，他们会将你的更改合并。最后，这些更改会进入 Linux 内核的长期发布版本。经过测试与树莓派内核的兼容性后，你的更改会进入树莓派内核的稳定版本。
+若你的更改准备就绪，你可以把它提交给 Linux 内核社区。Linux 内核开发是在邮件列表（而非 GitHub）上进行的。为使你的更改成为 Linux 内核的一部分，请通过电子邮件将其作为补丁提交给社区。请遵循文档[提交补丁：如何让你的改动进入内核](https://www.kernel.org/doc/html/latest/translations/zh_CN/process/submitting-patches.html)和[Linux 内核代码风格](https://www.kernel.org/doc/html/latest/translations/zh_CN/process/coding-style.html)。Linux 内核贡献者会审查你的贡献并建议改进。获得批准后，他们会将你的更改合并。最后，这些更改会进入 Linux 内核的长期发布版本。通过树莓派内核的兼容性测试后，你的更改就会进入稳定版本的树莓派内核。
