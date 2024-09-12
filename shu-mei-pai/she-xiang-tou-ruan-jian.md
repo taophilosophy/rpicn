@@ -18,13 +18,13 @@
 
 >**注意**
 >
->树莓派系统 Bookworm 把相机捕获应用程序从 `libcamera-*` 重命名为 `rpicam-*`。用户可暂时通过符号链接使用旧名称。请尽快采用新的软件名。之前的旧版树莓派系统仍使用 `libcamera-*` 这个名称。
+>树莓派系统 *Bookworm* 把相机捕获应用程序从 `libcamera-*` 重命名为 `rpicam-*`。用户可暂时通过符号链接使用旧名称。请尽快采用新的软件名。之前的旧版树莓派系统仍使用 `libcamera-*` 这个名称。
 
 树莓派提供了一小组示例 `rpicam-apps`。这些 CLI 应用程序基于 libcamera，从相机捕获图像和视频。这些应用程序包括：
 
-* `rpicam-hello` ：相机版的“hello world”，将启动相机预览流并在屏幕上显示它。
+* `rpicam-hello` ：相机版“hello world”，将启动相机预览流并在屏幕上显示它。
 * `rpicam-jpeg` ：打开预览窗口，随后捕获高分辨率的静止图像。
-* `rpicam-still` ：模拟了旧应用程序 raspistill 的许多功能。
+* `rpicam-still` ：模拟了旧软件 `raspistill` 的许多功能。
 * `rpicam-vid` ：捕获视频。
 * `rpicam-raw` ：直接从传感器捕获原始（未经处理的 Bayer）帧。
 * `rpicam-detect`：默认情况下未构建，但如果用户在其树莓派上安装了 TensorFlow Lite，则可构建。当检测到特定对象时，可捕获 JPEG 图像。
@@ -35,13 +35,13 @@
 
 ### `libcamera`
 
-libcamera 是一款开源软件库，旨在直接在基于 Arm 处理器上运行的 Linux 操作系统来使用相机设备。在博通 GPU 上运行的私有代码已被最小化。有关 libcamera 的更多信息，请参阅 libcamera 网站。
+`libcamera` 是一款开源软件库，旨在直接在基于 Arm 处理器上运行的 Linux 操作系统来使用相机设备。在博通 GPU 上运行的私有代码已被最小化。有关 `libcamera` 的更多信息，请参阅 `libcamera` 网站。
 
-libcamera 提供了 C++ API，用于配置相机，能让应用程序请求图像帧。这些图像缓冲区驻留在系统内存中，并可以直接传参给静态图像编码器（如 JPEG）或视频编码器（如 H.264）。libcamera 不会对图像进行编码及显示：要使用该功能，请使用 `rpicam-apps`。
+`libcamera` 提供了 C++ API，用于配置相机，能让应用程序请求图像帧。这些图像缓冲区驻留在系统内存中，并可以直接传参给静态图像编码器（如 JPEG）或视频编码器（如 H.264）。`libcamera` 不会对图像进行编码及显示：要使用该功能，请使用 `rpicam-apps`。
 
-你可以在 libcamera 官方存储库中找到源代码。树莓派系统发行版使用分支控制更新。
+你可以在 `libcamera` 官方存储库中找到源代码。树莓派系统发行版使用分支控制更新。
 
-在 libcamera 核心下，我们提供了自定义的流水线来处理程序。libcamera 使用这一层来驱动树莓派上的传感器和图像信号处理器（ISP）。libcamera 包含了一系列图像处理算法（IPAs），包括自动曝光/增益控制（AEC/AGC）、自动白平衡（AWB）和自动镜头阴影校正（ALSC）。
+在 `libcamera` 核心下，我们提供了自定义的流水线来处理程序。`libcamera` 使用这一层来驱动树莓派上的传感器和图像信号处理器（ISP）。`libcamera` 包含了一系列图像处理算法（IPA），包括自动曝光/增益控制（AEC/AGC）、自动白平衡（AWB）和自动镜头阴影校正（ALSC）。
 
 树莓派的 libcamera 实现可支持以下摄像头：
 
@@ -58,7 +58,7 @@ libcamera 提供了 C++ API，用于配置相机，能让应用程序请求图�
   * IMX519
   * OV9281
 
-要增加对新传感器的支持，请向 libcamera 贡献。
+要增加对新传感器的支持，请贡献至 `libcamera`。
 
 ### `rpicam-hello`
 
@@ -74,7 +74,7 @@ $ rpicam-hello
 $ rpicam-hello --timeout 0
 ```
 
-在终端中使用 **Ctrl** + **C** 或在预览窗口上点击关闭按钮结束 `rpicam-hello`。
+要结束 `rpicam-hello`，可在终端中按 **Ctrl** + **C**，或在预览窗口上点击关闭按钮。
 
 #### 显示图像传感器预览
 
