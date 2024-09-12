@@ -2152,7 +2152,7 @@ GPIO 驱动强度并不表示最大电流，仅表示在此电流下 pad 仍将�
 >
 >对于树莓派 4、400，计算模块 4，当前级别是图表中显示数值的一半。
 
-![GPIO 驱动强度表](https://www.raspberrypi.com/documentation/computers/images/pi_gpio_drive_strength_diagram.png?hash=466ec669893a20d65c4f54da5aea9e3f)
+GPIO 驱动强度表](https://www.raspberrypi.com/documentation/computers/images/pi_gpio_drive_strength_diagram.png?hash=466ec669893a20d65c4f54da5aea9e3f)
 
 ### 当前数值
 
@@ -2568,7 +2568,7 @@ $ vcgencmd otp_dump
 
 ## 树莓派连接器用于 PCIe
 
-![树莓派 connector for PCIe](https://www.raspberrypi.com/documentation/computers/images/pcie.jpg?hash=35b4d5db3702574625f0e1e9686cdd51)
+![树莓派 PCIe 连接器](https://www.raspberrypi.com/documentation/computers/images/pcie.jpg?hash=35b4d5db3702574625f0e1e9686cdd51)
 
 树莓派连接器用于 PCIe
 
@@ -2681,7 +2681,7 @@ $ sudo raspi-config
 
 ### 添加你自己的电源按钮
 
-![The J2 jumper on 树莓派 5](https://www.raspberrypi.com/documentation/computers/images/j2.jpg?hash=00e7c33a44c6f752d7818627617a44fb)
+![树莓派 5 J2 跳线](https://www.raspberrypi.com/documentation/computers/images/j2.jpg?hash=00e7c33a44c6f752d7818627617a44fb)
 
  J2 跳线帽
 
@@ -2707,7 +2707,7 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 
 ### 以太网供电（PoE）连接器
 
-![The PoE connector,width=](https://www.raspberrypi.com/documentation/computers/images/poe.jpg?hash=c85522d9ada495cda39eb5e7198205a5)
+![PoE 连接器](https://www.raspberrypi.com/documentation/computers/images/poe.jpg?hash=c85522d9ada495cda39eb5e7198205a5)
 
 树莓派 5 PoE 扩展版
 
@@ -2831,7 +2831,7 @@ USB 规范要求 USB 设备不能向上游设备供电。如果 USB 设备向上
 
 树莓派 5 内置了一个 RTC 模块。它通过位于 USB-C 电源连接器右侧，主板上的 J5（BAT）连接器接入电池供电。
 
-![The J5 battery connector](https://www.raspberrypi.com/documentation/computers/images/j5.png?hash=70853cc7a9a01cd836ed8351ece14d59)
+![J5 电池连接器](https://www.raspberrypi.com/documentation/computers/images/j5.png?hash=70853cc7a9a01cd836ed8351ece14d59)
 
 J5 电池连接器
 
@@ -2871,7 +2871,7 @@ RTC 还提供了启动时的时间，例如 dmesg，适用于缺乏 NTP 访问�
 
 ### 添加备用电池
 
-![Lithium-manganese rechargeable RTC battery](https://www.raspberrypi.com/documentation/computers/images/rtc-battery.jpg?hash=1a1bf655f9bce54c3b4c0a345f3e025c)
+![可充电式锂锰 RTC 电池](https://www.raspberrypi.com/documentation/computers/images/rtc-battery.jpg?hash=1a1bf655f9bce54c3b4c0a345f3e025c)
 
 锂锰可充电 RTC 电池
 
@@ -2879,7 +2879,7 @@ RTC 还提供了启动时的时间，例如 dmesg，适用于缺乏 NTP 访问�
 
 >**注意**
 >
->不建议把大部分（非可充电）锂电池用作 RTC 的备用电源。RTC 的备用电流消耗要高于大多数专用 RTC 模块，使用寿命将非常短暂。
+>我们不建议使用一次性（不可充电）的锂电池为 RTC 提供电源。RTC 的备用电流消耗比大多数专用 RTC 模块更高，这将导致电池的使用寿命缩短。
 
 >**警告**
 >
