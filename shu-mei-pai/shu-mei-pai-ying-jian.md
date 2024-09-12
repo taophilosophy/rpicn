@@ -2009,7 +2009,7 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 | `bus-format`     | 覆盖 `MEDIA_BUS_FMT_*` 值的总线格式，也被 rgbXXX 覆盖 |
 | `backlight-gpio`     | 定义用于背光控制的 GPIO（默认值：无）              |
 
-## GPIO 和 40 针排针
+## GPIO 和 40 脚排针
 
 你可以在所有当前的树莓派主板上找到一个 40 针 GPIO（通用输入/输出）排针。主板上所有的 GPIO 排针间距均为 0.1 英寸（2.54 mm）。
 
@@ -2017,11 +2017,11 @@ dtparam=clock-frequency=32000000,rgb666-padhi
 >
 >“H”后缀的 Zero 和 Pico 没有排针。
 
-![GPIO pinout 图](https://www.raspberrypi.com/documentation/computers/images/GPIO-Pinout-Diagram-2.png?hash=df7d7847c57a1ca6d5b2617695de6d46)
+![GPIO pinout 图](../.gitbook/assets/GPIO-Pinout-Diagram-2.png)
 
 通用 I/O (GPIO) 引脚可配置为通用输入、通用输出，或者最多六种特殊交替设置之一，其功能取决于引脚。
 
-![GPIO 布局](https://www.raspberrypi.com/documentation/computers/images/GPIO.png?hash=335edaa0c254546813319d80556f842f)
+![GPIO 布局](../.gitbook/assets/GPIO.png)
 
 >**注意**
 >
