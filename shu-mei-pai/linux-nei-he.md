@@ -61,7 +61,7 @@ $ sudo apt install bc bison flex libssl-dev make
 本节介绍了如何在编译内核时采用默认配置。你也可以使用以下方式配置你的内核：
 
 * [启用、禁用内核功能](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)
-* [打上其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
+* [应用其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
 
 要准备默认配置，请根据你的树莓派型号执行下表中的对应命令。
 
@@ -96,16 +96,118 @@ $ sudo apt install bc bison flex libssl-dev make
 
 >**注意**
 >
->树莓派 4B、5、400，计算模块 4、计算模块 4S 上的 32 位版树莓派系统使用 32 位用户空间，但运行的是 **64 位内核**。如果要编译 32 位内核，请设置 `ARCH=arm`。若要启动 32 位内核，在 `config.txt` 中设置 `arm_64bit=0`。
+>树莓派 4B、5、400，计算模块 4、计算模块 4S 上的 32 位版树莓派系统使用了 32 位用户空间，但运行的是 **64 位内核**。如果要编译 32 位内核，请设定 `ARCH=arm`。若要启动 32 位内核，在 `config.txt` 中设定 `arm_64bit=0`。
 
+#### 使用 `LOCALVERSION` 自定义内核版本
+
+为了防止内核覆盖 `/lib/modules` 中的现有模块，并在 `uname` 输出中明确输出你运行的是自定义内核，请调整 `LOCALVERSION`。
+
+要调整 `LOCALVERSION`，请修改 `.config` 文件中的这一行：
+
+```json
+CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
+```
+
+>**技巧**
+>
+>你还可以通过图形界面的 `menuconfig` 更改此设置，路径为 **General setup** \> **Local version - append to kernel release**。更多有关 `menuconfig` 的信息，请参见 [内核配置说明](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)。
+
+#### 编译
+
+接下来，编译内核。根据你的树莓派型号，此步骤可能需要很长时间。
+
+* 运行以下命令可编译 64 位内核：
+
+  ```bash
+  $ make -j6 Image.gz modules dtbs
+  ```
+* 运行以下命令可编译 32 位内核：
+
+  ```bash
+  $ make -j6 zImage modules dtbs
+  ```
+
+>**技巧**
+>
+>在多核款树莓派上，参数 `make -j<数量>` 会把工作分配到多个核心，从而显著提高编译速度。可运行 `nproc` 查看你有多少处理器，我们建议使用的数字为处理器数量的 1.5 倍。
+
+#### 安装内核
+
+接下来，将内核模块安装到启动介质上：
+
+```bash
+$ sudo make -j6 modules_install
+```
+
+然后，将内核和设备树二进制文件安装到启动分区中，并备份原有内核。
+
+>**技巧**
+>
+>如果你不想将新编译的内核安装到运行此命令的树莓派上，请将编译好的内核复制到一个单独启动介质的启动分区中，而非 `/boot/firmware/`。
+
+要安装 64 位内核：
+
+* 运行以下命令可创建当前内核的备份镜像，安装新的内核镜像、覆盖文件、README 文件，再卸载分区：
+
+  ```bash
+  $ sudo cp /boot/firmware/$KERNEL.img /boot/firmware/$KERNEL-backup.img
+  $ sudo cp arch/arm64/boot/Image.gz /boot/firmware/$KERNEL.img
+  $ sudo cp arch/arm64/boot/dts/broadcom/*.dtb /boot/firmware/
+  $ sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/firmware/overlays/
+  $ sudo cp arch/arm64/boot/dts/overlays/README /boot/firmware/overlays/
+  ```
+
+要安装 32 位内核：
+
+1. 备份当前内核并安装新的内核镜像：
+
+    ```bash
+    $ sudo cp /boot/firmware/$KERNEL.img /boot/firmware/$KERNEL-backup.img
+    $ sudo cp arch/arm/boot/zImage /boot/firmware/$KERNEL.img
+    ```
+2. 根据你的 [内核版本](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#identify-your-kernel-version)，运行以下命令：
+
+    * 对于 6.4 版本及以下的内核：
+
+      ```bash
+      $ sudo cp arch/arm/boot/dts/*.dtb /boot/firmware/
+      ```
+    * 对于 6.5 版本及以上的内核：
+
+      ```bash
+      $ sudo cp arch/arm/boot/dts/broadcom/*.dtb /boot/firmware/
+      ```
+3. 最后，复制覆盖文件和 README 文件：
+
+    ```bash
+    $ sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/firmware/overlays/
+    $ sudo cp arch/arm/boot/dts/overlays/README /boot/firmware/overlays/
+    ```
+
+最后，运行以下命令重新启动你的树莓派，并运行新编译的内核：
+
+```bash
+$ sudo reboot
+```
+
+
+>**技巧**
+>
+>还可以使用不同的文件名（例如 `kernel-myconfig.img`）复制内核，而不是覆盖文件 `kernel.img` 。然后，在引导分区下编辑 `config.txt`，选择你的内核：
+>
+>```bash
+>kernel=kernel-myconfig.img
+>```
+>
+>将此方法与自定义 `LOCALVERSION` 结合使用，可将你的自定义内核与系统管理的默认内核镜像分开。这样一来，如果你的内核无法启动，你可以快速恢复到默认内核。
 
 ### 交叉编译内核
 
-首先，你需要一台合适的 Linux 交叉编译主机。我们一般用 Ubuntu。由于树莓派系统同样也是一款基于 Debian 的发行版，所以编译命令非常接近。
+首先，你需要一台合适的 Linux 交叉编译主机。我们一般用 Ubuntu。由于树莓派系统同样也是一款基于 Debian 的发行版，所以编译命令极为接近。
 
 #### 安装所需的依赖和工具链
 
-要为交叉编译构建源代码，请在设备上安装所需的依赖包。运行以下命令可安装大多数依赖：
+要通过交叉编译构建源代码，请在设备上安装所需的依赖包。运行以下命令可安装大多数依赖：
 
 ```bash
 $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
@@ -195,7 +297,7 @@ CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
 
 ##### 找到你的启动介质
 
-首先，运行 `lsblk`。然后接入启动介质，再次运行 `lsblk`；新出现的设备就是你的启动介质。你将看到类似如下的输出：
+首先运行 `lsblk`。然后接入启动介质，再次运行 `lsblk`；新出现的设备就是你的启动介质。你将看到类似如下的输出：
 
 ```bash
 sdb
@@ -284,20 +386,20 @@ $ sudo mount /dev/sdb2 mnt/root
 
 >**技巧**
 >
->你还以使用不同的文件名（例如 `kernel-myconfig.img`）来复制内核，而非直接覆盖文件 `kernel.img`。然后，编辑启动分区中的 `config.txt` 文件来选择您的内核：
+>你还以使用不同的文件名（例如 `kernel-myconfig.img`）来复制内核，而非直接覆盖文件 `kernel.img`。然后，编辑启动分区中的 `config.txt` 文件来选择你的内核：
 >
 >```bash
 >kernel=kernel-myconfig.img
 >```
 >
->把这种方法与自定义 `LOCALVERSION` 结合使用，可将您的自定义内核与系统管理的标准内核镜像分开。在这种安排下，如果您的内核无法启动，您可以快速还原到标准内核。
+>把这种方法与自定义 `LOCALVERSION` 结合使用，可将你的自定义内核与系统管理的标准内核镜像分开。在这种安排下，如果你的内核无法启动，你可以快速还原到标准内核。
 
 
 ## 配置内核
 
-Linux 内核高度可配置。高级用户可能希望修改默认配置以满足他们的需求，例如启用新的或实验性的网络协议，或支持新硬件。
+Linux 内核具有极高的可配置性。专业用户可能希望修改默认配置来满足他们的需求，如启用新的/实验性的网络协议，或支持新硬件。
 
-配置最常通过 `make menuconfig` 界面进行。你也可以手动修改 `.config` 文件，但这可能会更复杂。
+配置一般通过 `make menuconfig` 界面进行。你也可以手动修改文件 `.config`，但这可能会更复杂。
 
 ### 准备配置
 
@@ -333,16 +435,16 @@ $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 
 * 使用 **方向键** 进行方向切换
 * 要进入子菜单（由 `--->` 指示），按 **回车键** 
-* 要返回上一级或退出，按 **Esc 键** 两次
+* 要返回上一级或退出，按两次 **Esc 键** 
 * 要切换二进制选项的状态，按 **空格键**
 * 要选择多选项的状态，按 **回车键** 打开子菜单，使用 **方向键** 切换子菜单，再按 **回车键** 选择状态
 * 要获取参数/菜单的帮助，按 **H 键** 
 
-在简短的编译之后，`menuconfig` 会显示一个带有所有可以配置选项的子菜单列表。参数很多，所以需要花点时间阅读。请避免在第一次尝试时启用/禁用过多的选项；配置过程相对容易出错，所以从小处开始，以熟悉配置和构建过程。
+在简短的编译之后，`menuconfig` 会显示一个带有所有可以配置选项的子菜单列表。参数很多，所以需要花点时间才能读完。请避免在第一次尝试时启用/禁用过多的选项；配置过程相对容易出错，所以从小处开始，以熟悉配置和构建过程。
 
 ### 保存更改
 
-完成更改后，按 **Esc** 直到出现保存新配置的提示。在默认情况下，会保存到文件 `.config`。你可以通过复制此文件来保存和加载配置。
+完成更改后，按 **Esc 键** 直到出现保存新配置的提示。在默认情况下，会保存到文件 `.config`。你可以通过复制此文件来保存和加载配置。
 
 自定义完成后，你现在可以[构建内核](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building)了。
 
@@ -377,11 +479,11 @@ SUBLEVEL = 38
 
 在这个实例中，源代码是针对 6.1.38 内核的。
 
-### 应用补丁
+### 打补丁
 
-应用补丁的方式取决于补丁的分发格式。
+打补丁的方式取决于补丁的分发格式。
 
-开发人员通常将大多数补丁以单个文件的形式分发。使用工具 `patch` 来应用这些补丁。以下命令下载、解压并将实时内核补丁应用到我们的示例内核版本中：
+开发人员通常将大多数补丁以单个文件的形式分发。使用工具 `patch` 来打上这些补丁。以下命令可下载、解压并将实时内核补丁应用到我们的示例内核版本中：
 
 ```bash
 $ wget https://www.kernel.org/pub/linux/kernel/projects/rt/6.1/patch-6.1.38-rt13-rc1.patch.gz
@@ -389,11 +491,11 @@ $ gunzip patch-6.1.38-rt13-rc1.patch.gz
 $ cat patch-6.1.38-rt13-rc1.patch | patch -p1
 ```
 
-有些开发人员以 **邮箱格式** 分发补丁，这是一种包含多个补丁文件的文件夹。可使用 Git 来应用这些补丁。
+有些开发人员以 **邮箱格式（mailbox format）** 分发补丁，这是一种包含多个补丁文件的文件夹。可使用 Git 来应用这些补丁。
 
 >**注意**
 >
->在使用 Git 应用邮箱补丁之前，请为您的本地 Git 安装配置姓名和电子邮件：
+>在使用 Git 应用邮箱补丁之前，请为你的本地 Git 安装配置姓名和电子邮件：
 >
 >```bash
 >$ git config --global user.name "your name"
@@ -412,7 +514,7 @@ $ git am -3 /path/to/patches/*
 
 要编译内核模块，你需要 Linux 内核头文件。这些头文件提供了编译与内核接口的代码所需的函数和结构定义。
 
-如果你从 GitHub 克隆了整个内核，头文件已经包含在源代码树中。如果你不需要所有额外的文件，可以仅使用 `apt` 安装内核头文件。
+如果你从 GitHub 克隆了整个内核，头文件已经包含在源代码树中。如果你不需要其他额外的文件，可以仅使用 `apt` 安装内核头文件。
 
 >**技巧**
 >
