@@ -139,15 +139,15 @@
 
 在树莓派启动盘制作工具安装完成后，单击启动盘制作工具的图标（或执行 `rpi-imager`）即可启动应用程序。
 
-![树莓派启动盘制作工具主窗口](https://www.raspberrypi.com/documentation/computers/images/imager/welcome.png)
+![树莓派启动盘制作工具主窗口](../.gitbook/assets/welcome.png)
 
 单击“**选择设备（Choose device）**”，然后从列表中选定你的树莓派型号。
 
-![在树莓派启动盘制作工具中选定树莓派的型号](https://www.raspberrypi.com/documentation/computers/images/imager/choose-model.png)
+![在树莓派启动盘制作工具中选定树莓派的型号](../.gitbook/assets/choose-model.png)
 
 接下来，单击“**选择操作系统（Choose OS）**”，然后选定要安装的操作系统。树莓派启动盘制作工具将始终在列表顶部显示树莓派系统（Raspberry Pi OS），且是适用于你树莓派型号的推荐版本。
 
-![在树莓派启动盘制作工具中选定操作系统](https://www.raspberrypi.com/documentation/computers/images/imager/choose-os.png)
+![在树莓派启动盘制作工具中选定操作系统](../.gitbook/assets/choose-os.png)
 
 将所选存储设备接入计算机。若使用外部/内置存储卡读卡器，请先插入存储卡。然后，单击“**选择存储设备（Choose storage）**”，选择你的存储设备。
 
@@ -155,15 +155,15 @@
 >
 >如果你的计算机接入了多款存储设备，**请务必选择正确的那款设备！** 通常可以用大小来识别存储设备。如不确定，请断开其他设备，直到能确定要写入镜像的存储设备。
 
-![在树莓派启动盘制作工具中选择存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/choose-storage.png)
+![在树莓派启动盘制作工具中选择存储设备](../.gitbook/assets/choose-storage.png)
 
 接下来，点击“**下一步（Next）**。
 
-![在树莓派启动盘制作工具中打开操作系统定制](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-prompt.png)
+![在树莓派启动盘制作工具中打开自定义系统配置](../.gitbook/assets/os-customisation-prompt.png)
 
-在弹出窗口中，树莓派启动盘制作工具会要求你应用操作系统设置。我们强烈建议使用操作系统定制设置来设定你的树莓派。单击“编辑设置（Edit Settings）”按钮可打开操作系统定制（ OS customisation）。
+在弹出窗口中，树莓派启动盘制作工具会要求你应用操作系统设置。我们强烈建议使用自定义系统配置来设定你的树莓派。单击“编辑设置（Edit Settings）”按钮可打开自定义系统配置（ OS customisation）。
 
-如果你没有用操作系统定制这个功能来设定你的树莓派，在首次启动时，树莓派系统会在配置向导中，要求你再次提供相同内容。你可以单击选项“否（No）”来跳过操作系统自定义。
+如果你没有用自定义系统配置这个功能来设定你的树莓派，在首次启动时，树莓派系统会在配置向导中，要求你再次提供相同内容。你可以单击选项“否（No）”来跳过自定义系统配置。
 
 #### 操作系统定制
 
@@ -176,7 +176,7 @@
 * 键盘布局
 * 远程连接
 
-在你首次打开系统自定义菜单时，你也许会看到一个提示，询问你是否允许从计算机加载 WiFi 凭据。如果你回答“确认”，启动盘制作工具将从你当前连接的网络预填 Wi-Fi 凭据。如果你回答“否”，你可手动输入 WiFi 凭据。
+在你首次打开菜单自定义系统配置时，你也许会看到一个提示，询问你是否允许从计算机加载 WiFi 凭据。如果你回答“确认”，启动盘制作工具将从你当前连接的网络预填 Wi-Fi 凭据。如果你回答“否”，你可手动输入 WiFi 凭据。
 
 参数 **主机名（hostname）** 设定了你的树莓派在网络上广播的主机名（使用 [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS)）。当你把树莓派接入网络后，网络上的其他设备就可以使用 `<你的主机名>.local` 或 `<你的主机名>.lan` 与你的树莓派进行通信。
 
@@ -184,22 +184,22 @@
 
 参数 **无线局域网（wireless LAN）** 能让你输入无线网络的 SSID（网络名称）和密码。如果你的网络未公开广播 SSID，则应启用“隐藏 SSID”设置。在默认情况下，制作工具会使用你当前所在的地区作为“无线局域网地区”。该设置控制着树莓派使用的 WiFi 广播频率。如果你打算运行无头树莓派，请为无线局域网这个参数输入凭据。
 
-参数 **区域设置（ locale settings）** 能为你的树莓派设定时区和默认键盘布局。
+参数 **本地化设置（ locale settings）** 能为你的树莓派设定时区和默认键盘布局。
 
-![操作系统自定义菜单的常规设置](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-general.png)
+![自定义系统配置菜单的常规设置](../.gitbook/assets/os-customisation-general.png)
 
 参数 **服务（Services）** 涉及了帮助你远程连接到树莓派的配置。
 
 如果你打算用网络远程使用你的树莓派，请勾选“启用 SSH（Enable SSH）”旁边的方框。或者说，如果你想要不靠显示器直接运行树莓派，请启用该功能。
 
-* 选择参数 **密码验证（password authentication）** ，可使用你在操作系统定制的常规选项卡中提供的用户名和密码通过网络 SSH 连接到你的树莓派。
+* 选择参数 **密码验证（password authentication）** ，可使用你在自定义系统配置的通用选项卡中提供的用户名和密码通过网络 SSH 连接到你的树莓派。
 * 选择 **仅允许公钥验证（Allow public-key authentication only ）**，可为你的树莓派预配置无密码，仅公钥的 SSH 验证，默认会使用你当前计算机上的私钥。如果你的 SSH 配置中已经有 RSA 密钥，制作工具将使用该公钥。如果没有，你可单击“**运行 SSH-keygen（Run SSH-keygen）**”来生成公私钥对。制作工具会使用新生成的公钥。
 
-![操作系统定制菜单中的服务设置](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-services.png)
+![自定义系统配置菜单中的服务设置](../.gitbook/assets/os-customisation-services.png)
 
-系统定制还有“**选项（Options）**”这个菜单，能让你在写入过程中配置制作工具的操作。这些参数能让你在制作工具完成镜像校验时播放声音、在校验后自动卸载存储介质和禁用遥测。
+系统定制还有“**可选配置（Options）**”这个菜单，能让你在写入过程中配置制作工具的操作。这些参数能让你在制作工具完成镜像校验时播放声音、在校验后自动卸载存储介质和禁用遥测。
 
-![操作系统自定义菜单选项](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-options.png)
+![自定义系统配置的可选配置菜单](../.gitbook/assets/os-customisation-options.png)
 
 #### 写入
 
@@ -209,21 +209,21 @@
 
 最后，回答弹出窗口“你确定要继续吗？（`Are you sure you want to continue?`）”中的“**确认（Yes）**”，开始向存储设备写入数据。
 
-![在启动盘制作工具中再次确认要写入镜像的存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
+![在启动盘制作工具中再次确认要写入镜像的存储设备](../.gitbook/assets/are-you-sure.png)
 
 如果看到要求管理员权限以读取和写入存储介质的提示，要继续，请授予制作工具权限。
 
-![在启动盘制作工具中向设备写入镜像](https://www.raspberrypi.com/documentation/computers/images/imager/writing.png)
+![在启动盘制作工具中向设备写入镜像](../.gitbook/assets//writing.png)
 
 >这可能需要几分钟。去喝杯咖啡，散散步吧。
 
-![在启动盘制作工具中校验设备上的镜像](https://www.raspberrypi.com/documentation/computers/images/imager/stop-ask-verify.png)
+![在启动盘制作工具中校验设备种的镜像](../.gitbook/assets/stop-ask-verify.png)
 
 >如果你想要找刺激，可以点击 **取消校验（cancel verify）** 来跳过校验这个过程。
 
 当你看到弹出窗口“写入成功”时，表示镜像已完全写入和验证。现在你可以从存储设备启动树莓派了！
 
-![当向存储设备的镜像写入完成后，制作工具会在屏幕上显示](https://www.raspberrypi.com/documentation/computers/images/imager/finished.png)
+![当向存储设备的镜像写入完成后，制作工具会在屏幕上显示](../.gitbook/assets/finished.png)
 
 接下来，继续进行[首次启动配置说明](https://www.raspberrypi.com/documentation/computers/getting-started.html#configuration-on-first-boot)，让你的树莓派跑起来。
 
