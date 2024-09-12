@@ -2152,7 +2152,7 @@ GPIO 驱动强度并不表示最大电流，仅表示在此电流下 pad 仍将�
 >
 >对于树莓派 4、400，计算模块 4，当前级别是图表中显示数值的一半。
 
-GPIO 驱动强度表](https://www.raspberrypi.com/documentation/computers/images/pi_gpio_drive_strength_diagram.png?hash=466ec669893a20d65c4f54da5aea9e3f)
+![GPIO 驱动强度表](https://www.raspberrypi.com/documentation/computers/images/pi_gpio_drive_strength_diagram.png?hash=466ec669893a20d65c4f54da5aea9e3f)
 
 ### 当前数值
 
