@@ -2,19 +2,19 @@
 
 ## 简介
 
-树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派内核则会集成到 **long-term releases（长期支持版本）** 的 Linux 内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期支持版的 Linux 内核生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到主分支中。
+树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派将则会将 **long-term releases（长期维护版本）** 的 Linux 内核集成到树莓派内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期维护的 Linux 内核版本生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到我们版本库的主分支（main）中。
 
 ## 更新
 
-一般的[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动将把树莓派系统的内核更新到最新稳定版本。如果你想尝试最新不稳定版测试内核，可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
+普通的树莓派系统[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动把你的内核更新到最新稳定版本。如果你想尝试最新不稳定版测试内核，你可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
 
 ## 编译内核
 
-操作系统自带的编译器，链接器通常配置为：为能在该系统上运行的可执行文件而进行编译。**本机编译** 使用这些默认的编译器和链接器。而 **交叉编译** 是指为与当前编译环境不同的目标系统编译代码的流程。
+操作系统自带的编译器，链接器通常配置为：为能在该系统上运行的可执行文件而进行编译。**本地编译（Native builds）** 使用上述默认的编译器和链接器。而 **交叉编译（Native builds）** 是指为与当前编译环境不同的目标系统编译代码的流程。
 
-树莓派内核的交叉编译能让你在 32 位操作系统上编译 64 位内核，反之亦然。你还可以在非树莓派设备上交叉编译 32 位（或 64 位）的树莓派内核。
+对树莓派内核的交叉编译能让你在 32 位操作系统上编译 64 位内核，反之亦然。你还可以在非树莓派设备上交叉编译 32 位（或 64 位）的树莓派内核。
 
-以下说明分为本机编译和交叉编译两个部分。请选择适合你的那个部分，虽然这两种方式有许多相似步骤，但也有某些明显的差异。
+以下说明分为本地编译和交叉编译两部分。请选择适合你的那个部分，虽然这两种方式有许多相似步骤，但也有些许明显的差异。
 
 ### 下载内核源码
 
@@ -44,9 +44,9 @@ $ git clone --depth=1 https://github.com/raspberrypi/linux
 >
 >要查看所有可用分支的完整列表，请参见[树莓派内核仓库](https://github.com/raspberrypi/linux)。
 
-现在你已经有了内核源码，可以选择[本机编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#natively-build-a-kernel)还是用[交叉编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compile-the-kernel)构建新内核。
+现在你已经有了内核源码，可以选择[本地编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#natively-build-a-kernel)还是用[交叉编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compile-the-kernel)构建新内核。
 
-### 本机编译内核
+### 本地编译内核
 
 本指南假设你运行着树莓派最新版本的[树莓派系统](https://www.raspberrypi.com/documentation/computers/os.html)。
 
