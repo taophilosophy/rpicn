@@ -407,7 +407,7 @@ BOOTLOADER: up to date
     LATEST: 000138c0
 ```
 
-#### 阅读当前引导程序配置
+#### 查阅当前引导程序配置
 
 要查看当前运行的引导程序使用之配置，请运行以下命令：
 
@@ -612,7 +612,7 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 若即使使用了这个 `bootcode.bin`，你的大容量存储设备还是无法使用，请在存储卡上新建一个名为“timeout”的文件。这将使其等待大容量存储设备初始化的时间延长到 6 秒。
 
-### `bootcode.bin` 启用串口
+### 启用 `bootcode.bin` 串口
 
 >**注意**
 >
