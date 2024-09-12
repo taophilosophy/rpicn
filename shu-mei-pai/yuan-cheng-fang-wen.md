@@ -484,7 +484,9 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 5. 单击“Connect”按钮，与服务器建立连接。
     * 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。
+
 ![TigerVNC 关于证书不匹配的警告](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-warning.png)
+
     * 如果 TigerVNC 警告你“证书由未知机构签署”，请单击“是”按钮以为你的树莓派授予异常。
 
 ![TigerVNC 关于由未知机构签署的证书的警告](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
@@ -545,7 +547,7 @@ $ scp myfile.txt myfile2.txt <用户名>@<树莓派IP地址>:
 $ scp *.txt <用户名>@<树莓派IP地址>:
 ```
 
-以下命令可复制所有以 m 开头的文件：
+以下命令可复制所有以 `m` 开头的文件：
 
 ```sh
 $ scp m* <用户名>@<树莓派IP地址>:
@@ -984,7 +986,7 @@ $ ls windowshare/
 
 #### 报错“Host is down”（主机已关闭）
 
-当 SMB 协议版本不匹配且 Linux Samba 客户端返回误导性错误消息时会发生此错误。在默认情况下，树莓派系统使用 2.1 及以上版本，与 Windows 7 及更高版本兼容。一些 NAS 在内的旧款设备可能需要 1.0 版本。要解决此错误，请在你的挂载命令中添加一个版本条目（例如 `,vers=1.0` ）：
+当 SMB 协议版本不匹配且 Linux Samba 客户端返回误导性错误消息时会发生此错误。在默认情况下，树莓派系统使用 2.1 及以上版本，兼容 Windows 7 及更高版本。某些 NAS 在内的旧款设备可能需要 1.0 版本。要解决此错误，请在你的挂载命令中添加一个版本条目（例如 `,vers=1.0` ）：
 
 ```sh
 $ sudo mount.cifs //IP/share /mnt/挂载点 -o user=<用户名>,vers=1.0
@@ -1004,7 +1006,7 @@ $ sudo mount.cifs //IP/share /mnt/挂载点 -o user=<用户名>,vers=1.0
 
 ### 从你的树莓派共享文件夹
 
-首先，创建一个要共享的文件夹。此示例在当前用户的 `home` 文件夹中创建一个名为 `shared` 的文件夹：
+先创建一个要共享的文件夹。此例在当前用户的 `home` 文件夹中创建了一个名为 `shared` 的文件夹：
 
 ```sh
 $ cd ~
@@ -1012,7 +1014,7 @@ $ mkdir shared
 $ chmod 0740 shared
 ```
 
-现在我们需要告诉 Samba，有关你的默认用户账户，在访问该文件夹时，在出现提示后，请输入你的密码，并用你的主用户账户的用户名替换 `<用户名>` 占位符：
+现在我们需要告诉 Samba，你的默认用户账户，在访问该文件夹时，在出现提示后，请输入你的密码，并用你的主用户账户的用户名替换占位符 `<用户名>`：
 
 ```sh
 $ sudo smbpasswd -a <用户名>
@@ -1026,7 +1028,7 @@ sudo nano /etc/samba/smb.conf
 
 在文件末尾，添加以下内容以共享文件夹，为远程用户提供读写权限。用你的树莓派上主用户账户的用户名替换占位符 `<用户名>`：
 
-```sh
+```json
 [share]
     path = /home/<用户名>/shared
     read only = no
@@ -1034,23 +1036,23 @@ sudo nano /etc/samba/smb.conf
     writable = yes
 ```
 
-在同一文件中，找到 workgroup 这一行，如有必要，将其更改为本地 Windows 网络工作组的名称。
+在同一文件中，找到 `workgroup` 这一行，如有必要，将其更改为本地 Windows 网络工作组的名称。
 
-```sh
+```json
 workgroup = <你的workgroup工作组名称>
 ```
 
-共享文件夹现在应该会出现在网络上的 Windows 或 macOS 设备上。输入你的树莓派用户名和密码以挂载文件夹。
+共享文件夹现在应该会出现在网络上的 Windows/macOS 设备上。输入你的树莓派用户名和密码挂载文件夹。
 
 ## 设置 Apache Web 服务器
 
-Apache 是一款流行的 Web 服务器应用程序，你可以在树莓派上安装它以使其提供网页。
+Apache 是一款流行的 Web 服务器应用程序，你可以在树莓派上安装它，使其提供网页。
 
-单独使用，Apache 可以通过 HTTP 提供 HTML 文件，并且通过附加模块可以使用脚本语言（如 PHP）提供动态网页。
+若单独使用，Apache 可以通过 HTTP 提供 HTML 文件，且通过附加模块可以使用脚本语言（如 PHP）提供动态网页。
 
 ### 安装 Apache
 
-首先，通过在终端中输入以下命令来更新可用软件包：
+先通过在终端中输入以下命令来更新可用软件包：
 
 ```sh
 sudo apt update
@@ -1064,9 +1066,9 @@ sudo apt install apache2 -y
 
 ### 测试 Web 服务器
 
-在默认情况下，Apache 会在 Web 文件夹中放置一个测试的 HTML 文件。当你在树莓派本体上浏览 `http://localhost/`，或者在网络中的其他计算机上浏览 `http://192.168.1.10`（无论树莓派的 IP 地址是什么）时，将提供该默认网页。要查找树莓派的 IP 地址，请在命令行中键入 `hostname -I`（或阅读有关查找 IP 地址的更多信息）。
+在默认情况下，Apache 会在 Web 文件夹中放置一个用于测试的 HTML 文件。当你在树莓派本体上访问 `http://localhost/`，或者在网络中的其他计算机上访问 `http://192.168.1.10`（无论树莓派的 IP 地址是什么）时，将提供该默认网页。要查找树莓派的 IP 地址，请在命令行中键入 `hostname -I`（或阅读更多来查找 IP 地址的有关信息）。
 
-在树莓派上或网络中的其他计算机上浏览到默认网页，你将看到以下内容：
+在树莓派上或网络中的其他计算机上浏览默认网页，你将看到以下内容：
 
 ![Apache 成功运行的信息](../.gitbook/assets/apache-it-works.png)
 
@@ -1098,17 +1100,17 @@ drwxr-xr-x 12 root root 4096 Jan  8 01:28 ..
 $ sudo chown <用户名>: index.html
 ```
 
-你现在可以尝试编辑此文件，然后刷新浏览器来查看网页更改。如果你了解 HTML，可以把自己的 HTML 文件和其他内容放入此目录，并将它们作为网站在局域网提供。
+现在你可以尝试编辑此文件，然后刷新浏览器来查看网页变更。若你了解 HTML，可把自己的 HTML 文件和其他内容放入此目录，以将它们作为网站在局域网提供。
 
 ### 为 Apache 安装 PHP
 
-要让你你的 Apache 服务器处理 PHP 文件，你需要安装最新版本的 PHP 及 Apache 的 PHP 模块。键入以下命令来安装他们：
+要让你的 Apache 服务器处理 PHP 文件，你需要安装最新版本的 PHP 及 Apache 的 PHP 模块。键入以下命令来安装他们：
 
 ```sh
 sudo apt install php libapache2-mod-php -y
 ```
 
-现在删除文件 `index.html` ：
+现在，删除文件 `index.html` ：
 
 ```sh
 sudo rm index.html
@@ -1132,7 +1134,7 @@ sudo nano index.php
 <?php echo date('Y-m-d H:i:s'); ?>
 ```
 
-或显示你的 PHP 信息：
+还可以显示你的 PHP 信息：
 
 ```php
 <?php phpinfo(); ?>
@@ -1142,7 +1144,7 @@ sudo nano index.php
 
 你可以设置一台 DHCP/TFTP 服务器，这能让你从网络引导树莓派 3、4。
 
-现在，假定你有一个现有的家庭网络，并且你想要使用树莓派作为服务器。你还需要另一个树莓派 3、4 作为客户端进行引导。仅需一张存储卡，因为在初始客户端配置后，客户端将从服务器引导。
+现在，假定你有一个既有的家庭网络，并且你想要使用树莓派作为服务器。你还需要其他树莓派 3、4 作为客户端进行引导。仅需一张存储卡，因为在初始客户端配置后，客户端将从服务器引导。
 
 >**注意**
 >
