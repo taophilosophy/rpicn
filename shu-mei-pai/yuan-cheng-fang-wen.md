@@ -1487,7 +1487,7 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 >**注意**
 >
->通过 IPv6，NFS 启动 Linux 内核的机制仍需演示。
+>通过 IPv6 利用 NFS 启动 Linux 内核的机制仍有待论证。
 
 
 ### 测试设置
@@ -1670,7 +1670,7 @@ $ sudo tcpdump -i eth0 -e ip6 -XX -l -v -vv
 12:23:35.502517 e4:5f:01:20:24:0b (oui Unknown) > 33:33:00:01:00:02 (oui Unknown), ethertype IPv6 (0x86dd), length 114: (hlim 255, next-header UDP (17) payload length: 60) fe80::e65f:1ff:fe20:240b.dhcpv6-client > ff02::1:2.dhcpv6-server: [udp sum ok] dhcp6 solicit (xid=8cdd56 (client-ID hwaddr type 1 e45f0120240b) (IA_NA IAID:0 T1:0 T2:0) (option-request opt_59) (opt_61) (elapsed-time 0))
 ```
 
-DHCP 服务器回复广告。
+DHCP 服务器回复通告。
 
 ```json
 12:23:35.510478 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 172: (flowlabel 0xad54d, hlim 64, next-header UDP (17) payload length: 118) fe80::537a:52c:c647:b184.dhcpv6-server > fe80::e65f:1ff:fe20:240b.dhcpv6-client: [bad udp cksum 0xd886 -> 0x6d26!] dhcp6 advertise (xid=8cdd56 (IA_NA IAID:0 T1:3600 T2:7200 (IA_ADDR fd49:869:6f93::1000 pltime:604800 vltime:2592000)) (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (opt_59))
