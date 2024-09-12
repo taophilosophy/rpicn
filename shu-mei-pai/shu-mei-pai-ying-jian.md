@@ -85,7 +85,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 ### 树莓派 5
 
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi5/raspberry-pi-5-mechanical-drawing.pdf)
-* 树莓派 5 的 STEP 文件
+* 树莓派 5 的 [STEP 文件](https://datasheets.raspberrypi.com/rpi5/RaspberryPi5-step.zip)
 
 ### 树莓派 4B
 
