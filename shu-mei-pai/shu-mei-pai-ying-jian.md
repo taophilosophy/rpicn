@@ -66,7 +66,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 
 ### Pico 微控制器
 
-带 H 后缀的型号在 GPIO 引脚上预先焊接了排针。不带 H 后缀的型号没有焊接到 GPIO 引脚的排针——用户必须手动焊接排针或使用第三方排针套件。
+带 H 后缀的型号在 GPIO 引脚上预先焊接了排针。不带 H 后缀的型号未焊接到 GPIO 引脚的排针——用户必须手动焊接排针或使用第三方排针套件。
 
 | 型号                                                                                                                         | SoC | 内存       | 存储空间 | GPIO                      | 无线连接                                                             |
 | :-----------: | :-----: | :------------: | :----------: | :--------------------------- | :----------------------------------------------                |
@@ -178,9 +178,9 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 
 * [原理图，修订版 1.3](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-mechanical-drawing.pdf)
-* [外壳图纸，PDF - Zero 外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-mechanical-drawing.pdf)
-* [外壳图纸，PDF - GPIO 外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-gpio-mechanical-drawing.pdf)
-* [外壳图纸，PDF - 相机外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-camera-mechanical-drawing.pdf)
+* [外壳图纸，PDF——Zero 外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-mechanical-drawing.pdf)
+* [外壳图纸，PDF——GPIO 外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-gpio-mechanical-drawing.pdf)
+* [外壳图纸，PDF——相机外壳](https://datasheets.raspberrypi.com/case/raspberry-pi-zero-case-with-camera-mechanical-drawing.pdf)
 
 ## 产品合规性和安全性
 
@@ -224,7 +224,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 >
 >此 DVFS 讨论仅适用于树莓派 4B、400 和 计算模块 4。
 
-树莓派 4 实施了动态电压频率调节（DVFS）。该技术使树莓派 4 设备能在保持性能不变的同时降低运行温度。
+树莓派 4 采取了动态电压频率调节（DVFS）。该技术使树莓派 4 设备能在保持性能不变的同时降低运行温度。
 
 固件会监控 SoC 内部的各种时钟（例如 Arm、Core、V3D、ISP、H264、HEVC），当它们未全速运行时，供给给这些时钟驱动的芯片部分的电压，将环比全速时略微降低。事实上，仅提供一定的电压就足以确保其以特定运行水准正常运行。这可以显著降低 SoC 的功耗，从而了削减了总发热量。
 
@@ -242,7 +242,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 
 此外，还采用了更细粒度的 CPU 调度器，用来更精细地控制 ARM 核心频率，这意味着 DVFS 效果更佳。现在的步进频率为 600MHz、750MHz、1000MHz 和 1500MHz。这些步进在 SoC 限流时可能有益，意味着几乎不会完全降至 600MHz，从而大幅改善了全负载时的性能。
 
-默认的 CPU 调度器是 ondemand。可以手动使用软件包 cpufrequtils 中的命令 `cpufreq-set` 更改调度器来减少空闲功耗：
+默认的 CPU 调度器是 `ondemand`。可以手动调用软件包 `cpufrequtils` 中的命令 `cpufreq-set` 更改调度器来减少空闲功耗：
 
 ```bash
 $ sudo apt install cpufrequtils
@@ -251,7 +251,7 @@ $ sudo cpufreq-set -g powersave
 
 ### 测量温度
 
-出于树莓派设备使用的 SoC 架构，如在树莓派系统发行版中使用了上游的温度监控代码（如基于 Linux 的温度测量）可能并不准确。但是，命令 `vcgencmd` 能够提供准确且即时的 SoC 温度的实时数值，因为 `vcgencmd` 直接同 GPU 通信：
+由于树莓派设备使用的 SoC 架构，若在树莓派系统发行版中使用了上游的温度监控代码（如基于 Linux 的温度测量），可能并不准确。但是，命令 `vcgencmd` 能够提供准确且即时的 SoC 温度的实时数值，因为 `vcgencmd` 同 GPU 直接通信：
 
 ```bash
 $ vcgencmd measure_temp
@@ -263,7 +263,7 @@ $ vcgencmd measure_temp
 
 ### 风扇套件
 
-树莓派 5 有两款官方风扇可选，用于辅助散热：
+用于辅助散热，树莓派 5 有两款官方风扇可选：
 
 * [主动散热器](https://www.raspberrypi.com/products/active-cooler/)
 * [用于树莓派 5 的外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)
@@ -278,9 +278,9 @@ $ vcgencmd measure_temp
 * 在 67.5°C 时，风扇转速提高至高速（70% 速度）
 * 在 75°C 时，风扇转速达到全速（100% 速度）
 
-温度下降时，应用相同的行为，并有 5°C 的滞后性；当温度下降到低于上述每个阈值 5°C 时，风扇速度才会降低。
+温度下降时，应用相同的行为，伴有 5°C 的滞后性；当温度下降到低于上述每个阈值 5°C 时，风扇速度才会放缓。
 
-启动时，风扇自动运转，以查看转速控制，并检查风扇是否旋转。如果可以，则启用设备树驱动 `cooling_fan`。在默认情况下，该驱动位于 `bcm2712-rpi-5-b.dtb`，但可以用 `status=disabled` 进行修改。
+在启动时，风扇会自动运转，以查看转速控制，并检查风扇是否旋转。如果可以，则启用设备树驱动 `cooling_fan`。在默认情况下，该驱动位于 `bcm2712-rpi-5-b.dtb`，但可以用 `status=disabled` 进行修改。
 
 #### 风扇连接器引脚图
 
@@ -299,7 +299,8 @@ $ vcgencmd measure_temp
 
 >**注意**
 >
->在 `rpi-eeprom` 的 GitHub 存储库中，你可以找到用于创建 rpi-eeprom 的脚本和预编译的二进制文件。
+>在 GitHub 存储库 `rpi-eeprom` 中，你可以找到用于创建 `
+rpi-eeprom` 的脚本和预编译的二进制文件。
 
 ### 诊断引导
 
@@ -311,7 +312,7 @@ $ vcgencmd measure_temp
 
 #### 树莓派 5、树莓派 4、树莓派 400
 
-树莓派操作系统会自动更新引导加载程序来进行重要的错误修复。要手动更新引导加载程序或更改启动顺序，请使用 `raspi-config`。
+树莓派操作系统会自动更新引导加载程序来进行重要的错误修复。要手动更新引导加载程序/更改启动顺序，请使用 `raspi-config`。
 
 #### 使用树莓派启动盘制作工具来更新引导加载程序
 
@@ -323,7 +324,7 @@ $ vcgencmd measure_temp
 4. 选择 **选择操作系统（Choose OS）**
 5. 选择 **Misc utility images**
 
-![选择 Misc utility images](../.gitbook/assets/misc-utility-images.png)
+![选择 Misc utility imagges](../.gitbook/assets/misc-utility-images.png)
 
 6. 为你的树莓派选择 `Bootloader` (树莓派 400 属于 4 系列)
 
@@ -335,15 +336,15 @@ $ vcgencmd measure_temp
 
 8. 选择 **存储卡** 然后 **写入（Write）**
 9. 单击 **确认（Yes）** 继续
-10. 使用新的镜像引导树莓派，并等待至少十秒钟
+10. 使用新的镜像引导树莓派，请等待至少十秒钟
 11. 当绿色状态指示灯有规律的闪烁，且 HDMI 显示绿屏后，你就已成功写入引导程序了
 12. 断开树莓派的电源，拔出存储卡
 
-#### 使用 raspi-config 来更新引导加载程序
+#### 使用 `raspi-config` 来更新引导加载程序
 
 要在树莓派系统上更改启动模式、变动引导加载程序版本，请运行 `raspi-config`。
 
-1. 更新树莓派系统，下载软件包 rpi-eeprom 的最新版本。
+1. 更新树莓派系统，下载软件包 `rpi-eeprom` 的最新版本。
 2. 运行 `sudo raspi-config`。
 3. 选择 **Advanced Options**。
 4. 选择 **Bootloader Version**。
