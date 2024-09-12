@@ -36,19 +36,19 @@ $ git clone --depth=1 https://github.com/raspberrypi/linux
 >
 >命令 `git clone` 用于下载当前活跃分支的代码，我们用这个分支来构建树莓派系统镜像；未包含历史记录。要下载包含全部分支一切历史的完整仓库，请省略参数 `--depth=1`。这会花费更长时间，占用更多存储空间。
 >
->如果需要下载的其他分支（不带历史记录），可在上述命令中添加参数 `--branch`，把 `<分支>` 改成你想下载的分支名：
+>如需下载的其他分支（不带历史记录），可在上述命令中添加参数 `--branch`，把 `<分支>` 改成你想下载的分支名：
 >
 >```bash
 >$ git clone --depth=1 --branch <分支> https://github.com/raspberrypi/linux
 >```
 >
->要查看所有可用分支的完整列表，请参见[树莓派内核仓库](https://github.com/raspberrypi/linux)。
+>要查看所有可用分支的完整列表，请参见[树莓派内核存储库](https://github.com/raspberrypi/linux)。
 
 现在你已经有了内核源码，可以选择[本地编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#natively-build-a-kernel)还是用[交叉编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compile-the-kernel)构建新内核。
 
 ### 本地编译内核
 
-本指南假设你运行着树莓派最新版本的[树莓派系统](https://www.raspberrypi.com/documentation/computers/os.html)。
+本指南假设你的树莓派正运行着最新版本的[树莓派系统](https://www.raspberrypi.com/documentation/computers/os.html)。
 
 先安装编译所需的依赖包：
 
