@@ -483,11 +483,12 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 ![在 TigerVNC 中始终将光标显示为点的选项](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-show-dot.png)
 
 5. 单击“Connect”按钮，与服务器建立连接。
-    * 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。
+
+* 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。
 
 ![TigerVNC 关于证书不匹配的警告](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-warning.png)
 
-    * 如果 TigerVNC 警告你“证书由未知机构签署”，请单击“是”按钮以为你的树莓派授予异常。
+* 如果 TigerVNC 警告你“证书由未知机构签署”，请单击“是”按钮以为你的树莓派授予异常。
 
 ![TigerVNC 关于由未知机构签署的证书的警告](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
 
