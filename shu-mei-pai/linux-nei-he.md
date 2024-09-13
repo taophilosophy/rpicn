@@ -147,7 +147,7 @@ $ sudo make -j6 modules_install
 
 要安装 64 位内核：
 
-* 运行以下命令可创建当前内核的备份镜像，安装新的内核镜像、覆盖文件、README 文件，再卸载分区：
+* 运行以下命令可创建当前内核的备份镜像，安装新的内核镜像、叠加层文件、README 文件，再卸载分区：
 
   ```bash
   $ sudo cp /boot/firmware/$KERNEL.img /boot/firmware/$KERNEL-backup.img
@@ -341,7 +341,7 @@ $ sudo mount /dev/sdb2 mnt/root
 
 要安装 64 位内核：
 
-* 运行以下命令可创建当前内核的备份镜像，安装新的内核镜像、覆盖文件、README 文件，然后卸载分区：
+* 运行以下命令可创建当前内核的备份镜像，安装新的内核镜像、叠加层文件、README 文件，然后卸载分区：
 
   ```bash
   $ sudo cp mnt/boot/$KERNEL.img mnt/boot/$KERNEL-backup.img
