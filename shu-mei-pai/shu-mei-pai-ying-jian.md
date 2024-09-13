@@ -3304,7 +3304,7 @@ NOQuuuWuFMMMCCCCPPPPTTTTTTTTRRRR
 |                         |             | 4：4GB                    |
 |                         |             | 5：8GB                    |
 | CCCC（位于 16-19 位）   | 制造商      | 0: 索尼英国               |
-|                         |             | 1: Egoman                 |
+|                         |             | 1: 韵动电子                 |
 |                         |             | 2: 英蓓特                 |
 |                         |             | 3: 索尼日本               |
 |                         |             | 4: 英蓓特                 |
