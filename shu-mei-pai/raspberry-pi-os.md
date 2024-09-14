@@ -459,7 +459,7 @@ $ vcgencmd get_config total_mem
 
 ## 在树莓派上使用 Python
 
-树莓派系统预装了 Python 3。对已安装的系统级 Python 进行破坏，可能会引发操作系统故障。在安装第三方 Python 库时，请始终正确使用软件包管理工具。
+树莓派系统预装了 Python 3。对预装的系统级 Python 进行破坏，可能会引发操作系统故障。在安装第三方 Python 库时，请始终正确使用软件包管理工具。
 
 在 Linux 上，你可以用两种方式来安装 `python` 依赖包：
 
