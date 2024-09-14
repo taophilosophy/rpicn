@@ -37,7 +37,7 @@ SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问
 
 将鼠标悬停在系统托盘中的网络图标上，将显示工具的提示信息。该工具提示会显示你当前连接的网络名称及 IP 地址。
 
-![Wi-Fi 网络名称和 IP 地址的工具提示](https://www.raspberrypi.com/documentation/computers/images/network-tooltip.png)
+![Wi-Fi 网络名称和 IP 地址的工具提示](../.gitbook/assets/network-tooltip.png)
 
 ### 命令行
 
@@ -439,12 +439,12 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 2. 单击桌面系统托盘中的树莓派图标。
 3. 从菜单中选择 **偏好（Preferences）** \> **树莓派配置（Raspberry Pi Configuration）**。
 
-![从系统托盘中的首选项菜单中选择树莓派配置](https://www.raspberrypi.com/documentation/computers/images/raspberry-pi-configuration.png)
+![从系统托盘中的首选项菜单中选择树莓派配置](../.gitbook/assets/raspberry-pi-configuration.png)
 
 4. 切换到选项卡 **接口（Interfaces）**。
 5. 单击 **VNC** 旁边的单选按钮，将其改为活动状态。。
 
-![接口选项卡](https://www.raspberrypi.com/documentation/computers/images/vnc-enable.png)
+![接口选项卡](../.gitbook/assets/vnc-enable.png)
 
 6. 单击“**确定（OK）**”按钮以保存配置更改。
 
@@ -476,29 +476,29 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<版本号>.jar`，将占位符 `<版本号>` 替换为你下载的版本。
 3. 在“VNC 服务器”字段中输入你树莓派的 IP 地址。
 
-![将树莓派的局域网 IP 地址输入到 TigerVNC 中](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-enter-ip.png)
+![将树莓派的局域网 IP 地址输入到 TigerVNC 中](../.gitbook/assets/vnc-tigervnc-enter-ip.png)
 
-4. 单击按钮“Options”。切换到选项卡“Input”。选中“在没有光标时显示点”，可确保你始终可以在 TigerVNC 中看到光标。
+4. 单击按钮“Options”。切换到选项卡“输入”。选中“无光标时显示一个点”，可确保你始终可以在 TigerVNC 中看到光标。
 
-![在 TigerVNC 中始终将光标显示为点的选项](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-show-dot.png)
+![在 TigerVNC 中始终将光标显示为点的选项](../.gitbook/assets/vnc-tigervnc-show-dot.png)
 
-5. 单击“Connect”按钮，与服务器建立连接。
+5. 单击“连接”按钮，与服务器建立连接。
 
-* 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“是”按钮继续。
+* 如果 TigerVNC 警告“主机名与服务器证书不匹配”，请单击“确定”按钮继续。
 
 ![TigerVNC 关于证书不匹配的警告](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-warning.png)
 
-* 如果 TigerVNC 警告你“证书由未知机构签署”，请单击“是”按钮以为你的树莓派授予异常。
+* 如果 TigerVNC 警告你“证书由未知机构签署”，请单击“确定”按钮以为你的树莓派授予异常。
 
 ![TigerVNC 关于由未知机构签署的证书的警告](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-cert-signer-warning.png)
 
 6. 在提示输入用户名和密码后，请输入你的凭据。
 
-![通过 TigerVNC 输入用户名和密码进行身份验证](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-username-password.png)
+![通过 TigerVNC 输入用户名和密码进行身份验证](../.gitbook/assets/vnc-tigervnc-username-password.png)
 
 7. 单击“确定”按钮以与 VNC 服务器进行身份验证。如果你的凭据正确，TigerVNC 将打开一个包含与树莓派上你账户对应的桌面的窗口。你应该能够移动鼠标和键盘以输入文本并与桌面交互。
 
-![成功通过 TigerVNC 认证后的树莓派桌面](https://www.raspberrypi.com/documentation/computers/images/vnc-tigervnc-desktop.png)
+![成功通过 TigerVNC 认证后的树莓派桌面](../.gitbook/assets/vnc-tigervnc-desktop.png)
 
 ## 通过树莓派 Connect 进行屏幕共享
 
