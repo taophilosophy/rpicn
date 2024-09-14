@@ -171,7 +171,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 
 ### 树莓派 Zero W
 
-* [电路图，修订版 1.1](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-w-reduced-schematics.pdf)
+* [原理图，修订版 1.1](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-w-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-w-mechanical-drawing.pdf)
 
 ### 树莓派 Zero
