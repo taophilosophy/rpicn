@@ -93,7 +93,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.pdf)
 * [机械图纸，DXF](https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-mechanical-drawing.dxf)
 
-### 树莓派 3A+
+### 树莓派 3B+
 
 * [示意图，修订版 1.0](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-mechanical-drawing.pdf)
