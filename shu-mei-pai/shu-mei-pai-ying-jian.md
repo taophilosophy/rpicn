@@ -95,14 +95,14 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 
 ### 树莓派 3B+
 
-* [示意图，修订版 1.0](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-reduced-schematics.pdf)
+* [原理图，修订版 1.0](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-mechanical-drawing.pdf)
 * [机械图纸，DXF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-mechanical-drawing.dxf)
-* [案例图纸，PDF](https://datasheets.raspberrypi.com/case/raspberry-pi-3-b-plus-case-mechanical-drawing.pdf)
+* [外壳图纸，PDF](https://datasheets.raspberrypi.com/case/raspberry-pi-3-b-plus-case-mechanical-drawing.pdf)
 
 ### 树莓派 3A+
 
-* [方案图，版本 1.0](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-reduced-schematics.pdf)
+* [原理图，版本 1.0](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-reduced-schematics.pdf)
 * [机械图纸，PDF](https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-a-plus-mechanical-drawing.pdf)
 * [外壳图纸，PDF](https://datasheets.raspberrypi.com/case/raspberry-pi-3-a-plus-case-mechanical-drawing.pdf)
 
@@ -114,7 +114,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 
 ### 树莓派 2B 
 
-* [电路图，修订版 1.2](https://datasheets.raspberrypi.com/rpi2/raspberry-pi-2-b-reduced-schematics.pdf)
+* [原理图，修订版 1.2](https://datasheets.raspberrypi.com/rpi2/raspberry-pi-2-b-reduced-schematics.pdf)
 
 ### 树莓派 1B+
 
@@ -128,7 +128,7 @@ B 代表其搭载了以太网口。A 代表低成本产品线——其体积较�
 
 >**注意**
 >
->树莓派 3A+ 的机械图也适用于树莓派 1A+。
+>树莓派 3A+ 的机械图纸亦适用于树莓派 1A+。
 
 
 ### 树莓派 Zero 2 W
