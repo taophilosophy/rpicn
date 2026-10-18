@@ -1,4 +1,4 @@
-# Raspberry Pi 树莓派中文文档翻译项目
+# Raspberry Pi 树莓派中文文档
 
 本文档是 [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/) 的简体中文翻译版本。
 
@@ -27,10 +27,6 @@
 本项目由 FreeBSD 中文社区发起。
 
 如有问题请 PR 或 Issue。
-
-- 微信公众号: rpicn2025 （扫码关注）
-
-![](./.gitbook/assets/qr.png)
 
 ## 版本说明
 
