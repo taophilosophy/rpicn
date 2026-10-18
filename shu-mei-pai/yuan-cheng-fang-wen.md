@@ -628,11 +628,11 @@ $ scp -r project/ <用户名>@<树莓派IP地址>:
 
 ## 网络文件系统（Network File System，NFS）
 
-网络文件系统（Network File System，NFS）能让你在一台网络计算机上共享一个目录，该目录与同一网络上的其他计算机和设备共享。目录所在的计算机称为**服务器**，连接到该服务器的计算机和设备被称为客户端。客户端通常被挂载（`mount`）为共享目录，使其成为其自身目录结构的一部分。共享目录就是共享资源/网络共享的一个例子。
+网络文件系统（Network File System，NFS）能让你将一台联网计算机上的目录与同一网络上的其他计算机或设备共享。目录所在的计算机称为**服务器**，连接到该服务器的计算机和设备称为客户端。客户端通常会把共享目录挂载（`mount`）到本地，使其成为自身目录结构的一部分。共享目录就是共享资源/网络共享的一个例子。
 
-NFS 是在 Linux/Unix 环境中创建简单 NAS（网络附加存储）的通行方法。
+NFS 是在 Linux/Unix 环境中创建简单 NAS（网络附加存储）的常用方法。
 
-NFS 也许更适用于相对固定的网络挂载目录，例如目录 `/home` 等经常访问的共享资源。如果你想让一位让访客用户能轻松连接到网络共享，Samba 更为适合。在各种操作系统中，用于临时挂载和卸载 Samba 共享的工具更易获取。
+NFS 也许更适用于相对固定的网络挂载目录，例如 `/home` 目录或经常访问的共享资源。如果你想让访客用户能轻松连接到网络共享，Samba 更为适合。在各种操作系统中，用于临时挂载和卸载 Samba 共享的工具更易获取。
 
 在部署 NFS 之前，你应该熟悉：
 
@@ -647,9 +647,9 @@ NFS 也许更适用于相对固定的网络挂载目录，例如目录 `/home` �
 $ sudo apt install nfs-kernel-server
 ```
 
-为了方便维护，我们将所有的 NFS export 隔离在单个目录中，在该目录中，使用参数 `--bind` 挂载真实目录。
+为了方便维护，我们将所有 NFS 导出隔离在单个目录中，真实目录将以 `--bind` 参数挂载到该目录中。
 
-假设我们想要 export 用户的家目录，该目录位于 `/home/users`。首先，我们创建 export 文件系统：
+假设我们想要导出用户的家目录，该目录位于 `/home/users`。首先，我们创建导出文件系统：
 
 ```sh
 $ sudo mkdir -p /export/users
@@ -665,7 +665,7 @@ $ sudo mkdir -p /export/users
 $ chmod -R 777 /export
 ```
 
-接下来，使用以下命令挂载真实的 users 目录：
+接下来，使用以下命令挂载真实的 `users` 目录：
 
 ```sh
 $ sudo mount --bind /home/users /export/users
@@ -683,7 +683,7 @@ $ sudo mount --bind /home/users /export/users
 2. `/etc/default/nfs-common`
 3. `/etc/exports`
 
-现在，`/etc/default/nfs-kernel-server` 里唯一重要的参数是 `NEED_SVCGSSD`。默认设置为`"no"`，这没有问题，因为这次我们不会启用 NFSv4 安全功能。
+现在，`/etc/default/nfs-kernel-server` 里唯一重要的参数是 `NEED_SVCGSSD`。默认设置为 `"no"`，这没有问题，因为这次我们不会启用 NFSv4 安全功能。
 
 为了自动映射 ID 名称，文件 `/etc/idmapd.conf` 必须同时存在于客户端和服务器上，并且内容一致且带有正确的域名。此外，该文件应在 `Mapping` 部分中包含以下行：
 
@@ -701,7 +701,7 @@ $ cat /etc/passwd
 $ cat /etc/group
 ```
 
-这样，服务器和客户端就无需用户共享相同的 UID/GUID。对于使用基于 LDAP 的身份验证的用户，在你的客户端中添加以下行：
+这样，服务器和客户端就无需用户共享相同的 UID/GUID。对于使用基于 LDAP 的身份验证的用户，在你的客户端的 `idmapd.conf` 中添加以下行：
 
 ```json
 [Translation]
@@ -711,7 +711,7 @@ Method = nsswitch
 
 这将触发 `idmapd` 查看 `nsswitch.conf`，以确定其应该查找凭据信息的位置。如果你已经使用 LDAP 身份验证，`nsswitch` 无需进一步解释。
 
-要将我们的目录 export 到本地网络 `192.168.1.0/24`，请在 `/etc/exports` 中添加以下两行：
+要将我们的目录导出到本地网络 `192.168.1.0/24`，请在 `/etc/exports` 中添加以下两行：
 
 ```sh
 /export       192.168.1.0/24(rw,fsid=0,insecure,no_subtree_check,async)
@@ -720,7 +720,7 @@ Method = nsswitch
 
 #### 端口映射锁定（可选）
 
-你 NFS 上的文件对网络上的所有人都是开放的。作为安全措施，你可以限制对指定客户端的访问。
+你的 NFS 上的文件对网络上的所有人都是开放的。作为安全措施，你可以限制对指定客户端的访问。
 
 将以下行添加到 `/etc/hosts.deny`：
 
@@ -728,7 +728,7 @@ Method = nsswitch
 rpcbind mountd nfsd statd lockd rquotad : ALL
 ```
 
-首先，阻止所有客户端，仅在下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
+先阻止所有客户端，这样只有下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
 
 现在把以下行添加到 `/etc/hosts.allow` 中：
 
@@ -736,9 +736,9 @@ rpcbind mountd nfsd statd lockd rquotad : ALL
 rpcbind mountd nfsd statd lockd rquotad : <IPv4地址列表>
 ```
 
-其中 `<IPv4地址列表>` 是服务器和所有客户端的 IP 地址列表（由于 `rpcbind` 中的限制不支持主机名，他们必须是 IP 地址）。请注意，如果你设置了 NIS，你可以将这些添加到同一行里。
+其中 `<IPv4地址列表>` 是服务器和所有客户端的 IP 地址列表（由于 `rpcbind` 的限制，它不支持主机名，因此它们必须是 IP 地址）。请注意，如果你设置了 NIS，你可以直接将它们添加到同一行。
 
-请确保授权 IP 地址列表包含地址 `localhost` （`127.0.0.1`），因为最新版本的 Ubuntu 中启动脚本使用命令 `rpcinfo` 来发现 NFSv3 支持，如果 `localhost` 无法连接，将被禁用。
+请确保授权 IP 地址列表包含地址 `localhost`（`127.0.0.1`），因为最新版本的 Ubuntu 中启动脚本使用命令 `rpcinfo` 来发现 NFSv3 支持，如果 `localhost` 无法连接，NFSv3 支持将被禁用。
 
 最后，要使更改生效，请重启服务：
 
@@ -748,29 +748,29 @@ $ sudo systemctl restart nfs-kernel-server
 
 ### 配置 NFS 客户端
 
-现在你的服务器正运行着，你需要设置客户端，就能够访问它了。首先，安装所需的软件包：
+现在你的服务器已经在运行，你需要设置客户端，使其能够访问服务器。首先，安装所需的软件包：
 
 ```sh
 $ sudo apt install nfs-common
 ```
 
-在客户端上，我们可以使用一个命令挂载完整的 export 树：
+在客户端上，我们可以使用一个命令挂载完整的导出树：
 
 ```sh
 $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/ /mnt
 ```
 
-你还可以指定 NFS 服务器主机名，而非 IP 地址，但在这种情况下，你需要确保主机名可以在客户端上被解析为 IP。确保能始终被解析的一种稳健方法是使用 `/etc/hosts` 文件。
+你还可以指定 NFS 服务器主机名，而非 IP 地址，但在这种情况下，你需要确保主机名可以在客户端上解析为 IP。一种能确保始终可解析的稳健方法是使用 `/etc/hosts` 文件。
 
-请注意，在 NFSv4 中，`<nfs服务器IP>:/export` 非必需，就像在 NFSv3 中一样。根 export 为 `:/` 默认 export 为 fsid=0。
+请注意，在 NFSv4 中，`<nfs服务器IP>:/export` 不是必需的，就像在 NFSv3 中一样。根导出 `:/` 默认对应 `fsid=0` 的导出。
 
-我们还可以挂载 export 的子树：
+我们还可以挂载导出的子树：
 
 ```sh
 $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/users /home/users
 ```
 
-为了确保在每次重启时都挂载这个，请把以下行添加到 `/etc/fstab`：
+为了确保每次重启时都会挂载它，请把以下行添加到 `/etc/fstab`：
 
 ```sh
 <nfs服务器IP>:/   /mnt   nfs    auto  0  0
