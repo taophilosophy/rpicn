@@ -935,7 +935,7 @@ $ ln -s /nfs/music/ /home/user/Music
 
 ## Samba（SMB/CIFS）
 
-Samba 是 [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block)（SMB，服务器消息块）网络协议的自由软件之重新实现。使用 Samba，你可以在 Windows、macOS 和 Linux 机器间共享文件夹。
+Samba 是 [Server Message Block](https://en.wikipedia.org/wiki/Server_Message_Block)（SMB，服务器消息块）网络协议的自由软件重新实现。使用 Samba，你可以在 Windows、macOS 和 Linux 机器间共享文件夹。
 
 ### 在你的树莓派上安装 Samba
 
@@ -946,21 +946,21 @@ $ sudo apt update
 $ sudo apt install samba samba-common-bin smbclient cifs-utils
 ```
 
-### 在 Windows 共享文件夹
+### 挂载从 Windows 共享的文件夹
 
 首先，你需要在 Windows 设备上共享一个文件夹。
 
 #### 打开共享功能
 
-1. 单击系统托盘，从菜单中选择“**网络和共享中心**”。
+1. 右键单击系统托盘，从菜单中选择“**网络和共享中心**”。
 2. 选择“**更改高级共享设置**”。
-3. 选择“**网络发现**”。
-4. 选择“**文件和打印机共享**”。
+3. 选择“**启用网络发现**”。
+4. 选择“**启用文件和打印机共享**”。
 5. 单击 **保存** 按钮以保存更改。
 
 #### 共享文件夹
 
-跟随这些步骤在 Windows 上共享文件夹：
+按照以下步骤在 Windows 上共享文件夹：
 
 1. 右键单击要共享的文件夹，然后选择**属性**。
 2. 选择 **共享** 选项卡。
@@ -968,13 +968,13 @@ $ sudo apt install samba samba-common-bin smbclient cifs-utils
 4. 选择“**共享此文件夹**”；在默认情况下，Windows 会使用文件夹名称作为共享名称。
 5. 单击“**权限**”按钮。
 6. 配置“**Everyone**”和“**完全控制**”权限。
-7. 单击“**确定**”按钮以离开 **权限** 页面。
-8. 再次单击“**确定**”按钮以离开 **高级共享** 页面。
+7. 单击“**确定**”按钮以关闭 **权限** 页面。
+8. 再次单击“**确定**”按钮以关闭 **高级共享** 页面。
 9. 选择“**安全**”选项卡。
-10. 配置“*Everyone*”和“**完全控制**”权限。
+10. 配置“**Everyone**”和“**完全控制**”权限。
 11. 单击“**确定**”按钮。
 
-现在应该共享文件夹了。你可以通过在权限和安全性页面上更改权限来修改共享文件夹权限。
+现在应该共享文件夹了。你可以通过在权限和安全页面上更改权限来修改共享文件夹权限。
 
 #### Windows 10 共享向导
 
@@ -986,10 +986,10 @@ $ sudo apt install samba samba-common-bin smbclient cifs-utils
 4. 单击“**下一步**”按钮。
 5. 选择要共享的文件夹，然后单击“**下一步**”按钮。
 6. 单击“**下一步**”以使用共享默认设置，或选择“**自定义**”并设置所需权限。
-7. 点击“**确定**”按钮。
-8. 点击“**完成**”按钮以共享文件夹。
+7. 单击“**确定**”按钮。
+8. 单击“**完成**”按钮以共享文件夹。
 
-#### 在树莓派上挂载文件夹。
+#### 在树莓派上挂载文件夹
 
 在 Linux 中，**挂载** 即是将文件夹添加到某位置的过程，因此我们首先需要该位置。
 
@@ -1000,7 +1000,7 @@ $ mkdir windowshare
 现在，我们需要将远程文件夹挂载到该位置。远程文件夹是 Windows PC 的主机名/IP 地址，以及在共享时使用的共享名称。我们还需要提供将用于访问远程计算机的 Windows 用户名。不要忘记用你的树莓派系统用户名替换占位符 `<用户名>`。
 
 ```sh
-$ sudo mount.cifs //<主机名或IP地址>/<Windows 共享文件夹> /home/<用户名>/windowshare -o user=<用户名>
+$ sudo mount.cifs //<主机名或IP地址>/<Windows 共享文件夹> /home/<用户名>/windowshare -o user=<Windows 用户名>
 ```
 
 你现在应该能够在树莓派上查看 Windows 共享的内容。
@@ -1011,7 +1011,7 @@ $ ls windowshare/
 
 #### 报错“Host is down”（主机已关闭）
 
-当 SMB 协议版本不匹配且 Linux Samba 客户端返回误导性错误消息时会发生此错误。在默认情况下，树莓派系统使用 2.1 及以上版本，兼容 Windows 7 及更高版本。某些 NAS 在内的旧款设备可能需要 1.0 版本。要解决此错误，请在你的挂载命令中添加一个版本条目（例如 `,vers=1.0` ）：
+当 SMB 协议版本不匹配且 Linux Samba 客户端返回误导性错误消息时会发生此错误。在默认情况下，树莓派系统使用 2.1 及以上版本，兼容 Windows 7 及更高版本。包括某些 NAS 设备在内的旧款设备可能需要 1.0 版本。要解决此错误，请在你的挂载命令中添加一个版本条目（例如 `,vers=1.0`）：
 
 ```sh
 $ sudo mount.cifs //IP/share /mnt/挂载点 -o user=<用户名>,vers=1.0
@@ -1021,7 +1021,7 @@ $ sudo mount.cifs //IP/share /mnt/挂载点 -o user=<用户名>,vers=1.0
 
 | 版本 | 说明                                                                |
 | :------: | :--------------------------------------------------------------------- |
-| 1.0  | 旧版的 CIFS/SMBv1 协议                                              |
+| 1.0  | 经典 CIFS/SMBv1 协议                                              |
 | 2.0  | SMBv2.002 协议。Windows Vista Service Pack 1 和 Windows Server 2008 |
 | 2.1  | SMBv2.1 协议。Microsoft Windows 7 和 Windows Server 2008R2          |
 | 3.0  | SMBv3.0 协议。Microsoft Windows 8 和 Windows Server 2012            |
@@ -1039,13 +1039,13 @@ $ mkdir shared
 $ chmod 0740 shared
 ```
 
-现在我们需要告诉 Samba，你的默认用户账户，在访问该文件夹时，在出现提示后，请输入你的密码，并用你的主用户账户的用户名替换占位符 `<用户名>`：
+现在我们需要在访问该文件夹时告诉 Samba 你的默认用户账户。出现提示后，请输入你的密码，并用你的主用户账户的用户名替换占位符 `<用户名>`：
 
 ```sh
 $ sudo smbpasswd -a <用户名>
 ```
 
-现在我们需要告诉 Samba 共享这个文件夹，使用 Samba 配置文件。
+现在我们需要使用 Samba 配置文件告诉 Samba 共享这个文件夹。
 
 ```sh
 sudo nano /etc/samba/smb.conf
@@ -1064,10 +1064,10 @@ sudo nano /etc/samba/smb.conf
 在同一文件中，找到 `workgroup` 这一行，如有必要，将其更改为本地 Windows 网络工作组的名称。
 
 ```json
-workgroup = <你的workgroup工作组名称>
+workgroup = <你的工作组名称>
 ```
 
-共享文件夹现在应该会出现在网络上的 Windows/macOS 设备上。输入你的树莓派用户名和密码挂载文件夹。
+现在，网络上的 Windows/macOS 设备应该能看到这个共享文件夹。输入你的树莓派用户名和密码挂载文件夹。
 
 ## 设置 Apache Web 服务器
 
@@ -1075,95 +1075,7 @@ Apache 是一款流行的 Web 服务器应用程序，你可以在树莓派上�
 
 若单独使用，Apache 可以通过 HTTP 提供 HTML 文件，且通过附加模块可以使用脚本语言（如 PHP）提供动态网页。
 
-### 安装 Apache
-
-先通过在终端中输入以下命令来更新可用软件包：
-
-```sh
-sudo apt update
-```
-
-然后，使用此命令安装软件包 apache2 ：
-
-```sh
-sudo apt install apache2 -y
-```
-
-### 测试 Web 服务器
-
-在默认情况下，Apache 会在 Web 文件夹中放置一个用于测试的 HTML 文件。当你在树莓派本体上访问 `http://localhost/`，或者在网络中的其他计算机上访问 `http://192.168.1.10`（无论树莓派的 IP 地址是什么）时，将提供该默认网页。要查找树莓派的 IP 地址，请在命令行中键入 `hostname -I`（或阅读更多来查找 [IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)的有关信息）。
-
-在树莓派上或网络中的其他计算机上浏览默认网页，你将看到以下内容：
-
-![Apache 成功运行的信息](../.gitbook/assets/apache-it-works.png)
-
-这意味着 Apache 正在运行！
-
-#### 更改默认网页
-
-此默认网页仅是文件系统上的一个 HTML 文件。它位于 `/var/www/html/index.html`。
-
-在终端窗口中切换到此目录，并查看其中的内容：
-
-```sh
-cd /var/www/html
-ls -al
-```
-
-这将向你展示：
-
-```sh
-total 12
-drwxr-xr-x  2 root root 4096 Jan  8 01:29 .
-drwxr-xr-x 12 root root 4096 Jan  8 01:28 ..
--rw-r--r--  1 root root  177 Jan  8 01:29 index.html
-```
-
-这表明默认情况下，`/var/www/html/` 中有一个名为 `index.html` 的文件，由 root 用户拥有（就像包含文件的文件夹一样）。要编辑该文件，你需要将其所有权更改为你自己的用户名。使用以下命令更改文件的所有者，将占位符 `<用户名>` 替换为你的主用户账户的用户名：
-
-```sh
-$ sudo chown <用户名>: index.html
-```
-
-现在你可以尝试编辑此文件，然后刷新浏览器来查看网页变更。若你了解 HTML，可把自己的 HTML 文件和其他内容放入此目录，以将它们作为网站在局域网提供。
-
-### 为 Apache 安装 PHP
-
-要让你的 Apache 服务器处理 PHP 文件，你需要安装最新版本的 PHP 及 Apache 的 PHP 模块。键入以下命令来安装他们：
-
-```sh
-sudo apt install php libapache2-mod-php -y
-```
-
-现在，删除文件 `index.html` ：
-
-```sh
-sudo rm index.html
-```
-
-创建文件 `index.php` ：
-
-```sh
-sudo nano index.php
-```
-
-把一些 PHP 内容放入其中：
-
-```php
-<?php echo "hello world"; ?>
-```
-
-现在保存，刷新你的浏览器。你应该会看到“hello world”。这不是动态的，但仍由 PHP 提供。尝试一些动态内容：
-
-```php
-<?php echo date('Y-m-d H:i:s'); ?>
-```
-
-还可以显示你的 PHP 信息：
-
-```php
-<?php phpinfo(); ?>
-```
+要设置 Apache Web 服务器，请参阅 Apache 官方文档：<https://httpd.apache.org/docs/>。
 
 ## 在树莓派上通过网络启动
 
