@@ -1128,7 +1128,7 @@ $ sudo nano /boot/firmware/config.txt
 $ sudo raspi-config
 ```
 
-在 raspi-config 中，选择 **Advanced Options**，然后选择 **Boot Order**，最后选择 **Network Boot**。然后必须重启设备，以将引导顺序更改编程到引导加载程序 EEPROM 中。在树莓派重启后，请检查现在的启动顺序是否为 `0xf21` ：
+在 `raspi-config` 中，选择 **Advanced Options**，然后选择 **Boot Order**，最后选择 **Network Boot**。然后必须重启设备，以便将引导顺序的更改编程到引导加载程序 EEPROM 中。在树莓派重启后，请检查现在的启动顺序是否为 `0xf21`：
 
 ```sh
 $ vcgencmd bootloader_config
@@ -1156,7 +1156,7 @@ $ grep Serial /proc/cpuinfo | cut -d ' ' -f 2 | cut -c 9-16
 
 ### 配置网络启动服务器
 
-将存储卡插入服务器的树莓派，然后启动服务器。客户端的树莓派需要一个用于启动的根文件系统：我们将使用服务器的根文件系统的副本，并将其放置在 `/nfs/client1`：
+将存储卡插入服务器树莓派，然后启动服务器。客户端树莓派需要一个用于启动的根文件系统：我们将使用服务器的根文件系统的副本，并将其放置在 `/nfs/client1`：
 
 ```sh
 $ sudo mkdir -p /nfs/client1
@@ -1184,7 +1184,7 @@ $ sudo umount dev sys proc
 $ ip route | awk '/default/ {print $3}'
 ```
 
- 然后运行：
+然后运行：
 
 ```sh
 $ ip -4 addr show dev eth0 | grep inet
@@ -1196,7 +1196,7 @@ $ ip -4 addr show dev eth0 | grep inet
 inet 10.42.0.211/24 brd 10.42.0.255 scope global eth0
 ```
 
-第一个地址是你的服务器树莓派在网络上的 IP 地址，斜杠后面的部分是网络大小。很可能你的是一个 `/24`。还要注意网络的 brd （广播）地址。记下前一个命令的输出，其中包含了树莓派的 IP 地址和网络的广播地址。
+第一个地址是你的服务器树莓派在网络上的 IP 地址，斜杠后面的部分是网络大小。你的很可能是一个 `/24`。还要注意网络的 `brd`（广播）地址。记下前一个命令的输出，其中包含了树莓派的 IP 地址和网络的广播地址。
 
 最后，记下你的 DNS 服务器地址，这与你的网关地址相同。你可以使用以下命令找到这个地址：
 
@@ -1204,7 +1204,7 @@ inet 10.42.0.211/24 brd 10.42.0.255 scope global eth0
 $ cat /etc/resolv.conf
 ```
 
-通过 systemd 网络配置在你的服务器树莓派上配置静态网络地址，该网络作为网络处理程序和 DHCP 服务器。
+在服务器树莓派上通过 `systemd` 网络配置静态网络地址，`systemd` 网络在这里充当网络处理程序和 DHCP 服务器。
 
 为此，你需要创建一个 `10-eth0.netdev` 和一个 `11-eth0.network`，如下所示：
 
@@ -1242,13 +1242,13 @@ DNS=10.42.0.1
 Gateway=10.42.0.1
 ```
 
-此时，你没有工作中的 DNS，因此你需要将之前记录的服务器添加到 `systemd/resolved.conf`。在此示例中，网关地址为 `10.42.0.1`。
+此时，你没有工作中的 DNS，因此你需要将之前记录的 DNS 服务器添加到 `systemd/resolved.conf`。在此示例中，网关地址为 `10.42.0.1`。
 
 ```sh
 $ sudo nano /etc/systemd/resolved.conf
 ```
 
-取消注释 DNS 那一行，并在那里添加 DNS IP 地址。另外，如果你有备用 DNS 服务器，请也添加在那里。
+取消注释 DNS 那一行，并在那里添加 DNS IP 地址。另外，如果你有备用 DNS 服务器，也请一并添加。
 
 ```json
 [Resolve]
@@ -1256,14 +1256,14 @@ DNS=10.42.0.1
 #FallbackDNS=
 ```
 
-启用 systemd-networkd，然后重启以使更改生效：
+启用 `systemd-networkd`，然后重启以使更改生效：
 
 ```sh
 $ sudo systemctl enable systemd-networkd
 $ sudo reboot
 ```
 
-现在启动 tcpdump，这样你就可以从客户端树莓派搜索 DHCP 数据包。
+现在启动 `tcpdump`，以便搜索来自客户端树莓派的 DHCP 数据包。
 
 ```sh
 $ sudo apt install tcpdump dnsmasq
@@ -1277,7 +1277,7 @@ $ sudo tcpdump -i eth0 port bootpc
 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b8:27:eb...
 ```
 
-现在你需要修改 dnsmasq 配置以使 DHCP 能够回复设备。按下 **Ctrl** + **C** 退出 `tcpdump` 程序，然后输入以下内容：
+现在你需要修改 `dnsmasq` 配置以使 DHCP 能够回复设备。按下 **Ctrl** + **C** 退出 `tcpdump` 程序，然后输入以下内容：
 
 ```sh
 $ echo | sudo tee /etc/dnsmasq.conf
@@ -1298,7 +1298,7 @@ pxe-service=0,"Raspberry Pi Boot"
 
 在 `dhcp-range` 行的第一个地址处，使用你之前记录的广播地址。
 
-现在创建一个目录 `/tftpboot` ：
+现在创建一个目录 `/tftpboot`：
 
 ```sh
 $ sudo mkdir /tftpboot
@@ -1307,7 +1307,7 @@ $ sudo systemctl enable dnsmasq.service
 $ sudo systemctl restart dnsmasq.service
 ```
 
-现在监视 dnsmasq 日志：
+现在监视 `dnsmasq` 日志：
 
 ```sh
 $ journalctl -f
@@ -1319,7 +1319,7 @@ $ journalctl -f
 raspberrypi dnsmasq-tftp[1903]: file /tftpboot/bootcode.bin not found
 ```
 
-接下来，你需要将 boot 文件夹的内容复制到目录 `/tftpboot`中。
+接下来，你需要将 boot 文件夹的内容复制到目录 `/tftpboot` 中。
 
 首先，按下 **Ctrl** + **C** 退出监控状态。然后输入以下内容：
 
@@ -1327,7 +1327,7 @@ raspberrypi dnsmasq-tftp[1903]: file /tftpboot/bootcode.bin not found
 $ cp -r /boot/firmware/* /tftpboot
 ```
 
-由于 tftp 位置已更改，请重启 dnsmasq :
+由于 tftp 位置已更改，请重启 `dnsmasq`：
 
 ```sh
 $ sudo systemctl restart dnsmasq
