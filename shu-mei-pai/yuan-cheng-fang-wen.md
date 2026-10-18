@@ -1335,9 +1335,9 @@ $ sudo systemctl restart dnsmasq
 
 #### 设置 NFS root
 
-现在，这应该允许你的树莓派客户端尝试启动，直到尝试加载根文件系统（它没有）。
+现在，客户端树莓派应该可以持续尝试启动，直到尝试加载根文件系统（而它没有根文件系统）。
 
-在这一点上，export 之前创建的 `/nfs/client1` 文件系统和 TFTP 引导文件夹。
+在这一点上，导出之前创建的 `/nfs/client1` 文件系统和 TFTP 启动文件夹。
 
 ```sh
 $ sudo apt install nfs-kernel-server
@@ -1354,7 +1354,7 @@ $ sudo systemctl enable nfs-kernel-server
 $ sudo systemctl restart nfs-kernel-server
 ```
 
-编辑 `/tftpboot/cmdline.txt`，并以 `root=` 打头，将其替换为：
+编辑 `/tftpboot/cmdline.txt`，把从 `root=` 开始的内容替换为：
 
 ```sh
 root=/dev/nfs nfsroot=10.42.0.211:/nfs/client1,vers=3 rw ip=dhcp rootwait
@@ -1362,7 +1362,7 @@ root=/dev/nfs nfsroot=10.42.0.211:/nfs/client1,vers=3 rw ip=dhcp rootwait
 
 在这里用你记录下的 IP 地址替换 IP 地址。还要删除命令行中所有以 `init=` 开头的部分。
 
-最后，编辑 `/nfs/client1/etc/fstab`，删除 `/dev/mmcblk0p1` 和第 2 行（只留下 `proc` ）。然后，将引导分区添加回去：
+最后，编辑 `/nfs/client1/etc/fstab`，删除 `/dev/mmcblk0p1` 和 `p2` 这两行（只留下 `proc`）。然后，将引导分区添加回去：
 
 ```bash
 $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo tee -a /nfs/client1/etc/fstab
@@ -1379,11 +1379,11 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 3. 固件通过 TFTP 加载内核和命令行。
 4. 内核引导系统的其余部分，通过 NFS 或其他机制加载根文件系统（rootfs）。
 
-引导加载程序和固件（阶段 1 到 3）已经得到增强，以支持通过 IPv6 引导。
+引导加载程序和固件（阶段 1 到 3）已经得到增强，以支持通过 IPv6 启动。
 
 >**重要**
 >
->IPv6 网络启动是一项 **实验性的阿尔法** 功能，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于树莓派 4 和计算模块 4。
+>IPv6 网络启动是一项 **实验性 alpha 功能**，根据反馈意见，我们可能需要在将来更改其工作方式。这仅适用于树莓派 4 和计算模块 4。
 
 
 ### 工作原理
@@ -1392,9 +1392,9 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 >**注意**
 >
->目前常用的 DHCP 服务器 `dnsmasq` 不支持 IPv6 网络启动所需的网络启动参数，因此在当下，你只能使用其他 DHCP 服务器，如 I[SC DHCP](https://www.isc.org/dhcp/)。
+>目前常用的 DHCP 服务器 `dnsmasq` 不支持 IPv6 网络启动所需的参数，因此就目前而言，你只能使用其他 DHCP 服务器，如 [ISC DHCP](https://www.isc.org/dhcp/)。
 
-要通过网络挂载 `rootfs`，[IPv4 网络引导教程](https://www.raspberrypi.com/documentation/computers/remote-access.html#network-boot-your-raspberry-pi)建议使用 `nfsroot`。它不支持 IPv6，因此需要其他方法来通过网络挂载 `rootfs`。
+要通过网络挂载 `rootfs`，[IPv4 网络启动教程](https://www.raspberrypi.com/documentation/computers/remote-access.html#network-boot-your-raspberry-pi)建议使用 `nfsroot`。它不支持 IPv6，因此需要其他方法来通过网络挂载 `rootfs`。
 
 如果你的 ISP 和路由器不支持 IPv6，你将受到限制。
 
@@ -1402,25 +1402,25 @@ $ echo "10.42.0.211:/tftpboot /boot/firmware/ nfs defaults,vers=3 0 0" | sudo te
 
 引导加载程序要做的第一件事是发送路由器请求，以获取网络的详细信息。路由器会以通告数据包回应，标识其以太网地址，如果 TFTP 服务器位于不同的网络上，引导加载程序可能会需要这些信息。
 
-路由器通告包含一个标志，告诉它是否使用有状态（托管）或无状态（非托管）配置来获取其 IP 地址。无状态配置意味着设备配置自己的 IP 地址。目前，引导加载程序生成一个从其以太网 MAC 地址和路由器提供的网络前缀派生的地址。
+路由器通告包含一个标志，告诉设备是否使用有状态（托管）或无状态（非托管）配置来获取其 IP 地址。无状态配置意味着设备配置自己的 IP 地址。目前，引导加载程序生成一个从其以太网 MAC 地址和路由器提供的网络前缀派生的地址。
 
-如果路由器指示启用了有状态配置，则使用 DHCP 来获取设备的 IP 地址。这涉及设备向 DHCP 服务器发送一个请求，服务器响应一个通告。然后客户端请求地址，然后从服务器获得回复确认。
+如果路由器指示启用了有状态配置，则使用 DHCP 来获取设备的 IP 地址。这涉及设备向 DHCP 服务器发送一个请求，服务器响应一个通告。随后客户端请求地址，并从服务器获得确认回复。
 
 DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标识自己。在树莓派上，这是从 MAC 地址（DUID_LL）派生的。
 
 #### TFTP 地址
 
-无论使用无状态还是有状态配置，DHCP 服务器用于获取 TFTP 服务器地址。这是在 BOOTFILE-URL 参数中编码的。我们发送客户端架构类型值 `0x29` 以识别设备。
+无论使用无状态还是有状态配置，DHCP 服务器用于获取 TFTP 服务器地址。这是在 `BOOTFILE-URL` 参数中编码的。我们发送客户端架构类型值 `0x29` 以识别设备。
 
 请参阅 [RFC 5970](https://datatracker.ietf.org/doc/html/rfc5970) 和 [IANA IPv6 动态主机配置协议](https://www.iana.org/assignments/dhcpv6-parameters/dhcpv6-parameters.xhtml)文档。
 
 #### 引导过程
 
-设备现在应该有一个 IP 地址和 TFTP 详细信息。它从 TFTP 服务器下载固件二进制 start4.elf，然后继续使用此固件运行。固件传递了 IP 地址和 TFTP 服务器详细信息，以便它可以下载内核并引导系统的其余部分。
+设备现在应该有一个 IP 地址和 TFTP 详细信息。它从 TFTP 服务器下载固件二进制 `start4.elf`，然后继续使用此固件运行。IP 地址和 TFTP 服务器详细信息会传递给固件，以便它可以下载内核并引导系统的其余部分。
 
 #### 内核引导
 
-使用 IPv4 网络启动时，nfsroot 用于在网络上挂载 rootfs。这不支持 IPv6，因此需要另一种解决方案。可能涉及一个可以在切换到适当的 rootfs 内容之前挂载适当网络位置的小型 RAM 文件系统。
+使用 IPv4 网络启动时，`nfsroot` 用于在网络上挂载 `rootfs`。这不支持 IPv6，因此需要另一种解决方案。可能涉及一个小型 RAM 文件系统，它可以在切换到正式的 `rootfs` 内容之前挂载相应的网络位置。
 
 >**注意**
 >
@@ -1429,18 +1429,18 @@ DHCP 服务器和客户端使用可变长度的 DUID（设备唯一 ID）来标�
 
 ### 测试设置
 
-如果你想尝试这个，你将需要另一个树莓派作为 TFTP 和 DHCP 服务器。
+如果你想尝试这一功能，将需要另一台树莓派作为 TFTP 和 DHCP 服务器。
 
-理论上，TFTP 服务器可以位于任意可路由的网络上，但 DHCP 服务器必须位于将要提供服务的设备相同的网络上。
+理论上，TFTP 服务器可以位于任意可路由的网络上，但 DHCP 服务器必须与将要提供服务的设备位于同一网络上。
 
 #### TFTP 服务器
 
-如果你有一个工作的 IPv4 网络启动设置，你可以重用 dnsmasq 中的 TFTP 服务器提供文件（它可以与 IPv4 和 IPv6 通信）。
+如果你有一个工作的 IPv4 网络启动设置，你可以重用 `dnsmasq` 中的 TFTP 服务器来提供文件（它可以与 IPv4 和 IPv6 通信）。
 
-或者你可以使用一个独立的 TFTP 服务器，比如 tftpd-hpa。
+或者你可以使用一个独立的 TFTP 服务器，比如 `tftpd-hpa`。
 
 ```sh
-$ sudo apt-get install tftpd-hpa
+$ sudo apt install tftpd-hpa
 $ sudo systemctl start tftpd-hpa
 ```
 
@@ -1449,7 +1449,7 @@ $ sudo systemctl start tftpd-hpa
 IPv6 中的 DHCP 发生了很大变化。我们至少需要 DHCP 告诉我们 TFTP 服务器的地址，在这种情况下是同一台机器。
 
 ```sh
-$ sudo apt-get install isc-dhcp-server
+$ sudo apt install isc-dhcp-server
 ```
 
 修改 `/etc/default/isc-dhcp-server` 中的配置：
@@ -1477,7 +1477,7 @@ subnet6 fd49:869:6f93::/64 {
 }
 ```
 
-你的服务器必须在 `/etc/dhcpcd.conf` 中分配 IPv6 地址
+必须在 `/etc/dhcpcd.conf` 中为你的服务器分配 IPv6 地址。
 
 ```sh
 interface eth0
@@ -1504,14 +1504,14 @@ BOOT_UART=1 # 调试
 
 #### 路由器
 
-要使用 IPv6，你真的需要支持 IPv6 的路由器和 ISP。互联网上有一些网站可以为你检查这一点，或者运行以下命令。
+要使用 IPv6，你确实需要支持 IPv6 的路由器和 ISP。互联网上有一些网站可以为你检查这一点，或者运行以下命令。
 
 ```sh
-sudo apt-get install ndisc6
+sudo apt install ndisc6
 rdisc6 -1 eth0
 ```
 
-这会向你的路由器发送路由器请求，请求你的网络详细信息，如网络前缀、路由器以太网地址以及是否使用 DHCP 进行寻址。如未响应此命令，很可能是你的网络及 ISP 仅支持 IPv4。如果支持 IPv6，很可能会配置为使用无状态配置，其中客户端生成自己的地址。
+这会向你的路由器发送路由器请求，请求你的网络详细信息，如网络前缀、路由器以太网地址以及是否使用 DHCP 进行寻址。如果此命令没有收到响应，很可能是你的网络和 ISP 仅支持 IPv4。如果支持 IPv6，很可能会配置为使用无状态配置，其中客户端生成自己的地址。
 
 ```json
 Soliciting ff02::2 (ff02::2) on eth0...
@@ -1526,7 +1526,7 @@ Reachable time            :  unspecified (0x00000000)
 Retransmit time           :  unspecified (0x00000000)
 ```
 
-你可能能够为有状态配置配置你的路由器，这意味着它将使用 DHCP 获取 IP 地址。
+你可能能够将路由器配置为有状态配置，这意味着设备将使用 DHCP 获取 IP 地址。
 
 ```json
 Hop limit                 :           64 (      0x40)
@@ -1544,9 +1544,9 @@ Retransmit time           :  unspecified (0x00000000)
 
 #### 日志和跟踪
 
-如果启用了引导串口，则应该从串口看到类似以下内容。以 RX6 开头的行表示正在使用 IPv6。
+如果启用了启动 UART，则应该可以从串口看到类似以下内容。以 RX6 开头的行表示正在使用 IPv6。
 
-这里 `dc:a6:32:6f:73:f4` 是 TFTP 服务器的 MAC 地址，它具有一个 IPv6 地址 `fd49:869:6f93::1`。设备本身具有一个 MAC 地址 `e4:5f:01:20:24:0b` 和一个 IPv6 地址 `fd49:869:6f93::1000`
+这里 `dc:a6:32:6f:73:f4` 是 TFTP 服务器的 MAC 地址，它具有一个 IPv6 地址 `fd49:869:6f93::1`。设备本身具有一个 MAC 地址 `e4:5f:01:20:24:0b` 和一个 IPv6 地址 `fd49:869:6f93::1000`。
 
 ```json
 Boot mode: NETWORK (02) order f
@@ -1625,7 +1625,7 @@ DHCP 服务器回复，`opt_59` 用于传递 TFTP 服务器的地址。
 12:23:35.512122 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 172: (flowlabel 0xad54d, hlim 64, next-header UDP (17) payload length: 118) fe80::537a:52c:c647:b184.dhcpv6-server > fe80::e65f:1ff:fe20:240b.dhcpv6-client: [bad udp cksum 0xd886 -> 0x6826!] dhcp6 reply (xid=8cdd56 (IA_NA IAID:0 T1:3600 T2:7200 (IA_ADDR fd49:869:6f93::1000 pltime:604800 vltime:2592000)) (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (opt_59))
 ```
 
-设备向 FTP 服务器发送邻居请求，因为它需要其 MAC 地址。
+设备向 TFTP 服务器发送邻居请求，因为它需要其 MAC 地址。
 
 ```json
 12:23:36.510768 e4:5f:01:20:24:0b (oui Unknown) > 33:33:ff:00:00:01 (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) fe80::e65f:1ff:fe20:240b > ff02::1:ff00:1: [icmp6 sum ok] ICMP6, neighbor solicitation, length 32, who has fd49:869:6f93::1
@@ -1633,7 +1633,7 @@ DHCP 服务器回复，`opt_59` 用于传递 TFTP 服务器的地址。
             0x0000:  e45f 0120 240b
 ```
 
-FTP 服务器将以其 MAC 地址回复。
+TFTP 服务器将以其 MAC 地址回复。
 
 ```json
 12:23:36.510854 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) fd49:869:6f93::1 > fe80::e65f:1ff:fe20:240b: [icmp6 sum ok] ICMP6, neighbor advertisement, length 32, tgt is fd49:869:6f93::1, Flags [solicited, override]
@@ -1641,7 +1641,7 @@ FTP 服务器将以其 MAC 地址回复。
             0x0000:  dca6 326f 73f4
 ```
 
-TFTP 请求由应该现在通过网络引导的设备发出。
+TFTP 请求由此时应已通过网络启动的设备发出。
 
 ```json
 12:23:36.530820 e4:5f:01:20:24:0b (oui Unknown) > dc:a6:32:6f:73:f4 (oui Unknown), ethertype IPv6 (0x86dd), length 111: (hlim 255, next-header UDP (17) payload length: 57) fd49:869:6f93::1000.61785 > fd49:869:6f93::1.tftp: [udp sum ok]  49 RRQ "ab5a4158/start4.elf" octet tsize 0 blksize 1024
@@ -1649,7 +1649,7 @@ TFTP 请求由应该现在通过网络引导的设备发出。
 
 #### 无状态配置
 
-下面是一个用于无状态（非 DHCP）网络配置的 tcp 转储的摘录。
+下面是一个用于无状态（非 DHCP）网络配置的 TCP 转储的摘录。
 
 设备发送路由器请求。
 
@@ -1691,7 +1691,7 @@ DHCP 服务器回复 TFTP 服务器详细信息（`opt_59`）。
 12:55:27.838898 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 150: (flowlabel 0xd1248, hlim 64, next-header UDP (17) payload length: 96) fe80::537a:52c:c647:b184.dhcpv6-server > fe80::e65f:1ff:fe20:240b.dhcpv6-client: [bad udp cksum 0xd870 -> 0x78bb!] dhcp6 reply (xid=e5e0a4 (client-ID hwaddr type 1 e45f0120240b) (server-ID hwaddr/time type 1 time 671211709 dca6326f73f4) (opt_59))
 ```
 
-设备请求 TFTP 服务器 MAC 地址，因为它可以知道它在同一网络上。
+设备请求 TFTP 服务器 MAC 地址，因为它能判断出 TFTP 服务器在同一网络上。
 
 ```json
 12:55:28.834796 e4:5f:01:20:24:0b (oui Unknown) > 33:33:ff:1d:fe:2a (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) fe80::e65f:1ff:fe20:240b > ff02::1:ff1d:fe2a: [icmp6 sum ok] ICMP6, neighbor solicitation, length 32, who has 2a00:23c5:ee00:5001:57f1:7523:2f1d:fe2a
@@ -1699,7 +1699,7 @@ DHCP 服务器回复 TFTP 服务器详细信息（`opt_59`）。
             0x0000:  e45f 0120 240b
 ```
 
-FTP 服务器将以其 MAC 地址回复。
+TFTP 服务器将以其 MAC 地址回复。
 
 ```json
 12:55:28.834875 dc:a6:32:6f:73:f4 (oui Unknown) > e4:5f:01:20:24:0b (oui Unknown), ethertype IPv6 (0x86dd), length 86: (hlim 255, next-header ICMPv6 (58) payload length: 32) 2a00:23c5:ee00:5001:57f1:7523:2f1d:fe2a > fe80::e65f:1ff:fe20:240b: [icmp6 sum ok] ICMP6, neighbor advertisement, length 32, tgt is 2a00:23c5:ee00:5001:57f1:7523:2f1d:fe2a, Flags [solicited, override]
