@@ -10,9 +10,9 @@
 
 * [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)
 * [VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)
-* [树莓派 connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
+* [树莓派 Connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
 
-SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问。VNC（**V**irtual **N**etwork **C**omputing，虚拟网络计算）提供了对树莓派桌面屏幕共享的安全访问。你仅需一台其他计算机、局域网和树莓派的局域网 [IP 地址](https://en.wikipedia.org/wiki/IP_address)。树莓派 Connect 可安全地共享你的树莓派屏幕，且无需查阅树莓派的 IP 地址。
+SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问。VNC（**V**irtual **N**etwork **C**omputing，虚拟网络计算）提供了对树莓派桌面屏幕共享的安全访问。你只需要另一台计算机、局域网和树莓派的局域网 [IP 地址](https://en.wikipedia.org/wiki/IP_address)。树莓派 Connect 可安全地共享你的树莓派屏幕，且无需确定树莓派的局域网 IP 地址。
 
 ### 通过局域网在设备之间共享文件
 
