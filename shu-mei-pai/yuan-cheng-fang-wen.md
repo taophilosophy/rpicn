@@ -2,11 +2,11 @@
 
 ## 远程访问简介
 
-有时候你需要不依赖于显示器、键盘和鼠标，直接访问树莓派。也许树莓派被嵌在机器人中或安装在难以触及的地方、或者你可能也没有多余的显示器。
+有时候，你需要在不连接显示器、键盘和鼠标的情况下访问树莓派。也许树莓派被嵌入机器人中，或安装在难以触及的位置，又或者你没有多余的显示器。
 
 ### 局域网中的远程控制
 
-要在局域网上的另其他设备远程控制你的树莓派，请使用以下若干服务：
+要在局域网上的其他设备远程控制你的树莓派，请使用以下服务之一：
 
 * [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)
 * [VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)
@@ -22,12 +22,12 @@ SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问
 
 要从接入互联网的任意设备远程控制你的树莓派，你需要：
 
-* 在树莓派上放开 [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)/[VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)，可通过互联网、内部 VPN，或使用 RealVNC 的云 [VNC Viewer](https://www.realvnc.com/download/viewer/) 等外部服务。
-* 使用[树莓派 Connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)，这是由树莓派提供的免费屏幕共享服务。
+* 在树莓派上公开 [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)/[VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)，可通过开放互联网、VPN 内部，或使用 RealVNC 的云 [VNC Viewer](https://www.realvnc.com/download/viewer/) 等外部服务。
+* 使用[树莓派 Connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)，这是由树莓派提供的免费屏幕共享和远程 shell 服务。
 
 ## 查看树莓派的 IP 地址
 
-许多连接到树莓派的方法都需要你知道树莓派的局域网 IP 地址。
+许多从其他机器连接到树莓派的方法都需要你知道树莓派的局域网 IP 地址。
 
 接入局域网的所有设备都会被分配一个 IP 地址。要使用 [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)/[VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc) 从别的机器连接到树莓派，你需要知道树莓派的 IP 地址。如果接入了显示器，这很容易。但还有许多方法可从网络上的其他机器远程查找它。
 
@@ -35,7 +35,7 @@ SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问
 
 ### 桌面
 
-将鼠标悬停在系统托盘中的网络图标上，将显示工具的提示信息。该工具提示会显示你当前连接的网络名称及 IP 地址。
+将鼠标悬停在系统托盘中的网络图标上，便会出现工具提示。该工具提示会显示你当前连接的网络名称及 IP 地址。
 
 ![Wi-Fi 网络名称和 IP 地址的工具提示](../.gitbook/assets/network-tooltip.png)
 
@@ -49,7 +49,7 @@ $ hostname -I
 
 ### 启动输出
 
-如果你的树莓派接入了显示器，并且启动到了命令行而非桌面，则可在引导顺序（boot sequence）于登录提示符之前的最后几条输出信息中，找到你的 IP 地址。
+如果你的树莓派接入了显示器，并且启动到了命令行而非桌面，则可以在启动过程（boot sequence）于登录提示符之前输出的最后几条信息中，找到你的 IP 地址。
 
 ### 网络管理器
 
