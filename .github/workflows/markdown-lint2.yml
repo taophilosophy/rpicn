@@ -1,0 +1,26 @@
+name: 🔗 markdownlint-cli2 语法检查
+
+# Disable automatic runs
+on: [workflow_dispatch]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: DavidAnson/markdownlint-cli2-action@v24.2.0
+        with:
+          config: '.github/.markdownlint.json'
+          fix: true
+          globs: '**/*.md'
+
+      - name: markdownlint cli2 RP
+        if: failure()
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "Markdown 格式化"
+          labels: "Markdown"
+          delete-branch: true
+          title: markdownlint
+          body: |
+            格式化——Markdown
