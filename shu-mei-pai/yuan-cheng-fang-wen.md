@@ -532,19 +532,19 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 ## 使用 SCP 共享文件
 
-安全复制协议（`scp`）通过 SSH 发送文件。你可以使用 scp 在你的树莓派和另一台计算机间复制文件。
+安全复制协议（`scp`）通过 SSH 发送文件。你可以使用 `scp` 在你的树莓派和另一台计算机间复制文件。
 
-要使用 `scp`，[请查找你树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
+要使用 `scp`，请[查找你树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
 
 ### 将文件复制到你的树莓派
 
 要将名为 `myfile.txt` 的文件从你的个人计算机复制到树莓派上用户的主文件夹，请在 `myfile.txt` 所在目录下运行以下命令，把占位符 `<用户名>` 替换成你用于登录到树莓派的用户名，把占位符 `<树莓派IP地址>` 替换成你的树莓派的 IP 地址：
 
-```
+```sh
 $ scp myfile.txt <用户名>@<树莓派IP地址>:
 ```
 
-要把文件复制到特定目录，请在 `scp` 命令中的 `:` 后附带目录路径。请在运行 `scp` 之前创建文件夹，因为 `scp` 不会自动创建文件夹。例如，以下命令将名为 `myfile.txt` 的文件复制到用户主文件夹中的目录 `project/` 下：
+要把文件复制到特定目录，请在 `scp` 命令中的 `:` 后附加目录路径。请在运行 `scp` 之前创建文件夹，因为 `scp` 不会自动创建文件夹。例如，以下命令将名为 `myfile.txt` 的文件复制到用户主文件夹中的目录 `project/` 下：
 
 ```sh
 $ scp myfile.txt <用户名>@<树莓派IP地址>:project/
@@ -558,9 +558,9 @@ $ scp myfile.txt <用户名>@<树莓派IP地址>:project/
 $ scp <用户名>@<树莓派IP地址>:myfile.txt .
 ```
 
-### 一次性使用单个命令复制多个文件
+### 用一个命令复制多个文件
 
-复制多个文件，请在单个命令中列出以空格分隔的文件名：
+要复制多个文件，请在单个命令中列出以空格分隔的文件名：
 
 ```sh
 $ scp myfile.txt myfile2.txt <用户名>@<树莓派IP地址>:
@@ -594,7 +594,7 @@ $ scp m*.txt <用户名>@<树莓派IP地址>:
 
 ### 复制文件夹
 
-要复制文件夹及其所有内容，请传参文件夹名称及参数 `-r`（递归）：
+要复制文件夹及其所有内容，请传入文件夹名称及 `-r`（递归）参数：
 
 ```sh
 $ scp -r project/ <用户名>@<树莓派IP地址>:
@@ -602,11 +602,11 @@ $ scp -r project/ <用户名>@<树莓派IP地址>:
 
 ## 使用 `rsync` 在计算机间同步文件夹
 
-你可以使用 `rsync` 在计算机之间同步文件夹。例如，你可以使用 `rsync` 将树莓派拍摄的新照片自动传输到个人电脑。
+你可以使用 `rsync` 在计算机之间同步文件夹。例如，你可以使用 `rsync` 将树莓派拍摄的新照片自动传输到个人计算机。
 
 在配置 `rsync` 之前，请确定如下信息：
 
-* `<树莓派IP地址>`：你树莓派的局域网 IP 地址：更多有关信息，请参阅[查找你的树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)
+* `<树莓派IP地址>`：你树莓派的局域网 IP 地址。更多信息，请参阅[查找你的树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)
 * `<树莓派用户名>`：你用于登录到树莓派的用户名
 * `<树莓派文件夹名>`：你要从树莓派复制文件的文件夹名称
 * `<个人计算机文件夹名>`：你想要在个人计算机上同步的文件夹名称
@@ -618,7 +618,7 @@ $ scp -r project/ <用户名>@<树莓派IP地址>:
     ```sh
     $ mkdir <个人计算机文件夹名>
     ```
-2. 将文件同步到带有 `rsync` 的文件夹：
+2. 使用 `rsync` 将文件同步到该文件夹：
 
     ```sh
     $ rsync -avz -e ssh <树莓派用户名>@<树莓派IP地址>:<树莓派文件夹名>/ <个人计算机文件夹名>/
