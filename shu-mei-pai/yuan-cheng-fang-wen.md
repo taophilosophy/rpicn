@@ -1077,15 +1077,15 @@ Apache 是一款流行的 Web 服务器应用程序，你可以在树莓派上�
 
 要设置 Apache Web 服务器，请参阅 Apache 官方文档：<https://httpd.apache.org/docs/>。
 
-## 在树莓派上通过网络启动
+## 通过网络启动树莓派
 
-你可以设置一台 DHCP/TFTP 服务器，这能让你从网络引导树莓派 3、4。
+你可以设置一台 DHCP/TFTP 服务器，这能让你从网络启动树莓派 3 或更新机型。
 
-现在，假定你有一个既有的家庭网络，并且你想要使用树莓派作为**服务器**。你还需要其他树莓派 3、4 作为客户端进行引导。仅需一张存储卡，因为在初始客户端配置后，**客户端**将从服务器引导。
+以下说明假定你有一个既有的家庭网络，并且你想要使用树莓派作为**服务器**。你还需要另一台树莓派 3 或更新机型作为**客户端**来引导。仅需一张存储卡，因为在初始客户端配置后，**客户端**将从服务器引导。
 
 >**注意**
 >
->由于网络设备和路由器的种类繁多，我们无法保证网络引导能在所有设备上都正常工作。我们收到报告称，若无法使网络引导正常工作，可尝试在网络上禁用 STP 帧来帮助排除故障。
+>由于网络设备和路由器的种类繁多，我们无法保证网络启动能在所有设备上都正常工作。我们收到报告称，若无法使网络启动正常工作，可尝试在网络上禁用 STP 帧来帮助排除故障。
 
 ### 配置网络启动客户端
 
@@ -1093,11 +1093,11 @@ Apache 是一款流行的 Web 服务器应用程序，你可以在树莓派上�
 
 >**注意**
 >
->此部分仅适用于树莓派 3B，因为在出厂时树莓派 3B+ 已启用网络启动。
+>此部分仅适用于树莓派 3B，因为树莓派 3B+ 在出厂时已启用网络启动。
 
-在树莓派 3B 进行网络启动之前，需要从带有已配置参数的存储卡启动，启用 USB 启动模式。这会在树莓派 SoC 的 OTP（一次可编程）存储器中设置一个位，从而启用网络引导。完成此操作后，如果树莓派 3B 无法从存储卡启动，将尝试 USB 启动和网络启动。
+在树莓派 3B 进行网络启动之前，需要先从带有配置选项的存储卡启动，以启用 USB 启动模式。这会在树莓派 SoC 的 OTP（一次性可编程）存储器中设置一个位，从而启用网络启动。完成此操作后，如果树莓派 3B 无法从存储卡启动，将尝试 USB 启动和网络启动。
 
-通常，在存储卡上安装精简版树莓派系统/带桌面的树莓派系统。接下来，使用以下命令启用 USB 启动模式：
+按常规方式在存储卡上安装精简版树莓派系统或带桌面的树莓派系统。接下来，使用以下命令启用 USB 启动模式：
 
 ```sh
 $ echo program_usb_boot_mode=1 | sudo tee -a /boot/firmware/config.txt
@@ -1110,7 +1110,7 @@ $ vcgencmd otp_dump | grep 17:
 17:3020000a
 ```
 
-确保正确输出 `0x3020000a` 。
+确保输出为正确的 `0x3020000a`。
 
 客户端配置几乎完成。作为最后一步，禁用 USB 启动。运行以下命令：
 
@@ -1118,11 +1118,11 @@ $ vcgencmd otp_dump | grep 17:
 $ sudo nano /boot/firmware/config.txt
 ```
 
-删除包含文本 `program_usb_boot_mode=1` 这行。最后，使用 `sudo poweroff` 关闭客户端树莓派。
+删除包含文本 `program_usb_boot_mode=1` 的那一行。最后，使用 `sudo poweroff` 关闭客户端树莓派。
 
 #### 树莓派 4B
 
-可以使用工具 raspi-config 在树莓派 4 上启用网络启动。首先，按照以下方式运行 raspi-config ：
+可以在树莓派 4 上使用 `raspi-config` 工具启用网络启动。首先，按照以下方式运行 `raspi-config`：
 
 ```sh
 $ sudo raspi-config
@@ -1134,21 +1134,21 @@ $ sudo raspi-config
 $ vcgencmd bootloader_config
 ```
 
-要了解如何配置树莓派 4 启动加载程序的更多详细信息，请参阅[树莓派引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
+有关配置树莓派 4 引导加载程序的更多详细信息，请参阅[树莓派引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#raspberry-pi-bootloader-configuration)。
 
 ### 以太网 MAC 地址
 
-在配置网络引导之前，请记下序列号和 MAC 地址，以便 TFTP/DHCP 服务器可以识别开发板。
+在配置网络启动之前，请记下序列号和 MAC 地址，以便 TFTP/DHCP 服务器可以识别开发板。
 
-在树莓派 4 上，MAC 地址是在制造时编程的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在启动加载程序的 [HDMI 诊断](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot-diagnostics-on-the-raspberry-pi-4)屏幕上。
+在树莓派 4 及后续旗舰机型上，MAC 地址是在制造时写入的，MAC 地址和序列号之间没有关联。MAC 地址和序列号都显示在引导加载程序的 [HDMI 诊断](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#boot-diagnostics)屏幕上。
 
-要查找以太网 MAC 地址：
+要查找以太网 MAC 地址，请运行以下命令：
 
 ```sh
 $ ethtool -P eth0
 ```
 
-查找序列号：
+要查找序列号，请运行以下命令：
 
 ```sh
 $ grep Serial /proc/cpuinfo | cut -d ' ' -f 2 | cut -c 9-16
