@@ -776,9 +776,9 @@ $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/users /home/users
 <nfs服务器IP>:/   /mnt   nfs    auto  0  0
 ```
 
-如在挂载后，`/proc/mounts appears` 中的条目为 `<nfs服务器IP>://` （带有两个斜杠），那么你可能需要在 `/etc/fstab` 中指定两个斜杠，否则 `umount` 可能会报错找不到该挂载点。
+如果挂载后，`/proc/mounts` 中出现的条目为 `<nfs服务器IP>://`（带有两个斜杠），那么你可能需要在 `/etc/fstab` 中指定两个斜杠，否则 `umount` 可能会报错找不到该挂载点。
 
-#### 锁定端口映射（可选）
+#### 端口映射锁定（可选）
 
 将以下行添加到 `/etc/hosts.deny`：
 
@@ -786,7 +786,7 @@ $ mount -t nfs -o proto=tcp,port=2049 <nfs服务器IP>:/users /home/users
 rpcbind : ALL
 ```
 
-先阻止所有客户端，仅在下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
+先阻止所有客户端，这样只有下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
 
 现在将以下行添加到 `/etc/hosts.allow`：
 
@@ -809,15 +809,15 @@ NFS 用户权限基于用户 ID（UID）。客户端上所有用户的 UID 必�
 
 #### 组权限
 
-用户的文件访问权限取决于他们在客户端组中的成员资格，而不是在服务器上。但是，有一个重要的限制：从客户端传递给服务器的最多有 16 个组，如果用户在客户端是超过 16 个组的成员，则某些文件或目录可能会意外地无法访问。
+用户的文件访问权限取决于他们在客户端上所属的组，而不是服务器上的组。但是，有一个重要的限制：从客户端传递给服务器的组最多有 16 个，如果用户在客户端上属于超过 16 个组，则某些文件或目录可能会意外地无法访问。
 
 #### DNS（可选，仅在使用 DNS 时）
 
-将客户端名称和 IP 地址添加到 `/etc/hosts`（服务器的 IP 地址应该已经存在。）这样即使 DNS 出现问题，NFS 仍然可以正常工作。或者你可以选择依赖 DNS - 这取决于你。
+将客户端名称和 IP 地址添加到 `/etc/hosts`（服务器的 IP 地址应该已经存在）。这样即使 DNS 出现问题，NFS 仍然可以正常工作。或者，如果你愿意，也可以依赖 DNS——这取决于你。
 
 #### NIS（可选，仅在使用 NIS 时）
 
-这适用于使用 NIS 的客户端。否则，你将无法使用 netgroups，并且应在 `/etc/exports` 中指定单独的 IP 或主机名。阅读 `man netgroup` 中的 BUG 部分以获取更多信息。
+这适用于使用 NIS 的客户端。否则，你将无法使用 netgroups，并且应在 `/etc/exports` 中指定单独的 IP 地址或主机名。阅读 `man netgroup` 中的 BUGS 部分以获取更多信息。
 
 首先，编辑 `/etc/netgroup` 并添加一行来对你的客户端进行分类（此步骤不是必需的，但为方便起见）：
 
@@ -833,9 +833,9 @@ myclients (client1,,) (client2,,) ...
 $ sudo make -C /var/yp
 ```
 
-文件名 `yp` 指的是 Yellow Pages（黄页），即 NIS 的前身。
+文件名 `yp` 指的是 Yellow Pages（黄页），即 NIS 的旧称。
 
-#### Portmap 锁定（可选）
+#### 端口映射锁定（可选）
 
 将以下行添加到 `/etc/hosts.deny`：
 
@@ -843,15 +843,15 @@ $ sudo make -C /var/yp
 rpcbind mountd nfsd statd lockd rquotad : ALL
 ```
 
-首先阻止所有客户端，只有在 `/etc/hosts.allow` （下面添加）中的客户端才能访问服务器。
+先阻止所有客户端，只有下面添加的 `/etc/hosts.allow` 中的客户端才能访问服务器。
 
-考虑添加以下行到 `/etc/hosts.allow` ：
+考虑将以下行添加到 `/etc/hosts.allow`：
 
 ```sh
-rpcbind mountd nfsd statd lockd rquotad : <IP地址列>
+rpcbind mountd nfsd statd lockd rquotad : <IP地址列表>
 ```
 
-其中 `<IP地址列表>` 是服务器和所有客户端的 IP 地址列表。由于 rpcbind 的限制，这些必须是 IP 地址。请注意，如果你设置了 NIS，可以将这些添加到同一行。
+其中 `<IP地址列表>` 是服务器和所有客户端的 IP 地址列表。由于 `rpcbind` 的限制，这些必须是 IP 地址。请注意，如果你设置了 NIS，可以直接将它们添加到同一行。
 
 #### 软件包安装和配置
 
@@ -861,14 +861,14 @@ rpcbind mountd nfsd statd lockd rquotad : <IP地址列>
 $ sudo apt install rpcbind nfs-kernel-server
 ```
 
-编辑 `/etc/exports` 添加共享：
+编辑 `/etc/exports` 并添加共享：
 
 ```sh
 /home @myclients(rw,sync,no_subtree_check)
 /usr/local @myclients(rw,sync,no_subtree_check)
 ```
 
-上面的示例共享 `/home` 和 `/usr/local` 给 myclients netgroup 中的所有客户端。
+上面的示例将 `/home` 和 `/usr/local` 共享给 `myclients` netgroup 中的所有客户端。
 
 ```sh
 /home 192.168.0.10(rw,sync,no_subtree_check) 192.168.0.11(rw,sync,no_subtree_check)
@@ -882,7 +882,7 @@ $ sudo apt install rpcbind nfs-kernel-server
 /usr/local 192.168.0.0/255.255.255.0(rw,sync,no_subtree_check)
 ```
 
-在这里，`rw` 使共享变为读/写模式，而 `sync` 要求服务器只在全部更改已刷新到磁盘后才回复请求。这是最安全的选项；`async` 更快，但有风险。强烈建议你阅读 `man exports`，如果你正在考虑其他选项。
+在这里，`rw` 使共享变为读/写模式，而 `sync` 要求服务器只在全部更改已刷新到磁盘后才回复请求。这是最安全的选项；`async` 更快，但有风险。如果你正在考虑其他选项，强烈建议你阅读 `man exports`。
 
 设置完 `/etc/exports` 后，导出共享：
 
@@ -903,9 +903,9 @@ $ sudo systemctl restart nfs-kernel-server
 
 #### 要考虑的安全事项
 
-除了上面讨论的 UID 问题之外，还应注意到攻击者可能会冒充允许映射共享的机器，从而允许他们创建任意 UID 以访问你的文件。解决此问题的可选方案是 IPSec。你可以设置所有域成员仅通过 IPSec 相互通信，这将有效地验证你的客户端是否为其所说的那个。
+除了上面讨论的 UID 问题之外，还应注意到攻击者可能会冒充允许映射共享的机器，从而允许他们创建任意 UID 以访问你的文件。一种可行的解决方案是 IPSec。你可以设置所有域成员仅通过 IPSec 相互通信，这将有效验证你的客户端身份是否与其声称的一致。
 
-IPSec 通过使用服务器的公钥加密到服务器的流量，服务器用客户端的公钥发送回所有回复。流量使用各自的私钥解密。如果客户端没有应该拥有的密钥，它就无法发送或接收数据。
+IPSec 的工作原理是：使用服务器的公钥加密发往服务器的流量，服务器则用客户端的公钥加密发回的所有回复。流量使用各自的私钥解密。如果客户端没有应该拥有的密钥，它就无法发送或接收数据。
 
 IPSec 的替代方案是物理上分离的网络。这需要一个单独的网络交换机和单独的以太网卡，并且需要对该网络进行物理安全保护。
 
