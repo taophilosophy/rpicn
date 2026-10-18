@@ -11,7 +11,7 @@
 - 翻译对照的官方文档页面：<https://www.raspberrypi.com/documentation/>
 - 授权协议：CC BY-SA 4.0（与上游一致，详见 `README.md`"版权说明"）
 
-本仓库配有完整的 GitHub Actions 自动化（`.github/workflows/`）：`mulu.yml` 在 `SUMMARY.md` 变化时把 `mu-lu.md` 重新生成为其副本；`sync-headers.yml` 自动把各页面 H1 同步为 `SUMMARY.md` 中的条目文字；`Markdown-lint2-pr.yml` 在 PR 时检查变更的 `.md` 文件；`check-images.yml` 检查图片引用；`file-name-check.yml` 检查 `SUMMARY.md` 目录；另有链接检查、AutoCorrect、md-padding、PDF 导出、issue/PR 自动分配等工作流（部分为手动触发）。术语规则和格式惯例与 FreeBSD 手册翻译项目（handbook.bsdcn.org）在多处相反（如路径包裹方式），勿跨项目套用。
+本仓库配有完整的 GitHub Actions 自动化（`.github/workflows/`）：`sync-headers.yml` 自动把各页面 H1 同步为 `SUMMARY.md` 中的条目文字；`Markdown-lint2-pr.yml` 在 PR 时检查变更的 `.md` 文件；`check-images.yml` 检查图片引用；`file-name-check.yml` 检查 `SUMMARY.md` 目录；另有链接检查、AutoCorrect、md-padding、PDF 导出、issue/PR 自动分配等工作流（部分为手动触发）。术语规则和格式惯例与 FreeBSD 手册翻译项目（handbook.bsdcn.org）在多处相反（如路径包裹方式），勿跨项目套用。
 
 ## 版本与流程
 
@@ -43,7 +43,7 @@
 ### 核心文件
 
 - **`SUMMARY.md`** — 全书唯一数据源，定义完整目录结构和导航树，GitBook 用它生成侧边栏。**第一行 `# Table of contents` 绝对不能变更**，否则 GitBook 同步失效。
-- **`mu-lu.md`** — 由 `mulu.yml` CI 工作流从 `SUMMARY.md` 自动复制生成（仅第一行改为 `# 目录`），**不要手动编辑**；修改目录结构请改 `SUMMARY.md`，推送后 CI 会自动更新 `mu-lu.md`。
+- **`mu-lu.md`** — 手工维护的可视化目录页（卡片式表格，含配图和简介）。**它不是由 `SUMMARY.md` 自动生成的**，`SUMMARY.md` 新增、删除或改标题时必须手工同步对应卡片（链接、图片、说明文字）。`mu-lu.md` 是本仓库唯一大量使用 HTML（`<a>`、`<img>`、`<br>`）的文件。
 - **`qian-yan/ci-hui-biao.md`** — 术语翻译对照表（词汇表），所有术语翻译以此为准。新出现的人名、专有名词必须登记进词汇表。
 - **`CHANGELOG.md`** — 编辑日志。每完成一次上游同步或整页校对，追加一条记录（日期、同步的 commit、完成内容、向上游反馈的 PR）。
 - **`CONTRIBUTING.md`** — 贡献指南，是原文获取方式、工具选择、DeepL 禁令等约定的权威来源。
@@ -66,7 +66,7 @@
 
 ### 标题管理（关键约束）
 
-- 各 `.md` 文件的 H1 由 `sync-headers.yml` CI 自动与 `SUMMARY.md` 中对应条目的文字保持一致；修改标题时只需修改 `SUMMARY.md` 条目，推送后 CI 会自动同步对应文件的 H1。
+- 各 `.md` 文件的 H1 由 `sync-headers.yml` CI 自动与 `SUMMARY.md` 中对应条目的文字保持一致；修改章节标题时，需同时更新 `SUMMARY.md` 条目与 `mu-lu.md` 卡片文字（文件 H1 由 CI 自动同步）。
 
 ## 编写规范
 
@@ -77,7 +77,7 @@
 - **提示块：** 使用 `>` 缩进引用，关键词加粗，`>` 后不留空格，与既有文件风格一致：`>**技巧**`、`>**注意**`、`>**重要**`、`>**警告**`（对应上游 tip/note/important/warning）。
 - **命令、选项、参数、文件路径：** 一律用反引号包裹（如 `/boot/firmware`、`config.txt`、`raspi-config`）。不带选项和参数的裸命令（如 mv、cp）一般不加反引号。**注意：本项目路径用反引号而非加粗，与 FreeBSD 手册项目的规则相反，勿跨项目套用。**
 - **表格：** 风格与所在文件既有表格保持一致（内容列一般左对齐，短枚举列居中）；`mu-lu.md` 的卡片表格一律居中。表头声明几列，所有数据行就必须有几列，缺的补空单元格，不得让单元格超出表头列数（超出部分在 GFM 渲染中被丢弃）。
-- **HTML：** 正文页面禁止成段的 HTML（div、table 等）；`<br>` 换行是既有用法，可保留。
+- **HTML：** 正文页面禁止成段的 HTML（div、table 等）；`<br>` 换行是既有用法，可保留；`mu-lu.md` 是唯一例外。
 - **禁止「」引号：** 正文中不允许出现「」，一律使用""（中文双引号）。逐个手动修改，禁止机械替换。
 - **禁止 AsciiDoc 语法残留：** 不允许出现 `xref:file[文本]`、`link:file[文本]` 等双冒号链接语法和行尾 `+` 软换行；所有段落必须在同一行内完成，不得跨行拼接。链接一律使用标准 markdown `[文本](路径或URL)`。
 - **禁止篡改：** 软件版本号、用户名、邮箱、URL、IP 地址、带圈数字（如 ①②③）必须与英文原文保持一致，其位置和数量不得变动。
