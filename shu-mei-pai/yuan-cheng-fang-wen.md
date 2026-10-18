@@ -205,7 +205,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 ## 使用 SSH 访问远程终端
 
-你可以使用安全外壳（**S**ecure **S**hell，SSH）协议从同一网络上的其他计算机远程访问树莓派的终端。
+你可以使用安全外壳（**S**ecure **SH**ell，SSH）协议从同一网络上的其他计算机远程访问树莓派的终端。
 
 ### 启用 SSH 服务器
 
@@ -213,7 +213,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 #### 使用桌面启用 SSH 服务器
 
-1. 在“**首选项**”菜单中打开树莓派配置。
+1. 在“**首选项**”菜单中启动**控制中心（Control Centre）**。
 2. 切换到“**接口**”选项卡。
 3. 选择“**SSH**”旁边的“**已启用（Enabled）**”。
 4. 单击“**确定**”。
@@ -222,10 +222,9 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 在全新安装的树莓派系统上配置 SSH：
 
-1. 按照[树莓派启动盘制作工具](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager)指南中的说明进行安装。
-2. 在 **自定义系统配置** 这个步骤中，切换到 **服务** 选项卡。
-3. 选中复选框 **开启 SSH**。
-4. 选择 **使用密码登录**，使用与在物理上使用树莓派时相同的用户名和密码登录。选择 **仅允许公钥登录** [配置用于无密码登录的 SSH 密钥](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
+1. 按照[使用树莓派启动盘制作工具安装](https://www.raspberrypi.com/documentation/computers/getting-started.html#imager-install)指南中的说明进行安装。
+2. 在 **自定义（Customisation）> 远程访问（Remote Access）** 标签页中，把 **启用 SSH** 开关切换到活动状态。
+3. 选择 **使用密码认证（Use password authentication）**，使用与在物理上使用树莓派时相同的用户名和密码登录。选择 **使用公钥认证（Use public key authentication）** 以[配置 SSH 密钥](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)，进行基于 SSH 密钥的登录。
 
 #### 使用终端启用 SSH 服务器
 
@@ -257,11 +256,11 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 $ ssh <用户名>@<ip 地址>
 ```
 
-当成功连接后，你会看到一个安全警告。请输入 `yes` 继续。你仅会在首次连接时收到该警告。
+连接成功后，你会看到一个安全警告。请输入 `yes` 继续。你仅会在首次连接时收到该警告。
 
 在出现提示时输入你的账户密码。
 
-你现在应该能看到树莓派的命令提示符：
+你现在会看到树莓派的命令提示符：
 
 ```sh
 <用户名>@<主机名> ~ $
@@ -271,25 +270,21 @@ $ ssh <用户名>@<ip 地址>
 
 >**注意**
 >
->如果你收到报错 `connection timed out`，则可能输入的树莓派 IP 地址错误。请检查[树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
+>如果你收到报错 `connection timed out`，则可能是你输入的树莓派 IP 地址有误。请检查[树莓派的 IP 地址](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
 
 #### 通过 SSH 转发 X11
 
 >**注意**
 >
->在树莓派 4 和 5 上，树莓派系统 Bookworm 默认使用 Wayland 窗口服务器。仅在使用 X 窗口服务器时才能转发 X11。要在 X11 上启用窗口转发，请在 Raspberry Pi Configuration 中把桌面切换到 X 窗口服务器。
+>在 macOS 和 Windows 上，你必须安装第三方 X 服务器才能使用 X11 转发。
 
->**注意**
->
->许多桌面环境都不再预装 X11。可安装第三方 X 服务器（如 XQuartz）来使用 X11 转发。
-
-X11 可通过 SSH 启用图形应用程序。传参 `-Y` 可通过 SSH 转发 X 会话：
+X11 可通过 SSH 启用图形应用程序。传递 `-Y` 参数即可通过 SSH 转发 X 会话：
 
 ```sh
 $ ssh -Y <用户名>@<ip 地址>
 ```
 
-在经过身份验证后，你会像往常一样看到命令行。但是，你仍可打开图形窗口，X 服务器会为你渲染。例如，键入以下命令会启动 [Geany](https://www.geany.org/) 窗口：
+在经过身份验证后，你会像往常一样看到命令行。不过，你还可以打开图形窗口，由 X 服务器为你渲染。例如，键入以下命令会启动 [Geany](https://www.geany.org/) 窗口：
 
 ```sh
 $ geany &
@@ -301,11 +296,12 @@ $ geany &
 
 #### 使用树莓派启动盘制作工具预配置操作系统镜像
 
-在使用启动盘制作工具配置启动镜像时，你可以预配置 SSH 密钥。你可以生成新的 SSH 密钥对或使用现有的 SSH 密钥。
+在使用树莓派启动盘制作工具配置操作系统镜像时，你可以预配置 SSH 密钥，以使用运行树莓派启动盘制作工具的计算机上的现有密钥。
 
-1. 按照使用[启动盘制作工具](https://www.raspberrypi.com/documentation/computers/getting-started.html#raspberry-pi-imager)指南安装来配置你的启动镜像。
-2. 在 **自定义系统配置** 这个步骤中，切换到 **服务** 选项卡，选中 **开启 SSH** 复选框。
-3. 选择 **仅允许公钥登录** 单选按钮。如果你已经在 `~/.ssh/id_rsa.pub` 中存储了一个 SSH 公钥，树莓派启动盘制作工具会自动使用该公钥来预填文本框。如果启动盘制作工具未找到 SSH 公钥，你可单击“**运行 SSH-KEYGEN**”按钮生成新的密钥对。
+1. 按照[使用树莓派启动盘制作工具安装](https://www.raspberrypi.com/documentation/computers/getting-started.html#imager-install)指南来配置你的启动镜像。
+2. 在 **远程访问（Remote Access）** 标签页中，把 **启用 SSH** 开关切换到活动状态。
+3. 选择 **使用公钥认证（Use public key authentication）**。如果你已经在 `~/.ssh/id_rsa.pub` 中存储了一个 SSH 公钥，树莓派启动盘制作工具会自动使用该公钥来预填文本框；否则，请浏览到你的公钥所在位置。
+4. 选择 **下一步（Next）** 以继续镜像写入流程。
 
 #### 手动配置 SSH 密钥
 
@@ -325,7 +321,7 @@ $ ls ~/.ssh
 
 >**技巧**
 >
->本指南提供了新 RSA 密钥的生成说明。为了增加安全性，你可以选择生成 [Ed25519](http://ed25519.cr.yp.to/) 密钥。要使用 Ed25519 密钥：在引用你的公钥和私钥文件名称时，把 `-t ed25519` 传参给 `ssh-keygen`；并把 `rsa` 替换为 `ed25519`。
+>本指南提供了新 RSA 密钥的生成说明。为了增加安全性，你可以选择生成 [Ed25519](https://ed25519.cr.yp.to/) 密钥。要使用 Ed25519 密钥：在引用你的公钥和私钥文件名称时，把 `-t ed25519` 传递给 `ssh-keygen`；并把 `rsa` 替换为 `ed25519`。
 
 要生成新的 SSH 密钥对，请输入以下命令：
 
@@ -361,7 +357,7 @@ authorized_keys  id_rsa  id_rsa.pub  known_hosts
 $ eval "$(ssh-agent -s)"
 ```
 
-接下来，使用以下命令将你的关键标识添加到 ssh-agent：
+接下来，使用以下命令将你的密钥标识添加到 `ssh-agent`：
 
 ```sh
 $ ssh-add ~/.ssh/id_rsa
@@ -375,13 +371,13 @@ $ ssh-add ~/.ssh/id_rsa
 $ ssh-copy-id <用户名>@<ip 地址>
 ```
 
-当出现提示后，在树莓派上输入用户账户的密码。现在你可以接入树莓派而无需输入密码。
+出现提示后，输入你树莓派用户账户的密码。现在你可以接入树莓派而无需输入密码。
 
 #### 手动把公钥复制到你的树莓派
 
 如果你的操作系统不支持 `ssh-copy-id`，你可以用 `scp` 来复制你的公钥。
 
-首先，在你的树莓派上，创建 Linux 将查找密钥的目录：
+首先，在你的树莓派上，创建 Linux 默认查找密钥的目录：
 
 ```sh
 $ mkdir .ssh
@@ -393,7 +389,7 @@ $ mkdir .ssh
 $ chmod 700 .ssh
 ```
 
-在你的常用计算机上，使用 `scp` 把你的公钥复制成文件 `.ssh/authorized_keys`，存储至你的树莓派上：
+在你的常用计算机上，使用 `scp` 把你的公钥复制到树莓派上的 `.ssh/authorized_keys` 文件中：
 
 ```sh
 $ scp .ssh/id_rsa.pub <用户名>@<ip 地址>:.ssh/authorized_keys
@@ -401,17 +397,43 @@ $ scp .ssh/id_rsa.pub <用户名>@<ip 地址>:.ssh/authorized_keys
 
 >**技巧**
 >
->上面的命令假定你以前从未授权过任何密钥访问你的树莓派。如果你之前添加过密钥，你应在 `authorized_keys` 文件的末尾添加包含公钥的新行，可保留现有密钥。
+>上面的命令假定你以前从未授权过任何密钥访问你的树莓派。如果你之前添加过至少一个密钥，请改为在 `authorized_keys` 文件的末尾添加一行包含公钥的新内容，以保留现有密钥。
 
-在提示后，在树莓派上输入你用户账户的密码。
+出现提示后，输入你树莓派用户账户的密码。
 
-然后，在你的树莓派上，配置 authorized_keys 的文件权限：
+然后，在你的树莓派上，配置 `authorized_keys` 文件的权限：
 
 ```sh
 $ chmod 644 .ssh/authorized_keys
 ```
 
 你现在可以在不输入密码的情况下连接到你的树莓派。
+
+### 限制可连接的用户
+
+如果你想将 SSH 访问限制到特定的用户账户，请编辑 SSH 服务器配置：
+
+```sh
+$ sudo nano /etc/ssh/sshd_config
+```
+
+找到 `AllowUsers` 指令，添加你想要允许的用户名。如果该行不存在，请将其添加到文件末尾：
+
+```sh
+AllowUsers alice bob
+```
+
+你还可以使用 `DenyUsers` 明确阻止特定用户名登录：
+
+```sh
+DenyUsers jane john
+```
+
+保存文件并重启 SSH 服务以使更改生效：
+
+```sh
+$ sudo systemctl restart ssh
+```
 
 ## 使用 VNC 进行屏幕共享
 
@@ -431,24 +453,24 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 >**技巧**
 >
->启用后，你可在 `/etc/wayvnc/` 编辑你的 WayVNC 配置。
+>启用后，你可以在 `/etc/wayvnc/` 中找到你的 WayVNC 配置。
 
 #### 使用图形化启用 VNC 服务器
 
 1. 在树莓派上启动图形桌面。
 2. 单击桌面系统托盘中的树莓派图标。
-3. 从菜单中选择 **首选项（Preferences）** \> **树莓派配置（Raspberry Pi Configuration）**。
+3. 从菜单中选择 **首选项（Preferences）** \> **控制中心（Control Centre）**。
 
 ![从系统托盘中的首选项菜单中选择树莓派配置](../.gitbook/assets/raspberry-pi-configuration.png)
 
 4. 切换到选项卡 **接口（Interfaces）**。
-5. 单击 **VNC** 旁边的单选按钮，将其改为活动状态。。
+5. 单击 **VNC** 旁边的单选按钮，将其切换到活动状态。
 
 ![接口选项卡](../.gitbook/assets/vnc-enable.png)
 
 6. 单击“**确定（OK）**”按钮以保存配置更改。
 
-#### 使用命令行启用 VNC 服务器。
+#### 使用命令行启用 VNC 服务器
 
 可使用命令行 [raspi-config](https://www.raspberrypi.com/documentation/computers/configuration.html#raspi-config) 启用 VNC 服务器。
 
@@ -457,9 +479,9 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
     ```sh
     $ sudo raspi-config
     ```
-2. 切换到 **接口选项（Interface Option）**。按 **回车键** 选择。
+2. 切换到 **接口选项（Interface Options）**。按 **回车键** 选择。
 3. 选择 **VNC**。按 **回车键** 选择。
-4. 在“**Would you like the VNC Server to be enabled?（你想要启用 VNC 服务器吗? ）**”使 `<Yes>` 高亮并按  **回车键**。
+4. 在“**Would you like the VNC Server to be enabled?（你想要启用 VNC 服务器吗？）**”下，使 `<Yes>` 高亮并按 **回车键**。
 5. 按 **回车键** 返回菜单。按 **Esc 键** 退出 `raspi-config`。
 
 ### 连接到 VNC 服务器
@@ -470,15 +492,15 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 * 你的树莓派的主机名/IP 地址
 * 树莓派上账户的有效用户名和对应的密码
 
-如果你不知道设备的 IP 地址，请[参阅有关查找 IP 地址的说明](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
+如果你不知道设备的 IP 地址，请参阅[查找 IP 地址的说明](https://www.raspberrypi.com/documentation/computers/remote-access.html#ip-address)。
 
-1. 下载 [TigerVNC](https://tigervnc.org/)。你可以从其 [GitHub 存储库的 Releases 页面](https://github.com/TigerVNC/tigervnc/releases)安装最新版本。单击最新版本中的链接，找到适用于你平台的二进制文件。Windows 用户应下载 `exe`；macOS 用户应下载 `dmg`；Linux 用户应下载 `jar`。
-2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，安装 java，然后运行 `java -jar VncViewer-<版本号>.jar`，将占位符 `<版本号>` 替换为你下载的版本。
+1. 下载 [TigerVNC](https://tigervnc.org/)。你可以从其 [GitHub 存储库的 Releases 页面](https://github.com/TigerVNC/tigervnc/releases)安装最新版本。单击最新版本中的链接，找到适用于你平台的二进制文件。Windows 用户应下载 `exe`；macOS 用户应下载 `dmg`；Linux 用户应安装 `jar`。
+2. 在你的客户端设备上启动 TigerVNC。在 macOS 和 Windows 上，你可以双击二进制文件。在 Linux 上，使用 `sudo apt install default-jre` 安装 java，然后运行 `java -jar VncViewer-<版本号>.jar`，将占位符 `<版本号>` 替换为你下载的版本。
 3. 在“VNC 服务器”字段中输入你树莓派的 IP 地址。
 
 ![将树莓派的局域网 IP 地址输入到 TigerVNC 中](../.gitbook/assets/vnc-tigervnc-enter-ip.png)
 
-4. 单击按钮“Options”。切换到选项卡“输入”。选中“无光标时显示一个点”，可确保你始终可以在 TigerVNC 中看到光标。
+4. 单击按钮“Options”。切换到选项卡“输入”。勾选“无光标时显示一个点”旁边的复选框，以确保你始终可以在 TigerVNC 中看到光标。
 
 ![在 TigerVNC 中始终将光标显示为点的选项](../.gitbook/assets/vnc-tigervnc-show-dot.png)
 
@@ -488,23 +510,25 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 
 ![TigerVNC 关于证书不匹配的警告](../.gitbook/assets/vnc-tigervnc-cert-warning.png)
 
-* 如果 TigerVNC 警告你“证书由未知机构签署”，请单击按钮“是”以为你的树莓派授予异常。
+* 如果 TigerVNC 警告你“证书由未知机构签署”，请单击按钮“是”，为你的树莓派授予例外。
 
 ![TigerVNC 关于由未知机构签署的证书的警告](../.gitbook/assets/vnc-tigervnc-cert-signer-warning.png)
 
-6. 在提示输入用户名和密码后，请输入你的凭据。
+6. 在提示输入用户名和密码时，请输入你的凭据。
 
 ![通过 TigerVNC 输入用户名和密码进行身份验证](../.gitbook/assets/vnc-tigervnc-username-password.png)
 
-7. 单击“确定”按钮以与 VNC 服务器进行身份验证。如果你的凭据正确，TigerVNC 将打开一个包含与树莓派上你账户对应的桌面的窗口。你应该能够移动鼠标和键盘以输入文本并与桌面交互。
+7. 单击“确定”按钮以与 VNC 服务器进行身份验证。如果你的凭据正确，TigerVNC 将打开一个窗口，其中显示与你在树莓派上的账户对应的桌面。你应该能够使用鼠标和键盘与桌面交互并输入文本。
 
 ![成功通过 TigerVNC 认证后的树莓派桌面](../.gitbook/assets/vnc-tigervnc-desktop.png)
 
-## 通过树莓派 Connect 进行屏幕共享
+## 使用树莓派 Connect 远程访问
 
-你可以使用树莓派 Connect 从别的设备的浏览器远程访问树莓派的桌面。树莓派 Connect 会自动处理配置，因此你无需查找树莓派的本地 IP 地址或更改局域网。
+你可以使用树莓派 Connect，从另一台设备的浏览器远程访问树莓派。树莓派 Connect 会自动处理配置，因此你无需查找树莓派的本地 IP 地址或网络的公网 IP 地址，也无需修改局域网防火墙以启用外部访问。
 
-欲了解更多信息，请参阅 [Connect 文档](https://www.raspberrypi.com/documentation/services/connect.html)。
+在运行 Wayland 窗口服务器的树莓派机型上，Connect 支持屏幕共享；在所有树莓派机型上，Connect 支持远程 shell（终端）访问。
+
+更多信息，请参阅 [Connect 文档](https://www.raspberrypi.com/documentation/services/connect.html)。
 
 ## 使用 SCP 共享文件
 
