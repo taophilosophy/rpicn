@@ -12,7 +12,7 @@
 * [VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc)
 * [树莓派 Connect](https://www.raspberrypi.com/documentation/computers/remote-access.html#raspberry-pi-connect)
 
-SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问。VNC（**V**irtual **N**etwork **C**omputing，虚拟网络计算）提供了对树莓派桌面屏幕共享的安全访问。你只需要另一台计算机、局域网和树莓派的局域网 [IP 地址](https://en.wikipedia.org/wiki/IP_address)。树莓派 Connect 可安全地共享你的树莓派屏幕，且无需确定树莓派的局域网 IP 地址。
+SSH（**S**ecure **SH**ell）提供了对树莓派上终端会话的安全访问。VNC（**V**irtual **N**etwork **C**omputing，虚拟网络计算）提供了对树莓派桌面屏幕共享的安全访问。你只需要另一台计算机、局域网和树莓派的局域网 [IP 地址](https://en.wikipedia.org/wiki/IP_address)。树莓派 Connect 可安全地共享你的树莓派屏幕，且无需确定树莓派的局域网 IP 地址。
 
 ### 通过局域网在设备之间共享文件
 
@@ -31,7 +31,7 @@ SSH（**S**ecure **S**Hell）提供了对树莓派上终端会话的安全访问
 
 接入局域网的所有设备都会被分配一个 IP 地址。要使用 [SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#ssh)/[VNC](https://www.raspberrypi.com/documentation/computers/remote-access.html#vnc) 从别的机器连接到树莓派，你需要知道树莓派的 IP 地址。如果接入了显示器，这很容易。但还有许多方法可从网络上的其他机器远程查找它。
 
-要查找树莓派的局域网 IP 地址，请使用以下若干方法。
+要查找树莓派的局域网 IP 地址，请使用以下方法之一。
 
 ### 桌面
 
@@ -156,7 +156,7 @@ PING raspberrypi.local (192.168.1.131): 56 data bytes
 
 ### 使用 `nmap` 查找设备
 
-`nmap`（Network Mapper，网络映射器）命令是用于网络发现的免费开源工具。适用于 Linux、macOS 和 Windows。
+`nmap`（Network Mapper，网络映射器）命令是用于网络发现的免费开源工具。它适用于 Linux、macOS 和 Windows。
 
 * 要在 **Linux** 上安装，请安装软件包 `nmap`，如 `apt install nmap`。
 * 要在 **macOS**、**Windows** 上安装，请参阅 [nmap.org 下载页](http://nmap.org/download.html)。
@@ -209,7 +209,7 @@ Nmap done: 256 IP addresses (4 hosts up) scanned in 2.41 seconds
 
 ### 启用 SSH 服务器
 
-在默认情况下，树莓派系统已禁用 SSH 服务器。可通过以下若干方式启用 SSH：
+在默认情况下，树莓派系统已禁用 SSH 服务器。可通过以下方式之一启用 SSH：
 
 #### 使用桌面启用 SSH 服务器
 
@@ -266,7 +266,7 @@ $ ssh <用户名>@<ip 地址>
 <用户名>@<主机名> ~ $
 ```
 
-现在你已远程接入至树莓派，可以执行命令了。
+现在你已远程连接到树莓派，可以执行命令了。
 
 >**注意**
 >
@@ -441,7 +441,7 @@ $ sudo systemctl restart ssh
 
 VNC 依赖于客户端和服务器。客户端运行在你可直接与之交互的设备上，如个人笔记本电脑、台式机、平板电脑或手机。服务器运行在你的树莓派上。当你使用 VNC 时，客户端会把键盘和鼠标事件传输到服务器。服务器在你的树莓派上执行这些事件，再将屏幕更新返回给客户端。
 
-VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓派本身上工作一样同桌面交互。
+VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓派本身上工作一样与桌面交互。
 
 树莓派系统内置了 [wayvnc](https://github.com/any1/wayvnc)。它提供了一个 VNC 服务器，你可以在设备首选项中启用它。
 
@@ -461,7 +461,7 @@ VNC 客户端在窗口中显示你的树莓派的桌面。你可以像在树莓�
 2. 单击桌面系统托盘中的树莓派图标。
 3. 从菜单中选择 **首选项（Preferences）** \> **控制中心（Control Centre）**。
 
-![从系统托盘中的首选项菜单中选择树莓派配置](../.gitbook/assets/raspberry-pi-configuration.png)
+![从系统托盘中的首选项菜单中选择控制中心](../.gitbook/assets/raspberry-pi-configuration.png)
 
 4. 切换到选项卡 **接口（Interfaces）**。
 5. 单击 **VNC** 旁边的单选按钮，将其切换到活动状态。
