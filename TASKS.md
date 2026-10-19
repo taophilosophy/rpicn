@@ -164,7 +164,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 待同步 | 0/3 | 未领取（B3 失败） | 2026-10-20 | 代理连接中断，无改动；内容停留在 2024 年 |
 | `shu-mei-pai/xi-tong-pei-zhi.md` | `configuration.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | |
 | `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | 参数表，重点核对默认值 |
-| `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 已同步 | 0/3 | 未领取（B4 失败） | 2026-10-20 | 1124 行改动已提交（`79d516b`），代理中断，完整性待核 |
+| `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 已同步 | 0/3 | 代理 B4（完成） | 2026-10-20 | B4 整页重写已提交（`79d516b`），主线程已复核：7 节与上游一一对应（含 5 级标题）、BCM2712/kernel_2712 等齐备；待三轮逐句校对 |
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 全页重写至当前上游，待三轮校对 |
 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `ai.adoc` | 同步中 | 0/3 | 代理 B9 | 2026-10-20 | |
@@ -260,7 +260,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | B1 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无新增改动 |
 | B2 | `shu-mei-pai/ru-men.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 | B3 | `shu-mei-pai/raspberry-pi-os.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
-| B4 | `shu-mei-pai/linux-nei-he.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），1124 行改动已提交 |
+| B4 | `shu-mei-pai/linux-nei-he.md` | 2026-10-20 | CP-2 + CP-3 | 完成：整页重写已提交并经主线程验收 |
 | B5 | `shu-mei-pai/ling-dian-xing-hao.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B6 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B7 | `shu-mei-pai/jian-pan-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
