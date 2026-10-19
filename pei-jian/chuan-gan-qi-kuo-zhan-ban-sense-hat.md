@@ -12,23 +12,29 @@ Sense HAT 最初是为在国际空间站上使用而开发的，是[树莓派基
 
 ## 安装
 
-为了正确工作，传感器扩展板需要最新的内核，启用 I²C，并准备一些库来继续。
+为了让传感器扩展板正确工作，需要满足以下条件：
 
-确保你的 APT 软件源是最新的：
+* 最新的内核
+* 在你的树莓派上启用 I²C
+* 若干依赖项
 
-```
+请完成以下步骤，使树莓派设备准备好连接传感器扩展板：
+
+首先，确保树莓派运行的是最新的软件。运行以下命令进行更新：
+
+```bash
 $ sudo apt update && sudo apt full-upgrade
 ```
 
-接下来，安装传感器扩展板软件包，这将确保内核是最新的，启用 I²C，并安装必要的库和程序：
+接下来，安装 `sense-hat` 软件包，这将确保内核是最新的，启用 I²C，并安装必要的依赖项：
 
-```
+```bash
 $ sudo apt install sense-hat
 ```
 
-最后，如果 I²C 被禁用或在安装之前内核是旧的，则可能需要重启：
+最后，重启树莓派以启用 I²C 并加载新内核（如果内核有变化的话）：
 
-```
+```bash
 $ sudo reboot
 ```
 
@@ -46,19 +52,19 @@ $ sudo reboot
 
 ### 使用 Python 与传感器扩展板
 
-sense-hat 是传感器扩展板的官方支持库；它提供对所有板载传感器和 LED 矩阵的访问。
+`sense-hat` 是传感器扩展板的官方支持库；它可访问所有板载传感器和 LED 矩阵。
 
-可在 sense-hat.readthedocs.io 找到该库的完整文档。
+该库的完整文档可在 [sense-hat.readthedocs.io](https://sense-hat.readthedocs.io/en/latest/) 找到。
 
 ### 使用 C++ 与传感器扩展板
 
-RTIMULib 是一个 C++ 和 Python 库，可使嵌入式 Linux 系统与 9 自由度和 10 自由度 IMU 的使用变得更加容易。/etc/RTIMULib.ini 中提供了一个预校准的设置文件，也被 sense-hat 复制并使用。包含的示例在当前工作目录中查找 RTIMULib.ini，因此你可能希望将文件复制到那里以获得更准确的数据。
+[RTIMULib](https://github.com/RPi-Distro/RTIMULib) 是一个 C++ 和 Python 库，可使嵌入式 Linux 系统使用 9 轴和 10 轴 IMU 变得更加容易。`/etc/RTIMULib.ini` 中提供了一个预校准的设置文件，`sense-hat` 也会复制并使用该文件。包含的示例会在当前工作目录中查找 `RTIMULib.ini`，因此你可能希望将该文件复制到那里以获得更准确的数据。
 
-RTIMULibDrive11 示例已经被预编译，以确保一切按预期工作。可以通过运行 RTIMULibDrive11 启动，并通过按 **Ctrl** **C** 停止。
+`RTIMULibDrive11` 示例是预先编译好的，以确保一切按预期工作。运行 `RTIMULibDrive11` 即可启动，按 `Ctrl C` 可关闭。
 
 >**注意**
 >
-> 可以通过在适当的目录中运行 make 来编译 C/C++ 示例。
+> 可以在相应的目录中运行 `make` 来编译 C/C++ 示例。
 
 ## 传感器扩展板硬件
 

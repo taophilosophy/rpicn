@@ -66,39 +66,38 @@ Pico 系列设备按产品代次划分为不同的**系列**。
 
 树莓派 Pico 是一款低成本、高性能的微控制器开发板，具有灵活的数字接口。主要特点包括：
 
-- 由 Raspberry Pi 在英国设计的 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2040) 微控制器芯片
-- 双核 Arm Cortex M0+ 处理器，灵活的时钟频率最高可达 133 MHz
-- SRAM 为 264KB，板载闪存 2MB
-- 带设备模式和主机模式支持的 USB 1.1
-- 低功耗睡眠和休眠模式
-- 通过 USB 大容量存储拖放编程
-- 多功能 GPIO 引脚 ×26
-- SPI ×2，I²C ×2，串口 ×2，3× 12 位 ADC，可控 PWM 通道 ×2
-- 精确的片上时钟和定时器
-- 温度传感器
-- 片上加速浮点库
-- 可编程 IO (PIO) 状态机 ×8，支持自定义外围设备
+* 由 Raspberry Pi 在英国设计的 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2040) 微控制器芯片
+* 双核 Arm Cortex M0+ 处理器，灵活的时钟频率最高可达 133 MHz
+* 264KB 的 SRAM 和 2MB 的板载闪存
+* 带设备模式和主机模式支持的 USB 1.1
+* 低功耗睡眠和休眠模式
+* 通过 USB 大容量存储拖放编程
+* 多功能 GPIO 引脚 ×26
+* SPI ×2，I²C ×2，UART ×2，12 位 ADC ×3，可控 PWM 通道 ×16
+* 精确的片上时钟和定时器
+* 温度传感器
+* 片上加速浮点库
+* 可编程 IO (PIO) 状态机 ×8，支持自定义外围设备
 
 树莓派 Pico 采用镀边模块设计，便于直接焊接到载板上，而 Pico H 则预装有插针。
 
 >**注意**
 >
->两款开发板均配备三针串行线调试 (SWD) 插针。然而，Pico H 使用的是小型、带定位的 [3 针连接器](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf)，而 Pico 则是板边相邻的三个镀边通孔插针。
+>两款开发板均配备三针串行线调试 (SWD) 排针。不过，Pico H 用的是小型、带定位的 [3 针连接器](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf)，而 Pico 用的是板边相邻的三个镀边通孔排针。
 
 #### 引脚分布图和设计文件
 
 ![Pico 引脚分布图](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg)
 
-- 下载 [引脚分布图](https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf) (PDF)
-- 下载 [设计文件](https://datasheets.raspberrypi.com/pico/RPi-Pico-R3-PUBLIC-20200119.zip) (Cadence Allegro)
-- 下载 [STEP 文件](https://datasheets.raspberrypi.com/pico/Pico-R3-step.zip)
-- 下载树莓派 Pico 的 [Fritzing 部件](https://datasheets.raspberrypi.com/pico/Pico-R3-Fritzing.fzpz)
-- 下载树莓派 Pico H 的 [Fritzing 部件](https://datasheets.raspberrypi.com/pico/PicoH-Fritzing.fzpz)
+* 下载 [引脚分布图](https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf) (PDF)
+* 下载 [设计文件](https://datasheets.raspberrypi.com/pico/RPi-Pico-R3-PUBLIC-20200119.zip) (Cadence Allegro)
+* 下载 [STEP 文件](https://datasheets.raspberrypi.com/pico/Pico-R3-step.zip)
+* 下载树莓派 Pico 的 [Fritzing 部件](https://datasheets.raspberrypi.com/pico/Pico-R3-Fritzing.fzpz)
+* 下载树莓派 Pico H 的 [Fritzing 部件](https://datasheets.raspberrypi.com/pico/PicoH-Fritzing.fzpz)
 
 >**注意**
 >
->关于 Fritzing 的更多信息，请访问网站 [fritzing.org](https://fritzing.org/) 。
-
+>关于 Fritzing 的更多信息，请访问 [fritzing.org](https://fritzing.org/) 网站。
 
 ### 树莓派 Pico W 和 Pico WH
 
