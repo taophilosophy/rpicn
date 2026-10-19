@@ -128,11 +128,11 @@ Pico 系列设备按产品代次划分为不同的**系列**。
 >
 >除 [BTstack 标准许可](https://github.com/bluekitchen/btstack/blob/master/LICENSE)条款外，还提供了一个[补充许可](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_btstack/LICENSE.RP)，涵盖在树莓派 Pico W 或树莓派 Pico WH 上商业使用 BTstack 的情形。
 
-#### 引脚图和设计文件
+#### 引脚分布图和设计文件
 
-![picow 引脚图](https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg)
+![Pico W 引脚分布图](https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg)
 
-* 下载 [引脚图](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf) (PDF)
+* 下载 [引脚分布图](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf) (PDF)
 * 下载 [设计文件](https://datasheets.raspberrypi.com/picow/RPi-PicoW-PUBLIC-20220607.zip) (Cadence Allegro)
 * 下载 [STEP 文件](https://datasheets.raspberrypi.com/picow/PicoW-step.zip)
 * 下载适用于树莓派 Pico W 的 [Fritzing 部件](https://datasheets.raspberrypi.com/picow/PicoW-Fritzing.fzpz)
@@ -206,17 +206,17 @@ Raspberry Pi 的微控制器
 
 用于 RP2040 微控制器的 MicroPython 环境
 
-树莓派 Pico C/C++ SDK 的 API 级 Doxygen 文档也可以通过 [微型站点](https://rptl.io/pico-doxygen) 获取。
+树莓派 Pico C/C++ SDK 的 API 级 Doxygen 文档也可以通过[小型网站](https://rptl.io/pico-doxygen)获取。
 
 >**注意**
 >
->提供了一个适用于 Windows 10 和 Windows 11 的 Pico C/C++ SDK [一键安装程序](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe)。 
+>现已提供适用于 Windows 10 和 Windows 11 的 Pico C/C++ SDK[一键安装程序](https://github.com/raspberrypi/pico-setup-windows/releases/latest/download/pico-setup-windows-x64-standalone.exe)。
 
 ## 软件工具
 
 ### 如何查看 Pico 系列设备上的内容？
 
-如果您不确定树莓派 Pico 系列设备上编写了什么程序，并且该程序是使用 Pico C/C++ SDK 构建的，通常会在二进制文件中嵌入一个名称和其他有用信息。您可以使用 [Picotool](https://github.com/raspberrypi/picotool) 命令行工具来查找这些详细信息。关于如何使用 Picotool 的完整说明可在我们的 '[入门指南](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)' 文档中找到。
+如果你不确定树莓派 Pico 系列设备上编写了什么程序，并且该程序是使用 Pico C/C++ SDK 构建的，通常会在二进制文件中嵌入一个名称和其他有用信息。你可以使用 [Picotool](https://github.com/raspberrypi/picotool) 命令行工具来查找这些详细信息。关于如何使用 Picotool 的完整说明可在我们的“[入门指南](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)”文档中找到。
 
 * 前往 [Picotool 的 GitHub 仓库](https://github.com/raspberrypi/picotool)。
 

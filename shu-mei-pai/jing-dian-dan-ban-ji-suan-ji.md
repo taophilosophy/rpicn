@@ -217,7 +217,7 @@ Raspberry Pi 3A+ 和 3B+ 具备升级的无线网络：
 Raspberry Pi 3B+ 相比 Raspberry Pi 3B 还包含以下变化：
 
 * **更快的以太网。** Raspberry Pi 3B+ 通过 USB 2.0 实现千兆以太网，吞吐量从约 100 Mb/s 提升至约 300 Mb/s。
-* **支持 PoE。** 借助 PoE+ 扩展板，Raspberry Pi 3B+ 上的四针 PoE 排针让 SBC 可以通过以太网线缆供电。
+* **支持 PoE。** 借助 PoE+ 扩展板，Raspberry Pi 3B+ 上的四针 PoE 排针让 SBC 可以通过以太网线缆获取电力。
 
 以下各节在介绍这些变化的同时，还介绍：
 
@@ -269,7 +269,7 @@ Raspberry Pi 3A+ 和 3B+ 包含以下端口：
 
 >**注意**
 >
-> Raspberry Pi 3B 的 1.1 版使用 *BCM2837*，已停止生产，不再销售。
+> Raspberry Pi 3B 的修订版 1.1 使用 *BCM2837*，已停止生产，不再销售。
 
 ### 相比 Raspberry Pi 2B 的功能变化
 
@@ -325,7 +325,7 @@ Raspberry Pi 3B 包含以下端口：
 
 >**重要**
 >
-> Raspberry Pi 2B 的 1.1 版和 1.2 版分别使用 *BCM2836* 和 *BCM2837*，均已停止生产，不再销售。由于这些产品使用的核心 SoC 停止供应，官方停产日期为 2025 年 10 月 16 日。Raspberry Pi 2 型号 B 的 1.3 版具有相同的机械尺寸，并使用 *BCM2837B0* 处理器，因此推荐用于现有设计。有关更多信息，请参阅官方的[停产通知](https://pip.raspberrypi.com/documents/RP-009284-PC)。
+> Raspberry Pi 2B 的修订版 1.1 和修订版 1.2 分别使用 *BCM2836* 和 *BCM2837*，均已停止生产，不再销售。由于这些产品使用的核心 SoC 停止供应，官方停产日期为 2025 年 10 月 16 日。Raspberry Pi 2 型号 B 的修订版 1.3 具有相同的机械尺寸，并使用 *BCM2837B0* 处理器，因此推荐用于现有设计。有关更多信息，请参阅官方的[停产通知](https://pip.raspberrypi.com/documents/RP-009284-PC)。
 
 ### 相比 Raspberry Pi A+ 和 B+ 的功能变化
 
