@@ -54,12 +54,13 @@
 | 目录 | 对应上游板块 | 页数 | 内容 |
 | ---- | ------------ | ---- | ---- |
 | `qian-yan/` | （项目自有页面） | 3 | 词汇表、关于我们、版权说明 |
-| `shu-mei-pai/` | `documentation/asciidoc/computers/` | 11 | 入门至处理器 |
-| `pei-jian/` | `documentation/asciidoc/accessories/` | 9 | 摄像头至音频扩展板 |
-| `wei-kong-zhi-qi/` | `documentation/asciidoc/microcontrollers/` | 5 | 芯片至 C/C++ SDK |
-| `fu-wu/` | `documentation/asciidoc/services/` | 2 | Raspberry Pi ID、Connect |
+| `shu-mei-pai/` | `documentation/asciidoc/computers/` | 17 | 入门、系统、远程访问、硬件、AI 软件、Zero、SBC、键盘计算机、计算模块、处理器、I/O 控制器、软件来源 |
+| `pei-jian/` | `documentation/asciidoc/accessories/` | 20 | SD 卡、SSD、显示屏、摄像头、AI 摄像头、键盘鼠标、USB、各类 HAT、编程治具、Bumper |
+| `wei-kong-zhi-qi/` | `documentation/asciidoc/microcontrollers/` | 5 | 芯片、Pico、调试套件、MicroPython、C/C++ SDK |
+| `fu-wu/` | `documentation/asciidoc/services/` | 4 | Raspberry Pi ID、Connect、Connect 企业版、书架 |
+| `an-quan/` | `documentation/asciidoc/security/` | 5 | 安全概述、安全架构、安全启动配置器、运营安全、UFW |
 
-- 每页为独立 `.md` 文件，与上游 27 个顶级页面 1:1 对应。上游拆分的子页面在中文版合并为单页：上游子页 `.adoc` → 中文 H2（`##`），子页内 `===` → H3（`###`），`====` → H4（`####`）。
+- 每页为独立 `.md` 文件，与上游顶级页面 1:1 对应。上游拆分的子页面在中文版合并为单页：上游子页 `.adoc` → 中文 H2（`##`），子页内 `===` → H3（`###`），`====` → H4（`####`）。
 - 文件命名使用拼音 slug，不得包含空格、中文字符或英文冒号 `:`，必须兼容 Windows 对文件名的要求。
 - `.gitbook/assets/` — 本地化图片（约 70 张），正文插图使用相对路径引用（如 `.gitbook/assets/xxx.png`）。新增图片优先本地化到此目录；仍指向 www.raspberrypi.com 的历史遗留图片，在修订对应页面时逐步本地化。
 - 中文页面与上游子页的层级对应关系用临时脚本核对，脚本与日志放在 `script/` 目录（该目录当前不存在，需要时创建）。

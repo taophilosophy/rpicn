@@ -36,3 +36,6 @@
   - 「远程访问」图片同步：raspberry-pi-configuration.png、vnc-enable.png 更新为当前上游 Control Centre 版截图（中文 UI 重制版待后续在中文系统上重截）
   - 「计算模块硬件」同步至当前上游（CM5 时代）：总述改写与型号总表（新增 CM5）、IO 板与兼容性总表、新增「CM5 与 CM5IO 配件」（机箱/天线/散热器）、刷写流程更新（CM5IO、Windows 11、mass-storage-gadget64）、CM5 设备树与内核要求、摄像头新增 CM5 跳线步骤、显示屏一节改为指向触摸显示屏页面、规格新增 CM5/CM5IO 数据表并更新全部设计文件链接
   - 结构核对：当前上游新增 accessories 11 页（AI Camera、AI HAT+、Bumper、CM5 Programming Jig、Monitor、SD Cards、Smart Display Module、SSD Kit、SSDs、Touch Display 2、USB 等）、computers 6 页（AI、IO Controllers、Keyboard Computers、SBCs、Software Sources、Zero）、microcontrollers 2 页（Radio Modules、Microcontroller Chips 重组）、security 板块 5 页、services 2 页（Bookshelf、Connect for Organisations），待后续补遗
+  - 补遗完成 21 个新页面：computers 新增经典型单板计算机、键盘计算机、Zero 型号、I/O 控制器、软件来源、人工智能软件；配件新增 SD 卡、SSD、SSD 套件、触摸显示屏 2、显示器、AI 摄像头、USB 配件、AI HAT+（AI HATs）、CM5 编程治具、智能显示模块、Bumper 保护壳；新增「安全」板块 5 页（安全概述、安全架构、安全启动配置器、运营安全、使用 UFW 的防火墙）；服务新增 Connect 企业版、书架（Bookshelf）
+  - SUMMARY.md 按上游导航全面重排（computers/accessories/microcontrollers/services/security 五板块顺序），服务标题去掉 Beta 版；mu-lu.md 卡片同步（配件 20 张、服务 4 张、安全 5 张）
+  - 记录上游原文异常（待向上游反馈）：SBC 页 Raspberry Pi 4B 节误写为 Raspberry Pi 5；键盘计算机页 io-controllers xref 语法损坏；AI 摄像头页 IMX5000 应为 IMX500、"the the" 重复；安全启动配置器页 image 属性多余引号；运营安全页 fail2ban 示例缺少等号
