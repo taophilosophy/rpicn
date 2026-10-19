@@ -143,11 +143,11 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
 | 树莓派 | 17 | 17 | 1 | 3 | 0 | 13 | 0 | 6% |
-| 配件 | 20 | 20 | 0 | 0 | 4 | 9 | 7 | 0% |
+| 配件 | 20 | 20 | 0 | 0 | 4 | 8 | 8 | 0% |
 | 微控制器 | 6 | 6 | 0 | 2 | 0 | 4 | 0 | 0% |
 | 服务 | 4 | 4 | 0 | 0 | 0 | 4 | 0 | 0% |
 | 安全 | 5 | 5 | 0 | 0 | 0 | 0 | 5 | 0% |
-| 合计 | 52 | 52 | 1 | 5 | 4 | 30 | 12 | 2% |
+| 合计 | 52 | 52 | 1 | 5 | 4 | 29 | 13 | 2% |
 
 完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。
 
@@ -190,7 +190,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `pei-jian/chu-mo-xian-shi-ping-2.md` | `touch-display-2.adoc` | 待同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 代理连接中断，无改动 |
 | `pei-jian/raspberry-pi-monitor.md` | `monitor.adoc` | 待同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 代理连接中断，无改动 |
 | `pei-jian/she-xiang-tou.md` | `camera.adoc` | 待同步 | 0/3 | 未领取（A1 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 同步中 | 0/3 | 代理 B10 | 2026-10-20 | 上游本页有 IMX5000 笔误 |
+| `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 待同步 | 0/3 | 未领取（B10 失败） | 2026-10-20 | 代理连接中断，无改动；上游本页有 IMX5000 笔误 |
 | `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 部分同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 仅 5 行改动（`e6053ca`），需重新领取核对 |
 | `pei-jian/usb-pei-jian.md` | `usb.adoc` | 同步中 | 0/3 | 代理 A5 | 2026-10-20 | |
 | `pei-jian/build-hat.md` | `build-hat.adoc` | 待同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 代理未触及，内容停留在 2024 年 |
@@ -266,13 +266,13 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | B7 | `shu-mei-pai/jian-pan-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B8 | `shu-mei-pai/io-kong-zhi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B9 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
-| B10 | `pei-jian/ai-she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
+| B10 | `pei-jian/ai-she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 
 ## 六、待办队列
 
 | 优先级 | 事项 | 范围 | 依赖 |
 | ------ | ---- | ---- | ---- |
-| P0 | 重新派发 A1、A2、A3、A4、A8 五路失败代理 | 15 页 | 代理恢复 |
+| P0 | 重新派发 A1、A2、A3、A4、A8、B10 六路失败代理 | 16 页 | 代理恢复 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
 | P1 | CP-5：本地跑 markdownlint（`npx markdownlint-cli2`），并对 `TASKS.md` 等新增文件补一次 PR 检查 | CI | 无 |
