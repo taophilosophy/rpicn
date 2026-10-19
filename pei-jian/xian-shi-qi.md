@@ -4,9 +4,9 @@
 
 [树莓派触摸显示屏](https://www.raspberrypi.com/products/raspberry-pi-touch-display/)是一款 7 英寸触摸屏 LCD，适用于平板电脑、娱乐系统和信息仪表板等交互式项目。
 
-![树莓派 7 吋触摸显示屏](https://www.raspberrypi.com/documentation/accessories/images/display.png)
+![树莓派 7 英寸触摸显示屏](https://www.raspberrypi.com/documentation/accessories/images/display.png)
 
-树莓派 7 吋触摸显示屏
+树莓派 7 英寸触摸显示屏
 
 该显示屏采用金属框架背面，并附带树莓派显示转换板，且已预装金属间隔柱。你可以[在此](https://pip.raspberrypi.com/documents/RP-008246-DS)下载触摸显示屏的机械图。
 
@@ -156,7 +156,7 @@
 
 ##### 连接到 GPIO 排针
 
-1. 在树莓派设备的 GPIO 上的 5 V 和 `GND` 引脚与显示屏上的 5 V 和 `GND` 引脚之间连接跳线。
+1. 在树莓派设备的 GPIO 排针上的 5 V 和 `GND` 引脚与显示屏上的 5 V 和 `GND` 引脚之间连接跳线。
 
    ![树莓派排针的位置](https://www.raspberrypi.com/documentation/accessories/images/pi_plugs.png)
 
@@ -236,14 +236,14 @@
 3. 将 FFC 的另一端插入第 1 步中选择的端口，然后将固定夹滑回原位。
 4. 参照下表，设置与你在第 1 步中创建的叠加层条目相对应的跳线。
 
-| 显示屏 | IO 板 | 操作 |
-| :--- | :--- | :--- |
-| `DISP1/DSI1` | 位于 CMIO1 或 CMIO3 板上的 **CM1**、**CM3**、**CM3+** 或 **CM4S** | 使用跳线将 GPIO `0` 连接到 `CD1_SDA`，将 `1` 连接到 `CD1_SCL`。 |
-| `DISP1/DSI1` | 位于 **CM4IO 板** 上的 **CM4** | 无需额外的跳线。 |
-| `DISP1/DSI1` | 位于 **CM5IO 板** 上的 **CM5** | 按照丝印指示，在 `J6` 上添加跳线。 |
-| `DISP0/DSI0` | 位于 CMIO1 或 CMIO3 板上的 **CM1**、**CM3**、**CM3+** 或 **CM4S** | 使用跳线将 GPIO `28` 连接到 `CD0_SDA`，将 `29` 连接到 `CD0_SCL`。 |
-| `DISP0/DSI0` | 位于 **CM4IO 板** 上的 **CM4** | 按照丝印指示，在 `J6` 上添加跳线。 |
-| `DISP0/DSI0` | 位于 **CM5IO 板** 上的 **CM5** | 无需额外的跳线。 |
+   | 显示屏 | IO 板 | 操作 |
+   | :--- | :--- | :--- |
+   | `DISP1/DSI1` | 位于 CMIO1 或 CMIO3 板上的 **CM1**、**CM3**、**CM3+** 或 **CM4S** | 使用跳线将 GPIO `0` 连接到 `CD1_SDA`，将 `1` 连接到 `CD1_SCL`。 |
+   | `DISP1/DSI1` | 位于 **CM4IO 板** 上的 **CM4** | 无需额外的跳线。 |
+   | `DISP1/DSI1` | 位于 **CM5IO 板** 上的 **CM5** | 按照丝印指示，在 `J6` 上添加跳线。 |
+   | `DISP0/DSI0` | 位于 CMIO1 或 CMIO3 板上的 **CM1**、**CM3**、**CM3+** 或 **CM4S** | 使用跳线将 GPIO `28` 连接到 `CD0_SDA`，将 `29` 连接到 `CD0_SCL`。 |
+   | `DISP0/DSI0` | 位于 **CM4IO 板** 上的 **CM4** | 按照丝印指示，在 `J6` 上添加跳线。 |
+   | `DISP0/DSI0` | 位于 **CM5IO 板** 上的 **CM5** | 无需额外的跳线。 |
 
 5. 将黑色跳线的一端连接到 IO 板上 GPIO 排针的引脚 6（`GND`）。
 6. 将红色跳线的一端连接到 IO 板上 GPIO 排针的引脚 4（5 V）。

@@ -4,17 +4,18 @@
 
 ![树莓派 M.2 HAT+](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus.jpg)
 
-树莓派 M.2 HAT+
+![树莓派 M.2 HAT+ Compact 装在树莓派外壳中](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-compact-with-case.jpg)
 
-树莓派 M.2 HAT+ M 键（key）能让你把 M.2 外部设备（如 NVMe 存储设备和其他 PCIe 配件）转接到树莓派 5 的 PCIe 接口。
+树莓派 M.2 HAT+ M 键（M Key）和 M.2 HAT+ Compact M 键可以让你把 M.2 外部设备（如 NVMe 存储设备和其他 PCIe 配件）连接到树莓派 5 的 PCIe 接口。
 
-M.2 HAT+ 扩展板可把树莓派 5 上的 PCIe 接口同单个 M.2 M 键接口的设备进行转接。你可以连接使用 2230/2242 尺寸的设备。M.2 HAT+ 可提供高达 3A 的功率。
+M.2 HAT+ 和 M.2 HAT+ Compact 转接板可在树莓派 5 上的 PCIe 接口与单个 M.2 M 键边型连接器之间进行转换。M.2 HAT+ 支持任何使用 2230 或 2242 外形尺寸的设备；M.2 HAT+ Compact 支持任何使用 2230 外形尺寸的设备。
 
-M.2 HAT+ 遵守树莓派 HAT+ 规范，树莓派系统可自动检测 HAT+ 及其连接的设备。
+M.2 HAT+ 提供标准版和 Compact 版两种形式，各自适用于不同的使用场景。
 
-附带的螺纹间隔柱提供了充足的空间，可在 M.2 HAT+ 下方安装树莓派主动散热器。
+* M.2 HAT+ 附带螺纹间隔柱，可在其下方为树莓派主动散热器留出充足的空间。不过，只有在移除盖子和附带的风扇后，它才兼容[树莓派 5 的树莓派外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)。
+* M.2 HAT+ Compact 的设计可以绕开[树莓派 5 的树莓派外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)中附带的风扇。不过，它下方无法安装主动散热器。
 
-M.2 HAT+ 仅兼容树莓派 5 的树莓派外壳（需要你移除盖子和附带的风扇）。
+M.2 HAT+ 和 M.2 HAT+ Compact 都符合[树莓派 HAT+ 规范](https://pip.raspberrypi.com/documents/RP-008281-DS)，这使得树莓派系统能够自动检测 HAT+ 及其连接的任何设备。
 
 ## 特点
 
