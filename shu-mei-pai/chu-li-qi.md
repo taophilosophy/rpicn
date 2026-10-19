@@ -1,6 +1,5 @@
 # 处理器
 
-
 ## BCM2835
 
 BCM2835 是用于树莓派 1 的 A、A+、B、B+ 型号，以及树莓派 Zero、树莓派 Zero W 和树莓派计算模块 1 的博通芯片。芯片的一些详细信息可在[外设规格文档](https://pip.raspberrypi.com/documents/RP-008249-DS)中找到。它内置一颗单核 ARM1176JZF-S 处理器。
@@ -85,7 +84,7 @@ I/O：PCIe 总线，板载以太网端口，2 × DSI 端口（树莓派 4B 仅�
   * 64 kB 指令缓存和数据缓存
   * 每个核心 512 kB L2 缓存，2 MB 共享 L3 缓存
 * 树莓派新开发的 ISP
-  * 1 gigapixel/s
+  * 每秒 10 亿像素
 * 改进的 HVS 和显示管线
   * 双 4Kp60 支持
 * VideoCore V3D VII
