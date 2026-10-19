@@ -26,8 +26,8 @@
 
 | 型号 | 微处理器 | 内存（RAM） | GPIO 排针 | GPU | CPU |
 | ---- | -------- | ----------- | --------- | --- | --- |
-| Raspberry Pi Zero 2 W with headers（2021） | 树莓派 [RP3A0](chu-li-qi.md) | 512 MB 内存 | 40 针 GPIO 排针 | VideoCore IV | 1 GHz 四核 64 位 Cortex-A53 |
-| Raspberry Pi Zero 2 W（2021） | 树莓派 [RP3A0](chu-li-qi.md) | 512 MB 内存 | 未焊接引脚的 40 针 GPIO 排针 | VideoCore IV | 1 GHz 四核 64 位 Cortex-A53 |
+| Raspberry Pi Zero 2 W with headers（2021） | 树莓派 [RP3A0](chu-li-qi.md#rp3a0) | 512 MB 内存 | 40 针 GPIO 排针 | VideoCore IV | 1 GHz 四核 64 位 Cortex-A53 |
+| Raspberry Pi Zero 2 W（2021） | 树莓派 [RP3A0](chu-li-qi.md#rp3a0) | 512 MB 内存 | 未焊接引脚的 40 针 GPIO 排针 | VideoCore IV | 1 GHz 四核 64 位 Cortex-A53 |
 | Raspberry Pi Zero WH（2018） | Broadcom [BCM2835](chu-li-qi.md) | 512 MB 内存 | 40 针 GPIO 排针 | VideoCore IV | 1 GHz 单核 32 位 ARM11 |
 | Raspberry Pi Zero W（2017） | Broadcom [BCM2835](chu-li-qi.md) | 512 MB 内存 | 未焊接引脚的 40 针 GPIO 排针 | VideoCore IV | 1 GHz 单核 32 位 ARM11 |
 | Raspberry Pi Zero（2015/2016） | Broadcom [BCM2835](chu-li-qi.md) | 512 MB 内存 | 未焊接引脚的 40 针 GPIO 排针 | VideoCore IV | 1 GHz 单核 32 位 ARM11 |

@@ -30,7 +30,7 @@
 
 ### `disable_commandline_tags`
 
-若将参数 `disable_commandline_tags` 置为 `1`，会在启动内核之前禁止 `start.elf` 覆盖 ATAGS（从 `0x100` 开始的内存）。
+若将参数 `disable_commandline_tags` 置为 `1`，会在启动内核之前禁止 `start.elf` 填充 ATAGS（从 `0x100` 开始的内存）。
 
 ### `arm_control`
 
@@ -42,17 +42,17 @@
 
 ### `armstub`
 
-`armstub` 位于启动分区，是用于加载 ARM stub（存根）的文件名。默认的 ARM 存根存储在固件中，会根据树莓派型号及各种设置自动选定。
+`armstub` 是位于启动分区上的文件名，固件将据此加载 ARM stub（存根）。默认的 ARM 存根存储在固件中，会根据树莓派型号及各种设置自动选定。
 
 存根是在内核运行之前被执行的一小段 ARM 代码。它的任务是设置诸如中断控制器等底层硬件，然后再将控制权移交给内核。
 
 ### `arm_peri_high`
 
-若将 `arm_peri_high` 置为 `1`：可在树莓派 4 上启用高性能外设模式。若加载了恰当的 DTB，将会自动设定该参数。
+若将 `arm_peri_high` 置为 `1`，可在树莓派 4 上启用高外设模式。若加载了恰当的 DTB，将会自动设定该参数。
 
 >**注意**
 >
->若在缺失兼容设备树（DTB）的情况下，启用高性能外设模式，将导致系统无法启动。目前的 ARM 存根支持尚不完善，因此你还需使用 `armstub` 加载对应的文件。
+>如果在缺失兼容设备树（DTB）的情况下启用高外设模式，将导致系统无法启动。目前的 ARM 存根支持尚不完善，因此你还需使用 `armstub` 加载对应的文件。
 
 
 ### `kernel_address`
@@ -75,11 +75,11 @@
 
 参数 `bootcode_delay` 设定了在 `bootcode.bin` 阶段的延迟（秒），然后再加载 `start.elf`——默认值为 `0`。
 
-这在读取显示器 EDID 前插入延迟极有用。比如，树莓派和显示器共用一部电源，但显示器的启动时间长于树莓派。如果显示器在初始启动时会检测到错误，但在不断电的情况下重启树莓派后就检测正确了，那么请尝试设置此参数。
+这在读取显示器 EDID 前插入延迟极有用。比如，树莓派和显示器共用一部电源，但显示器的启动时间长于树莓派。如果初次启动时显示器检测不正确，但在不给显示器断电的情况下软重启树莓派后检测就正常了，请尝试设置此参数。
 
 ### `boot_delay`
 
-参数 `boot_delay` 意味着在加载内核之前，会在 `start.elf` 阶段等待给定的时间（秒）。总延迟计算公式为 `(1000 x boot_delay) + boot_delay_ms`，单位为毫秒。如果你的存储卡需要一些时间才能准备好，继而才能启动 Linux，这可能极有用。
+参数 `boot_delay` 意味着在加载内核之前，会在 `start.elf` 阶段等待给定的时间（秒），默认值为 `0`。总延迟计算公式为 `(1000 x boot_delay) + boot_delay_ms`，单位为毫秒。如果你的存储卡需要一些时间才能准备好，继而才能启动 Linux，这可能极有用。
 
 ### `boot_delay_ms`
 
@@ -91,7 +91,7 @@
 
 ### `sha256`
 
-如果设置为非 `0` 值，则将：为加载的文件（内核、initramfs、设备树 .dtb 文件和叠加层）记录 SHA256 哈希值日志，哈希值由工具 `sha256sum` 生成。如启用，日志输出将发送到串口，亦可通过 `sudo vclog --msg` 获取。在调试启动故障时，此参数可能极有用，但可能会使启动时间增加数秒。在所有平台上，默认值均为 `0`。
+如果设置为非 `0` 值，将启用哈希日志：为加载的文件（内核、initramfs、设备树 .dtb 文件和叠加层）记录 SHA256 哈希值，哈希值由工具 `sha256sum` 生成。如启用，日志输出将发送到串口，亦可通过 `sudo vclog --msg` 获取。在调试启动故障时，此参数可能极有用，但可能会使启动时间增加数秒。在所有平台上，默认值均为 `0`。
 
 ### `uart_2ndstage`
 
@@ -101,9 +101,9 @@
 
 ### `upstream_kernel`
 
-如果设定 `upstream_kernel=1`，固件会将 `os_prefix` 设置为"upstream/"——除非已明确将其设置为其他值。但就像其他 `os_prefix` 值一样，如果在使用前缀时无法找到所需的内核和 .dtb 文件，则会忽略该值。
+如果设定 `upstream_kernel=1`，固件会将 `os_prefix` 设置为“upstream/”——除非已明确将其设置为其他值。但就像其他 `os_prefix` 值一样，如果在使用前缀时无法找到所需的内核和 .dtb 文件，则会忽略该值。
 
-固件还会优先使用上游 Linux 的 DTB 名称（`bcm2837-rpi-3-b.dtb` 先于 `bcm2710-rpi-3-b.dtb`）。如果找不到上游文件，则固件将加载下游衍生文件，并自动加载"upstream"叠加层来进行调整。请注意，此过程发生在 `os_prefix` 最终确定后。
+固件还会优先使用上游 Linux 的 DTB 名称（`bcm2837-rpi-3-b.dtb` 先于 `bcm2710-rpi-3-b.dtb`）。如果找不到上游文件，则固件将加载下游衍生文件，并自动加载“upstream”叠加层来进行调整。请注意，此过程发生在 `os_prefix` 最终确定后。
 
 ## 旧版 GPIO 控制
 
@@ -157,7 +157,7 @@
    hdmi_mode=67
 ```
 
-所有特定于端口的 HDMI 参数都提供了另外一种语法：`变量:值`。你可以使用以下内容，这与前面的示例相同：
+所有特定于端口的 HDMI 参数都提供了另外一种语法：`变量:索引`。你可以使用以下内容，这与前面的示例相同：
 
 ```sh
  hdmi_group:0=2
@@ -228,7 +228,7 @@
 
 >**注意**
 >
->因为树莓派 4、400 搭载了两个 HDMI 端口，故某些 HDMI 参数可以应用于特定接口。你可以使用语法 `<参数>:<端口>`，其中端口值为 `0` 或 `1`，用来指定此设置应用于哪个端口。如未指定端口，则默认为 `0`。如果在不支持端口号的参数上指定了端口号，则端口将被忽略。更多有关语法和可选机制的详细信息，请参阅文档的[条件部分](https://www.raspberrypi.com/documentation/computers/legacy_config_txt.html#legacy-conditional-filters)中的 HDMI 章节。
+>由于部分设备搭载多个 HDMI 端口，故某些 HDMI 参数可以应用于特定接口。你可以使用语法 `<参数>:<端口>`，其中端口值为 `0` 或 `1`，用来指定此设置应用于哪个端口。如未指定端口，则默认为 `0`。如果在不支持端口号的参数上指定了端口号，则端口将被忽略。更多有关语法和可选机制的详细信息，请参阅文档的[条件部分](https://www.raspberrypi.com/documentation/computers/legacy_config_txt.html#legacy-conditional-filters)中的 HDMI 章节。
 
 #### `hdmi_safe`
 
@@ -249,7 +249,7 @@ overscan_bottom=24
 
 #### `hdmi_ignore_edid`
 
-如果你的显示器没有准确的 EDID。可将 `hdmi_ignore_edid` 置为 `0xa5000080`，以忽略显示器的 EDID（扩展显示识别数据）信息。它需要此异常值来避免触发故障。
+如果你的显示器没有准确的 EDID，可将 `hdmi_ignore_edid` 置为 `0xa5000080`，以忽略显示器的 EDID（扩展显示识别数据）信息。它需要此异常值来避免意外触发。
 
 #### `hdmi_edid_file`
 
@@ -269,7 +269,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_force_edid_audio`
 
-若将 `hdmi_force_edid_audio` 置为 `1`，会把显示器伪装成支持一切音频格式，即使实际上不支持 DTS/AC3，也能进行音频透传。
+若将 `hdmi_force_edid_audio` 置为 `1`，会把显示器伪装成支持一切音频格式，即使未报告支持 DTS/AC3，也能进行音频透传。
 
 #### `hdmi_ignore_edid_audio`
 
@@ -281,11 +281,11 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_ignore_cec_init`
 
-若将 `hdmi_ignore_cec_init` 置为 `1`，可在启动过程中禁止发送初始化活动源信息。这可以防止：在重启树莓派时，带 CEC 支持的电视机因从待机状态中唤醒而切换频道。
+若将 `hdmi_ignore_cec_init` 置为 `1`，可在启动过程中禁止发送初始化活动源信息。这可防止在重启树莓派时，支持 CEC 的电视机从待机状态唤醒并切换频道。
 
 #### `hdmi_ignore_cec`
 
-若将 `hdmi_ignore_cec` 置为 `1`，会把显示器伪装成不支持 CEC。将不支持一切 CEC 功能。
+若将 `hdmi_ignore_cec` 置为 `1`，会把显示器伪装成不支持 CEC。这将导致一切 CEC 功能均不受支持。
 
 #### `cec_osd_name`
 
@@ -293,7 +293,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_pixel_encoding`
 
-参数 `hdmi_pixel_encoding` 将强制使用像素编码模式。在默认情况下，它使用从 EDID 请求的信号格式，因此你不大需要更改此参数。
+参数 `hdmi_pixel_encoding` 将强制使用像素编码模式。在默认情况下，它使用从 EDID 请求的信号格式，因此你无需更改此参数。
 
 | `hdmi_pixel_encoding` | 意义                                     |
 | :---------------------: | ------------------------------------------ |
@@ -305,15 +305,15 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_max_pixel_freq`
 
-固件和 KMS 使用像素时钟来选定 HDMI 信号格式。请注意，这与帧率不同。它指定了有效信号格式可以具有的最大频率，从而剔除了更高频率的信号格式。因此，如果你希望彻底禁用 4K 信号格式，你可以指定最大频率为 200000000，因为所有的 4K 信号格式频率均大于此值。
+固件和 KMS 使用像素频率来筛选 HDMI 信号格式。请注意，这与帧率不同。它指定了有效信号格式可以具有的最大频率，从而剔除了更高频率的信号格式。因此，如果你希望彻底禁用 4K 信号格式，你可以指定最大频率为 200000000，因为所有的 4K 信号格式频率均大于此值。
 
 #### `hdmi_blanking`
 
-参数 `hdmi_blanking` 可控制该过程：操作系统为节省电源，要求使用 DPMS（Display Power Management Signaling，显示电源管理信号）让显示器置于待机模式。如果未设置此参数或将其置为 `0`，则 HDMI 输出将被清空但不会关闭。为了模仿其他计算机的行为，你可以同时把 HDMI 输出也设置为关闭，方法是将此参数置为 `1`：已连接的显示器将进入低功耗待机模式。
+参数 `hdmi_blanking` 可控制以下情形：操作系统为节省电能，使用 DPMS（Display Power Management Signaling，显示电源管理信号）要求显示器进入待机模式。如果未设置此参数或将其置为 `0`，则 HDMI 输出将被清空但不会关闭。为了模仿其他计算机的行为，你可以同时把 HDMI 输出也设置为关闭，方法是将此参数置为 `1`：已连接的显示器将进入低功耗待机模式。
 
 >**注意**
 >
->在树莓派 4 上，设置 `hdmi_blanking=1` 不会停止 HDMI 输出，因为该功能未实现。当使用不使用 framebuffer（帧缓冲器）的应用程序（如 omxplayer）时，此功能可能会引发问题。
+>在树莓派 4 上，设置 `hdmi_blanking=1` 不会关闭 HDMI 输出，因为该功能未实现。当使用不使用 framebuffer（帧缓冲器）的应用程序（如 omxplayer）时，此功能可能会引发问题。
 
 | `hdmi_blanking` | 说明                    |
 | :---------------: | :-------------------------: |
@@ -322,7 +322,7 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `hdmi_drive`
 
-`hdmi_drive` 参数能让你在输出信号格式 HDMI 和 DVI 间进行切换。
+`hdmi_drive` 参数可让你在 HDMI 和 DVI 输出模式之间选择。
 
 | `hdmi_drive` | 说明                                            |
 | :------------: | -------------------------------------------------- |
@@ -331,27 +331,27 @@ hdmi_edid_filename:1=FileForPortOne.edid
 
 #### `config_hdmi_boost`
 
-配置 HDMI 端口的信号强度。最小值为 `0`，最大值为 `11`。
+配置 HDMI 接口的信号强度。最小值为 `0`，最大值为 `11`。
 
-早期型号的 B、A 默认值为 `2`。B+ 及所有后续型号的默认值为 `5`。
+最初的 Model B 和 Model A 的默认值为 `2`。Model B+ 及所有后续型号的默认值为 `5`。
 
 如果你遇到了 HDMI 故障（雪花等干扰），请尝试 `7`。特别长的 HDMI 线缆可能需要 `11` 这么大才行——但除非绝对必要，否则不应使用这么高的值。
 
-旧款树莓派 4 会忽略此参数。
+树莓派 4 会忽略此参数。
 
 #### `hdmi_group`
 
-`hdmi_group` 参数定义了 HDMI 输出组，可以是 CEA（美国消费电子协会标准，一般由电视使用）和 DMT（显示监视器时序标准，一般由显示器使用）。此设置应与 `hdmi_mode` 联合使用。
+`hdmi_group` 参数定义了 HDMI 输出组，可以是 CEA（消费电子协会标准，一般由电视使用）或 DMT（显示监视器时序标准，一般由显示器使用）。此设置应与 `hdmi_mode` 联合使用。
 
 | `hdmi_group` | 说明             |
 | :---------: | :------------------: |
-| `0`       |  自动检测 EDID   |
+| `0`       |  从 EDID 自动检测   |
 | `1`       | CEA              |
 | `2`       | DMT              |
 
 #### `hdmi_mode`
 
-与 `hdmi_group` 一道，`hdmi_mode` 定义了 HDMI 输出格式。信号格式编号符合 [CTA 规范](https://web.archive.org/web/20171201033424/https://standards.cta.tech/kwspub/published_docs/CTA-861-G_FINAL_revised_2017.pdf)。
+与 `hdmi_group` 一道，`hdmi_mode` 定义了 HDMI 输出格式。信号格式编号源自 [CTA 规范](https://web.archive.org/web/20171201033424/https://standards.cta.tech/kwspub/published_docs/CTA-861-G_FINAL_revised_2017.pdf)。
 
 >**注意**
 >
@@ -620,23 +620,23 @@ hdmi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水
 
 强制将 EDID 的内容类型设置为特定值。
 
- 参数如下：
+参数如下：
 
-* `0 = EDID_ContentType_NODATA`，内容类型为无
-* `1 = EDID_ContentType_Graphics`，内容类型为图形，必须把 ITC 置为 `1`
-* `2 = EDID_ContentType_Photo`，内容类型为照片
-* `3 = EDID_ContentType_Cinema`，内容类型为电影
-* `4 = EDID_ContentType_Game`，内容类型游戏
+* `0` = `EDID_ContentType_NODATA`，内容类型为无
+* `1` = `EDID_ContentType_Graphics`，内容类型为图形，必须把 ITC 置为 `1`
+* `2` = `EDID_ContentType_Photo`，内容类型为照片
+* `3` = `EDID_ContentType_Cinema`，内容类型为电影
+* `4` = `EDID_ContentType_Game`，内容类型为游戏
 
 ### 我的显示器能使用哪些值？
 
 你的 HDMI 显示器可能仅支持有限的信号格式。要找出受支持的格式，请使用以下方法：
 
-* 将输出格式设置为 VGA 60Hz ( `hdmi_group=1` 和 `hdmi_mode=1` ) ，然后启动你的树莓派
-* 输入以下参数可列出受支持的 CEA 信号格式: `/opt/vc/bin/tvservice -m CEA`
-* 输入以下参数可列出受支持的 DMT 信号格式: `/opt/vc/bin/tvservice -m DMT`
-* 输入以下参数可显示当前状态： `/opt/vc/bin/tvservice -s`
-* 输入以下参数可从你的显示器中获取更详细的信息： `/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
+* 将输出格式设置为 VGA 60Hz（`hdmi_group=1` 和 `hdmi_mode=1`），然后启动你的树莓派
+* 输入以下命令可列出受支持的 CEA 信号格式：`/opt/vc/bin/tvservice -m CEA`
+* 输入以下命令可列出受支持的 DMT 信号格式：`/opt/vc/bin/tvservice -m DMT`
+* 输入以下命令可显示当前状态：`/opt/vc/bin/tvservice -s`
+* 输入以下命令可从你的显示器中获取更详细的信息：`/opt/vc/bin/tvservice -d edid.dat; /opt/vc/bin/edidparser edid.dat`
 
 在排除默认 HDMI 信号格式的故障时，也应附带 `edid.dat`。
 

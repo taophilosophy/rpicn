@@ -105,28 +105,28 @@ Pico 系列设备按产品代次划分为不同的**系列**。
 
 * 无线（802.11n），单频（2.4 GHz）
 * WPA3 安全协议
-* 支持最多四个客户端的软接入点
+* 软接入点，支持最多四个客户端
 * 蓝牙 5.2
   * 支持蓝牙低功耗（LE）中央和外围角色
   * 支持经典蓝牙
 
-天线为板载天线，由 ABRACON（前身为 ProAnt）授权。无线接口通过 SPI 连接到 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2040) 微控制器。
+天线是由 ABRACON（前身为 ProAnt）授权使用的板载天线。无线接口通过 SPI 连接到 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2040) 微控制器。
 
-由于引脚限制，部分无线接口的引脚是共享的。时钟信号（CLK）与 VSYS 监视器共享，因此只有在没有 SPI 事务进行时，才能通过 ADC 读取 VSYS。Infineon CYW43439 的 DIN/DOUT 和 IRQ 引脚都与 RP2040 上的一个引脚共享。仅在没有 SPI 事务进行时，才适合检查 IRQ。该接口通常以 33MHz 运行。
+由于引脚数量有限，无线接口的部分引脚与其他信号共用。CLK 与 VSYS 监视器共用同一个引脚，因此只有在没有 SPI 事务进行时，才能通过 ADC 读取 VSYS。Infineon CYW43439 的 DIN/DOUT 和 IRQ 引脚也都与 RP2040 上的同一个引脚共用。只有在不进行 SPI 事务时，才适合检查 IRQ。该接口通常以 33MHz 运行。
 
 为了获得最佳的无线性能，天线应处于空旷空间。例如，在天线下方或附近放置金属会降低其增益和带宽性能。将接地金属添加到天线两侧可以改善天线的带宽。
 
 >**注意**
 >
->CYW43439 无线芯片通过 SPI 连接到 RP2040。CYW43439 支持通过此接口进行 802.11 无线和蓝牙通信。 
+>CYW43439 无线芯片通过 SPI 连接到 RP2040。CYW43439 支持通过该接口进行 802.11 无线和蓝牙通信。
 
 >**重要**
 >
->一般情况下，`libcyw43` 仅授权用于非商业用途，但 Pico W 用户以及其他所有围绕 RP2040 和 CYW43439 构建其产品的用户都可以享受免费的[商业使用许可证](https://github.com/georgerobotics/cyw43-driver/blob/195dfcc10bb6f379e3dea45147590db2203d3c7b/LICENSE.RP)。 
+>默认情况下，`libcyw43` 仅授权用于非商业用途，但 Pico W 用户以及其他任何基于 RP2040 和 CYW43439 构建产品的人都享有免费的[商业使用许可证](https://github.com/georgerobotics/cyw43-driver/blob/195dfcc10bb6f379e3dea45147590db2203d3c7b/LICENSE.RP)。
 
 >**重要**
 >
->除了 [BTstack 标准许可](https://github.com/bluekitchen/btstack/blob/master/LICENSE)条款外，还提供了一个 [补充许可](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_btstack/LICENSE.RP)，涵盖了树莓派 Pico W 或树莓派 Pico WH 商业使用 BTstack 的情况。 
+>除 [BTstack 标准许可](https://github.com/bluekitchen/btstack/blob/master/LICENSE)条款外，还提供了一个[补充许可](https://github.com/raspberrypi/pico-sdk/blob/master/src/rp2_common/pico_btstack/LICENSE.RP)，涵盖在树莓派 Pico W 或树莓派 Pico WH 上商业使用 BTstack 的情形。
 
 #### 引脚图和设计文件
 

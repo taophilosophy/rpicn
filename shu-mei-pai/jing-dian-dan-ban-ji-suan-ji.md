@@ -379,7 +379,7 @@ Raspberry Pi 2B 包含以下端口：
 >
 > 为与后来带编号的 Raspberry Pi SBC 区分，Raspberry Pi A+ 和 B+ 有时也被称为 Raspberry Pi 1 A+ 和 1 B+。
 
-[Raspberry Pi A+](https://www.raspberrypi.com/products/raspberry-pi-1-model-a-plus/) 和 B+ 相比初代 Raspberry Pi A 和 B 均提供了硬件升级，包括更低的功耗、更好的音频、更多 GPIO 引脚和存储卡插槽。Raspberry Pi A+ 和 B+ 还采用了更整洁的外形设计，下文将详细介绍。
+[Raspberry Pi A+](https://www.raspberrypi.com/products/raspberry-pi-1-model-a-plus/) 和 B+ 相比初代 Raspberry Pi A 和 B 均提供了硬件升级，包括更低的功耗、更好的音频、更多 GPIO 引脚和存储卡插槽。Raspberry Pi A+ 和 B+ 还采用了更整洁的外形尺寸，下文将详细介绍。
 
 [Raspberry Pi B+](https://www.raspberrypi.com/products/raspberry-pi-1-model-b-plus/) 还比 Raspberry Pi B 多提供两个 USB 2.0 端口（比 Raspberry Pi A+ 多三个）。其尺寸为 85 mm × 56 mm。更详细的尺寸，请参阅以下机械图：
 
@@ -401,7 +401,7 @@ Raspberry Pi A+ 和 B+ 是对 Raspberry Pi A 和 B 的渐进式硬件升级，�
 * **更紧凑的存储。** 用存储卡插槽取代全尺寸 SD 卡插槽。
 * **更低的功耗。** 用开关稳压器取代线性稳压器，将功耗降低 0.5 W 至 1 W。
 * **单个端口同时提供音频和视频输出。** 用组合式 3.5 mm AV 插孔取代 RCA 视频连接器和音频插孔，可同时传输立体声音频和复合视频。
-* **更整洁的外形。**
+* **更整洁的外形尺寸。**
   * USB 端口与板子边缘对齐，形成更平直的信用卡形状。
   * 存储卡取代了从板子边缘突出的全尺寸 SD 卡。
   * 复合视频集成到 3.5 mm AV 插孔中，节省了空间。
@@ -460,7 +460,7 @@ Raspberry Pi B 是第一代经典型 Raspberry Pi SBC，现已由 [Raspberry Pi 
 
 Raspberry Pi A 是首款 A 系列 Raspberry Pi 型号，现已由 [Raspberry Pi A+](https://www.raspberrypi.com/products/raspberry-pi-1-model-a-plus/) 取代。它与 Raspberry Pi B 具有相同的核心处理器能力，但内存更少，端口也更少。
 
-两块板子的尺寸均为 85 mm × 56 mm，端口突出于板子边缘。后来的 Raspberry Pi SBC 优化了这一外形设计。
+两块板子的尺寸均为 85 mm × 56 mm，端口突出于板子边缘。后来的 Raspberry Pi SBC 优化了这一外形尺寸。
 
 ### Raspberry Pi A 和 B 组件
 

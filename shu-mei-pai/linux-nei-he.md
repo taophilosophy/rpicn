@@ -2,29 +2,33 @@
 
 ## 简介
 
-树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，更新一般滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新着，而树莓派将则会将 **long-term releases（长期维护版本）** 的 Linux 内核集成到树莓派内核。我们在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中会为每个长期维护的 Linux 内核版本生成一个 `next` 分支。在经过海量的测试和大规模讨论后，我们会将 `next` 分支合并到我们版本库的主分支（main）中。
+树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，其更新滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新，而树莓派只将 **long-term releases（长期维护版本）** 的 Linux 内核集成到树莓派内核中。我们会为每个长期维护的 Linux 内核版本在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中生成一个 `next` 分支。经过充分的测试和讨论后，我们会将每个 `next` 分支合并到我们版本库的主分支（main）中。
 
 ## 更新
 
-日常的树莓派系统[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动把你的内核更新到最新稳定版本。如果你想尝试最新不稳定版测试内核，你可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
+日常的树莓派系统[更新流程](https://www.raspberrypi.com/documentation/computers/os.html#update-software)会自动将你的内核更新到最新稳定版本。如果你想试用最新的非稳定版测试内核，可以[手动更新](https://www.raspberrypi.com/documentation/computers/os.html#rpi-update)。
 
 ## 编译内核
 
-操作系统自带的编译器，链接器通常配置为：为能在该系统上运行的可执行文件而进行编译。**本地编译（Native builds）** 使用上述默认的编译器和链接器。而 **交叉编译（Native builds）** 是指为与当前编译环境不同的目标系统编译代码的流程。
+操作系统随附的默认编译器和链接器被配置为编译可在该操作系统上运行的可执行文件。**本地编译（Native builds）** 使用这些默认的编译器和链接器。**交叉编译（Cross-compilation）** 是指为与运行构建过程的主机不同的目标系统编译代码的流程。
 
-对树莓派内核的交叉编译能让你在 32 位操作系统上编译 64 位内核，反之亦然。你还可以在非树莓派设备上交叉编译 32 位（或 64 位）的树莓派内核。
+对树莓派内核进行交叉编译，可以让你在 32 位操作系统上编译 64 位内核，反之亦然。你也可以在非树莓派设备上交叉编译 32 位或 64 位的树莓派内核。
 
-以下说明分为本地编译和交叉编译两部分。请选择适合你的那个部分，虽然这两种方式有许多相似步骤，但也有些许明显的差异。
+以下说明分为本地编译和交叉编译两部分，请选择适合你情况的其中一部分。虽然两种流程有许多相似的步骤，但也存在一些重要差异。
+
+>**注意**
+>
+>在树莓派系统上，固件会直接从启动分区加载内核镜像（`$KERNEL.img`）。Ubuntu 等其他发行版安装和选择内核的方式不同。如果你的树莓派运行的是其他发行版，请按照该发行版的文档安装自定义内核。
 
 ### 下载内核源码
 
-在为特定目标编译之前，你需要内核源码。要下载源码，你需要安装 Git。先在你的设备上安装 Git（如未安装）：
+在为任何目标编译之前，你需要内核源代码。要获取内核源代码，你需要 Git。如果你尚未安装 Git，请先在设备上安装它：
 
 ```bash
 $ sudo apt install git
 ```
 
-接下来，下载最新的树莓派内核源码：
+接下来，下载最新树莓派内核的源代码：
 
 ```bash
 $ git clone --depth=1 https://github.com/raspberrypi/linux
