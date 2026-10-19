@@ -193,15 +193,15 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 已同步 | 0/3 | 代理 E16（完成） | 2026-10-20 | E16 完成 1 处修订（IMX5000→IMX500，上游笔误），主线程已复核；待三轮逐句校对 |
 | `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 已同步 | 0/3 | 代理 E1（完成） | 2026-10-20 | E1 完成 1 处修订（标题与上游 "with your Mouse" 一致），主线程已复核；待三轮逐句校对 |
 | `pei-jian/usb-pei-jian.md` | `usb.adoc` | 已同步 | 0/3 | 代理 E11（完成） | 2026-10-20 | E11 核查与上游零差异，主线程已复核；待三轮逐句校对 |
-| `pei-jian/build-hat.md` | `build-hat.adoc` | 同步中 | 0/3 | 代理 E2 | 2026-10-20 | 第二波重派（E2） |
-| `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `sense-hat.adoc` | 同步中 | 0/3 | 代理 E3 | 2026-10-20 | 第二波重派（E3），核对完整性；434 行改动已提交（`7582f30`） |
-| `pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md` | `ai-kit.adoc` | 同步中 | 0/3 | 代理 E6 | 2026-10-20 | 第二波重派（E6） |
-| `pei-jian/ai-hat.md` | `ai-hat-plus.adoc` | 同步中 | 0/3 | 代理 E12 | 2026-10-20 | 第二波重派（E12）；产品名含 `+`，勿误判为 AsciiDoc 软换行 |
-| `pei-jian/shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | `audio.adoc` | 同步中 | 0/3 | 代理 E7 | 2026-10-20 | 第二波重派（E7） |
-| `pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md` | `tv-hat.adoc` | 同步中 | 0/3 | 代理 E4 | 2026-10-20 | 第二波重派（E4） |
-| `pei-jian/cm5-bian-cheng-zhi-ju.md` | `cm5-programming-jig.adoc` | 同步中 | 0/3 | 代理 E14 | 2026-10-20 | 第二波重派（E14） |
+| `pei-jian/build-hat.md` | `build-hat.adoc` | 已同步 | 0/3 | 代理 E2（完成） | 2026-10-20 | E2 全页重写同步至上游（Trixie 警告、Keyboard-series、配方步骤序号、根身份运行配置生成器），主线程已复核；待三轮逐句校对 |
+| `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `sense-hat.adoc` | 已同步 | 0/3 | 代理 E3（完成） | 2026-10-20 | E3 重组为上游 6 节结构并完成 13 类修正（椭球拟合 e/m、故障排除节、sudo reboot 等），主线程已复核；待三轮逐句校对 |
+| `pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md` | `ai-kit.adoc` | 已同步 | 0/3 | 代理 E6（完成） | 2026-10-20 | E6 按上游重写（AI Kit 已停产，页缩减为停产声明 + 硬件/安装/后续步骤），主线程已复核；待三轮逐句校对 |
+| `pei-jian/ai-hat.md` | `ai-hat-plus.adoc` | 已同步 | 0/3 | 代理 E12（完成） | 2026-10-20 | E12 完成 4 处修订（AI HAT+ 2、Hailo-10H 40 TOPS、Viador），主线程已复核；待三轮逐句校对 |
+| `pei-jian/shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | `audio.adoc` | 已同步 | 0/3 | 代理 E7（完成） | 2026-10-20 | E7 全页重写同步至上游（17 类修订，涵盖 DAC Pro/DAC+/DigiAMP+/Codec Zero 全线），主线程已复核；待三轮逐句校对 |
+| `pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md` | `tv-hat.adoc` | 已同步 | 0/3 | 代理 E4（完成） | 2026-10-20 | E4 重写同步至上游（删陈旧截图链接、修正 2B 要求与 Freeview/VLC 链接），主线程已复核；待三轮逐句校对 |
+| `pei-jian/cm5-bian-cheng-zhi-ju.md` | `cm5-programming-jig.adoc` | 已同步 | 0/3 | 代理 E14（完成） | 2026-10-20 | E14 核查与上游零差异（8 节含安全警告全齐），主线程已复核；待三轮逐句校对 |
 | `pei-jian/zhi-neng-xian-shi-mo-kuai.md` | `smart-display-module.adoc` | 同步中 | 0/3 | 代理 E15 | 2026-10-20 | 第二波重派（E15） |
-| `pei-jian/bao-hu-ke.md` | `bumper.adoc` | 同步中 | 0/3 | 代理 E13 | 2026-10-20 | 第二波重派（E13） |
+| `pei-jian/bao-hu-ke.md` | `bumper.adoc` | 已同步 | 0/3 | 代理 E13（完成） | 2026-10-20 | E13 核查与上游零差异，主线程已复核；待三轮逐句校对 |
 
 ### 4.3 微控制器（6）
 
