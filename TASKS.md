@@ -189,7 +189,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `pei-jian/xian-shi-qi.md` | `display.adoc` | 部分同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 已有 36 行改动提交（`e04ca00`），需重新领取核对完整性 |
 | `pei-jian/chu-mo-xian-shi-ping-2.md` | `touch-display-2.adoc` | 待同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 代理连接中断，无改动 |
 | `pei-jian/raspberry-pi-monitor.md` | `monitor.adoc` | 待同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/she-xiang-tou.md` | `camera.adoc` | 待同步 | 0/3 | 未领取（A1 失败） | 2026-10-20 | 代理连接中断，无改动 |
+| `pei-jian/she-xiang-tou.md` | `camera.adoc` | 同步中 | 0/3 | 代理 C1 | 2026-10-20 | 第一波重派（C1），进行中 |
 | `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 待同步 | 0/3 | 未领取（B10 失败） | 2026-10-20 | 代理连接中断，无改动；上游本页有 IMX5000 笔误 |
 | `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 部分同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 仅 5 行改动（`e6053ca`），需重新领取核对 |
 | `pei-jian/usb-pei-jian.md` | `usb.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
@@ -227,11 +227,11 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `an-quan/an-quan-gai-shu.md` | `security.adoc` | 待同步 | 0/3 | 未领取（A8 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `an-quan/an-quan-jia-gou.md` | `security-architecture.adoc` | 待同步 | 0/3 | 未领取（A8 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | `secure-boot-provisioner.adoc` | 待同步 | 0/3 | 未领取（A8 失败） | 2026-10-20 | 上游 image 属性有多余引号 |
-| `an-quan/yun-ying-an-quan.md` | `operational-security.adoc` | 待同步 | 0/3 | 未领取（A8 失败） | 2026-10-20 | 上游 fail2ban 示例缺等号 |
-| `an-quan/ufw-fang-huo-qiang.md` | `ufw.adoc` | 待同步 | 0/3 | 未领取（A8 失败） | 2026-10-20 | 端口号与规则须逐条核对 |
+| `an-quan/an-quan-gai-shu.md` | `security.adoc` | 同步中 | 0/3 | 代理 C2 | 2026-10-20 | 第一波重派（C2），进行中 |
+| `an-quan/an-quan-jia-gou.md` | `security-architecture.adoc` | 同步中 | 0/3 | 代理 C3 | 2026-10-20 | 第一波重派（C3），进行中 |
+| `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | `secure-boot-provisioner.adoc` | 同步中 | 0/3 | 代理 C4 | 2026-10-20 | 第一波重派（C4），进行中；上游 image 属性有多余引号 |
+| `an-quan/yun-ying-an-quan.md` | `operational-security.adoc` | 同步中 | 0/3 | 代理 C5 | 2026-10-20 | 第一波重派（C5），进行中；上游 fail2ban 示例缺等号 |
+| `an-quan/ufw-fang-huo-qiang.md` | `ufw.adoc` | 同步中 | 0/3 | 代理 C6 | 2026-10-20 | 第一波重派（C6），进行中；端口号与规则须逐条核对 |
 
 ### 4.6 项目自有（3）
 
@@ -243,7 +243,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ## 五、当前进行中
 
-统计时间：2026-10-20 03:14。滚动更新：每次代理领取或结束时立即修改本节。
+统计时间：2026-10-20 03:50。滚动更新：每次代理领取或结束时立即修改本节。
 
 | 代理 | 负责文件 | 开始时间 | 目标检查点 | 状态 |
 | ---- | -------- | -------- | ---------- | ---- |
@@ -267,12 +267,19 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | B8 | `shu-mei-pai/io-kong-zhi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 完成：8 处修订，已报告 |
 | B9 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B10 | `pei-jian/ai-she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
+| C1 | `pei-jian/she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
+| C2 | `an-quan/an-quan-gai-shu.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
+| C3 | `an-quan/an-quan-jia-gou.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
+| C4 | `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
+| C5 | `an-quan/yun-ying-an-quan.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
+| C6 | `an-quan/ufw-fang-huo-qiang.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
 
 ## 六、待办队列
 
 | 优先级 | 事项 | 范围 | 依赖 |
 | ------ | ---- | ---- | ---- |
-| P0 | 重新派发 A1、A2、A3、A4、A5、A8、B1、B2、B3、B10 十路失败代理 | 28 页 | 代理恢复 |
+| P0 | 第一波重派已启动：C1–C6 负责摄像头页与安全板块 5 页 | 6 页 | 进行中 |
+| P0 | 第二波重派待启动：A2 三页、A3 四页、A4 三页、A5 八页、B1/B2/B3/B10 各一页 | 22 页 | 第一波验收后滚动派发 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
 | P1 | 词汇表补录 I/O 控制器页报告的新术语（I/O controller、single-board computer、pin spacing、USB host controller、tightly-coupled memory、Timing generator、ISP front-end、bitstream 等 12 条） | `qian-yan/ci-hui-biao.md` | 无 |

@@ -14,7 +14,7 @@
 
 AI HAT+ 2 还允许你运行生成式 AI（GenAI）模型。使用 AI HAT+ 2，你可以：
 
-* 运行大语言模型（LLM）。如果你有 AI HAT+ 2，并且想同时运行视觉 AI 模型和 LLM，请遵循两组说明：[运行视觉 AI 模型](#运行视觉-ai-模型)和[运行-llm](#在树莓派-5-上运行-llm仅-ai-hat-2)。
+* 运行大语言模型（LLM）。如果你有 AI HAT+ 2 并且想同时运行视觉 AI 模型和 LLM，请遵循两组说明：[在树莓派 5 上运行视觉 AI 模型](#在树莓派-5-上运行视觉-ai-模型)和[在树莓派 5 上运行 LLM](#在树莓派-5-上运行-llm仅-ai-hat-2)。
 * 运行视觉语言模型（VLM）和其他 GenAI 任务。有关说明，请参阅 Hailo 的 GitHub 仓库：[hailo-apps](https://github.com/hailo-ai/hailo-apps)。
 
 ## 硬件前提
@@ -181,7 +181,7 @@ AI HAT+ 和 AI HAT+ 2 的 `Serial Number`、`Part Number` 和 `Product Name` 可
 [    3.231845] hailo 0000:01:00.0: Probing: Added board 1e60-2864, /dev/hailo0
 ```
 
-## 运行视觉 AI 模型
+## 在树莓派 5 上运行视觉 AI 模型
 
 本节提供在树莓派 5 上设置 Hailo NPU 的指导，使摄像头应用程序能够在摄像头输入上运行实时 AI 任务，如目标检测。以下说明适用于 AI Kit、AI HAT+ 和 AI HAT+ 2。
 

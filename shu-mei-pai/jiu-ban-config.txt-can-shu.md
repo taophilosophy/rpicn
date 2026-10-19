@@ -712,19 +712,19 @@ hdmi_drive=2
 
 #### `lcd_rotate`
 
-将使用 LCD 内置的旋转功能调整显示方向，这比使用基于 GPU 的旋转操作更节省计算资源。
+此参数使用 LCD 内置的翻转功能来翻转显示方向，这比使用基于 GPU 的旋转操作更节省计算资源。
 
 如，`lcd_rotate=2` 可回正倒立的显示界面。
 
 #### `enable_dpi_lcd`
 
-启用连接到 DPI GPIO 的 LCD 显示器。将允许使用并行显示接口的第三方 LCD 显示器。
+启用连接到 DPI GPIO 的 LCD 显示器。这将允许使用并行显示接口的第三方 LCD 显示器。
 
 #### `dpi_group`, `dpi_mode`, `dpi_output_format`
 
-参数 `dpi_group` 和 `dpi_mode config.txt` 用于设置预定信号格式（在 HDMI 中使用的 DMT、CEA 信号格式，如上所述）。用户可以以与 HDMI 相同的方式生成自定义信号格式（请参阅 `dpi_timings` 部分）。
+`dpi_group` 和 `dpi_mode`（均为 `config.txt` 参数）用于设置预定信号格式（即在 HDMI 中使用的 DMT 或 CEA 信号格式，如上所述）。用户可以以与 HDMI 相同的方式生成自定义信号格式（请参阅 `dpi_timings` 部分）。
 
-`dpi_output_format` 是个位掩码，可指定用于设置显示格式的各种参数。
+`dpi_output_format` 是一个位掩码，可指定用于设置显示格式的各种参数。
 
 #### `dpi_timings`
 
@@ -831,9 +831,9 @@ dpi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水�
 
 #### `framebuffer_depth`
 
-使用 `framebuffer_depth` 来指定每像素位的控制台帧缓冲区深度。默认值为 `16`。
+使用 `framebuffer_depth` 来指定每像素位数的控制台帧缓冲区深度。默认值为 `16`。
 
-| `framebuffer_depth` | 结果          | 注解                                           |
+| `framebuffer_depth` | 结果          | 备注                                           |
 | :------------: | :---------------: | ------------------------------------------------ |
 | 8          | 8 位帧缓冲区  | 默认的 RGB 调色板使屏幕难以看清                  |
 | 16         | 16 位帧缓冲区 |                                                |
@@ -842,11 +842,11 @@ dpi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水�
 
 #### `framebuffer_ignore_alpha`
 
-若将 `framebuffer_ignore_alpha` 置为 `1`，会禁用 alpha 管道。可以改善 32 位 `framebuffer_depth` 显示。
+若将 `framebuffer_ignore_alpha` 置为 `1`，会禁用 alpha 通道。可以改善 32 位 `framebuffer_depth` 显示。
 
 #### `framebuffer_priority`
 
-如设备接入了多个显示器，若此时使用旧款（KMS 之前）图形驱动程序，回强制特定的内部显示设备成为首个 Linux 帧缓冲区（即 `/dev/fb0`）。
+如果设备接入了多个显示器，并且使用旧款（KMS 之前）图形驱动程序，此参数会强制特定的内部显示设备成为首个 Linux 帧缓冲区（即 `/dev/fb0`）。
 
 可设置的参数有：
 
@@ -860,7 +860,7 @@ dpi_timings=<水平有效像素> <水平同步极性> <水平前沿填充> <水�
 
 #### `max_framebuffers`
 
-此配置条目将设置可创建的固件帧缓冲区的最大数量。有效值为 `0`、`1` 和 `2`。在旧设备上，默认设置为 `1`，因此当使用多个显示器时（如 HDMI、DSI、DPI 显示器）时，需要将其增加到 `2`。树莓派 4 的默认配置即是 `2`，因为它有两个 HDMI 端口。
+此配置条目将设置可创建的固件帧缓冲区的最大数量。有效值为 `0`、`1` 和 `2`。在树莓派 4 之前的设备上，默认设置为 `1`，因此当使用多个显示器（如 HDMI、DSI、DPI 显示器）时，需要将其增加到 `2`。树莓派 4 默认即为 `2`，因为它有两个 HDMI 端口。
 
 在大多数情况下，将其设置为 `2` 是安全的，因为只有在实际检测到已连接的设备后才会创建帧缓冲区。
 

@@ -193,14 +193,14 @@ Raspberry Pi 4B 包含以下端口：
 
 Raspberry Pi 3A+ 和 3B+ 相比初代 Raspberry Pi 3B 均提供了硬件升级，包括更快的 SoC、用于改善散热性能的集成金属散热片，以及升级的无线连接。
 
-[Raspberry Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) 是第三代（Raspberry Pi 3B）经典型 SBC 的增强版本。与 Raspberry Pi 3A+ 相比，它提供更多硬件功能，包括以太网端口和额外的 USB 端口。其尺寸约为 85 mm × 56 mm。更详细的尺寸，请参阅以下机械图：
+[Raspberry Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) 是第三代（Raspberry Pi 3B）经典型 SBC 的增强版本。与 Raspberry Pi 3A+ 相比，它提供更多硬件功能，包括以太网端口和额外的 USB 端口。其尺寸约为 85 mm × 56 mm。如需更详细的尺寸数据，请参阅以下机械图：
 
 * [Raspberry Pi 3B+ 机械图（PDF）](https://pip.raspberrypi.com/documents/RP-008337-DS)
 * [Raspberry Pi 3B+ 机械图（DXF）](https://pip.raspberrypi.com/documents/RP-008336-DS)
 
 有关电源电路和端口连接的工程图，请参阅 [Raspberry Pi 3B+ 的原理图](https://pip.raspberrypi.com/documents/RP-008339-DS)。
 
-[Raspberry Pi 3A+](https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/) 与 Raspberry Pi 3B+ 共享相同的核心处理器和无线能力，但外形尺寸更小，内存更少，端口也更少。其尺寸约为 65 mm × 56 mm。更详细的尺寸，请参阅 [Raspberry Pi 3A+ 的机械图](https://pip.raspberrypi.com/documents/RP-008330-DS)。有关电源电路和端口连接的工程图，请参阅 [Raspberry Pi 3A+ 的原理图](https://pip.raspberrypi.com/documents/RP-008332-DS)。
+[Raspberry Pi 3A+](https://www.raspberrypi.com/products/raspberry-pi-3-model-a-plus/) 与 Raspberry Pi 3B+ 共享相同的核心处理器和无线能力，但外形尺寸更小，内存更少，端口也更少。其尺寸约为 65 mm × 56 mm。如需更详细的尺寸数据，请参阅 [Raspberry Pi 3A+ 的机械图](https://pip.raspberrypi.com/documents/RP-008330-DS)。有关电源电路和端口连接的工程图，请参阅 [Raspberry Pi 3A+ 的原理图](https://pip.raspberrypi.com/documents/RP-008332-DS)。
 
 此外还有 Raspberry Pi 3A+ 机箱和 3B+ 机箱的机械图：
 

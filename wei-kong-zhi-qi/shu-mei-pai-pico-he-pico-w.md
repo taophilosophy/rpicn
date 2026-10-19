@@ -224,21 +224,21 @@ Raspberry Pi 的微控制器
 
 >**注意**
 >
-> `debuprobe_on_pico` 调试软件尚不支持 Pico 2。
+>`debuprobe_on_pico` 调试软件尚不支持 Pico 2。
 
-您可以使用一台 Pico 系列设备来调试另一台 Pico 系列设备。这可以通过 `debugprobe` 实现，`debugprobe` 是一个允许 Pico 充当 USB → SWD 和 UART 转换器的应用程序。
+你可以用一台 Pico 系列设备来调试另一台 Pico 系列设备。这可以通过 `debugprobe` 实现，它是一款应用程序，可使 Pico 充当 USB → SWD 和 UART 转换器。
 
-您可以在 [debugprobe GitHub 仓库](https://github.com/raspberrypi/debugprobe/releases/latest) 中找到最新版本的固件。
+你可以在 [debugprobe GitHub 仓库](https://github.com/raspberrypi/debugprobe/releases/latest) 中找到最新发布的固件。
 
 下载最新发布的 `debugprobe_on_pico.uf2` 文件。
 
-按住 BOOTSEL 按钮并将调试设备插入计算机，以挂载名为“RPI-RP2”的卷。
+将调试设备插入计算机时按住 BOOTSEL 按钮，以挂载名为“RPI-RP2”的卷。
 
 将 `debugprobe_on_pico.uf2` 复制到该卷上。文件复制完成后，卷会自动卸载。
 
-您的设备将重启，并运行更新版本的 `debugprobe` 固件。现在它已准备好进行调试。
+你的设备会重启，并开始运行更新版本的 `debugprobe` 固件。至此即可用于调试。
 
->**注意**
+>**技巧**
 >
 >有关如何使用调试器的说明，请参见 [Pico 系列微控制器入门指南](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)。
 

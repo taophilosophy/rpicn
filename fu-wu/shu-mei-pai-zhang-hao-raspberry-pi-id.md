@@ -32,11 +32,11 @@
 >
 >树莓派账号支持 macOS 和 iOS iCloud 钥匙串集成。在你的 Mac 或 iPhone 上右键单击 QR 码，选择“设置验证代码”选项。
 
-### 安装双因素认证应用
+### 安装双因素身份验证应用
 
 首先，在你的手机上下载一个生成 TOTP 的应用程序。安装一款 2FA 应用程序，如 [Authy](https://authy.com/) 或 Google Authenticator。
 
-### 启用双因素身份验证
+### 启用 2FA
 
 要启用双因素身份验证，请在登录到你的 [树莓派 ID](https://id.raspberrypi.com/) 后点击 **双因素身份验证** 选项。
 
