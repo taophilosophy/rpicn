@@ -65,12 +65,16 @@ grep -o 'include::[^[]*' /tmp/check.adoc   # 列出所有需要继续抓取的�
 ### CP-1 结构一致
 
 * 通过条件：
-  * `grep -c '^\* \[' SUMMARY.md` 的条目数与上游顶级页数一致（当前 52）。
+  * 五个内容板块的 `SUMMARY.md` 条目数与上游顶级页数一致：树莓派 17、配件 20、微控制器 6、服务 4、安全 5，合计 52（另有 `qian-yan/` 3 条项目自有页面，不计入）。
   * 每个中文页只有 1 个 H1，且与 `SUMMARY.md` 条目文字一致。
   * 上游每个子页 `.adoc` 对应中文页一个 H2；子页内 `===` 对应 H3，`====` 对应 H4。
 * 验证：
 
 ```bash
+# 各板块 SUMMARY 条目数（应依次为 17 20 6 4 5）
+for d in shu-mei-pai pei-jian wei-kong-zhi-qi fu-wu an-quan; do
+  printf '%s ' "$d"; grep -c "^\* \[.*\]($d/" SUMMARY.md
+done
 # 中文页 H1
 grep -n '^# ' shu-mei-pai/*.md pei-jian/*.md wei-kong-zhi-qi/*.md fu-wu/*.md an-quan/*.md
 # 上游标题层级
@@ -126,11 +130,11 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | 检查点 | 范围 | 状态 | 通过时间 | 证据 |
 | ------ | ---- | ---- | -------- | ---- |
 | CP-0 原文可获取 | 52 页 | 通过 | 2026-10-20 | GitHub raw `master` 可抓取；官方网页被 Cloudflare 拦截 |
-| CP-1 结构一致 | 52 页 | 通过 | 2026-10-20 | 上游 52 个顶级页与中文 52 页一一对应；`SUMMARY.md` 条目齐全 |
+| CP-1 结构一致 | 52 页 | 通过 | 2026-10-20 | `SUMMARY.md` 各板块条目 17/20/6/4/5，合计 52，与上游一一对应；无失效链接 |
 | CP-2 逐段同步 | 52 页 | 进行中 | | 见「四、页面清单」逐页状态 |
 | CP-3 规范合规 | 52 页 | 进行中 | | 见「四、页面清单」逐页校对轮次 |
-| CP-4 引用与目录 | `SUMMARY.md`、`mu-lu.md` | 待开始 | | 待执行第二节命令 |
-| CP-5 构建与 CI | 全仓库 | 待开始 | | 待查看 Actions 结果 |
+| CP-4 引用与目录 | `SUMMARY.md`、`mu-lu.md`、正文 | 通过 | 2026-10-20 | `SUMMARY.md` 58 条与 `mu-lu.md` 卡片链接均无失效；55 个页面的站内相对链接 0 处失效 |
+| CP-5 构建与 CI | 全仓库 | 部分通过 | 2026-10-20 | `sync-headers`、`file-name-check` 在 main 上均为 success；`Markdown-lint2-pr` 仅在 PR 触发、`links` 为定时/手动，尚未执行 |
 
 ### 3.2 页面统计
 
@@ -271,8 +275,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | P0 | 重新派发 A1（`pei-jian/she-xiang-tou.md`）与 A8（`an-quan/` 5 页） | 6 页 | 代理恢复 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
-| P0 | CP-4：校验 `SUMMARY.md` 与 `mu-lu.md` 全部站内链接 | 目录 | 无 |
-| P1 | CP-5：跑通 markdownlint 与 GitHub Actions | CI | 无 |
+| P1 | CP-5：本地跑 markdownlint（`npx markdownlint-cli2`），并对 `TASKS.md` 等新增文件补一次 PR 检查 | CI | 无 |
 | P1 | 检查 `shu-mei-pai-ying-jian.md` 是否缺 `boot-eeprom` 小节 | 树莓派硬件 | B1 结果 |
 | P2 | 向上游反馈已发现的原文错误 | 见「七」 | 用户批准 |
 | P3 | 图片本地化：正文中仍指向 `www.raspberrypi.com` 的图片迁至 `.gitbook/assets/` | 全部页面 | 需可访问图片源 |
