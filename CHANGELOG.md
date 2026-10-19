@@ -34,3 +34,5 @@
   - 同步「远程访问」页至当前上游：树莓派配置改为控制中心（Control Centre）、Imager 步骤改为 Remote Access 标签页开关式流程、新增「限制可连接的用户」一节（AllowUsers/DenyUsers）、Apache 教程上游已删除改为指向官方文档、网络启动改「树莓派 3 或更新机型」、MAC 地址节更新为「树莓派 4 及后续旗舰机型」
   - 「远程访问」全页逐段逐句校对（约 160 处）：补全漏译（Connect 的公网 IP/防火墙与 Wayland 远程 shell 能力、default-jre 安装命令）、术语统一（NFS export → 导出，已补录词汇表）、修正语态错误与病句、直引号改中文曲引号、修正上游原文笔误 2 处（IPv6 网络启动一节 FTP 应为 TFTP、/proc/mounts 反引号错位；另有 Atfer→After 拼写错误属上游原文，中文不受影响，待向上游反馈）
   - 「远程访问」图片同步：raspberry-pi-configuration.png、vnc-enable.png 更新为当前上游 Control Centre 版截图（中文 UI 重制版待后续在中文系统上重截）
+  - 「计算模块硬件」同步至当前上游（CM5 时代）：总述改写与型号总表（新增 CM5）、IO 板与兼容性总表、新增「CM5 与 CM5IO 配件」（机箱/天线/散热器）、刷写流程更新（CM5IO、Windows 11、mass-storage-gadget64）、CM5 设备树与内核要求、摄像头新增 CM5 跳线步骤、显示屏一节改为指向触摸显示屏页面、规格新增 CM5/CM5IO 数据表并更新全部设计文件链接
+  - 结构核对：当前上游新增 accessories 11 页（AI Camera、AI HAT+、Bumper、CM5 Programming Jig、Monitor、SD Cards、Smart Display Module、SSD Kit、SSDs、Touch Display 2、USB 等）、computers 6 页（AI、IO Controllers、Keyboard Computers、SBCs、Software Sources、Zero）、microcontrollers 2 页（Radio Modules、Microcontroller Chips 重组）、security 板块 5 页、services 2 页（Bookshelf、Connect for Organisations），待后续补遗
