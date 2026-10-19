@@ -2,7 +2,7 @@
 
 ## 简介
 
-**Connect 企业版**（Connect for Organisations）让多个用户通过 [Raspberry Pi Connect](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md) 共享设备访问权限。
+**Connect 企业版**（Connect for Organisations）让多个用户通过 [Raspberry Pi Connect](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md) 共享对设备的访问权限。
 
 组织中的设备支持 Connect 的所有功能，包括[屏幕共享](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)、[远程 Shell](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md) 访问和[远程更新](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)。
 
@@ -18,11 +18,11 @@
 
     ![Raspberry Pi Connect 界面，显示账号切换下拉菜单。账号切换器可让你在个人 Connect 账号和组织 Connect 账号之间切换。](https://www.raspberrypi.com/documentation/services/images/account-switcher.png)
 
-3. 选择 **+ 新建组织**，然后输入组织名称。
+3. 选择 **+新建组织**，然后输入组织名称。
 
-4. 如果这是你创建的第一个组织，界面会显示**开始免费试用**。如果你之前创建过组织，界面会显示**创建组织**。选择显示给你的按钮。
+4. 如果这是你创建的第一个组织，界面会显示**开始免费试用**。如果你之前创建过组织，界面会显示**创建组织**。选择界面显示的按钮。
 
-    组织创建完成，你的 Connect 账号会自动作为管理员加入该组织。
+    组织创建完成后，你的 Connect 账号会自动作为管理员加入该组织。
 
 如果你的个人 Connect 账号关联了设备，系统会提示你现在将这些设备转移到新组织。
 
@@ -160,7 +160,7 @@
 3. 在**常规**部分的**标签**字段下：
 
     * 要添加标签，请在文本字段中输入。你可以从下拉菜单中选择现有标签，也可以输入新标签名称并选择**创建**选项。
-    * 要移除标签，请选择要移除标签旁边的 **x**。
+    * 要移除标签，请选择要移除的标签旁边的 **x**。
 
 4. 选择**更新设备**以保存更改。
 
@@ -334,7 +334,7 @@ Connect 企业版的订阅会在四周试用期结束后开始，此后每月按
 
 你可以按操作类型（例如**远程 Shell 会话已启动**）筛选事件。要筛选列表，请选择列表左上角上方**筛选器**旁边的**操作**下拉菜单。
 
-选择列表右上角上方的**下载 CSV**，以 CSV 格式下载列表。
+选择列表右上角的**下载 CSV**，以 CSV 格式下载列表。
 
 ## 更改组织设置
 
@@ -354,7 +354,9 @@ Connect 企业版的订阅会在四周试用期结束后开始，此后每月按
 
 1. 登录 Raspberry Pi Connect。
 2. 在右上角通过**账号切换**图标选择你的组织账号。
-3. 选择**设置**标签页，然后选择**要求双因素身份验证**。随后会显示通知，确认组织的设置已成功更新。
+3. 选择**设置**标签页，然后选择**要求双因素身份验证**。
+
+随后会显示通知，确认组织的设置已成功更新。
 
 ![Connect 组织设置的身份验证部分，显示要求双因素身份验证按钮。](https://www.raspberrypi.com/documentation/services/images/organisation-authentication.png)
 
@@ -368,7 +370,9 @@ Connect 企业版的订阅会在四周试用期结束后开始，此后每月按
 
 1. 登录 Raspberry Pi Connect。
 2. 在右上角通过**账号切换**图标选择你的组织账号。
-3. 选择**设置**标签页，然后选择**停止要求双因素身份验证**。随后会显示通知，确认组织的设置已成功更新。
+3. 选择**设置**标签页，然后选择**停止要求双因素身份验证**。
+
+随后会显示通知，确认组织的设置已成功更新。
 
 >**注意**
 >
@@ -2001,7 +2005,7 @@ Content-Type: application/json; charset=utf-8
 
 >**技巧**
 >
->rpi-image-gen 包含一个带层和配置的示例应用。更多信息，请参见[远程更新](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)。
+>rpi-image-gen 包含一个带有层和配置的示例应用。更多信息，请参见[远程更新](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)。
 
 要在主机设备上准备镜像：
 

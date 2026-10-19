@@ -185,8 +185,8 @@ $ python imx500_pose_estimation_higherhrnet_demo.py
 | ---- | ---- |
 | `CnnOutputTensor` | 存储输出张量的浮点数组。 |
 | `CnnInputTensor` | 存储输入张量的浮点数组。 |
-| `CnnOutputTensorInfo` | 描述输出张量结构的网络特定参数，其结构体定义见下表之后。 |
-| `CnnInputTensorInfo` | 描述输入张量结构的网络特定参数，其结构体定义见下表之后。 |
+| `CnnOutputTensorInfo` | 描述输出张量结构的网络特定参数，其结构体定义见下方代码块。 |
+| `CnnInputTensorInfo` | 描述输入张量结构的网络特定参数，其结构体定义见下方代码块。 |
 
 `CnnOutputTensorInfo` 的结构：
 
