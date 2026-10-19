@@ -40,3 +40,5 @@
 |option|参数|
 |Native builds|本地编译|
 |Cross-compilation|交叉编译|
+|Control Centre|控制中心|
+|NFS export|NFS 导出|
