@@ -142,12 +142,12 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 1 | 3 | 0 | 13 | 0 | 6% |
+| 树莓派 | 17 | 17 | 1 | 4 | 0 | 12 | 0 | 6% |
 | 配件 | 20 | 20 | 0 | 0 | 4 | 0 | 16 | 0% |
 | 微控制器 | 6 | 6 | 0 | 2 | 0 | 4 | 0 | 0% |
 | 服务 | 4 | 4 | 0 | 0 | 0 | 4 | 0 | 0% |
 | 安全 | 5 | 5 | 0 | 0 | 0 | 0 | 5 | 0% |
-| 合计 | 52 | 52 | 1 | 5 | 4 | 21 | 21 | 2% |
+| 合计 | 52 | 52 | 1 | 6 | 4 | 20 | 21 | 2% |
 
 完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。
 
@@ -172,7 +172,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 同步中 | 0/3 | 代理 B5 | 2026-10-20 | |
 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 已同步 | 0/3 | 主线程 | 2026-10-20 | CM5 时代全面同步，待三轮校对 |
 | `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 结构已对齐，待三轮校对 |
-| `shu-mei-pai/io-kong-zhi-qi.md` | `io-controllers.adoc` | 同步中 | 0/3 | 代理 B8 | 2026-10-20 | |
+| `shu-mei-pai/io-kong-zhi-qi.md` | `io-controllers.adoc` | 已同步 | 1/3 | 代理 B8（完成） | 2026-10-20 | 8 处修订；RP1 规格与上游一致；视频宏改为普通链接。注意本文件为 LF，与仓库其他 CRLF 文件不同 |
 | `shu-mei-pai/ruan-jian-lai-yuan.md` | `software-sources.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | |
 | `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | 参数表，重点核对默认值 |
 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | `sbcs.adoc` | 同步中 | 0/3 | 代理 B6 | 2026-10-20 | 上游本页有 Raspberry Pi 4B/5 笔误 |
@@ -264,7 +264,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | B5 | `shu-mei-pai/ling-dian-xing-hao.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B6 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B7 | `shu-mei-pai/jian-pan-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
-| B8 | `shu-mei-pai/io-kong-zhi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
+| B8 | `shu-mei-pai/io-kong-zhi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 完成：8 处修订，已报告 |
 | B9 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B10 | `pei-jian/ai-she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 
@@ -275,7 +275,8 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | P0 | 重新派发 A1、A2、A3、A4、A5、A8、B10 七路失败代理 | 24 页 | 代理恢复 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
-| P1 | CP-5：本地跑 markdownlint（`npx markdownlint-cli2`），并对 `TASKS.md` 等新增文件补一次 PR 检查 | CI | 无 |
+| P1 | 词汇表补录 I/O 控制器页报告的新术语（I/O controller、single-board computer、pin spacing、USB host controller、tightly-coupled memory、Timing generator、ISP front-end、bitstream 等 12 条） | `qian-yan/ci-hui-biao.md` | 无 |
+| P2 | 统一 `shu-mei-pai/io-kong-zhi-qi.md` 的换行符（当前 LF，其余页面 CRLF） | 1 页 | 无 |
 | P1 | 检查 `shu-mei-pai-ying-jian.md` 是否缺 `boot-eeprom` 小节 | 树莓派硬件 | B1 结果 |
 | P2 | 向上游反馈已发现的原文错误 | 见「七」 | 用户批准 |
 | P3 | 图片本地化：正文中仍指向 `www.raspberrypi.com` 的图片迁至 `.gitbook/assets/` | 全部页面 | 需可访问图片源 |
