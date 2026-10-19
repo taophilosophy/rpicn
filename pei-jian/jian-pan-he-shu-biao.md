@@ -8,9 +8,9 @@
 
 ![键盘尾端](https://www.raspberrypi.com/documentation/accessories/images/back-of-keyboard.png)
 
-### 按键功能
+### 键盘功能
 
-树莓派键盘有三个锁定键: `Num Lock`, `Caps Lock`, 和 `Scroll Lock`。顶部右侧有三个 LED 指示灯，指示着哪些锁定已启用。
+树莓派键盘有三个锁定键：`Num Lock`、`Caps Lock` 和 `Scroll Lock`。右上角有三个 LED 指示灯，指示哪些锁定处于启用状态。
 
 ![num cap 和 scroll](https://www.raspberrypi.com/documentation/accessories/images/num-cap-scroll.png)
 
