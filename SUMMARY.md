@@ -16,13 +16,17 @@
 * [树莓派系统（Raspberry Pi OS）](shu-mei-pai/raspberry-pi-os.md)
 * [系统配置](shu-mei-pai/xi-tong-pei-zhi.md)
 * [`config.txt`](shu-mei-pai/config.txt.md)
-* [旧版 `config.txt` 参数](shu-mei-pai/jiu-ban-config.txt-can-shu.md)
 * [Linux 内核](shu-mei-pai/linux-nei-he.md)
 * [远程访问](shu-mei-pai/yuan-cheng-fang-wen.md)
 * [摄像头软件](shu-mei-pai/she-xiang-tou-ruan-jian.md)
+* [人工智能软件](shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md)
 * [树莓派硬件](shu-mei-pai/shu-mei-pai-ying-jian.md)
+* [Zero 型号](shu-mei-pai/ling-dian-xing-hao.md)
 * [计算模块硬件](shu-mei-pai/ji-suan-mo-kuai-ying-jian.md)
 * [处理器](shu-mei-pai/chu-li-qi.md)
+* [I/O 控制器](shu-mei-pai/io-kong-zhi-qi.md)
+* [软件来源](shu-mei-pai/ruan-jian-lai-yuan.md)
+* [旧版 `config.txt` 参数](shu-mei-pai/jiu-ban-config.txt-can-shu.md)
 
 ## 配件
 
