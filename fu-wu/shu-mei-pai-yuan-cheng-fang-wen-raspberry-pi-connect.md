@@ -1,4 +1,4 @@
-# 树莓派远程访问（Raspberry Pi Connect）Beta 版
+# 树莓派 Connect
 
 ## 简介
 
