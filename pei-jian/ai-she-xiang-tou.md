@@ -332,7 +332,7 @@ Picamera2 中的 IMX500 类提供以下辅助函数：
 | `IMX500.show_network_fw_progress_bar()` | 在控制台上显示进度条，展示神经网络固件上传到 IMX500 的进度。 |
 | `IMX500.get_roi_scaled(request)` | 返回 ISP 输出图像坐标空间中的感兴趣区域（ROI）。 |
 | `IMX500.get_isp_output_size(picamera2)` | 返回 ISP 输出图像尺寸。 |
-| `IMX5000.get_input_size()` | 根据所使用的神经网络模型返回输入张量尺寸。 |
+| `IMX500.get_input_size()` | 根据所使用的神经网络模型返回输入张量尺寸。 |
 | `IMX500.get_outputs(metadata)` | 从 Picamera2 图像元数据中返回输出张量。 |
 | `IMX500.get_output_shapes(metadata)` | 从 Picamera2 图像元数据中返回所用神经网络模型的输出张量形状。 |
 | `IMX500.set_inference_roi_abs(rectangle)` | 设置感兴趣区域（ROI）裁剪矩形，它决定传感器图像的哪一部分被转换为用于在 IMX500 上进行推理的输入张量。以全传感器分辨率下的像素为单位，使用 `(x_offset, y_offset, width, height)` 元组指定感兴趣区域。 |

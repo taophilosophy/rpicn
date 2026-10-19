@@ -24,7 +24,7 @@ M.2 HAT+ 和 M.2 HAT+ Compact 都具备以下特点：
 * 单通道 PCIe 2.0 接口（峰值传输速率 500 MB/s）
 * 支持使用 M.2 M 键边型连接器的设备
 * 为接入的 M.2 设备提供高达 3 A 的电流
-* 电源和状态指示灯
+* 电源和活动指示灯
 
 M.2 HAT+ 和 M.2 HAT+ Compact 的不同之处如下：
 
@@ -52,7 +52,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
     ```bash
     $ sudo apt update && sudo apt full-upgrade
     ```
-2. 接下来，请确保你的树莓派固件也是最新的。运行以下命令查看你正在运行的固件版本：
+2. [确保你的树莓派固件是最新的](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#update-the-bootloader-configuration)。运行以下命令查看你正在运行的固件版本：
 
     ```bash
     $ sudo rpi-eeprom-update
@@ -64,7 +64,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
     $ sudo raspi-config
     ```
 
-    在 **Advanced Options** 下 > **Bootloader Version**，选择 **Latest**。然后，点击 **Finish** 或 **Esc 键** 退出 raspi-config。
+    在 `Advanced Options` > `Bootloader Version` 下，选择 `Latest`。然后，使用 `Finish` 或 **Escape** 键退出 `raspi-config`。
 
     运行以下命令以将固件更新到最新版本：
 
@@ -74,47 +74,146 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
     然后，使用 `sudo reboot` 重启。
 3. 在开始安装之前，请断开树莓派的电源。
-4. M.2 HAT+ 兼容于树莓派 5 主动散热器。如果你有主动散热器，请在安装 M.2 HAT+ 之前先安装散热器。
-5. 使用提供的四颗螺丝安装间隔柱。将 GPIO 堆叠排针牢固地压在树莓派的 GPIO 引脚上；只要所有引脚都能正确插入即可，方向并不重要。将扁平带状线缆从 M.2 HAT+ 上拔下，并将另一端插入树莓派的 PCIe 接口。从两侧抬起扁平带状线缆固定器，然后将带有铜触点朝向内部、即朝向 USB 的线缆插入。确保扁平带状线缆完全且均匀地插入 PCIe 接口，然后从两侧向下按紧线缆固定器，将扁平带状线缆牢固地固定在位。
-6. 把 M.2 HAT+ 放在螺柱上面，然后使用剩下的四颗螺丝将其固定在位。
-7. 把排线插入 M.2 HAT+ 上的插槽。从两侧抬起排线固定器，然后插入铜触点朝上的电缆。将排线完全均匀地插入端口，从两侧向下推动电缆固定器，将排线牢固地固定在位。
-8. 通过逆时针旋转螺丝来取下驱动附件螺丝。将你的 M.2 固态硬盘插入 M.2 键接口，将固态硬盘以轻微向上的角度滑入插槽。不要强行将固态硬盘插入插槽：而应轻轻地滑入。
-9. 将固态硬盘附件螺丝上的凹口推入 M.2 固态硬盘尾部的插槽中。将固态硬盘平放在 M.2 HAT+ 上，并顺时针旋转螺丝，直到固态硬盘固定。不要太过紧拧螺丝。
-10. 恭喜，你已成功的安装了 M.2 HAT+。现在把你的树莓派接入电源；树莓派系统能自动检测到 M.2 HAT+。如果你使用桌面版树莓派系统，你应该能在桌面上看到代表硬盘的图标。如果你不使用桌面版，你可以在 `/dev/nvme0n1` 找到硬盘。要使硬盘自动可用于文件访问，请考虑配置自动挂载。
 
-![安装树莓派 M.2 HAT+](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-07.png)
+## 安装 M.2 HAT+
+
+按照以下步骤安装 M.2 HAT+。如果要安装 M.2 HAT+ Compact，请参阅[安装 M.2 HAT+ Compact](#安装-m2-hat-compact)。
+
+### （可选）安装主动散热器
+
+1. M.2 HAT+ 兼容树莓派 5 主动散热器。如果你有主动散热器，请在安装 M.2 HAT+ 之前先安装散热器。
+
+    ![安装主动散热器](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-01.png)
+
+### 安装固定硬件
+
+1. 使用随附的螺丝安装间隔柱。
+2. 将 GPIO 堆叠排针牢固地压在树莓派 GPIO 引脚顶部。方向并不重要，但所有引脚都必须完全插到位。
+3. 在断开排线之前，从两侧轻轻抬起 M.2 HAT+ 上的排线固定器。
+4. 从两侧抬起树莓派 PCIe 接口上的排线固定器，然后将排线以金属触点朝向 USB 接口的方向插入。
+5. 将排线完全且均匀地插入 PCIe 接口后，从两侧向下按压排线固定器，将排线牢固地固定到位。
+
+    ![安装固定硬件](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-02.png)
+
+### 安装转接板
+
+1. 将 M.2 HAT+ 放在间隔柱上，使用剩余的螺丝将其固定到位。
+
+    ![安装转接板](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-03.png)
+
+2. 将排线插入 M.2 HAT+ 上的插槽。
+
+    从两侧抬起排线固定器，然后将排线以铜触点朝上的方向插入。将排线完全且均匀地插入接口后，从两侧向下按压排线固定器，将排线牢固地固定到位。
+
+    ![插入排线](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-04.png)
+
+### 安装你的 M.2 存储设备
+
+1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 键边型连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
+
+    ![安装 M.2 存储设备](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-05.png)
+
+2. 将驱动器固定螺丝上的凹口推入你的 M.2 存储设备尾部的插槽。将存储设备平放贴紧 M.2 HAT+，然后顺时针旋转拧入 SSD 固定螺丝，直到感觉到 SSD 已固定。不要过度拧紧螺丝。
+
+    ![固定 M.2 存储设备](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-06.png)
+
+恭喜，你已成功安装 M.2 HAT+。
+
+![已安装的 M.2 HAT+](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-installation-07.png)
+
+## 安装 M.2 HAT+ Compact
+
+按照以下步骤安装 M.2 HAT+ Compact。如果要安装 M.2 HAT+，请参阅[安装 M.2 HAT+](#安装-m2-hat)。
+
+### 安装固定硬件
+
+1. 使用随附的螺丝安装间隔柱。
+
+    ![安装固定硬件](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-compact-installation-02.png)
+
+### 安装转接板
+
+1. 将 M.2 HAT+ Compact 放在间隔柱上，使用剩余的螺丝将其固定到位。
+
+    ![安装转接板](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-compact-installation-03.png)
+
+2. 将排线插入树莓派的 PCIe 接口。
+
+    从两侧抬起排线固定器，然后将排线以铜触点朝内、朝向 USB 接口的方向插入。将排线完全且均匀地插入 PCIe 接口后，从两侧向下按压排线固定器，将排线牢固地固定到位。
+
+    ![插入排线](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-compact-installation-04.png)
+
+### 安装你的 M.2 存储设备
+
+1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 键边型连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
+
+    ![安装 M.2 存储设备](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-compact-installation-05.png)
+
+2. 将驱动器固定螺丝上的凹口推入你的 M.2 存储设备尾部的插槽。将存储设备平放贴紧 M.2 HAT+ Compact，然后顺时针旋转拧入 SSD 固定螺丝，直到感觉到 SSD 已固定。不要过度拧紧螺丝。
+
+    ![固定 M.2 存储设备](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-compact-installation-06.png)
+
+恭喜，你已成功安装 M.2 HAT+ Compact。
+
+![已安装的 M.2 HAT+ Compact](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-compact-installation-07.png)
+
+## 启动你的树莓派
+
+如果你的 NVMe 存储设备是新的或未经格式化的，它不会作为图标显示在树莓派系统桌面上。此外，`sudo blkid` 等命令也不会显示分区 UUID。你必须对存储设备进行分区和格式化（例如，使用[树莓派启动盘制作工具](https://www.raspberrypi.com/software/)中的 **Erase** 选项），才能让它对操作系统可见并可供访问。更多信息，请参阅[从 NVMe 启动](#从-nvme-启动)或[自动挂载存储设备](../shu-mei-pai/xi-tong-pei-zhi.md#自动挂载存储设备)。
+
+1. 将你的树莓派连接电源。树莓派系统会自动检测 M.2 HAT+ 或 M.2 HAT+ Compact。
+
+    * 要验证硬件是否被检测到，请打开终端并运行：
+
+        ```bash
+        $ ls -l /dev/nvme*
+        ```
+
+        如果存储设备被正确检测到，你会看到 `/dev/nvme0` 和 `/dev/nvme0n1`。
+
+    * 如果你计划从该存储设备启动，请参阅[从 NVMe 启动](#从-nvme-启动)。树莓派启动盘制作工具会在安装过程中自动对存储设备进行分区和格式化。
+    * 如果你计划将存储设备纯粹用作额外存储，请在[配置自动挂载](../shu-mei-pai/xi-tong-pei-zhi.md#自动挂载存储设备)之前对存储设备进行格式化。
+
+2. 要让你的存储设备自动可用于文件访问，请考虑[配置自动挂载](../shu-mei-pai/xi-tong-pei-zhi.md#自动挂载存储设备)。
 
 >**警告**
 >
-> 在连接/断开 M.2 插槽上的设备之前，务必将树莓派断开电源。
+> 在连接或断开 M.2 插槽上的设备之前，务必先断开树莓派的电源。
 
 ## 从 NVMe 启动
 
-要从连接到 M.2 HAT+ 的 NVMe 存储设备启动，请完成以下步骤：
+要从连接到 M.2 HAT+ 或 M.2 HAT+ Compact 的 NVMe 存储设备启动，请完成以下步骤：
 
-1. 使用树莓派启动盘制作工具格式化你的 NVMe 存储设备。如果你已经有带有树莓派系统镜像的存储卡，可以在你的树莓派上执行此操作。
-2. 使用存储卡或 USB 存储设备将树莓派启动到树莓派系统，以持久性更改板载 EEPROM 配置中的引导顺序。
-3. 在树莓派终端上运行 `sudo raspi-config` 以打开树莓派配置 CLI。
-4. 在 **Advanced Options** > **Boot Order** 下，选择 **NVMe/USB boot**。然后，点击 **Finish**  或按 **Esc 键** 退出 `raspi-config`。
-5. 使用 `sudo reboot` 重启你的树莓派。
+1. 使用树莓派启动盘制作工具将树莓派系统刷写到你的 NVMe 存储设备。更多信息，请参阅[安装树莓派系统](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)。
 
-要获取更多信息，请参阅 NVMe 启动。
+    * 如果你的树莓派已经在使用存储卡上的树莓派系统，可以直接在你的树莓派上运行树莓派启动盘制作工具，并选择 NVMe 存储设备作为目标存储。
+    * 或者，如果你的引导加载程序固件是最新的，可以使用树莓派网络安装程序（Raspberry Pi Network Installer）通过以太网连接下载并运行树莓派启动盘制作工具，而无需存储卡。更多信息，请参阅[网络安装](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#network-installation)。
+
+2. 重启你的树莓派。
+
+    * 如果你的树莓派 5 中没有插入存储卡，它会自动从 NVMe 存储设备启动。
+    * 如果你的树莓派 5 中插入了存储卡，它会先尝试从存储卡启动。你可以通过完成以下步骤来更改树莓派上的启动顺序：
+
+        1. 使用存储卡将你的树莓派启动到树莓派系统。
+        2. 在树莓派上的终端中运行 `sudo raspi-config`，打开树莓派配置 CLI。
+        3. 在 **Advanced Options** > **Boot Order** 下，选择 **NVMe/USB boot**。
+        4. 使用 `Finish` 或 **Escape** 键退出 `raspi-config`。
+        5. 使用 `sudo reboot` 重启你的树莓派。
+
+要了解有关 NVMe 启动的详细信息，请参阅 [NVMe 启动](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#nvme-boot)。
 
 ## 启用 PCIe Gen 3
 
 >**警告**
 >
-> 树莓派 5 未获 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。
+> 树莓派 5 未通过 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。
 
-要启用 PCIe Gen 3 速度，请按照在启用 PCIe Gen 3.0 中的说明操作。
+要启用 PCIe Gen 3 速度，请按照[启用 PCIe Gen 3.0](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#pcie-gen-3-0)中的说明操作。
 
-## 框图
+## 原理图
 
-![树莓派 M.2 HAT+ 原理图](https://www.raspberrypi.com/documentation/accessories/images/m2-hat-plus-schematics.png)
-
-
-[PDF 格式](https://datasheets.raspberrypi.com/m2-hat-plus/raspberry-pi-m2-hat-plus-schematics.pdf?_gl=1*1qlaav3*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMzcwMjM3Ny44NC4xLjE3MjM3MDI0MTAuMC4wLjA.)的原理图。
+M.2 HAT+ 的原理图以 [PDF](https://pip.raspberrypi.com/documents/RP-008218-DS) 格式提供。
 
 ## 产品简介
 
-更多有关 M.2 HAT+ 的信息，如机械规格和操作环境限制，请参阅产品简介。
+要了解更多有关 M.2 HAT+ 和 M.2 HAT+ Compact 的信息（包括机械规格和工作环境限制），请参阅[产品简介](https://pip.raspberrypi.com/documents/RP-009234-MM)。

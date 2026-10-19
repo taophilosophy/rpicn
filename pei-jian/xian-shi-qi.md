@@ -214,7 +214,7 @@
 
 要启用触摸显示屏：
 
-1. 启动计算模块，然后打开 `/boot/firmware/config.txt`。
+1. 启动计算模块，然后打开 [`/boot/firmware/config.txt`](../shu-mei-pai/config.txt.md)。
 
    * 要将显示屏连接到 `DISP1/DSI1`，请在文件末尾添加 `dtoverlay=vc4-kms-dsi-7inch`。
    * 要将显示屏连接到 `DISP0/DSI0`，请在文件末尾添加 `dtoverlay=vc4-kms-dsi-7inch,dsi0`。
@@ -421,7 +421,7 @@ dtoverlay=vc4-kms-dsi-7inch,sizex=400,invx,invy
 
 要更改触摸输入方向：
 
-1. 打开 `/boot/firmware/config.txt`。
+1. 打开 [`/boot/firmware/config.txt`](../shu-mei-pai/config.txt.md)。
 2. 在文件末尾添加 `dtoverlay`。
 3. 在命令行中使用 `sudo reboot` 重启。
 

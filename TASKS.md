@@ -182,26 +182,26 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `pei-jian/sd-ka.md` | `sd-cards.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/ssd.md` | `ssds.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/ssd-tao-jian.md` | `ssd-kit.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/m.2-hat+.md` | `m2-hat-plus.adoc` | 部分同步 | 0/3 | 未领取（A4 失败） | 2026-10-20 | 225 行已提交（`7582f30`），工作区另有 37 行未提交改动 |
-| `pei-jian/xian-shi-qi.md` | `display.adoc` | 部分同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 已有 36 行改动提交（`e04ca00`），需重新领取核对完整性 |
-| `pei-jian/chu-mo-xian-shi-ping-2.md` | `touch-display-2.adoc` | 待同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/raspberry-pi-monitor.md` | `monitor.adoc` | 待同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/she-xiang-tou.md` | `camera.adoc` | 同步中 | 0/3 | 代理 C7 | 2026-10-20 | C1 交付不实（修改未落盘，主线程已验），改派 C7 重做 |
-| `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 待同步 | 0/3 | 未领取（B10 失败） | 2026-10-20 | 代理连接中断，无改动；上游本页有 IMX5000 笔误 |
-| `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 部分同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 仅 5 行改动（`e6053ca`），需重新领取核对 |
-| `pei-jian/usb-pei-jian.md` | `usb.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/build-hat.md` | `build-hat.adoc` | 待同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 代理未触及，内容停留在 2024 年 |
-| `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `sense-hat.adoc` | 部分同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 434 行改动已提交（`7582f30`），需重新领取核对 |
-| `pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md` | `ai-kit.adoc` | 待同步 | 0/3 | 未领取（A4 失败） | 2026-10-20 | 代理未触及，内容停留在 2024 年 |
-| `pei-jian/ai-hat.md` | `ai-hat-plus.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动；产品名含 `+`，勿误判为 AsciiDoc 软换行 |
-| `pei-jian/shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | `audio.adoc` | 待同步 | 0/3 | 未领取（A4 失败） | 2026-10-20 | 代理未触及，内容停留在 2024 年 |
-| `pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md` | `tv-hat.adoc` | 待同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 代理未触及，内容停留在 2024 年 |
-| `pei-jian/cm5-bian-cheng-zhi-ju.md` | `cm5-programming-jig.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/zhi-neng-xian-shi-mo-kuai.md` | `smart-display-module.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
-| `pei-jian/bao-hu-ke.md` | `bumper.adoc` | 待同步 | 0/3 | 未领取（A5 失败） | 2026-10-20 | 代理连接中断，无改动 |
+| `pei-jian/sd-ka.md` | `sd-cards.adoc` | 同步中 | 0/3 | 代理 E8 | 2026-10-20 | 第二波重派（E8） |
+| `pei-jian/ssd.md` | `ssds.adoc` | 同步中 | 0/3 | 代理 E9 | 2026-10-20 | 第二波重派（E9） |
+| `pei-jian/ssd-tao-jian.md` | `ssd-kit.adoc` | 同步中 | 0/3 | 代理 E10 | 2026-10-20 | 第二波重派（E10） |
+| `pei-jian/m.2-hat+.md` | `m2-hat-plus.adoc` | 同步中 | 0/3 | 代理 E5 | 2026-10-20 | 第二波重派（E5），核对完整性；225 行已提交（`7582f30`） |
+| `pei-jian/xian-shi-qi.md` | `display.adoc` | 同步中 | 0/3 | 代理 E17 | 2026-10-20 | 第二波重派（E17），核对完整性；已有 36 行改动提交（`e04ca00`） |
+| `pei-jian/chu-mo-xian-shi-ping-2.md` | `touch-display-2.adoc` | 同步中 | 0/3 | 代理 E18 | 2026-10-20 | 第二波重派（E18） |
+| `pei-jian/raspberry-pi-monitor.md` | `monitor.adoc` | 同步中 | 0/3 | 代理 E19 | 2026-10-20 | 第二波重派（E19） |
+| `pei-jian/she-xiang-tou.md` | `camera.adoc` | 已同步 | 0/3 | 代理 C7（完成） | 2026-10-20 | C7 全页重写同步至上游（12 节 1:1；RFI/光谱/规格表/Picamera2 链接齐备），主线程已复核；待三轮逐句校对 |
+| `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 同步中 | 0/3 | 代理 E16 | 2026-10-20 | 第二波重派（E16）；上游本页有 IMX5000 笔误，按 IMX500 正确内容翻译 |
+| `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 同步中 | 0/3 | 代理 E1 | 2026-10-20 | 第二波重派（E1），核对完整性 |
+| `pei-jian/usb-pei-jian.md` | `usb.adoc` | 同步中 | 0/3 | 代理 E11 | 2026-10-20 | 第二波重派（E11） |
+| `pei-jian/build-hat.md` | `build-hat.adoc` | 同步中 | 0/3 | 代理 E2 | 2026-10-20 | 第二波重派（E2） |
+| `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `sense-hat.adoc` | 同步中 | 0/3 | 代理 E3 | 2026-10-20 | 第二波重派（E3），核对完整性；434 行改动已提交（`7582f30`） |
+| `pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md` | `ai-kit.adoc` | 同步中 | 0/3 | 代理 E6 | 2026-10-20 | 第二波重派（E6） |
+| `pei-jian/ai-hat.md` | `ai-hat-plus.adoc` | 同步中 | 0/3 | 代理 E12 | 2026-10-20 | 第二波重派（E12）；产品名含 `+`，勿误判为 AsciiDoc 软换行 |
+| `pei-jian/shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | `audio.adoc` | 同步中 | 0/3 | 代理 E7 | 2026-10-20 | 第二波重派（E7） |
+| `pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md` | `tv-hat.adoc` | 同步中 | 0/3 | 代理 E4 | 2026-10-20 | 第二波重派（E4） |
+| `pei-jian/cm5-bian-cheng-zhi-ju.md` | `cm5-programming-jig.adoc` | 同步中 | 0/3 | 代理 E14 | 2026-10-20 | 第二波重派（E14） |
+| `pei-jian/zhi-neng-xian-shi-mo-kuai.md` | `smart-display-module.adoc` | 同步中 | 0/3 | 代理 E15 | 2026-10-20 | 第二波重派（E15） |
+| `pei-jian/bao-hu-ke.md` | `bumper.adoc` | 同步中 | 0/3 | 代理 E13 | 2026-10-20 | 第二波重派（E13） |
 
 ### 4.3 微控制器（6）
 
@@ -230,7 +230,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `an-quan/an-quan-gai-shu.md` | `security.adoc` | 已同步 | 0/3 | 代理 C2（完成） | 2026-10-20 | C2 完成 2 处修订（microSD→存储卡、security hygiene 误译修正），主线程已逐条复核；待三轮逐句校对 |
 | `an-quan/an-quan-jia-gou.md` | `security-architecture.adoc` | 已同步 | 0/3 | 代理 C3（完成） | 2026-10-20 | C3 逐段核查与上游完全一致，无需修改；主线程已复核结构；待三轮逐句校对 |
 | `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | `secure-boot-provisioner.adoc` | 已同步 | 0/3 | 代理 C4（完成） | 2026-10-20 | C4 完成 5 处修订（安全启动链、遭到入侵、存储卡、锚点、CSV 导语），主线程已逐条复核；待三轮逐句校对 |
-| `an-quan/yun-ying-an-quan.md` | `operational-security.adoc` | 同步中 | 0/3 | 代理 C5 | 2026-10-20 | 第一波重派（C5），进行中；上游 fail2ban 示例缺等号 |
+| `an-quan/yun-ying-an-quan.md` | `operational-security.adoc` | 已同步 | 0/3 | 代理 C5（完成） | 2026-10-20 | C5 修正 fail2ban 示例缺等号（上游已知问题）并将 2 处外链内部化，主线程已复核锚点；待三轮逐句校对 |
 | `an-quan/ufw-fang-huo-qiang.md` | `ufw.adoc` | 已同步 | 0/3 | 代理 C6（完成） | 2026-10-20 | C6 逐段核查零修改，主线程已复核结构与 CP-3；待三轮逐句校对 |
 
 ### 4.6 项目自有（3）
@@ -271,9 +271,9 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | C2 | `an-quan/an-quan-gai-shu.md` | 2026-10-20 | CP-2 + CP-3 | 完成：2 处修订（主线程已复核） |
 | C3 | `an-quan/an-quan-jia-gou.md` | 2026-10-20 | CP-2 + CP-3 | 完成：核查与上游一致，无需修改（主线程已复核） |
 | C4 | `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 完成：5 处修订（主线程已复核） |
-| C5 | `an-quan/yun-ying-an-quan.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
+| C5 | `an-quan/yun-ying-an-quan.md` | 2026-10-20 | CP-2 + CP-3 | 完成：fail2ban 等号修正 + 链接内部化（主线程已复核；代理回报丢失，以落盘为准） |
 | C6 | `an-quan/ufw-fang-huo-qiang.md` | 2026-10-20 | CP-2 + CP-3 | 完成：零修改，核查通过（主线程已复核） |
-| C7 | `pei-jian/she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（摄像头页重做，附落盘自验协议） |
+| C7 | `pei-jian/she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 完成：全页重写同步（主线程已复核） |
 
 ## 六、待办队列
 

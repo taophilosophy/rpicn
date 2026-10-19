@@ -1,237 +1,81 @@
 # 人工智能套件（AI Kit）
 
-## 关于
+本页面仅供参考。
 
-![树莓派 AI 套件](https://www.raspberrypi.com/documentation/accessories/images/ai-kit.jpg)
+树莓派 **Ai 套件**（AI Kit）已停产，我们建议改用 [AI HAT](ai-hat.md) 中介绍的其中一款 AI HAT。你也可以在本页面进一步了解 Hailo NPU 所提供的 AI 技术；Ai 套件以及与之功能等同的 AI HAT+ 的 Hailo-8L 变体都采用了这款 NPU。
 
-树莓派 AI 套件
+![树莓派 Ai 套件](https://www.raspberrypi.com/documentation/accessories/images/ai-kit.jpg)
 
-树莓派 AI 套件将树莓派 M.2 HAT+ 与 Hailo AI 加速模块捆绑在一起，用于树莓派 5。该套件包含以下物品：
+树莓派 Ai 套件
 
-* Hailo AI 模块，含神经处理单元（NPU）
-* 树莓派 M.2 HAT+，用于将 AI 模块接入你的树莓派 5
-* Ai 模块和 M.2 HAT+ 间预装了导热触点
-* 安装螺丝套件
-* 16 mm 堆叠 GPIO 引脚
+## 硬件
 
-## AI 模块功能
+树莓派 Ai 套件将[树莓派 M.2 HAT+](m.2-hat+.md)与一块 Hailo AI 加速模块捆绑在一起，配合树莓派 5 使用。套件内含：
 
-* 每秒 13 万亿次（TOPS）神经网络推理加速器，基于 Hailo-8L 芯片设计。
-* M.2 2242 外形尺寸
+* 一块树莓派 M.2 HAT+，用于将 AI 模块连接到你的树莓派 5。
+* 一块 Hailo AI 模块，含神经处理单元（NPU），已预装到你的 M.2 HAT+ 上。
+* 一片导热垫，已预先安装在模块与 M.2 HAT+ 之间。
+* 一套安装硬件，包含排线、间隔柱和螺丝。
+* 一根 16 mm 堆叠 GPIO 排针。
 
-## 安装
+Hailo AI 模块提供：
 
-要使用 Ai 套件，你需要：
+* 一个每秒 13 万亿次操作（TOPS）的神经网络推理加速器，围绕 Hailo-8L 芯片构建。
+* M.2 2242 外形尺寸。
 
-* 树莓派 5
+此外，你还需要：
 
-每份 Ai 套件都配备了预安装的 Ai 模块、排线电缆、GPIO 堆叠排针和安装硬件。请按照以下说明完成安装你的 Ai 套件：
+- 一台树莓派 5。
+- 一把十字螺丝刀。
+- （可选）树莓派主动散热器（Active Cooler），推荐使用。这是一款带风扇的铝制散热器，可帮助树莓派 5 散热，使其保持在安全的工作温度。
 
-1. 首先，请确保你的树莓派运行的软件是最新的。运行以下命令进行更新：
+## 步骤 1：安装主动散热器（推荐）
 
-    ```bash
-    $ sudo apt update && sudo apt full-upgrade
-    ```
-2. 接下来，请确保你的树莓派固件是最新的。运行以下命令可查看你正在运行的固件版本：
+我们建议在树莓派 5 上安装主动散热器。如果你想跳过这一步，或者你的树莓派 5 已经安装了主动散热器，请直接进行下一步。
 
-    ```bash
-    $ sudo rpi-eeprom-update
-    ```
+![安装主动散热器](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-01.png)
 
-    如果你看到的日期是 2023 年 12 月 6 日及更晚，请继续下一步。如果你看到的日期早于 2023 年 12 月 6 日，请运行以下命令打开树莓派配置 CLI：
+首先，请确保你的树莓派 5 已断开电源，然后：
 
-    ```bash
-    $ sudo raspi-config
-    ```
+1. **准备散热器。** 撕下散热器底部导热垫上的保护纸，露出每片导热垫上的粘性表面。
+2. **放置散热器。** 将两个白色按压销对准树莓派 5 上两个专用的散热器安装孔。在这个位置上，导热垫与无线模块、片上系统（SoC）和电源管理集成电路（PMIC）对齐。
+3. **固定散热器。** 将散热器轻轻按压到树莓派 5 上，然后将两个白色按压销均匀地压入树莓派 5 上两个专用的散热器安装孔，直到它们咔哒一声卡入到位。
+4. **连接风扇。** 将风扇的 JST 插头插入树莓派 5 上的风扇插座。
 
-    在 **Advanced Options** > **Bootloader Version** 下，选择 **Latest**。然后，单击 **Finish**，或按 **Esc 键** 可退出 `raspi-config`。
+>**注意**
+>
+> 使用前，请确保按压销无损坏，并已牢固地卡入树莓派 5。
 
-    运行以下命令，可以将固件更新到最新版本：
+我们不建议在将散热器安装到树莓派 5 之后再将其取下。因为取下散热器可能导致按压销和导热垫老化，进而造成产品损坏。
 
-    ```bash
-    $ sudo rpi-eeprom-update -a
-    ```
+## 步骤 2：安装 M.2 HAT+
 
-    然后，使用 `sudo reboot` 重启。
-3. 在开始安装前，请断开树莓派的电源。
-4. 为了获得最佳性能，我们建议将 Ai 套件与树莓派主动散热器搭配使用。如果你有主动散热器，请在安装 Ai 套件之前安装它。
+M.2 HAT+ 通过 PCIe 接口连接到树莓派 5，PCIe 是一种用于连接硬件组件的高速接口。首先，请确保你的树莓派 5 已断开电源，然后：
 
-![安装树莓派 AI 套件 01](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-01.png)
+1. **安装间隔柱。** 使用十字螺丝刀，用四颗螺丝将四根间隔柱固定到树莓派 5 的黄色安装孔上。
+2. **连接 GPIO 堆叠排针。** 将 GPIO 堆叠排针对准树莓派 5 上的 GPIO 引脚，用力按压直到排针完全就位。只要所有 GPIO 引脚都正确对齐并插入，排针的方向无关紧要。
+3. **从扩展板上拔下 PCIe 排线。** 将扩展板上 PCIe 接口两侧的固定夹向外滑出，然后轻轻拔出排线。
+4. **将 PCIe 排线插入树莓派。** 将排线的另一端插入树莓派 5 上的 PCIe 接口。为此，先将树莓派 5 上 PCIe 接口的固定夹从两侧向上滑开，然后将排线插入 PCIe 接口。确保金属触点朝向内侧（即朝向 USB 接口）。
+5. **将 PCIe 排线固定到树莓派上。** 按住排线，将固定夹从两侧推回接口，确保排线插入均匀到位。
 
-5. 使用附带的四颗螺丝安装间隔柱。牢固地将 GPIO 堆叠排针压在树莓派的 GPIO 引脚顶部；只要所有引脚都能正确插入即可，方向无所谓。从 Ai 套件上断开排线电缆，将另一端插入树莓派的 PCIe 接口。从两侧抬起排线电缆固定器，然后将带有铜触点朝向内部、即朝向 USB 接口的线缆插入。确保排线电缆完全且均匀地插入 PCIe 接口，然后从两侧按下电缆固定器，将排线电缆牢固地固定在位。
+![将 PCIe 排线插入树莓派](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-02.png)
 
-![安装树莓派 AI 套件 02](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-02.png)
+6. **安装扩展板。** 将扩展板的主要组件朝上，使扩展板上的安装孔与树莓派 5 上的间隔柱对齐。使用剩下的四颗（较短的）螺丝将扩展板固定到位。
 
+![安装扩展板](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-03.png)
 
-6. 将 AI 套件放在间隔物顶部，并使用剩下的四颗螺丝将其固定在位。
+7. **将 PCIe 排线插入扩展板。** 将排线未连接的一端插入扩展板上的 PCIe 接口。为此，先将扩展板上 PCIe 接口的固定夹从两侧向外滑开，然后将排线插入 PCIe 接口。
 
-![安装树莓派 AI 套件 03](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-03.png)
+![将 PCIe 排线插入扩展板](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-04.png)
 
-
-7. 将排线插入 AI 套件上的插槽。从两侧抬起排线固定器，然后插入铜接点朝上的电缆。将排线完全均匀地插入接口，从两侧按下电缆固定器，牢固地固定排线电缆。
-
-![安装树莓派 AI 套件 04](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-04.png)
-
-8. 恭喜，现在你已成功的安装 AI 套件了。将你的树莓派接入电源；树莓派系统可自动检测 AI 套件。
-
-![安装树莓派 AI 套件 05](https://www.raspberrypi.com/documentation/accessories/images/ai-kit-installation-05.png)
+8. **将 PCIe 排线固定到扩展板上。** 按住排线，将固定夹从两侧推回接口，确保排线插入均匀到位。
 
 >**警告**
 >
-> 在连接/断开 M.2 插槽上的设备之前，务必先将你的树莓派断开电源。
+> 在将设备连接到 M.2 插槽或从中断开之前，务必先断开树莓派的电源。
 
-## 入门指南
+## 后续步骤：运行 AI 模型
 
-本指南将帮助你设置树莓派 5 与树莓派 AI 套件配合使用。这将使你能够使用 Hailo AI 神经网络加速器运行 `rpicam-apps` 摄像头演示。
+有关可用示例模型的列表，请参阅 Hailo 的 [Model Explorer](https://hailo.ai/products/hailo-software/model-explorer-vision/)。
 
-### 准备工作
-
-对于本指南，你将需要以下物品：
-
-* 树莓派 5
-* 树莓派 Ai 套件，其中包括：
-  * M.2 HAT+
-  * 预装的 Hailo-8L Ai 模块
-* 64 位树莓派系统 Bookworm 系统
-* 官方树莓派摄像头（例如摄像头模块 3 或高质量（HQ）摄像头）
-
-### 硬件设置
-
-1. 将摄像头连接到你的树莓派 5 主板，按照在安装树莓派摄像头中的说明进行操作。你可以跳过电源连接，因为你需要在下一步中断开树莓派的电源。
-2. 按照安装说明将你的 AI 套件硬件连接到你的树莓派 5。
-3. 按照说明启用 PCIe Gen 3.0。这一步骤是可选的，但为了使你的 AI 套件获得最佳性能，强烈建议启用它。
-4. 安装使用 Ai 套件所需的依赖包。在终端运行以下命令：
-
-    ```bash
-    $ sudo apt install hailo-all
-    ```
-
-    这将安装以下依赖项：
-
-    * Hailo 内核设备驱动程序和固件
-    * HailoRT 中间件软件
-    * Hailo Tappas 核心后处理库
-    * rpicam-apps Hailo 后处理软件演示阶段
-5. 最后，使用 `sudo reboot` 重启你的树莓派，以使这些设置生效。
-6. 为确保一切正常运行，请运行以下命令：
-
-    ```bash
-    $ hailortcli fw-control identify
-    ```
-
-    如果你看到类似如下信息的输出，则已成功安装了 Ai 套件及其软件依赖包：
-
-    ```json
-    Executing on device: 0000:01:00.0
-    Identifying board
-    Control Protocol Version: 2
-    Firmware Version: 4.17.0 (release,app,extended context switch buffer)
-    Logger Version: 0
-    Board Name: Hailo-8
-    Device Architecture: HAILO8L
-    Serial Number: HLDDLBB234500054
-    Part Number: HM21LB1C2LAE
-    Product Name: HAILO-8L AI ACC M.2 B+M KEY MODULE EXT TMP
-    ```
-
-    另外，你可以运行 `dmesg | grep -i hailo` 来查看内核日志，应该会产生类似以下的输出：
-
-    ```json
-    [    3.049657] hailo: Init module. driver version 4.17.0
-    [    3.051983] hailo 0000:01:00.0: Probing on: 1e60:2864...
-    [    3.051989] hailo 0000:01:00.0: Probing: Allocate memory for device extension, 11600
-    [    3.052006] hailo 0000:01:00.0: enabling device (0000 -> 0002)
-    [    3.052011] hailo 0000:01:00.0: Probing: Device enabled
-    [    3.052028] hailo 0000:01:00.0: Probing: mapped bar 0 - 000000000d8baaf1 16384
-    [    3.052034] hailo 0000:01:00.0: Probing: mapped bar 2 - 000000009eeaa33c 4096
-    [    3.052039] hailo 0000:01:00.0: Probing: mapped bar 4 - 00000000b9b3d17d 16384
-    [    3.052044] hailo 0000:01:00.0: Probing: Force setting max_desc_page_size to 4096 (recommended value is 16384)
-    [    3.052052] hailo 0000:01:00.0: Probing: Enabled 64 bit dma
-    [    3.052055] hailo 0000:01:00.0: Probing: Using userspace allocated vdma buffers
-    [    3.052059] hailo 0000:01:00.0: Disabling ASPM L0s
-    [    3.052070] hailo 0000:01:00.0: Successfully disabled ASPM L0s
-    [    3.221043] hailo 0000:01:00.0: Firmware was loaded successfully
-    [    3.231845] hailo 0000:01:00.0: Probing: Added board 1e60-2864, /dev/hailo0
-    ```
-7. 为了确保摄像头正常运行，请运行以下命令：
-
-    ```bash
-    $ rpicam-hello -t 10s
-    ```
-
-    这将启动摄像头并显示一个十秒钟的预览窗口。如果你已经验证一切安装正确，就可运行一些演示了。
-
-### 演示
-
-`rpicam-apps` 摄像头应用套件实现了一个后处理框架。本节包含一些演示后处理阶段，突出了 Ai 套件的一些功能。
-
-以下演示使用 `rpicam-hello`，默认情况下显示一个预览窗口。但是，你也可以使用其他 `rpicam-apps`，包括 `rpicam-vid` 和 `rpicam-still`。你可能需要添加或修改一些命令行选项，以使演示命令与替代应用程序兼容。
-
-要开始，请下载演示所需的后处理 JSON 文件。这些文件确定要运行的后处理阶段，并配置每个阶段的行为。例如，你可以在对象检测演示中启用、禁用、加强/减弱时间滤波的强度。或者你可以在分割演示中启用或禁用输出蒙版绘制。
-
-要下载完整的后处理 JSON 文件集合，请克隆 rpicam-apps 存储库。运行以下命令仅拉取存储库中最新的提交，以节省空间：
-
-```bash
-$ git clone --depth 1 https://github.com/raspberrypi/rpicam-apps.git ~/rpicam-apps
-```
-
->**技巧**
->
-> 后续部分提供的命令使用此存储库中的 JSON 文件。为了便于引用这些文件，此命令在你的主文件夹中创建了克隆的 rpicam-apps 目录。如果你修改了此目录的位置，则还必须修改下面的演示命令，以引用 JSON 文件的新位置。
-
-
-#### 目标检测
-
-此演示显示神经网络检测到的物体周围的边界框。要禁用取景器，请使用参数 `-n`。要返回纯文本输出，说明检测到的物体，请添加参数 `-v 2`。运行以下命令在你的树莓派上尝试演示：
-
-```bash
-$ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov6_inference.json --lores-width 640 --lores-height 640
-```
-
-或者，你可以尝试另一款性能和效率上不同权衡的模型。
-
-使用 Yolov8 模型运行演示，请运行以下命令：
-
-```bash
-$ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov8_inference.json --lores-width 640 --lores-height 640
-```
-
-使用 YoloX 模型运行演示，请运行以下命令：
-
-```bash
-$ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolox_inference.json --lores-width 640 --lores-height 640
-```
-
-使用 Yolov5 人脸模型运行演示，请运行以下命令：
-
-```bash
-$ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov5_personface.json --lores-width 640 --lores-height 640
-```
-
-#### 图像分割
-
-此演示执行对象检测，并通过在取景器图像上绘制颜色掩模来对对象进行分割。运行以下命令在你的树莓派上尝试演示：
-
-```bash
-$ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov5_segmentation.json --lores-width 640 --lores-height 640 --framerate 20
-```
-
-#### 姿势估计
-
-此演示执行 17 点人体姿势估计，绘制连接检测点的线条。运行以下命令在你的树莓派上尝试演示：
-
-```bash
-$ rpicam-hello -t 0 --post-process-file ~/rpicam-apps/assets/hailo_yolov8_pose.json --lores-width 640 --lores-height 640
-```
-
-### 进一步资源
-
-Hailo 还创建了一组演示，你可以在树莓派 5 上运行，可在GitHub 存储库 hailo-ai/hailo-rpi5-examples 中找到。
-
-你可以在GitHub 存储库 hailo-ai/hailo_model_zoo 中找到 Hailo 广泛的模型库，其中包含大量神经网络。
-
-查看 Hailo 社区论坛和开发者区，进一步讨论有关 Hailo 硬件和工具的内容。
-
-## 产品简介
-
-有关 Ai 套件的更多信息，包括机械规格和操作环境限制，请参阅产品简介。
+要开始在树莓派 5 上运行 AI 模型，请参阅[人工智能软件](../shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md)，其中提供了有关运行 AI 加速视觉模型的信息和指导。
