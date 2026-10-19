@@ -32,5 +32,5 @@
   - 修复 mu-lu.md 微控制器表格：5 张卡片误入 3 列表格，导致 MicroPython、C/C++ SDK 两卡在渲染时被丢弃；C/C++ SDK 卡片误链 micropython.md 并误用 TV HAT 配图，已改为正确链接与官方 C-and-CPP.png 配图
   - mu-lu.md 保持手工维护的 HTML 卡片目录页（不采用 SUMMARY 自动副本方案）；AGENTS.md 适配新增的 GitHub Actions 自动化（sync-headers、markdownlint、check-images、links 等）
   - 同步「远程访问」页至当前上游：树莓派配置改为控制中心（Control Centre）、Imager 步骤改为 Remote Access 标签页开关式流程、新增「限制可连接的用户」一节（AllowUsers/DenyUsers）、Apache 教程上游已删除改为指向官方文档、网络启动改「树莓派 3 或更新机型」、MAC 地址节更新为「树莓派 4 及后续旗舰机型」
-  - 「远程访问」全页逐段逐句校对（约 160 处）：补全漏译（Connect 的公网 IP/防火墙与 Wayland 远程 shell 能力、default-jre 安装命令）、术语统一（NFS export → 导出，已补录词汇表）、修正语态错误与病句、直引号改中文曲引号、修正上游原文笔误 3 处（FTP 应为 TFTP、/proc/mounts 反引号错位、target 拼写）
+  - 「远程访问」全页逐段逐句校对（约 160 处）：补全漏译（Connect 的公网 IP/防火墙与 Wayland 远程 shell 能力、default-jre 安装命令）、术语统一（NFS export → 导出，已补录词汇表）、修正语态错误与病句、直引号改中文曲引号、修正上游原文笔误 2 处（IPv6 网络启动一节 FTP 应为 TFTP、/proc/mounts 反引号错位；另有 Atfer→After 拼写错误属上游原文，中文不受影响，待向上游反馈）
   - 「远程访问」图片同步：raspberry-pi-configuration.png、vnc-enable.png 更新为当前上游 Control Centre 版截图（中文 UI 重制版待后续在中文系统上重截）
