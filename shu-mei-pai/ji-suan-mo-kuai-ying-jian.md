@@ -16,8 +16,6 @@
 * 说明如何使用设备树和覆盖层连接并启用摄像头、显示屏等外设。
 * 提供数据表、原理图和设计资源的链接。
 
-## 计算模块
-
 树莓派计算模块是旗舰级树莓派单板计算机（SBC）的**系统级模块（system-on-module，SoM）**版本。它们面向工业和商业应用，如数字标牌、瘦客户机和流程自动化。许多开发者和系统设计者选择计算模块而非旗舰级树莓派型号，是因为其紧凑的设计、灵活性以及对板载 eMMC 存储的支持。
 
 ### 内存、存储与无线版本
@@ -351,36 +349,44 @@ CM5 散热器的尺寸约为 41 mm × 56 mm × 12.7 mm。它是一款铝制散�
 
 ## 将镜像刷写到计算模块
 
+>**技巧**
+>
+>要将同一镜像刷写到多个计算模块，请使用[树莓派安全启动配置器](https://github.com/raspberrypi/rpi-sb-provisioner)。要定制刷写到这些设备的操作系统镜像，请使用 [pi-gen](https://github.com/RPi-Distro/pi-gen)。
+
 计算模块搭载了连接到主 SD 卡接口的内置 eMMC 设备。本指南解释了如何将操作系统镜像刷写到单个计算模块的 eMMC 存储器。
 
-当向多个计算模块刷写镜像时，请考虑使用计算模块配置工具：
-
-##### [使用计算模块配置器进行大规模配置](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003468-WP/Using-the-Compute-Module-Provisioner.pdf)
-
-使用计算模块配置器进行大规模配置
-
-计算模块配置器是一款 Web 应用程序，可帮助开发人员同时为多个计算模块设备编程。
-
-它提供了内核镜像数据库和在闪存过程中运行脚本的能力，以及自动标签打印和固件更新。
+**Lite** 版本的计算模块不带板载 eMMC。请改为按照其他树莓派设备的存储设备刷写流程操作：[安装操作系统](https://www.raspberrypi.com/documentation/computers/getting-started.html#install)。
 
 ### 准备工作
 
 要刷写计算模块 eMMC，你需要以下物品：
 
-* 本指南中称为主机设备的其他计算机。你可以使用 Linux（树莓派系统或 Ubuntu）、Windows 和 macOS。
-* 与你的计算模块型号对应的计算模块 IO 板。
-* 一根 Micro USB 线。
+* 另一台计算机，本指南中称为**主机设备**。你可以使用 Linux（推荐树莓派系统或 Ubuntu）、Windows 11 或 macOS。
+* 与你的计算模块型号对应的[计算模块 IO 板](#io-板与兼容性)。
+* 一根 micro USB 线，或自 CM5IO 起的计算模块型号所需的 USB-C 线。
+
+>**技巧**
+>
+>某些情况下，USB 集线器会导致主机设备无法识别计算模块。如果你的主机设备无法识别计算模块，请尝试将计算模块直接连接到主机设备。更多诊断建议，请参阅 [usbboot 故障排除指南](https://github.com/raspberrypi/usbboot/blob/master/docs/troubleshooting.md)。
 
 ### 设置 IO 板
 
-要开始，物理设置你的 IO 板。比如将计算模块和主机设备接入 IO 板。
+首先，物理设置你的 IO 板，包括将计算模块和主机设备连接到 IO 板。
+
+#### 使用计算模块 5 IO 板
+
+设置计算模块 5 IO 板：
+
+1. 将计算模块连接到 IO 板。连接后，计算模块应该平放。
+2. 将 `nRPI_BOOT` 安装到 IO 板跳线 J2（`disable eMMC Boot`）。
+3. 将一根电缆从 IO 板上的 USB-C 从机端口 J11 连接到主机设备。
 
 #### 使用计算模块 4 IO 板
 
 设置计算模块 4 IO 板：
 
 1. 将计算模块连接到 IO 板。连接后，计算模块应该平放。
-2. 将 nRPI_BOOT 安装到 IO 板跳线帽 J2（ disable eMMC Boot ）。
+2. 将 `nRPI_BOOT` 安装到 IO 板跳线 J2（`disable eMMC Boot`）。
 3. 将一根电缆从 IO 板上的 micro USB 从机端口 J11 连接到主机设备。
 
 #### 使用计算模块 IO 板
@@ -388,18 +394,22 @@ CM5 散热器的尺寸约为 41 mm × 56 mm × 12.7 mm。它是一款铝制散�
 要设置计算模块 IO 板：
 
 1. 将计算模块连接到 IO 板。连接后，计算模块应平行于板放置，使接合夹牢固地卡入位。
-2. 将 J4（启用 USB SLAVE BOOT）设置为 `1-2 =`（启用 USB BOOT）
+2. 将 J4（`USB SLAVE BOOT ENABLE`）设置为 `1-2 =`（`USB BOOT ENABLED`）。
 3. 将一根电缆从 IO 板上的 micro USB 从机端口 J15 连接到主机设备。
 
 ### 配置主机设备
 
 接下来，在主机设备上配置软件。
 
+>**技巧**
+>
+>作为主机设备，我们推荐运行 64 位树莓派系统的树莓派 4 或更新机型。
+
 #### 在 Linux 上配置软件
 
 在 Linux 主机设备上配置软件：
 
-1. 运行以下命令安装 `rpiboot` ：
+1. 运行以下命令安装 `rpiboot`（或者，也可以[从源代码编译 `rpiboot`](https://github.com/raspberrypi/usbboot)）：
 
     ```bash
     $ sudo apt install rpiboot
@@ -412,10 +422,6 @@ CM5 散热器的尺寸约为 41 mm × 56 mm × 12.7 mm。它是一款铝制散�
     ```
 4. 几秒钟后，计算模块应该会显示成一个大容量存储设备。查看 `/dev/` 目录，可能是 `/dev/sda` 或 `/dev/sdb`，查找该设备。或者，运行 `lsblk` 并搜索一个存储容量与你的计算模块容量相匹配的设备。
 
->**技巧**
->
-> 你还可以从源代码编译 `rpiboot`。
-
 #### 在 macOS 上配置软件
 
 在 macOS 主机设备上配置软件：
@@ -425,22 +431,18 @@ CM5 散热器的尺寸约为 41 mm × 56 mm × 12.7 mm。它是一款铝制散�
 3. 然后，使用以下命令运行 `rpiboot` 可执行文件：
 
     ```bash
-    $ sudo ./rpiboot
+    $ rpiboot -d mass-storage-gadget64
     ```
 4. 在命令运行完成后，你应该会看到一条消息，宣称“The disk you inserted was not readable by this computer.（你插入的磁盘无法被此计算机读取）” 点击“**Ignore（忽略）**”。你的计算模块现在应该显示成了一个大容量存储设备。
 
 #### 在 Windows 上配置软件
 
-在 Windows 主机设备上配置软件：
+在 Windows 11 主机设备上配置软件：
 
-1. 下载 Windows 安装程序
-2. 双击安装程序运行。这将安装驱动程序和引导工具。
-3. 将 IO 板连接到电源。Windows 应该会发现硬件并配置所需的驱动程序。
-4. 双击运行 `RPiBoot.exe`。几秒钟后，计算模块 eMMC 应该会显示为 USB 大容量存储设备。
-
->**技巧**
->
-> 或者，你可以从源代码编译 `rpiboot`。
+1. 从[发布页面](https://github.com/raspberrypi/usbboot/releases)下载最新的 Windows 安装程序，或[从源代码编译 `rpiboot`](https://github.com/raspberrypi/usbboot)。
+2. 双击安装程序运行。这将安装驱动程序和引导工具。安装过程中出现的任何驱动程序安装窗口都不要关闭。
+3. 重启计算机。
+4. 从开始菜单选择 **rpiboot - Mass Storage Gadget**。几秒钟后，计算模块的 eMMC、NVMe 或 SD 卡会显示为 USB 大容量存储设备。这还会提供一个作为串口设备的调试控制台。
 
 ### 刷写 eMMC
 
@@ -452,7 +454,7 @@ CM5 散热器的尺寸约为 41 mm × 56 mm × 12.7 mm。它是一款铝制散�
 $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 ```
 
-镜像写入后，断开计算模块，然后重新接入。现在应该能看到两个分区（用于树莓派系统）：
+镜像写入后，断开并重新连接计算模块。你现在会看到两个分区（用于树莓派系统）：
 
 ```json
 /dev/sdX    <- 设备
@@ -464,9 +466,13 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 ### 从 eMMC 启动
 
+#### 使用计算模块 5 IO 板
+
+从 IO 板跳线 J2（`disable eMMC Boot`）上取下 `nRPI_BOOT`。
+
 #### 使用计算模块 4 IO 板
 
-从 IO 板跳线上的 J2 (禁用 eMMC Boot) 断开 `nRPI_BOOT`。
+从 IO 板跳线上的 J2（`disable eMMC Boot`）上取下 `nRPI_BOOT`。
 
 #### 使用计算模块 IO 板
 
@@ -478,7 +484,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 ### 已知问题
 
-* 小部分 CM3 存在启动问题。我们已经认识到这些问题与创建 FAT32 分区的方法有关；我们认为问题是由于 CPU 和 eMMC 之间的时序差异造成的。如果你在启动 CM3 时遇到问题，请使用以下命令手动创建分区：
+* 小部分 CM3 设备可能出现启动问题。我们已经认识到这些问题与创建 FAT32 分区的方法有关；我们认为问题是由于 CPU 和 eMMC 之间的时序差异造成的。如果你在启动 CM3 时遇到问题，请使用以下命令手动创建分区：
 
   ```bash
   $ sudo parted /dev/<设备>
@@ -488,6 +494,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
   $ sudo cp -r <文件>/* <挂载点>
   ```
 * CM1 引导加载程序会向主机返回一个略有错误的 USB 数据包。大多数 USB 主机会忽略它，但由于该问题，某些 USB 接口无法工作。CM3 已修复该错误。
+* Ubuntu 24.04 及更早版本随附的 `rpiboot` 版本存在无法与设备通信的问题。要解决此问题，请[从源代码编译 `rpiboot`](https://github.com/raspberrypi/usbboot?tab=readme-ov-file#linux--cygwin--wsl)。
 
 ### 计算模块 4 引导加载程序
 
@@ -504,9 +511,9 @@ CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上�
 
 #### 除存储卡之外的闪存设备
 
-基于 Linux 的大容量存储设备支持 NVMe、EMMC 和 USB 设备的闪存存储。这通常比使用 `rpiboot` 固件驱动程序更快，还为设备提供串口控制台，可更容易地进行调试。
+基于 Linux 的 [`mass-storage-gadget`](https://github.com/raspberrypi/usbboot/blob/master/mass-storage-gadget64/README.md) 支持刷写 NVMe、eMMC 和 USB 块设备。`mass-storage-gadget` 写入设备比基于固件的 `rpiboot` 机制更快，还为设备提供 UART 控制台以便调试。
 
-另请参阅：CM4 `rpiboot` 扩展。
+`usbboot` 还包含许多[扩展](https://github.com/raspberrypi/usbboot/tree/master#provisioning-extensions)，使你能够配置安全启动或启动自定义的 Linux initramfs 镜像。
 
 #### 修改引导加载程序配置
 
@@ -534,26 +541,16 @@ $ ./rpiboot -d recovery
 
 ## 连接外围设备
 
-本指南帮助开发人员将外围设备连接到计算模块引脚。此外，本指南解释了如何更改软件以启用这些外围设备。
+本指南帮助开发者将外设连接到计算模块引脚，并说明如何在软件中启用这些外设。
 
-SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示接口、HDMI 等）可用于连接。通常可以将未使用的引脚保持未连接状态。
+SoC 的大多数引脚（GPIO、两个 CSI 摄像头接口、两个 DSI 显示接口、HDMI 等）都可用于接线。通常可以将未使用的引脚保持未连接状态。
 
-带有 DDR2 SODIMM 外形规格的计算模块能插入 DDR2 SODIMM 插槽。但是，引脚分配与 SODIMM 内存模块不同。
+采用 DDR2 SODIMM 外形规格的计算模块与任何 DDR2 SODIMM 插座物理兼容。但是，引脚定义与 SODIMM 内存模块**不**相同。
 
 要使用计算模块，用户设计的主板必须满足：
 
 * 为计算模块供电（3.3V，最低 1.8V）
 * 将引脚连接到用户应用程序所需的外围设备
-
-树莓派的 IO 板提供以下功能：
-
-* 为模块供电
-* 将 GPIO 引线连接到引脚排
-* 将摄像头和显示接口引线连接到 FFC 连接器
-* 将 HDMI 引线连接到 HDMI 端口
-* 将 USB 线连接到 USB 端口
-* 将活动监视器连接到“ACT” LED
-* 通过 USB 进行 eMMC 编程
 
 本指南首先解释了引导过程以及设备树如何描述连接的硬件。
 
@@ -577,6 +574,10 @@ BCM283x 设备搭载了 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理
 
 * GPU DSP 退出复位并从小型内部引导 ROM 执行代码。此代码通过外部接口加载第二阶段引导加载程序。此代码首先在称为 `bootcode.bin` 的引导分区上查找第二阶段引导加载程序。如果未找到引导设备或未找到 `bootcode.bin`，引导 ROM 将在 USB 引导模式下等待主机提供第二阶段引导加载程序（`usbbootcode.bin`）。
 * 第二阶段引导加载程序负责设置 LPDDR2 SDRAM 接口和其他关键系统功能。设置完成后，第二阶段引导加载程序加载并执行主 GPU 固件（`start.elf`）。
+
+>**注意**
+>
+>树莓派计算模块 5 需要更新的设备树支持和内核驱动。从 CM4 迁移到 CM5 时，请使用树莓派系统 Bookworm 或更高版本、6.12.x 或更高版本的内核，以及 2025 年 3 月 10 日或之后的固件。
 * `start.elf` 处理额外的系统设置并启动 Arm 处理器子系统。它包含 GPU 固件。GPU 固件首先读取 `dt-blob.bin` 以确定初始 GPIO 引脚状态和 GPU 特定接口和时钟，然后解析 `config.txt`。然后加载特定于模型的 Arm 设备树文件和在 `config.txt` 中指定的任意设备树叠加，然后启动 Arm 子系统并将设备树数据传递给正在引导的 Linux 内核。
 
 ### 设备树
@@ -592,8 +593,12 @@ BCM283x 设备搭载了 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理
 * `bcm2708-rpi-b-plus.dtb`（用于树莓派 i 1B+ 和 A+）
 * `bcm2709-rpi-2-b.dtb`（用于树莓派 2B）
 * `bcm2710-rpi-3-b.dtb`（用于树莓派 3B）
+* `bcm2711-rpi-4-b.dtb`（用于树莓派 4 Model B）
+* `bcm2712-rpi-5-b.dtb`（用于树莓派 5）
 * `bcm2708-rpi-cm.dtb`（用于树莓派计算模块 1）
 * `bcm2710-rpi-cm3.dtb`（用于树莓派计算模块 3）
+* `bcm2711-rpi-cm4.dtb`（用于树莓派计算模块 4；如果找不到该文件，则改用 `bcm2711-rpi-4-b.dtb`）
+* `bcm2712-rpi-cm5.dtb`（用于树莓派计算模块 5；如果找不到 CM5 设备树文件，则改用树莓派 5 设备树文件（`bcm2712-rpi-5-b.dtb`））
 
 在启动过程中，用户可以通过 `device_tree` 参数在 `config.txt` 中指定了要使用的特定 Arm 设备树。例如，`config.txt` 中的 `device_tree=mydt.dtb` 这行指定了一个名为 `mydt.dtb` 文件中的 Arm 设备树。
 
@@ -619,7 +624,7 @@ dt-blob.bin 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息�
 * 用作 GPCLK 输出的 GPIO 引脚
 * GPU 在引导过程中可以使用的 ACT LED
 
-`minimal-cm-dt-blob.dts` 是一个示例 `.dts` 设备树文件。它设置了 HDMI 热插拔检测，ACT LED，并将所有其他 GPIO 设置为带有默认拉电的输入。
+[`minimal-cm-dt-blob.dts`](https://pip.raspberrypi.com/documents/RP-008166-DS) 是一个示例 `.dts` 设备树文件。它设置了 HDMI 热插拔检测、ACT LED，并将所有其他 GPIO 设置为带有默认拉电的输入。
 
 要将 `minimal-cm-dt-blob.dts` 编译为 `dt-blob.bin`，请使用设备树编译器 `dtc`。要在树莓派上安装 `dtc`，请运行以下命令：
 
@@ -688,7 +693,7 @@ $ sudo vclog --msg
 
 在这个示例中，我们将 NXP PCF8523 实时时钟（RTC）连接到 IO 板的 BANK1 GPIO 引脚：3V3、GND、GPIO44 上的 `I2C1_SDA` 和 GPIO45 上的 `I2C1_SCL`。
 
-下载 `minimal-cm-dt-blob.dts`，将其复制到 `/boot/firmware/` 的引导分区中。
+下载 [`minimal-cm-dt-blob.dts`](https://pip.raspberrypi.com/documents/RP-008166-DS)，将其复制到 `/boot/firmware/` 的引导分区中。
 
 编辑 `minimal-cm-dt-blob.dts`,将 GPIO44 和 45 的引脚状态更改为带上拉的 I2C1：
 
@@ -718,7 +723,7 @@ pin@p45 { function = "i2c1"; termination = "pull_up"; }; // SCL1
 $ sudo dtc -I dts -O dtb -o /boot/firmware/dt-blob.bin /boot/firmware/minimal-cm-dt-blob.dts
 ```
 
-下载 `example1-overlay.dts`，将其复制到 `/boot/firmware/` 中的引导分区，然后使用以下命令编译：
+下载 [`example1-overlay.dts`](https://pip.raspberrypi.com/documents/RP-008165-DS)，将其复制到 `/boot/firmware/` 中的引导分区，然后使用以下命令编译：
 
 ```bash
 $ sudo dtc -@ -I dts -O dtb -o /boot/firmware/overlays/example1.dtbo /boot/firmware/example1-overlay.dts
@@ -792,17 +797,21 @@ $ sudo apt full-upgrade
 
 ![连接到转接板](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-Adapter.jpg)
 
-3. （仅限 CM1、CM3、CM3+ 和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
+3. （仅限 CM5）：按照板上的书面说明，在 J6 上安装两个跳线。
+
+![CAM1 的 J6 跳线](https://www.raspberrypi.com/documentation/computers/images/cm5io-j6-cam1.png)
+
+4. （仅限 CM1、CM3、CM3+ 和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
 
     * 0 到 CD1_SDA
     * 1 到 CD1_SCL
     * 2 到 CAM1_I01
-    * 3 到 CAM1_I00 
+    * 3 到 CAM1_I00
 
 ![接入单个相机的 GPIO 连接器](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-GPIO.jpg)
 
-4. 重新连接计算模块到电源。
-5. 在 `/boot/firmware/config.txt` 中删除（或使用前缀 `#` 注释掉）以下行，如果存在的话：
+5. 重新连接计算模块到电源。
+6. 在 `/boot/firmware/config.txt` 中删除（或使用前缀 `#` 注释掉）以下行，如果存在的话：
 
     ```bash
     camera_auto_detect=1
@@ -811,28 +820,28 @@ $ sudo apt full-upgrade
     ```bash
     dtparam=i2c_arm=on
     ```
-6. (仅适用于 CM1、CM3、CM3+ 和 CM4S)：向 /boot/firmware/config.txt 添加以下指令，以适应 I/O 板上 GPIO 引脚分配的交换：
+7. (仅适用于 CM1、CM3、CM3+ 和 CM4S)：向 `/boot/firmware/config.txt` 添加以下指令，以适应 I/O 板上 GPIO 引脚分配的交换：
 
     ```bash
     dtoverlay=cm-swap-i2c0
     ```
-7. (仅适用于 CM1、CM3、CM3+ 和 CM4S)：向 /boot/firmware/config.txt 添加以下指令，将 GPIO 3 分配为 CAM1 稳压器：
+8. (仅适用于 CM1、CM3、CM3+ 和 CM4S)：向 `/boot/firmware/config.txt` 添加以下指令，将 GPIO 3 分配为 CAM1 稳压器：
 
     ```bash
     dtparam=cam1_reg
     ```
-8. 向 /boot/firmware/config.txt 添加适当的指令，手动配置相机型号的驱动程序： 
+9. 向 `/boot/firmware/config.txt` 添加适当的指令，手动配置相机型号的驱动程序：
 
 | 相机型号 | 参数 |
 | :----------: | :---: |
-| 摄像头模块 1 | `dtoverlay=ov5647,cam1` |
-| 摄像头模块 2| `dtoverlay=imx219,cam1` |
-| 摄像头模块 3 | `dtoverlay=imx708,cam1` |
-| HQ 相机  | `dtoverlay=imx477,cam1` |
-| GS 相机  | `dtoverlay=imx296,cam1` |
+| 摄像头模块 1 | `dtoverlay=ov5647` |
+| 摄像头模块 2| `dtoverlay=imx219` |
+| 摄像头模块 3 | `dtoverlay=imx708` |
+| HQ 相机  | `dtoverlay=imx477` |
+| GS 相机  | `dtoverlay=imx296` |
 
-9. 使用 sudo reboot 重启你的计算模块。
-10. 运行以下命令以检查检测到的相机列表：
+10. 使用 `sudo reboot` 重启你的计算模块。
+11. 运行以下命令以检查检测到的相机列表：
 
      ```bash
      $ rpicam-hello --list
@@ -859,7 +868,7 @@ $ sudo apt full-upgrade
 
 ![搭载了附加摄像头的 GPIO 连接器](https://www.raspberrypi.com/documentation/computers/images/CMIO-Cam-GPIO2.jpg)
 
-5. (仅限 CM4)：使用两根垂直方向的跳线连接 J6 GPIO 引脚。
+5. (CM4)：使用两根垂直方向的跳线连接 J6 GPIO 引脚。
 
 ![连接到垂直方向的 J6 GPIO 引脚](https://www.raspberrypi.com/documentation/computers/images/j6_vertical.jpg)
 
@@ -993,74 +1002,34 @@ CM1、CM3、CM3+ 和 CM4S I/O 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO �
 
 这些指令仅适用于直连 SoC 的 GPIO 引脚，而不适用于扩展的 GPIO 引脚。
 
-## 连接官方 7 吋显示屏
+## 连接触摸显示屏 LCD 面板
 
-在开始之前，请将系统软件和固件更新到最新版本。计算模块大多使用相同的流程，但有时物理差异会迫使针对特定型号进行更改。
-
-### 连接显示器到 DISP1
-
->**注意**
->
-> 树莓派 Zero 相机线不能作为 RPI-DISPLAY 适配器的替代品。这两款线的布线不同。
-
-要连接显示器到 DISP1：
-
-1. 断开计算模块的电源。
-2. 通过 22W 至 15W 显示适配器，将显示器连接到计算模块 IO 板上的 DISP1 接口。
-3. （仅限 CM1、CM3、CM3+和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
-    * 0 到 `CD1_SDA`
-    * 1 到 `CD1_SCL`
-4. 重新连接计算模块到电源。
-5. 将以下行添加到 `/boot/firmware/config.txt` ：
-
-    ```json
-    dtoverlay=vc4-kms-dsi-7inch
-    ```
-6. 使用 `sudo reboot` 重启你的计算模块。你的设备应该能检测到显示器并开始显示输出。
-
-### 将显示器连接到 DISP0
-
-连接显示器到 DISP0：
-
-1. 通过 15w-22W 电源适配器将显示器连接到计算模块 IO 板上的 `DISP0` 接口。
-2. （仅适用于 CM1、CM3、CM3+和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
-    * 28 到 `CD0_SDA`
-    * 29 到 `CD0_SCL`
-3. 重新连接计算模块到电源。
-4. 将以下行添加到 `/boot/firmware/config.txt`：
-
-    ```json
-    dtoverlay=vc4-kms-dsi-7inch
-    ```
-5. 使用 `sudo reboot` 重启你的计算模块。你的设备应该检测到显示器，然后开始显示输出。
-
-### 禁用触摸屏
-
-触摸屏不需要额外配置。将其连接到你的计算模块，如果成功检测到，触摸屏元素和显示器都应该正常工作。
-
-要禁用触摸功能，但仍使用显示器，请在 `/boot/firmware/config.txt` 中添加以下行：
-
-```bash
-disable_touchscreen=1
-```
-
-### 禁用显示器
-
-在连接时完全忽略显示器，请将以下行添加到 `/boot/firmware/config.txt`：
-
-```bash
-ignore_lcd=1
-```
+* 要连接树莓派触摸显示屏，请参阅[触摸显示屏](../pei-jian/xian-shi-qi.md)。
+* 要连接树莓派触摸显示屏 2，请参阅[触摸显示屏 2](https://www.raspberrypi.com/documentation/accessories/touch-display-2.html#connect-to-raspberry-pi)。
 
 ## 规格
+
+### 计算模块 5 数据表
+
+要了解有关计算模块 5（CM5）及其对应 IO 板的更多信息，请参阅以下文档：
+
+* [CM5 数据表](https://pip.raspberrypi.com/documents/RP-008180-DS)
+* [CM5 设计文件](https://rpltd.co/cm5-design-files)
+
+### 计算模块 5 IO 板数据表
+
+计算模块 5 IO 板（CM5IO）的设计数据可以在其数据表中找到：
+
+* [CM5IO 数据表](https://pip.raspberrypi.com/documents/RP-008182-DS)
+* [CM5IO 设计文件](https://rpltd.co/cm5io-design-files)
 
 ### 计算模块 4 数据表
 
 了解有关计算模块 4（CM4）及其相应 IO 板的更多信息，请参阅以下文档：
 
-* [CM4 数据表](https://datasheets.raspberrypi.com/cm4/cm4-datasheet.pdf)
+* [CM4 数据表](https://pip.raspberrypi.com/documents/RP-008168-DS)
 
-##### [配置计算模块 4](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003470-WP/Configuring-the-Compute-Module-4.pdf)
+##### [配置计算模块 4](https://pip.raspberrypi.com/documents/RP-003470-WP)
 
 配置计算模块 4
 
@@ -1072,33 +1041,33 @@ ignore_lcd=1
 
 设计数据可以在计算模块 4 IO 板（CM4IO）的数据表中找到：
 
-* [CM4IO 数据表](https://datasheets.raspberrypi.com/cm4io/cm4io-datasheet.pdf)
+* [CM4IO 数据表](https://pip.raspberrypi.com/documents/RP-008172-DS)
 
 我们还为 CM4 IO 板提供 KiCad PCB 设计套件：
 
-* [CM4IO KiCad 文件](https://datasheets.raspberrypi.com/cm4io/CM4IO-KiCAD.zip)
+* [CM4IO KiCad 文件](https://pip.raspberrypi.com/documents/RP-008173-DS)
 
 ### 计算模块 4S 数据表
 
 计算模块 4S（CM4S）在 CM1、CM3 和 CM3+的 DDR2-SODIMM 尺寸中提供了 CM4 的内部组件。要了解有关 CM4S 的更多信息，请参阅以下文档：
 
-* [CM4S 数据表](https://datasheets.raspberrypi.com/cm4s/cm4s-datasheet.pdf)
+* [CM4S 数据表](https://pip.raspberrypi.com/documents/RP-008177-DS)
 
 ### 计算模块 3+ 数据表
 
 计算模块 3+ (CM3+) 是一款受支持的产品，其终止生命周期（EOL）日期不早于 2028 年 1 月。要了解有关 CM3+及其对应 IO 板的更多信息，请参阅以下文档：
 
-* [CM3+ 数据表](https://datasheets.raspberrypi.com/cm/cm3-plus-datasheet.pdf)
+* [CM3+ 数据表](https://pip.raspberrypi.com/documents/RP-008163-DS)
 
 ### 计算模块 1 和计算模块 3 数据表
 
 树莓派计算模块 1 (CM1) 和计算模块 3 (CM3) 是支持的产品，其终止生命周期 (EOL) 日期不早于 2026 年 1 月。要了解有关 CM1 和 CM3 的更多信息，请参阅以下文档：
 
-* [CM1 和 CM3 数据表](https://datasheets.raspberrypi.com/cm/cm1-and-cm3-datasheet.pdf)
-* [CM1 的原理图](https://datasheets.raspberrypi.com/cm/cm1-schematics.pdf)
-* [CM3 的原理图](https://datasheets.raspberrypi.com/cm/cm3-schematics.pdf)
+* [CM1 和 CM3 数据表](https://pip.raspberrypi.com/documents/RP-008161-DS)
+* [CM1 的原理图](https://pip.raspberrypi.com/documents/RP-008162-DS)
+* [CM3 的原理图](https://pip.raspberrypi.com/documents/RP-008164-DS)
 
-##### [从计算模块 1 和计算模块 3 过渡到计算模块 4](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003469-WP/Transitioning-from-CM3-to-CM4.pdf)
+##### [从计算模块 1 和计算模块 3 过渡到计算模块 4](https://pip.raspberrypi.com/documents/RP-003469-WP)
 
 从计算模块 1 和计算模块 3 过渡到计算模块 4
 
@@ -1106,18 +1075,18 @@ ignore_lcd=1
 
 ### 计算模块 IO 板原理图
 
-计算模块 IO 板（CMIO）为 CM1、CM3、CM3L 和 CM3+提供各种接口。计算模块 IO 板有两个衍生版本：版本 1 和版本 3。版本 1 仅兼容 CM1。版本 3 兼容 CM1、CM3、CM3+和 CM4S。计算模块 IO 板版本 3 有时被简写为 CMIO3。要了解有关 CMIO1 和 CMIO3 的更多信息，请参阅以下文档：
+计算模块 IO 板（CMIO）为 CM1、CM3、CM3+ 和 CM4S 提供各种接口。计算模块 IO 板有两个衍生版本：版本 1 和版本 3。版本 1 仅兼容 CM1。版本 3 兼容 CM1、CM3、CM3+ 和 CM4S。计算模块 IO 板版本 3 有时被简写为 CMIO3。要了解有关 CMIO1 和 CMIO3 的更多信息，请参阅以下文档：
 
-* [CMIO 的原理图](https://datasheets.raspberrypi.com/cmio/cmio-schematics.pdf)
-* [CMIO Version 1.2（CMIO/CMIO1）的设计文档](https://datasheets.raspberrypi.com/cmio/RPi-CMIO-R1P2.zip)
-* [CMIO Version 3.0（CMIO3）的设计文档](https://datasheets.raspberrypi.com/cmio/RPi-CMIO-R3P0.zip)
+* [CMIO 的原理图](https://pip.raspberrypi.com/documents/RP-008256-DS)
+* [CMIO Version 1.2（CMIO/CMIO1）的设计文档](https://pip.raspberrypi.com/documents/RP-008376-DS)
+* [CMIO Version 3.0（CMIO3）的设计文档](https://pip.raspberrypi.com/documents/RP-008377-DS)
 
 ### 计算模块摄像头/显示适配板原理图
 
 计算模块摄像头/显示适配板（CMCDA）为计算模块提供摄像头和显示接口。要了解有关 CMCDA 的更多信息，请参阅以下文档：
 
-* [CMCDA 的原理图](https://datasheets.raspberrypi.com/cmcda/cmcda-schematics.pdf)
-* [CMCDA Version 1.1 的设计文档](https://datasheets.raspberrypi.com/cmcda/RPi-CMCDA-1P1.zip)
+* [CMCDA 的原理图](https://pip.raspberrypi.com/documents/RP-008255-DS)
+* [CMCDA Version 1.1 的设计文档](https://pip.raspberrypi.com/documents/RP-008375-DS)
 
 ### 欠压检测
 
