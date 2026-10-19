@@ -143,11 +143,11 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
 | 树莓派 | 17 | 17 | 1 | 3 | 0 | 13 | 0 | 6% |
-| 配件 | 20 | 20 | 0 | 0 | 1 | 16 | 3 | 0% |
+| 配件 | 20 | 20 | 0 | 0 | 3 | 12 | 5 | 0% |
 | 微控制器 | 6 | 6 | 0 | 2 | 0 | 4 | 0 | 0% |
 | 服务 | 4 | 4 | 0 | 0 | 0 | 4 | 0 | 0% |
 | 安全 | 5 | 5 | 0 | 0 | 0 | 0 | 5 | 0% |
-| 合计 | 52 | 52 | 1 | 5 | 1 | 37 | 8 | 2% |
+| 合计 | 52 | 52 | 1 | 5 | 3 | 33 | 10 | 2% |
 
 完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。
 
@@ -191,14 +191,14 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `pei-jian/raspberry-pi-monitor.md` | `monitor.adoc` | 待同步 | 0/3 | 未领取（A2 失败） | 2026-10-20 | 代理连接中断，无改动 |
 | `pei-jian/she-xiang-tou.md` | `camera.adoc` | 待同步 | 0/3 | 未领取（A1 失败） | 2026-10-20 | 代理连接中断，无改动 |
 | `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 同步中 | 0/3 | 代理 B10 | 2026-10-20 | 上游本页有 IMX5000 笔误 |
-| `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 同步中 | 0/3 | 代理 A3 | 2026-10-20 | |
+| `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 部分同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 仅 5 行改动（`e6053ca`），需重新领取核对 |
 | `pei-jian/usb-pei-jian.md` | `usb.adoc` | 同步中 | 0/3 | 代理 A5 | 2026-10-20 | |
-| `pei-jian/build-hat.md` | `build-hat.adoc` | 同步中 | 0/3 | 代理 A3 | 2026-10-20 | |
-| `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `sense-hat.adoc` | 同步中 | 0/3 | 代理 A3 | 2026-10-20 | |
+| `pei-jian/build-hat.md` | `build-hat.adoc` | 待同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 代理未触及，内容停留在 2024 年 |
+| `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `sense-hat.adoc` | 部分同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 434 行改动已提交（`7582f30`），需重新领取核对 |
 | `pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md` | `ai-kit.adoc` | 同步中 | 0/3 | 代理 A4 | 2026-10-20 | |
 | `pei-jian/ai-hat.md` | `ai-hat-plus.adoc` | 同步中 | 0/3 | 代理 A5 | 2026-10-20 | 产品名含 `+`，勿误判为 AsciiDoc 软换行 |
 | `pei-jian/shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | `audio.adoc` | 同步中 | 0/3 | 代理 A4 | 2026-10-20 | 文件名过长，注意链接 |
-| `pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md` | `tv-hat.adoc` | 同步中 | 0/3 | 代理 A3 | 2026-10-20 | |
+| `pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md` | `tv-hat.adoc` | 待同步 | 0/3 | 未领取（A3 失败） | 2026-10-20 | 代理未触及，内容停留在 2024 年 |
 | `pei-jian/cm5-bian-cheng-zhi-ju.md` | `cm5-programming-jig.adoc` | 同步中 | 0/3 | 代理 A5 | 2026-10-20 | |
 | `pei-jian/zhi-neng-xian-shi-mo-kuai.md` | `smart-display-module.adoc` | 同步中 | 0/3 | 代理 A5 | 2026-10-20 | |
 | `pei-jian/bao-hu-ke.md` | `bumper.adoc` | 同步中 | 0/3 | 代理 A5 | 2026-10-20 | |
@@ -249,7 +249,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | ---- | -------- | -------- | ---------- | ---- |
 | A1 | `pei-jian/she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 | A2 | `pei-jian/xian-shi-qi.md`、`chu-mo-xian-shi-ping-2.md`、`raspberry-pi-monitor.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），仅 `xian-shi-qi.md` 有部分改动 |
-| A3 | `pei-jian/jian-pan-he-shu-biao.md`、`build-hat.md`、`chuan-gan-qi-kuo-zhan-ban-sense-hat.md`、`dian-shi-kuo-zhan-ban-tv-hat.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
+| A3 | `pei-jian/jian-pan-he-shu-biao.md`、`build-hat.md`、`chuan-gan-qi-kuo-zhan-ban-sense-hat.md`、`dian-shi-kuo-zhan-ban-tv-hat.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），键鼠与 Sense HAT 有部分改动 |
 | A4 | `pei-jian/m.2-hat+.md`、`ren-gong-zhi-neng-tao-jian-ai-kit.md`、`shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | A5 | `pei-jian/sd-ka.md`、`ssd.md`、`ssd-tao-jian.md`、`usb-pei-jian.md`、`ai-hat.md`、`bao-hu-ke.md`、`cm5-bian-cheng-zhi-ju.md`、`zhi-neng-xian-shi-mo-kuai.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | A6 | `wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md`、`shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md`、`micropython.md`、`c-c++-sdk.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
@@ -272,7 +272,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 优先级 | 事项 | 范围 | 依赖 |
 | ------ | ---- | ---- | ---- |
-| P0 | 重新派发 A1（`pei-jian/she-xiang-tou.md`）、A2（`chu-mo-xian-shi-ping-2.md`、`raspberry-pi-monitor.md`，并复核 `xian-shi-qi.md` 的部分改动）、A8（`an-quan/` 5 页） | 8 页 | 代理恢复 |
+| P0 | 重新派发 A1（`pei-jian/she-xiang-tou.md`）、A2（`chu-mo-xian-shi-ping-2.md`、`raspberry-pi-monitor.md`，并复核 `xian-shi-qi.md`）、A3（`jian-pan-he-shu-biao.md`、`build-hat.md`、`chuan-gan-qi-kuo-zhan-ban-sense-hat.md`、`dian-shi-kuo-zhan-ban-tv-hat.md`）、A8（`an-quan/` 5 页） | 12 页 | 代理恢复 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
 | P1 | CP-5：本地跑 markdownlint（`npx markdownlint-cli2`），并对 `TASKS.md` 等新增文件补一次 PR 检查 | CI | 无 |
