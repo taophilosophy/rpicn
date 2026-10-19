@@ -142,12 +142,12 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 1 | 4 | 0 | 11 | 1 | 6% |
+| 树莓派 | 17 | 17 | 1 | 5 | 0 | 10 | 1 | 6% |
 | 配件 | 20 | 20 | 0 | 0 | 4 | 0 | 16 | 0% |
 | 微控制器 | 6 | 6 | 0 | 2 | 0 | 4 | 0 | 0% |
 | 服务 | 4 | 4 | 0 | 0 | 0 | 4 | 0 | 0% |
 | 安全 | 5 | 5 | 0 | 0 | 0 | 0 | 5 | 0% |
-| 合计 | 52 | 52 | 1 | 6 | 4 | 19 | 22 | 2% |
+| 合计 | 52 | 52 | 1 | 7 | 4 | 18 | 22 | 2% |
 
 完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。
 
@@ -168,7 +168,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 全页重写至当前上游，待三轮校对 |
 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `ai.adoc` | 同步中 | 0/3 | 代理 B9 | 2026-10-20 | |
-| `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 同步中 | 0/3 | 代理 B1 | 2026-10-20 | 全文最长；缺 boot-eeprom 小节待核 |
+| `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 已同步 | 0/3 | 未领取（B1 失败） | 2026-10-20 | 继承 `771d4f3` 的同步结果，B1 无新增改动；缺 boot-eeprom 小节待核 |
 | `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 同步中 | 0/3 | 代理 B5 | 2026-10-20 | |
 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 已同步 | 0/3 | 主线程 | 2026-10-20 | CM5 时代全面同步，待三轮校对 |
 | `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 结构已对齐，待三轮校对 |
@@ -257,7 +257,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | A8 | `an-quan/` 5 页 | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 | A9 | `ru-men.md`、`raspberry-pi-os.md`、`linux-nei-he.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），由 B2/B3/B4 接替 |
 | A10 | `xi-tong-pei-zhi.md`、`config.txt.md`、`jiu-ban-config.txt-can-shu.md`、`ruan-jian-lai-yuan.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
-| B1 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
+| B1 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无新增改动 |
 | B2 | `shu-mei-pai/ru-men.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B3 | `shu-mei-pai/raspberry-pi-os.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 | B4 | `shu-mei-pai/linux-nei-he.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
@@ -272,7 +272,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 优先级 | 事项 | 范围 | 依赖 |
 | ------ | ---- | ---- | ---- |
-| P0 | 重新派发 A1、A2、A3、A4、A5、A8、B3、B10 八路失败代理 | 25 页 | 代理恢复 |
+| P0 | 重新派发 A1、A2、A3、A4、A5、A8、B1、B3、B10 九路失败代理 | 27 页 | 代理恢复 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
 | P1 | 词汇表补录 I/O 控制器页报告的新术语（I/O controller、single-board computer、pin spacing、USB host controller、tightly-coupled memory、Timing generator、ISP front-end、bitstream 等 12 条） | `qian-yan/ci-hui-biao.md` | 无 |
