@@ -142,12 +142,12 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 1 | 4 | 0 | 12 | 0 | 6% |
+| 树莓派 | 17 | 17 | 1 | 4 | 0 | 11 | 1 | 6% |
 | 配件 | 20 | 20 | 0 | 0 | 4 | 0 | 16 | 0% |
 | 微控制器 | 6 | 6 | 0 | 2 | 0 | 4 | 0 | 0% |
 | 服务 | 4 | 4 | 0 | 0 | 0 | 4 | 0 | 0% |
 | 安全 | 5 | 5 | 0 | 0 | 0 | 0 | 5 | 0% |
-| 合计 | 52 | 52 | 1 | 6 | 4 | 20 | 21 | 2% |
+| 合计 | 52 | 52 | 1 | 6 | 4 | 19 | 22 | 2% |
 
 完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。
 
@@ -161,7 +161,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
 | `shu-mei-pai/ru-men.md` | `getting-started.adoc` | 同步中 | 0/3 | 代理 B2 | 2026-10-20 | |
-| `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 同步中 | 0/3 | 代理 B3 | 2026-10-20 | |
+| `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 待同步 | 0/3 | 未领取（B3 失败） | 2026-10-20 | 代理连接中断，无改动；内容停留在 2024 年 |
 | `shu-mei-pai/xi-tong-pei-zhi.md` | `configuration.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | |
 | `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | 参数表，重点核对默认值 |
 | `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 同步中 | 0/3 | 代理 B4 | 2026-10-20 | |
@@ -259,7 +259,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | A10 | `xi-tong-pei-zhi.md`、`config.txt.md`、`jiu-ban-config.txt-can-shu.md`、`ruan-jian-lai-yuan.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B1 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B2 | `shu-mei-pai/ru-men.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
-| B3 | `shu-mei-pai/raspberry-pi-os.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
+| B3 | `shu-mei-pai/raspberry-pi-os.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 | B4 | `shu-mei-pai/linux-nei-he.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B5 | `shu-mei-pai/ling-dian-xing-hao.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B6 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
@@ -272,7 +272,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 优先级 | 事项 | 范围 | 依赖 |
 | ------ | ---- | ---- | ---- |
-| P0 | 重新派发 A1、A2、A3、A4、A5、A8、B10 七路失败代理 | 24 页 | 代理恢复 |
+| P0 | 重新派发 A1、A2、A3、A4、A5、A8、B3、B10 八路失败代理 | 25 页 | 代理恢复 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
 | P1 | 词汇表补录 I/O 控制器页报告的新术语（I/O controller、single-board computer、pin spacing、USB host controller、tightly-coupled memory、Timing generator、ISP front-end、bitstream 等 12 条） | `qian-yan/ci-hui-biao.md` | 无 |
