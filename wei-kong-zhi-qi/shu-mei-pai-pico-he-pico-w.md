@@ -1,18 +1,18 @@
 # Pico 系列微控制器
 
-Pico 设备根据产品代次划分**系列**。
+Pico 系列设备按产品代次划分为不同的**系列**。
 
 第一代树莓派 Pico 系列被称为 Pico（或 Pico 1），包含四个型号：
 
-- 树莓派 Pico
-- 树莓派 Pico H
-- 树莓派 Pico W
-- 树莓派 Pico WH
+* 树莓派 Pico
+* 树莓派 Pico H
+* 树莓派 Pico W
+* 树莓派 Pico WH
 
 第二代树莓派 Pico 系列被称为 Pico 2，包含两个型号：
 
-- 树莓派 Pico 2
-  - 带有插针的树莓派 Pico 2
+* 树莓派 Pico 2
+* 带有插针的树莓派 Pico 2
 
 ## Pico 2 系列
 
@@ -24,19 +24,19 @@ Pico 设备根据产品代次划分**系列**。
 
 树莓派 Pico 2 是一款低成本、高性能的微控制器开发板，具有灵活的数字接口。主要特点包括：
 
-- 由 Raspberry Pi 在英国设计的 [RP2350](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2350) 微控制器芯片
-- 双核 Cortex-M33、或双核 Hazard3 处理器，最高可达 150MHz
-- 520KB 的 SRAM 和 4MB 的板载闪存
-- 带设备模式和主机模式支持的 USB 1.1
-- 低功耗睡眠和休眠模式
-- 通过 USB 大容量存储拖放编程
-- 多功能 GPIO 引脚 ×26，其中 3 个可用于 ADC
-- SPI ×2，I²C ×2，UART ×2，12 位 500ksps 模拟到数字转换器 (ADC) ×3，可控 PWM 通道 ×24
-- 定时器 ×2，带 4 个报警，AON 定时器 ×1
-- 温度传感器
-- 3× 可编程 IO (PIO) 模块，总共 12 个状态机，支持自定义外围设备
-  - 灵活、用户可编程的高速 IO
-  - 可以模拟接口，如存储卡和 VGA
+* 由 Raspberry Pi 在英国设计的 [RP2350](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#rp2350) 微控制器芯片
+* Cortex-M33 或 Hazard3 双核处理器，最高可达 150 MHz
+* 520KB 的 SRAM 和 4MB 的板载闪存
+* 带设备模式和主机模式支持的 USB 1.1
+* 低功耗睡眠和休眠模式
+* 通过 USB 大容量存储拖放编程
+* 多功能 GPIO 引脚 ×26，其中 3 个可用于 ADC
+* SPI ×2，I²C ×2，UART ×2，12 位 500ksps 模拟到数字转换器 (ADC) ×3，可控 PWM 通道 ×24
+* 定时器 ×2（带 4 个报警），AON 定时器 ×1
+* 温度传感器
+* 可编程 IO (PIO) 模块 ×3，共 12 个状态机，支持自定义外围设备
+  * 灵活、用户可编程的高速 IO
+  * 可以模拟存储卡和 VGA 等接口
 
 树莓派 Pico 2 采用镀边模块设计，便于直接焊接到载板上，而带有插针的 Pico 2 预装有插针。
 

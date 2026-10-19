@@ -14,11 +14,11 @@
 
 ![num cap 和 scroll](https://www.raspberrypi.com/documentation/accessories/images/num-cap-scroll.png)
 
-`Num Lock` 能使用字母键上标有的红色数字键，有效地创建数字键盘。通过按下 **Num Lock 键** 来启用/禁用此模式。
+`Num Lock` 可使用字母键上标注的红色数字键，等效于一个数字小键盘。按 `Num Lock` 键可启用或禁用此模式。
 
-`Caps Lock` 能输入大写字母；按 **Shift 键** 可在该模式下输入小写字母。通过按 **Caps Lock 键** 可启用/禁用此模式。
+`Caps Lock` 可输入大写字母；在该模式下按 `Shift` 键可输入小写字母。按 `Caps Lock` 键可启用或禁用此模式。
 
-`Scroll Lock (ScrLk)` 能使用光标键浏览网页和电子表格，无需鼠标。通过按住 **Fn 键**，同时按 **ScrLk 键** 可启用/禁用此模式。
+`Scroll Lock (ScrLk)` 可使用光标键浏览网页和电子表格，无需鼠标。按住 `Fn` 键的同时按 `ScrLk` 键可启用或禁用此模式。
 
 ## 开始使用鼠标
 
@@ -26,7 +26,7 @@
 
 ![鼠标](https://www.raspberrypi.com/documentation/accessories/images/the-mouse.png)
 
-在使用鼠标时，请始终将其放在平坦稳定的表面上。鼠标在放置的平面上使用光学检测移动。在光滑的平面上（例如 PVC 和亚克力桌面）鼠标检测不到移动。当你在这样的平面上工作时，请把鼠标放在鼠标垫上。
+使用时请始终把鼠标放在平坦稳定的表面上。鼠标通过光学方式检测其所在表面的移动。在无纹理特征的表面上（例如 PVC 或亚克力桌面），鼠标无法检测移动。如果需要在这样的表面上工作，请把鼠标放在鼠标垫上。
 
 ## 把所有东西连接起来
 
