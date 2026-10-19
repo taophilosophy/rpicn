@@ -48,13 +48,14 @@ Pico 系列设备按产品代次划分为不同的**系列**。
 
 ![Pico 2 R4 引脚分布图](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-2-r4-pinout.svg)
 
-- 下载 [引脚分布图](https://datasheets.raspberrypi.com/pico/Pico-2-Pinout.pdf) (PDF)
-- 下载 [STEP 文件](https://datasheets.raspberrypi.com/pico/Pico-2-step-20240708.zip)
-- 下载树莓派 Pico 的 [Fritzing 部件](https://datasheets.raspberrypi.com/pico/Pico-2-Fritzing-20240708.fzpz)
+* 下载 [引脚分布图](https://datasheets.raspberrypi.com/pico/Pico-2-Pinout.pdf) (PDF)
+* 下载 [STEP 文件](https://datasheets.raspberrypi.com/pico/Pico-2-step-20240708.zip)
+* 下载树莓派 Pico 2 的 [Fritzing 部件](https://datasheets.raspberrypi.com/pico/Pico-2-Fritzing-20240708.fzpz)
 
 >**注意**
 >
->关于 Fritzing 的更多信息，请访问网站 [fritzing.org](https://fritzing.org/) 。 
+>关于 Fritzing 的更多信息，请访问 [fritzing.org](https://fritzing.org/) 网站。
+
 ## Pico 1 系列
 
 ![Pico 1 系列](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-1s.png?hash=37f90d0137e81859630d4f0943b6f3d5)
