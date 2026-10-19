@@ -1,0 +1,38 @@
+# SD 卡
+
+## 关于
+
+![插入树莓派 5 的树莓派 SD 卡](https://www.raspberrypi.com/documentation/accessories/images/sd-hero.jpg)
+
+插入树莓派 5 的树莓派 SD 卡
+
+SD 卡质量是决定树莓派整体用户体验的关键因素。较慢的总线速度和缺少命令队列会削弱即使性能最强的树莓派型号的表现。
+
+树莓派官方 microSD 卡支持 DDR50 和 SDR104 总线速度。此外，树莓派 SD 卡支持命令队列（CQ）扩展，该扩展允许对随机读取操作进行一定程度的流水线处理，从而确保最佳性能。
+
+你甚至可以购买预装了最新版树莓派系统的树莓派 SD 卡。
+
+树莓派 SD 卡提供以下容量：
+
+* 32 GB
+* 64 GB
+* 128 GB
+
+## 规格
+
+![128 GB 树莓派 SD 卡](https://www.raspberrypi.com/documentation/accessories/images/sd-cards.png)
+
+128 GB 树莓派 SD 卡
+
+树莓派 SD 卡采用 SD6.1 SD 规范。
+
+树莓派 SD 卡采用 microSDHC/microSDXC 外形尺寸。
+
+树莓派 SD 卡具有以下速度等级：C10、U3、V30、A2。
+
+下表描述了使用 4 kB 随机数据时树莓派 SD 卡的读取和写入速度：
+
+| 树莓派型号 | 接口 | 读取速度 | 写入速度 |
+| :--- | :---: | :---: | :---: |
+| 4 | DDR50 | 3,200 IOPS | 1,200 IOPS |
+| 5 | SDR104 | 5,000 IOPS | 2,000 IOPS |

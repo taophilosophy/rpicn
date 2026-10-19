@@ -21,6 +21,7 @@
 * [摄像头软件](shu-mei-pai/she-xiang-tou-ruan-jian.md)
 * [人工智能软件](shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md)
 * [树莓派硬件](shu-mei-pai/shu-mei-pai-ying-jian.md)
+* [经典型单板计算机](shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md)
 * [Zero 型号](shu-mei-pai/ling-dian-xing-hao.md)
 * [计算模块硬件](shu-mei-pai/ji-suan-mo-kuai-ying-jian.md)
 * [处理器](shu-mei-pai/chu-li-qi.md)
