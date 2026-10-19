@@ -142,12 +142,12 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 1 | 5 | 0 | 9 | 2 | 6% |
-| 配件 | 20 | 20 | 0 | 0 | 4 | 0 | 16 | 0% |
+| 树莓派 | 17 | 17 | 1 | 6 | 0 | 8 | 2 | 6% |
+| 配件 | 20 | 20 | 0 | 0 | 4 | 1 | 15 | 0% |
 | 微控制器 | 6 | 6 | 0 | 2 | 0 | 4 | 0 | 0% |
 | 服务 | 4 | 4 | 0 | 0 | 0 | 4 | 0 | 0% |
-| 安全 | 5 | 5 | 0 | 0 | 0 | 0 | 5 | 0% |
-| 合计 | 52 | 52 | 1 | 7 | 4 | 17 | 23 | 2% |
+| 安全 | 5 | 5 | 0 | 1 | 0 | 4 | 0 | 0% |
+| 合计 | 52 | 52 | 1 | 9 | 4 | 21 | 17 | 2% |
 
 完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。
 
@@ -164,7 +164,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 待同步 | 0/3 | 未领取（B3 失败） | 2026-10-20 | 代理连接中断，无改动；内容停留在 2024 年 |
 | `shu-mei-pai/xi-tong-pei-zhi.md` | `configuration.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | |
 | `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 同步中 | 0/3 | 代理 A10 | 2026-10-20 | 参数表，重点核对默认值 |
-| `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 同步中 | 0/3 | 代理 B4 | 2026-10-20 | |
+| `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 已同步 | 0/3 | 未领取（B4 失败） | 2026-10-20 | 1124 行改动已提交（`79d516b`），代理中断，完整性待核 |
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 全页重写至当前上游，待三轮校对 |
 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `ai.adoc` | 同步中 | 0/3 | 代理 B9 | 2026-10-20 | |
@@ -228,7 +228,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
 | `an-quan/an-quan-gai-shu.md` | `security.adoc` | 同步中 | 0/3 | 代理 C2 | 2026-10-20 | 第一波重派（C2），进行中 |
-| `an-quan/an-quan-jia-gou.md` | `security-architecture.adoc` | 同步中 | 0/3 | 代理 C3 | 2026-10-20 | 第一波重派（C3），进行中 |
+| `an-quan/an-quan-jia-gou.md` | `security-architecture.adoc` | 已同步 | 0/3 | 代理 C3（完成） | 2026-10-20 | C3 逐段核查与上游完全一致，无需修改；主线程已复核结构；待三轮逐句校对 |
 | `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | `secure-boot-provisioner.adoc` | 同步中 | 0/3 | 代理 C4 | 2026-10-20 | 第一波重派（C4），进行中；上游 image 属性有多余引号 |
 | `an-quan/yun-ying-an-quan.md` | `operational-security.adoc` | 同步中 | 0/3 | 代理 C5 | 2026-10-20 | 第一波重派（C5），进行中；上游 fail2ban 示例缺等号 |
 | `an-quan/ufw-fang-huo-qiang.md` | `ufw.adoc` | 同步中 | 0/3 | 代理 C6 | 2026-10-20 | 第一波重派（C6），进行中；端口号与规则须逐条核对 |
@@ -260,7 +260,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | B1 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无新增改动 |
 | B2 | `shu-mei-pai/ru-men.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 | B3 | `shu-mei-pai/raspberry-pi-os.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
-| B4 | `shu-mei-pai/linux-nei-he.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
+| B4 | `shu-mei-pai/linux-nei-he.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），1124 行改动已提交 |
 | B5 | `shu-mei-pai/ling-dian-xing-hao.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B6 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
 | B7 | `shu-mei-pai/jian-pan-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 进行中 |
@@ -269,7 +269,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | B10 | `pei-jian/ai-she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 失败（连接中断），无改动 |
 | C1 | `pei-jian/she-xiang-tou.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
 | C2 | `an-quan/an-quan-gai-shu.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
-| C3 | `an-quan/an-quan-jia-gou.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
+| C3 | `an-quan/an-quan-jia-gou.md` | 2026-10-20 | CP-2 + CP-3 | 完成：核查与上游一致，无需修改（主线程已复核） |
 | C4 | `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
 | C5 | `an-quan/yun-ying-an-quan.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
 | C6 | `an-quan/ufw-fang-huo-qiang.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（第一波重派） |
@@ -279,7 +279,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | 优先级 | 事项 | 范围 | 依赖 |
 | ------ | ---- | ---- | ---- |
 | P0 | 第一波重派已启动：C1–C6 负责摄像头页与安全板块 5 页 | 6 页 | 进行中 |
-| P0 | 第二波重派待启动：A2 三页、A3 四页、A4 三页、A5 八页、B1/B2/B3/B10 各一页 | 22 页 | 第一波验收后滚动派发 |
+| P0 | 第二波重派待启动：A2 三页、A3 四页、A4 三页、A5 八页、B1/B2/B3/B4/B10 各一页 | 23 页 | 第一波验收后滚动派发 |
 | P0 | 汇总本轮 20 路代理结果，逐文件复核后更新本文件状态 | 全部 | 代理结束 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
 | P1 | 词汇表补录 I/O 控制器页报告的新术语（I/O controller、single-board computer、pin spacing、USB host controller、tightly-coupled memory、Timing generator、ISP front-end、bitstream 等 12 条） | `qian-yan/ci-hui-biao.md` | 无 |
