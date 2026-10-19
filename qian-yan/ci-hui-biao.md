@@ -50,3 +50,7 @@
 |OTP memory|OTP 内存|
 |manufacturing database|制造数据库|
 |Secure Boot Provisioner|安全启动配置器|
+|Keyboard-series|键盘系列|
+|barrel connector|桶形连接器|
+|Maker Plate|Maker Plate|
+|float|浮点|

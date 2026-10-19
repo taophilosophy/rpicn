@@ -328,7 +328,6 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | 运营安全页 | fail2ban 示例缺少等号 | 待反馈 |
 | 安全启动配置器页 | “Raspberry Pi OS (we recommend Trixie)” 将产品名与开发代号并列，与上游其他页面表述不一致（中文页已按“树莓派系统（我们建议使用 Trixie）”处理） | 待反馈 |
 | UFW 页 | 第 116 行 `<<allow-block-ip-addresses>> from a specific port.` 的 xref 展开后语义不完整（低置信度） | 待反馈 |
-| Build HAT 页 | "The firmware extracts the firmware and way it out to your board" 的 "way" 应为 "way"？实为 "then way it out" 疑为 "lays it out" 之误（低置信度） | 待反馈 |
 | AI Kit 页 | 上游已将本页缩减为停产声明（建议改用 AI HAT），中文版已按新内容重写 | 已按上游处理 |
 | TV HAT 页 | 规格表作 Sony CXD2880，VLC 截图文作 CDX2880，上游两处拼写不一致 | 待反馈 |
 | 摄像头软件页 | 上游 config.txt watchdog 段默认 `timeout=0`/`timeout=10`，中文版为 15（经 E17 核实） | 待反馈 |
