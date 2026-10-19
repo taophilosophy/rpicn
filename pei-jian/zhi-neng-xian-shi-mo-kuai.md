@@ -23,7 +23,7 @@
 * **散热器。** 散热器符合 SDM 外形尺寸，可将热量从 CM5 导出。
 * **集成供电。** 主机显示器直接为 CM5 供电。
 * **M.2 M key 扩展。** M.2 M key PCIe 插槽兼容 2230、2242、2260 和 2280 外形尺寸，为添加存储设备或 AI 加速器提供扩展空间。
-* **外部天线空间。** 使用[树莓派天线套件](../shu-mei-pai/ji-suan-mo-kuai-ying-jian.md)，你可以在主机显示器外部安装外置天线。
+* **外部天线空间。** 使用[树莓派天线套件](../shu-mei-pai/ji-suan-mo-kuai-ying-jian.md#天线cm4-和-cm5)，你可以在主机显示器外部安装外置天线。
 * **HDMI 输出。** 支持第二路独立的视频流。
 * **连接器。** 将各种[连接器](#连接器)暴露到主机显示器外部。
 * **启动模式开关。** 在从 eMMC 启动（标记为 **NORMAL**）和从 USB 设备模式启动（标记为 **USB**）之间切换 CM5。
@@ -133,7 +133,7 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 
 要配置并组装智能显示模块：
 
-1. 为计算模块 5 安装操作系统镜像以及你的使用场景所需的任何软件，从而完成配置。更多信息请参阅[为计算模块刷写镜像](../shu-mei-pai/ji-suan-mo-kuai-ying-jian.md#刷写-emmc)。
+1. 为计算模块 5 安装操作系统镜像以及你的使用场景所需的任何软件，从而完成配置。更多信息请参阅[为计算模块刷写镜像](../shu-mei-pai/ji-suan-mo-kuai-ying-jian.md#将镜像刷写到计算模块)。
 
    或者，你也可以在组装好智能显示模块后完成此步骤。更多信息请参阅[在原位编程 CM5](#在原位编程-cm5)。
 
@@ -194,7 +194,7 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 
 9. 可选：在 RTC 电池座中安装一颗 CR2032 电池。
 
-10. 可选：将 22 针摄像头 FFC 或 22 针显示 FFC 连接到摄像头/显示接口，并将线缆穿过 IO 挡板开口。CM5 不会自动检测这些设备。你必须在 `config.txt` 文件中配置这些设备。更多信息请参阅[连接摄像头模块](../shu-mei-pai/ji-suan-mo-kuai-ying-jian.md#连接摄像头模块)或[连接 Touch Display 2](https://www.raspberrypi.com/documentation/accessories/touch-display-2.html#connect-to-raspberry-pi)。
+10. 可选：将 22 针摄像头 FFC 或 22 针显示 FFC 连接到摄像头/显示接口，并将线缆穿过 IO 挡板开口。CM5 不会自动检测这些设备。你必须在 `config.txt` 文件中配置这些设备。更多信息请参阅[连接摄像头模块](../shu-mei-pai/ji-suan-mo-kuai-ying-jian.md#连接摄像头模块)或[连接 Touch Display 2](chu-mo-xian-shi-ping-2.md#连接到树莓派设备)。
 
 11. 确保主机显示器已完全断开电源。
 

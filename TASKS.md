@@ -182,17 +182,17 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `pei-jian/sd-ka.md` | `sd-cards.adoc` | 同步中 | 0/3 | 代理 E8 | 2026-10-20 | 第二波重派（E8） |
-| `pei-jian/ssd.md` | `ssds.adoc` | 同步中 | 0/3 | 代理 E9 | 2026-10-20 | 第二波重派（E9） |
-| `pei-jian/ssd-tao-jian.md` | `ssd-kit.adoc` | 同步中 | 0/3 | 代理 E10 | 2026-10-20 | 第二波重派（E10） |
-| `pei-jian/m.2-hat+.md` | `m2-hat-plus.adoc` | 同步中 | 0/3 | 代理 E5 | 2026-10-20 | 第二波重派（E5），核对完整性；225 行已提交（`7582f30`） |
-| `pei-jian/xian-shi-qi.md` | `display.adoc` | 同步中 | 0/3 | 代理 E17 | 2026-10-20 | 第二波重派（E17），核对完整性；已有 36 行改动提交（`e04ca00`） |
-| `pei-jian/chu-mo-xian-shi-ping-2.md` | `touch-display-2.adoc` | 同步中 | 0/3 | 代理 E18 | 2026-10-20 | 第二波重派（E18） |
-| `pei-jian/raspberry-pi-monitor.md` | `monitor.adoc` | 同步中 | 0/3 | 代理 E19 | 2026-10-20 | 第二波重派（E19） |
+| `pei-jian/sd-ka.md` | `sd-cards.adoc` | 已同步 | 0/3 | 代理 E8（完成） | 2026-10-20 | E8 核查与上游零差异，主线程已复核；待三轮逐句校对 |
+| `pei-jian/ssd.md` | `ssds.adoc` | 已同步 | 0/3 | 代理 E9（完成） | 2026-10-20 | E9 核查与上游零差异，主线程已复核；待三轮逐句校对 |
+| `pei-jian/ssd-tao-jian.md` | `ssd-kit.adoc` | 已同步 | 0/3 | 代理 E10（完成） | 2026-10-20 | E10 核查与上游一致并清理 2 行冗余，主线程已复核；待三轮逐句校对 |
+| `pei-jian/m.2-hat+.md` | `m2-hat-plus.adoc` | 已同步 | 0/3 | 代理 E5（完成） | 2026-10-20 | E5 重写同步至上游（新增 Compact/Boot 两节、修订 NVMe 启动），主线程已复核；待三轮逐句校对 |
+| `pei-jian/xian-shi-qi.md` | `display.adoc` | 已同步 | 0/3 | 代理 E17（完成） | 2026-10-20 | E17 完成 2 处 config.txt 站内链接修正（上游 xref 已核实），主线程已复核；待三轮逐句校对 |
+| `pei-jian/chu-mo-xian-shi-ping-2.md` | `touch-display-2.adoc` | 已同步 | 0/3 | 代理 E18（完成） | 2026-10-20 | E18 完成 2 处修订（any and all 漏译、Lite 术语），主线程已复核；待三轮逐句校对 |
+| `pei-jian/raspberry-pi-monitor.md` | `monitor.adoc` | 已同步 | 0/3 | 代理 E19（完成） | 2026-10-20 | E19 核查与上游零差异，主线程已复核；待三轮逐句校对 |
 | `pei-jian/she-xiang-tou.md` | `camera.adoc` | 已同步 | 0/3 | 代理 C7（完成） | 2026-10-20 | C7 全页重写同步至上游（12 节 1:1；RFI/光谱/规格表/Picamera2 链接齐备），主线程已复核；待三轮逐句校对 |
-| `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 同步中 | 0/3 | 代理 E16 | 2026-10-20 | 第二波重派（E16）；上游本页有 IMX5000 笔误，按 IMX500 正确内容翻译 |
-| `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 同步中 | 0/3 | 代理 E1 | 2026-10-20 | 第二波重派（E1），核对完整性 |
-| `pei-jian/usb-pei-jian.md` | `usb.adoc` | 同步中 | 0/3 | 代理 E11 | 2026-10-20 | 第二波重派（E11） |
+| `pei-jian/ai-she-xiang-tou.md` | `ai-camera.adoc` | 已同步 | 0/3 | 代理 E16（完成） | 2026-10-20 | E16 完成 1 处修订（IMX5000→IMX500，上游笔误），主线程已复核；待三轮逐句校对 |
+| `pei-jian/jian-pan-he-shu-biao.md` | `keyboard-and-mouse.adoc` | 已同步 | 0/3 | 代理 E1（完成） | 2026-10-20 | E1 完成 1 处修订（标题与上游 "with your Mouse" 一致），主线程已复核；待三轮逐句校对 |
+| `pei-jian/usb-pei-jian.md` | `usb.adoc` | 已同步 | 0/3 | 代理 E11（完成） | 2026-10-20 | E11 核查与上游零差异，主线程已复核；待三轮逐句校对 |
 | `pei-jian/build-hat.md` | `build-hat.adoc` | 同步中 | 0/3 | 代理 E2 | 2026-10-20 | 第二波重派（E2） |
 | `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `sense-hat.adoc` | 同步中 | 0/3 | 代理 E3 | 2026-10-20 | 第二波重派（E3），核对完整性；434 行改动已提交（`7582f30`） |
 | `pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md` | `ai-kit.adoc` | 同步中 | 0/3 | 代理 E6 | 2026-10-20 | 第二波重派（E6） |

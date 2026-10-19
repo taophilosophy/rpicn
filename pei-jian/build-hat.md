@@ -1,83 +1,85 @@
 # Build 扩展板（Build HAT）
 
-## Build 扩展板简介
+## 简介
 
-树莓派 Build 扩展板是一块附加板，可连接到树莓派的 40 引脚 GPIO 排针，同乐高®教育（LEGO® Education）合作设计，可轻松使用树莓派计算机控制乐高®机械组（LEGO® Technic™）电机和传感器。
+[树莓派 Build 扩展板](https://raspberrypi.com/products/build-hat)是一块附加板，可连接到树莓派的 40 引脚 GPIO 排针。它与乐高®教育（LEGO® Education）合作设计，可让你轻松使用树莓派计算机控制乐高®机械组（LEGO® Technic™）电机和传感器。
+
+>**警告**
+>
+> 树莓派 Build 扩展板目前尚不支持树莓派系统 *Trixie*。要使用 Build 扩展板，请暂时安装或继续使用树莓派系统 *Bookworm*。
 
 ![Build 扩展板](https://www.raspberrypi.com/documentation/accessories/images/build-hat.jpg)
 
 >**注意**
 >
-> 可在设备兼容性部分找到受支持设备的完整列表。
+> 可在[设备兼容性](#设备兼容性)部分找到受支持设备的完整列表。
 
-它为乐高®机械组电机和科创基础（SPIKE™）套装中的传感器提供了四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有各种尺寸，并包括集成编码器，可查询其位置。
+它为 SPIKE™ 系列产品中的乐高®机械组电机和传感器提供了四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有多种尺寸，并带有集成编码器，可查询其位置。
 
-Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机，包括通过连接排线或其他扩展设备的树莓派 400。可以轻松在 Python 中进行控制连接的乐高®机械组设备，同时还可以连接标准的树莓派配件，如摄像头模块。
+Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机，包括借助排线或其他扩展设备连接的键盘系列（Keyboard-series）设备。连接的乐高®机械组设备可以轻松地在 Python 中进行控制，同时还可以使用摄像头模块等标准树莓派配件。
 
-树莓派 Build 扩展板的电源适配器（PSU）单独出售，旨在为 Build 扩展板、树莓派计算机以及所有连接的乐高®机械组设备供电。
+树莓派 Build 扩展板的电源适配器（PSU）[单独出售](https://raspberrypi.com/products/build-hat-power-supply)，旨在为 Build 扩展板、树莓派计算机以及所有连接的乐高®机械组设备供电。
 
 ![电源适配器](https://www.raspberrypi.com/documentation/accessories/images/psu.jpg)
 
-从乐高®教育经销商单独提供的 SPIKE™ 科创基础套装 45678 和 SPIKE™ 科创基础扩展套装 45681 中，包含一组由 Build 扩展板支持的实用元件。
-
-受支持设备的完整列表
+可从乐高®教育经销商处单独购买的 SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 中，包含一组 Build 扩展板支持的实用元件。
 
 >**注意**
 >
-> 该 HAT 与所有 40 针 GPIO 树莓派开发板兼容，包括树莓派 4 和树莓派 Zero。通过添加排线电缆和其他扩展设备，也可与树莓派 400 一起使用。
+> 该扩展板可与所有带 40 引脚 GPIO 排针的树莓派开发板配合使用，包括 Zero 系列设备。借助排线或其他扩展设备，也可与键盘系列设备配合使用。
 
-* 控制 SPIKE™ Portfolio 中包含的 4 个 LEGO® Technic™ 电机和传感器。
-* 控制你的乐高®机械组设备的易于使用的 Python 库
-* 适用于带有 40 针 GPIO 引脚的所有树莓派计算机
-* Onboard RP2040 微控制器管理乐高®机械组设备的低级控制
-* 单独提供的外部 8V 电源适配器，可为 Build 扩展板和树莓派供电
+* 最多可控制 SPIKE™ 系列产品中包含的 4 个乐高®机械组电机和传感器
+* 易于使用的 [Python 库](https://buildhat.readthedocs.io/)，用于控制你的乐高®机械组设备
+* 适用于所有带有 40 引脚 GPIO 排针的树莓派计算机
+* 板载 [RP2040](https://www.raspberrypi.com/documentation/microcontrollers/microcontroller-chips.html) 微控制器负责乐高®机械组设备的低层控制
+* 外部 8V 电源适配器[单独出售](https://raspberrypi.com/products/build-hat-power-supply)，用于为 Build 扩展板和树莓派供电
 
 >**注意**
 >
-> 由于树莓派 400 不支持通过 GPIO 引脚供电，Build 扩展板不能为其供电。
+> Build 扩展板无法为键盘系列设备供电，因为它们不支持通过 GPIO 排针供电。
 
 ## 准备你的 Build 扩展板
 
 >**注意**
 >
-> 在开始使用你的树莓派 Build 扩展板之前，你应该设置你的树莓派，使用树莓派启动盘制作工具安装最新版本的操作系统。
+> 在开始使用你的树莓派 Build 扩展板之前，请先设置你的树莓派，并使用[树莓派启动盘制作工具](https://www.raspberrypi.com/downloads/)安装最新版本的操作系统。
 
-将 9mm 的间隔柱连接到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保将其正确放置。与其他扩展板不同，所有组件都在底部，为顶部的面包板和乐高®元件留出空间。
+将 9 mm 间隔柱连接到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保方向正确。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高®元件留出空间。
 
-![fitting build hat](https://www.raspberrypi.com/documentation/accessories/images/fitting-build-hat.gif)
+![安装 Build 扩展板](https://www.raspberrypi.com/documentation/accessories/images/fitting-build-hat.gif)
 
 ### 访问 GPIO 引脚
 
-如果你想使用树莓派的 GPIO 引脚，你可以添加一个可选的长排针并使用 15 mm 间隔柱。
+如果你想访问树莓派的 GPIO 引脚，可以添加一个可选的长排针，并使用 15 mm 间隔柱。
 
 ![长排针](https://www.raspberrypi.com/documentation/accessories/images/tall-headers.png)
 
-下面的引脚是 Build 扩展板本身使用的，你不应该连接其他东西到这些引脚上。
+下面的引脚由 Build 扩展板本身使用；请勿将任何东西连接到这些引脚上。
 
-| GPIO    | 使用      | 状态   |
+| GPIO    | 使用     | 状态   |
 | :-----: | :------: | :----: |
-| GPIO0/1 | ID 识别器 |        |
-| GPIO4   | 重置      |        |
-| GPIO14  | 发送      |        |
-| GPIO15  | 接收      |        |
-| GPIO16  | RTS       | 未使用 |
-| GPIO17  | CTS       | 未使用 |
+| GPIO0/1 | ID prom  |        |
+| GPIO4   | 重置     |        |
+| GPIO14  | 发送     |        |
+| GPIO15  | 接收     |        |
+| GPIO16  | RTS      | 未使用 |
+| GPIO17  | CTS      | 未使用 |
 
 ### 设置你的树莓派
 
-树莓派启动后，通过单击 Raspberry 菜单按钮，然后选择“首选项”，再选择“Raspberry Pi 配置”来打开 Raspberry Pi 配置工具。
+树莓派启动后，单击 Raspberry 菜单按钮，然后选择 **Preferences > Control Centre**，打开控制中心（Control Centre）工具。
 
-单击“接口”选项卡，并按照下面所示调整串口设置：
+选择 **Interfaces** 选项卡，并按照下图所示调整串口设置：
 
 ![设置](https://www.raspberrypi.com/documentation/accessories/images/setting-up.png)
 
 #### 使用你的无头树莓派
 
-如果你正在无头运行你的树莓派并使用 `raspi-config`，请从第一个菜单中选择“接口选项”。
+如果你正在无头运行你的树莓派并使用 `raspi-config`，请从第一个菜单中选择 “Interface Options”。
 
 ![raspi config 1](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-1.png)
 
-然后选择“P6 Serial Port”。
+然后选择 “P6 Serial Port”。
 
 ![raspi config 2](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-2.png)
 
@@ -85,57 +87,57 @@ Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机�
 
 ![raspi config 3](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-3.png)
 
-然后启用串口。
+然后启用串口硬件。
 
 ![raspi config 4](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-4.png)
 
-最终设置应该看起来像这样。
+最终设置如下所示。
 
 ![raspi config 5](https://www.raspberrypi.com/documentation/accessories/images/raspi-config-5.png)
 
-如果你已经进行了一些更改，此时需要重启。
+如果你在此期间进行了一些更改，此时需要重启。
 
 ### 为 Build 扩展板供电
 
-连接外部电源：推荐使用官方树莓派 Build 扩展板电源。但是凡是可靠的 +8V±10% 电源，能够通过 DC 5521 中心正枪形连接器（5.5mm × 2.1mm × 11mm）提供 48W 的电源，都可以为 Build 扩展板供电。除非你正在使用树莓派 400，否则无需再将树莓派接入电源。
+连接外部电源：推荐使用[官方树莓派 Build 扩展板电源](https://raspberrypi.com/products/build-hat-power-supply)。但是，凡是可靠的 +8V±10% 电源，只要能通过 DC 5521 中心正极桶形连接器（5.5 mm × 2.1 mm × 11 mm）提供 48 W 功率，都可以为 Build 扩展板供电。除非你使用的是键盘系列设备，否则无需为树莓派连接额外的 USB 电源。
 
 >**注意**
 >
-> 旧款扩展板无法为树莓派 400 供电，因为它不支持通过 GPIO 引脚取电。
+> Build 扩展板无法为键盘系列设备供电，因为它们不支持通过 GPIO 排针供电。
 
 ![扩展板供电](https://www.raspberrypi.com/documentation/accessories/images/powering-build-hat.gif)
 
 >**注意**
 >
-> 乐高®机械组电机非常强大；因此，为了驱动它们，你需要外部的 8V 电源。如果你想从电机编码器和 SPIKE™ 力传感器读取数据，你可以通过你树莓派的 USB 电源接口以平常的方式为你的树莓派和 Build 扩展板供电。与电机一样，SPIKE™ 颜色和距离传感器需要外部电源供应。
+> 乐高®机械组电机非常强大；因此，要驱动它们，你需要外部 8V 电源。如果你想从电机编码器和 SPIKE™ 力传感器读取数据，可以按照平常的方式，通过树莓派设备的 USB 电源插口为树莓派和 Build 扩展板供电。与电机一样，SPIKE™ 颜色和距离传感器也需要[外部电源](https://raspberrypi.com/products/build-hat-power-supply)。
 
-你可以选择使用 Python 和 .NET 与 Build 扩展板一起使用。
+你可以选择使用 Python 或 .NET 来操作 Build 扩展板。
 
 ## 使用 Python 操作 Build 扩展板
 
-### 安装 Python 库
+### 安装 Build 扩展板 Python 库
 
-安装 Build 扩展板 Python 库。打开终端，然后输入，
+要安装 Build 扩展板 Python 库，请打开终端窗口并运行以下命令：
 
 ```bash
 $ sudo apt install python3-build-hat
 ```
 
-有关 Build 扩展板 Python 库的更多信息，请参阅 ReadTheDocs。
+有关 Build 扩展板 Python 库的更多信息，请参阅 [ReadTheDocs](https://buildhat.readthedocs.io/)。
 
 ### 使用 Python 控制电机
 
-有许多电机可以与 Build 扩展板一起使用
+有许多电机可与 Build 扩展板配合使用。
 
 #### 连接电机
 
-将电机连接到 Build 扩展板上的接口 A。LPF2 连接器需要正确插入。如果连接器无法轻松滑入，请旋转 180 度后重试。
+将电机连接到 Build 扩展板上的 A 端口。LPF2 连接器需要以正确的方向插入。如果连接器无法轻松滑入，请旋转 180 度后重试。
 
 ![接入电机](https://www.raspberrypi.com/documentation/accessories/images/connect-motor.gif)
 
 #### 使用电机
 
-启动 Thonny IDE。添加以下代码：
+启动 [Thonny IDE](https://thonny.org/)。添加以下程序代码：
 
 ```python
 from buildhat import Motor
@@ -145,29 +147,29 @@ motor_a = Motor('A')
 motor_a.run_for_seconds(5)
 ```
 
-通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，那么在固件复制到板上时会有几秒钟的暂停。你应该看到红色 LED 熄灭，绿色 LED 点亮。以后再执行 Python 程序就不会有这种暂停了。
+通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，那么在固件复制到板上时会有几秒钟的暂停。红色 LED 熄灭，绿色 LED 点亮。之后再执行 Python 程序就无需这种暂停了。
 
 ![熄灭灯](https://www.raspberrypi.com/documentation/accessories/images/blinking-light.gif)
 
-你的电机应该顺时针转动 5 秒钟。
+你的电机顺时针转动 5 秒。
 
 ![电机转动](https://www.raspberrypi.com/documentation/accessories/images/turning-motor.gif)
 
-更改代码的最后一行并重新运行。
+更改程序的最后一行并重新运行。
 
 ```python
 motor_a.run_for_seconds(5, speed=50)
 ```
 
-电机现在应该转得更快。再做一个改变：
+电机现在转得更快了。再做一处更改：
 
 ```python
 motor_a.run_for_seconds(5, speed=-50)
 ```
 
-电机应该向相反方向（逆时针）转动
+电机向相反方向（逆时针）转动。
 
-点击 Thonny 中的加号按钮创建一个新程序。添加以下代码：
+单击 Thonny 中的加号按钮创建一个新程序。添加以下代码：
 
 ```python
 from buildhat import Motor
@@ -178,15 +180,15 @@ while True:
     print("Position: ", motor_a.get_aposition())
 ```
 
-运行程序。拿起电机并转动轴。你应该看到在 Thonny REPL 中打印的数字在变化。
+运行程序。抓住电机并转动轴。Thonny REPL 中打印的数字会发生变化。
 
 ### 使用 Python 中的传感器
 
-有许多传感器可与 Build 扩展板一起使用。
+有大量传感器可与 Build 扩展板配合使用。
 
 #### 使用传感器
 
-将彩色传感器连接到 Build 扩展板的 B 接口，将力传感器连接到 C 端口。
+将颜色传感器连接到 Build 扩展板上的 B 端口，将力传感器连接到 C 端口。
 
 >**注意**
 >
@@ -213,17 +215,17 @@ button.when_released = handle_released
 pause()
 ```
 
-运行它，并将一个彩色物体（LEGO®元素最理想）放在颜色传感器前，然后按下力传感器压杆。传感器的 LED 应该亮起，并且最接近的颜色名称应该显示在 thonny REPL 中。
+运行程序，将一个彩色物体（乐高®元件最理想）放在颜色传感器前，然后按下力传感器的压杆。传感器的 LED 亮起，Thonny REPL 中会显示最接近的颜色名称。
 
 ## 使用来自 .NET 的 Build 扩展板
 
 ### 安装 .NET 框架
 
-在树莓派上无法用 APT 安装从微软获取的 .NET 框架。但是，你可以参照微软的官方说明来安装 .NET 框架。这还有一个简化的第三方途径可以将 .NET 工具链安装到你的树莓派上。
+微软的 .NET 框架无法通过 `apt` 在树莓派上安装。不过，你可以参照微软的[官方说明](https://docs.microsoft.com/en-us/dotnet/iot/deployment)来安装 .NET 框架。此外，还有一条简化的[第三方途径](https://www.petecodes.co.uk/install-and-use-microsoft-dot-net-5-with-the-raspberry-pi/)可将 .NET 工具链安装到你的树莓派上。
 
 >**警告**
 >
-> 安装脚本以 APT 运行。你应该先阅读它，并确保你理解它在做什么。如果你有什么疑问，应该按照官方说明手动操作。
+> 安装脚本以 `root` 身份运行。在运行它之前，请先阅读它，并确保你理解它在做什么。如果你有任何疑问，请按照[官方说明](https://docs.microsoft.com/en-us/dotnet/iot/deployment)手动操作。
 
 ```bash
 $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/install.sh | sudo bash
@@ -235,7 +237,7 @@ $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/inst
 $ dotnet new console --name buildhat
 ```
 
-这将在 buildhat 子目录中创建一个默认程序，我们需要在该目录中才能继续：
+这将在 `buildhat` 子目录中创建一个默认程序，我们需要位于该目录中才能继续：
 
 ```bash
 $ cd buildhat
@@ -243,39 +245,39 @@ $ cd buildhat
 
 你现在需要安装以下 NuGet 软件包：
 
-```csharp
+```bash
 $ dotnet add package System.Device.Gpio --version 2.1.0
 $ dotnet add package Iot.Device.Bindings --version 2.1.0
 ```
 
 ### 运行 C# 代码
 
-你可以使用 dotnet run 命令运行程序。现在让我们试一下，确保一切正常。它应该打印出 "Hello World!"
+你可以使用 `dotnet run` 命令运行程序。现在让我们试一下，确保一切正常。它会打印出 “Hello World!”
 
-```csharp
+```bash
 $ dotnet run
 Hello World!
 ```
 
-(在接下来的说明中，当指示“运行程序”时，你只需重新运行 dotnet run )
+（在接下来的说明中，当指示“运行程序”时，你只需重新运行 `dotnet run`）
 
 ### 编辑 C# 代码
 
-在下面的说明中，你将编辑生成的 C# 程序文件 buildhat/Program.cs，该文件是在运行上述命令时生成的。
+在下面的说明中，你将编辑文件 `buildhat/Program.cs`，即运行上述命令时生成的 C# 程序。
 
-所有文本编辑器都可能用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。Visual Studio Code（通常称为 "VS Code"）也是一个流行的替代方案。
+任何文本编辑器都可以用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。[Visual Studio Code](https://code.visualstudio.com/docs/setup/raspberry-pi/)（通常称为 “VS Code”）也是一个流行的替代方案。
 
-### 使用 .NET 从 Build 扩展板进行操作
+### 使用 .NET 操作 Build 扩展板
 
-树莓派 Build 扩展板在乐高®术语中被称为"Brick（积木）"，你可以使用 Build 扩展板串行协议直接与之通信
+树莓派 Build 扩展板在乐高®术语中被称为 “Brick（积木）”，你可以使用 [Build 扩展板串行协议](https://pip.raspberrypi.com/documents/RP-008140-DS)从 .NET 直接与它通信。
 
-你可以按照以下方式创建一个积木对象
+你可以按照以下方式创建一个 `brick` 对象：
 
 ```csharp
 Brick brick = new("/dev/serial0");
 ```
 
-但是你需要记住在代码结尾处处理积木。
+但你需要记住在代码末尾释放 `brick`。
 
 ```csharp
 brick.Dispose();
@@ -283,17 +285,17 @@ brick.Dispose();
 
 >**警告**
 >
-> 如果你不调用 `brick.Dispose()`，你的程序将不会停止。
+> 如果你不调用 `brick.Dispose()`，你的程序将不会终止。
 
-如果你想避免在最后调用 brick.Dispose，那么请使用 using 语句创建你的模块：
+如果你想避免在结尾调用 `brick.Dispose`，那么请使用 `using` 语句创建 brick 对象：
 
 ```csharp
 using Brick brick = new("/dev/serial0");
 ```
 
-在这种情况下，当程序结束时，你的砖将被自动处理。
+在这种情况下，当程序结束时，你的 brick 会被自动释放。
 
-#### 显示信息
+#### 显示 Build 扩展板信息
 
 你可以收集各种软件版本、签名和输入电压：
 
@@ -310,14 +312,14 @@ Console.WriteLine($"Vin = {brick.InputVoltage.Volts} V");
 
 #### 获取传感器和电机详细信息
 
-函数 GetSensorType，GetSensor 将允许你检索连接传感器上的所有信息。
+函数 `GetSensorType` 和 `GetSensor` 允许你检索已连接传感器的任何信息。
 
 ```csharp
 SensorType sensor = brick.GetSensorType((SensorPort)i);
 Console.Write($"Port: {i} {(Brick.IsMotor(sensor) ? "Sensor" : "Motor")} type: {sensor} Connected: ");
 ```
 
-在这个例子中，你也可以使用 IsMotor 静态函数来检查连接的元素是传感器还是电机。
+在这个例子中，你也可以使用 `IsMotor` 静态函数来检查连接的元素是传感器还是电机。
 
 ```csharp
 if (Brick.IsActiveSensor(sensor))
@@ -331,13 +333,13 @@ else
 }
 ```
 
-ActiveSensor 具有一系列高级属性和功能，可以帮助理解传感器的每个元素。还可以从砖块中调用原始功能。这将允许你选择特定模式并执行高级场景。虽然这是可能的，但电机和传感器类已经被创建，以使你的生活更轻松。
+`ActiveSensor` 具有一系列高级属性和函数，可用于了解传感器的各个元素。还可以通过它们调用 brick 的原始函数。这将允许你选择特定模式并执行高级场景。虽然这是可行的，但电机和传感器类已经被创建出来，让你的生活更轻松。
 
 #### 事件
 
-大多数传感器在其特殊属性上实现事件。你可以简单地订阅 PropertyChanged 和 PropertyUpdated。当值发生变化时，将触发更改的事件，而在成功更新属性时将触发更新的事件。根据使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
+大多数传感器在其特殊属性上实现了事件。你可以简单地订阅 `PropertyChanged` 和 `PropertyUpdated`。当值发生变化时会触发 changed 事件，而当属性成功更新时会触发 updated 事件。根据所使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
 
-当颜色变化或电机位置变化时，你可能只对此感兴趣，将其用作转速表。在这种情况下，PropertyChanged 就是你需要的！
+当颜色变化或电机位置变化时，你可能只对此感兴趣，将其用作转速表。在这种情况下，`PropertyChanged` 就是你所需要的！
 
 ```csharp
 Console.WriteLine("Move motor on Port A to more than position 100 to stop this test.");
@@ -368,43 +370,43 @@ void MotorPropertyEvent(object? sender, PropertyChangedEventArgs e)
 
 #### 等待初始化
 
-砖块在初始化之前可能需要很长时间。已实现等待连接传感器的功能。
+brick 可能需要很长时间才能完成初始化。已实现等待传感器连接的功能。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortB);
 ```
 
-如果要实现诸如在一段时间后警告用户并重试等高级功能，也需要一段 CancellationToken 时间。
+它还接受一个 `CancellationToken`，如果你想实现高级功能（例如在一段时间后警告用户并重试），可以使用它。
 
 ### 使用 .NET 中的电机
 
-有两种类型的电机，被动电机和主动电机。主动电机将提供详细位置、绝对位置和速度，而被动电机只能通过速度来控制。
+电机有两种类型：**被动**电机和**主动**电机。主动电机将提供详细位置、绝对位置和速度，而被动电机只能通过速度来控制。
 
-有一组常见的函数可用于控制电机的速度。有两个重要的函数： SetPowerLimit 和 SetBias ：
+有一组通用的函数可用于控制电机的速度。其中有两个重要的函数：`SetPowerLimit` 和 `SetBias`：
 
 ```csharp
 train.SetPowerLimit(1.0);
 train.SetBias(0.2);
 ```
 
-只接受从 0.0 到 1.0 的值。功率限制是一种方便的方法，可以按比例减少最大功率。
+只接受从 0.0 到 1.0 的值。功率限制是一种方便的方法，可以按比例减小最大功率。
 
-添加到正电机驱动值并从负电机驱动值中减去的当前端口的偏置值集。这可以用来补偿大多数直流电机在完全转动之前需要一定量驱动的事实。
+偏置值针对当前端口设置，会加到正的电机驱动值上，并从负的电机驱动值中减去。这可以用来补偿大多数直流电机在完全转动前需要一定驱动量的事实。
 
-当创建电机时，默认值为功率限制为 0.7，偏置为 0.3。
+创建电机时的默认值为：功率限制 0.7，偏置 0.3。
 
 #### 被动电机
 
-![被动点击](https://www.raspberrypi.com/documentation/accessories/images/train-motor.png)
+![火车电机](https://www.raspberrypi.com/documentation/accessories/images/train-motor.png)
 
-火车电机，来自 Bricklink 的图片
+[火车电机，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0896c01)
 
-典型的被动电机是火车和较旧的 Powered Up 电机。Speed 属性可以设置和读取。它既是目标，也是同时测量速度的传感器，因为这些传感器没有测量它们的方法。该值范围为 -100 到 +100。
+典型的被动电机是火车电机和较旧的 Powered Up 电机。`Speed` 属性可以设置和读取。由于这类电机没有测量自身速度的方法，该值既是目标速度，也是测得的速度。取值范围为 -100 到 +100。
 
-控制 Start、Stop 和 SetSpeed 的功能也可用。以下是如何使用它的示例：
+还提供了用于控制的 `Start`、`Stop` 和 `SetSpeed` 函数。以下是一个使用示例：
 
 ```csharp
-Console.WriteLine("This will run the motor for 20 secondes incrementing the PWM");
+Console.WriteLine("This will run the motor for 20 seconds incrementing the PWM");
 train.SetPowerLimit(1.0);
 train.Start();
 for (int i = 0; i < 100; i++)
@@ -428,17 +430,17 @@ train.Stop();
 
 >**注意**
 >
-> 在火车启动后，你可以调整速度，电机会相应调整。
+> 火车启动后，你可以调整速度，电机会相应调整。
 
 #### 主动电机
 
 ![主动电机](https://www.raspberrypi.com/documentation/accessories/images/active-motor.png)
 
-主动电机，来自 Bricklink 的图片
+[主动电机，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0960c01)
 
-主动电机具有 Speed，AbsolutePosition，Position 和 TargetSpeed 作为特殊属性。即使马达停止运行，它们也会持续读取。
+主动电机将 `Speed`、`AbsolutePosition`、`Position` 和 `TargetSpeed` 作为特殊属性。即使电机停止运行，它们也会被持续读取。
 
-代码片段显示了如何获取马达，启动它们并读取属性：
+以下代码片段展示如何获取电机、启动它们并读取属性：
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -467,21 +469,21 @@ active2.Stop();
 
 >**注意**
 >
-> 在需要时不要忘记启停你的马达。
+> 在需要时不要忘记启动和停止你的电机。
 
-高级功能适用于活动电机。你可以请求移动几秒钟，到特定位置，到特定绝对位置。以下是一些示例：
+高级功能适用于主动电机。你可以请求移动几秒钟、移动到特定位置或特定绝对位置。以下是一些示例：
 
 ```csharp
-// 根据前面的示例，这将使电机回到初始位置：
+// From the previous example, this will turn the motors back to their initial position:
 active.TargetSpeed = 100;
 active2.TargetSpeed = 100;
-// 首先是这台电机，将堵塞线程
+// First this motor and will block the thread
 active.MoveToPosition(0, true);
-// 然后是这台电机，将阻塞该线程
+// Then this one and will also block the thread
 active2.MoveToPosition(0, true);
 ```
 
-每个功能都允许你阻塞或不阻塞线程，直到操作完成。请注意，对于绝对位置和相对位置移动，存在几度的容差。
+每个函数都允许你在操作执行期间阻塞或不阻塞线程。请注意，对于绝对位置和相对位置移动，存在几度的容差。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -504,15 +506,15 @@ active.MoveToAbsolutePosition(-180, PositionWay.Shortest, true);
 active.Float();
 ```
 
-你可以将电机放置在浮动位置，意味着它不再受任何约束。这是一种模式，你可以在将电机用作转速计时使用，移动它并读取位置。如果电机仍受约束，你可能无法移动它。
+你可以将电机置于浮动（float）状态，即不再对它施加任何约束。当你把电机用作转速表时可以使用这种模式：移动电机并读取位置。如果电机仍受约束，你可能无法移动它。
 
 ### 使用 .NET 中的传感器
 
-就像对于电机一样，你有主动和被动传感器。最近的传感器是主动的。被动的是灯光和简单按钮。主动传感器包括距离或颜色传感器，以及小型的 3x3 像素显示屏。
+与电机一样，传感器也分为主动和被动两种。较新的传感器大多是主动的。被动传感器是灯光和简单按钮。主动传感器包括距离传感器、颜色传感器，以及小型的 3×3 像素显示屏。
 
 #### 按钮/触摸被动传感器
 
-按钮/触摸被动传感器具有一个特定属性 IsPressed。当按钮被按下时，该属性设置为 true。这里是一个带有事件的完整示例：
+按钮/触摸被动传感器具有一个特殊属性 `IsPressed`。当按钮被按下时，该属性设置为 true。以下是一个带事件的完整示例：
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -521,7 +523,7 @@ bool continueToRun = true;
 button.PropertyChanged += ButtonPropertyEvent;
 while (continueToRun)
 {
-    // 你还可以在这里做很多其他事情
+    // You can do many other things here
     Thread.Sleep(50);
 }
 
@@ -539,44 +541,44 @@ void ButtonPropertyEvent(object? sender, PropertyChangedEventArgs e)
 }
 ```
 
-#### 被动光
+#### 被动灯光
 
-![被动光](https://www.raspberrypi.com/documentation/accessories/images/passive-light.png)
+![被动灯光](https://www.raspberrypi.com/documentation/accessories/images/passive-light.png)
 
-被动光，来自 Bricklink 的图片
+[被动灯光，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=22168c01)
 
-被动光是火车灯。它们可以打开，你可以控制它们的亮度。
+被动灯光是火车灯。可以打开它们，并控制它们的亮度。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var light = (PassiveLight)brick.GetSensor(SensorPort.PortA);
-// 亮度 50%
+// Brightness 50%
 light.On(50);
 Thread.Sleep(2000);
-// 亮度 70%
+// 70% Brightness
 light.Brightness = 70;
 Thread.Sleep(2000);
-// 关灯
+// Switch light off
 light.Off()
 ```
 
 #### 主动传感器
 
-主动传感器类是一个通用类，所有主动传感器都继承自它，包括主动马达。它们包含一组关于它们如何连接到 Build 扩展板、模式、详细组合模式、硬件、软件版本以及一个名为 ValueAsString 的特定属性。字符串值包含最后一次测量的字符串集合。测量到达时，枚举将包含 `P0C0:，+23，-42` 和 0。这样做是为了如果你正在使用高级模式并自行管理组合模式和命令，你将能够获得测量值。
+主动传感器类是一个通用类，所有主动传感器（包括主动电机）都继承自它。它们包含一组属性，涉及它们如何连接到 Build 扩展板、模式、详细的组合（Combi）模式、硬件和软件版本，以及一个名为 `ValueAsString` 的特殊属性。字符串值包含以字符串集合形式表示的最后一次测量。测量到达时形如 `P0C0: +23 -42 0`，枚举将包含 `P0C0:`、`+23`、`-42` 和 `0`。这样做是为了，如果你正在使用高级模式并自行管理组合模式和命令，你将能够获取测量值。
 
-所有活动传感器都可以运行特定的测量模式或组合模式。你可以通过高级模式使用 SelectModeAndRead 和 SelectCombiModesAndRead 功能设置一个你想要持续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。
+所有主动传感器都可以运行特定的测量模式或组合模式。你可以通过高级模式，使用 `SelectModeAndRead` 和 `SelectCombiModesAndRead` 函数设置你想要持续使用的特定模式。重要的是要理解，更改模式或设置新模式将停止之前的模式。
 
-可以在组合模式中组合的模式列在 CombiModes 属性中。当你设置其中一个模式时，传感器的所有属性将自动更新。
+可以组合进组合模式的模式列在 `CombiModes` 属性中。当你设置其中某个模式时，传感器的所有属性都会自动更新。
 
 #### WeDo Tilt Sensor（倾斜传感器）
 
 ![WeDo Tilt sensor（倾斜传感器）](https://www.raspberrypi.com/documentation/accessories/images/wedo-tilt.png)
 
-倾斜传感器，来自 Bricklink 的图片
+[WeDo Tilt sensor，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=20841)
 
-倾斜传感器具有特殊 Tilt 属性。类型是一个点，其中 X 是 X 倾斜，Y 是 Y 倾斜。数值范围从 -45 到 +45，它们被限制在这些值并表示度数。
+WeDo 倾斜传感器有一个特殊的 `Tilt` 属性。该类型是一个点（point），其中 X 是 X 轴倾斜值，Y 是 Y 轴倾斜值。数值范围从 -45 到 +45，被限制在这些值内，单位为度。
 
-你可以使用 ContinuousMeasurement 属性为该传感器设置连续测量。
+你可以使用 `ContinuousMeasurement` 属性为该传感器设置连续测量。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -595,9 +597,9 @@ while(!console.KeyAvailable)
 
 ![WeDo 距离传感器](https://www.raspberrypi.com/documentation/accessories/images/wedo-distance.png)
 
-WeDo 距离传感器，来自 Bricklink 的图片
+[WeDo 距离传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=20844)
 
-WeDo 距离传感器通过 Distance 属性以毫米为单位提供距离
+WeDo 距离传感器通过 `Distance` 属性提供以毫米为单位的距离。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -614,9 +616,9 @@ while(!console.KeyAvailable)
 
 ![spike 力传感器](https://www.raspberrypi.com/documentation/accessories/images/spike-force.png)
 
-Spike 力传感器，来自 Bricklink 的图片
+[Spike 力传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37312c01)
 
-这个力传感器测量施加在其上的压力，以及是否被按下。这两个属性可以通过 Force 和 IsPressed 属性访问。
+该力传感器测量施加在它上面的压力，以及它是否被按下。这两个属性可通过 `Force` 和 `IsPressed` 属性访问。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -629,27 +631,27 @@ while(!force.IsPressed)
 }
 ```
 
-#### SPIKE 科创基础 3x3 彩色矩阵灯
+#### SPIKE Essential 3×3 彩色灯光矩阵
 
-![SPIKE 科创基础 3x3 彩色矩阵灯](https://www.raspberrypi.com/documentation/accessories/images/3x3matrix.png)
+![SPIKE Essential 3×3 彩色灯光矩阵](https://www.raspberrypi.com/documentation/accessories/images/3x3matrix.png)
 
-SPIKE 科创基础 3x3 彩色矩阵灯 [图片来自 Bricklink](https://www.bricklink.com/v2/catalog/catalogitem.page?P=45608c01&name=Electric,%203%20x%203%20Color%20Light%20Matrix%20-%20SPIKE%20Prime&category=%5BElectric%5D#T=C)
+[Spike 3×3 矩阵，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=47592c01)
 
-这是一个带有 9 个不同 LED 的小型 3x3 显示屏，可以单独控制。该类公开了控制屏幕的功能。以下是一个使用它们的示例：
+这是一个小型 3×3 显示屏，带有 9 个可单独控制的 LED。该类公开了控制屏幕的函数。以下是一个使用示例：
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var matrix = (ColorLightMatrix)brick.GetSensor(SensorPort.PortA);
 for(byte i = 0; i < 10; i++)
 {
-    // 会像进度条一样逐个点亮每个 LED 灯
+    // Will light every led one after the other like a progress bar
     matrix.DisplayProgressBar(i);
     Thread.Sleep(1000);
 }
 
 for(byte i = 0; i < 11; i++)
 {
-    // 将显示相同颜色的矩阵，并依次显示所有矩阵
+    // Will display the matrix with the same color and go through all of them
     matrix.DisplayColor((LedColor)i);
     Thread.Sleep(1000);
 }
@@ -657,27 +659,27 @@ for(byte i = 0; i < 11; i++)
 Span<byte> brg = stackalloc byte[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 Span<LedColor> col = stackalloc LedColor[9] { LedColor.White, LedColor.White, LedColor.White,
   LedColor.White, LedColor.White, LedColor.White, LedColor.White, LedColor.White, LedColor.White };
-// 关灯
+// Shades of grey
 matrix.DisplayColorPerPixel(brg, col);
 ```
 
-#### SPIKE Prime 颜色传感器和颜色和距离传感器
+#### SPIKE Prime 颜色传感器与颜色和距离传感器
 
- SPIKE 颜色传感器：
+SPIKE 颜色传感器：
 
 ![SPIKE 颜色传感器](https://www.raspberrypi.com/documentation/accessories/images/spike-color.png)
 
-SPIKE 颜色传感器，来自 Bricklink 的图片
+[Spike 颜色传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37308c01)
 
 颜色和距离传感器：
 
 ![颜色和距离传感器](https://www.raspberrypi.com/documentation/accessories/images/color-distance.png)
 
-颜色距离传感器，来自 Bricklink 的图片
+[颜色距离传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0891c01)
 
-这些颜色传感器具有多种属性和功能。你可以获得 Color，ReflectedLight 和 AmbiantLight。
+这些颜色传感器具有多种属性和函数。你可以获取 `Color`、`ReflectedLight` 和 `AmbiantLight`。
 
-除此之外，颜色和距离传感器可以测量 Distance，并具有物体 Counter。它将自动计算进出范围的物体数量。这可以用来计算通过传感器前方的物体。距离限制在 0 到 10 厘米之间。
+除此之外，颜色和距离传感器还可以测量 `Distance`，并具有一个物体 `Counter`（计数器）。它会自动计算进出量程的物体数量，从而可以统计经过传感器前方的物体。距离限制在 0 到 10 厘米之间。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortC);
@@ -701,15 +703,15 @@ while (!Console.KeyAvailable)
 
 >**注意**
 >
-> 为了更好地测量，不建议以非常快的方式更改测量模式，颜色集成可能无法正确完成。此示例为你展示了可以使用传感器做什么。此类不实现连续测量模式。你可以通过高级模式使用 SelectModeAndRead 函数设置一个连续拥有的特定模式。重要的是要理解更改模式或设置新模式将停止先前的模式。
+> 为了获得更好的测量结果，不建议非常频繁地更改测量模式，否则颜色积分可能无法正确完成。这个示例向你展示了用该传感器能做的全部事情。此外，该类没有实现连续测量模式。你可以通过高级模式，使用 `SelectModeAndRead` 函数设置你想要持续使用的特定模式。重要的是要理解，更改模式或设置新模式将停止之前的模式。
 
 #### SPIKE Prime 超声波距离传感器
 
 ![spike 超声波距离传感器](https://www.raspberrypi.com/documentation/accessories/images/spike-distance.png)
 
-超声波距离传感器，来自 Bricklink 的图标
+[超声波距离传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37316c01)
 
-这是一个距离传感器，它实现了一个 Distance 属性，可以提供 mm 距离。这个还有一个 ContinuousMeasurement 模式可用。
+这是一个距离传感器，它实现了 `Distance` 属性，可提供以毫米为单位的距离。它还提供 `ContinuousMeasurement` 模式。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -724,48 +726,48 @@ while(!console.KeyAvailable)
 
 ## 更多资源
 
-你可以下载有关文档
+你可以下载以下文档：
 
-* [树莓派 Build HAT 串行协议 ](https://datasheets.raspberrypi.com/build-hat/build-hat-serial-protocol.pdf)
-* [树莓派 Build HAT Python 库 ](https://datasheets.raspberrypi.com/build-hat/build-hat-python-library.pdf)
+* [树莓派 Build HAT 串行协议](https://pip.raspberrypi.com/documents/RP-008140-DS)
+* [树莓派 Build HAT Python 库](https://pip.raspberrypi.com/documents/RP-008139-DS)
 
-Python 库文档的详细信息也可以在 ReadTheDocs 上找到。你可以在 .NET IoT Github 存储库中找到有关 .NET 库的更多信息。
+Python 库文档的完整详细信息也可以在 [ReadTheDocs](https://buildhat.readthedocs.io/) 上找到。你可以在 [.NET IoT](https://github.com/dotnet/iot/tree/main/src/devices/BuildHat) GitHub 存储库中找到有关 .NET 库的更多信息。
 
-你还可以关注树莓派基金会的项目，
+你还可以跟着树莓派基金会的项目一起做：
 
-* [ 乐高® 游戏控制器 ](https://projects.raspberrypi.org/en/projects/lego-game-controller)
-* [ 乐高® 机器人车 ](https://projects.raspberrypi.org/en/projects/lego-robot-car)
-* [ 乐高® 绘图仪 ](https://projects.raspberrypi.org/en/projects/lego-plotter)
-* [ 乐高® 机器人脸 ](https://projects.raspberrypi.org/en/projects/lego-robot-face)
-* [ 乐高® 数据仪表板 ](https://projects.raspberrypi.org/en/projects/lego-data-dash)
+* [乐高®游戏控制器](https://projects.raspberrypi.org/en/projects/lego-game-controller)
+* [乐高®机器人车](https://projects.raspberrypi.org/en/projects/lego-robot-car)
+* [乐高®绘图仪](https://projects.raspberrypi.org/en/projects/lego-plotter)
+* [乐高®机器人脸](https://projects.raspberrypi.org/en/projects/lego-robot-face)
+* [乐高®数据仪表板](https://projects.raspberrypi.org/en/projects/lego-data-dash)
 
 ## 设备兼容性
 
-Build 扩展板库支持 SPIKE™组合中包含的所有乐高® Technic™设备，以及来自乐高® Mindstorms 机器人发明家套件和其他使用 PoweredUp 连接器的设备。
+Build 扩展板库支持 SPIKE™ 系列产品中包含的所有乐高®机械组（LEGO® Technic™）设备，以及来自乐高® Mindstorms 机器人发明家（Robot Inventor）套件和其他使用 PoweredUp 连接器的设备。
 
 >**重要**
 >
-> 包含 Maker Plate 的 SPIKE™ Prime Expansion Set 的产品代码为 45681。原始 Expansion Set 为 45680，不包括 Maker Plate。
+> 包含 Maker Plate 的 SPIKE™ Prime 扩展套装的产品代码为 45681。最初的扩展套装为 45680，不包含 Maker Plate。
 
-| 说明               | 颜色      | 乐高物品编号                     | 在固件中支持 | 在 Python 中支持 | 替代编号       | BrickLink | 可用于                                                                                  | 设置数字            | 类             | 类型   | 设备标识 |
-| --------------------- | ----------- | ---------------------------------- | -------------- | ------------------ | ---------------- | ----------- | ----------------------------------------------------------------------------------------- | --------------------- | ---------------- | -------- | ---------- |
-| 大角度电机          | 白色/青色 | 45602                            | 是的         | 是的             | 45602          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=45602-1#T=S&O=%7B%22iconly%22:0%7D)          | SPIKE Prime Set, SPIKE Prime Expansion Set                                              | 45678, 45680        | 电机           | 活动   | 31       |
-| 中型角度电机        | 白色/青色 | 45603                            | 是           | 是的             | 45603          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=45603-1#T=S&O=%7B%22iconly%22:0%7D)          | SPIKE Prime Set                                                                         | 45678               | 电机           | 主动   | 30       |
-| 中等角度电机        | 白色/灰色 | 6299646, 6359216, 6386708        | 是           | 是               | 436655         | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?P=54696c01&idColor=86#T=C&C=86)          | Mindstorms 机器人发明家                                                                 | 51515               | 电机           | 主动的 | 4B       |
-| 小型角动力电机      | 白色/青色 | 45607, 6296520                   | 是的         | 是的             |                | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?P=45607c01)          | SPIKE Essentials Set                                                                    |                     | 电机           | 主动   | 41       |
-| 光/颜色传感器       | 白色/黑色 | 6217705                          | 是的         | 是的             |                | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37308c01&idColor=11#T=C&C=11)          | SPIKE Prime Set, SPIKE Prime Expansion Set, Mindstorms Robot Inventor, SPIKE Essentials | 45678, 45680, 51515 | 颜色传感器     | 主动   | 3D       |
-| 距离传感器          | 白色/黑色 | 6302968                          | 是           | 是               |                | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37316c01&idColor=11#T=C&C=11)          | SPIKE Prime Set, Mindstorms Robot Inventor                                              | 45678, 51515        | DistanceSensor | 主动   | 3E       |
-| 系统中型电机        | 白色/灰色 | 45303, 6138854, 6290182, 6127110 | 是的         | 是的             |                |           | Wedo 2.0，乐高点子钢琴，应用程序控制的蝙蝠车                                            | 76112               |                | 被动   | 1        |
-| 力传感器            | 白/黑     | 6254354                          | 是的         | 是的             | 45606          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37312c01&idColor=11#T=C&C=11)          | SPIKE Prime Set                                                                         | 45678               | 力传感器       | 主动   | 3F       |
-| 3×3 LED            | 白色/青色 | 45608, 6297023                   | 是           | 是的             |                | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?P=45608c01)          | SPIKE Essentials                                                                        |                     | 矩阵           | 主动   | 40       |
-| 系统列车电机        | 黑色      | 88011                            | 是的         | 是的             | 28740, 88011-1 | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88011-1#T=S&O=%7B%22iconly%22:0%7D)          | 货运火车，迪士尼火车和车站，客运列车                                                    |                     |                | 被动   | 2        |
-| 供电 LED 灯         | 黑色      | 88005                            | 是的         |                  |                | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88005-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 被动   | 8        |
-| 中等线性电机        | 白色/灰色 | 88008                            | 是           | 是               | 26913, 88008-1 | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88008-1#T=S&O=%7B%22iconly%22:0%7D)          | 提升, 机器人指挥官                                                                      |                     | 电机           | 主动 | 26       |
-| Technic 大电机          | 灰色/灰色 | 88013                            | 是的         | 是的             | 22169          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88013-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动   | 2E       |
-| Technic XL 电机     | 灰色/灰色 | 88014                            | 是的         | 是的             | 22172, 88014   | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88014-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动 | 2F       |
-| 颜色 + 距离传感器   | 白色/灰色 | 88007                            | 部分         | ？               | 26912          | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=88007-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动   | 25       |
-| WeDo 2.0 运动传感器 | 白色/灰色 | 45304, 6138855                   |              |                  | 5003423-1      | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=9583-1#T=S&O=%7B%22iconly%22:0%7D%7D)          |                                                                                         |                     |                | 主动   | 35       |
-| WeDo 2.0 倾斜传感器 | 白色/灰色 | 45305, 6138856                   |              |                  | 5003423-1      | [ 链接 ](https://www.bricklink.com/v2/catalog/catalogitem.page?S=9584-1#T=S&O=%7B%22iconly%22:0%7D)          |                                                                                         |                     |                | 主动   | 34       |
+| 说明 | 颜色 | 乐高物品编号 | 在固件中支持 | 在 Python 中支持 | 替代编号 | BrickLink | 可用于 | 套装编号 | 类 | 类型 | 设备标识 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 大型角度电机 | 白色/青色 | 45602 | 是 | 是 | 45602 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=54675c01) | SPIKE Prime 套装、SPIKE Prime 扩展套装 | 45678, 45680 | Motor | 主动 | 31 |
+| 中型角度电机 | 白色/青色 | 45603 | 是 | 是 | 45603 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=54696c01) | SPIKE Prime 套装 | 45678 | Motor | 主动 | 30 |
+| 中型角度电机 | 白色/灰色 | 6299646, 6359216, 6386708 | 是 | 是 | 436655 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=54696c01) | Mindstorms 机器人发明家 | 51515 | Motor | 主动 | 4B |
+| 小型角度电机 | 白色/青色 | 45607, 6296520 | 是 | 是 |  | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=68488c01) | SPIKE Essential 套装 |  | Motor | 主动 | 41 |
+| 光/颜色传感器 | 白色/黑色 | 6217705 | 是 | 是 |  | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37308c01) | SPIKE Prime 套装、SPIKE Prime 扩展套装、Mindstorms 机器人发明家、SPIKE Essential | 45678, 45680, 51515 | ColorSensor | 主动 | 3D |
+| 距离传感器 | 白色/黑色 | 6302968 | 是 | 是 |  | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37316c01) | SPIKE Prime 套装、Mindstorms 机器人发明家 | 45678, 51515 | DistanceSensor | 主动 | 3E |
+| 系统中型电机 | 白色/灰色 | 45303, 6138854, 6290182, 6127110 | 是 | 是 |  | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=21980) | WeDo 2.0、乐高 Ideas 钢琴、App 控制的蝙蝠车 | 76112 |  | 被动 | 1 |
+| 力传感器 | 白色/黑色 | 6254354 | 是 | 是 | 45606 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37312c01) | SPIKE Prime 套装 | 45678 | ForceSensor | 主动 | 3F |
+| 3×3 LED | 白色/青色 | 45608, 6297023 | 是 | 是 |  | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=47592c01) | SPIKE Essential |  | Matrix | 主动 | 40 |
+| 系统火车电机 | 黑色 | 88011 | 是 | 是 | 28740, 88011-1 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0896c01) | 货运火车、迪士尼火车和车站、客运列车 |  |  | 被动 | 2 |
+| PoweredUp LED 灯 | 黑色 | 88005 | 是 |  |  | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=22168c01) |  |  |  | 被动 | 8 |
+| 中型线性电机 | 白色/灰色 | 88008 | 是 | 是 | 26913, 88008-1 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0893c01) | Boost、Droid Commander |  | Motor | 主动 | 26 |
+| Technic 大型电机 | 灰色/灰色 | 88013 | 是 | 是 | 22169 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0959c01) |  |  |  | 主动 | 2E |
+| Technic XL 电机 | 灰色/灰色 | 88014 | 是 | 是 | 22172, 88014 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0960c01) |  |  |  | 主动 | 2F |
+| 颜色 + 距离传感器 | 白色/灰色 | 88007 | 部分 | ？ | 26912 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0891c01) |  |  |  | 主动 | 25 |
+| WeDo 2.0 运动传感器 | 白色/灰色 | 45304, 6138855 |  |  | 5003423-1 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=43718) |  |  |  | 主动 | 35 |
+| WeDo 2.0 倾斜传感器 | 白色/灰色 | 45305, 6138856 |  |  | 5003423-1 | [链接](https://www.bricklink.com/v2/catalog/catalogitem.page?P=14618) |  |  |  | 主动 | 34 |
 
 ## 机械图纸
 
