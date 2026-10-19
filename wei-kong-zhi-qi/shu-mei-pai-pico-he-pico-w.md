@@ -42,7 +42,7 @@ Pico 系列设备按产品代次划分为不同的**系列**。
 
 >**注意**
 >
->两款开发板均配备三针串行线调试 (SWD) 插针。然而，带有插针的 Pico 2 使用的是小型、带定位的 [3 针连接器](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf)，而 Pico 2 则是板边相邻的三个镀边通孔插针。 
+>两款开发板均配备三针串行线调试 (SWD) 排针。不过，带有插针的 Pico 2 用的是小型、带定位的 [3 针连接器](https://datasheets.raspberrypi.com/debug/debug-connector-specification.pdf)，而不带插针的 Pico 2 用的是板边相邻的三个镀边通孔排针。
 
 #### 引脚分布图和设计文件
 
