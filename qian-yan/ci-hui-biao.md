@@ -54,3 +54,4 @@
 |barrel connector|桶形连接器|
 |Maker Plate|Maker Plate|
 |float|浮点|
+|stacking header|堆叠排针|
