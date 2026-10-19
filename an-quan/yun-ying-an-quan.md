@@ -31,9 +31,9 @@
 
 ## 提高 SSH 安全性
 
-SSH 是远程访问树莓派的常用方式。默认情况下，SSH 需要用户名和密码。要提高 SSH 安全性，请使用基于密钥的身份验证。更多信息，请参阅[配置无密码 SSH](https://www.raspberrypi.com/documentation/computers/remote-access.html#configure-ssh-without-a-password)。
+SSH 是远程访问树莓派的常用方式。默认情况下，SSH 需要用户名和密码。要提高 SSH 安全性，请使用基于密钥的身份验证。更多信息，请参阅[配置无密码 SSH](../shu-mei-pai/yuan-cheng-fang-wen.md#配置无密码的-ssh)。
 
-你还可以通过修改 `sshd` 配置来**允许**或**拒绝**特定用户。更多信息，请参阅[限制可连接的用户](https://www.raspberrypi.com/documentation/computers/remote-access.html#restrict-which-users-can-connect)。
+你还可以通过修改 `sshd` 配置来**允许**或**拒绝**特定用户。更多信息，请参阅[限制可连接的用户](../shu-mei-pai/yuan-cheng-fang-wen.md#限制可连接的用户)。
 
 ## 使用 Fail2Ban 阻止可疑活动
 
@@ -61,11 +61,11 @@ $ sudo nano /etc/fail2ban/jail.local
 
 ```ini
 [ssh]
-enabled   true
-port      ssh
-filter    sshd
-backend   systemd
-maxretry  6
+enabled  = true
+port     = ssh
+filter   = sshd
+backend  = systemd
+maxretry = 6
 ```
 
 这会启用 Fail2Ban 对可疑 `ssh` 活动的检查（包括系统日志检查），并允许在阻止活动之前重试六次。
@@ -77,7 +77,7 @@ maxretry  6
 # iptables-multiport、shorewall 等）。它用于定义
 # action_* 变量。可以在全局或 jail.local 文件的
 # 每个部分内覆盖
-banaction  iptables-multiport
+banaction = iptables-multiport
 ```
 
 Multiport 会封禁所有端口上的所有访问。`action.d` 文件夹包含其他操作配置文件，可用于自定义服务器对可疑活动的响应。
@@ -86,10 +86,10 @@ Multiport 会封禁所有端口上的所有访问。`action.d` 文件夹包含�
 
 ```ini
 [ssh]
-enabled   true
-port      ssh
-filter    sshd
-backend   systemd
-maxretry  3
-bantime   -1
+enabled  = true
+port     = ssh
+filter   = sshd
+backend  = systemd
+maxretry = 3
+bantime  = -1
 ```

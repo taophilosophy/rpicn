@@ -28,11 +28,11 @@ AI HAT+ 2 还允许你运行生成式 AI（GenAI）模型。使用 AI HAT+ 2，�
 >
 >AI Kit 已停止生产；对于新设计，我们推荐使用 AI HAT+ 或 AI HAT+ 2。
 
-如果你想运行视觉 AI 模型，还需要一个受支持的摄像头，例如树莓派摄像头模块 3。我们推荐在安装 AI 硬件之前连接摄像头。有关说明，请参阅[安装树莓派摄像头](../pei-jian/she-xiang-tou.md)。请跳过重新连接树莓派电源的步骤，因为下一步必须断开树莓派电源。
+如果你想运行视觉 AI 模型，还需要一个受支持的摄像头，例如树莓派摄像头模块 3。我们建议在连接 AI 硬件之前先接好摄像头。有关说明，请参阅[安装树莓派摄像头](../pei-jian/she-xiang-tou.md#安装树莓派摄像头)。请跳过重新接通树莓派电源的步骤，因为下一步需要先断开树莓派的电源。
 
-然后，根据你的 AI 硬件，按照说明将 [AI HAT](../pei-jian/ai-hat.md)（HAT+ 或 HAT+ 2）或[人工智能套件（AI Kit）](../pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md)连接到树莓派 5。
+然后，根据你的 AI 硬件，按照说明将 [AI HAT](../pei-jian/ai-hat.md)（HAT+ 或 HAT+ 2）或 [AI Kit](../pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md) 连接到树莓派 5。
 
-接下来，按照[软件前提](#软件前提)中的说明启用 PCIe Gen 3.0（仅 AI Kit）、安装所需依赖项，并验证一切均已正确设置。
+接下来，按照[软件前提](#软件前提)中的说明启用 PCIe Gen 3.0（仅 AI Kit）、安装所需依赖项，并确认所有设置都正确无误。
 
 ## 软件前提
 

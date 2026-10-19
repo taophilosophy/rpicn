@@ -42,3 +42,11 @@
 |Cross-compilation|交叉编译|
 |Control Centre|控制中心|
 |NFS export|NFS 导出|
+|security hygiene|安全卫生|
+|Uncomplicated Firewall (UFW)|简单防火墙（UFW）|
+|key pair|密钥对|
+|recovery key|恢复密钥|
+|signing key|签名密钥|
+|OTP memory|OTP 内存|
+|manufacturing database|制造数据库|
+|Secure Boot Provisioner|安全启动配置器|

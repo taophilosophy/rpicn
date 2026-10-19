@@ -243,9 +243,9 @@ Raspberry Pi 的微控制器
 >有关如何使用调试器的说明，请参见 [Pico 系列微控制器入门指南](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)。
 
 
-### 重置 Flash 内存
+### 重置闪存
 
-Pico 的 BOOTSEL 模式存储在 RP2040 芯片的只读内存中，无法意外覆盖。无论如何，只要按住 BOOTSEL 按钮并插入 Pico，它都会显示为一个驱动器，您可以将新的 UF2 文件拖放到该驱动器上。通过软件无法将板卡刷砖。但是，在某些情况下，您可能希望确保 Flash 内存为空。您可以通过在 Pico 处于大容量存储模式时拖放一个特殊的 UF2 二进制文件来完成此操作。
+Pico 的 BOOTSEL 模式存储在 RP2040 芯片的只读内存中，不会被意外覆盖。无论如何，只要按住 BOOTSEL 按钮插入 Pico，它就会显示为一个驱动器，你可以把新的 UF2 文件拖放到该驱动器上。因此不会通过软件把板卡变砖。不过在有些情况下你可能需要确保闪存是空的，可以在 Pico 处于大容量存储模式时向其拖放一个特殊的 UF2 二进制文件来实现。
 
 * 下载 [UF2 文件](https://datasheets.raspberrypi.com/soft/flash_nuke.uf2)
 * 查看 [GitHub 上的代码](https://github.com/raspberrypi/pico-examples/blob/master/flash/nuke/nuke.c)
