@@ -30,9 +30,22 @@
 
 ## 版本说明
 
-目前已校对章节指向 2024.9.8 的[树莓派官方文档](https://raspberrypi.com/documentation)。
+**2026-10-20 起全部 52 个页面已同步至 [树莓派官方文档](https://raspberrypi.com/documentation) 当前版本**（英文原版 GitHub `master` 分支；上一基线为 [2024.9.8 版本](https://github.com/raspberrypi/documentation/commit/1b7709fea907aed7af8950f936ccfd1b82a29edd)，其间上游新增配件 11 页、计算机 6 页、微控制器 2 页、安全板块 5 页、服务 2 页，本项目已全部补译）。
 
-其他内容的版本指向 [2024.9.8](https://github.com/raspberrypi/documentation/commit/1b7709fea907aed7af8950f936ccfd1b82a29edd) 的[树莓派官方文档](https://raspberrypi.com/documentation)。
+### 翻译校对进度（2026-10-20）
+
+52 页中 **29 页已完成「三轮逐句校对 + 一轮复查」**：
+
+| 板块 | 页数 | 已复查 |
+| ---- | ---- | ---- |
+| 微控制器 | 6 | 6（100%） |
+| 安全 | 5 | 5（100%） |
+| 配件 | 20 | 10 |
+| 树莓派 | 17 | 6 |
+| 服务 | 4 | 2 |
+| **合计** | **52** | **29（56%）** |
+
+剩余页面的上游同步均已完成（结构对应、图片引用、锚点与规范已全量检查），逐句深校按板块持续进行。逐页状态见[任务书](TASKS.md)，编辑历史见[编辑日志](CHANGELOG.md)。
 
 ## 更新需求请看贡献指南文件
 
