@@ -19,7 +19,7 @@
 | Build HAT        | Build 扩展板   |
 | Sense HAT        | 传感器扩展板   |
 | TV HAT           | 电视扩展板     |
-| AI Kit           | Ai 套件       |
+| AI Kit           | AI 套件       |
 | M.2 HAT+        | M.2 HAT+      |
 | Audio Board      | 音频扩展板     |
 | Pico             | Pico          |
@@ -55,3 +55,20 @@
 |Maker Plate|Maker Plate|
 |float|浮点|
 |stacking header|堆叠排针|
+|Flagship models|旗舰型号|
+|screen magnifier|屏幕放大器|
+|headless server|无头服务器|
+|EEPROM bootloader|EEPROM 引导加载程序|
+|container format|容器格式|
+|Raspberry Pi OS Full|完整版树莓派系统|
+|debug connector|调试连接器|
+|plated edge|镀边|
+|bricking|变砖|
+|standoff|支撑柱|
+|heat spreader|散热片|
+|spudger|撬棒|
+|keycap puller|拔键器|
+|keycap|键帽|
+|stem|轴心|
+|low-profile mechanical switch|矮轴机械开关|
+|keycap profile|键帽高度|

@@ -1,6 +1,6 @@
 # 软件来源
 
-在树莓派，我们尽可能多地开源代码，以便使用和适配你的用途。树莓派专门为我们的产品开发和维护软件，并将精力集中在能提供最佳用户体验的软件上。例如，优化多媒体加速的驱动，如 3D、HEVC 解码、摄像头成像流水线、AI 加速、双 HDMI 和音频。
+在树莓派，我们尽可能多地将代码开源，以便于你按自己的用途使用和改造。树莓派专门为我们的产品开发和支持软件，并将精力集中在能提供最佳用户体验的软件上。例如，优化多媒体加速的驱动，如 3D、HEVC 解码、摄像头成像流水线、AI 加速、双 HDMI 和音频。
 
 ## 在树莓派系统中查找软件源代码
 
@@ -53,7 +53,7 @@ $ debuild -uc -us
 
 ## 分类源代码列表
 
-以下是大多数人感兴趣的精编仓库列表：
+以下是大多数人感兴趣的精选仓库列表：
 
 ### 主要源代码
 
@@ -119,7 +119,7 @@ $ debuild -uc -us
 
 **[raspberrypi-ui/agnostics](https://github.com/raspberrypi-ui/agnostics)**：用于检查 SD 卡的诊断应用程序。
 
-**[raspberrypi-ui/bookshelf](https://github.com/raspberrypi-ui/bookshelf)**：Bookshelf 应用程序的代码，可让你下载和阅读电子书以及《树莓派官方杂志》的过期期刊。
+**[raspberrypi-ui/bookshelf](https://github.com/raspberrypi-ui/bookshelf)**：Bookshelf 应用程序的代码，可让你下载和阅读电子书以及《树莓派官方杂志》的往期期刊。
 
 **[raspberrypi-ui/piclone](https://github.com/raspberrypi-ui/piclone)**：SD 卡复制器应用程序，可克隆卡和驱动器。
 
@@ -141,7 +141,7 @@ $ debuild -uc -us
 
 ### 反馈
 
-**[raspberrypi/trixie-feedback](https://github.com/raspberrypi/trixie-feedback)**：专门用于当前树莓派系统版本问题反馈的仓库。
+**[raspberrypi/trixie-feedback](https://github.com/raspberrypi/trixie-feedback)**：专门预留用于报告当前树莓派系统版本问题的仓库。
 
 ### 树莓派 Pico
 
@@ -151,7 +151,7 @@ $ debuild -uc -us
 
 **[raspberrypi/pico-sdk](https://github.com/raspberrypi/pico-sdk)**：树莓派 Pico SDK 源代码。
 
-**[raspberrypi/debugprobe](https://github.com/raspberrypi/debugprobe)**：树莓派调试套件的源代码，可轻松提供 SWD 和 UART。
+**[raspberrypi/debugprobe](https://github.com/raspberrypi/debugprobe)**：树莓派调试器的源代码，可轻松提供 SWD 和 UART。
 
 **[raspberrypi/openocd](https://github.com/raspberrypi/openocd)**：树莓派下游 OpenOCD 源代码。
 

@@ -15,8 +15,8 @@
 
 使用与以下任一项目关联的 [Raspberry Pi ID](shu-mei-pai-zhang-hao-raspberry-pi-id.md) 登录书架的用户，可以访问仅贡献者可见的图书：
 
-* 已订阅我们印刷版杂志的电子邮件地址
-* 每月捐助
+* 一个[订阅了我们印刷版杂志](https://magazine.raspberrypi.com/subscribe/new)的电子邮件地址
+* [每月捐助](https://magazine.raspberrypi.com/bookshelf/link)
 
 要设置每月捐助：
 

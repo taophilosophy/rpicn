@@ -1,236 +1,299 @@
 # 树莓派系统（Raspberry Pi OS）
 
-
 ## 简介
 
-树莓派系统（Raspberry Pi OS）是一款免费的操作系统，基于 Debian，且针对树莓派的硬件进行了适配及优化。树莓派系统拥有 35,000 余款 Debian 软件包。对于大多数树莓派使用需求而言，我们建议使用树莓派系统。
+树莓派系统（Raspberry Pi OS）是树莓派计算机的官方操作系统（OS），可免费使用。对于大多数树莓派使用场景，我们推荐使用树莓派系统。
 
-因为树莓派系统源自 Debian，因此树莓派系统基于 Debian [发布周期](https://wiki.debian.org/DebianReleases)内的阶段发行版本。大约每 2 年发布一次。
+树莓派系统基于 *Debian* Linux 发行版，支持 69,000 多个 Debian 软件包。树莓派遵循 Debian [发布周期](https://wiki.debian.org/DebianReleases)的错峰版本，大约每两年发布一次。最新版的树莓派系统基于 [Debian Trixie](https://www.raspberrypi.com/news/trixie-the-new-version-of-raspberry-pi-os/)。上一版本基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。
 
-最新版的树莓派系统基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。上个版本基于 [Debian Bullseye](https://www.raspberrypi.com/news/raspberry-pi-os-debian-bullseye/)。
+## 安装操作系统
 
-你可在 [raspberrypi.com/software/operating-systems/](https://raspberrypi.com/software/operating-systems/) 下载树莓派系统镜像。
+树莓派系统通过树莓派启动盘制作工具安装，该工具支持 Windows、Mac 和 Linux。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#树莓派启动盘制作工具的使用方法)。你也可以直接从[我们的网站](https://raspberrypi.com/software/operating-systems)下载树莓派系统的磁盘镜像（即开即用的文件），然后把它写入存储卡，开始使用你的树莓派。
 
-## 更新软件
+如果你正在运行旧版本的树莓派系统，想改用最新的大版本，请不要原地更新（不重装、直接更新当前系统），而是重新安装一份新的树莓派系统镜像，从头开始。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#树莓派启动盘制作工具的使用方法)。
 
-请始终确保你在树莓派系统上运行的软件版本是最新的。这可以使你的设备免受[漏洞](https://cve.mitre.org/index.html)影响，确保你能及时收到最新补丁。
+>**警告**
+>
+>请备份旧系统中所有你不希望丢失的重要文件。安装新系统会覆盖存储卡上的全部内容。
 
-### 使用 APT 管理软件包
+### 版本
 
-在树莓派系统中，我们推荐使用 [APT（Advanced Package Tool，高级软件包工具）](https://en.wikipedia.org/wiki/APT_(software)) 来安装、更新和卸载软件。你可以用命令行 `apt` 调用 APT。
+树莓派系统有三个版本：
 
-#### 安装更新
+* *树莓派系统*（含基础软件的桌面版）：树莓派启动盘制作工具中推荐的版本。它提供图形桌面环境，附带 Chromium 和 Firefox 网页浏览器、VLC 媒体播放器、Thonny Python 环境等应用。
+* *完整版树莓派系统*（Raspberry Pi OS Full，含基础软件和推荐应用的桌面版）：提供与默认的*树莓派系统*相同的图形桌面环境和应用，另外还包含 LibreOffice 套件、KiCad、Scratch 编程环境等许多其他应用。
+* *精简版树莓派系统*（Raspberry Pi OS Lite，无图形桌面的纯命令行版本）：适合用作无头服务器、嵌入式系统，或较老的树莓派型号，如初代树莓派、树莓派 2 和树莓派 Zero。
 
-`apt` 会把软件源列表存放在文件 `/etc/apt/sources.list` 中。在安装软件之前，请运行以下命令，来 **刷新（update）** 位于 `/etc/apt/sources.list` 的本地软件源：
+### 架构
+
+树莓派系统提供 64 位和 32 位两种版本。请选择与你的树莓派设备硬件最匹配的版本：
+
+* *64 位*版本面向配备 64 位处理器的新款树莓派型号，如树莓派 3、4 和 5。它既能运行 64 位软件，也能运行 32 位软件，还能支持更大的内存（RAM），在需要较强算力的任务上速度更快。
+* *32 位*版本面向配备 32 位处理器的老款树莓派型号，如初代树莓派、树莓派 2 和树莓派 Zero。它占用的内存更少，与旧软件、旧硬件的兼容性可能更好。
+
+## 管理软件和固件更新
+
+更新当前操作系统有两种方式：
+
+* *基于 APT*。我们向大多数用户推荐这种方式。用它来更新当前树莓派系统安装中的软件、内核和稳定版固件。有关说明，参阅[更新当前的树莓派软件](#更新当前的树莓派软件)。
+* *`rpi-update`*。用于试验性或预发布版内核与固件的测试、开发，或修复特定 bug。有关说明，参阅[更新预发布固件](#更新预发布固件)。
+
+常规固件更新包含在 APT 更新中（`raspi-firmware` 软件包）；`rpi-update` 只适合开发者和测试者，或者树莓派工程师明确指示你使用时。
+
+如果你不是想更新当前操作系统，而是想从旧版本的树莓派系统升级到新版本（例如从 Bookworm 升级到 Trixie），请用新镜像重装操作系统。有关说明，参阅[升级到新的大版本](#升级到新的大版本)。
+
+### 更新当前的树莓派软件
+
+保持树莓派上的软件处于最新状态。这有助于保护你的树莓派免受[漏洞](https://cve.mitre.org/index.html)侵害，确保你能获得最新的 bug 修复，同时还会更新你的 Linux 内核和固件。
+
+以下说明介绍如何在同一操作系统大版本内（例如 Trixie），保持*当前*安装的树莓派系统为最新。这些步骤不会把树莓派系统升级到新的大版本（例如从 Bookworm 升级到 Trixie）。有关升级操作系统的说明，参阅[升级到新的大版本](#升级到新的大版本)。
+
+我们推荐使用 APT 保持树莓派软件为最新。你也可以用 APT 查找特定的软件包或工具、查看软件包的元数据、安装和卸载特定的软件包。有关说明，参阅[管理软件包](#管理软件包)。
+
+要定期运行以下命令，用 APT 把当前的树莓派软件连同最新的修复、Linux 内核和固件一起更新：
+
+1. *更新软件包列表。* APT 在 `/etc/apt/sources.list` 和 `/etc/apt/sources.list.d/` 中维护可用软件源的列表；运行以下命令，刷新可用软件包列表：
 
 ```bash
 $ sudo apt update
 ```
 
-运行以下命令，可把所有已安装的软件包 **更新（upgrade）** 至最新版本：
+2. *把已安装的软件包更新到最新版本。* 拿到新版本列表后，运行以下命令，下载并安装更新。由于树莓派系统比 Debian 更频繁地变更软件包依赖关系，我们推荐使用 `full-upgrade`，而不是标准的 `upgrade`：
 
 ```bash
 $ sudo apt full-upgrade
 ```
 
->**技巧**
+继续更新之前，请确认你有足够的剩余磁盘空间。如果 `sudo apt full-upgrade` 提示需要额外空间才能完成更新，你可以用 `df -h` 检查系统是否有这么多可用空间，然后按照[清理文件](#清理文件)中的说明删除已下载的文件，腾出空间。
+
+### 更新预发布固件
+
+`rpi-update` 是一个命令行工具，用于在树莓派上安装试验性或预发布版固件。在树莓派 4 和 5 上，它还会更新 EEPROM 引导加载程序。
+
+`rpi-update` 会下载最新预发布版的 Linux 内核、与之匹配的内核模块、设备树文件，以及最新版的 VideoCore 固件，然后把这些文件安装到现有的树莓派系统中。
+
+>**警告**
 >
->与 Debian 不同，树莓派系统始终处于开发状态。因此，软件包的依赖关系有时会发生变更，因此你应始终使用 `full-upgrade`，而不要用普通的 `upgrade`。
+>预发布版固件不保证能正常工作，可能引入不稳定因素，导致你的系统不可靠，甚至无法启动。
 
-请定期运行这些命令，确保软件保持最新状态。在使用 `apt` 维持树莓派系统最新状态时，也会同时把你的 Linux 内核和固件变成最新版本——因为树莓派系统把他们以 Debian 软件包的形式进行分发。
+`rpi-update` 使用的所有源数据都来自 [rpi-firmware 存储库](https://github.com/raspberrypi/rpi-firmware)，该存储库包含[官方固件存储库](https://github.com/raspberrypi/firmware)数据的一个子集。
 
-在树莓派官方发布了树莓派系统的大版本更新后，执行上述命令亦不会把你的操作系统更新到这个最新的大版本。要更新到最新的大版本，请按照我们的[操作系统更新说明](https://www.raspberrypi.com/documentation/computers/os.html#upgrade-your-operating-system-to-a-new-major-version)进行操作。
+`rpi-update` 面向开发者和工程师，用于测试、开发和修复特定 bug。在大多数情况下，你不需要使用 `rpi-update`；只有树莓派工程师建议时才应使用它。日常更新请改用 APT，具体做法参阅[更新当前的树莓派软件](#更新当前的树莓派软件)。
+
+1. 备份你的系统。
+2. 运行以下命令，开始更新：
+
+```bash
+$ sudo rpi-update
+```
+
+3. 重启树莓派，让变更生效：
+
+```bash
+$ sudo reboot
+```
+
+更多信息，参阅[更新树莓派固件](https://pip.raspberrypi.com/documents/RP-003476-WP)。
+
+### 把固件降级回最近一次稳定版本
+
+如果更新到最新的预发布固件后出现问题，你可以回退到最近一次的稳定版固件，然后重启，让降级生效：
+
+```bash
+$ sudo apt update
+$ sudo apt install --reinstall raspi-firmware
+$ sudo reboot
+```
+
+这会重装树莓派系统官方支持的固件，恢复系统的稳定性。
+
+### 管理软件包
+
+在终端中，*APT* 是默认的软件包管理器，用于在当前运行的树莓派系统中安装、更新和卸载软件。你用 `apt-cache`、`apt install` 之类的终端命令来操作它。
+
+在桌面环境中，你可以用*首选项 > 添加/删除软件*（Preferences > Add / Remove Software）工具，通过图形界面管理软件。
 
 #### 搜索软件
 
-要搜索软件包，请用 `apt-cache search` 搜索（search）关键字：
-
-```bash
-$ apt-cache search <关键字>
-```
-
-例如，以下是关键字“raspi”的搜索结果：
+要查找特定的软件包或工具，使用 `apt-cache search` 加关键字。它会返回名称或描述中包含该关键字的软件包列表。例如，显示所有与 `raspi` 相关的软件包：
 
 ```bash
 $ apt-cache search raspi
-raspi3-firmware - Raspberry Pi 2 and 3 GPU firmware and bootloaders
-libcamera-apps - libcamera-apps
-libcamera-apps-lite - libcamera-apps-lite
-python-picamera - Pure Python interface to the Raspberry Pi's camera module.
-python-picamera-docs - Documentation for the Python interface to the RPi's camera module.
-python3-picamera - Pure Python interface to the Raspberry Pi's camera module.
-raspi-config - Raspberry Pi configuration tool
-raspi-gpio - Dump the state of the BCM270x GPIOs
-raspi-gpio-dbgsym - debug symbols for raspi-gpio
-raspinfo - Dump information about the Pi
-rc-gui - raspi-config GUI
-raspi-copies-and-fills - ARM-accelerated versions of selected functions from string.h
-raspi-copies-and-fills-dbgsym - debug symbols for raspi-copies-and-fills
 ```
 
-搜索结果返回了多个软件包，他们的名称或简介中均包含关键词（raspi）。
+#### 查看软件包详情
 
-使用以下命令可查看其详细信息：
-
-```bash
-$ apt-cache show <软件包名>
-```
-
-例如，假设要查询“raspi-config”这个软件包，结果如下：
+要查看某个软件包的详细信息，使用 `apt-cache show` 加软件包名。它会显示软件包版本、大小、依赖关系等信息。例如，查看 `raspi-config` 软件包的更多详细信息：
 
 ```bash
 $ apt-cache show raspi-config
-Package: raspi-config
-Version: 20210212
-Architecture: all
-Maintainer: Serge Schneider <serge@raspberrypi.org>
-Installed-Size: 121
-Depends: whiptail, parted, lua5.1, alsa-utils, psmisc, initramfs-tools
-Recommends: triggerhappy, iw
-Priority: optional
-Section: utils
-Filename: pool/main/r/raspi-config/raspi-config_20210212_all.deb
-Size: 27976
-SHA256: 772d4fd3c6d8c9da47ac56012b74e7828b53c8521ff1c47266bb38ec71750c10
-SHA1: 08254c976a8260bde914c2df72f92ffb9317fef6
-MD5sum: 80aaac13be6a9b455c822edb91cf8ea2
-Description: Raspberry Pi configuration tool
- A simple configuration tool for common Raspberry Pi administrative tasks
-Description-md5: 19630c04463bfe7193152448b53d85a0
 ```
-
-可使用此命令验证维护者、版本和大小是否满足你对软件包的要求。
 
 #### 安装软件包
 
-要在你的树莓派上安装软件包，请把软件包名传给以下命令：
+要在树莓派上安装特定的软件包，使用 `sudo apt install` 加软件包名：
 
 ```bash
-$ sudo apt install <软件包名>
+$ sudo apt install <package-name>
 ```
 
-`apt` 会显示软件包将占用的磁盘容量。输入 **Y** 并按 **回车键** 来确认安装。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
+命令会返回软件包所需的磁盘空间，并要求你确认安装。要确认安装，输入 `Y` 后按键盘上的 *回车键*。要在安装时跳过确认提示、自动回答"是"，在命令中加上 `-y`：
+
+```bash
+$ sudo apt install -y <package-name>
+```
 
 #### 卸载软件包
 
-要在树莓派上卸载软件包，请将软件包名传给以下命令：
+要在树莓派上卸载特定的软件包，使用 `sudo apt remove` 加软件包名：
 
 ```bash
-$ sudo apt remove <软件包名>
+$ sudo apt remove <package-name>
 ```
 
->**技巧**
->
->要彻底抹除软件包的全部痕迹（包括配置文件），请把 `remove` 改成 `purge`。
+命令会返回卸载该软件包可释放的磁盘空间，并要求你确认卸载。要确认卸载，输入 `Y` 后按键盘上的 *回车键*。要在卸载时跳过确认提示、自动回答"是"，在命令中加上 `-y`：
 
-`apt` 将显示：在卸载软件包后，可释放的磁盘容量。输入 **Y**，再按 **回车键** 确认卸载。你可以在上述命令中添加参数 `-y`，跳过这个确认步骤。
+```bash
+$ sudo apt remove -y <package-name>
+```
 
-#### 管理 `apt` 磁盘使用情况
+要彻底移除软件包的所有痕迹（包括配置文件），用 `purge` 代替 `remove`：
 
-在执行之前，`sudo apt full-upgrade` 将显示完成更新所需的下载及存储会占用的磁盘容量。要查看你的剩余磁盘空间是否充足，请运行以下命令：
+```bash
+$ sudo apt purge <package-name>
+```
+
+#### 检查磁盘空间
+
+在树莓派上安装或更新软件之前，用以下命令检查可用存储空间：
 
 ```bash
 $ df -h
 ```
 
-`apt` 会把已下载的软件包（`.deb` 文件）存储到 `/var/cache/apt/archives`。在安装过程中，`apt` 会下载这些软件包，然后把文件从软件包复制到对应的安装位置。视你安装的软件而定，软件包自身可能会占用大量空间。要删除所有遗留的软件包本体，请运行以下命令：
+#### 清理文件
+
+APT 把下载的软件包（`.deb` 文件）存放在 `/var/cache/apt/archives`。安装过程中，APT 先下载这些软件包，再把其中的文件复制到正确的安装位置。视你安装的软件而定，软件包文件可能占用大量磁盘空间。用以下命令删除旧的已下载软件包文件：
 
 ```bash
 $ sudo apt clean
 ```
 
-### 把你的操作系统更新至最新大版本（major version）
+### 升级到新的大版本
+
+与其在现有启动介质上原地升级，我们强烈建议你用全新安装的方式升级树莓派上的操作系统版本，例如从 Bookworm 升级到 Trixie。具体做法是：用*树莓派启动盘制作工具*把新的操作系统镜像写入新的启动介质。
+
+以下步骤需要：
+
+* 一块新的存储设备作为启动介质（通常是存储卡），以及把它连接到电脑的方式（例如 USB 读卡器）。
+* 一台电脑，用于把新的操作系统镜像写入新的启动介质，并在启动介质之间存储和转移数据。
+
+以下步骤假设你使用存储卡作为新的启动介质，并使用树莓派启动盘制作工具把新的操作系统镜像写入该启动介质。如果你的启动介质是其他类型的存储，请酌情调整以下步骤。
+
+1. *备份当前启动介质。*
 
 >**警告**
 >
->在尝试进行大版本更新前，请先行备份。
+>这一步会永久删除你选用的存储设备上的所有文件。继续之前请先备份。
 
-要把树莓派系统这个操作系统更新至最新大版本，请使用另外一张存储卡，在它上面写入新版本的镜像。从先前安装的旧系统（使用存储卡读卡器或网络存储）复制文件和配置到这张新的存储卡。然后，将这张新的存储卡插进树莓派上的卡槽，再启动。
+2. *准备写入新系统的存储设备。* 在新的存储设备上安装最新版树莓派系统的新镜像。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#树莓派启动盘制作工具的使用方法)。
+3. *复制现有的文件和配置。* 用存储设备从你的树莓派复制重要文件。
+4. *把新的启动介质插入树莓派。* 把装有新系统的存储设备插入树莓派。
+5. *启动树莓派。* 接通电源并开机。
 
-### 更新你的固件
+### 将精简版树莓派系统转换为桌面版树莓派系统
 
->**警告**
->
->在尝试固件更新前，请先行备份。
+你可以用 APT 安装一些软件包，把精简版（Lite）变成桌面版（Desktop）。
 
->**警告**
->
->软件的预发布版本能否正常工作，是无法保证的。除非得到了树莓派工程师的建议，否则不要在系统上使用 `rpi-update`。这可能导致你的系统不稳定，甚至损坏。不要把 `rpi-update` 视为日常更新流程的一部分。
+1. 安装你偏好的桌面窗口系统。
 
-要把你树莓派的固件更至最新版本，请使用 [`rpi-update`](https://github.com/raspberrypi/rpi-update)。
+* 要安装 Wayland（推荐），运行：
 
-`rpi-update` 会下载最新的 Linux 内核预发布版本及与其匹配的内核模块、设备树文件和最新的 VideoCore 固件。然后把这些文件安装到树莓派系统中。
-
-`rpi-update` 使用的所有源数据均来自 [`rpi-firmware` 存储库](https://github.com/raspberrypi/rpi-firmware)。该存储库包含来自[官方固件存储库](https://github.com/raspberrypi/firmware)的数据子集。
-
-要进行更新，请以 root 身份执行 `rpi-update`。更新完成后，需重启你的树莓派以使这些变更生效：
-
+```bash
+$ sudo apt install rpd-wayland-core
 ```
-$ sudo rpi-update
+
+* 要安装 X，运行：
+
+```bash
+$ sudo apt install rpd-x-core
+```
+
+2. 安装树莓派主题和控制中心：
+
+```bash
+$ sudo apt install rpd-theme
+$ sudo apt install rpd-preferences
+```
+
+3. 添加应用：
+
+```bash
+$ sudo apt install rpd-applications
+$ sudo apt install rpd-utilities
+$ sudo apt install rpd-developer
+$ sudo apt install rpd-graphics
+```
+
+4. 为你选择的窗口系统添加附加功能，例如截图和远程桌面能力。
+
+* 对于 Wayland，运行：
+
+```bash
+$ sudo apt install rpd-wayland-extras
+```
+
+* 对于 X，运行：
+
+```bash
+$ sudo apt install rpd-x-extras
+```
+
+5. 重启树莓派，进入桌面环境：
+
+```bash
 $ sudo reboot
 ```
 
-**[白皮书](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003476-WP/Updating-Pi-firmware.pdf)**
+现在，你已经装齐了构成桌面版树莓派系统的全部软件包。
 
->![树莓派固件更新白皮书](../.gitbook/assets/Updating-Pi-firmware.png)
->
->[树莓派固件更新白皮书](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003476-WP/Updating-Pi-firmware.pdf?_gl=1*1hyn2fi*_ga*ODAwMTM3MTg4LjE3MTc1NzY1NTQ.*_ga_22FD70LWDS*MTcyMDc2MTQ4OS4yMi4xLjE3MjA3NjE2MDIuMC4wLjA.)
->
->这本白皮书记录了如何在树莓派系统中更新 VideoCore 固件。
+如果你想回到精简版树莓派系统，可以卸载这些软件包。或者，如果你不想卸载已安装的桌面软件包、又想要精简版的体验，可以按照[启动到控制台或桌面](xi-tong-pei-zhi.md)的说明，把树莓派设置为启动到命令行。
 
-### 把固件降级到最新稳定版本
-
-如果你在把固件更新到最新版本后遇到问题，请使用以下命令把固件回滚到最新稳定版：
-
-```bash
-$ sudo apt-get update
-$ sudo apt install --reinstall raspi-firmware
-```
-
->**注意**
->
->如果你仍在使用树莓派操作系统 Bullseye，则必须用以下命令重装 `raspberrypi-kernel`：
->
->```bash
->$ sudo apt install --reinstall libraspberrypi0 libraspberrypi-{bin,dev,doc} raspberrypi-{kernel,bootloader}
->```
->
->最后，用 `sudo reboot` 重启你的树莓派以使上述变更生效。
+你还可以安装完整版树莓派系统附带的推荐应用：打开树莓派主菜单，选择**首选项 > 推荐软件**（Preferences > Recommended Software）。
 
 ## 播放音视频
 
-
-树莓派系统预装了 [VLC 媒体播放器](https://www.videolan.org/)。你可以它播放音视频文件。在树莓派系统上，VLC 支持硬件加速，可兼容多种常见的音视频文件格式。
+树莓派系统预装了 [VLC 媒体播放器](https://www.videolan.org/)。你可以用 VLC 播放音视频文件。在树莓派系统上，VLC 使用硬件加速，支持多种常见的音视频文件格式。
 
 ### VLC 媒体播放器
 
-#### 图形界面的 VLC 
+#### VLC 图形界面
 
-要在树莓派桌面播放音视频文件，请在文件管理器里双击文件。这将自动触发 VLC 播放文件。或者，在菜单“**声音和视频（Sound & Video）**”中启动 **VLC 媒体播放器（VLC Media Player）**。然后，从菜单“**媒体（Media）**”中选择“**打开文件...（Open File…）**”，然后找到到要播放的文件。
+要从树莓派桌面播放音视频文件，在文件管理器中双击文件即可，这会自动启动 VLC 播放该文件。也可以从"**声音和视频**"（Sound & Video）菜单启动 **VLC 媒体播放器**，然后从"**媒体**"（Media）菜单中选择"**打开文件...**"（Open File...），找到你想播放的文件。
 
-在默认情况下，树莓派系统会通过 HDMI 将音频输出至你的显示器。要把音频输出到其他接口（如耳机插孔、USB 扬声器），请右键单击系统托盘中的扬声器图标，然后按需选用。
+默认情况下，树莓派系统通过 HDMI 把音频输出到显示器。要把音频输出到其他接口（如耳机插孔或 USB 扬声器），右键单击系统托盘中的扬声器图标，然后选择一个选项。
 
 #### `vlc` 命令行
 
-你还可以用命令行启动 VLC。在下面的例子中，我们使用了来自《大雄兔》（Big Buck Bunny）的片段。要在树莓派上下载该片段，请执行以下命令：
+你也可以从命令行启动 VLC。下面的示例使用了《大雄兔》（Big Buck Bunny）的一个短片段。运行以下命令下载该片段：
 
 ```bash
-$ wget --trust-server-names http://rptl.io/big-buck-bunny
+$ wget --trust-server-names http://rpltd.co/big-buck-bunny
 ```
 
-要用命令行 VLC 播放视频，请运行以下命令：
+要从命令行用 VLC 播放该片段，运行以下命令：
 
 ```bash
 $ vlc big-buck-bunny-1080p.mp4
 ```
 
-要在文件播放完成后退出 VLC 的图形界面，请添加参数 `--play-and-exit`：
+要避免文件播放完毕后 VLC 的图形界面仍然停留，加参数 `--play-and-exit`：
 
 ```bash
 $ vlc --play-and-exit big-buck-bunny-1080p.mp4
 ```
 
-要全屏播放视频（在某些情况下播放会更流畅），请添加参数 `--fullscreen`：
+要全屏播放视频（某些情况下播放会更流畅），加参数 `--fullscreen`：
 
 ```bash
 $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
@@ -238,7 +301,7 @@ $ vlc --play-and-exit --fullscreen big-buck-bunny-1080p.mp4
 
 #### 使用 `cvlc` 播放无图形界面的媒体
 
-如果你在以上命令中把 `vlc` 改成 `cvlc`，那么将不会显示 VLC 的图形界面：
+如果在上述任何命令中把 `vlc` 换成 `cvlc`，就不会显示 VLC 的图形界面：
 
 ```bash
 $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
@@ -246,19 +309,19 @@ $ cvlc --play-and-exit big-buck-bunny-1080p.mp4
 
 ### 在精简版树莓派系统上播放音视频
 
-同完整版本的树莓派系统（所有 with desktop 版本）相比，精简版树莓派系统上并未预装 VLC。要在精简版树莓派系统上使用 VLC 播放音视频，请安装用于无需桌面播放的软件包：
+与完整版树莓派系统不同，精简版树莓派系统不预装 VLC。要在精简版树莓派系统上用 VLC 播放音视频，请安装无桌面播放所需的软件包：
 
 ```bash
 $ sudo apt install --no-install-recommends vlc-bin vlc-plugin-base
 ```
 
-为了下面的示例，我们使用了一个短音频的片段剪辑。要在树莓派上下载该片段，请执行以下命令：
+下面的示例使用了一个短音频片段。运行以下命令下载该片段：
 
-```
-$ wget --trust-server-names http://rptl.io/startup-music
+```bash
+$ wget --trust-server-names http://rpltd.co/startup-music
 ```
 
-要在命令行让 VLC 播放片段，请执行以下命令：
+要从命令行用 VLC 播放该片段，运行以下命令：
 
 ```bash
 $ cvlc --play-and-exit computer-startup-music.mp3
@@ -266,56 +329,66 @@ $ cvlc --play-and-exit computer-startup-music.mp3
 
 ### 指定音频输出设备
 
-要把音频强制输出到特定设备，请使用 [ALSA](https://www.alsa-project.org/wiki/Main_Page) 音频输出：把 `alsa` 值传给参数 `-A`。同时使用参数 `--alsa-audio-device` 来指定音频输出设备：
+要把音频强制输出到特定设备，把 `alsa` 值传给参数 `-A`，以使用 [ALSA](https://www.alsa-project.org/wiki/Main_Page) 音频输出；再用参数 `--alsa-audio-device` 指定音频输出设备：
 
 ```bash
-$ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-设备> computer-startup-music.mp3
+$ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startup-music.mp3
 ```
 
-用以下参数来替换占位符 `<alsa-设备>` ：
+把 `<alsa-device>` 占位符替换为以下选项之一：
 
-| ALSA 设备 | 说明                                                              |
-| :-----------: | :-------------------------------------------------------------------: |
-| `sysdefault:CARD=Headphones`          | 耳机插孔                                                          |
-| `sysdefault:CARD=vc4hdmi`          | 树莓派 Zero，树莓派 1、2、3 上的 HDMI 输出              |
-| `sysdefault:CARD=vc4hdmi0`          | 树莓派 4、5、400 和计算模块 4 上的 HDMI0 输出                     |
-| `sysdefault:CARD=vc4hdmi1`          | 树莓派 4、5、400 和计算模块 4 上的 HDMI1 输出                     |
+| ALSA 设备 | 说明 |
+| :---: | :--- |
+| `sysdefault:CARD=Headphones` | 树莓派 4 及更早型号上的耳机插孔 |
+| `sysdefault:CARD=vc4hdmi` | 单 HDMI 接口设备上的 HDMI 输出（Zero 系列、CM4S、CM4 之前的计算模块，以及树莓派 4 之前的旗舰型号） |
+| `sysdefault:CARD=vc4hdmi0` | 树莓派 4B 起的旗舰型号、CM4 起的计算模块，以及键盘系列上的 HDMI0 输出 |
+| `sysdefault:CARD=vc4hdmi1` | 树莓派 4B 起的旗舰型号、CM4 起的计算模块，以及键盘系列上的 HDMI1 输出 |
 
 >**技巧**
 >
->使用以下命令，可获取树莓派上所有 ALSA 设备列表：
-> 
+>使用以下命令，可获取树莓派上所有 ALSA 设备的列表：
+>
 >```bash
 >$ aplay -L | grep sysdefault
 >```
 
 ### 指定视频输出设备
 
-为了把视频强制输出到特定设备，即指定视频输出设备，请使用参数 `--drm-vout-display`：
+你可以通过 VLC 图形界面指定视频输出，也可以在控制台用 `--drm-vout-display` 参数指定。
+
+要从控制台指定视频输出：
+
+1. 把树莓派设备启动到[控制台](xi-tong-pei-zhi.md)。
+2. 加上 `--drm-vout-display` 参数：
 
 ```bash
-$ cvlc --play-and-exit --drm-vout-display <drm设备> big-buck-bunny-1080p.mp4
+$ cvlc --play-and-exit --drm-vout-display <drm-device> big-buck-bunny-1080p.mp4
 ```
 
-请把其中的文本 `<drm设备>` 改成以下某设备：
+3. 把 `<drm-device>` 占位符替换为以下选项之一：
 
-| DRM 设备 | 说明                                                                              |
-| :----------: | :------------------------------------------------------------------------------------: |
-| `HDMI-A-1`         | 树莓派 Zero、1、2、3 上的 HDMI 输出；树莓派 4、5、400 上的 HDMI0 输出 |
-| `HDMI-A-2`         | 树莓派 4、5、400 上的 HDMI1 输出                                                 |
-| `DSI-1`         | 树莓派触摸显示屏                                                                   |
+| DRM 设备 | 说明 |
+| :---: | :--- |
+| `HDMI-A-1` | 树莓派 Zero 或树莓派 1、2、3 上的 HDMI 输出；*或*树莓派 4B 及后续型号、所有键盘系列上的 HDMI0 输出 |
+| `HDMI-A-2` | 树莓派 4B 及后续型号、CM4 及后续计算模块（不含 CM4S），以及所有键盘系列上的 HDMI1 输出 |
+| `DSI-1` | 树莓派触摸显示屏、树莓派触摸显示屏 2，或第三方 DSI 屏幕 |
+| `DSI-2` | 配备多个 DSI 接口的型号上的第二路 DSI 输出（树莓派 5 起的旗舰型号和所有计算模块型号） |
 
 >**技巧**
 >
->使用以下命令，可获取树莓派上所有 DRM 设备列表：
+>使用以下命令，可获取树莓派上所有 DRM 设备的列表。
+>
+>>**注意**
+>>
+>>不带参数运行 `kmsprint` 只会查询找到的第一块卡。因此在树莓派 5 及后续型号上，它可能不会列出所有已接入的显示器。参阅 [kmsprint](#kmsprint)。
 >
 >```bash
 >$ kmsprint | grep Connector
 >```
 
-### 指定音视频输出设备
+### 同时指定音频和视频输出设备
 
-你可以对音频和视频输出参数进行组合。例如，要把视频定向输出到触摸屏，而把音频定向输出到耳机插孔，根据上述需求，应执行的命令组合为：
+你可以组合音频和视频输出参数。例如，要把视频输出定向到触摸屏、把音频输出定向到耳机插孔，可组合使用上述参数：
 
 ```bash
 $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audio-device sysdefault:CARD=Headphones your_video.mp4
@@ -323,7 +396,7 @@ $ cvlc --play-and-exit --fullscreen --drm-vout-display DSI-1 -A alsa --alsa-audi
 
 ### 改善流媒体播放性能
 
-如果你有 H.264 原始码流（裸流，raw H.264 stream），比如用树莓派摄像头模块捕获的码流，你可以通过把码流封装成诸如 MP4 之类的文件格式，来提升 VLC 的播放性能。你可以使用 `ffmpeg` 把码流内容转成容器文件。例如，以下命令可把名为 `video.h264` 的码流，转成 MP4 文件 `video.mp4`（30fps）：
+如果你有原始的 H.264 码流（裸流），比如用树莓派摄像头模块录制的码流，可以把码流封装进 MP4 之类的容器格式，提升 VLC 的播放性能。你可以用 `ffmpeg` 把码流内容转换成容器文件。例如，以下命令把名为 `video.h264` 的码流转换成 30fps 的 MP4 容器 `video.mp4`：
 
 ```bash
 $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
@@ -331,30 +404,42 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 ## 实用工具
 
-树莓派系统中预装了几款实用的命令行工具。
+树莓派系统预装了几款实用的命令行工具。
 
 ### `kmsprint`
 
-工具 `kmsprint` 能列出已接入树莓派的显示器所支持的分辨率。使用 `kmsprint` 可查看已接入树莓派的显示器的详细信息，使用 `kmsprint -m` 能查看显示器支持的所有分辨率列表。你可以在 [Github 上](https://github.com/tomba/kmsxx)找到实用程序 `kmsprint` 的源代码。
+`kmsprint` 工具可以列出接入树莓派的显示器所支持的显示模式。
+
+用 `kmsprint` 查看接入树莓派的所有显示器的状态，用 `kmsprint -m` 列出每台显示器支持的显示模式。你可以在 [GitHub 上](https://github.com/tomba/kmsxx)找到 `kmsprint` 的源代码。
+
+在树莓派 5 及后续型号上，显示接口（如 HDMI、DSI、DPI 和 VEC）分布在多个独立的 DRM 卡（/dev/dri/cardX）上，而不像树莓派 4 及更早型号那样合并为单一的一张卡。
+
+要在树莓派 5 上查询特定的接口，可能需要用 `--device`（或 `-d`）参数指定设备节点：
+
+```bash
+$ kmsprint --device=/dev/dri/card1
+```
+
+卡号在启动时动态分配，随接入硬件的不同，重启后可能变化。
 
 ### `vclog`
 
-`vclog` 能运行在基于 Arm 的 Linux 上，可输出 VideoCore GPU 的日志消息。它需要以 root 权限执行。
+`vclog` 在 Arm 上运行的 Linux 中显示 VideoCore GPU 的日志消息。它需要以 root 身份运行。
 
-`sudo vclog --msg` 可打印出消息日志，而 `sudo vclog --assert` 则打印出断言日志。
+`sudo vclog --msg` 打印消息日志，而 `sudo vclog --assert` 打印断言日志。
 
 ### `vcgencmd`
 
-`vcgencmd` 工具用于输出树莓派上有关 VideoCore GPU 的信息。你可以在 [GitHub 上](https://github.com/raspberrypi/utils/tree/master/vcgencmd)找到工具 `vcgencmd` 的源代码。
+`vcgencmd` 工具用于输出树莓派上 VideoCore GPU 的信息。你可以在 [GitHub 上](https://github.com/raspberrypi/utils/tree/master/vcgencmd)找到工具 `vcgencmd` 的源代码。
 
 要获取 `vcgencmd` 支持的所有命令列表，请使用 `vcgencmd commands`。下面列出了一些实用命令及其所需参数。
 
 #### `vcos`
 
-命令 `vcos` 有两个有用的子命令：
+`vcos` 命令有两个实用的子命令：
 
-* `version` 可显示 VideoCore 固件的构建日期和版本
-* `log status` 可显示 VideoCore 固件所有部分的错误日志状态
+* `version` 可显示 VideoCore 上固件的构建日期和版本
+* `log status` 可显示 VideoCore 固件各部分的错误日志状态
 
 #### `version`
 
@@ -362,62 +447,63 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 #### `get_throttled`
 
-将返回系统的限流状态，为位模式。设置位表示以下含义：
+返回系统的限流状态，这是一个位模式。某个位被置位表示以下含义：
 
-| 位 | 十六进制（Hex）值 | 意义              |
-| :----: | :------------: | :-------------------: |
-| 0  | `0x1`           | 已检测到欠压        |
-| 1  | `0x2`           | Arm 频率已受限   |
-| 2  | `0x4`           | 当前已被限流        |
-| 3  | `0x8`           | 已启用温度软限制  |
-| 16 | `0x10000`           | 曾发生欠压          |
-| 17 | `0x20000`           | 曾发生 Arm 频率限制 |
-| 18 | `0x40000`           | 曾发生限流        |
-| 19 | `0x80000`           | 曾发生温度软限制  |
+| 位 | 十六进制（Hex）值 | 含义 |
+| :---: | :---: | :--- |
+| 0 | `0x1` | 检测到欠压 |
+| 1 | `0x2` | Arm 频率受限 |
+| 2 | `0x4` | 当前被限流 |
+| 3 | `0x8` | 温度软限制生效中 |
+| 16 | `0x10000` | 曾发生欠压 |
+| 17 | `0x20000` | 曾发生 Arm 频率限制 |
+| 18 | `0x40000` | 曾被限流 |
+| 19 | `0x80000` | 曾发生温度软限制 |
 
 #### `measure_temp`
 
-`measure_temp` 可返回 SoC 的温度，数据源于其内部温度传感器。在树莓派 4 上，`measure_temp pmic` 返回的温度来自电源管理芯片（PMIC）。
+返回 SoC 内部温度传感器测得的温度。
+在树莓派 4 上，`measure_temp pmic` 返回电源管理芯片（PMIC）的温度。
 
 #### `measure_clock [时钟]`
 
-它将返回指定时钟的实时频率。可返回以下时钟值：
+返回指定时钟的当前频率。可接受以下时钟值：
 
-| 时钟 | 说明                  |
-| :------: | :------------------------: |
-| `arm`     | ARM 核心               |
-| `core`     | GPU 核心               |
-| `h264`     | H.264 模块               |
-| `isp`     | 图像传感器管道         |
-| `v3d`     | 3D 模块                   |
-| `uart`     | 串口                 |
-| `pwm`     | PWM 模块（模拟音频输出） |
-| `emmc`     | 存储卡接口              |
-| `pixel`     | 像素阀（Pixel valves）                 |
-| `vec`     | 模拟视频编码器         |
-| `hdmi`     | HDMI                   |
-| `dpi`     | 显示并行接口           |
+| 时钟 | 说明 |
+| :---: | :--- |
+| `arm` | Arm 核心 |
+| `core` | GPU 核心 |
+| `h264` | H.264 模块 |
+| `isp` | 图像传感器管道 |
+| `v3d` | 3D 模块 |
+| `uart` | 串口 |
+| `pwm` | PWM 模块（模拟音频输出） |
+| `emmc` | 存储卡接口 |
+| `pixel` | 像素阀（Pixel valves） |
+| `vec` | 模拟视频编码器 |
+| `hdmi` | HDMI |
+| `dpi` | 显示并行接口 |
 
- 例如 `vcgencmd measure_clock arm`
+例如 `vcgencmd measure_clock arm`。
 
 #### `measure_volts [模块]`
 
-它可显示特定模块使用的当前电压。可接受以下值：
+显示特定模块使用的当前电压。可接受以下模块值：
 
-| 模块 | 说明          |
-| :------: | :----------------: |
-| `core`     | VC4 核心电压     |
-| `sdram_c`     | SDRAM 核心电压 |
-| `sdram_i`     | SDRAM I/O 电压 |
-| `sdram_p`     | SDRAM 物理电压 |
+| 模块 | 说明 |
+| :---: | :--- |
+| `core` | VC4 核心电压 |
+| `sdram_c` | SDRAM 核心电压 |
+| `sdram_i` | SDRAM I/O 电压 |
+| `sdram_p` | SDRAM 物理电压 |
 
 #### `otp_dump`
 
-它将显示 SoC 内部 OTP（一次性可编程，one-time programmable）存储器中的内容。这些是 32 位值，索引范围是 8 到 64。有关更多详细信息，请参阅 [OTP 位页面](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#otp-register-and-bit-definitions)。
+显示 SoC 内部 OTP（一次性可编程，one-time programmable）存储器的内容。这些是 32 位值，索引范围是 8 到 64。更多细节请参阅 [OTP 位页面](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#otp-register-and-bit-definitions)。
 
 #### `get_config [配置项目|int|str]`
 
-它将显示指定配置项目的值。或者如要查看给定类型的所有配置项目，可指定参数 `int`（整数）、`str`（字符串）。例如，以下命令会返回设备上的全部内存大小（单位为 Mb）：
+显示指定配置项的值；也可以指定 `int`（整数）或 `str`（字符串），查看给定类型的所有配置项。例如，以下命令以 MB 为单位返回设备的总内存：
 
 ```bash
 $ vcgencmd get_config total_mem
@@ -425,75 +511,82 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem 类型`
 
-`get_mem 类型` 将报告 Arm 和 GPU 可寻址内存的大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的数量，请使用 `vcgencmd get_mem gpu`。若设备内存大于 1GB，`arm` 参数的返回值将始终用 1GB 减 `gpu` 显存，因为 GPU 固件仅获取前 1GB 内存。要想准确报告设备上的总内存，请参阅 `total_mem` 配置项和上述 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 部分。
+报告 Arm 和 GPU 可寻址的内存大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的大小，请使用 `vcgencmd get_mem gpu`。在内存大于 1GB 的设备上，`arm` 参数的返回值始终是 1GB 减去 `gpu` 内存值，因为 GPU 固件只能感知前 1GB 内存。要准确报告设备的总内存，请参阅 `total_mem` 配置项和上文的 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 小节。
 
 ##### `codec_enabled [类型]`
 
-可报告是否已启用指定类型的解码器。可支持以下类型：AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。请注意，由于在树莓派 4、400 上的 H.265 硬件模块并不属于 VideoCore GPU，因此无法用此命令查看状态。
+报告指定的编解码器类型是否启用。类型可选项有 AGIF、FLAC、H263、H264、MJPA、MJPB、MJPG、MPG2、MPG4、MVC0、PCM、THRA、VORB、VP6、VP8、WMV9、WVC1。由于树莓派 4 及后续设备家族的 H.265 硬件模块不属于 VideoCore GPU，此命令无法查询其状态。
 
 ##### `mem_oom`
 
-将显示在 VideoCore 内存空间中发生过的所有 OOM（Out of memory，内存溢出）事件的统计信息。
+显示 VideoCore 内存空间中发生过的所有 OOM（Out of memory，内存溢出）事件的统计信息。
 
 ##### `mem_reloc_stats`
 
-将显示来自 VideoCore 上可重定位内存分配器的统计信息。
+显示 VideoCore 上可重定位内存分配器的统计信息。
 
 ##### `read_ring_osc`
 
-用于返回环形振荡器的实时速度、电压和温度。
+返回环形振荡器当前的速度、电压和温度。
 
 ## 辅助功能选项
 
 ### 视觉辅助
 
-视障用户能在树莓派系统菜单中“**推荐软件（Recommended Software）**”找到有用的工具。
+有视觉障碍的树莓派系统用户，可以在菜单 **推荐软件**（Recommended Software）中找到实用的工具。
 
-我们还提供了 [Orca 屏幕阅读器](https://help.gnome.org/users/orca/stable/introduction.html.en)来简化树莓派桌面的访问。此外，我们还提供了屏幕放大器来放大用户界面，提高屏幕内容的可读性。
+我们提供 [Orca 屏幕阅读器](https://help.gnome.org/users/orca/stable/introduction.html.en)来简化树莓派桌面的操作，还提供屏幕放大器来放大界面和屏幕元素，提高可读性。你还可以在**控制中心**（Control Centre）里调整界面元素的大小。
 
 #### Orca 屏幕阅读器
 
-你可以从树莓派主菜单的 **推荐软件（Recommended Software）** 处安装 Orca 屏幕阅读器。或者，按 **Ctrl** + **Alt** + **空格键** 自动安装 Orca。
+你可以从树莓派主菜单的 **推荐软件** 中安装 Orca 屏幕阅读器，也可以按 **Ctrl** + **Alt** + **空格键** 自动安装 Orca。
 
-在安装新系统后，首次启动树莓派系统时，将在 30 秒时播放自动语音提醒。此提醒提供了有关如何安装 Orca 的说明。
+写入新镜像后首次启动树莓派系统时，30 秒后会播放一段自动语音提醒，告诉你如何安装 Orca。
+
+#### 屏幕放大器
+
+要放大屏幕，按 **Ctrl** + **Alt** + **M**。这会放大显示的桌面，因此屏幕上只能看到桌面的一部分。移动鼠标指针，即可查看放大后桌面的不同部分。要关闭屏幕放大，再按一次 **Ctrl** + **Alt** + **M**。
+
+#### 放大界面元素
+
+要放大界面元素以便于查看，选择 **首选项 > 控制中心**（Preferences > Control Centre），然后进入 **默认值**（Defaults）标签页。在这个标签页中，你可以为不同尺寸的屏幕*设置默认值*（Set Defaults）。你为越大的屏幕设置默认值，界面文字、图标和其他元素就显示得越大。
 
 ## 在树莓派上使用 Python
 
-树莓派系统预装了 Python 3。对预装的系统级 Python 进行破坏，可能会引发操作系统故障。在安装第三方 Python 库时，请确保正确使用软件包管理工具。
+树莓派系统预装了 Python 3。干扰系统 Python 安装，可能给你的操作系统带来问题。安装第三方 Python 库时，请务必使用正确的软件包管理工具。
 
-在 Linux 上，你可以用两种方式来安装 `python` 依赖包：
+在 Linux 上，你可以用两种方式安装 `python` 依赖包：
 
-* 使用 `apt` 来安装预配置系统软件包
-* 在 **虚拟环境中**，使用 `pip`，即使用 Python 的依赖管理器安装库
+* 使用 `apt` 安装预配置的系统软件包
+* 在虚拟环境中使用 `pip`，也就是用 Python 的依赖管理器安装库
 
 >**重要**
 >
->自树莓派系统 *Bookworm* 以降，若使用 `pip`，你只能将其安装至 Python 虚拟环境（`venv`）。该变更是由 Python 社区引入的，与树莓派无关：有关更多信息，请参阅 [PEP 668](https://peps.python.org/pep-0668/)。
-
+>自树莓派系统 *Bookworm* 起，你只能用 `pip` 把库安装到 Python 虚拟环境（`venv`）中。这一变更由 Python 社区引入，与树莓派无关：更多信息请参阅 [PEP 668](https://peps.python.org/pep-0668/)。
 
 ### 使用 `apt` 安装 Python 软件包
 
-用 `apt` 安装的软件包，是专为树莓派系统打包的。这些软件包大都是预编译的，因此安装速度更快。由于 `apt` 管理能所有软件包的依赖关系，使用此方法，会同时安装运行软件包所需的所有子依赖包。而 `apt` 能确保你在卸载时免于对其他软件包造成破坏。
+通过 `apt` 安装的软件包，是专为树莓派系统打包的。这些软件包通常预先编译，因此安装速度更快。由于 `apt` 管理所有软件包的依赖关系，用这种方式安装，会一并装上运行该软件包所需的全部子依赖包。而且 `apt` 能确保你在卸载时不会破坏其他软件包。
 
-例如，要安装使用树莓派 [Build 扩展板](https://www.raspberrypi.com/documentation/accessories/build-hat.html)的 Python 3 库，请运行以下命令：
+例如，要安装支持树莓派 [Build 扩展板](../pei-jian/build-hat.md)的 Python 3 库，请运行以下命令：
 
 ```bash
 $ sudo apt install python3-build-hat
 ```
 
-要查找使用 `apt` 分发的 Python 包，请[使用 `apt search`](https://www.raspberrypi.com/documentation/computers/os.html#search-for-software)。在大多数情况下，Python 包使用前缀 `python-` 和 `python3-`：比如，你会发现，名为 `python3-numpy` 的包，即为 `numpy`。
+要查找 `apt` 分发的 Python 软件包，可[使用 `apt search`](https://www.raspberrypi.com/documentation/computers/os.html#search-for-software)。在大多数情况下，Python 软件包使用 `python-` 或 `python3-` 前缀：例如，名为 `python3-numpy` 的包就是 `numpy`。
 
 ### 使用 `pip` 安装 Python 库
 
-#### Bookworm 上 `pip` 安装的变更
+#### *Bookworm* 对 `pip` 安装的变更
 
-在旧版本的树莓派系统中，你可以用 `pip` 直接把库安装到系统级 Python 中。自树莓派系统 *Bookworm* 以降，用户无法直接把库安装到系统级 Python。
+自树莓派系统 *Bookworm* 起，你无法再把库直接安装到系统级 Python。
 
-应该[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户把库安装为系统级，[请用 `apt` 来安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
+请改为[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户在系统级安装库，请[用 `apt` 安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
 
-若尝试在系统级安装 Python 软件包，将会输出类似以下报错：
+尝试在系统级安装 Python 软件包，会输出类似以下的报错：
 
-```python
+```
 $ pip install buildhat
 error: externally-managed-environment
 
@@ -513,129 +606,135 @@ note: If you believe this is a mistake, please contact your Python installation 
 hint: See PEP 668 for the detailed specification.
 ```
 
-长期以来，Python 用户一直承受着操作系统软件包管理器（`apt`）和 Python 特定软件包管理工具（`pip`）之间的冲突。这些冲突包括 Python 的 API 不兼容性、文件所有权。
+Python 用户长期面对 `apt` 这类操作系统软件包管理器与 `pip` 这类 Python 专用软件包管理工具之间的冲突。这些冲突既包括 Python 层面的 API 不兼容，也包括文件所有权之争。
 
-从树莓派系统 *Bookworm* 开始，用 `pip` 安装的软件包，**只能安装到 Python 虚拟环境（`venv`）里面**。虚拟环境是个容器，在这儿，你能安全地安装第三方模块，不会干扰系统级 Python。
+自树莓派系统 *Bookworm* 起，通过 `pip` 安装的软件包*必须安装到 Python 虚拟环境*（`venv`）中。虚拟环境是一个容器，你可以在其中安全地安装第三方模块，不会干扰系统级 Python。
 
-#### 使用 pip 和虚拟环境
+#### 将 `pip` 与虚拟环境配合使用
 
-要使用虚拟环境，请创建容器来存储环境。根据你使用 Python 的打算，有多种方法可以做到这一点。
+要使用虚拟环境，先创建一个容器来存放环境。根据你使用 Python 的方式，有以下几种做法：
 
-运行以下命令可创建一个虚拟环境配置文件夹，把 `<环境名>` 改成你想要的虚拟环境名称（如 `env`）:
+##### 为每个项目使用独立的环境
+
+许多用户会为每个 Python 项目创建独立的虚拟环境。虚拟环境放在每个项目的根文件夹中，通常共用一个名称，如 `env`。在每个项目的根文件夹中运行以下命令，创建虚拟环境配置文件夹：
 
 ```bash
-$ python -m venv <环境名>
+$ python -m venv env
+```
+
+在开始项目工作之前，在项目根目录运行以下命令，开始使用该虚拟环境：
+
+```bash
+$ source env/bin/activate
+```
+
+然后你会看到类似以下的提示符：
+
+```
+(env) $
+```
+
+项目工作结束后，在任意目录运行以下命令，退出虚拟环境：
+
+```
+(env) $ deactivate
+```
+
+##### 为每个用户使用独立的环境
+
+你也可以不为每个 Python 项目分别创建虚拟环境，而是为你的用户账户创建一个虚拟环境。**运行任何 Python 代码之前，先激活这个虚拟环境。** 对于在多个项目之间共享大量库的工作流，这种方式可能更方便。
+
+为整个用户账户的多个项目创建虚拟环境时，可以考虑把虚拟环境配置文件放在你的主目录下。把配置存放在[名称以点开头的文件夹](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)里，默认即可隐藏，避免弄乱你的主文件夹。
+
+用以下命令，在当前用户主目录的隐藏文件夹中创建虚拟环境：
+
+```bash
+$ python -m venv ~/.env
+```
+
+在任意目录运行以下命令，即可开始使用该虚拟环境：
+
+```bash
+$ source ~/.env/bin/activate
+```
+
+然后你会看到类似以下的提示符：
+
+```
+(.env) $
+```
+
+要退出虚拟环境，在任意目录运行以下命令：
+
+```
+(.env) $ deactivate
+```
+
+##### 创建虚拟环境
+
+运行以下命令创建虚拟环境配置文件夹，把 `<env-name>` 换成你想用的虚拟环境名称（例如 `env`）：
+
+```bash
+$ python -m venv <env-name>
 ```
 
 >**技巧**
 >
->要在虚拟环境中，将当前已安装的系统级 Python，所有软件包所在的文件夹，预加载至虚拟环境，请使用参数 `--system-site-packages`。
+>在文件夹名之前加参数 `--system-site-packages`，可以把系统级 Python 中当前已安装的所有软件包预加载到虚拟环境中。
 
-然后，在虚拟环境配置文件夹中执行命令 `bin/activate` 以进入虚拟环境：
+##### 进入虚拟环境
 
-```python
-$ source <环境名>/bin/activate
+然后，在虚拟环境配置文件夹中执行 `bin/activate` 脚本，进入虚拟环境：
+
+```bash
+$ source <env-name>/bin/activate
 ```
 
-然后，你应该会看到类似如下提示，其内容为：
+然后你会看到类似以下的提示符：
 
-```python
-(<环境名>) $
+```
+(<env-name>) $
 ```
 
-命令提示符前缀 `(<环境名>)` 代表当前终端会话位于名为 `<环境名>` 的虚拟环境中。
+提示符前缀 `(<env-name>)` 表示当前终端会话位于名为 `<env-name>` 的虚拟环境中。
 
-要查看当前是否位于虚拟环境，请使用 `pip list`，查看已安装软件包的列表：
+要确认自己是否在虚拟环境中，请用 `pip list` 查看已安装软件包的列表：
 
-```python
-(<环境名>) $ pip list
+```
+(<env-name>) $ pip list
 Package    Version
 ---------- -------
 pip        23.0.1
 setuptools 66.1.1
 ```
 
-虚拟环境中已安装的输出列表应该要比系统级的 Python 要短得多。你现在可以放心地使用 `pip` 来安装软件包了。在虚拟环境中，使用 `pip` 安装的所有软件包都只会安装到这个虚拟环境中。在虚拟环境中，命令 `python` 和 `python3` 会自动调用虚拟环境中的 Python 版本和已安装的软件包，而非系统级 Python。
+这个列表应该比系统级 Python 的软件包列表短得多。现在你可以放心用 `pip` 安装软件包了。在虚拟环境中用 `pip` 安装的所有软件包，都只会装进该虚拟环境。在虚拟环境中，命令 `python` 和 `python3` 会自动使用虚拟环境中的 Python 版本和已安装的软件包，而不是系统级 Python。
+
+##### 退出虚拟环境
 
 要退出虚拟环境，请运行以下命令：
 
-```python
-(<环境名>) $ deactivate
 ```
-
-#### 为每个项目使用独立的环境
-
-许多用户会为每个 Python 项目都创建一个单独的虚拟环境。然后将虚拟环境放置在每个项目的根目录中（通常使用名称 `env`）。在每个项目的根目录下，运行以下命令可创建虚拟环境配置文件夹。
-
-```bash
-$ python -m venv env
-```
-
-在开始你的项目工作之前，请在项目根目录下运行以下命令，以开始使用虚拟环境：
-
-```bash
-$ source env/bin/activate
-```
-
-然后，你应该会看到类似提示如下，内容为：
-
-```python
-(env) $
-```
-
-当你完成项目工作后，可在任意目录下运行命令，来退出虚拟环境：
-
-```bash
-(env) $ deactivate
-```
-
-#### 为每个用户使用独立的环境
-
-与为每个 Python 项目都创建一个虚拟环境有所不同，你可以为你的用户账户，单独创建一个虚拟环境。**在运行其他 Python 程序之前，先激活这个虚拟环境。** 这种方法对于在项目之间共享许多库的工作流可能更方便。
-
-当为整个用户账户，跨多个项目创建虚拟环境时，可考虑将虚拟环境配置文件放在你的主目录下。可将其配置存储在[一个以点开头的文件夹中](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)，以便在默认情况下，隐藏该文件夹，防止在主目录里弄混。
-
-使用以下命令，在当前用户的主目录中，隐藏文件夹下，创建虚拟环境：
-
-```bash
-$ python -m venv ~/.env
-```
-
-在其他目录，运行命令，即可开始使用虚拟环境：
-
-```bash
-$ source ~/.env/bin/activate
-```
-
-然后你应该会看到类似如下提示信息：
-
-```bash
-(.env) $
-```
-
-在任意目录，运行以下命令即可退出虚拟环境：
-
-```bash
-(.env) $ deactivate
+(<env-name>) $ deactivate
 ```
 
 ### 使用 Thonny 编辑器
 
-我们推荐使用 [Thonny](https://thonny.org/)，来编辑树莓派上的 Python 代码。
+我们推荐用 [Thonny](https://thonny.org/) 在树莓派上编辑 Python 代码。
 
-在默认情况下，Thonny 会使用系统级 Python。但是，你可以通过单击 Thonny 窗口右下角的 **解释器菜单（interpreter menu）** 切换使用 Python 虚拟环境。可选择配置好的环境，或使用 `配置解释器（Configure interpreter…）` 来配置一个新的虚拟环境。
+默认情况下，Thonny 使用系统级 Python。不过，你可以单击 Thonny 窗口右下角的 **解释器菜单**（interpreter menu），切换到 Python 虚拟环境。你可以选择一个已配置的环境，或用 `Configure interpreter...` 配置一个新的虚拟环境。
 
-![thonny 环境](../.gitbook/assets/thonny-venv.png)
+![Thonny 虚拟环境](../.gitbook/assets/thonny-venv.png)
 
-### 用 Python 控制 GPIO
+## 用 Python 控制 GPIO
 
-使用 [GPIO Zero](https://gpiozero.readthedocs.io/) 库能轻松地控制 GPIO 设备。该库在 [gpiozero.readthedocs.io](https://gpiozero.readthedocs.io/) 上有全面的文档。
+使用 [GPIO Zero](https://gpiozero.readthedocs.io/) 库，可以轻松地用 Python 控制 GPIO 设备。该库在 [gpiozero.readthedocs.io](https://gpiozero.readthedocs.io/) 上有全面的文档。
 
-关于 GPIO 硬件的信息，请参见 [GPIO 硬件](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio)。
+有关 GPIO 硬件的信息，请参阅 [GPIO 硬件](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio)。
 
-#### 控制 LED
+### 控制 LED
 
-以下示例代码用于控制接入到 GPIO17 的 LED：
+以下示例代码用于控制接入 GPIO17 的 LED：
 
 ```python
 from gpiozero import LED
@@ -650,13 +749,13 @@ while True:
     sleep(1)
 ```
 
-可在类似 Thonny 的 IDE 中运行，LED 会不停地闪烁。
+在 Thonny 之类的 IDE 中运行这段代码，LED 会不停地闪烁。
 
 LED 方法包括 `on()`、`off()`、`toggle()` 和 `blink()`。
 
-#### 读取按钮状态
+### 读取按钮状态
 
-以下示例代码，可读取接入到 GPIO2 按钮的状态：
+以下示例代码用于读取接入 GPIO2 的按钮状态：
 
 ```python
 from gpiozero import Button
@@ -672,11 +771,11 @@ while True:
     sleep(1)
 ```
 
-按钮函数包括属性 `is_pressed` 和 `is_held`；回调 `when_pressed`、`when_released` 和 `when_held`；以及方法 `wait_for_press()` 和 `wait_for_release`。
+按钮功能包括属性 `is_pressed` 和 `is_held`；回调 `when_pressed`、`when_released` 和 `when_held`；以及方法 `wait_for_press()` 和 `wait_for_release()`。
 
-#### 用按钮控制 LED
+### 用按钮控制 LED
 
-以下示例代码可读取接入 GPIO2 的按钮状态，并在按下按钮时，点亮接入到 GPIO17 的 LED：
+以下示例代码读取接入 GPIO2 的按钮状态，并在按钮按下时点亮接入 GPIO17 的 LED：
 
 ```python
 from gpiozero import LED, Button
@@ -691,7 +790,7 @@ while True:
         led.off()
 ```
 
-还可这么写：
+或者：
 
 ```python
 from gpiozero import LED, Button
@@ -706,7 +805,7 @@ while True:
     led.off()
 ```
 
-亦或这么写：
+也可以这样写：
 
 ```python
 from gpiozero import LED, Button
@@ -717,11 +816,3 @@ button = Button(2)
 button.when_pressed = led.on
 button.when_released = led.off
 ```
-
-#### 进一步阅读
-
-![GPIO Zero 基础电子学](https://www.raspberrypi.com/documentation/computers/images/simple-electronics-with-gpio-zero.jpg)
-
-你可以在由树莓派出版社出版的书籍[《GPIO Zero 基础电子学》（Simple Electronics with GPIO Zero）](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)中，找到有关如何使用 GPIO Zero Python 库编程，联系你树莓派的更多信息。该书使用 GPIO Zero 库帮助你入门，并通过构建一系列项目来指导你如何使用它。
-
-你可以免费[下载这本书](https://github.com/raspberrypipress/released-pdfs/raw/main/simple-electronics-with-gpio-zero.pdf)的 PDF 文件，它是根据[知识共享署名-非商业性使用-相同方式共享 3.0 国际许可（CC BY NC-SA）](https://creativecommons.org/licenses/by-nc-sa/3.0/)发布的。
