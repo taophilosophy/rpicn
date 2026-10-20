@@ -96,7 +96,7 @@ $ sudo rpi-eeprom-update -a
 $ sudo reboot
 ```
 
-更多信息，请参阅[更新软件](raspberry-pi-os.md)和[更新引导加载程序配置](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#update-the-bootloader-configuration)。
+更多信息，请参阅[更新软件](raspberry-pi-os.md#更新当前的树莓派软件)和[更新引导加载程序配置](../shu-mei-pai/shu-mei-pai-ying-jian.md#更新引导加载程序配置)。
 
 ### 安装所需依赖项
 
