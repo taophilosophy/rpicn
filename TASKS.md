@@ -138,16 +138,16 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ### 3.2 页面统计
 
-统计时间：2026-10-21 02:05
+统计时间：2026-10-21 02:30
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 13 | 2 | 0 | 2 | 0 | 76% |
+| 树莓派 | 17 | 17 | 14 | 1 | 0 | 2 | 0 | 82% |
 | 配件 | 20 | 20 | 20 | 0 | 0 | 0 | 0 | 100% |
 | 微控制器 | 6 | 6 | 6 | 0 | 0 | 0 | 0 | 100% |
 | 服务 | 4 | 4 | 2 | 2 | 0 | 0 | 0 | 50% |
 | 安全 | 5 | 5 | 5 | 0 | 0 | 0 | 0 | 100% |
-| 合计 | 52 | 52 | 46 | 4 | 0 | 2 | 0 | 88% |
+| 合计 | 52 | 52 | 47 | 3 | 0 | 2 | 0 | 90% |
 
 剩余待校 8 页：树莓派 `xi-tong-pei-zhi`(4147)、`shu-mei-pai-ying-jian`(3403)、`config.txt`(1316)、`jiu-ban-config.txt-can-shu`(902)、`she-xiang-tou-ruan-jian`(校对中)、`ji-suan-mo-kuai-ying-jian`(校对中)；服务 `yuan-cheng-fang-wen`(1268)、`connect-qi-ye-ban`(2079)。
 
@@ -165,7 +165,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/ru-men.md` | `getting-started.adoc` | 复查通过 | 3/3 | H4+主线程验收 | 2026-10-20 | F1 全新同步；H4 三轮+复查完成 20 处修订（Full→完整版树莓派系统、硬编码引用改站内锚点、逻辑反转句修正等），主线程验收：10 个跨页锚点逐一验证存在；重复标题「连接有线网络」（L272/L337）系上游结构；H4 报告 11 条上游异常（Rasberry 拼写 ×2、that→than、in one of 漏词、also/the 重复、列项重复等） |
 | `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 复查通过 | 3/3 | H4+主线程验收 | 2026-10-20 | F2 全新同步；H4 三轮+复查完成 20 处修订（发布周期句改写、删除上游没有的 GitHub 增补句、弯引号、OOM 译「内存不足」等），主线程验收通过；代码围栏 110 条逐字一致；遗留 L514 锚点 `#get_config-配置项目intstr` 依赖 GitBook slug 对 `[|]` 的处理，待 CI 验证 |
 | `shu-mei-pai/xi-tong-pei-zhi.md` | `configuration.adoc` | 已同步 | 0/3 | 代理 F3（完成） | 2026-10-20 | F3 全新同步（15 H2；初轮漏 reference 节已打回补录，text 标记违规已修），主线程已验证落盘；待三轮逐句校对 |
-| `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 已同步 | 0/3 | 代理 F4（完成） | 2026-10-20 | F4 全文重写（13 H2；989→1316 行，含 armstub/sha256/enable_jtag_gpio 补录与大量默认值修订），主线程已验证落盘；待三轮逐句校对 |
+| `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 复查通过 | 3/3 | F4+主线程 | 2026-10-20 | F4 全文重写已验收 + 主线程逐句三轮：对照上游 13 文件 1672 行（1317 行中文）；**参数清单脚本比对 65/65 完全对齐（零缺失零多余）**；autoboot.txt A/B 启动流程、文件格式 98 字符限制、常见参数/启动参数/配置属性/板载音频/HDMI 音频/GPIO/超频/条件筛选器/内存/编解码/视频节逐句核对；超频默认频率表 10 列×14 行、同值参数表 4 行逐格一致；74 条代码围栏成对；页内锚点与相对链接零缺失；零新增修改 |
 | `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 复查通过 | 3/3 | B4 | 2026-10-20 | 主线程三轮：逐句对照 linux_kernel.adoc（564 行中文）；7 节与上游一一对应；修正 3 处（官方 URL 内部化、术语统一）；BCM2712/kernel_2712 参数名逐字核对 |
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 复查通过 | 3/3 | G2+主线程 | 2026-10-20 | G2 中断 + 主线程逐句三轮：对照上游 31 个文件 3474 行（3112 行中文，3140 行改后）；参数参考 5 文件全量核对（common 607 行/options_still+vid+libav+detect）；修正 30 余处：补译 Hailo 相关（meson 两条命令 -Denable_hailo=disabled、TIP 第 4 条、标志参考 2 条）、ldconfig 提示块与 rpicam-still --version 检查步骤、libopencv-dev 依赖、low-latency 与 sync 两个参数、detect 注意块 TFLite 链接、反引号错位 3 处（post-process 段首、num_frames 单元格）、术语（舞台→阶段 2 处、vksip→vskip）、上游已删的 Bullseye/Glamor 冗余段删除；8 个内外部链接补全并内部化；上游笔误记录（rescaling、h,>、You can can、the the）；快检 274 围栏成对 |
