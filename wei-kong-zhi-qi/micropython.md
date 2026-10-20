@@ -72,4 +72,4 @@ if hasattr(network, "WLAN"):
 (name='micropython', version=(1, 19, 1), _machine='Raspberry Pi Pico W with RP2040', _mpy=4102)
 ```
 
-如果 `sys.implementation._machine` 中存在 'Pico W' 字符串，那么你的固件就是为 Pico W 编译的。
+如果 `sys.implementation._machine` 中存在 “Pico W” 字符串，那么你的固件就是为 Pico W 编译的。
