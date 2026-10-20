@@ -439,7 +439,7 @@ $ rpicam-raw -t 5000 --width 4056 --height 3040 -o test.raw --framerate 8
 
 >**注意**
 >
->树莓派系统不包括 `rpicam-detect`。但是，如果你安装了 TensorFlow Lite，可以自行编译 `rpicam-detect`。有关更多信息，请参阅 [`rpicam-apps` 编译说明](#构建-libcamera-和-rpicam-apps)。运行 `meson` 时，请不要忘记传入 `-Denable_tflite=enabled`。
+>树莓派系统不包括 `rpicam-detect`。但是，如果你[安装了 TensorFlow Lite](#使用-tensorflow-lite-进行后处理)，可以自行编译 `rpicam-detect`。有关更多信息，请参阅 [`rpicam-apps` 编译说明](#构建-libcamera-和-rpicam-apps)。运行 `meson` 时，请不要忘记传入 `-Denable_tflite=enabled`。
 
 `rpicam-detect` 显示一个预览窗口，并使用经过训练的 Google MobileNet v1 SSD（Single Shot Detector）神经网络监视画面，该网络使用 COCO 数据集训练，可识别约 80 类对象。`rpicam-detect` 可以识别人、汽车、猫和许多其他对象。
 
@@ -1688,6 +1688,14 @@ $ mkvmerge -o test.mkv --timecodes 0:timestamps.txt test.h264
 #### `framerate`
 
 记录完全指定的帧速率。接受非零整数。
+#### `low-latency`
+
+在树莓派 5 上，`--low-latency` 参数可降低编码延迟，这对实时流媒体应用可能有利，但代价是编码效率会（略微）降低（例如，不再使用 B 帧和算术编码）。
+
+#### `sync`
+
+以软件同步模式运行摄像头，在此模式下多台摄像头会将帧同步到同一时刻。`sync` 模式可以设置为 `client` 或 `server`。有关更多信息，请参阅[软件同步的工作原理](#软件摄像头同步)。
+
 
 ### `libav` 参数
 
@@ -1772,7 +1780,7 @@ Name: alsa_input.usb-GN_Netcom_A_S_Jabra_EVOLVE_LINK_000736B1214E0A-00.mono-fall
 
 ## 使用 `rpicam-apps` 进行后处理
 
-rpicam-apps` 共享一个通用的后处理框架。这使它们能够通`过一系列自定义图像处理和图像分析例程传参从相机系统接收到的图像。每个这样的例程被称为一个阶段。要运行后处理阶段，请提供一个 JSON 文件，指示应用程序应用哪些阶段和参数。你可以在 rpicam-apps 存储库的 assets 文件夹中找到使用内置后处理阶段的示例 JSON 文件。
+`rpicam-apps` 共享一个通用的后处理框架。这使它们能够通过一系列自定义图像处理和图像分析例程，处理从相机系统接收到的图像。每个这样的例程被称为一个*阶段*。要运行后处理阶段，请提供一个 JSON 文件，指示应用程序应用哪些阶段和参数。你可以在 [`rpicam-apps` 存储库的 `assets` 文件夹](https://github.com/raspberrypi/rpicam-apps/tree/main/assets)中找到使用内置后处理阶段的示例 JSON 文件。
 
 例如，否定阶段将亮像素变暗，暗像素变亮。由于否定阶段是基本的，不需要配置，negate.json 只是命名该阶段：
 
@@ -1851,7 +1859,7 @@ $ rpicam-hello --post-process-file negate.json
 
 你可以使用以下参数配置此阶段：
 
-| `num_frames` | 累积帧数；对于 DRC，请使用 `1`；对于 HDR，请尝试 `8|                                                                                                                                                                                                          |
+| `num_frames` | 累积帧数；对于 DRC，请使用 `1`；对于 HDR，请尝试 `8` |                                                                                                                                                                                                          |
 | :--: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `lp_filter_strength` | 低通 IIR 滤波器的系数。                                                                                                                                                                                                                         |
 | `lp_filter_threshold` | 将像素级别与有意义细节的阈值相关联的分段线性函数。                                                                                                                                                                                              |
@@ -1961,7 +1969,7 @@ $ rpicam-still -o test.jpg --ev -2 --denoise cdn_off --post-process-file hdr.jso
 | `difference_c` | 用于根据 `threshold = difference_m * pixel_value + difference_c` 构建像素阈值的恒定系数 |
 | `frame_period` | 运行此数量帧的运动检测器                                                              |
 | `hskip` | 像素水平下采样的数量                                                                  |
-| `vksip` | 垂直方向按此比例进行像素子采样                                                        |
+| `vskip` | 垂直方向按此比例进行像素子采样                                                        |
 | `region_threshold` | 必须将多少比例的像素（区域）归类为不同，才能算作运动                                  |
 | `verbose` | 将消息打印到控制台，包括运动状态发生变化时                                            |
 
@@ -2158,7 +2166,7 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 }
 ```
 
-舞台使用尺寸为 224×224 的低分辨率流图像。运行以下命令以使用此舞台文件与 `rpicam-hello`：
+该阶段使用尺寸为 224×224 的低分辨率流图像。运行以下命令以使用此阶段文件与 `rpicam-hello`：
 
 ```bash
 $ rpicam-hello --post-process-file object_classify_tf.json --lores-width 224 --lores-height 224
@@ -2257,7 +2265,7 @@ $ rpicam-hello --post-process-file pose_estimation_tf.json --lores-width 258 --l
 }
 ```
 
-舞台在尺寸为 300×300 的低分辨率流图像上运行。运行以下命令，从尺寸为 400×300 的低分辨率图像中心传参一个 300×300 的裁剪到检测器，以使用此舞台文件与 `rpicam-hello`：
+该阶段在尺寸为 300×300 的低分辨率流图像上运行。运行以下命令，从尺寸为 400×300 的低分辨率图像中心将一个 300×300 的裁剪区域传给检测器，以使用此阶段文件与 `rpicam-hello`：
 
 ```bash
 $ rpicam-hello --post-process-file object_detect_tf.json --lores-width 400 --lores-height 300
@@ -2384,7 +2392,7 @@ TfStage 类实现了所有后处理阶段通常必须实现的成员函数，除
 要构建 `rpicam-apps` 而不必先重新构建 `libcamera` 和 `libepoxy`，请使用 `apt` 安装 `libcamera`、`libepoxy` 及其依赖项：
 
 ```bash
-$ sudo apt install -y libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng-dev
+$ sudo apt install -y libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng-dev libopencv-dev
 ```
 
 >**技巧**
@@ -2397,7 +2405,7 @@ $ sudo apt install -y libcamera-dev libepoxy-dev libjpeg-dev libtiff5-dev libpng
 $ sudo apt install -y qtbase5-dev libqt5core5a libqt5gui5 libqt5widgets5
 ```
 
-为了在树莓派系统中支持 `libav`，请安装以下附加依赖项：
+为了在 `rpicam-vid` 中支持 `libav`，请安装以下附加依赖项：
 
 ```bash
 $ sudo apt install libavcodec-dev libavdevice-dev libavformat-dev libswresample-dev
@@ -2498,18 +2506,21 @@ $ cd rpicam-apps
 对于像树莓派系统这样的基于桌面的操作系统，使用以下 `meson` 命令配置 `rpicam-apps` 构建：
 
 ```bash
-$ meson setup build -Denable_libav=enabled -Denable_drm=enabled -Denable_egl=enabled -Denable_qt=enabled -Denable_opencv=disabled -Denable_tflite=disabled
+$ meson setup build -Denable_libav=enabled -Denable_drm=enabled -Denable_egl=enabled -Denable_qt=enabled -Denable_opencv=disabled -Denable_tflite=disabled -Denable_hailo=disabled
 ```
 
 对于像精简版树莓派系统这样的无头操作系统，使用以下 `meson` 命令配置 `rpicam-apps` 构建：
 
 ```bash
-$ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=disabled -Denable_qt=disabled -Denable_opencv=disabled -Denable_tflite=disabled
+$ meson setup build -Denable_libav=disabled -Denable_drm=enabled -Denable_egl=disabled -Denable_qt=disabled -Denable_opencv=disabled -Denable_tflite=disabled -Denable_hailo=disabled
 ```
 
 >**技巧**
 >
->使用 `-Dneon_flags=armv8-neon` 来启用树莓派 3 或树莓派 4 上 32 位操作系统的优化。如果已安装 OpenCV 并希望使用基于 OpenCV 的后处理阶段，请使用 `-Denable_opencv=enabled`。如果已安装 TensorFlow Lite 并希望在后处理阶段中使用它，请使用 `-Denable_tflite=enabled`。
+>* 使用 `-Dneon_flags=armv8-neon` 来启用树莓派 3 或树莓派 4 上 32 位操作系统的优化。
+>* 如果已安装 OpenCV 并希望使用基于 OpenCV 的后处理阶段，请使用 `-Denable_opencv=enabled`。
+>* 如果已安装 TensorFlow Lite 并希望在后处理阶段中使用它，请使用 `-Denable_tflite=enabled`。
+>* 如果已安装 HailoRT 并希望在后处理阶段中使用它，请使用 `-Denable_hailo=enabled`。
 
 现在可以使用以下命令构建 `rpicam-apps`：
 
@@ -2519,16 +2530,31 @@ $ meson compile -C build
 
 >**技巧**
 >
->在内存为 1GB 或更小的设备上，编译可能会溢出可用内存。请在 meson 命令中附加参数 `-j 1`，将构建限制为单个进程。这应该可以防止在设备上如树莓派 Zero 和树莓派 3 上超出可用内存。
+>在内存为 1GB 或更小的设备上，编译可能会溢出可用内存。请在 `meson` 命令中附加参数 `-j 1`，将构建限制为单个进程。这应该可以防止在树莓派 Zero 和树莓派 3 等设备上超出可用内存。
+
 最后，运行以下命令安装你新构建的 `rpicam-apps` 二进制文件：
 
 ```bash
 $ sudo meson install -C build
 ```
 
-安装后打开一个新的终端窗口，以确保你使用新的二进制文件。
+>**技巧**
+>
+>前面的命令会自动更新 `ldconfig` 缓存。如果你无法访问新的 `rpicam-apps` 构建，请运行以下命令来更新缓存：
+>
+>```bash
+>$ sudo ldconfig
+>```
 
-最后，在“配置”部分遵循 `dtoverlay` 和显示驱动程序说明。
+运行以下命令，检查你的设备是否使用了新的二进制文件：
+
+```bash
+$ rpicam-still --version
+```
+
+输出中会包含你本地 `rpicam-apps` 构建的日期和时间。
+
+最后，请遵循[配置](#配置)一节中的 `dtoverlay` 和显示驱动程序说明。
 
 #### rpicam-apps 墨森标志参考
 
@@ -2546,7 +2572,11 @@ meson 构建配置支持以下标志：
 
 `-Denable_opencv=enabled` 强制 OpenCV 基于的后处理阶段链接或不链接。需要启用 OpenCV。默认为 `disabled`。
 
-`-Denable_tflite=enabled` 启用或禁用 TensorFlow Lite 后处理阶段。默认情况下禁用。需要启用 Tensorflow Lite。根据你构建和/或安装 TFLite 的方式，你可能需要调整 `post_processing_stages` 目录中的文件 `meson.build` 。
+`-Denable_tflite=enabled` 启用或禁用 TensorFlow Lite 后处理阶段。默认情况下禁用。需要启用 TensorFlow Lite。根据你构建和/或安装 TFLite 的方式，你可能需要调整 `post_processing_stages` 目录中的文件 `meson.build` 。
+
+`-Denable_hailo=enabled` 启用或禁用基于 HailoRT 的后处理阶段。需要启用 HailoRT。默认为 `auto`。
+
+`-Ddownload_hailo_models=true` 为 HailoRT 后处理阶段下载并安装模型。需要安装 `wget`。默认为 `true`。
 
 以上参数中的每个参数（ `neon_flags` 除外）支持以下值：
 
@@ -2642,7 +2672,7 @@ app.SetEncodeOutputReadyCallback(std::bind(&Output::OutputReady, output.get(), _
 
 `rpicam-raw` 不会将任何内容转发到预览窗口。
 
-NullEncoder 在 `rpicam-raw` 可能过度。我们可能直接将图像发送到 Output 对象，而不是。但是，`rpicam-apps` 需要限制事件循环中的工作。NullEncoder 演示了如何在其他线程中处理大多数进程（甚至保持引用）。
+在 `rpicam-raw` 中，`NullEncoder` 可能有些过度。我们也许可以直接将图像发送到 `Output` 对象，而不必经过它。但是，`rpicam-apps` 需要限制事件循环中的工作量。`NullEncoder` 演示了如何在其他线程中处理大多数流程（甚至是保持引用）。
 
 #### `rpicam-jpeg`
 
@@ -2678,9 +2708,9 @@ Qt 是一种流行的应用程序框架和 GUI 工具包。`rpicam-apps` 包括�
 
 ### 使用 Python 与 Picamera2 一道使用 libcamera
 
-Picamera2 库是基于 rpicam 的替代品，用于取代 Picamera，后者是 Python 接口，用于树莓派的旧版摄像头堆栈。Picamera2 提供了易于使用的 Python API。
+[Picamera2 库](https://github.com/raspberrypi/picamera2)是基于 `rpicam` 的替代品，用于取代 Picamera——后者是树莓派旧版摄像头堆栈的 Python 接口。Picamera2 提供了易于使用的 Python API。
 
-有关 Picamera2 的文档可在 GitHub 和 Picamera2 手册中找到。
+有关 Picamera2 的文档可在 [GitHub](https://github.com/raspberrypi/picamera2) 和 [Picamera2 手册](https://pip.raspberrypi.com/documents/RP-008156-DS)中找到。
 
 #### 安装
 
@@ -2867,7 +2897,7 @@ crontab: installing new crontab
 
 ## V4L2 驱动程序
 
-V4L2 驱动程序为访问摄像头和编解码器功能提供了标准的 Linux 接口。通常，Linux 在启动时会自动加载驱动程序。但在某些情况下，你可能需要显式加载摄像头驱动程序。
+V4L2 驱动程序为访问摄像头和编解码器功能提供了标准的 Linux 接口。通常，Linux 在启动时会自动加载驱动程序。但在某些情况下，你可能需要[显式加载摄像头驱动程序](#配置)。
 
 ### 使用 libcamera 时的设备节点
 
@@ -2886,7 +2916,7 @@ V4L2 驱动程序为访问摄像头和编解码器功能提供了标准的 Linux
 
 ### 使用 V4L2 驱动程序
 
-有关如何使用 V4L2 驱动程序的更多信息，请参阅 V4L2 文档。
+有关如何使用 V4L2 驱动程序的更多信息，请参阅 [V4L2 文档](https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/v4l2.html)。
 
 ## Unicam
 
@@ -2957,9 +2987,9 @@ ccp2  |             |
 
 相机传感器的传感器驱动程序负责设备的所有配置，通常通过 I²C/SPI。与从头开始编写驱动程序不同，通常更容易以现有驱动程序为基础并根据需要进行修改。
 
-IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 位 Bayer 读出，因此枚举帧格式和帧大小稍微复杂一些。
+[IMX219 驱动程序](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/drivers/media/i2c/imx219.c)是一个很好的起点。该驱动程序支持 8 位和 10 位 Bayer 读出，因此枚举帧格式和帧大小稍微复杂一些。
 
-传感器通常支持 V4L2 用户控件。并非所有这些控件都需要在驱动程序中实现。IMX219 驱动程序仅实现了一个小子集，如下所列，其实现由 `imx219_set_ctrl` 函数处理。
+传感器通常支持 [V4L2 用户控件](https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/control.html)。并非所有这些控件都需要在驱动程序中实现。IMX219 驱动程序仅实现了一个小子集，如下所列，其实现由 `imx219_set_ctrl` 函数处理。
 
 * `V4L2_CID_PIXEL_RATE` / `V4L2_CID_VBLANK` / `V4L2_CID_HBLANK`：允许应用程序设置帧速率
 * `V4L2_CID_EXPOSURE`：设置曝光时间（以行为单位）；应用程序需要使用 `V4L2_CID_PIXEL_RATE`、`V4L2_CID_HBLANK` 和帧宽度来计算行时间
@@ -2970,13 +3000,13 @@ IMX219 驱动程序是一个很好的起点。该驱动程序支持 8 位和 10 
 
 在 IMX219 的情况下，许多这些控件直接映射到对传感器本身的寄存器写入。
 
-进一步的指导可在 libcamera 传感器驱动要求和树莓派摄像头调整指南第 3 章中找到。
+进一步的指导可在 `libcamera` 的 [传感器驱动要求](https://git.linuxtv.org/libcamera.git/tree/Documentation/sensor_driver_requirements.rst)中，以及[树莓派摄像头调整指南](https://pip.raspberrypi.com/documents/RP-009070-TC)第 3 章中找到。
 
 ##### 设备树
 
 设备树用于选择传感器驱动程序并配置参数，如 CSI-2 通道数量、连续时钟通道操作和链路频率（通常仅支持一个）。
 
-6.1 内核的 IMX219 设备树叠加层可在 GitHub 上获得。
+6.1 内核的 [IMX219 设备树叠加层](https://github.com/raspberrypi/linux/blob/rpi-6.1.y/arch/arm/boot/dts/overlays/imx219-overlay.dts)可在 GitHub 上获得。
 
 #### 桥接芯片
 
@@ -3085,22 +3115,19 @@ HDMI 通过接收设备广告 EDID 来协商分辨率，其中包含其支持的
 
 如果你的摄像头模块不像你期望的那样工作，请尝试以下一些修复方法：
 
-* 在树莓派 3 及更旧版本的设备上运行树莓派系统 Bullseye 及更旧的版本：
-  * 要启用硬件加速的摄像头预览，请启用 Glamor。要启用 Glamor，请在终端中输入 `sudo raspi-config`，选择 Advanced Options > Glamor > Yes。然后使用 `sudo reboot` 重启你的树莓派。
-  * 如果你看到与显示驱动程序相关的错误，请将 `dtoverlay=vc4-fkms-v3d` 或 `dtoverlay=vc4-kms-v3d` 添加到 `/boot/config.txt`。然后使用 `sudo reboot` 重启你的树莓派。
-* 在旧版树莓派 3 及更早版本上，图形硬件只能支持最大尺寸为 2048×2048 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 2048 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
+* 在树莓派 3 及更早版本上，图形硬件只能支持最大尺寸为 2048×2048 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 2048 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
 * 在树莓派 4 上，图形硬件只能支持最大尺寸为 4096×4096 像素的图像，这限制了可以调整大小以适应预览窗口的相机图像。因此，对大于 4096 像素宽的图像进行视频编码会产生损坏或缺失的预览图像。
 * 预览窗口可能在桌面环境中显示屏幕撕裂。这是一个已知的，无法修复的问题。
 * 检查 FFC（平面柔性电缆）是否牢固插入，完全插入，并且接触面朝向正确方向。FFC 应该均匀插入，不应倾斜。
 * 如果你在相机和你的树莓派之间使用连接器，请检查连接器上的端口是否牢固插入，完全插入，并且接触面朝向正确方向。
 * 检查确保 FFC（平面柔性电缆）连接到 CSI（摄像头串行接口），而不是 DSI（显示串行接口）。连接器适配到任一端口，但只有 CSI 端口可以为摄像头供电和控制。在靠近端口的板上查找打印的 CSI 标签。
-* [更新到最新软件。](https://www.raspberrypi.com/documentation/computers/os.html#update-software)
+* [更新到最新软件。](../shu-mei-pai/raspberry-pi-os.md#更新当前的树莓派软件)
 * 尝试不同的电源适配器。摄像头模块会给你的树莓派的电源需求增加约 200-250mA。如果你的电源适配器质量不高，你的树莓派可能无法为摄像头模块供电。
-* 如果你已经检查了上述所有问题，但摄像头模块仍然无法按照你的期望工作，请尝试在我们的论坛上发帖以获取更多帮助。
+* 如果你已经检查了上述所有问题，但摄像头模块仍然无法按照你的期望工作，请尝试在[我们的论坛](https://forums.raspberrypi.com/)上发帖以获取更多帮助。
 
 ## 获取帮助
 
-要获取有关 libcamera 和 `rpicam-apps` 的进一步帮助，请查看树莓派摄像头论坛。在发帖之前：
+要获取有关 `libcamera` 和 `rpicam-apps` 的进一步帮助，请查看[树莓派摄像头论坛](https://forums.raspberrypi.com/viewforum.php?f=43)。在发帖之前：
 
 * 记下你的操作系统版本（ `uname -a` ）。
 * 记下你 libcamera 和 `rpicam-apps` 的版本（ `rpicam-hello --version` ）。
@@ -3109,4 +3136,4 @@ HDMI 通过接收设备广告 EDID 来协商分辨率，其中包含其支持的
 * 报告你的树莓派型号，包括内存大小。
 * 包括应用程序控制台输出中的所有相关摘录。
 
-如果相机软件中存在特定问题（例如崩溃），请考虑在 GitHub 存储库中创建一个问题，包括上面列出的相同细节。
+如果相机软件中存在特定问题（例如崩溃），请考虑在 [`rpicam-apps` GitHub 存储库中创建一个问题](https://github.com/raspberrypi/rpicam-apps)，并包括上面列出的相同细节。
