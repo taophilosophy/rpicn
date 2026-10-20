@@ -108,7 +108,7 @@ Raspberry Pi 500+ 套件包含以下物品：
 
 ## 入门
 
-本节将指导你为 Raspberry Pi 键盘计算机配置[树莓派系统（OS）](https://www.raspberrypi.com/documentation/computers/os.html#os-installation)、Wi-Fi 和外设（鼠标和显示器），以便将其作为台式计算机使用。有关设置 Raspberry Pi 的更详细指导，或想采用其他配置方式入门，请参阅[入门](ru-men.md)。
+本节将指导你为 Raspberry Pi 键盘计算机配置[树莓派系统（OS）](raspberry-pi-os.md#安装操作系统)、Wi-Fi 和外设（鼠标和显示器），以便将其作为台式计算机使用。有关设置 Raspberry Pi 的更详细指导，或想采用其他配置方式入门，请参阅[入门](ru-men.md)。
 
 如果符合以下情况，你可以跳过[第 1 步：准备启动介质](#第-1-步准备启动介质)，改为从[第 2 步：连接外设](#第-2-步连接外设)开始：
 

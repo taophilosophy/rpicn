@@ -14,15 +14,15 @@
 >
 > 可在[设备兼容性](#设备兼容性)部分找到受支持设备的完整列表。
 
-它为 SPIKE™ 系列产品中的乐高®机械组电机和传感器提供了四个连接器。可用的传感器包括距离传感器、颜色传感器和多功能力传感器。角度电机有多种尺寸，并带有集成编码器，可查询其位置。
+它为 SPIKE™ 系列产品中的乐高®机械组电机和传感器提供了四个连接器。可用的传感器包括距离传感器、颜色传感器和多用途力传感器。角度电机有多种尺寸，并带有集成编码器，可查询其位置。
 
-Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机，包括借助排线或其他扩展设备连接的键盘系列（Keyboard-series）设备。连接的乐高®机械组设备可以轻松地在 Python 中进行控制，同时还可以使用摄像头模块等标准树莓派配件。
+Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机，包括借助排线或其他扩展设备连接的键盘系列（Keyboard-series）设备。连接的乐高®机械组设备可轻松用 Python 控制，同时还可搭配摄像头模块等标准树莓派配件。
 
 树莓派 Build 扩展板的电源适配器（PSU）[单独出售](https://raspberrypi.com/products/build-hat-power-supply)，旨在为 Build 扩展板、树莓派计算机以及所有连接的乐高®机械组设备供电。
 
 ![电源适配器](.gitbook/assets/psu.jpg)
 
-可从乐高®教育经销商处单独购买的 SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 中，包含一组 Build 扩展板支持的实用元件。
+SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 可从乐高®教育经销商处单独购买，其中包含一组 Build 扩展板支持的实用元件。
 
 >**注意**
 >
@@ -67,7 +67,7 @@ Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机�
 
 ### 设置你的树莓派
 
-树莓派启动后，单击 Raspberry 菜单按钮，然后选择 **Preferences > Control Centre**，打开控制中心（Control Centre）工具。
+树莓派启动后，单击 Raspberry 菜单按钮，然后选择 **Preferences > Control Centre**，打开控制中心工具。
 
 选择 **Interfaces** 选项卡，并按照下图所示调整串口设置：
 
@@ -75,7 +75,7 @@ Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机�
 
 #### 使用你的无头树莓派
 
-如果你正在无头运行你的树莓派并使用 `raspi-config`，请从第一个菜单中选择 “Interface Options”。
+如果你以无头方式运行树莓派，并使用 `raspi-config`，请从第一个菜单中选择 “Interface Options”。
 
 ![raspi config 1](.gitbook/assets/raspi-config-1.png)
 
@@ -99,7 +99,7 @@ Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机�
 
 ### 为 Build 扩展板供电
 
-连接外部电源：推荐使用[官方树莓派 Build 扩展板电源](https://raspberrypi.com/products/build-hat-power-supply)。但是，凡是可靠的 +8V±10% 电源，只要能通过 DC 5521 中心正极桶形连接器（5.5 mm × 2.1 mm × 11 mm）提供 48 W 功率，都可以为 Build 扩展板供电。除非你使用的是键盘系列设备，否则无需为树莓派连接额外的 USB 电源。
+连接外部电源：推荐使用[官方树莓派 Build 扩展板电源](https://raspberrypi.com/products/build-hat-power-supply)。不过，任何可靠的 +8V±10% 电源，只要能通过 DC 5521 中心正极桶形连接器（5.5 mm × 2.1 mm × 11 mm）提供 48 W 功率，都能为 Build 扩展板供电。除非你使用的是键盘系列设备，否则无需为树莓派连接额外的 USB 电源。
 
 >**注意**
 >
@@ -147,7 +147,7 @@ motor_a = Motor('A')
 motor_a.run_for_seconds(5)
 ```
 
-通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，那么在固件复制到板上时会有几秒钟的暂停。红色 LED 熄灭，绿色 LED 点亮。之后再执行 Python 程序就无需这种暂停了。
+通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，固件复制到板上的过程中会暂停几秒。红色 LED 熄灭，绿色 LED 点亮。此后运行 Python 程序就不再需要这段等待。
 
 ![熄灭灯](.gitbook/assets/blinking-light.webm)
 
@@ -182,7 +182,7 @@ while True:
 
 运行程序。抓住电机并转动轴。Thonny REPL 中打印的数字会发生变化。
 
-### 使用 Python 中的传感器
+### 使用 Python 读取传感器
 
 有大量传感器可与 Build 扩展板配合使用。
 
@@ -217,7 +217,7 @@ pause()
 
 运行程序，将一个彩色物体（乐高®元件最理想）放在颜色传感器前，然后按下力传感器的压杆。传感器的 LED 亮起，Thonny REPL 中会显示最接近的颜色名称。
 
-## 使用来自 .NET 的 Build 扩展板
+## 使用 .NET 操作 Build 扩展板
 
 ### 安装 .NET 框架
 
@@ -237,7 +237,7 @@ $ wget -O - https://raw.githubusercontent.com/pjgpetecodes/dotnet5pi/master/inst
 $ dotnet new console --name buildhat
 ```
 
-这将在 `buildhat` 子目录中创建一个默认程序，我们需要位于该目录中才能继续：
+这将在 `buildhat` 子目录中创建一个默认程序；要继续操作，需要先进入该目录：
 
 ```bash
 $ cd buildhat
@@ -252,7 +252,7 @@ $ dotnet add package Iot.Device.Bindings --version 2.1.0
 
 ### 运行 C# 代码
 
-你可以使用 `dotnet run` 命令运行程序。现在让我们试一下，确保一切正常。它会打印出 “Hello World!”
+你可以使用 `dotnet run` 命令运行程序。现在让我们试一下，确保一切正常。它会打印出 “Hello World!”。
 
 ```bash
 $ dotnet run
@@ -267,7 +267,7 @@ Hello World!
 
 任何文本编辑器都可以用来编辑 C# 代码，包括预装的 Geany IDE/文本编辑器。[Visual Studio Code](https://code.visualstudio.com/docs/setup/raspberry-pi/)（通常称为 “VS Code”）也是一个流行的替代方案。
 
-### 使用 .NET 操作 Build 扩展板
+### 通过 .NET 访问 Build 扩展板
 
 树莓派 Build 扩展板在乐高®术语中被称为 “Brick（积木）”，你可以使用 [Build 扩展板串行协议](https://pip.raspberrypi.com/documents/RP-008140-DS)从 .NET 直接与它通信。
 
@@ -378,7 +378,7 @@ brick.WaitForSensorToConnect(SensorPort.PortB);
 
 它还接受一个 `CancellationToken`，如果你想实现高级功能（例如在一段时间后警告用户并重试），可以使用它。
 
-### 使用 .NET 中的电机
+### 使用 .NET 控制电机
 
 电机有两种类型：**被动**电机和**主动**电机。主动电机将提供详细位置、绝对位置和速度，而被动电机只能通过速度来控制。
 

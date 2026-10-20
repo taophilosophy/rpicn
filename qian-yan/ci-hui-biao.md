@@ -65,7 +65,8 @@
 |plated edge|镀边|
 |bricking|变砖|
 |standoff|支撑柱|
-|heat spreader|散热片|
+|heat spreader|均热盖|
+|heatsink|散热片|
 |spudger|撬棒|
 |keycap puller|拔键器|
 |keycap|键帽|
