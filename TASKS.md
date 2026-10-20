@@ -171,7 +171,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 已同步 | 0/3 | 代理 F14（主线程复核） | 2026-10-20 | 27 个 H2 与上游 27 个 .adoc 一一对应；`boot-eeprom`（树莓派引导 EEPROM，line 144）与 `bootflow-legacy`（对应中文「引导顺序」节 line 1126，上游标题即 "Boot sequence"）均已存在且内容完整，原「缺节」误判已澄清；CP-3 抽查通过（无「」/xref/link/image 残留、围栏 224 偶数、弯引号 12/12、CRLF）；待三轮逐句校对 |
 | `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 已同步 | 0/3 | 代理 F7（完成） | 2026-10-20 | F7 完成 4 处修正（microSD→存储卡插槽），B5 落盘版核验可用，主线程已验证落盘；待三轮逐句校对 |
 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 校对中 | 0/3 | 代理 G1 | 2026-10-20 | CM5 时代全面同步；本轮开始三轮逐句校对（上游主文件 13 行 + 7 个子文件共 1280 行） |
-| `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 校对中 | 1/3 | 主线程 G0 | 2026-10-20 | 第一轮逐句对照完成：7 节与上游 7 个子文件一一对应；已发现 5 处提示块正文 `>` 后多余空格、1 处「金属散热片」增补（上游仅 heat spreader）、1 处漏译 "now"、1 处 heat spreader 与 heatsink 术语混同 |
+| `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 11 处修订：5 处提示块 `>` 后多余空格、heat spreader 改「均热盖」（术语表同步区分 heatsink）、删「金属」增补、补 "now"、16 纳米改 16 nm、3 处双重「的」与并列结构改写、`potentially` 改正。术语表新增 heatsink 条目 |
 | `shu-mei-pai/io-kong-zhi-qi.md` | `io-controllers.adoc` | 已同步 | 1/3 | 代理 B8（完成） | 2026-10-20 | 8 处修订；RP1 规格与上游一致；视频宏改为普通链接。注意本文件为 LF，与仓库其他 CRLF 文件不同 |
 | `shu-mei-pai/ruan-jian-lai-yuan.md` | `software-sources.adoc` | 同步中 | 0/3 | 代理 F11 | 2026-10-20 | A10 失联，部分改动已落盘（`da040ea`），F11 核验补齐 |
 | `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 已同步 | 0/3 | 代理 F6（完成） | 2026-10-20 | F6 二次重做验收（8 H2；删除已迁移至现代页的旧版 GPIO 控制/armstub/sha256 节，23 项 grep 证据全中）；首轮报告失实源于 WSL 编辑器缓冲未刷盘，勘误已记录；待三轮逐句校对 |
@@ -207,8 +207,8 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md` | `radio-modules.adoc` | 校对中 | 0/3 | 主线程 G0 | 2026-10-20 | 本轮新建；含 RM2 规格与认证；开始三轮逐句校对（上游 7 行主文件 + rm2.adoc 58 行） |
-| `wei-kong-zhi-qi/rp2040.md` | `microcontroller-chips.adoc` | 校对中 | 0/3 | 主线程 G0 | 2026-10-20 | H1 改为「微控制器芯片」；RP1 节仅保留指引；本轮开始三轮逐句校对（上游 132 行主文件 + rp2040/rp2350 两子文件）；发现该文件存在 1 行 bare LF 混合换行待修 |
+| `wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md` | `radio-modules.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 6 处修订：补译漏句「本页仅介绍 RM2。」并校正其位置（上游位于 RM1/RM2 列表之后）、删两处加粗后多余空格、补两处加粗后缺失空格、"created" 改「推出」、"self-contained" 改「自成一体的」、删「边缘镀层的」增补；CP-3 全项通过 |
+| `wei-kong-zhi-qi/rp2040.md` | `microcontroller-chips.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 3 处修订：「带插针」改「带排针」（与 Pico 页术语统一）、架构切换句语序重排、licence 句「授予…PID 值」宾语错位改正。核对全部 9 个页内锚点与 2 个跨页锚点；表格 3 列×20 行、7 列×6 行均一致；遗留 `micropython.md#什么是-micropython` 锚点待 CI 验证；「## RP1」为用户既定增补节（上游无对应），TASKS 已记录 |
 | `wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md` | `pico-series.adoc` | 已同步 | 0/3 | 代理 F10（完成） | 2026-10-20 | F10 全页重写：上游结构重构（8 型号汇总表、两代变体表、SWD 表），23 个链接迁 pip.raspberrypi.com，主线程已验证落盘；待三轮逐句校对 |
 | `wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md` | `debug-probe.adoc` | 已同步 | 0/3 | 代理 F5（完成） | 2026-10-20 | F5 全量重写（8 H2；改用 VS Code 扩展安装路线、补 UART 连接、RTT 表），主线程已验证落盘；待三轮逐句校对 |
 | `wei-kong-zhi-qi/micropython.md` | `micropython.adoc` | 已同步 | 0/3 | 代理 F5（完成） | 2026-10-20 | F5 全量重写（4 H2；数据手册编号、Bug 列表与 Pico 2 W 变体），主线程已验证落盘；待三轮逐句校对 |

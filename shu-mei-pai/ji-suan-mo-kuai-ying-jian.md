@@ -292,7 +292,7 @@ CM5IO 机箱有两个版本，区别在于预装风扇的位置：版本 1 和�
 6. **（可选）安装散热器。** 如果要安装散热器，请按照[安装 CM5 散热器](#安装-cm5-散热器)中的说明操作。如果同时还要连接天线，请先连接天线的 U.FL 连接器，以便操作。
 7. **（可选）连接摄像头或显示屏。** 如果使用摄像头或显示屏，请将扁平电缆穿过机箱背面的其中一个槽口，并连接到 CM5IO 上的一个 *CAM/DISP* 端口。
 8. **（可选）安装 M.2 SSD。** 如果要安装 M.2 SSD，请将其插入 CM5IO 右下角的 M.2 插槽，并用安装螺丝固定另一端。
-9. **（可选）安装 HAT。** 如果要安装 HAT，请将 HAT 与 40 针 GPIO 排针和安装柱对齐，使 HAT 覆盖电池插槽，然后用力按压到位并用螺丝固定。
+9. **（可选）安装扩展板。** 如果要安装 HAT 扩展板，请将其与 40 针 GPIO 排针和安装柱对齐，使扩展板覆盖电池插槽，然后用力按压到位并用螺丝固定。
 10. **合上机箱。** 将机箱顶部折回底部，对齐机箱左右两侧的螺丝孔以及背面的电源按钮。用十字螺丝刀将四颗螺丝拧回原位，注意不要拧得过紧。
 
 >**注意**
@@ -355,7 +355,7 @@ CM5 散热器的尺寸约为 41 mm × 56 mm × 12.7 mm。它是一款铝制散�
 
 计算模块搭载了连接到主 SD 卡接口的内置 eMMC 设备。本指南介绍如何将操作系统镜像刷写到单个计算模块的 eMMC 存储器。
 
-**Lite** 版本的计算模块不带板载 eMMC。请改为按照其他树莓派设备的存储设备刷写流程操作：[安装操作系统](ru-men.md)。
+**Lite** 版本的计算模块不带板载 eMMC。请改为按照其他树莓派设备的存储设备刷写流程操作：[安装操作系统](ru-men.md#将操作系统安装到启动介质)。
 
 ### 准备工作
 
@@ -501,7 +501,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 自计算模块 4 起，计算模块改用 EEPROM 引导加载程序。该引导加载程序位于板载存储的一小段空间中，而不是启动分区。因此，它的更新流程有所不同。在生产环境中使用带 EEPROM 引导加载程序的计算模块之前，请始终遵循以下最佳实践：
 
-* 选定特定的引导加载程序版本，并验证你使用的每个计算模块都刷有该版本。`usbboot` 存储库中的版本始终是较新的稳定版本。
+* 选定特定的引导加载程序版本，并验证你使用的每个计算模块都烧录了该版本。`usbboot` 存储库中的版本始终是较新的稳定版本。
 * 通过设置 `BOOT_ORDER` 配置启动设备。
 * 在引导加载程序 EEPROM 上启用硬件写保护，确保无法触及的产品（如远程或嵌入式设备）上的引导加载程序无法被修改。
 
@@ -526,7 +526,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 ### 更新计算模块引导加载程序
 
-对于带 EEPROM 引导加载程序的计算模块，ROM 从不从 SD/eMMC 运行 `recovery.bin`。这些计算模块默认禁用 `rpi-eeprom-update` 服务，因为 eMMC 不可拆卸，无效的 `recovery.bin` 文件可能导致系统无法启动。
+对于带 EEPROM 引导加载程序的计算模块，ROM 从不在 SD/eMMC 上运行 `recovery.bin`。这些计算模块默认禁用 `rpi-eeprom-update` 服务，因为 eMMC 不可拆卸，无效的 `recovery.bin` 文件可能导致系统无法启动。
 
 你可以使用 `self-update` 模式覆盖此行为。在 `self-update` 模式下，你可以从 USB MSD 或网络引导更新引导加载程序。
 
@@ -540,7 +540,7 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 1. 切换到目录 `usbboot/recovery`。
 2. 如果需要特定的引导加载程序版本，请用该版本中的对应文件替换 `pieeprom.original.bin`。
-3. 编辑默认的引导加载程序配置文件 `boot.conf`，定义一个 `BOOT_ORDER`：
+3. 编辑默认的引导加载程序配置文件 `boot.conf`，设置 `BOOT_ORDER`：
     * 网络启动使用 `BOOT_ORDER=0xf2`。
     * SD/eMMC 启动使用 `BOOT_ORDER=0xf1`。
     * USB 启动失败后转到 eMMC，使用 `BOOT_ORDER=0xf15`。
@@ -587,13 +587,13 @@ BCM283x 设备搭载了 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理
 
 树莓派 BCM283x 设备有三阶段引导过程：
 
-* GPU DSP 退出复位并从小型内部引导 ROM 执行代码。此代码通过外部接口加载第二阶段引导加载程序。该代码首先在引导分区的引导设备上查找名为 `bootcode.bin` 的第二阶段引导加载程序。如果未找到引导设备或未找到 `bootcode.bin`，引导 ROM 将在 USB 引导模式下等待主机提供第二阶段引导加载程序（`usbbootcode.bin`）。
+* GPU DSP 退出复位并从小型内部引导 ROM 执行代码。该代码通过外部接口加载第二阶段引导加载程序。该代码首先在引导分区的引导设备上查找名为 `bootcode.bin` 的第二阶段引导加载程序。如果未找到引导设备或未找到 `bootcode.bin`，引导 ROM 将在 USB 引导模式下等待主机提供第二阶段引导加载程序（`usbbootcode.bin`）。
 * 第二阶段引导加载程序负责设置 LPDDR2 SDRAM 接口和其他关键系统功能。设置完成后，第二阶段引导加载程序加载并执行主 GPU 固件（`start.elf`）。
 * `start.elf` 处理额外的系统设置并启动 Arm 处理器子系统。它包含 GPU 固件。GPU 固件首先读取 `dt-blob.bin` 以确定初始 GPIO 引脚状态和 GPU 特定接口和时钟，然后解析 `config.txt`。随后加载特定于型号的 Arm 设备树文件以及 `config.txt` 中指定的任何叠加层，最后启动 Arm 子系统，并将设备树数据传递给正在引导的 Linux 内核。
 
 ### 设备树
 
-树莓派的 Linux 设备树编码了连接到系统的硬件信息以及用于与该硬件通信的驱动程序。
+树莓派的 Linux 设备树描述了系统中连接的硬件，以及用于与该硬件通信的驱动程序。
 
 引导分区包含几个二进制设备树（`.dtb`）文件。设备树编译器使用可读的设备树描述（`.dts`）创建这些二进制文件。
 
@@ -619,7 +619,7 @@ BCM283x 设备搭载了 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理
 
 你可以为计算模块产品创建完整的设备树，但我们建议改用叠加层。叠加层为基本设备树添加与具体板卡无关的硬件描述。这包括使用的 GPIO 引脚及其功能，以及连接的设备，以便正确加载驱动程序。引导加载程序在将设备树传递给 Linux 内核之前将叠加层与基本设备树合并。基本设备树偶尔会更改，通常不会破坏叠加层。
 
-使用 `dtoverlay` 参数在 `config.txt` 中加载设备树叠加层。树莓派系统假定所有叠加层位于目录 `/overlays` 中，使用后缀 `-overlay.dtb`。例如，`dtoverlay=myoverlay` 这行加载了叠加层 `/overlays/myoverlay-overlay.dtb`。
+使用 `dtoverlay` 参数在 `config.txt` 中加载设备树叠加层。树莓派系统假定所有叠加层都位于 `/overlays` 目录中，并使用 `-overlay.dtb` 后缀。例如，`dtoverlay=myoverlay` 这行加载了叠加层 `/overlays/myoverlay-overlay.dtb`。
 
 要将外围设备连接到计算模块，请在叠加层中描述连接到 BANK0 和 BANK1 GPIO 的所有硬件。这样你就可以使用标准的树莓派系统镜像，因为叠加层已合并到标准基础设备树中。或者，你还可以为你的应用程序定义自定义设备树，但你将无法使用标准的树莓派系统镜像。因此，你每分发一次操作系统更新，都必须创建一个包含自定义设备树的修改版树莓派系统镜像。如果基础叠加层发生更改，则可能需要更新你的定制设备树。
 
@@ -629,9 +629,9 @@ BCM283x 设备搭载了 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理
 
 `dt-blob.bin` 包含由 GPU 而不是 SoC 控制的 GPIO 和外围设备的信息。例如，GPU 管理摄像头模块。GPU 需要独占访问 I²C 接口和一些引脚，以便与摄像头模块通信。
 
-在大多数树莓派型号上，I2C0 专为 GPU 独占使用。`dt-blob.bin` 定义了用于 I2C0 的 GPIO 引脚。
+在大多数树莓派型号上，I2C0 保留给 GPU 独占使用。`dt-blob.bin` 定义了用于 I2C0 的 GPIO 引脚。
 
-默认情况下，`dt-blob.bin` 不存在。作为替代，`start.elf` 是此文件的内置版本。许多计算模块项目提供了一个自定义 `dt-blob.bin`，该文件覆盖了默认的内置文件。
+默认情况下，`dt-blob.bin` 并不存在，`start.elf` 中内置了该文件的一个版本。许多计算模块项目提供了自定义 `dt-blob.bin`，用来覆盖内置的默认版本。
 
 `dt-blob.bin` 指定了：
 
@@ -647,7 +647,7 @@ BCM283x 设备搭载了 VideoCore GPU 和 Arm CPU 核心。GPU 包括 DSP 处理
 $ sudo apt install device-tree-compiler
 ```
 
-然后，运行以下命令将 `minimal-cm-dt-blob.dts` 编译为 `dt-blob.bin` ：
+然后，运行以下命令将 `minimal-cm-dt-blob.dts` 编译为 `dt-blob.bin`：
 
 ```bash
 $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
@@ -657,7 +657,7 @@ $ dtc -I dts -O dtb -o dt-blob.bin minimal-cm-dt-blob.dts
 
 ### Arm Linux 设备树
 
-在 `start.elf` 读取 `dt-blob.bin`，设置初始引脚状态和时钟后，它就会读取 `config.txt`，其中包含许多其他系统设置选项。
+在 `start.elf` 读取 `dt-blob.bin`、设置初始引脚状态和时钟后，它就会读取 `config.txt`，其中包含许多其他系统设置选项。
 
 在读取 `config.txt` 后，`start.elf` 会读取一个特定于模型的设备树文件。例如，计算模块 3 使用 `bcm2710-rpi-cm.dtb`。该文件是一个标准的 Arm Linux 设备树文件，详细说明连接到处理器的硬件。它枚举了：
 
@@ -698,11 +698,11 @@ $ sudo vclog --msg
 >
 >要在输出中包含更多诊断信息，请将 `dtdebug=1` 添加到 `config.txt`。
 
-你可以在[树莓派设备树论坛](https://forums.raspberrypi.com/viewforum.php?f=107)提出设备树相关问题或报告问题。
+你可以在[树莓派设备树论坛](https://forums.raspberrypi.com/viewforum.php?f=107)提出设备树相关问题，或报告缺陷。
 
 ### 示例
 
-以下示例使用带有通过跳线连接的外围设备的 IO 板。我们假设使用全新安装的精简版树莓派系统运行 CM1+CMIO 或 CM3+CMIO3。这里的示例需要互联网连接，因此我们建议将 USB 集线器、键盘和无线局域网或以太网转接器插入 IO 板的 USB 端口。
+以下示例使用的 IO 板通过跳线连接外围设备。我们假设使用全新安装的精简版树莓派系统运行 CM1+CMIO 或 CM3+CMIO3。这里的示例需要互联网连接，因此我们建议将 USB 集线器、键盘和无线局域网或以太网转接器插入 IO 板的 USB 端口。
 
 #### 将 I²C RTC 连接到 BANK1 引脚
 
@@ -732,7 +732,7 @@ pin@p45 { function = "i2c1"; termination = "pull_up"; }; // SCL1
 
 我们可以在不进行任何改动的情况下使用此 `dt-blob.dts`，因为 Linux 设备树会在特定驱动程序加载时重新配置这些引脚。但是，如果配置了 `dt-blob.dts`，GPIO 会在 GPU 引导阶段尽早达到最终状态。在某些情况下，必须在 GPU 引导时配置引脚，以便在加载 Linux 驱动程序时处于特定状态。例如，复位线可能需要保持在正确的电平状态。
 
-运行以下命令编译 `dt-blob.bin` ：
+运行以下命令编译 `dt-blob.bin`：
 
 ```bash
 $ sudo dtc -I dts -O dtb -o /boot/firmware/dt-blob.bin /boot/firmware/minimal-cm-dt-blob.dts
@@ -754,7 +754,7 @@ dtoverlay=example1
 
 最后，使用 `sudo reboot` 重启。
 
-重启后，你将在 `/dev` 中看到一项 `rtc0`。运行以下命令查看硬件时钟时间：
+重启后，`/dev` 中会出现 `rtc0`。运行以下命令查看硬件时钟时间：
 
 ```bash
 $ sudo hwclock
@@ -762,7 +762,7 @@ $ sudo hwclock
 
 #### 在 BANK0 上连接一个 ENC28J60 SPI 以太网控制器
 
-在这个示例中，我们使用已在 `/boot/firmware/overlays` 中定义的叠加层，将 ENC28J60 SPI 以太网控制器添加到 BANK0。以太网控制器使用 SPI 引脚 CE0、MISO、MOSI 和 SCLK（分别为 GPIO8-11），GPIO25 用于下降沿中断，另外还有 GND 和 3.3V。
+在本示例中，我们使用已在 `/boot/firmware/overlays` 中定义的叠加层，将 ENC28J60 SPI 以太网控制器添加到 BANK0。以太网控制器使用 SPI 引脚 CE0、MISO、MOSI 和 SCLK（分别为 GPIO8-11），GPIO25 用于下降沿中断，另外还有 GND 和 3.3 V。
 
 在本示例中，我们不会更改 `dt-blob.bin`。而是将以下行添加到 `/boot/firmware/config.txt` 中：
 
@@ -772,7 +772,7 @@ dtoverlay=enc28j60
 
 使用 `sudo reboot` 重启。
 
-如果现在运行 `ifconfig`，你应该会看到 ENC28J60 网卡对应的新增 `eth<n>` 条目。你还应该具备以太网连接。运行以下命令测试连接性：
+如果现在运行 `ifconfig`，你应该会看到 ENC28J60 网卡多出一个 `eth<n>` 条目。你还应该具备以太网连接。运行以下命令测试连接性：
 
 ```bash
 $ ping 8.8.8.8
@@ -806,7 +806,7 @@ $ sudo apt full-upgrade
 
 ![连接到转接板](.gitbook/assets/CMIO-Cam-Adapter.jpg)
 
-3. （仅限 CM5）：按照板上的书面说明，在 J6 上安装两个跳线。
+3. （仅限 CM5）：按照板上的书面说明，在 J6 上装两个跳线。
 
 ![CAM1 的 J6 跳线](.gitbook/assets/cm5io-j6-cam1.png)
 
@@ -819,8 +819,8 @@ $ sudo apt full-upgrade
 
 ![单个摄像头的 GPIO 连接](.gitbook/assets/CMIO-Cam-GPIO.jpg)
 
-5. 重新连接计算模块到电源。
-6. 在 `/boot/firmware/config.txt` 中删除（或使用前缀 `#` 注释掉）以下行，如果存在的话：
+5. 将计算模块重新连接到电源。
+6. 如果 `/boot/firmware/config.txt` 中存在以下行，请删除（或用前缀 `#` 注释掉）：
 
     ```bash
     camera_auto_detect=1
@@ -829,7 +829,7 @@ $ sudo apt full-upgrade
     ```bash
     dtparam=i2c_arm=on
     ```
-7. （仅限 CM1、CM3、CM3+ 和 CM4S）：向 `/boot/firmware/config.txt` 添加以下指令，以适应 I/O 板上 GPIO 引脚分配的交换：
+7. （仅限 CM1、CM3、CM3+ 和 CM4S）：向 `/boot/firmware/config.txt` 添加以下指令，以适配 I/O 板上互换的 GPIO 引脚分配：
 
     ```bash
     dtoverlay=cm-swap-i2c0
@@ -850,7 +850,7 @@ $ sudo apt full-upgrade
 | GS 摄像头 | `dtoverlay=imx296` |
 
 10. 使用 `sudo reboot` 重启你的计算模块。
-11. 运行以下命令以检查检测到的摄像头列表：
+11. 运行以下命令查看检测到的摄像头列表：
 
      ```bash
      $ rpicam-hello --list
@@ -881,7 +881,7 @@ $ sudo apt full-upgrade
 
 ![连接到垂直方向的 J6 GPIO 引脚](.gitbook/assets/j6_vertical.jpg)
 
-6. 重新连接计算模块到电源。
+6. 将计算模块重新连接到电源。
 7. （仅限 CM1、CM3、CM3+ 和 CM4S）：向 `/boot/firmware/config.txt` 添加以下指令，将 GPIO 31 分配为 CAM0 稳压器：
 
     ```bash
@@ -898,7 +898,7 @@ $ sudo apt full-upgrade
 | GS 摄像头 | `dtoverlay=imx296,cam0` |
 
 9. 使用 `sudo reboot` 重启你的计算模块。
-10. 运行以下命令以检查检测到的摄像头列表：
+10. 运行以下命令查看检测到的摄像头列表：
 
      ```bash
      $ rpicam-hello --list
@@ -980,7 +980,7 @@ $ rpicam-hello --camera 1
 dtoverlay=cm-swap-i2c0
 ```
 
-其他板卡可能使用其他引脚分配。请查阅你的板卡文档，并根据你的布局使用以下替代叠加层：
+其他板卡可能采用不同的引脚分配。请查阅你的板卡文档，并根据你的布局使用以下替代叠加层：
 
 | 交换 | 叠加层 |
 | :-----------------: | :------: |
@@ -993,9 +993,9 @@ dtoverlay=cm-swap-i2c0
 
 #### 用于关机的 GPIO 引脚
 
-对于摄像头关机，设备树使用叠加层 `cam1_reg` 和 `cam0_reg` 分配的引脚。
+摄像头的关断由设备树使用叠加层 `cam1_reg` 和 `cam0_reg` 分配的引脚控制。
 
-CM4 IO 板为两个别名提供单个 GPIO 引脚，因此两个摄像头共享同一个稳压器。
+CM4 IO 板为这两个别名提供同一个 GPIO 引脚，因此两个摄像头共享同一个稳压器。
 
 CM1、CM3、CM3+ 和 CM4S I/O 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO 引脚，因此这些板上的稳压器处于禁用状态。但是，你可以通过在 `/boot/firmware/config.txt` 中使用以下指令来启用它们：
 
@@ -1009,7 +1009,7 @@ CM1、CM3、CM3+ 和 CM4S I/O 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO �
 
 例如，要将引脚 42 用作 CAM1 的稳压器，请将指令 `dtparam=cam1_reg_gpio=42` 添加到 `/boot/firmware/config.txt`。
 
-这些指令仅适用于直连 SoC 的 GPIO 引脚，而不适用于扩展的 GPIO 引脚。
+这些指令仅对直连 SoC 的 GPIO 引脚有效，对 GPIO 扩展器引脚无效。
 
 ## 连接触摸显示屏 LCD 面板
 

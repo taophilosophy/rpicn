@@ -4,13 +4,13 @@
 
 树莓派系统（Raspberry Pi OS）是树莓派计算机的官方操作系统（OS），可免费使用。对于大多数树莓派使用场景，我们推荐使用树莓派系统。
 
-树莓派系统基于 *Debian* Linux 发行版，支持 69,000 多个 Debian 软件包。树莓派遵循 Debian [发布周期](https://wiki.debian.org/DebianReleases)的错峰版本，大约每两年发布一次。最新版的树莓派系统基于 [Debian Trixie](https://www.raspberrypi.com/news/trixie-the-new-version-of-raspberry-pi-os/)。上一版本基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。
+树莓派系统基于 *Debian* Linux 发行版，支持 69,000 多个 Debian 软件包。树莓派在 [Debian 发布周期](https://wiki.debian.org/DebianReleases)的基础上错峰发布，大约每两年发布一次。最新版的树莓派系统基于 [Debian Trixie](https://www.raspberrypi.com/news/trixie-the-new-version-of-raspberry-pi-os/)。上一版本基于 [Debian Bookworm](https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/)。
 
 ## 安装操作系统
 
-树莓派系统通过树莓派启动盘制作工具安装，该工具支持 Windows、Mac 和 Linux。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#树莓派启动盘制作工具的使用方法)。你也可以直接从[我们的网站](https://raspberrypi.com/software/operating-systems)下载树莓派系统的磁盘镜像（即开即用的文件），然后把它写入存储卡，开始使用你的树莓派。
+树莓派系统通过树莓派启动盘制作工具安装，该工具支持 Windows、Mac 和 Linux。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#使用树莓派启动盘制作工具安装)。你也可以直接从[我们的网站](https://raspberrypi.com/software/operating-systems)下载树莓派系统的磁盘镜像（即开即用的文件），然后把它写入存储卡，开始使用你的树莓派。
 
-如果你正在运行旧版本的树莓派系统，想改用最新的大版本，请不要原地更新（不重装、直接更新当前系统），而是重新安装一份新的树莓派系统镜像，从头开始。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#树莓派启动盘制作工具的使用方法)。
+如果你正在运行旧版本的树莓派系统，想改用最新的大版本，请不要原地更新（不重装、直接更新当前系统），而是重新安装一份新的树莓派系统镜像，从头开始。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#使用树莓派启动盘制作工具安装)。
 
 >**警告**
 >
@@ -137,7 +137,7 @@ $ apt-cache show raspi-config
 $ sudo apt install <package-name>
 ```
 
-命令会返回软件包所需的磁盘空间，并要求你确认安装。要确认安装，输入 `Y` 后按键盘上的 *回车键*。要在安装时跳过确认提示、自动回答"是"，在命令中加上 `-y`：
+命令会返回软件包所需的磁盘空间，并要求你确认安装。要确认安装，输入 `Y` 后按键盘上的 *回车键*。要在安装时跳过确认提示、自动回答“是”，在命令中加上 `-y`：
 
 ```bash
 $ sudo apt install -y <package-name>
@@ -151,7 +151,7 @@ $ sudo apt install -y <package-name>
 $ sudo apt remove <package-name>
 ```
 
-命令会返回卸载该软件包可释放的磁盘空间，并要求你确认卸载。要确认卸载，输入 `Y` 后按键盘上的 *回车键*。要在卸载时跳过确认提示、自动回答"是"，在命令中加上 `-y`：
+命令会返回卸载该软件包可释放的磁盘空间，并要求你确认卸载。要确认卸载，输入 `Y` 后按键盘上的 *回车键*。要在卸载时跳过确认提示、自动回答“是”，在命令中加上 `-y`：
 
 ```bash
 $ sudo apt remove -y <package-name>
@@ -196,7 +196,7 @@ $ sudo apt clean
 >
 >这一步会永久删除你选用的存储设备上的所有文件。继续之前请先备份。
 
-2. *准备写入新系统的存储设备。* 在新的存储设备上安装最新版树莓派系统的新镜像。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#树莓派启动盘制作工具的使用方法)。
+2. *准备写入新系统的存储设备。* 在新的存储设备上安装最新版树莓派系统的新镜像。有关说明，参阅[使用树莓派启动盘制作工具安装](ru-men.md#使用树莓派启动盘制作工具安装)。
 3. *复制现有的文件和配置。* 用存储设备从你的树莓派复制重要文件。
 4. *把新的启动介质插入树莓派。* 把装有新系统的存储设备插入树莓派。
 5. *启动树莓派。* 接通电源并开机。
@@ -257,7 +257,7 @@ $ sudo reboot
 
 现在，你已经装齐了构成桌面版树莓派系统的全部软件包。
 
-如果你想回到精简版树莓派系统，可以卸载这些软件包。或者，如果你不想卸载已安装的桌面软件包、又想要精简版的体验，可以按照[启动到控制台或桌面](xi-tong-pei-zhi.md)的说明，把树莓派设置为启动到命令行。
+如果你想回到精简版树莓派系统，可以卸载这些软件包。或者，如果你不想卸载已安装的桌面软件包、又想要精简版的体验，可以按照[启动到控制台或桌面](xi-tong-pei-zhi.md#启动到控制台或桌面)的说明，把树莓派设置为启动到命令行。
 
 你还可以安装完整版树莓派系统附带的推荐应用：打开树莓派主菜单，选择**首选项 > 推荐软件**（Preferences > Recommended Software）。
 
@@ -269,7 +269,7 @@ $ sudo reboot
 
 #### VLC 图形界面
 
-要从树莓派桌面播放音视频文件，在文件管理器中双击文件即可，这会自动启动 VLC 播放该文件。也可以从"**声音和视频**"（Sound & Video）菜单启动 **VLC 媒体播放器**，然后从"**媒体**"（Media）菜单中选择"**打开文件...**"（Open File...），找到你想播放的文件。
+要从树莓派桌面播放音视频文件，在文件管理器中双击文件即可，这会自动启动 VLC 播放该文件。也可以从“**声音和视频**”（Sound & Video）菜单启动 **VLC 媒体播放器**，然后从“**媒体**”（Media）菜单中选择“**打开文件...**”（Open File...），找到你想播放的文件。
 
 默认情况下，树莓派系统通过 HDMI 把音频输出到显示器。要把音频输出到其他接口（如耳机插孔或 USB 扬声器），右键单击系统托盘中的扬声器图标，然后选择一个选项。
 
@@ -358,7 +358,7 @@ $ cvlc --play-and-exit -A alsa --alsa-audio-device <alsa-device> computer-startu
 
 要从控制台指定视频输出：
 
-1. 把树莓派设备启动到[控制台](xi-tong-pei-zhi.md)。
+1. 把树莓派设备启动到[控制台](xi-tong-pei-zhi.md#启动到控制台或桌面)。
 2. 加上 `--drm-vout-display` 参数：
 
 ```bash
@@ -410,9 +410,9 @@ $ ffmpeg -r 30 -i video.h264 -c:v copy video.mp4
 
 `kmsprint` 工具可以列出接入树莓派的显示器所支持的显示模式。
 
-用 `kmsprint` 查看接入树莓派的所有显示器的状态，用 `kmsprint -m` 列出每台显示器支持的显示模式。你可以在 [GitHub 上](https://github.com/tomba/kmsxx)找到 `kmsprint` 的源代码。
+用 `kmsprint` 查看接入树莓派的所有显示器的状态，用 `kmsprint -m` 列出每台显示器支持的显示模式。
 
-在树莓派 5 及后续型号上，显示接口（如 HDMI、DSI、DPI 和 VEC）分布在多个独立的 DRM 卡（/dev/dri/cardX）上，而不像树莓派 4 及更早型号那样合并为单一的一张卡。
+在树莓派 5 及后续型号上，显示接口（如 HDMI、DSI、DPI 和 VEC）分布在多个独立的 DRM 卡（`/dev/dri/cardX`）上，而不像树莓派 4 及更早型号那样合并为单一的一张卡。
 
 要在树莓派 5 上查询特定的接口，可能需要用 `--device`（或 `-d`）参数指定设备节点：
 
@@ -424,7 +424,7 @@ $ kmsprint --device=/dev/dri/card1
 
 ### `vclog`
 
-`vclog` 在 Arm 上运行的 Linux 中显示 VideoCore GPU 的日志消息。它需要以 root 身份运行。
+`vclog` 用于在 Arm 上运行的 Linux 中查看 VideoCore GPU 的日志消息。它需要以 root 身份运行。
 
 `sudo vclog --msg` 打印消息日志，而 `sudo vclog --assert` 打印断言日志。
 
@@ -495,7 +495,7 @@ $ kmsprint --device=/dev/dri/card1
 | `core` | VC4 核心电压 |
 | `sdram_c` | SDRAM 核心电压 |
 | `sdram_i` | SDRAM I/O 电压 |
-| `sdram_p` | SDRAM 物理电压 |
+| `sdram_p` | SDRAM 物理层电压 |
 
 #### `otp_dump`
 
@@ -511,7 +511,7 @@ $ vcgencmd get_config total_mem
 
 #### `get_mem 类型`
 
-报告 Arm 和 GPU 可寻址的内存大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的大小，请使用 `vcgencmd get_mem gpu`。在内存大于 1GB 的设备上，`arm` 参数的返回值始终是 1GB 减去 `gpu` 内存值，因为 GPU 固件只能感知前 1GB 内存。要准确报告设备的总内存，请参阅 `total_mem` 配置项和上文的 [`get_config`](https://www.raspberrypi.com/documentation/computers/os.html#getconfig) 小节。
+报告 Arm 和 GPU 可寻址的内存大小。要显示 Arm 可寻址内存的大小，请使用 `vcgencmd get_mem arm`；要显示 GPU 可寻址内存的大小，请使用 `vcgencmd get_mem gpu`。在内存大于 1GB 的设备上，`arm` 参数的返回值始终是 1GB 减去 `gpu` 内存值，因为 GPU 固件只能感知前 1GB 内存。要准确报告设备的总内存，请参阅 `total_mem` 配置项和上文的 [`get_config`](#get_config-配置项目intstr) 小节。
 
 ##### `codec_enabled [类型]`
 
@@ -519,7 +519,7 @@ $ vcgencmd get_config total_mem
 
 ##### `mem_oom`
 
-显示 VideoCore 内存空间中发生过的所有 OOM（Out of memory，内存溢出）事件的统计信息。
+显示 VideoCore 内存空间中发生过的所有 OOM（Out of memory，内存不足）事件的统计信息。
 
 ##### `mem_reloc_stats`
 
@@ -549,11 +549,11 @@ $ vcgencmd get_config total_mem
 
 #### 放大界面元素
 
-要放大界面元素以便于查看，选择 **首选项 > 控制中心**（Preferences > Control Centre），然后进入 **默认值**（Defaults）标签页。在这个标签页中，你可以为不同尺寸的屏幕*设置默认值*（Set Defaults）。你为越大的屏幕设置默认值，界面文字、图标和其他元素就显示得越大。
+要放大界面元素以便于查看，选择 **首选项 > 控制中心**（Preferences > Control Centre），然后进入 **默认值**（Defaults）标签页。在这个标签页中，你可以为不同尺寸的屏幕*设置默认值*（Set Defaults）。你设置默认值的屏幕越大，界面文字、图标和其他元素显示得就越大。
 
 ## 在树莓派上使用 Python
 
-树莓派系统预装了 Python 3。干扰系统 Python 安装，可能给你的操作系统带来问题。安装第三方 Python 库时，请务必使用正确的软件包管理工具。
+树莓派系统预装了 Python 3。干扰系统 Python 安装可能给你的操作系统带来问题。安装第三方 Python 库时，请务必使用正确的软件包管理工具。
 
 在 Linux 上，你可以用两种方式安装 `python` 依赖包：
 
@@ -574,7 +574,7 @@ $ vcgencmd get_config total_mem
 $ sudo apt install python3-build-hat
 ```
 
-要查找 `apt` 分发的 Python 软件包，可[使用 `apt search`](https://www.raspberrypi.com/documentation/computers/os.html#search-for-software)。在大多数情况下，Python 软件包使用 `python-` 或 `python3-` 前缀：例如，名为 `python3-numpy` 的包就是 `numpy`。
+要查找 `apt` 分发的 Python 软件包，可[使用 `apt search`](#搜索软件)。在大多数情况下，Python 软件包使用 `python-` 或 `python3-` 前缀：例如，名为 `python3-numpy` 的包就是 `numpy`。
 
 ### 使用 `pip` 安装 Python 库
 
@@ -582,9 +582,9 @@ $ sudo apt install python3-build-hat
 
 自树莓派系统 *Bookworm* 起，你无法再把库直接安装到系统级 Python。
 
-请改为[把库安装到虚拟环境（`venv`）](https://www.raspberrypi.com/documentation/computers/os.html#use-pip-with-virtual-environments)。要为所有用户在系统级安装库，请[用 `apt` 安装](https://www.raspberrypi.com/documentation/computers/os.html#install-python-packages-using-apt)。
+请改为[把库安装到虚拟环境（`venv`）](#将-pip-与虚拟环境配合使用)。要为所有用户在系统级安装库，请[用 `apt` 安装](#使用-apt-安装-python-软件包)。
 
-尝试在系统级安装 Python 软件包，会输出类似以下的报错：
+尝试在系统级安装 Python 软件包会输出类似以下的报错：
 
 ```
 $ pip install buildhat

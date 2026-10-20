@@ -308,11 +308,11 @@ Console.WriteLine($"Vin = {brick.InputVoltage.Volts} V");
 
 >**注意**
 >
-> 输入电压仅在启动时读取一次，之后就不再读取。
+> 输入电压仅在启动时读取一次，之后不再读取。
 
 #### 获取传感器和电机详细信息
 
-函数 `GetSensorType` 和 `GetSensor` 允许你检索已连接传感器的任何信息。
+函数 `GetSensorType` 和 `GetSensor` 可让你获取已连接传感器的任何信息。
 
 ```csharp
 SensorType sensor = brick.GetSensorType((SensorPort)i);
@@ -333,13 +333,13 @@ else
 }
 ```
 
-`ActiveSensor` 具有一系列高级属性和函数，可用于了解传感器的各个元素。还可以通过它们调用 brick 的原始函数。这将允许你选择特定模式并执行高级场景。虽然这是可行的，但电机和传感器类已经被创建出来，让你的生活更轻松。
+`ActiveSensor` 具有一系列高级属性和函数，可用于了解传感器的各个元素。还可以通过它们调用 brick 的底层函数。这样你就能选择特定模式并实现更复杂的场景。虽然这些操作都能做到，但我们已经提供了电机类和传感器类，让你用起来更省心。
 
 #### 事件
 
-大多数传感器在其特殊属性上实现了事件。你可以简单地订阅 `PropertyChanged` 和 `PropertyUpdated`。当值发生变化时会触发 changed 事件，而当属性成功更新时会触发 updated 事件。根据所使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
+大多数传感器在其特殊属性上实现了事件。你可以直接订阅 `PropertyChanged` 和 `PropertyUpdated`。当值发生变化时会触发 changed 事件，而当属性成功更新时会触发 updated 事件。根据所使用的模式，一些属性可能会一直在后台更新，而另一些则偶尔更新。
 
-当颜色变化或电机位置变化时，你可能只对此感兴趣，将其用作转速表。在这种情况下，`PropertyChanged` 就是你所需要的！
+如果你只关心颜色变化或电机位置变化，想把电机当作转速表使用，那么 `PropertyChanged` 正是你需要的！
 
 ```csharp
 Console.WriteLine("Move motor on Port A to more than position 100 to stop this test.");
@@ -380,7 +380,7 @@ brick.WaitForSensorToConnect(SensorPort.PortB);
 
 ### 使用 .NET 控制电机
 
-电机有两种类型：**被动**电机和**主动**电机。主动电机将提供详细位置、绝对位置和速度，而被动电机只能通过速度来控制。
+电机有两种类型：**被动**电机和**主动**电机。主动电机可提供详细位置、绝对位置和速度，而被动电机只能通过速度来控制。
 
 有一组通用的函数可用于控制电机的速度。其中有两个重要的函数：`SetPowerLimit` 和 `SetBias`：
 
@@ -389,9 +389,9 @@ train.SetPowerLimit(1.0);
 train.SetBias(0.2);
 ```
 
-只接受从 0.0 到 1.0 的值。功率限制是一种方便的方法，可以按比例减小最大功率。
+这两个函数只接受 0.0 到 1.0 之间的值。功率限制是一种方便的方法，可以按比例减小最大功率。
 
-偏置值针对当前端口设置，会加到正的电机驱动值上，并从负的电机驱动值中减去。这可以用来补偿大多数直流电机在完全转动前需要一定驱动量的事实。
+偏置值针对当前端口设置，会加到正的电机驱动值上，并从负的电机驱动值中减去。大多数直流电机需要一定的驱动量才能开始转动，偏置值可以用来补偿这一点。
 
 创建电机时的默认值为：功率限制 0.7，偏置 0.3。
 
@@ -438,7 +438,7 @@ train.Stop();
 
 [主动电机，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0960c01)
 
-主动电机将 `Speed`、`AbsolutePosition`、`Position` 和 `TargetSpeed` 作为特殊属性。即使电机停止运行，它们也会被持续读取。
+主动电机具有 `Speed`、`AbsolutePosition`、`Position` 和 `TargetSpeed` 等特殊属性。即使电机停止运行，这些属性也会持续更新。
 
 以下代码片段展示如何获取电机、启动它们并读取属性：
 
@@ -449,7 +449,7 @@ var active = (ActiveMotor)brick.GetMotor(SensorPort.PortA);
 var active2 = (ActiveMotor)brick.GetMotor(SensorPort.PortD);
 active.Start(50);
 active2.Start(50);
-// Make sure you have an active motor plug in the port A and D
+// 确保端口 A 和 D 上插有主动电机
 while (!Console.KeyAvailable)
 {
     Console.CursorTop = 1;
@@ -474,12 +474,12 @@ active2.Stop();
 高级功能适用于主动电机。你可以请求移动几秒钟、移动到特定位置或特定绝对位置。以下是一些示例：
 
 ```csharp
-// From the previous example, this will turn the motors back to their initial position:
+// 承上例，这会把电机转回初始位置：
 active.TargetSpeed = 100;
 active2.TargetSpeed = 100;
-// First this motor and will block the thread
+// 先让这台电机转动，会阻塞线程
 active.MoveToPosition(0, true);
-// Then this one and will also block the thread
+// 再让另一台电机转动，同样会阻塞线程
 active2.MoveToPosition(0, true);
 ```
 
@@ -508,9 +508,9 @@ active.Float();
 
 你可以将电机置于浮动（float）状态，即不再对它施加任何约束。当你把电机用作转速表时可以使用这种模式：移动电机并读取位置。如果电机仍受约束，你可能无法移动它。
 
-### 使用 .NET 中的传感器
+### 使用 .NET 读取传感器
 
-与电机一样，传感器也分为主动和被动两种。较新的传感器大多是主动的。被动传感器是灯光和简单按钮。主动传感器包括距离传感器、颜色传感器，以及小型的 3×3 像素显示屏。
+与电机一样，传感器也分为主动和被动两种。较新的传感器大多是主动的。被动传感器包括灯光和简单的按钮。主动传感器包括距离传感器、颜色传感器，以及小型的 3×3 像素显示屏。
 
 #### 按钮/触摸被动传感器
 
@@ -523,7 +523,7 @@ bool continueToRun = true;
 button.PropertyChanged += ButtonPropertyEvent;
 while (continueToRun)
 {
-    // You can do many other things here
+    // 你可以在这里做许多其他事情
     Thread.Sleep(50);
 }
 
@@ -547,34 +547,34 @@ void ButtonPropertyEvent(object? sender, PropertyChangedEventArgs e)
 
 [被动灯光，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=22168c01)
 
-被动灯光是火车灯。可以打开它们，并控制它们的亮度。
+被动灯光是火车灯。你可以打开它们，并控制它们的亮度。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
 var light = (PassiveLight)brick.GetSensor(SensorPort.PortA);
-// Brightness 50%
+// 亮度 50%
 light.On(50);
 Thread.Sleep(2000);
-// 70% Brightness
+// 亮度 70%
 light.Brightness = 70;
 Thread.Sleep(2000);
-// Switch light off
+// 关闭灯光
 light.Off()
 ```
 
 #### 主动传感器
 
-主动传感器类是一个通用类，所有主动传感器（包括主动电机）都继承自它。它们包含一组属性，涉及它们如何连接到 Build 扩展板、模式、详细的组合（Combi）模式、硬件和软件版本，以及一个名为 `ValueAsString` 的特殊属性。字符串值包含以字符串集合形式表示的最后一次测量。测量到达时形如 `P0C0: +23 -42 0`，枚举将包含 `P0C0:`、`+23`、`-42` 和 `0`。这样做是为了，如果你正在使用高级模式并自行管理组合模式和命令，你将能够获取测量值。
+主动传感器类是一个通用类，所有主动传感器（包括主动电机）都继承自它。该类包含一组属性，涉及与 Build 扩展板的连接方式、模式、详细的组合（Combi）模式、硬件和软件版本，以及一个名为 `ValueAsString` 的特殊属性。字符串值包含以字符串集合形式表示的最后一次测量。测量到达时形如 `P0C0: +23 -42 0`，枚举将包含 `P0C0:`、`+23`、`-42` 和 `0`。这样设计是为了让你在使用高级模式并自行管理组合模式和命令时，也能获取测量值。
 
-所有主动传感器都可以运行特定的测量模式或组合模式。你可以通过高级模式，使用 `SelectModeAndRead` 和 `SelectCombiModesAndRead` 函数设置你想要持续使用的特定模式。重要的是要理解，更改模式或设置新模式将停止之前的模式。
+所有主动传感器都可以运行特定的测量模式或组合模式。你可以通过高级模式，使用 `SelectModeAndRead` 和 `SelectCombiModesAndRead` 函数设置你想要持续使用的特定模式。需要注意，更改模式或设置新模式会停止之前的模式。
 
 可以组合进组合模式的模式列在 `CombiModes` 属性中。当你设置其中某个模式时，传感器的所有属性都会自动更新。
 
-#### WeDo Tilt Sensor（倾斜传感器）
+#### WeDo 倾斜传感器
 
-![WeDo Tilt sensor（倾斜传感器）](.gitbook/assets/wedo-tilt.png)
+![WeDo 倾斜传感器](.gitbook/assets/wedo-tilt.png)
 
-[WeDo Tilt sensor，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=20841)
+[WeDo 倾斜传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=20841)
 
 WeDo 倾斜传感器有一个特殊的 `Tilt` 属性。该类型是一个点（point），其中 X 是 X 轴倾斜值，Y 是 Y 轴倾斜值。数值范围从 -45 到 +45，被限制在这些值内，单位为度。
 
@@ -618,7 +618,7 @@ while(!console.KeyAvailable)
 
 [Spike 力传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37312c01)
 
-该力传感器测量施加在它上面的压力，以及它是否被按下。这两个属性可通过 `Force` 和 `IsPressed` 属性访问。
+该力传感器测量施加在它上面的压力，以及它是否被按下。这两个值可分别通过 `Force` 和 `IsPressed` 属性读取。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortA);
@@ -644,14 +644,14 @@ brick.WaitForSensorToConnect(SensorPort.PortA);
 var matrix = (ColorLightMatrix)brick.GetSensor(SensorPort.PortA);
 for(byte i = 0; i < 10; i++)
 {
-    // Will light every led one after the other like a progress bar
+    // 像进度条一样逐个点亮每个 LED
     matrix.DisplayProgressBar(i);
     Thread.Sleep(1000);
 }
 
 for(byte i = 0; i < 11; i++)
 {
-    // Will display the matrix with the same color and go through all of them
+    // 用同一种颜色显示矩阵，并依次遍历所有颜色
     matrix.DisplayColor((LedColor)i);
     Thread.Sleep(1000);
 }
@@ -659,7 +659,7 @@ for(byte i = 0; i < 11; i++)
 Span<byte> brg = stackalloc byte[9] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 Span<LedColor> col = stackalloc LedColor[9] { LedColor.White, LedColor.White, LedColor.White,
   LedColor.White, LedColor.White, LedColor.White, LedColor.White, LedColor.White, LedColor.White };
-// Shades of grey
+// 灰度层次
 matrix.DisplayColorPerPixel(brg, col);
 ```
 
@@ -679,7 +679,7 @@ SPIKE 颜色传感器：
 
 这些颜色传感器具有多种属性和函数。你可以获取 `Color`、`ReflectedLight` 和 `AmbiantLight`。
 
-除此之外，颜色和距离传感器还可以测量 `Distance`，并具有一个物体 `Counter`（计数器）。它会自动计算进出量程的物体数量，从而可以统计经过传感器前方的物体。距离限制在 0 到 10 厘米之间。
+除此之外，颜色和距离传感器还可以测量 `Distance`，并带有一个物体计数器 `Counter`。它会自动计算进出量程的物体数量，从而可以统计经过传感器前方的物体。距离限制在 0 到 10 厘米之间。
 
 ```csharp
 brick.WaitForSensorToConnect(SensorPort.PortC);
@@ -703,7 +703,7 @@ while (!Console.KeyAvailable)
 
 >**注意**
 >
-> 为了获得更好的测量结果，不建议非常频繁地更改测量模式，否则颜色积分可能无法正确完成。这个示例向你展示了用该传感器能做的全部事情。此外，该类没有实现连续测量模式。你可以通过高级模式，使用 `SelectModeAndRead` 函数设置你想要持续使用的特定模式。重要的是要理解，更改模式或设置新模式将停止之前的模式。
+> 为了获得更好的测量结果，不建议非常频繁地更改测量模式，否则颜色积分可能无法正确完成。这个示例涵盖了该传感器能做的全部事情。此外，该类没有实现连续测量模式。你可以通过高级模式，使用 `SelectModeAndRead` 函数设置你想要持续使用的特定模式。需要注意，更改模式或设置新模式会停止之前的模式。
 
 #### SPIKE Prime 超声波距离传感器
 

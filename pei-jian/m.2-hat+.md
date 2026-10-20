@@ -6,14 +6,14 @@
 
 ![树莓派 M.2 HAT+ Compact 装在树莓派外壳中](.gitbook/assets/m2-hat-plus-compact-with-case.jpg)
 
-树莓派 M.2 HAT+ M 键（M Key）和 M.2 HAT+ Compact M 键可以让你把 M.2 外部设备（如 NVMe 存储设备和其他 PCIe 配件）连接到树莓派 5 的 PCIe 接口。
+树莓派 M.2 HAT+ M Key 和 M.2 HAT+ Compact M Key 可以让你把 M.2 外部设备（如 NVMe 存储设备和其他 PCIe 配件）连接到树莓派 5 的 PCIe 接口。
 
-M.2 HAT+ 和 M.2 HAT+ Compact 转接板可在树莓派 5 上的 PCIe 接口与单个 M.2 M 键边型连接器之间进行转换。M.2 HAT+ 支持任何使用 2230 或 2242 外形尺寸的设备；M.2 HAT+ Compact 支持任何使用 2230 外形尺寸的设备。
+M.2 HAT+ 和 M.2 HAT+ Compact 转接板可在树莓派 5 上的 PCIe 连接器与单个 M.2 M Key 边缘连接器之间进行转换。M.2 HAT+ 支持任何使用 2230 或 2242 外形尺寸的设备；M.2 HAT+ Compact 支持任何使用 2230 外形尺寸的设备。
 
 M.2 HAT+ 提供标准版和 Compact 版两种形式，各自适用于不同的使用场景。
 
-* M.2 HAT+ 附带螺纹间隔柱，可在其下方为树莓派主动散热器留出充足的空间。不过，只有在移除盖子和附带的风扇后，它才兼容[树莓派 5 的树莓派外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)。
-* M.2 HAT+ Compact 的设计可以绕开[树莓派 5 的树莓派外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)中附带的风扇。不过，它下方无法安装主动散热器。
+* M.2 HAT+ 附带螺纹间隔柱，可在其下方为树莓派主动散热器留出充足的空间。不过，只有在移除盖子和附带的风扇后，它才兼容[适用于树莓派 5 的树莓派外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)。
+* M.2 HAT+ Compact 的设计可以避开[适用于树莓派 5 的树莓派外壳](https://www.raspberrypi.com/products/raspberry-pi-5-case/)中附带的风扇。不过，其下方无法安装主动散热器。
 
 M.2 HAT+ 和 M.2 HAT+ Compact 都符合[树莓派 HAT+ 规范](https://pip.raspberrypi.com/documents/RP-008281-DS)，这使得树莓派系统能够自动检测 HAT+ 及其连接的任何设备。
 
@@ -22,7 +22,7 @@ M.2 HAT+ 和 M.2 HAT+ Compact 都符合[树莓派 HAT+ 规范](https://pip.raspb
 M.2 HAT+ 和 M.2 HAT+ Compact 都具备以下特点：
 
 * 单通道 PCIe 2.0 接口（峰值传输速率 500 MB/s）
-* 支持使用 M.2 M 键边型连接器的设备
+* 支持使用 M.2 M Key 边缘连接器的设备
 * 为接入的 M.2 设备提供高达 3 A 的电流
 * 电源和活动指示灯
 
@@ -81,7 +81,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 ### （可选）安装主动散热器
 
-1. M.2 HAT+ 兼容树莓派 5 主动散热器。如果你有主动散热器，请在安装 M.2 HAT+ 之前先安装散热器。
+1. M.2 HAT+ 兼容树莓派 5 主动散热器。如果你有主动散热器，请在安装 M.2 HAT+ 之前装好散热器。
 
     ![安装主动散热器](.gitbook/assets/m2-hat-plus-installation-01.png)
 
@@ -109,7 +109,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 ### 安装你的 M.2 存储设备
 
-1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 键边型连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
+1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 Key 边缘连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
 
     ![安装 M.2 存储设备](.gitbook/assets/m2-hat-plus-installation-05.png)
 
@@ -145,7 +145,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 ### 安装你的 M.2 存储设备
 
-1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 键边型连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
+1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 Key 边缘连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
 
     ![安装 M.2 存储设备](.gitbook/assets/m2-hat-plus-compact-installation-05.png)
 
@@ -163,7 +163,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 1. 将你的树莓派连接电源。树莓派系统会自动检测 M.2 HAT+ 或 M.2 HAT+ Compact。
 
-    * 要验证硬件是否被检测到，请打开终端并运行：
+    * 要确认硬件是否被识别，请打开终端并运行：
 
         ```bash
         $ ls -l /dev/nvme*
@@ -178,7 +178,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 >**警告**
 >
-> 在连接或断开 M.2 插槽上的设备之前，务必先断开树莓派的电源。
+> 在往 M.2 插槽连接设备或从 M.2 插槽断开设备之前，务必先断开树莓派的电源。
 
 ## 从 NVMe 启动
 
@@ -196,7 +196,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
         1. 使用存储卡将你的树莓派启动到树莓派系统。
         2. 在树莓派上的终端中运行 `sudo raspi-config`，打开树莓派配置 CLI。
-        3. 在 **Advanced Options** > **Boot Order** 下，选择 **NVMe/USB boot**。
+        3. 在 `Advanced Options` > `Boot Order` 下，选择 `NVMe/USB boot`。
         4. 使用 `Finish` 或 **Escape** 键退出 `raspi-config`。
         5. 使用 `sudo reboot` 重启你的树莓派。
 

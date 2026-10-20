@@ -4,7 +4,7 @@
 
 ## 安全架构
 
-树莓派的安全架构确保：只有经过身份验证的启动代码才能在完成配置的树莓派设备上运行；磁盘加密密钥受到保护；启动过程的每个阶段都通过信任链进行验证。
+树莓派的安全架构确保：只有经过身份验证的启动代码才能在完成配置的树莓派设备上运行；磁盘加密密钥受到保护；信任链会验证启动过程的每个阶段。
 
 更多信息，请参阅[安全架构](an-quan-jia-gou.md)。
 
@@ -35,11 +35,11 @@
 
 更多信息和操作说明，请参阅[使用 UFW 的防火墙](ufw-fang-huo-qiang.md)。
 
-## 安全漏洞披露
+## 一线安全披露
 
 树莓派遵循结构化的漏洞报告和管理流程。作为该流程的一部分，我们会定期跟踪并整合来自 Debian 的安全更新。
 
-树莓派在网站上公布官方安全漏洞披露信息。更多信息，请参阅[安全公告](https://www.raspberrypi.com/security#security-advisories)和[树莓派系统 — CVE 报告](https://raspberrypi.github.io/cve-list/)。
+树莓派在我们网站上公布官方安全漏洞披露信息。更多信息，请参阅[安全公告](https://www.raspberrypi.com/security#security-advisories)和[树莓派系统 — CVE 报告](https://raspberrypi.github.io/cve-list/)。
 
 要报告树莓派上的安全问题，请发送电子邮件至 [security@raspberrypi.com](mailto:security@raspberrypi.com)。更多信息，请参阅[报告漏洞](https://www.raspberrypi.com/security/#reporting-a-vulnerability)。
 

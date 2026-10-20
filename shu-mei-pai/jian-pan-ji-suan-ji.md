@@ -21,7 +21,7 @@ Raspberry Pi 键盘计算机的特性取决于具体型号。
 * **处理器。** Raspberry Pi 400 使用 1.8 GHz 的 Cortex-A72；Raspberry Pi 500 和 500+ 均使用 2.4 GHz 的 Cortex-A76，性能和能效更高。
 * **内存（RAM）。** Raspberry Pi 400 配备 4 GB RAM；Raspberry Pi 500 配备 8 GB RAM；Raspberry Pi 500+ 配备 16 GB RAM，多任务处理更流畅，并能支持要求更高的应用。
 * **GPU。** Raspberry Pi 400 配备 500 MHz 的 VideoCore VI；Raspberry Pi 500 和 500+ 均配备 910 MHz 的 VideoCore VII，图形处理更快，视频解码能力更强。
-* **HDR 视频。** 所有 Raspberry Pi 键盘计算机均配备两个 micro-HDMI 端口，可提供 4K 显示，但 Raspberry Pi 500 和 500+ 还支持 HDMI 输出上的 HDR。
+* **HDR 视频。** 所有 Raspberry Pi 键盘计算机均配备两个 micro-HDMI 端口，可提供 4K 显示，但 Raspberry Pi 500 和 500+ 还在 HDMI 输出上支持 HDR。
 * **电源按键。** Raspberry Pi 400 没有电源按键，而是通过组合按键（**Fn** + **F10**）开关机；Raspberry Pi 500 和 500+ 均配有专用电源键。
 * **SoC。** Raspberry Pi 400 采用 Broadcom 芯片 BCM2711；Raspberry Pi 500 和 500+ 均采用 Broadcom 芯片 BCM2712，并搭配 RP1 I/O 控制器。
 
@@ -42,7 +42,7 @@ Raspberry Pi 500+ 还提供以下附加特性：
 | **尺寸** | 286 × 122 × 23 mm | 286 × 122 × 23 mm | 312 × 123 × 35 mm |
 | **按键** | 78、79 或 83 个薄膜按键，视地区版本而定 | 78、79 或 83 个薄膜按键，视地区版本而定 | 84、85 或 88 个机械按键，视地区版本而定 |
 | **处理器** | 四核 64 位 Arm 处理器（1.8 GHz 的 Cortex-A72） | 四核 64 位 Arm 处理器（2.4 GHz 的 Cortex-A76） | 四核 64 位 Arm 处理器（2.4 GHz 的 Cortex-A76） |
-| **SoC 和 I/O 控制器** | [BCM2711](chu-li-qi.md#bcm2711) SoC | [BCM2712](chu-li-qi.md#bcm2712) SoC 和 [RP1 I/O 控制器](https://www.raspberrypi.com/documentation/computers/io-controllers.html) | [BCM2712](chu-li-qi.md#bcm2712) SoC 和 [RP1 I/O 控制器](https://www.raspberrypi.com/documentation/computers/io-controllers.html) |
+| **SoC 和 I/O 控制器** | [BCM2711](chu-li-qi.md#bcm2711) SoC | [BCM2712](chu-li-qi.md#bcm2712) SoC 和 [RP1 I/O 控制器](io-kong-zhi-qi.md) | [BCM2712](chu-li-qi.md#bcm2712) SoC 和 [RP1 I/O 控制器](io-kong-zhi-qi.md) |
 | **内存（RAM）** | 4 GB 同步动态 RAM（SDRAM） | 8 GB 同步动态 RAM（SDRAM） | 16 GB 同步动态 RAM（SDRAM） |
 | **GPU** | 500 MHz 的 VideoCore VI | 910 MHz 的 VideoCore VII | 910 MHz 的 VideoCore VII |
 | **视频输出** | 两个 micro-HDMI 端口，可提供单台 60 Hz 的 4K 显示器或两台 30 Hz 的 4K 显示器 | 两个 micro-HDMI 端口，可提供 60 Hz 的 4K 显示并支持 HDR | 两个 micro-HDMI 端口，可提供 60 Hz 的 4K 显示并支持 HDR |
@@ -102,7 +102,7 @@ Raspberry Pi 500+ 套件包含以下物品：
 * 27 W Raspberry Pi USB-C 电源适配器。
 * Raspberry Pi USB 鼠标。
 * micro-HDMI 线缆。
-* 撬棒（开口工具），用于接触 M.2 SSD（单独购买键盘时也会附带）。
+* 撬棒（开口工具），用于触及 M.2 SSD（单独购买键盘时也会附带）。
 * 拔键器，用于拆卸键帽（单独购买键盘时也会附带）。
 * 《初学者指南》图书。
 
@@ -125,7 +125,7 @@ Raspberry Pi 500+ 套件包含以下物品：
 
 * 一台 Raspberry Pi 400、500 或 500+。
 * 适用于你的 Raspberry Pi 键盘计算机的官方 Raspberry Pi [电源适配器](ru-men.md#电源适配器)。
-* 一张容量至少为 32 GB 的[存储卡](https://www.raspberrypi.com/documentation/accessories/sd-cards.html)，以及将其连接到另一台计算机的方法。以下情况需要存储卡：
+* 一张容量至少为 32 GB 的[存储卡](../pei-jian/sd-ka.md)，以及将其连接到另一台计算机的方法。以下情况需要存储卡：
   * 你没有使用键盘计算机套件来设置 Raspberry Pi 400 或 500。
   * 你使用的是 Raspberry Pi 500+，并且想使用存储卡而不是预装的 M.2 SSD 作为启动介质。
 * 一台运行 Windows、macOS 或 Linux 的计算机，用于准备存储卡。如果你从 Raspberry Pi 500+ 内部预装的 M.2 SSD 启动，则不需要该计算机。
@@ -133,14 +133,14 @@ Raspberry Pi 500+ 套件包含以下物品：
   * 你的 Wi-Fi 凭据（SSID 和密码）。
   * 一根以太网线。
 * 一个用于连接 Raspberry Pi 键盘计算机的 USB 鼠标。
-* 一台用于连接 Raspberry Pi 键盘计算机的显示器或显示屏（以及合适的电源线）。为方便起见，我们推荐 [Raspberry Pi Monitor](https://www.raspberrypi.com/documentation/accessories/monitor.html)，你可以通过 Raspberry Pi 键盘计算机为其供电。
+* 一台用于连接 Raspberry Pi 键盘计算机的显示器或显示屏（以及合适的电源线）。为方便起见，我们推荐 [Raspberry Pi Monitor](../pei-jian/raspberry-pi-monitor.md)，你可以通过 Raspberry Pi 键盘计算机为其供电。
 * 一根 micro-HDMI 转 HDMI 线缆，用于将显示器或显示屏连接到 Raspberry Pi 键盘计算机。
 
 ### 第 1 步：准备启动介质
 
 仅当你的键盘计算机不是作为套件的一部分购买，或者你设置的是 Raspberry Pi 500+ 并想使用存储卡而不是预装的 M.2 SSD 时，才需要执行此步骤。
 
-1. 在你的计算机上，[安装并启动树莓派启动盘制作工具](ru-men.md#树莓派启动盘制作工具的使用方法)。你可以使用该工具将[树莓派系统](https://www.raspberrypi.com/documentation/computers/os.html#os-installation)写入存储卡，使其成为 Raspberry Pi 键盘计算机的启动介质。
+1. 在你的计算机上，[安装并启动树莓派启动盘制作工具](ru-men.md#树莓派启动盘制作工具的使用方法)。你可以使用该工具将[树莓派系统](raspberry-pi-os.md#安装操作系统)写入存储卡，使其成为 Raspberry Pi 键盘计算机的启动介质。
 2. 按照 Imager 中的说明配置 Raspberry Pi 设备、操作系统、存储、自定义设置和 Imager 选项。有关应配置哪些内容的指导，请参阅[使用 Imager 安装](ru-men.md#树莓派启动盘制作工具的使用方法)中的第 2 步至第 4 步。
 3. 将镜像写入存储卡。这样存储设备就变成了你的启动介质。
 4. Raspberry Pi Imager 完成启动介质写入后，从计算机中安全取出存储卡，然后将其插入 Raspberry Pi 键盘计算机。从键盘计算机背面看，存储卡槽位于 USB 端口右侧、电源端口左侧。
@@ -149,16 +149,16 @@ Raspberry Pi 500+ 套件包含以下物品：
 
 ### 第 2 步：连接外设
 
-对于台式计算机配置，你可以将以下外设直接连接到键盘计算机背面：
+按台式计算机配置时，你可以将以下外设直接连接到键盘计算机背面：
 
 * USB 鼠标，可连接到白色的 USB 2.0 端口，把更快的 USB 3.0 端口留给你可能想连接的更高速外设。
 * 根据需要连接一台或两台显示器。
   * 将线缆较大的一端（全尺寸 HDMI 端）连接到显示器。
-  * 两个 micro-HDMI 端口均支持最高 4K 分辨率，但刷新率因型号而异；有关 Raspberry Pi 400、500 和 500+ 分辨率选项的更多详细信息，请参阅[配置显示设置](xi-tong-pei-zhi.md#显示)。
-  * 显示器通常需要独立电源。如果你使用的是官方 [Raspberry Pi Monitor](https://www.raspberrypi.com/documentation/accessories/monitor.html)，可以通过连接到 Raspberry Pi 键盘计算机的 USB 线缆为显示器供电。打开键盘计算机后，它便为 Raspberry Pi Monitor 供电。
+  * 两个 micro-HDMI 端口均支持最高 4K 分辨率，但刷新率因型号而异；有关 Raspberry Pi 400、500 和 500+ 分辨率选项的更多详细信息，请参阅[配置显示设置](xi-tong-pei-zhi.md#配置显示设置)。
+  * 显示器通常需要独立电源。如果你使用的是官方 [Raspberry Pi Monitor](../pei-jian/raspberry-pi-monitor.md)，可以通过连接到 Raspberry Pi 键盘计算机的 USB 线缆为显示器供电。打开键盘计算机后，它便为 Raspberry Pi Monitor 供电。
 * 可选：用于音频输出的扬声器或耳机。
   * 你可以通过 micro-HDMI、USB 或蓝牙输出音频。
-  * 官方 [Raspberry Pi Monitor](https://www.raspberrypi.com/documentation/accessories/monitor.html) 配有两个前置扬声器。你也可以通过显示器背面的 3.5 mm 音频插孔连接扬声器或耳机。
+  * 官方 [Raspberry Pi Monitor](../pei-jian/raspberry-pi-monitor.md) 配有两个前置扬声器。你也可以通过显示器背面的 3.5 mm 音频插孔连接扬声器或耳机。
 
 ### 第 3 步：连接电源
 
@@ -218,7 +218,7 @@ Raspberry Pi 500+ 是最新的键盘计算机。它提供以下自定义选项�
 
    ![撬棒](.gitbook/assets/M2-step-2.jpg)
 
-3. **使键盘顶部与底部分离。** 将撬棒楔入键盘前部的开口槽并沿槽滑动，使键盘顶部与底部分离。
+3. **使键盘顶部与底部分离。** 把撬棒楔入键盘前部的开口槽，沿槽滑动，将键盘顶部从底部拆开。
 
    ![沿凹槽滑动撬棒](.gitbook/assets/M2-step-3.jpg)
 
@@ -329,7 +329,7 @@ Raspberry Pi 提供用于控制 Raspberry Pi 500 和 500+ 内置键盘的固件�
 
 * 为 Raspberry Pi 500+ 启用并配置高级 LED 设置。更多信息，请参阅[高级 LED 设置](#高级-led-设置)。
 * 在 Raspberry Pi 500 和 500+ 上重新映射按键。更多信息，请参阅[重新映射键盘按键](#重新映射键盘按键)。
-* 在 Raspberry Pi 500+ 上玩一个 Flappy Bird 风格的游戏。相关信息请参阅 [Flappy Bird 游戏](#flappy-bird-游戏)。
+* 在 Raspberry Pi 500+ 上玩一款简单的 Flappy Bird 风格游戏。相关信息请参阅 [Flappy Bird 游戏](#flappy-bird-游戏)。
 
 有关本页所述内容之外的更多信息和选项，请参阅 GitHub 上[配置工具的 README](https://github.com/raspberrypi/rpi-keyboard-config/blob/main/README.md)。
 
@@ -397,7 +397,7 @@ $ rpi-keyboard-config effect "Cycle Spiral" --speed 42
 
 | 命令 | 说明 | 示例（假设为默认预设） |
 | :--- | :--- | :--- |
-| `rpi-keyboard-config preset index` | 显示当前预设的索引。 | 如果你当前位于 **Gradient Left Right**（左右渐变）预设，该命令会显示你位于预设 3。 |
+| `rpi-keyboard-config preset index` | 显示当前预设的索引。 | 如果你当前位于 **Gradient Left Right**（左右渐变）预设，该命令会告诉你当前位于预设 3。 |
 | `rpi-keyboard-config preset index X` | 跳到预设循环中的其他位置，其中 `X` 是预设的索引（`0` 到 `6` 之间的数字）。 | 以下命令会切换到 **Typing Heatmap**（打字热力图）预设：`rpi-keyboard-config preset index 5`。 |
 | `rpi-keyboard-config preset get` | 列出所有当前预设。 | 该命令会列出七个预设，编号为 0 到 6。默认预设的概述见[选择背光预设](#选择背光预设)。 |
 | `rpi-keyboard-config preset get X` | 显示特定预设的详细信息，其中 `X` 是预设的索引（`0` 到 `6` 之间的数字）。 | 以下命令会显示预设 5 是 **Typing Heatmap**（打字热力图）预设：`rpi-keyboard-config preset get 5`。 |
@@ -506,7 +506,7 @@ $ rpi-keyboard-config reset-presets
 
 ### 重新映射键盘按键
 
-高级用户可以重新映射 Raspberry Pi 500 和 500+ 上的按键，从而自定义键盘布局，以匹配你的工作流程或游戏需求。
+高级用户可以重新映射 Raspberry Pi 500 和 500+ 上的按键，让键盘布局契合你的工作流程或游戏需求。
 
 使用 `rpi-keyboard-config` 软件可以：
 
@@ -520,7 +520,7 @@ $ rpi-keyboard-config reset-presets
 
 #### 列出键码
 
-要重新映射键盘，你需要知道想在 Raspberry Pi 500 或 500+ 上分配的按键的键码。以下命令列出所有可能的键码：
+在 Raspberry Pi 500 或 500+ 上重新映射键盘之前，你需要知道打算分配的按键的键码。以下命令会列出所有可能的键码：
 
 ```bash
 $ rpi-keyboard-config list-keycodes
@@ -540,7 +540,7 @@ $ rpi-keyboard-config list-keycodes --category basic
 $ rpi-keyboard-config key get-all
 ```
 
-使用以下命令查看特定按键的键码，位置由该按键的行列坐标指定。将 `<row>` 和 `<column>` 替换为相应的数字：
+以下命令用于查看特定按键的键码，位置由该按键的行列坐标指定。将 `<row>` 和 `<column>` 替换为相应的数字：
 
 ```bash
 $ rpi-keyboard-config key get <row> <column>
@@ -558,7 +558,7 @@ $ rpi-keyboard-config key 2 2
 
 #### 重新映射按键
 
-使用以下命令在按键的行列坐标所指定的位置设置不同的键码。将 `<row>` 和 `<column>` 替换为相应的数字，将 `<keycode>` 替换为要映射到该按键的键码。
+以下命令可以在你指定的行列位置设置不同的键码。将 `<row>` 和 `<column>` 替换为相应的数字，将 `<keycode>` 替换为要映射到该按键的键码。
 
 ```bash
 $ rpi-keyboard-config key set <row> <column> <keycode>
@@ -642,7 +642,7 @@ $ rpi-keyboard-config reset-keymap
 
 ### 恢复默认设置
 
-由软件控制的偏好设置保存在闪存中，并在重启和固件更新后保留。要重置背光设置和键盘布局，请使用以下命令擦除存储这些设置的闪存区域：
+由软件控制的偏好设置存放在闪存中，重启和固件更新后依然保留。要重置背光设置和键盘布局，请使用以下命令擦除存储这些设置的闪存区域：
 
 ```bash
 $ sudo rpi-keyboard-fw-update -w -i

@@ -63,7 +63,7 @@ dtoverlay=vc4-kms-v3d
 
 #### 条件筛选器
 
-条件筛选器见[条件筛选器](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)一节。
+条件筛选器的详细说明见[条件筛选器](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)一节。
 
 ## `autoboot.txt`
 
@@ -272,7 +272,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `start_file`、`fixup_file`
 
-这些参数可指定：在启动前传给 VideoCore GPU 的固件文件。
+这些参数用于指定启动前传给 VideoCore GPU 的固件文件。
 
 `start_file` 指定要使用的 VideoCore 固件文件。`fixup_file` 用于修正 `start_file` 所使用的内存位置，以匹配 GPU 内存分配。
 
@@ -280,7 +280,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 >**注意**
 >
->无法以这种方式选择精简固件（`start*cd.elf` 和 `fixup*cd.dat`）——系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件移除了对编解码器、3D 和调试日志的支持，并把初始早期引导帧缓冲区限制为 1080p @16bpp——不过与其他固件一样，KMS 可以在后续阶段用最高 32bpp 的 4K 帧缓冲区取而代之。
+>无法以这种方式选择精简固件（`start*cd.elf` 和 `fixup*cd.dat`）——这样系统将无法启动。启用精简固件的唯一方法是指定 `gpu_mem=16`。精简固件移除了对编解码器、3D 和调试日志的支持，并把初始早期引导帧缓冲区限制为 1080p @16bpp——不过与其他固件一样，KMS 可以在后续阶段用最高 32bpp 的 4K 帧缓冲区取而代之。
 
 >**注意**
 >
@@ -302,7 +302,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 在 64 位模式下，固件会选择合适的内核（例如 `kernel8.img`），除非显式定义了 `kernel` 参数——此时将使用显式指定的内核。
 
-在树莓派 4、400 和计算模块 4、4S 平台上默认值为 1；在所有其他平台上默认值为 0。但是，如果显式设置的 `kernel` 参数中给定的名称与已知的任一内核匹配，`arm_64bit` 会相应设置。
+在树莓派 4、400 和计算模块 4、4S 平台上默认值为 1；在所有其他平台上默认值为 0。但是，如果显式设置的 `kernel` 参数中给出的名称与任一已知内核匹配，`arm_64bit` 也会随之设定。
 
 64 位内核有以下两种形式：
 
@@ -325,7 +325,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 * 计算模块 4
 * 计算模块 4S
 
-自树莓派 5 起的旗舰机型、自 CM5 起的计算模块以及自树莓派 500 起的键盘系列机型_仅_支持 64 位内核。仅支持 64 位内核的型号会忽略此标志。
+自树莓派 5 起的旗舰型号、自 CM5 起的计算模块以及自树莓派 500 起的键盘系列机型_仅_支持 64 位内核。仅支持 64 位内核的型号会忽略此标志。
 
 ### `armstub`
 
@@ -351,7 +351,7 @@ stub 是在内核之前运行的一小段 Arm 代码。它的职责是设置中�
 >
 >构建和更新 `initramfs` 被视为只有经验丰富的用户才会尝试的高级技术。树莓派官方不对其提供支持，因此我们也不提供相关说明。
 
-命令 `initramfs` 同时指定了 ramfs 的文件名**和**它将加载到的内存地址。它在一个参数中同时执行了 `ramfsfile` 和 `ramfsaddr` 的操作。地址也可以是 `followkernel`（或 `0`），将其放置在内核镜像之后的内存中。示例值为：`initramfs initramf.gz 0x00800000`、`initramfs init.gz followkernel`。同 `ramfsfile` 一样，新版固件可加载多个文件，多个文件名以逗号分隔。
+命令 `initramfs` 同时指定了 ramfs 的文件名**和**它将加载到的内存地址。它在一个参数中同时执行了 `ramfsfile` 和 `ramfsaddr` 的操作。地址也可以是 `followkernel`（或 `0`），将其放置在内核镜像之后的内存中。示例值为 `initramfs initramf.gz 0x00800000` 或 `initramfs init.gz followkernel`。同 `ramfsfile` 一样，新版固件可加载多个文件，多个文件名以逗号分隔。
 
 >**注意**
 >
@@ -363,7 +363,7 @@ stub 是在内核之前运行的一小段 Arm 代码。它的职责是设置中�
 
 ### `disable_poe_fan`
 
-在默认情况下，即使并未接入 PoE 扩展板，启动时也会在 I²C 总线上进行探测。将此参数置为 1，可禁用通过 I²C（在 `ID_SD` 和 `ID_SC` 引脚上）对 PoE 扩展板风扇的控制。如果你不打算使用 PoE 扩展板，那么这是缩短启动时间的有效方式。
+在默认情况下，即使未接入 PoE 扩展板，启动时仍会探测 I²C 总线。将此参数置为 1，可禁用通过 I²C（在 `ID_SD` 和 `ID_SC` 引脚上）对 PoE 扩展板风扇的控制。如果你不打算使用 PoE 扩展板，这是缩短启动时间的有效方法。
 
 ### `disable_splash`
 
@@ -371,7 +371,7 @@ stub 是在内核之前运行的一小段 Arm 代码。它的职责是设置中�
 
 ### `enable_uart`
 
-`enable_uart=1`（与 `cmdline.txt` 中的 `console=serial0,115200` 配合使用）能让内核创建一个串口控制台，可使用 GPIO 14 和 15（40 针排针上的引脚 8 和引脚 10）访问。编辑 `cmdline.txt`，删除 `quiet` 字段，就能把内核的启动消息也输出到这个串口上。另请参阅 `uart_2ndstage`。
+`enable_uart=1`（与 `cmdline.txt` 中的 `console=serial0,115200` 配合使用）能让内核创建一个串口控制台，可使用 GPIO 14 和 15（40 针排针上的引脚 8 和引脚 10）访问。编辑 `cmdline.txt`，删除 `quiet` 这一行，就能把内核的启动消息也输出到这个串口上。另请参阅 `uart_2ndstage`。
 
 ### `force_eeprom_read`
 
@@ -421,7 +421,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，让支持的 USB 设备�
 
 `boot_ramdisk` 的主要目的是支持安全启动（`secure-boot`），但未签名的 `boot.img` 文件也可用于网络引导或 `RPIBOOT` 配置。
 
-* 对于树莓派 4 及后续机型，ramdisk 文件的最大尺寸为 180 MB；更早的设备为 128 MB。不过，在内存有限的设备（例如 256 MB）上，我们建议使用较小的 ramdisk 文件，例如 32 MB。
+* 对于树莓派 4 及后续机型，ramdisk 文件的最大尺寸为 180 MB；更早的设备为 128 MB。不过，在内存有限的设备（例如 256 MB）上，我们建议使用较小的 ramdisk 文件，比如 32 MB。
 * `boot.img` 文件是裸磁盘 `.img` 文件。推荐格式是不带 MBR 的普通 FAT32 分区。
 * ramdisk 文件系统的内存在操作系统启动之前释放。
 * 如果选择了 [TRYBOOT](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#fail-safe-os-updates-tryboot)，则引导加载程序将搜索 `tryboot.img` 而非 `boot.img`。
@@ -453,7 +453,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，让支持的 USB 设备�
 
 仅适用于树莓派 5。
 
-默认情况下，在启动操作系统之前，会对 `RP1` 使用的 PCIe x4 控制器进行复位。如果此参数置为 `0`，则禁用复位，让操作系统或裸机代码继承来自引导加载程序的 PCIe 配置设置。
+默认情况下，固件会在启动操作系统之前复位 `RP1` 使用的 PCIe x4 控制器。如果此参数置为 `0`，则禁用复位，让操作系统或裸机代码继承来自引导加载程序的 PCIe 配置设置。
 
 默认值：`1`
 
@@ -463,7 +463,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，让支持的 USB 设备�
 
 #### `uart_2ndstage`
 
-如果 `uart_2ndstage` 为 `1`，则启用到 UART 的调试日志记录。此参数还会自动启用 `start.elf` 中的 UART 日志记录。这也在[启动参数](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)页上有描述。
+如果 `uart_2ndstage` 为 `1`，则启用输出到 UART 的调试日志。此参数还会自动启用 `start.elf` 中的 UART 日志记录。这也在[启动参数](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot-options)页上有描述。
 
 属性 `BOOT_UART` 也会启用引导加载程序的 UART 日志记录，但不会启用 `start.elf` 的 UART 日志记录——除非同时设置了 `uart_2ndstage=1`。
 
@@ -479,7 +479,7 @@ USB On-The-Go（通常缩写为 OTG）是一项功能，让支持的 USB 设备�
 
 仅适用于树莓派 5。
 
-设置 `boot_arg1` 的值，在重启后通过防复位寄存器传递给引导加载程序。更多详情请参阅 [`boot_arg1`](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot_arg1)。
+设置 `boot_arg1` 的值，使其在重启后通过防复位寄存器传递给引导加载程序。更多详情请参阅 [`boot_arg1`](https://www.raspberrypi.com/documentation/computers/config_txt.html#boot_arg1)。
 
 要在运行时设置重启参数而不编辑 `config.txt`，可以使用 `vcmailbox`。例如，在下次重启时把 `boot_arg1` 设置为 `42`：
 
@@ -493,9 +493,9 @@ $ sudo vcmailbox 0x0003808c 8 8 1 42
 
 仅适用于树莓派 5。
 
-设置 [BOOT_ORDER](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#BOOT_ORDER) 的值，在重启后通过防复位寄存器传递给引导加载程序。与 `tryboot` 一样，这是一次性设置，使用后会自动清除。
+设置 [BOOT_ORDER](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#BOOT_ORDER) 的值，使其在重启后通过防复位寄存器传递给引导加载程序。与 `tryboot` 一样，这是一次性设置，使用后会自动清除。
 
-此属性可用于调试不同的 [BOOT_ORDER](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#BOOT_ORDER) 设置。或者，在同时控制电源和 `nRPIBOOT` GPIO 的配置系统中，可用它来覆盖启动模式，而无需在 EEPROM 配置中指定[条件筛选器](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)语句。
+此属性可用于调试不同的 [BOOT_ORDER](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#BOOT_ORDER) 设置。或者，在同时控制电源和 `nRPIBOOT` GPIO 的预配置系统中，可用它来覆盖启动模式，而无需在 EEPROM 配置中指定[条件筛选器](https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters)语句。
 
 要在运行时设置重启顺序而不编辑 `config.txt`，可以使用 `vcmailbox`。例如，测试下次重启时的网络启动：
 
@@ -554,7 +554,7 @@ $ sudo reboot
 >
 >`flashrom` 不能清除写保护区域，如果定义了写保护区域，它将无法更新 EEPROM。
 
-对于树莓派 5，在默认情况下 `/WP` 已拉低，因此只要配置了写状态寄存器，就会启用写保护。要清除写保护，请将 `/WP` 引脚拉高，方法是连接 `TP14` 和 `TP1`。
+对于树莓派 5，`/WP` 默认处于拉低状态，因此只要配置了写状态寄存器，就会启用写保护。要清除写保护，请将 `/WP` 引脚拉高，方法是连接 `TP14` 和 `TP1`。
 
 默认值：`-1`
 
@@ -644,7 +644,7 @@ $ sudo reboot
 * `dl`——驱动低电平（用于输出）
 * `pu`——上拉
 * `pd`——下拉
-* `pn/np`——无拉取
+* `pn/np`——无上拉或下拉
 
 `gpio` 设置将按顺序应用，因此后面出现的设置会覆盖先前出现的设置。
 
@@ -664,7 +664,7 @@ gpio=18,20=pu
 gpio=17-21=ip
 ```
 
-`config.txt` 中的条件筛选器“\[...\]”兼容该 `gpio` 指令，因此可以根据型号、序列号和 EDID 使用不同的设置。
+`config.txt` 中的条件筛选器 `[...]` 兼容该 `gpio` 指令，因此可以根据型号、序列号和 EDID 使用不同的设置。
 
 通过该机制进行的 GPIO 修改不会直接影响内核。它们不会把 GPIO 引脚暴露到 `sysfs` 接口，并且可被设备树中的 `pinctrl` 条目以及 `pinctrl` 之类的工具覆盖。
 
@@ -695,7 +695,7 @@ gpio=17-21=ip
 
 >**警告**
 >
->将任意超频参数设置为非 [raspi-config](https://www.raspberrypi.com/documentation/computers/configuration.html#overclock) 所用的值，可能会导致在 SoC 内部置一个永久位。这将使你的树莓派曾经超频过这一事实变得可检测。当 `force_turbo` 置为 `1` 且任一 `over_voltage_*` 参数置为大于 `0` 的值时，就会设置超频位。详细信息请查看有关[超频模式的博客文章](https://www.raspberrypi.com/news/introducing-turbo-mode-up-to-50-more-performance-for-free/)。
+>将任意超频参数设置为非 [raspi-config](https://www.raspberrypi.com/documentation/computers/configuration.html#overclock) 所用的值，可能会导致在 SoC 内部置一个永久位。这样就可以检测出你的树莓派曾经超频过。当 `force_turbo` 置为 `1` 且任一 `over_voltage_*` 参数置为大于 `0` 的值时，就会设置超频位。详细信息请查看有关[超频模式的博客文章](https://www.raspberrypi.com/news/introducing-turbo-mode-up-to-50-more-performance-for-free/)。
 
 ### 超频
 
@@ -716,7 +716,7 @@ gpio=17-21=ip
 | `over_voltage_sdram_i` | 调整 SDRAM I/O 电压。[-16,8] 等同于 [0.8V,1.4V]，步长为 0.025V。不支持树莓派 4 及更新设备。 |
 | `over_voltage_sdram_p` | 调整 SDRAM phy 电压。[-16,8] 等同于 [0.8V,1.4V]，步长为 0.025V。不支持树莓派 4 及更新设备。 |
 | `force_turbo` | 即使 Arm 核心不忙，也强制使用超频模式的频率。如果同时设置了 `over_voltage_*`，启用此参数可能会设置保修位。 |
-| `initial_turbo` | 启用[启动加速模式](https://forums.raspberrypi.com/viewtopic.php?f=29&t=6201&start=425#p180099)，持续给定的秒数，或直至 `cpufreq` 设定频率。最大值为 `60`。2024 年 11 月的固件更新做出了以下更改：将默认值从 `0` 改为 `60` 以缩短启动时间；将内核 CPU 性能调度器从 `powersave` 切换为 `ondemand`。 |
+| `initial_turbo` | 启用[启动时的超频模式](https://forums.raspberrypi.com/viewtopic.php?f=29&t=6201&start=425#p180099)，持续给定的秒数，或直至 `cpufreq` 设定频率。最大值为 `60`。2024 年 11 月的固件更新做出了以下更改：将默认值从 `0` 改为 `60` 以缩短启动时间；将内核 CPU 性能调度器从 `powersave` 切换为 `ondemand`。 |
 | `arm_freq_min` | 动态频率调节所用的 `arm_freq` 最小值。请注意，把该值降到默认值以下并不会带来明显的节能效果，且目前不受支持。 |
 | `core_freq_min` | 动态频率调节所用的 `core_freq` 最小值。 |
 | `gpu_freq_min` | 动态频率调节所用的 `gpu_freq` 最小值。 |
@@ -728,7 +728,7 @@ gpio=17-21=ip
 | `over_voltage_min` | 动态频率调节所用的 `over_voltage` 最小值。该值应位于区间 [-16,8]，等同于 [0.8V,1.4V]，步长为 0.025V。换言之，设定 -16 将把 CPU/GPU 核心空闲电压变为 0.8V；设定 8 将把最低电压变为 1.4V。该设置在树莓派 4 和树莓派 5 上已被弃用。 |
 | `over_voltage_delta` | 在树莓派 4 和树莓派 5 上，参数 `over_voltage_delta` 会把给定的偏移量（以微伏计）加到 DVFS 算法计算出的数值上。 |
 | `temp_limit` | 过热保护。当 SoC 达到此设定值（摄氏度）时，会将时钟和电压恢复为默认值。超过 85 的值会被钳制到 85。 |
-| `temp_soft_limit` | **仅适用于 3A+/3B+。** CPU 降频控制。它设定 CPU 时钟速度节流系统激活时的温度。在此温度下，时钟速度将从 1400 MHz 降至 1200 MHz。默认值为 `60`，最大可升至 `70`，但可能会引起不稳定。 |
+| `temp_soft_limit` | **仅适用于 3A+/3B+。** CPU 降频控制。它设定 CPU 时钟降频机制启动的温度。在此温度下，时钟速度将从 1400 MHz 降至 1200 MHz。默认值为 `60`，最大可升至 `70`，但可能会引起不稳定。 |
 | `core_freq_fixed` | 置为 1 将停用核心时钟频率的主动调节，确保使用核心时钟的外设保持恒定的速度。固定的时钟频率是所用平台上较高的/超频频率。请优先使用此参数而不是设定特定的核心时钟频率，因为它能让配置文件在不同平台之间通用。 |
 
 下表给出了各树莓派型号参数的默认值，所有频率均以 MHz 表示。
@@ -776,7 +776,7 @@ gpio=17-21=ip
 
 >**注意**
 >
->自树莓派 5 起的旗舰机型、自 CM5 起的计算模块以及自树莓派 500 起的键盘系列机型无需使用 `hdmi_enable_4kp60`，它们默认支持双 4Kp60 显示屏。
+>自树莓派 5 起的旗舰型号、自 CM5 起的计算模块以及自树莓派 500 起的键盘系列机型无需使用 `hdmi_enable_4kp60`，它们默认支持双 4Kp60 显示屏。
 
 * 超频需要最新版本的固件。
 * 最新的固件在系统超频时会自动提升电压。手动设定 `over_voltage` 会禁用超频时的自动电压调节。
@@ -898,7 +898,7 @@ initramfs initrd.img-3.18.7-v7+ followkernel
 
 ### 筛选器 `[none]`
 
-筛选器 `[none]` 会阻止其后的任何设置应用于任何硬件。虽然没有 `[none]` 也没有什么做不到的，但它是一种有用的方式，可以在不必注释掉每一行的情况下，把成组的未使用设置保留在 `config.txt` 中。
+筛选器 `[none]` 会阻止其后的任何设置应用于任何硬件。虽然不用 `[none]` 也能达到同样的目的，但它仍是一种有用的方式：不必注释掉每一行，就能把成组的未使用设置保留在 `config.txt` 中。
 
 ```bash
 # 引导加载程序 EEPROM 配置。
@@ -1251,11 +1251,11 @@ CEA 和 DMT 标准中只有一种不兼容的模式：DMT 模式 81，1366x768 @
 
 #### `enable_tvout`
 
-置为 `1` 启用复合视频输出，置为 `0` 禁用。自树莓派 4 起的旗舰机型、自 CM4 起的计算模块以及 Zero 系列机型，只有将此参数置为 `1` 时才提供复合输出，置为 `1` 同时也会禁用 HDMI 输出。键盘系列机型不提供复合输出。
+置为 `1` 启用复合视频输出，置为 `0` 禁用。自树莓派 4 起的旗舰型号、自 CM4 起的计算模块以及 Zero 系列机型，只有将此参数置为 `1` 时才提供复合输出，置为 `1` 同时也会禁用 HDMI 输出。键盘系列机型不提供复合输出。
 
 | 型号 | 默认值 |
 | :----------------: | :------: |
-| 自树莓派 4B 起的旗舰机型、自 CM4 起的计算模块、键盘系列机型 | 0 |
+| 自树莓派 4B 起的旗舰型号、自 CM4 起的计算模块、键盘系列机型 | 0 |
 | 所有其他型号 | 1 |
 
 在受支持的机型上，必须禁用 HDMI 输出才能启用复合输出。未检测到 HDMI 显示器时，HDMI 输出会被禁用。设置 `enable_tvout=0` 可防止在 HDMI 被禁用时启用复合输出。

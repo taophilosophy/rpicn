@@ -32,7 +32,7 @@
 
 这是我们推荐的配置，可同时使用树莓派、带集线器的官方键盘和官方鼠标。键盘上的集线器便于访问 USB 存储设备；鼠标线缆整齐且足够长，无论用左手还是右手都能自如操作。
 
-![everything](.gitbook/assets/everything.png)
+![树莓派、键盘和鼠标的连接示意图](.gitbook/assets/everything.png)
 
 >**注意**
 >
