@@ -940,7 +940,7 @@ cmdline=cmdline-recovery.txt
 # ARG 是启动变量
 # VALUE 和 MASK 是无符号整数常量
 [ARG=VALUE]      # 当 (ARG == VALUE) 时选中
-[ARG&MASK]       # 当 ((ARG & VALUE) != 0) 时选中
+[ARG&MASK]       # 当 ((ARG & MASK) != 0) 时选中
 [ARG&MASK=VALUE] # 当 ((ARG & MASK) == VALUE) 时选中
 [ARG<VALUE]      # 当 (ARG < VALUE) 时选中
 [ARG>VALUE]      # 当 (ARG > VALUE) 时选中
@@ -1123,7 +1123,7 @@ cmdline=cmdline_U2422H.txt
 $ cat /proc/cpuinfo
 ```
 
-输出末尾附近会显示一个 16 位十六进制值。你树莓派的串号就是最后八位十六进制数字。比如，如果你看到：
+输出末尾附近会显示一个由 16 个十六进制数字组成的值。你树莓派的串号就是最后 8 个十六进制数字。比如，如果你看到：
 
 ```bash
 Serial          : 0000000012345678

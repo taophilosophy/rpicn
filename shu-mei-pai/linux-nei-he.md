@@ -2,7 +2,7 @@
 
 ## 简介
 
-树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，其更新滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新，而树莓派只把 Linux 内核的**长期维护版本**（long-term releases）集成到树莓派内核中。我们会为每个长期维护的 Linux 内核版本在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中生成一个 `next` 分支。经过充分的测试和讨论，我们会把每个 `next` 分支合并到仓库的主分支中。
+树莓派内核托管在 [GitHub](https://github.com/raspberrypi/linux) 上，其更新滞后于上游的 [Linux 内核](https://github.com/torvalds/linux)。上游内核在持续更新，而树莓派把 Linux 内核的**长期维护版本**（long-term releases）集成到树莓派内核中。我们会为每个长期维护的 Linux 内核版本在 [raspberrypi/firmware](https://github.com/raspberrypi/firmware/) 中生成一个 `next` 分支。经过充分的测试和讨论，我们会把每个 `next` 分支合并到仓库的主分支中。
 
 ## 更新
 
@@ -10,7 +10,7 @@
 
 ## 编译内核
 
-操作系统随附的默认编译器和链接器被配置为编译可在该操作系统上运行的可执行文件。**本地编译（Native builds）** 使用这些默认的编译器和链接器。**交叉编译（Cross-compilation）** 是指为与运行构建过程的主机不同的目标系统编译代码的流程。
+操作系统随附的默认编译器和链接器都配置为编译在该操作系统上运行的可执行文件。**本地编译（Native builds）** 使用这些默认的编译器和链接器。**交叉编译（Cross-compilation）** 是指为运行构建过程的主机之外的的目标编译代码的过程。
 
 对树莓派内核进行交叉编译，可以让你在 32 位操作系统上编译 64 位内核，反之亦然。你也可以在非树莓派设备上交叉编译 32 位或 64 位的树莓派内核。
 
