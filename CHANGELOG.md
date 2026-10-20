@@ -53,3 +53,10 @@
   - 换行符统一：实际 LF 文件共 27 个（26 个内容页 + TASKS/AGENTS/mu-lu），已全部转为 CRLF，全仓库一致
   - 图片本地化完成：通过上游 GitHub 仓库浅克隆按文件名定位，301 张下载至 `.gitbook/assets/`，39 页 317 处引用替换；6 处上游已移除的图片（build-hat 页 GIF 与 tall-headers.png）保留原链待处理
   - 硬件页缺节确认并派 F14 补录：上游 `boot-eeprom.adoc`（重置/配置/自动更新/发布状态 4 节）与 `bootflow-legacy.adoc`（BCM2837 旧版引导顺序）在中文页无对应，此前 B1 疑点坐实
+- 2026.10.20（F14 收尾与缺节误判澄清）
+  - 主线程通过 GitHub API 核对上游 `computers/raspberry-pi/` 目录，确认该目录下恰有 27 个 `.adoc` 子页；中文「树莓派硬件」页经 grep 统计同样为 27 个 H2，与上游 1:1 对应，无缺失
+  - F14 拟补的两节实为误判：`boot-eeprom.adoc` 已对应中文「## 树莓派引导 EEPROM」（line 144，含重置/配置/自动更新/发布状态 4 个 H3，内容完整）；`bootflow-legacy.adoc` 上游标题即 "Boot sequence"，已对应中文「## 引导顺序」（line 1126，含 BCM2837/BCM2837B0 IMPORTANT 提示块与 `bootcode.bin` 流程，结尾 usbboot GitHub 句与上游一致），内容完整
+  - 结论：硬件页 27/27 节完整，无需新增任何内容；此前「缺两节」判断系结构核对疏漏，已在 TASKS.md 勘误
+  - CP-3 抽查硬件页：0 个「」、0 个 xref:/link:/image:: 残留、代码围栏 224（偶数）、弯引号 12/12 配对、无行尾 `+` 软换行、CRLF 保留；合规
+  - TASKS.md 更新：4.1 硬件页行负责人改 F14（主线程复核）、第五节 F14 行标记完成、六节 P0（F 波）/P1（硬件页缺节）均标记为完成并澄清误判
+  - 注：F14 代理在续跑请求时连续两次遇框架层 500 错误，因主线程已确权无需补录，该渠道故障不影响收尾
