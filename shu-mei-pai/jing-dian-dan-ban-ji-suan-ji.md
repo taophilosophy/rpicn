@@ -101,7 +101,7 @@ Raspberry Pi 5 包含以下板载组件：
 
 Raspberry Pi 5 包含以下端口：
 
-**表 4. Raspberry Pi 5 端口列表**
+**Raspberry Pi 5 端口列表**
 
 | 端口类型 | 说明 |
 | -------- | ---- |
@@ -150,7 +150,7 @@ Raspberry Pi 4B 的尺寸约为 85 mm × 56 mm。更详细的尺寸，请参阅�
 
 以下各节在介绍这些变化的同时，还介绍：
 
-* 焊接在 Raspberry Pi 5 上的其他内部组件。
+* 焊接在 Raspberry Pi 4B 上的其他内部组件。
 * 允许你将外部硬件连接到这些组件的物理插座和排针。
 
 ### Raspberry Pi 4B 组件
