@@ -138,16 +138,16 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ### 3.2 页面统计
 
-统计时间：2026-10-20 16:35
+统计时间：2026-10-20 18:05
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
 | 树莓派 | 17 | 17 | 4 | 13 | 0 | 0 | 0 | 24% |
 | 配件 | 20 | 20 | 0 | 20 | 0 | 0 | 0 | 0% |
-| 微控制器 | 6 | 6 | 2 | 4 | 0 | 0 | 0 | 33% |
-| 服务 | 4 | 4 | 0 | 4 | 0 | 0 | 0 | 0% |
+| 微控制器 | 6 | 6 | 6 | 0 | 0 | 0 | 0 | 100% |
+| 服务 | 4 | 4 | 2 | 2 | 0 | 0 | 0 | 50% |
 | 安全 | 5 | 5 | 5 | 0 | 0 | 0 | 0 | 100% |
-| 合计 | 52 | 52 | 11 | 41 | 0 | 0 | 0 | 21% |
+| 合计 | 52 | 52 | 17 | 35 | 0 | 0 | 0 | 33% |
 
 完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。CP-2/CP-3 已通过（52 页全部同步），当前阶段为三轮逐句校对：主线程完成 3 页（G0）+ 安全板块 5 页（H12 中断后接手）+ 验收 H4 两页，合计 11 页复查通过；其余 14 个子代理并行校对 41 页（G1/G2、H1–H3、H5–H13），回报后逐文件验收。
 
@@ -209,10 +209,10 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
 | `wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md` | `radio-modules.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 6 处修订：补译漏句「本页仅介绍 RM2。」并校正其位置（上游位于 RM1/RM2 列表之后）、删两处加粗后多余空格、补两处加粗后缺失空格、"created" 改「推出」、"self-contained" 改「自成一体的」、删「边缘镀层的」增补；CP-3 全项通过 |
 | `wei-kong-zhi-qi/rp2040.md` | `microcontroller-chips.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 3 处修订：「带插针」改「带排针」（与 Pico 页术语统一）、架构切换句语序重排、licence 句「授予…PID 值」宾语错位改正。核对全部 9 个页内锚点与 2 个跨页锚点；表格 3 列×20 行、7 列×6 行均一致；遗留 `micropython.md#什么是-micropython` 锚点待 CI 验证；「## RP1」为用户既定增补节（上游无对应），TASKS 已记录 |
-| `wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md` | `pico-series.adoc` | 已同步 | 0/3 | 代理 F10（完成） | 2026-10-20 | F10 全页重写：上游结构重构（8 型号汇总表、两代变体表、SWD 表），23 个链接迁 pip.raspberrypi.com，主线程已验证落盘；待三轮逐句校对 |
-| `wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md` | `debug-probe.adoc` | 已同步 | 0/3 | 代理 F5（完成） | 2026-10-20 | F5 全量重写（8 H2；改用 VS Code 扩展安装路线、补 UART 连接、RTT 表），主线程已验证落盘；待三轮逐句校对 |
-| `wei-kong-zhi-qi/micropython.md` | `micropython.adoc` | 已同步 | 0/3 | 代理 F5（完成） | 2026-10-20 | F5 全量重写（4 H2；数据手册编号、Bug 列表与 Pico 2 W 变体），主线程已验证落盘；待三轮逐句校对 |
-| `wei-kong-zhi-qi/c-c++-sdk.md` | `c_sdk.adoc` | 已同步 | 0/3 | 代理 F5（完成） | 2026-10-20 | F5 全量重写（4 H2；blink_universal、pico_setup.sh 等），主线程已验证落盘；待三轮逐句校对 |
+| `wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md` | `pico-series.adoc` | 复查通过 | 3/3 | H13+主线程 | 2026-10-20 | F10 全页重写：上游结构重构（8 型号汇总表、两代变体表、SWD 表），23 个链接迁 pip.raspberrypi.com；H13+主线程三轮：逐句对照 572 行上游，表格逐格核对一致，修复 4 处直引号与列表编号 1,1,2,3 |
+| `wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md` | `debug-probe.adoc` | 复查通过 | 3/3 | H13+主线程 | 2026-10-20 | F5 全量重写（8 H2；改用 VS Code 扩展安装路线、补 UART 连接、RTT 表）；H13+主线程三轮：Debug Probe 译法统一「调试套件」42 处（词汇表同步修订），GDB 语境「调试器」保留；修复提示块脚本误改的 3 行 gdb 代码块 |
+| `wei-kong-zhi-qi/micropython.md` | `micropython.adoc` | 复查通过 | 3/3 | H13+主线程 | 2026-10-20 | F5 全量重写（4 H2；数据手册编号、Bug 列表与 Pico 2 W 变体）；H13+主线程三轮：逐句对照上游 4 文件，修复 1 处单引号→弯引号；代码块注释译中文合规 |
+| `wei-kong-zhi-qi/c-c++-sdk.md` | `c_sdk.adoc` | 复查通过 | 3/3 | H13+主线程 | 2026-10-20 | F5 全量重写（4 H2；blink_universal、pico_setup.sh 等）；H13+主线程三轮：逐句对照上游 4 文件，修复失效锚点 #更新软件（H4 改标题所致）、-DWIFI_SSID 参数补反引号、H2 补译 own |
 
 ### 4.4 服务（4）
 
