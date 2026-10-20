@@ -138,18 +138,18 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ### 3.2 页面统计
 
-统计时间：2026-10-20 16:00
+统计时间：2026-10-20 16:35
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 2 | 15 | 0 | 0 | 0 | 12% |
+| 树莓派 | 17 | 17 | 4 | 13 | 0 | 0 | 0 | 24% |
 | 配件 | 20 | 20 | 0 | 20 | 0 | 0 | 0 | 0% |
 | 微控制器 | 6 | 6 | 2 | 4 | 0 | 0 | 0 | 33% |
 | 服务 | 4 | 4 | 0 | 4 | 0 | 0 | 0 | 0% |
-| 安全 | 5 | 5 | 0 | 5 | 0 | 0 | 0 | 0% |
-| 合计 | 52 | 52 | 4 | 48 | 0 | 0 | 0 | 8% |
+| 安全 | 5 | 5 | 5 | 0 | 0 | 0 | 0 | 100% |
+| 合计 | 52 | 52 | 11 | 41 | 0 | 0 | 0 | 21% |
 
-完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。CP-2/CP-3 已通过（52 页全部同步），当前阶段为三轮逐句校对：主线程已完成 3 页（G0：处理器、无线电模块、微控制器芯片），另有子代理并行校对 33 页（G1/G2、H1–H5、H7、H8、H9a、H9b、H12），回报后逐文件验收。
+完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。CP-2/CP-3 已通过（52 页全部同步），当前阶段为三轮逐句校对：主线程完成 3 页（G0）+ 安全板块 5 页（H12 中断后接手）+ 验收 H4 两页，合计 11 页复查通过；其余 14 个子代理并行校对 41 页（G1/G2、H1–H3、H5–H13），回报后逐文件验收。
 
 ## 四、页面清单
 
@@ -160,8 +160,8 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `shu-mei-pai/ru-men.md` | `getting-started.adoc` | 已同步 | 0/3 | 代理 F1（完成） | 2026-10-20 | F1 全新同步（9 H2/16 H3/30 H4/14 H5；Imager 新版 UI、关机选项节等大量新增），主线程已验证落盘并抽查上游异常 5 项；待三轮逐句校对 |
-| `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 已同步 | 0/3 | 代理 F2（完成） | 2026-10-20 | F2 全新同步（8 H2/24 H3；Trixie、包数 69,000、Lite 转桌面等），主线程已验证落盘；待三轮逐句校对 |
+| `shu-mei-pai/ru-men.md` | `getting-started.adoc` | 复查通过 | 3/3 | H4+主线程验收 | 2026-10-20 | F1 全新同步；H4 三轮+复查完成 20 处修订（Full→完整版树莓派系统、硬编码引用改站内锚点、逻辑反转句修正等），主线程验收：10 个跨页锚点逐一验证存在；重复标题「连接有线网络」（L272/L337）系上游结构；H4 报告 11 条上游异常（Rasberry 拼写 ×2、that→than、in one of 漏词、also/the 重复、列项重复等） |
+| `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 复查通过 | 3/3 | H4+主线程验收 | 2026-10-20 | F2 全新同步；H4 三轮+复查完成 20 处修订（发布周期句改写、删除上游没有的 GitHub 增补句、弯引号、OOM 译「内存不足」等），主线程验收通过；代码围栏 110 条逐字一致；遗留 L514 锚点 `#get_config-配置项目intstr` 依赖 GitBook slug 对 `[|]` 的处理，待 CI 验证 |
 | `shu-mei-pai/xi-tong-pei-zhi.md` | `configuration.adoc` | 已同步 | 0/3 | 代理 F3（完成） | 2026-10-20 | F3 全新同步（15 H2；初轮漏 reference 节已打回补录，text 标记违规已修），主线程已验证落盘；待三轮逐句校对 |
 | `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 已同步 | 0/3 | 代理 F4（完成） | 2026-10-20 | F4 全文重写（13 H2；989→1316 行，含 armstub/sha256/enable_jtag_gpio 补录与大量默认值修订），主线程已验证落盘；待三轮逐句校对 |
 | `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 已同步 | 0/3 | 代理 B4（完成） | 2026-10-20 | B4 整页重写已提交（`79d516b`），主线程已复核：7 节与上游一一对应（含 5 级标题）、BCM2712/kernel_2712 等齐备；待三轮逐句校对 |
@@ -227,11 +227,11 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `an-quan/an-quan-gai-shu.md` | `security.adoc` | 已同步 | 0/3 | 代理 C2（完成） | 2026-10-20 | C2 完成 2 处修订（microSD→存储卡、security hygiene 误译修正），主线程已逐条复核；待三轮逐句校对 |
-| `an-quan/an-quan-jia-gou.md` | `security-architecture.adoc` | 已同步 | 0/3 | 代理 C3（完成） | 2026-10-20 | C3 逐段核查与上游完全一致，无需修改；主线程已复核结构；待三轮逐句校对 |
-| `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | `secure-boot-provisioner.adoc` | 已同步 | 0/3 | 代理 C4（完成） | 2026-10-20 | C4 完成 5 处修订（安全启动链、遭到入侵、存储卡、锚点、CSV 导语），主线程已逐条复核；待三轮逐句校对 |
-| `an-quan/yun-ying-an-quan.md` | `operational-security.adoc` | 已同步 | 0/3 | 代理 C5（完成） | 2026-10-20 | C5 修正 fail2ban 示例缺等号（上游已知问题）并将 2 处外链内部化，主线程已复核锚点；待三轮逐句校对 |
-| `an-quan/ufw-fang-huo-qiang.md` | `ufw.adoc` | 已同步 | 0/3 | 代理 C6（完成） | 2026-10-20 | C6 逐段核查零修改，主线程已复核结构与 CP-3；待三轮逐句校对 |
+| `an-quan/an-quan-gai-shu.md` | `security.adoc` | 复查通过 | 3/3 | H12+主线程 | 2026-10-20 | H12 润色 4 处（概述句、信任链句式、「一线安全披露」标题、我们的网站），主线程逐句对照 security.adoc 全文并补 1 处（「存储卡」→「microSD 卡」）；CP-3 全项通过 |
+| `an-quan/an-quan-jia-gou.md` | `security-architecture.adoc` | 复查通过 | 3/3 | H12+主线程 | 2026-10-20 | H12 润色 15 处（句式与术语：OTP 内存、一次性可编程等，经词汇表核实正确）；主线程逐句对照 105 行上游，页内锚点 5 个验证存在；CP-3 通过（L41 CJK 紧邻为锚点 slug 正常形态） |
+| `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | `secure-boot-provisioner.adoc` | 复查通过 | 3/3 | H12+主线程 | 2026-10-20 | H12 润色 15 处；主线程逐句对照 473 行上游（444 行中文），补 1 处「标准存储卡」→「标准 microSD 卡」；表格 3×3 与 2×4 一致；跨页锚点 2 个（树莓派引导 EEPROM、eeprom_write_protect）验证存在；CP-3 通过（8 个直引号均在 sqlite3 代码块内，合规） |
+| `an-quan/yun-ying-an-quan.md` | `operational-security.adoc` | 复查通过 | 3/3 | H12+主线程 | 2026-10-20 | H12 润色 5 处；主线程逐句对照 100 行上游；跨页锚点 4 个验证存在；上游异常：上游 ini 代码块缺 `enabled = true` 等号（jail.conf 语法必需），中文按正确含义保留等号 |
+| `an-quan/ufw-fang-huo-qiang.md` | `ufw.adoc` | 复查通过 | 3/3 | H12+主线程 | 2026-10-20 | H12 润色 5 处；主线程逐句对照 186 行上游（126 行中文），命令与表格逐字一致，页内锚点 5 个验证存在，零新增修改 |
 
 ### 4.6 项目自有（3）
 
@@ -314,7 +314,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | H1 | `shu-mei-pai/xi-tong-pei-zhi.md` | 2026-10-20 | 三轮 + 复查 | 进行中（4147 行，按 H2 分节推进） |
 | H2 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中（3402 行，27 节） |
 | H3 | `shu-mei-pai/config.txt.md`、`jiu-ban-config.txt-can-shu.md` | 2026-10-20 | 三轮 + 复查 | 进行中（参数参考页，逐条核对默认值） |
-| H4 | `shu-mei-pai/ru-men.md`、`raspberry-pi-os.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H4 | `shu-mei-pai/ru-men.md`、`raspberry-pi-os.md` | 2026-10-20 | 三轮 + 复查 | 完成（主线程验收）：两页各 20 处修订，全部合理；跨页锚点 10 个逐一验证存在（含「连接蓝牙外设」「启动时要求输入密码」等）；遗留 `raspberry-pi-os.md` L514 锚点 `#get_config-配置项目intstr` 依赖 GitBook slug 对 `[|]` 的处理，待 CI 验证；`ru-men.md` 存在重复标题「连接有线网络」（L272/L337，上游结构），锚点歧义风险低；报告另附 11 条上游异常（Rasberry 拼写 ×2、that→than、in one of 漏词、also 重复、列项重复、the 重复等） |
 | H5 | `shu-mei-pai/jian-pan-ji-suan-ji.md`、`linux-nei-he.md` | 2026-10-20 | 三轮 + 复查 | 进行中（含内核页 3 处官方 URL 内部化） |
 | H6 | `shu-mei-pai/io-kong-zhi-qi.md`、`jing-dian-dan-ban-ji-suan-ji.md`、`ren-gong-zhi-neng-ruan-jian.md`、`ling-dian-xing-hao.md`、`ruan-jian-lai-yuan.md` | 2026-10-20 | 三轮 + 复查 | 进行中（io 页已有 1 轮基础，补 2 轮 + 复查） |
 | H7 | `pei-jian/build-hat.md`、`shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
@@ -323,7 +323,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | H9b | `pei-jian/` 6 页（ai-kit、tv-hat、sense-hat、m.2-hat+、zhi-neng-xian-shi-mo-kuai、cm5-bian-cheng-zhi-ju） | 2026-10-20 | 三轮 + 复查 | 进行中 |
 | H10 | `fu-wu/shu-mei-pai-connect-qi-ye-ban.md` | 2026-10-20 | 三轮 + 复查 | 进行中（2079 行） |
 | H11 | `fu-wu/` 3 页（connect、id、bookshelf） | 2026-10-20 | 三轮 + 复查 | 进行中 |
-| H12 | `an-quan/` 5 页 | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H12 | `an-quan/` 5 页 | 2026-10-20 | 三轮 + 复查 | 代理因 429 频率限制中断（运行 56 分钟，5 页已落盘 43 行润色改动，质量合格）；主线程接手完成全部剩余轮次并验收：五页逐句对照上游 2304 行，复查通过。主线程补 2 处（概述页与配置器页「存储卡」→「microSD 卡」）；H12 的「一线安全披露」「OTP 内存」「一次性可编程」三处译法经核实均正确（上游即 Frontline；词汇表即 OTP 内存）；上游异常：operational-security.adoc 两处 ini 代码块缺 `enabled = true` 等号（jail.conf 语法必需，中文已按正确含义补上，见 L62-69/L87-95）；跨页锚点 6 个逐一验证存在 |
 | H13 | `wei-kong-zhi-qi/` 4 页（micropython、c-c++-sdk、debug-probe、pico） | 2026-10-20 | 三轮 + 复查 | 进行中 |
 
 ## 六、待办队列
