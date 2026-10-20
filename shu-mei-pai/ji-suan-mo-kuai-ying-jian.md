@@ -785,7 +785,7 @@ $ pinctrl
 
 ## 连接摄像头模块
 
-计算模块具有两个 CSI-2 摄像头接口：CAM1 和 CAM0。本节将说明如何使用计算模块 I/O 板将一个或两个树莓派摄像头连接到计算模块的 CAM1 和 CAM0 接口。
+计算模块具有两个 CSI-2 摄像头接口：CAM1 和 CAM0。本节将说明如何使用计算模块 IO 板将一个或两个树莓派摄像头连接到计算模块的 CAM1 和 CAM0 接口。
 
 ### 更新你的系统
 
@@ -828,7 +828,7 @@ $ sudo apt full-upgrade
     ```bash
     dtparam=i2c_arm=on
     ```
-7. （仅限 CM1、CM3、CM3+ 和 CM4S）：向 `/boot/firmware/config.txt` 添加以下指令，以适配 I/O 板上互换的 GPIO 引脚分配：
+7. （仅限 CM1、CM3、CM3+ 和 CM4S）：向 `/boot/firmware/config.txt` 添加以下指令，以适配 IO 板上互换的 GPIO 引脚分配：
 
     ```bash
     dtoverlay=cm-swap-i2c0
@@ -966,14 +966,14 @@ $ rpicam-hello --camera 1
 
 ### GPIO 引脚的 I²C 映射
 
-默认情况下，随附的摄像头驱动程序假定 CAM1 使用 `i2c-10`，CAM0 使用 `i2c-0`。计算模块 I/O 板将以下 GPIO 引脚映射到 `i2c-10` 和 `i2c-0`：
+默认情况下，随附的摄像头驱动程序假定 CAM1 使用 `i2c-10`，CAM0 使用 `i2c-0`。计算模块 IO 板将以下 GPIO 引脚映射到 `i2c-10` 和 `i2c-0`：
 
-| I/O 板型号 | `i2c-10` 引脚 | `i2c-0` 引脚 |
+| IO 板型号 | `i2c-10` 引脚 | `i2c-0` 引脚 |
 | :-------------: | :--------- | :------------: |
-| CM4 I/O 板 | GPIO 44、45 | GPIO 0、1 |
-| CM1、CM3、CM3+ 和 CM4S I/O 板 | GPIO 0、1 | GPIO 28、29 |
+| CM4 IO 板 | GPIO 44、45 | GPIO 0、1 |
+| CM1、CM3、CM3+ 和 CM4S IO 板 | GPIO 0、1 | GPIO 28、29 |
 
-要将摄像头连接到 CM1、CM3、CM3+ 和 CM4S I/O 板，请将以下指令添加到 `/boot/firmware/config.txt`，以适应交换后的引脚分配：
+要将摄像头连接到 CM1、CM3、CM3+ 和 CM4S IO 板，请将以下指令添加到 `/boot/firmware/config.txt`，以适应交换后的引脚分配：
 
 ```bash
 dtoverlay=cm-swap-i2c0
@@ -996,7 +996,7 @@ dtoverlay=cm-swap-i2c0
 
 CM4 IO 板为这两个别名提供同一个 GPIO 引脚，因此两个摄像头共享同一个稳压器。
 
-CM1、CM3、CM3+ 和 CM4S I/O 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO 引脚，因此这些板上的稳压器处于禁用状态。但是，你可以通过在 `/boot/firmware/config.txt` 中使用以下指令来启用它们：
+CM1、CM3、CM3+ 和 CM4S IO 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO 引脚，因此这些板上的稳压器处于禁用状态。但是，你可以通过在 `/boot/firmware/config.txt` 中使用以下指令来启用它们：
 
 * `dtparam=cam1_reg`
 * `dtparam=cam0_reg`
@@ -1013,7 +1013,7 @@ CM1、CM3、CM3+ 和 CM4S I/O 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO �
 ## 连接触摸显示屏 LCD 面板
 
 * 要连接树莓派触摸显示屏，请参阅[触摸显示屏](../pei-jian/xian-shi-qi.md)。
-* 要连接树莓派触摸显示屏 2，请参阅[触摸显示屏 2](../pei-jian/chu-mo-xian-shi-ping-2.md)。
+* 要连接树莓派触摸显示屏 2，请参阅[触摸显示屏 2](../pei-jian/chu-mo-xian-shi-ping-2.md#连接到树莓派设备)。
 
 ## 规格
 
