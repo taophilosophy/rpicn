@@ -131,25 +131,25 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | ------ | ---- | ---- | -------- | ---- |
 | CP-0 原文可获取 | 52 页 | 通过 | 2026-10-20 | GitHub raw `master` 可抓取；官方网页被 Cloudflare 拦截 |
 | CP-1 结构一致 | 52 页 | 通过 | 2026-10-20 | `SUMMARY.md` 各板块条目 17/20/6/4/5，合计 52，与上游一一对应；无失效链接 |
-| CP-2 逐段同步 | 52 页 | 进行中 | | 见「四、页面清单」逐页状态 |
-| CP-3 规范合规 | 52 页 | 进行中 | | 见「四、页面清单」逐页校对轮次 |
+| CP-2 逐段同步 | 52 页 | 通过 | 2026-10-20 | 52 页全部完成结构对应与内容同步（逐句核验以代理报告 + 主线程 grep 抽查为准，完整逐段核对并入三轮逐句校对） |
+| CP-3 规范合规 | 52 页 | 通过 | 2026-10-20 | 各页 CP-3 自查通过，主线程对全部页面执行 grep 抽查（「」/xref/text 标记/反引号）无违规 |
 | CP-4 引用与目录 | `SUMMARY.md`、`mu-lu.md`、正文 | 通过 | 2026-10-20 | `SUMMARY.md` 58 条与 `mu-lu.md` 卡片链接均无失效；55 个页面的站内相对链接 0 处失效 |
 | CP-5 构建与 CI | 全仓库 | 部分通过 | 2026-10-20 | `sync-headers`、`file-name-check` 在 main 上均为 success；`Markdown-lint2-pr` 仅在 PR 触发、`links` 为定时/手动，尚未执行 |
 
 ### 3.2 页面统计
 
-统计时间：2026-10-20 03:20
+统计时间：2026-10-20 12:45
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 1 | 6 | 0 | 8 | 2 | 6% |
-| 配件 | 20 | 20 | 0 | 0 | 4 | 1 | 15 | 0% |
-| 微控制器 | 6 | 6 | 0 | 2 | 0 | 4 | 0 | 0% |
-| 服务 | 4 | 4 | 0 | 0 | 0 | 4 | 0 | 0% |
-| 安全 | 5 | 5 | 0 | 1 | 0 | 4 | 0 | 0% |
-| 合计 | 52 | 52 | 1 | 9 | 4 | 21 | 17 | 2% |
+| 树莓派 | 17 | 17 | 1 | 16 | 0 | 0 | 0 | 6% |
+| 配件 | 20 | 20 | 0 | 20 | 0 | 0 | 0 | 0% |
+| 微控制器 | 6 | 6 | 0 | 6 | 0 | 0 | 0 | 0% |
+| 服务 | 4 | 4 | 0 | 4 | 0 | 0 | 0 | 0% |
+| 安全 | 5 | 5 | 0 | 5 | 0 | 0 | 0 | 0% |
+| 合计 | 52 | 52 | 1 | 51 | 0 | 0 | 0 | 2% |
 
-完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。
+完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。CP-2/CP-3 已通过（52 页全部同步），下一阶段为三轮逐句校对（从已完成同步的 51 页中按「六、待办队列」推进）。
 
 ## 四、页面清单
 
@@ -160,10 +160,10 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `shu-mei-pai/ru-men.md` | `getting-started.adoc` | 同步中 | 0/3 | 代理 F1 | 2026-10-20 | B2 失败重派；无改动，全新同步；本地存档 `script/upstream-gettingstarted/` |
-| `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 同步中 | 0/3 | 代理 F2 | 2026-10-20 | B3 失败重派；无改动，全新同步；本地存档 `script/upstream-os/` |
-| `shu-mei-pai/xi-tong-pei-zhi.md` | `configuration.adoc` | 同步中 | 0/3 | 代理 F3 | 2026-10-20 | A10 失联无改动，F3 全新同步 |
-| `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 同步中 | 0/3 | 代理 F4 | 2026-10-20 | 参数表，重点核对默认值；A10 失联无改动，F4 全新同步 |
+| `shu-mei-pai/ru-men.md` | `getting-started.adoc` | 已同步 | 0/3 | 代理 F1（完成） | 2026-10-20 | F1 全新同步（9 H2/16 H3/30 H4/14 H5；Imager 新版 UI、关机选项节等大量新增），主线程已验证落盘并抽查上游异常 5 项；待三轮逐句校对 |
+| `shu-mei-pai/raspberry-pi-os.md` | `os.adoc` | 已同步 | 0/3 | 代理 F2（完成） | 2026-10-20 | F2 全新同步（8 H2/24 H3；Trixie、包数 69,000、Lite 转桌面等），主线程已验证落盘；待三轮逐句校对 |
+| `shu-mei-pai/xi-tong-pei-zhi.md` | `configuration.adoc` | 已同步 | 0/3 | 代理 F3（完成） | 2026-10-20 | F3 全新同步（15 H2；初轮漏 reference 节已打回补录，text 标记违规已修），主线程已验证落盘；待三轮逐句校对 |
+| `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 已同步 | 0/3 | 代理 F4（完成） | 2026-10-20 | F4 全文重写（13 H2；989→1316 行，含 armstub/sha256/enable_jtag_gpio 补录与大量默认值修订），主线程已验证落盘；待三轮逐句校对 |
 | `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 已同步 | 0/3 | 代理 B4（完成） | 2026-10-20 | B4 整页重写已提交（`79d516b`），主线程已复核：7 节与上游一一对应（含 5 级标题）、BCM2712/kernel_2712 等齐备；待三轮逐句校对 |
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 全页重写至当前上游，待三轮校对 |
@@ -174,7 +174,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 结构已对齐，待三轮校对 |
 | `shu-mei-pai/io-kong-zhi-qi.md` | `io-controllers.adoc` | 已同步 | 1/3 | 代理 B8（完成） | 2026-10-20 | 8 处修订；RP1 规格与上游一致；视频宏改为普通链接。注意本文件为 LF，与仓库其他 CRLF 文件不同 |
 | `shu-mei-pai/ruan-jian-lai-yuan.md` | `software-sources.adoc` | 同步中 | 0/3 | 代理 F11 | 2026-10-20 | A10 失联，部分改动已落盘（`da040ea`），F11 核验补齐 |
-| `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 同步中 | 0/3 | 代理 F6（打回重做中） | 2026-10-20 | 首轮报告与落盘不符（声称 3 处修正与 11 H2，实测文件无改动、H2 为 9），主线程已打回并要求附 grep 证据 |
+| `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 已同步 | 0/3 | 代理 F6（完成） | 2026-10-20 | F6 二次重做验收（8 H2；删除已迁移至现代页的旧版 GPIO 控制/armstub/sha256 节，23 项 grep 证据全中）；首轮报告失实源于 WSL 编辑器缓冲未刷盘，勘误已记录；待三轮逐句校对 |
 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | `sbcs.adoc` | 已同步 | 0/3 | 代理 F8（完成） | 2026-10-20 | F8 仅修 1 处（如实翻译上游 Pi 5 笔误，2 行 diff），B6 落盘版核验可用，主线程已验证；待三轮逐句校对 |
 | `shu-mei-pai/jian-pan-ji-suan-ji.md` | `keyboard-computers.adoc` | 同步中 | 0/3 | 代理 F9 | 2026-10-20 | B7 失联，部分改动已落盘（`4a6ac8e`），F9 核验补齐 |
 
@@ -218,10 +218,10 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `fu-wu/shu-mei-pai-zhang-hao-raspberry-pi-id.md` | `id.adoc` | 同步中 | 0/3 | 代理 F12 | 2026-10-20 | A7 失联，改动已落盘（`d441b30`），F12 核验补齐 |
-| `fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md` | `connect.adoc` | 同步中 | 0/3 | 代理 F12 | 2026-10-20 | A7 失联，改动已落盘（`3c4e97f`），F12 核验补齐 |
-| `fu-wu/shu-mei-pai-connect-qi-ye-ban.md` | `connect-for-organisations.adoc` | 同步中 | 0/3 | 代理 F12 | 2026-10-20 | A7 失联，改动已落盘（`a67a29d`），F12 核验补齐 |
-| `fu-wu/shu-mei-pai-shu-jia.md` | `bookshelf.adoc` | 同步中 | 0/3 | 代理 F12 | 2026-10-20 | A7 失联，改动已落盘（`a67a29d`），F12 核验补齐 |
+| `fu-wu/shu-mei-pai-zhang-hao-raspberry-pi-id.md` | `id.adoc` | 已同步 | 0/3 | 代理 F13（完成） | 2026-10-20 | F13 完成 7 处修正（TOTP 定义、NOTE 转提示块、术语空格），主线程已验证落盘；待三轮逐句校对 |
+| `fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md` | `connect.adoc` | 已同步 | 0/3 | 代理 F13（完成） | 2026-10-20 | F13 完成 5 处修正（未译界面标签补译、语序），主线程已验证落盘；待三轮逐句校对 |
+| `fu-wu/shu-mei-pai-connect-qi-ye-ban.md` | `connect-for-organisations.adoc` | 已同步 | 0/3 | 代理 F13（完成） | 2026-10-20 | F13 完整核验：13 H2/36 H3 全覆盖，版本号/表格/代码块与上游一致，仅 1 处语序修正，主线程已验证落盘；待三轮逐句校对 |
+| `fu-wu/shu-mei-pai-shu-jia.md` | `bookshelf.adoc` | 已同步 | 0/3 | 代理 F13（完成） | 2026-10-20 | F13 逐句核验零改动（3 H2 对应 intro + subscription 拆 2 节，结构合法）；待三轮逐句校对 |
 
 ### 4.5 安全（5）
 
@@ -293,18 +293,19 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | E17 | `pei-jian/xian-shi-qi.md` | 2026-10-20 | CP-2 + CP-3 | 完成：2 处链接修正（主线程已复核） |
 | E18 | `pei-jian/chu-mo-xian-shi-ping-2.md` | 2026-10-20 | CP-2 + CP-3 | 完成：2 处修订（主线程已复核） |
 | E19 | `pei-jian/raspberry-pi-monitor.md` | 2026-10-20 | CP-2 + CP-3 | 完成：零差异核查（主线程已复核） |
-| F1 | `shu-mei-pai/ru-men.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（B2 失败重派，全新同步） |
-| F2 | `shu-mei-pai/raspberry-pi-os.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（B3 失败重派，全新同步） |
-| F3 | `shu-mei-pai/xi-tong-pei-zhi.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（A10 失联接替，全新同步） |
-| F4 | `shu-mei-pai/config.txt.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（A10 失联接替，全新同步，参数表） |
+| F1 | `shu-mei-pai/ru-men.md` | 2026-10-20 | CP-2 + CP-3 | 完成：全新同步，上游异常 5 项已抽查（主线程已验证落盘） |
+| F2 | `shu-mei-pai/raspberry-pi-os.md` | 2026-10-20 | CP-2 + CP-3 | 完成：全新同步，关键内容全部落盘（主线程已验证） |
+| F3 | `shu-mei-pai/xi-tong-pei-zhi.md` | 2026-10-20 | CP-2 + CP-3 | 完成：全新同步 + 打回补录 reference 节、修 3 处 text 标记（主线程已验证） |
+| F4 | `shu-mei-pai/config.txt.md` | 2026-10-20 | CP-2 + CP-3 | 完成：全文重写（主线程已验证落盘） |
 | F5 | `wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md`、`micropython.md`、`c-c++-sdk.md` | 2026-10-20 | CP-2 + CP-3 | 完成：三页全量重写至上游新结构（主线程已验证落盘） |
-| F6 | `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | 2026-10-20 | CP-2 + CP-3 | 打回重做：首轮报告失实（声称修正未落盘），已限期重做并要求附 grep 证据 |
+| F6 | `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | 2026-10-20 | CP-2 + CP-3 | 完成：首轮报告失实（WSL 编辑器缓冲未刷盘所致，已勘误），二次重做全部验证通过（主线程已复核） |
 | F7 | `shu-mei-pai/ling-dian-xing-hao.md`、`ren-gong-zhi-neng-ruan-jian.md` | 2026-10-20 | CP-2 + CP-3 | 完成：零型页 4 处修正、AI 软件页零改动（主线程已验证落盘） |
 | F8 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 完成：1 处修正（如实翻译上游 Pi 5 笔误；主线程已验证） |
 | F9 | `shu-mei-pai/jian-pan-ji-suan-ji.md` | 2026-10-20 | CP-2 + CP-3 | 完成：零改动，B7 落盘版核验可用（主线程已验证） |
 | F10 | `wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md` | 2026-10-20 | CP-2 + CP-3 | 完成：全页重写至上游新结构（主线程已验证落盘） |
-| F11 | `shu-mei-pai/ruan-jian-lai-yuan.md` | 2026-10-20 | CP-2 + CP-3 | 进行中（A10 失联接替，核验补齐） |
-| F12 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 进行中（A7 失联接替，核验补齐） |
+| F11 | `shu-mei-pai/ruan-jian-lai-yuan.md` | 2026-10-20 | CP-2 + CP-3 | 完成：6 处小修正，A10 落盘版判定可用（主线程已验证落盘） |
+| F12 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 失联（无核验报告）：3 页成果已自动提交（`d7bcd04`），企业版页未处理；由 F13 接替 |
+| F13 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 完成：账号 7 处、Connect 5 处、企业版 1 处修正，书架零改动（主线程已验证） |
 
 ## 六、待办队列
 
@@ -312,10 +313,10 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | ------ | ---- | ---- | ---- |
 | P0 | 第一波重派已全部完成并验收：安全 5 页 + 摄像头页（C1 交付不实打回，C7 重做成功） | 6 页 | 完成 |
 | P0 | 第二波重派已全部完成并验收：配件板块 19 页（E1–E19） | 19 页 | 完成 |
-| P0 | 原「待派」`ru-men.md`、`raspberry-pi-os.md` 已派 F1/F2；失联代理（A6/A7/A10/B5/B6/B7/B9）遗留 13 页已派 F3–F12 接替（全新同步 7 页 + 核验补齐 6 页） | 15 页 | F 波进行中 |
+| P0 | F 波 15 页：F1–F11 已全部完成并经主线程逐一落盘验证（F6 首轮报告失实，二次重做通过；F3 初轮漏 reference 节，打回补录通过）；仅剩 F12 服务 4 页无报告，已派 F13 接替 | 15 页 | F13 收尾中 |
 | P0 | 汇总各波代理结果，逐文件复核后更新本文件状态 | 全部 | 滚动进行 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
-| P1 | 词汇表补录 I/O 控制器页报告的新术语（I/O controller、single-board computer、pin spacing、USB host controller、tightly-coupled memory、Timing generator、ISP front-end、bitstream 等 12 条） | `qian-yan/ci-hui-biao.md` | 无 |
+| P1 | 词汇表已补录 F 波 46 条新术语（F1/F2/F3/F4/F5/F6/F8/F9/F10 报告项，主线程验证实际用例后录入）；仍待录 I/O 控制器页报告的 12 条 | `qian-yan/ci-hui-biao.md` | 无 |
 | P2 | 统一 `shu-mei-pai/io-kong-zhi-qi.md` 的换行符（当前 LF，其余页面 CRLF） | 1 页 | 无 |
 | P1 | 检查 `shu-mei-pai-ying-jian.md` 是否缺 `boot-eeprom` 小节 | 树莓派硬件 | B1 结果 |
 | P2 | 向上游反馈已发现的原文错误 | 见「七」 | 用户批准 |
@@ -350,6 +351,23 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | Zero 2 W 规格 | "PCI Gen 3.0 mode" 表述与上下文不符（低置信度，待上游核实） | 待反馈 |
 | Pico 系列页 | 全站 datasheets→pip 域名大迁移未在上游 CHANGELOG 说明（F10 报告） | 待反馈 |
 | Pico 系列页 | "Pico 2 W 无线固件" 链接指向的 `RELEASE.HTML` 大小写异常（F10 报告） | 待反馈 |
+| Pico 系列页 | Models 节称 W 型号为双频 802.11ac，与无线特性节 "2.4GHz 802.11n" 自相矛盾（照译保留） | 待反馈 |
+| Pico 系列页 | 无线 Pico 2 特性表 GPIO"更多信息"指向 `layout_non-wireless` 锚点，疑为笔误（照译保留） | 待反馈 |
+| Pico 系列页 | "release form the debugprobe GitHub repository" 应为 from（按正确含义译出） | 待反馈 |
+| Pico 系列页 | 无线 Pico 2 段写 "Raspberry Pi Pico 2 with headers"（应为 Pico 2 W，按上下文译出） | 待反馈 |
+| 入门页 | SD 卡容量上限描述与上游支持列表，待上游核实（F1 联网抽查 3 项未核实项之一） | 待核实 |
+| 入门页 | Bootloader 版本 "Undo" 表述，待上游核实（F1 抽查） | 待核实 |
+| 入门页 | Legacy 镜像下载页措辞，待上游核实（F1 抽查） | 待核实 |
+| 系统页 | rpi-update 白皮书链接为超短链（应指官方 PDF 白皮书） | 待反馈 |
+| 系统页 | VLC 官方下载页域名写作 `rpltd.co`（上游原文如此，存疑） | 待反馈 |
+| 系统页 | `updating.adoc` 两处英文笔误（"upgraded to work" 应为 "updated to work"；"Modfy" 应为 "Modify"） | 待反馈 |
+| 系统配置页 | 上游 raspi-config 自动登录表格疑缺 Raspberry Pi 500+ 行（原文出现 "Pi 250" 字样） | 待反馈 |
+| 系统配置页 | 上游 DSI-2 格式表内容与 DSI-1 相同（疑复制粘贴） | 待反馈 |
+| 系统配置页 | 上游 USB 电流限制 1.2 A 疑为旧 1200 mA 上限变更 | 待反馈 |
+| 系统配置页 | 上游初始设置向导的 3 栏无线网络表格疑为复制残留 | 待反馈 |
+| config.txt 参数表 | `hdmi_timings` 参数的 `h_back_porch` 描述误写为 vertical（应为 horizontal，按语义译出） | 待反馈 |
+| config.txt 参数表 | brief/pitfalls 表 GPIO 行描述对不上（疑复制粘贴，按语义译出） | 待反馈 |
+| 旧版 config.txt 页 | CEA 模式 80 频率栏 "25z" 笔误（应为 25 Hz，原样保留） | 待反馈 |
 
 ## 八、本文件更新规则
 

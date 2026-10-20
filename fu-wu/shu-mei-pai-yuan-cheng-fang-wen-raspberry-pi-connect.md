@@ -32,7 +32,7 @@ Connect 菜单可让你打开或关闭 Connect、登录和登出，以及启用�
 
 Connect 使用安全的加密连接。
 
-在默认情况下，Connect 直接在你的树莓派和浏览器之间通信。但是，当 Connect 无法在你的树莓派和浏览器之间建立直接连接时，我们会使用中继服务器。在这种情况下，树莓派官方也仅保留操作 Connect 所需的元数据。
+在默认情况下，Connect 直接在你的树莓派和浏览器之间通信。但是，当 Connect 无法在你的树莓派和浏览器之间建立直接连接时，我们会使用中继服务器。在这种情况下，树莓派仅保留运行 Connect 所需的元数据。
 
 ### Connect 账号类型
 
@@ -73,7 +73,7 @@ Connect 账号分为两种类型：个人账号和组织账号。
 
     ![树莓派 Connect 页面，提示使用你的树莓派 ID 登录 Connect](https://www.raspberrypi.com/documentation/services/images/browser-sign-in.png)
 
-4. 输入你的树莓派 ID 电子邮件和密码，然后选择 **Sign In**。
+4. 输入你的树莓派 ID 电子邮件和密码，然后选择 **登录**（Sign In）。
 5. 按照屏幕提示为你的树莓派设备命名，并选择将其关联到哪个 Connect 账号。
 
     ![树莓派 Connect 页面，邀请你创建新设备并登录](https://www.raspberrypi.com/documentation/services/images/new-device.png)
@@ -82,7 +82,7 @@ Connect 账号分为两种类型：个人账号和组织账号。
 
     ![树莓派 Connect 页面，显示新设备的账号选择界面](https://www.raspberrypi.com/documentation/services/images/new-organisation-device.png)
 
-6. 选择 **Create device and sign in**。
+6. 选择 **创建设备并登录**（Create device and sign in）。
 
 完成这些步骤后，树莓派设备系统托盘中的 Connect 图标会变成蓝色，表示已登录 Connect 服务。
 
@@ -124,7 +124,7 @@ Connect 账号分为两种类型：个人账号和组织账号。
 
 认证密钥（auth key）是一次性的临时令牌，可让你自动（无需使用网页界面）将设备关联到 Connect 账号。个人认证密钥在创建六小时后过期；组织认证密钥在创建后 1 到 90 天内过期（默认为 1 天）。
 
-创建和使用认证密钥最简单的方法是使用[树莓派启动盘制作工具中的自定义选项](../shu-mei-pai/ru-men.md)。你也可以从个人或组织 Connect 账号的 **Settings** 页面手动创建认证密钥；组织管理员还可以使用[管理 API](shu-mei-pai-connect-qi-ye-ban.md#管理-api) 创建认证密钥。
+创建和使用认证密钥最简单的方法是使用[树莓派启动盘制作工具中的自定义选项](../shu-mei-pai/ru-men.md)。你也可以从个人或组织 Connect 账号的 **设置**（Settings）页面手动创建认证密钥；组织管理员还可以使用[管理 API](shu-mei-pai-connect-qi-ye-ban.md#管理-api) 创建认证密钥。
 
 >**注意**
 >
@@ -908,7 +908,7 @@ Connect 仪表板列出了与你的 Connect 账号关联的所有设备，并显
 
 ![特定设备的详情页面，显示硬件和 Connect 客户端详情](https://www.raspberrypi.com/documentation/services/images/device.png)
 
-从 Connect 中删除设备会自动让你在设备上注销 Connect。菜单栏中的 Connect 图标变为灰色，菜单只提供 **Sign In...** 选项。
+从 Connect 中删除设备会自动让你在设备上注销 Connect。菜单栏中的 Connect 图标变为灰色，菜单只提供 **登录…**（Sign In...）选项。
 
 ## 更新
 

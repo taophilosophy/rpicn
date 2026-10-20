@@ -574,7 +574,7 @@ $ nmcli --fields AUTOCONNECT-PRIORITY,NAME connection
 
 输出类似于：
 
-```text
+```
 AUTOCONNECT-PRIORITY  NAME
 0                     myNetwork
 0                     lo
@@ -636,19 +636,19 @@ $ sudo nmcli connection modify "Pi Towers" connection.autoconnect-priority 10
 
 对于 `P1` 到 `P4` 选项，请按以下格式输入代理信息，把 `<proxy_ip_address>` 替换为代理的 IP 地址，把 `<proxy_port>` 替换为代理的端口：
 
-```text
+```
 http://<proxy_ip_address>:<proxy_port>
 ```
 
 如果你的代理需要用户名和密码，请按以下格式添加，把 `<username>` 和 `<password>` 替换为用于验证代理的用户名和密码：
 
-```text
+```
 http://<username>:<password>@<proxy_ip_address>:<proxy_port>
 ```
 
 对于 `P5` 选项，请输入以逗号分隔的可绕过代理的地址列表。根据需要添加更多域名或 IP 段。
 
-```text
+```
 no_proxy=“localhost,127.0.0.1”
 ```
 
@@ -736,7 +736,7 @@ $ nmcli dev wifi list
 
 输出类似于：
 
-```text
+```
 IN-USE  BSSID              SSID            MODE   CHAN  RATE        SIGNAL  BARS  SECURITY
         90:72:40:1B:42:05  myNetwork       Infra  132   405 Mbit/s  89      ****  WPA2
         90:72:42:1B:78:04  myNetwork5G     Infra  11    195 Mbit/s  79      ***   WPA2
@@ -1239,7 +1239,7 @@ $ sudo adduser <username>
 
 创建新用户时，其主目录会自动创建在 `/home/<username>`。要检查新用户的主目录，请运行以下命令：`/home/<username>/`，把 `<username>` 替换为该用户的用户名。输出类似于：
 
-```text
+```
 -bash: /home/<username>: Is a directory
 ```
 
@@ -2247,7 +2247,7 @@ $ sudo nano /boot/firmware/cmdline.txt
 
    你的条目末尾应类似于：
 
-```text
+```
 fullscreen_logo_name=logo.tga fullscreen_logo=1 vt.global_cursor_default=0
 ```
 
@@ -2398,7 +2398,7 @@ $ sudo rpi-eeprom-update
 
 4. 检查你是否拥有最新版本的引导加载程序。如果你的引导加载程序已是最新，`CURRENT` 日期与 `LATEST` 日期一致。例如：
 
-```text
+```
 BOOTLOADER: up to date
    CURRENT: Mon 22 Jan 10:41:21 UTC 2026 (1705920081)
     LATEST: Mon 22 Jan 10:41:21 UTC 2026 (1705920081)
@@ -2425,7 +2425,7 @@ $ sudo rpi-eeprom-update
 
 输出会告诉你树莓派上当前安装的版本（CURRENT）、最新可用版本（LATEST），以及系统使用的发布通道（RELEASE）。例如：
 
-```text
+```
 *** UPDATE AVAILABLE ***
 BOOTLOADER: update available
    CURRENT: Thu 18 Jan 13:59:23 UTC 2024 (1705586363)
@@ -2938,7 +2938,7 @@ $ dtc -I dts -O dtb -o 2nd.dtbo 2nd-overlay.dts
 
 ……你会得到一个报错：
 
-```text
+```
 Label or path i2s not found
 ```
 
@@ -3097,7 +3097,7 @@ mac_address = <&ethernet0>,"local_mac_address[";
 
 选择 `[` 是为了与声明字节字符串的设备树语法匹配：
 
-```text
+```
 local_mac_address = [aa bb cc dd ee ff];
 ```
 
@@ -3486,7 +3486,7 @@ dtoverlay=
 
 为了让所有树莓派设备都能使用同一组叠加层和设备树参数，固件创建了一些特定于主板的设备树参数。它们是：
 
-```text
+```
 i2c/i2c_arm
 i2c_vc
 i2c_baudrate/i2c_arm_baudrate
@@ -3528,7 +3528,7 @@ fragment@0 {
 
 使用 `dtoverlay -h` 获取使用信息：
 
-```text
+```
 Usage:
   dtoverlay <overlay> [<param>=<val>...]
                            Add an overlay (with parameters)
@@ -3813,13 +3813,13 @@ $ dtc -I fs /proc/device-tree
 
 如果内核模块没有按预期加载，请检查它们是否被列入了 `/etc/modprobe.d/raspi-blacklist.conf` 黑名单；使用设备树时不应需要黑名单。如果没有发现异常，你还可以在 `/lib/modules/<version>/modules.alias` 中搜索 `compatible` 值，检查模块是否导出了正确的别名。否则，你的驱动程序很可能缺少以下二者之一：
 
-```text
+```
 .of_match_table = xxx_of_match,
 ```
 
 或者：
 
-```text
+```
 MODULE_DEVICE_TABLE(of, xxx_of_match);
 ```
 

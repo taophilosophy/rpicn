@@ -39,3 +39,12 @@
   - 补遗完成 21 个新页面：computers 新增经典型单板计算机、键盘计算机、Zero 型号、I/O 控制器、软件来源、人工智能软件；配件新增 SD 卡、SSD、SSD 套件、触摸显示屏 2、显示器、AI 摄像头、USB 配件、AI HAT+（AI HATs）、CM5 编程治具、智能显示模块、Bumper 保护壳；新增「安全」板块 5 页（安全概述、安全架构、安全启动配置器、运营安全、使用 UFW 的防火墙）；服务新增 Connect 企业版、书架（Bookshelf）
   - SUMMARY.md 按上游导航全面重排（computers/accessories/microcontrollers/services/security 五板块顺序），服务标题去掉 Beta 版；mu-lu.md 卡片同步（配件 20 张、服务 4 张、安全 5 张）
   - 记录上游原文异常（待向上游反馈）：SBC 页 Raspberry Pi 4B 节误写为 Raspberry Pi 5；键盘计算机页 io-controllers xref 语法损坏；AI 摄像头页 IMX5000 应为 IMX500、"the the" 重复；安全启动配置器页 image 属性多余引号；运营安全页 fail2ban 示例缺少等号
+- 2026.10.20
+  - F 波 13 路代理完成 52 页中最后 15 页的上游同步，至此全书 52 页全部完成结构对应与内容同步（CP-2、CP-3 通过）
+  - 全新同步 11 页：入门（Imager 新版 UI、关机选项等）、树莓派系统（Trixie、Lite 转桌面、69,000 软件包）、系统配置（15 节，含进一步参考）、`config.txt`（全文重写，989→1316 行，默认值全面核对）、旧版 `config.txt` 参数（删除已迁移参数节）、微控制器 3 页（调试套件改 VS Code 扩展路线、MicroPython 链接更新、SDK Blink universal）
+  - 重写 2 页：Pico 系列（上游结构重构，新增 Pico 2 W 与带排针型号、datasheets→pip.raspberrypi.com 全部链接迁移）、`config.txt` 多管道
+  - 核验补齐 6 页：零型、人工智能软件、经典型单板计算机、键盘计算机、软件来源、服务 4 页
+  - 处理记录：F6 首轮报告失实（编辑器缓冲未刷盘），打回后二次重做通过；F3 初轮漏译 reference 全节，打回后补录通过；F12 无报告失联，3 页成果经自动提交落盘，由 F13 接替完成服务 4 页核验
+  - 词汇表补录 46 条新术语（均先在实际页面验证用例）；修正 AI Kit→AI 套件大小写
+  - 登记上游原文异常 17 条（详见 TASKS.md 第七节），待向上游反馈
+  - 52 页已同步，下一阶段为逐页三轮校对，从已同步列表推进：远程访问、计算硬件、摄像头软件、处理器、Pico 系列、零型等

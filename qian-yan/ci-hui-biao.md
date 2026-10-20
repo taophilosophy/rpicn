@@ -72,3 +72,32 @@
 |stem|轴心|
 |low-profile mechanical switch|矮轴机械开关|
 |keycap profile|键帽高度|
+|boot medium|启动介质|
+|regulatory domain|Wi-Fi 管制域|
+|authorisation key|授权密钥|
+|OTG adapter|OTG 转接器|
+|bootloader version|引导加载程序版本|
+|bootloader|引导加载程序|
+|bootloader EEPROM|引导加载程序 EEPROM|
+|OTP|OTP（一次性可编程）|
+|boot mode|启动模式|
+|host|主机|
+|EEID|不翻译，树莓派硬件标识编号|
+|A/B boot|A/B 启动|
+|tryboot|tryboot（不翻译，管理工具名）|
+|boot variable|启动变量|
+|OTP row|OTP 行|
+|expression filter|表达式筛选器|
+|front porch / back porch|前肩 / 后肩|
+|watchdog|看门狗|
+|reset-safe register|防复位寄存器|
+|warranty bit|保修位|
+|slot|槽位|
+|Pico-series|Pico 系列|
+|Serial Wire Debug|串行线调试|
+|Mass Storage Device|大容量存储设备|
+|RTT (Real-Time Transport)|实时传输（RTT）|
+|bridge|桥接器|
+|debug build|调试构建|
+|camera stack|摄像头软件栈|
+|framebuffer|帧缓冲|
