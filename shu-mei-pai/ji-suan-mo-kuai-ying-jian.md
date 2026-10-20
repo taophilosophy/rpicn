@@ -473,15 +473,15 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 
 #### 使用计算模块 4 IO 板
 
-从 IO 板跳线上的 J2（`disable eMMC Boot`）上取下 `nRPI_BOOT`。
+从 IO 板跳线 J2（`disable eMMC Boot`）上取下 `nRPI_BOOT`。
 
 #### 使用计算模块 IO 板
 
-将 J4（启用 USB SLAVE BOOT）设置为 `2-3`（禁用 USB BOOT）。
+将 J4（`USB SLAVE BOOT ENABLE`）设置为 `2-3`（`USB BOOT DISABLED`）。
 
 #### 启动
 
-断开 USB 从属端口。重启 IO 板，从你刚刚写入 eMMC 的新镜像引导计算模块。
+断开 USB 从机端口。重启 IO 板，从你刚刚写入 eMMC 的新镜像引导计算模块。
 
 ### 已知问题
 
@@ -497,48 +497,62 @@ $ sudo dd if=raw_os_image.img of=/dev/sdX bs=4MiB
 * CM1 引导加载程序会向主机返回一个略有错误的 USB 数据包。大多数 USB 主机会忽略它，但由于该问题，某些 USB 接口无法工作。CM3 已修复该错误。
 * Ubuntu 24.04 及更早版本随附的 `rpiboot` 版本存在无法与设备通信的问题。要解决此问题，请[从源代码编译 `rpiboot`](https://github.com/raspberrypi/usbboot?tab=readme-ov-file#linux--cygwin--wsl)。
 
-### 计算模块 4 引导加载程序
+## 计算模块 EEPROM 引导加载程序
 
-CM4 上的默认引导加载程序配置旨在支持在计算模块 4 IO 板上启动和开发，并且在制造时刷写的软件版本可能比最新版本要旧。对于最终产品，请考虑：
+从计算模块 4 起，计算模块使用 EEPROM 引导加载程序。该引导加载程序位于板载存储的一小段空间中，而不是启动分区。因此，它的更新流程有所不同。在生产环境中使用带 EEPROM 引导加载程序的计算模块之前，请始终遵循以下最佳实践：
 
-* 选择并验证特定的引导加载程序版本。usbboot 存储库中的版本始终是最新稳定版本。
-* 配置引导设备（例如网络引导）。请参阅引导加载程序配置指南中的 BOOT_ORDER 部分。
-* 启用引导加载程序 EEPROM 上的硬件写保护，可确保在无法触及的产品（如远程和嵌入式设备）上的引导加载程序无法被篡改。
+* 选定特定的引导加载程序版本，并验证你使用的每个计算模块都刷有该版本。`usbboot` 存储库中的版本始终是较新的稳定版本。
+* 通过设置 `BOOT_ORDER` 配置启动设备。
+* 在引导加载程序 EEPROM 上启用硬件写保护，确保无法触及的产品（如远程或嵌入式设备）上的引导加载程序无法被修改。
 
->**注意**
->
-> 计算模块 4 ROM 不从 SD/EMMC 运行 `recovery.bin`，在默认情况下，服务 `rpi-eeprom-update` 未启用。这是必要的，因为 EMMC 不可拆卸，无效的 `recovery.bin` 文件将妨碍系统启动。这可以被覆盖，与 `self-update` 模式一同使用，其中引导加载程序可以从 USB 大容量存储设备和网络引导进行更新。但是，在更新 EEPROM 时发生断电后，`self-update` 模式不是原子更新，所以不安全。
+### 刷写计算模块引导加载程序 EEPROM
 
+要刷写引导加载程序 EEPROM：
 
-#### 除存储卡之外的闪存设备
+1. 按刷写 eMMC 的方式设置硬件，但确保 `EEPROM_nWP` **未**被拉低。
+2. 运行以下命令，将 `recovery/pieeprom.bin` 写入引导加载程序 EEPROM：
 
-基于 Linux 的 [`mass-storage-gadget`](https://github.com/raspberrypi/usbboot/blob/master/mass-storage-gadget64/README.md) 支持刷写 NVMe、eMMC 和 USB 块设备。`mass-storage-gadget` 写入设备比基于固件的 `rpiboot` 机制更快，还为设备提供 UART 控制台以便调试。
+    ```bash
+    $ ./rpiboot -d recovery
+    ```
+
+3. 完成后，可以再次将 `EEPROM_nWP` 拉低。
+
+### 刷写存储卡之外的存储设备
+
+基于 Linux 的 [`mass-storage-gadget`](https://github.com/raspberrypi/usbboot/blob/master/mass-storage-gadget64/README.md) 支持刷写 NVMe、eMMC 和 USB 块设备。`mass-storage-gadget` 写入设备的速度比基于固件的 `rpiboot` 机制更快，并且还会为设备提供 UART 控制台以便调试。
 
 `usbboot` 还包含许多[扩展](https://github.com/raspberrypi/usbboot/tree/master#provisioning-extensions)，使你能够配置安全启动或启动自定义的 Linux initramfs 镜像。
 
-#### 修改引导加载程序配置
+### 更新计算模块引导加载程序
 
-要修改 CM4 引导加载程序配置：
+对于带 EEPROM 引导加载程序的计算模块，ROM 从不从 SD/eMMC 运行 `recovery.bin`。这些计算模块默认禁用 `rpi-eeprom-update` 服务，因为 eMMC 不可拆卸，无效的 `recovery.bin` 文件可能导致系统无法启动。
 
-* 切换到目录 `usbboot/recovery`
-* 如果需要特定的引导加载程序版本，请替换 `pieeprom.original.bin`
-* 编辑默认的引导加载程序配置文件 `boot.conf`；通常至少需要更新 BOOT_ORDER：
-  * 若使用网络启动，请使用 `BOOT_ORDER=0xf2`
-  * 若使用 SD/EMMC 启动，请使用 `BOOT_ORDER=0xf1`
-  * 若要在 USB 启动失败后切换到 EMMC，请使用 `BOOT_ORDER=0xf15`
-* 运行 `./update-pieeprom.sh` 可更新用于 EEPROM 镜像的镜像文件 `pieeprom.bin` 
-* 如果需要 EEPROM 写保护，请编辑 `config.txt`，添加 `eeprom_write_protect=1`。硬件写保护必须通过软件启用，然后通过将 `EEPROM_nWP` 引脚拉低进行锁定
-* 运行 `../rpiboot -d .` 可使用用于更新的 EEPROM 镜像的 `pieeprom.bin` 更新引导加载程序
+你可以使用 `self-update` 模式覆盖此行为。在 `self-update` 模式下，你可以从 USB MSD 或网络引导更新引导加载程序。
 
-文件 `pieeprom.bin` 现在已准备好刷写到计算模块 4 了。
+>**警告**
+>
+>`self-update` 模式不会以原子方式更新引导加载程序。如果在更新 EEPROM 期间发生断电，可能会损坏 EEPROM。
 
-#### 为计算模块 4 刷写引导加载程序 EEPROM
+### 修改引导加载程序配置
 
-要刷写引导加载程序 EEPROM，请遵循与刷写 EMMC 相同的硬件设置，但还要确保 `EEPROM_nWP` 未被拉低。完成后，`EEPROM_nWP` 可以再次被拉低。运行以下命令将 `recovery/pieeprom.bin` 写入引导加载程序 EEPROM：
+要修改计算模块 EEPROM 引导加载程序配置：
 
-```bash
-$ ./rpiboot -d recovery
-```
+1. 切换到目录 `usbboot/recovery`。
+2. 如果需要特定的引导加载程序版本，请用该版本中的对应文件替换 `pieeprom.original.bin`。
+3. 编辑默认的引导加载程序配置文件 `boot.conf`，定义一个 `BOOT_ORDER`：
+    * 网络启动使用 `BOOT_ORDER=0xf2`。
+    * SD/eMMC 启动使用 `BOOT_ORDER=0xf1`。
+    * USB 启动失败后转到 eMMC，使用 `BOOT_ORDER=0xf15`。
+    * NVMe 启动使用 `BOOT_ORDER=0xf6`。
+4. 运行 `./update-pieeprom.sh` 生成新的 EEPROM 镜像文件 `pieeprom.bin`。
+5. 如果需要 EEPROM 写保护，请将 `eeprom_write_protect=1` 添加到 `/boot/firmware/config.txt`。
+    * 通过软件启用后，可以将 `EEPROM_nWP` 引脚拉低，锁定硬件写保护。
+6. 运行以下命令，将更新后的 `pieeprom.bin` 镜像写入 EEPROM：
+
+    ```bash
+    $ ../rpiboot -d .
+    ```
 
 ## 连接外围设备
 
