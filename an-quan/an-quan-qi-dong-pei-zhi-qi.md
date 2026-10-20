@@ -256,7 +256,7 @@
 
 *将计算模块 IO 板置于 RPIBOOT 模式的跳线位置*
 
-![将计算模块 IO 板置于 RPIBOOT 模式的跳线位置](https://www.raspberrypi.com/documentation/security/images/cmio-jumpwire.png)
+![将计算模块 IO 板置于 RPIBOOT 模式的跳线位置](.gitbook/assets/cmio-jumpwire.png)
 
 ##### 步骤 3. 将配置服务器连接到 IO 板
 
@@ -269,7 +269,7 @@
 
 *左侧的树莓派 5 配置服务器连接到右侧的计算模块 4*
 
-![左侧的树莓派 5 配置服务器连接到右侧的计算模块 4](https://www.raspberrypi.com/documentation/security/images/connected-cm.png)
+![左侧的树莓派 5 配置服务器连接到右侧的计算模块 4](.gitbook/assets/connected-cm.png)
 
 ##### 步骤 4. 监控配置过程
 

@@ -24,7 +24,7 @@
 
 要打开控制中心，请选择系统托盘左上角的树莓派图标，然后进入**首选项（Preferences） > 控制中心（Control Centre）**。
 
-![从树莓派桌面进入控制中心](https://www.raspberrypi.com/documentation/computers/images/cc-menu.png)
+![从树莓派桌面进入控制中心](.gitbook/assets/cc-menu.png)
 
 >**注意**
 >

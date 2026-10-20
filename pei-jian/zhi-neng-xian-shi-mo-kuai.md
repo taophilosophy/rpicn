@@ -4,7 +4,7 @@
 
 更多信息请参阅[产品页面](https://www.raspberrypi.com/products/smart-display-module)。
 
-![树莓派智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/smart-display-module-hero.png)
+![树莓派智能显示模块](.gitbook/assets/smart-display-module-hero.png)
 
 树莓派智能显示模块
 
@@ -90,11 +90,11 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 
 引脚以两个为一组标注。在引脚标签方向正确时，顶部四对引脚左侧为接地引脚，右侧为有效引脚；底部四对引脚每对都有两个功能相同的有效引脚。
 
-![顶部四对引脚的引脚布局](https://www.raspberrypi.com/documentation/accessories/images/wlan-header.jpg)
+![顶部四对引脚的引脚布局](.gitbook/assets/wlan-header.jpg)
 
 顶部四对引脚的引脚布局
 
-![底部四对引脚的引脚布局](https://www.raspberrypi.com/documentation/accessories/images/fan-header.jpg)
+![底部四对引脚的引脚布局](.gitbook/assets/fan-header.jpg)
 
 底部四对引脚的引脚布局
 
@@ -139,23 +139,23 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 
 2. 从智能显示模块上取下散热器，以便接触计算模块 5 的安装位置。
 
-   ![标有散热器位置的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-2.png)
+   ![标有散热器位置的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-2.png)
 
    使用十字螺丝刀松开固定散热器的四颗 M3 螺丝。保留这些螺丝以备后用。
 
 3. 使用十字螺丝刀松开 CM5 插槽中的两颗 M2 螺丝。保留这些螺丝以备后用。
 
-   ![已从 CM5 插槽上拆下固定螺丝的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-3.png)
+   ![已从 CM5 插槽上拆下固定螺丝的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-3.png)
 
 4. 将 CM5 安装到智能显示模块上。
    * 使 CM5 和智能显示模块上的树莓派标志均朝上且方向正确，将 CM5 放入标有 **COMPUTE MODULE 5** 的区域，使其孔位与安装柱对齐。
    * 轻轻将 CM5 向下压到连接器上，直到固定到位。
 
-   ![标有 CM5 位置的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-5.png)
+   ![标有 CM5 位置的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-5.png)
 
 5. 使用 M2 螺丝将 CM5 固定到板卡上。这些螺丝的建议扭矩为 0.15 Nm。
 
-   ![已安装 CM5 并标有螺丝位置的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-7.png)
+   ![已安装 CM5 并标有螺丝位置的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-7.png)
 
 6. 可选：安装一个 M.2 M key 设备。如果你要安装 M.2 NVMe 驱动器或 AI 加速器，最好在安装散热器之前进行。
    * 用手指取下驱动器固定螺丝。
@@ -165,7 +165,7 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 
 7. 可选：如果你的 CM5 带有板载 Wi-Fi，你可以连接外置天线。如果要在你的设备上安装天线，请在安装散热器之前进行。
 
-   ![标有天线位置的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-11.png)
+   ![标有天线位置的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-11.png)
 
    * 从智能显示模块内部的天线端口上取下橡胶塞。
    * 确保齿形垫圈位于 SMA 连接器上。
@@ -175,22 +175,22 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
    * 将天线转到适合你的显示器的角度，使其进入最终位置。
    * 如果安装了 M.2 设备，避免将天线线缆布置在它上方。请将天线线缆布置在 M.2 插槽与智能显示模块外表面之间。
 
-   ![标有天线线缆走线路径的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-13.png)
+   ![标有天线线缆走线路径的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-13.png)
 
    * 将天线线缆上的 U.FL 连接器连接到计算模块 5 上与 U.FL 兼容的连接器，位置在 CM5 左上角安装孔旁边。
 
-   ![已安装天线的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-15.png)
+   ![已安装天线的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-15.png)
 
 8. 安装散热器。散热器的一个安装点是偏置的；这可以确保散热器以正确的方式安装。
    * 取下散热器上的套筒和导热垫上的保护纸。
    * 如果你安装了天线，请确保天线线缆的走线避开散热器安装点。
    * 将散热器放在计算模块 5 上方，使其安装点与智能显示模块板卡上的孔对齐。
 
-   ![已安装 CM5 和天线并标有散热器位置的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-16.png)
+   ![已安装 CM5 和天线并标有散热器位置的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-16.png)
 
    * 使用十字螺丝刀将 M3 螺丝穿过板卡并拧入散热器安装点。均匀拧紧螺丝。这些螺丝的建议扭矩为 0.25 Nm。
 
-   ![已安装 CM5、天线和散热器的智能显示模块](https://www.raspberrypi.com/documentation/accessories/images/sdm-assembly-w-antenna-step-17.png)
+   ![已安装 CM5、天线和散热器的智能显示模块](.gitbook/assets/sdm-assembly-w-antenna-step-17.png)
 
 9. 可选：在 RTC 电池座中安装一颗 CR2032 电池。
 

@@ -16,7 +16,7 @@
 
 2. 在导航菜单右上角选择**账号切换图标**（两个方向相反的箭头）。
 
-    ![Raspberry Pi Connect 界面，显示账号切换下拉菜单。账号切换器可让你在个人 Connect 账号和组织 Connect 账号之间切换。](https://www.raspberrypi.com/documentation/services/images/account-switcher.png)
+    ![Raspberry Pi Connect 界面，显示账号切换下拉菜单。账号切换器可让你在个人 Connect 账号和组织 Connect 账号之间切换。](.gitbook/assets/account-switcher.png)
 
 3. 选择 **+新建组织**，然后输入组织名称。
 
@@ -32,11 +32,11 @@
 
     随后显示**转移个人设备**页面。
 
-    ![Raspberry Pi Connect 界面，显示用于将树莓派设备从个人 Connect 账号导入组织 Connect 账号的链接。](https://www.raspberrypi.com/documentation/services/images/transfer-personal-devices-link.png)
+    ![Raspberry Pi Connect 界面，显示用于将树莓派设备从个人 Connect 账号导入组织 Connect 账号的链接。](.gitbook/assets/transfer-personal-devices-link.png)
 
     如果你有可以转移到新组织的个人设备，系统会在转移前要求你确认：
 
-    ![Raspberry Pi Connect 界面，询问是否要将设备导入组织 Connect 账号。](https://www.raspberrypi.com/documentation/services/images/transfer-devices.png)
+    ![Raspberry Pi Connect 界面，询问是否要将设备导入组织 Connect 账号。](.gitbook/assets/transfer-devices.png)
 
 2. 选择**个人设备链接**查看个人设备，或选择“转移 x 台设备”（其中“x”是设备数量），确认要将这些计费设备添加到组织账号。
 
@@ -54,7 +54,7 @@
 
 3. 在页面顶部选择**用户**标签页，然后选择**邀请成员**。
 
-    ![Raspberry Pi Connect 界面，显示与组织 Connect 账号关联的用户。](https://www.raspberrypi.com/documentation/services/images/users.png)
+    ![Raspberry Pi Connect 界面，显示与组织 Connect 账号关联的用户。](.gitbook/assets/users.png)
 
 4. 从下拉菜单中选择**角色**。
 
@@ -67,7 +67,7 @@
 
 6. 选择**发送邀请**。
 
-    ![Connect 界面，显示邀请用户页面，其中包含角色下拉菜单、电子邮件地址和发送邀请按钮。](https://www.raspberrypi.com/documentation/services/images/invite-user.png)
+    ![Connect 界面，显示邀请用户页面，其中包含角色下拉菜单、电子邮件地址和发送邀请按钮。](.gitbook/assets/invite-user.png)
 
     邀请会发送到你第 5 步中提供的电子邮件地址。用户可以通过邮件中的邀请链接，使用同一电子邮件地址或任何有效的 Raspberry Pi ID 登录。
 
@@ -125,7 +125,7 @@
 
 2. 在导航菜单右上角选择账号切换图标。
 
-    ![Raspberry Pi Connect 界面，显示账号切换下拉菜单。账号切换器可让你在个人 Connect 账号和组织 Connect 账号之间切换。](https://www.raspberrypi.com/documentation/services/images/account-switcher-with-organisation.png)
+    ![Raspberry Pi Connect 界面，显示账号切换下拉菜单。账号切换器可让你在个人 Connect 账号和组织 Connect 账号之间切换。](.gitbook/assets/account-switcher-with-organisation.png)
 
 3. 切换到当前拥有该设备的账号（你的个人账号或某个组织）。
 
@@ -135,7 +135,7 @@
 
 6. 在**危险区域**下，选择**转移设备…**。
 
-    ![Raspberry Pi Connect 界面，显示可以将设备转移到的账号。](https://www.raspberrypi.com/documentation/services/images/transfer.png)
+    ![Raspberry Pi Connect 界面，显示可以将设备转移到的账号。](.gitbook/assets/transfer.png)
 
 7. 选择要将设备转移到的账号。
 
@@ -155,7 +155,7 @@
 
 2. 在设备页面选择**设置**。
 
-    ![编辑标签对话框，显示已应用的标签以及带有建议的自动补全下拉菜单。](https://www.raspberrypi.com/documentation/services/images/tagging.png)
+    ![编辑标签对话框，显示已应用的标签以及带有建议的自动补全下拉菜单。](.gitbook/assets/tagging.png)
 
 3. 在**常规**部分的**标签**字段下：
 
@@ -187,7 +187,7 @@
 
 你可以在单个查询中组合多个筛选条件和自由文本。例如，`model:5 tag:production dashboard` 会查找带有 `production` 标签且名称中包含“dashboard”的 Raspberry Pi 5 设备。
 
-![设备列表，搜索栏中应用了型号和标签筛选条件。](https://www.raspberrypi.com/documentation/services/images/filters.png)
+![设备列表，搜索栏中应用了型号和标签筛选条件。](.gitbook/assets/filters.png)
 
 当你在搜索栏中开始输入时，下拉菜单会建议可用的限定符和值。从下拉菜单中选择一个限定符即可查看其可用值，然后选择一个值将其添加为筛选条件。应用后的筛选条件会显示在搜索栏中。
 
@@ -269,7 +269,7 @@
 * **上传构件**：输入名称并选择文件，详见[上传构件](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)，然后选择**上传构件**。
 * **自行托管构件**：输入名称、URI 和 SHA-256 校验和，然后选择**保存构件**。
 
-![自行托管构件屏幕，显示必填字段：名称、URI 和 SHA-256 校验和。](https://www.raspberrypi.com/documentation/services/images/create-deployment-artefact.png)
+![自行托管构件屏幕，显示必填字段：名称、URI 和 SHA-256 校验和。](.gitbook/assets/create-deployment-artefact.png)
 
 构件库还会显示每个上传构件的**过期时间**，或在该时间过后显示**已过期**。过期构件仍保留在库中，因此你仍可以查看部署过什么，但无法再次部署它们。要再次部署同一文件，请重新上传。
 
@@ -281,7 +281,7 @@
 
 要部署构件，请转到**设备**标签页，然后在接收设备旁边选择**部署**。**部署**按钮仅对启用了远程更新的设备显示。
 
-![Raspberry Pi Connect 设备屏幕，显示设备列表，其中一台设备旁边有部署按钮。](https://www.raspberrypi.com/documentation/services/images/devices-deploy-button.png)
+![Raspberry Pi Connect 设备屏幕，显示设备列表，其中一台设备旁边有部署按钮。](.gitbook/assets/devices-deploy-button.png)
 
 然后，在**新部署**屏幕中，选择以下选项之一：
 
@@ -289,7 +289,7 @@
 * **上传构件**：输入名称并选择文件，详见[上传构件](shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md)，然后选择**下一步**。
 * **自行托管构件**：输入名称、URI 和 SHA-256 校验和，然后选择**下一步**。
 
-![选择“部署”后，新部署屏幕会让你选择使用现有构件、上传构件或自行托管构件。](https://www.raspberrypi.com/documentation/services/images/new-deployment-view.png)
+![选择“部署”后，新部署屏幕会让你选择使用现有构件、上传构件或自行托管构件。](.gitbook/assets/new-deployment-view.png)
 
 在**第 2 步：检查并部署**中，检查构件的详细信息，然后选择**部署**。对于上传的构件，此步骤还会显示文件何时过期；只有当接收设备在该时间之前上线并开始部署，部署才会成功。
 
@@ -314,7 +314,7 @@ Connect 企业版的订阅会在四周试用期结束后开始，此后每月按
 
 免费试用结束后，在设置订阅之前，你将无法远程访问组织中的设备。
 
-![Connect 账单界面，显示 28 天免费试用以及开始试用所需填写的付款详情字段。](https://www.raspberrypi.com/documentation/services/images/billing.png)
+![Connect 账单界面，显示 28 天免费试用以及开始试用所需填写的付款详情字段。](.gitbook/assets/billing.png)
 
 ## 查看审计日志
 
@@ -322,7 +322,7 @@ Connect 企业版的订阅会在四周试用期结束后开始，此后每月按
 
 你必须具有管理员权限，才能查看组织中过去 90 天内的活动。要查看审计日志，请打开页面顶部的**审计日志**标签页。
 
-![Connect 审计界面，显示下拉筛选菜单和结果。](https://www.raspberrypi.com/documentation/services/images/audit-log.png)
+![Connect 审计界面，显示下拉筛选菜单和结果。](.gitbook/assets/audit-log.png)
 
 列表中的每个事件都包含以下信息：
 
@@ -340,7 +340,7 @@ Connect 企业版的订阅会在四周试用期结束后开始，此后每月按
 
 组织的管理员可以从页面顶部的**设置**标签页配置以下内容。
 
-![Connect 组织设置界面，显示组织名称以及组织的其他数据字段。](https://www.raspberrypi.com/documentation/services/images/organisation-settings.png)
+![Connect 组织设置界面，显示组织名称以及组织的其他数据字段。](.gitbook/assets/organisation-settings.png)
 
 ### 重命名组织
 
@@ -358,13 +358,13 @@ Connect 企业版的订阅会在四周试用期结束后开始，此后每月按
 
 随后会显示通知，确认组织的设置已成功更新。
 
-![Connect 组织设置的身份验证部分，显示要求双因素身份验证按钮。](https://www.raspberrypi.com/documentation/services/images/organisation-authentication.png)
+![Connect 组织设置的身份验证部分，显示要求双因素身份验证按钮。](.gitbook/assets/organisation-authentication.png)
 
 这会启动 14 天宽限期。在宽限期内，我们会向尚未设置 2FA 的组织成员显示横幅。
 
 宽限期结束后，仍未设置 2FA 的成员将被阻止访问组织。在他们于 Raspberry Pi ID 上启用 2FA 之前，将无法再访问组织设备或其他资源。
 
-![宽限期结束后向未启用 2FA 的成员显示的要求启用双因素身份验证页面，其中包含在其 Raspberry Pi ID 上启用 2FA 的链接。](https://www.raspberrypi.com/documentation/services/images/organisation-2fa-required.png)
+![宽限期结束后向未启用 2FA 的成员显示的要求启用双因素身份验证页面，其中包含在其 Raspberry Pi ID 上启用 2FA 的链接。](.gitbook/assets/organisation-2fa-required.png)
 
 要禁用 2FA 要求：
 
@@ -1982,7 +1982,7 @@ Content-Type: application/json; charset=utf-8
 
 3. 安装完成后，在主机设备的 Web 浏览器中访问 Raspberry Pi Secure Boot Web 预配器界面：http://localhost:3142。
 
-    ![Web 预配器界面确认 `rpi-sb-provisioner` 已成功安装。](https://www.raspberrypi.com/documentation/services/images/provisioner-webui.png)
+    ![Web 预配器界面确认 `rpi-sb-provisioner` 已成功安装。](.gitbook/assets/provisioner-webui.png)
 
 ### 第 3 步：安装 `rpi-image-gen`
 
@@ -2027,21 +2027,21 @@ Content-Type: application/json; charset=utf-8
 1. 在主机设备上，打开 http://localhost:3142/options/get 处的预配器 Web 界面，或从界面顶部的标签中选择**获取**。
 2. 在 **Gold Master OS 镜像**框中，选择**上传新镜像**，然后将刚创建的 `.tar.zst` 文件（例如 `rpi-image-gen/work/deploy-1.0.0/myapp-1.0.0.tar.zst`）拖放到框中。
 
-    ![预配器 Web 界面，显示可用镜像表中列出的操作系统镜像。](https://www.raspberrypi.com/documentation/services/images/provisioner-osimages.png)
+    ![预配器 Web 界面，显示可用镜像表中列出的操作系统镜像。](.gitbook/assets/provisioner-osimages.png)
 
 3. 在**可用镜像**表中选择该镜像。
 4. 向下滚动到**设备与固件**表，然后选择以下内容：
 
     * 设备系列：**Raspberry Pi 5**。
 
-    ![设备与固件表，显示接收设备的设备类型、存储类型和固件设置。](https://www.raspberrypi.com/documentation/services/images/provisioner-firmware.png)
+    ![设备与固件表，显示接收设备的设备类型、存储类型和固件设置。](.gitbook/assets/provisioner-firmware.png)
 
     * 存储类型：**SD 卡**。
     * 设备固件：**2026-05-26**。
 
 5. 向下滚动到**安全配置**表，然后选择 **Naked**。
 
-    ![预配 Web 界面，显示已选择 Naked 安全配置。](https://www.raspberrypi.com/documentation/services/images/provisioner-security.png)
+    ![预配 Web 界面，显示已选择 Naked 安全配置。](.gitbook/assets/provisioner-security.png)
 
 你的更改会自动保存。
 
@@ -2056,7 +2056,7 @@ Content-Type: application/json; charset=utf-8
 5. 打开 http://localhost:3142/options/get 处的预配器 Web 界面。
 6. 向下滚动到**云服务**部分，然后将密钥粘贴到 **Connect 管理 API 访问令牌**字段中。
 
-![预配 Web 界面的云服务部分，显示 API 访问令牌字段和可选的前缀字段。](https://www.raspberrypi.com/documentation/services/images/provisioner-API.png)
+![预配 Web 界面的云服务部分，显示 API 访问令牌字段和可选的前缀字段。](.gitbook/assets/provisioner-API.png)
 
 ### 第 7 步：将接收设备连接到主机设备
 

@@ -59,7 +59,7 @@
 
 有关这些差异的更多信息，请参阅[非无线树莓派 Pico 开发板](#非无线树莓派-pico-开发板)和[无线树莓派 Pico 开发板](#无线树莓派-pico-开发板)。
 
-![四种树莓派 Pico 变体，从左到右依次为：树莓派 Pico、树莓派 Pico H、树莓派 Pico W 和树莓派 Pico WH](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-1s.png?hash=37f90d0137e81859630d4f0943b6f3d5)
+![四种树莓派 Pico 变体，从左到右依次为：树莓派 Pico、树莓派 Pico H、树莓派 Pico W 和树莓派 Pico WH](.gitbook/assets/pico-1s.png)
 
 ### 非无线树莓派 Pico 开发板
 
@@ -200,7 +200,7 @@
 
 有关这些差异的更多信息，请参阅[非无线树莓派 Pico 2 开发板](#非无线树莓派-pico-2-开发板)和[无线树莓派 Pico 2 开发板](#无线树莓派-pico-2-开发板)。
 
-![四种树莓派 Pico 2 变体，从左到右依次为：树莓派 Pico 2、带排针的树莓派 Pico 2、树莓派 Pico 2 W 和带排针的树莓派 Pico 2 W](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-2s.png)
+![四种树莓派 Pico 2 变体，从左到右依次为：树莓派 Pico 2、带排针的树莓派 Pico 2、树莓派 Pico 2 W 和带排针的树莓派 Pico 2 W](.gitbook/assets/pico-2s.png)
 
 ### 非无线树莓派 Pico 2 开发板
 
@@ -351,9 +351,9 @@
 
 图 3 和图 4 从顶视图展示了非无线树莓派 Pico 和 Pico 2 开发板及其引脚分布。除细微的外观差别外，所有非无线开发板（树莓派 Pico、Pico H、Pico 2 和带排针的树莓派 Pico 2）的主体布局都是相同的。这些非无线开发板之间唯一主要的外观差别是有没有预焊排针，以及 SWD 接口的具体形式；更多信息请参阅[调试连接器（SWD）](#调试连接器swd)。
 
-![非无线树莓派 Pico 开发板的引脚分布和开发板布局图](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg)
+![非无线树莓派 Pico 开发板的引脚分布和开发板布局图](.gitbook/assets/pico-pinout.svg)
 
-![非无线树莓派 Pico 2 开发板的引脚分布和开发板布局图](https://www.raspberrypi.com/documentation/microcontrollers/images/pico-2-r4-pinout.svg)
+![非无线树莓派 Pico 2 开发板的引脚分布和开发板布局图](.gitbook/assets/pico-2-r4-pinout.svg)
 
 大致来说，非无线树莓派 Pico 开发板的布局如下：
 
@@ -368,9 +368,9 @@
 
 图 5 和图 6 从顶视图展示了无线树莓派 Pico 和 Pico 2 开发板及其引脚分布。除细微的外观差别外，所有无线开发板（树莓派 Pico W、Pico WH、Pico 2 W 和带排针的树莓派 Pico 2 W）的主体布局都是相同的。这些无线开发板之间唯一主要的外观差别是有没有预焊排针，以及 SWD 接口的具体形式；更多信息请参阅[调试连接器（SWD）](#调试连接器swd)。
 
-![无线树莓派 Pico 开发板的引脚分布和开发板布局图](https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg)
+![无线树莓派 Pico 开发板的引脚分布和开发板布局图](.gitbook/assets/picow-pinout.svg)
 
-![无线树莓派 Pico 2 开发板的引脚分布和开发板布局图](https://www.raspberrypi.com/documentation/microcontrollers/images/pico2w-pinout.svg)
+![无线树莓派 Pico 2 开发板的引脚分布和开发板布局图](.gitbook/assets/pico2w-pinout.svg)
 
 大致来说，无线树莓派 Pico 开发板的布局如下：
 

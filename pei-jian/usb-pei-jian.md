@@ -13,7 +13,7 @@
 
 为支持高功率外设和设备，USB 3 集线器还包含一个可选的 USB-C 电源输入，可在需要时为下游接口提供外部供电。
 
-![树莓派 USB 3 集线器](https://www.raspberrypi.com/documentation/accessories/images/usb-3-hub-hero.png)
+![树莓派 USB 3 集线器](.gitbook/assets/usb-3-hub-hero.png)
 
 树莓派 USB 3 集线器
 
@@ -34,13 +34,13 @@
 
 下图展示了树莓派 USB 3 集线器的大致物理尺寸，单位为毫米（mm）。包括线缆和 USB-A 接头在内，总长度约为 175 mm。集线器本身约为 57.4 mm × 52.4 mm × 18 mm。
 
-![树莓派 USB 3 集线器的机械图；所有测量值均为近似值，单位为毫米（mm）；所示尺寸可能会发生变化，不得用于生产用途](https://www.raspberrypi.com/documentation/accessories/images/usb-3-hub-physical-specification.png)
+![树莓派 USB 3 集线器的机械图；所有测量值均为近似值，单位为毫米（mm）；所示尺寸可能会发生变化，不得用于生产用途](.gitbook/assets/usb-3-hub-physical-specification.png)
 
 ## 闪存盘
 
 树莓派闪存盘是一款 USB 3.0 闪存盘，提供便携存储，可用于传输文件、创建备份或运行操作系统。闪存盘有两种存储容量（128 GB 或 256 GB），使用非易失性闪存，在断开连接后仍能保留数据。
 
-![树莓派闪存盘](https://www.raspberrypi.com/documentation/accessories/images/flash-drive-hero.png)
+![树莓派闪存盘](.gitbook/assets/flash-drive-hero.png)
 
 树莓派闪存盘
 
@@ -122,4 +122,4 @@ sudo smartctl -d sat,12 -x /dev/sda
 
 下图展示了树莓派闪存盘的大致物理尺寸，单位为毫米（mm）。闪存盘约为 42 mm × 12.2 mm。最厚处约为 6.5 mm；最薄处（USB 端）约为 4.6 mm。
 
-![树莓派闪存盘的机械图；所有测量值均为近似值，单位为毫米（mm）；所示尺寸可能会发生变化，不得用于生产用途](https://www.raspberrypi.com/documentation/accessories/images/flash-drive-physical-specification.png)
+![树莓派闪存盘的机械图；所有测量值均为近似值，单位为毫米（mm）；所示尺寸可能会发生变化，不得用于生产用途](.gitbook/assets/flash-drive-physical-specification.png)

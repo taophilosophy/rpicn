@@ -4,7 +4,7 @@
 
 树莓派 AI 摄像头采用索尼 IMX500 图像传感器，可为任何摄像头应用提供低延迟、高性能的 AI 能力。它与[树莓派摄像头软件栈](https://www.raspberrypi.com/documentation/computers/camera_software.html)紧密集成，用户只需极少的投入即可部署自己的神经网络模型。
 
-![树莓派 AI 摄像头](https://www.raspberrypi.com/documentation/accessories/images/ai-camera.jpg)
+![树莓派 AI 摄像头](.gitbook/assets/ai-camera.jpg)
 
 本节演示如何在摄像头上运行预打包的或自定义的神经网络模型。此外，本节还介绍了在 [`rpicam-apps`](https://github.com/raspberrypi/rpicam-apps) 和 [Picamera2](https://github.com/raspberrypi/picamera2) 中解析由 IMX500 上运行的神经网络生成的推理数据所需的步骤。
 
@@ -82,7 +82,7 @@ $ rpicam-hello -t 0s --post-process-file /usr/share/rpi-camera-assets/imx500_mob
 
 运行该命令后，你会看到一个取景器，它在神经网络识别出的对象上叠加边界框：
 
-![IMX500 MobileNet](https://www.raspberrypi.com/documentation/accessories/images/imx500-mobilenet.jpg)
+![IMX500 MobileNet](.gitbook/assets/imx500-mobilenet.jpg)
 
 要录制带有目标检测叠加层的视频，请改用 `rpicam-vid`：
 
@@ -113,7 +113,7 @@ AI 摄像头执行基本检测，但输出张量需要在你作为主机的树�
 $ rpicam-hello -t 0s --post-process-file /usr/share/rpi-camera-assets/imx500_posenet.json --viewfinder-width 1920 --viewfinder-height 1080 --framerate 30
 ```
 
-![IMX500 PoseNet](https://www.raspberrypi.com/documentation/accessories/images/imx500-posenet.jpg)
+![IMX500 PoseNet](.gitbook/assets/imx500-posenet.jpg)
 
 你可以通过多种方式配置 `imx500_posenet` 阶段。
 
@@ -149,7 +149,7 @@ $ python imx500_pose_estimation_higherhrnet_demo.py
 
 树莓派 AI 摄像头的工作方式与传统基于 AI 的摄像头图像处理系统不同，如下图所示：
 
-![传统系统与 IMX500 AI 摄像头系统的对比](https://www.raspberrypi.com/documentation/accessories/images/imx500-comparison.svg)
+![传统系统与 IMX500 AI 摄像头系统的对比](.gitbook/assets/imx500-comparison.svg)
 
 左侧展示了传统 AI 摄像头系统的架构。在这类系统中，摄像头将图像传送给树莓派。树莓派处理图像，然后执行 AI 推理。传统系统可以使用外部 AI 加速器（如图所示），也可以完全依赖 CPU。
 
@@ -167,7 +167,7 @@ $ python imx500_pose_estimation_higherhrnet_demo.py
 
 下图展示了在树莓派 AI 摄像头模块硬件（红色）的成像/推理用例中使用的各种摄像头软件组件（绿色）：
 
-![IMX500 框图](https://www.raspberrypi.com/documentation/accessories/images/imx500-block-diagram.svg)
+![IMX500 框图](.gitbook/assets/imx500-block-diagram.svg)
 
 启动时，IMX500 传感器模块加载固件以运行特定的神经网络模型。在流传输期间，IMX500 会*同时*生成图像流和推理流。此推理流包含神经网络模型的输入和输出，也称为输入/输出**张量**。
 

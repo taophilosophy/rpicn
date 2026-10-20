@@ -2,7 +2,7 @@
 
 ## 关于
 
-![用于树莓派 5 的树莓派 Bumper 保护壳](https://www.raspberrypi.com/documentation/accessories/images/bumper.jpg)
+![用于树莓派 5 的树莓派 Bumper 保护壳](.gitbook/assets/bumper.jpg)
 
 用于树莓派 5 的树莓派 Bumper 保护壳
 
@@ -12,7 +12,7 @@ Bumper 仅兼容树莓派 5。
 
 ## 组装说明
 
-![组装 Bumper 保护壳](https://www.raspberrypi.com/documentation/accessories/images/assembly.png)
+![组装 Bumper 保护壳](.gitbook/assets/assembly.png)
 
 组装 Bumper 保护壳
 

@@ -141,83 +141,83 @@ $ vcgencmd measure_temp
 | 3    | GND  | 黑     |
 | 4    | Tach | 黄     |
 
-### 树莓派启动 EEPROM
+## 树莓派引导 EEPROM
 
-树莓派 4、400、5，计算模块 4、4S 计算机使用 EEPROM 启动系统。其他型号的树莓派 计算机使用位于启动文件系统中的 `bootcode.bin` 文件。
+以下树莓派型号使用 EEPROM 来启动系统：
+
+* 树莓派 4B 起的旗舰型号
+* CM4 起的计算模块型号（包括 CM4S）
+* 树莓派 400 起的键盘型号
+
+其他所有型号的树莓派计算机使用位于启动文件系统中的 `bootcode.bin` 文件。
 
 >**注意**
 >
->在 GitHub 存储库 `rpi-eeprom` 中，你可以找到用于创建 `
-rpi-eeprom` 的脚本和预编译的二进制文件。
+>你可以在 [rpi-eeprom GitHub 仓库](https://github.com/raspberrypi/rpi-eeprom) 中找到用于创建 `rpi-eeprom` 的脚本和预编译二进制文件。
 
-### 诊断引导
+### 重置树莓派引导加载程序
 
-如果在引导过程中出现错误，会用绿色 LED 灯传递故障信息。更新后的引导加载程序会在 HDMI 显示器上输出诊断信息。
+本节介绍通过重新烧录引导加载程序来将其重置的操作步骤。你通常在系统无法启动、或想重置引导加载程序配置时执行此操作。
 
-### 更新引导程序
+如果你想升级引导加载程序版本或选择不同的引导顺序，而不是重置引导加载程序，请参阅*系统配置*页面中的[更新引导加载程序](xi-tong-pei-zhi.md#更新引导加载程序)。
 
-有多种方法来更新你树莓派的引导程序。
+以下说明仅适用于将引导加载程序存储在板载 SPI 闪存 EEPROM 中的较新树莓派型号：
 
-#### 树莓派 5、树莓派 4、树莓派 400
+* 树莓派 4B 起的旗舰单板计算机（SBC）。
+* CM4 起（包括 CM4S）的计算模块。
+* 所有键盘计算机（树莓派 400、500 和 500+）。
 
-树莓派操作系统会自动更新引导加载程序来进行重要的错误修复。要手动更新引导加载程序/更改启动顺序，请使用 `raspi-config`。
+在其他树莓派型号上，引导 ROM 始终从启动介质的启动分区中加载 `bootcode.bin` 文件。
 
-#### 使用树莓派启动盘制作工具来更新引导加载程序
+#### 诊断引导加载程序问题
 
-树莓派启动盘制作器提供了一个图形界面，用于更新引导加载程序并选择引导模式。
+如果你的树莓派设备无法启动，引导加载程序会通过以下方式提供反馈：
 
-1. 下载树莓派启动盘制作工具
-2. 选择一张未使用的存储卡（引导加载程序镜像会格式化整张卡）
-3. 启动树莓派启动盘制作工具
-4. 选择 **选择操作系统（Choose OS）**
-5. 选择 **Misc utility images**
+* **LED 活动**：树莓派上的绿色 LED 会以特定模式闪烁，以指示特定错误。请参阅[查看 LED 警告代码](xi-tong-pei-zhi.md#查看-led-警告代码)，根据闪烁模式识别错误。例如，绿色 LED 短闪七次表示未找到内核镜像。
+* **HDMI 诊断屏幕**：在较新的设备上，引导加载程序可以在启动过程中通过 HDMI 显示诊断屏幕。如果你为树莓派连接了显示器，该屏幕会提供诸如引导加载程序版本和构建日期、检测到的引导顺序等信息，以及操作系统加载失败时的特定错误代码。更多信息，请参阅"树莓派 4 的启动诊断"。
 
-![选择 Misc utility imagges](../.gitbook/assets/misc-utility-images.png)
+#### 重新烧录引导加载程序
 
-6. 为你的树莓派选择 `Bootloader` (树莓派 400 属于 4 系列)
+如果系统无法启动，或者你想重置引导加载程序配置，请重新烧录引导加载程序。重新烧录引导加载程序会清除所有可能阻止树莓派启动的本地引导加载程序配置。
 
-![为你的树莓派选择 `Bootloader`](../.gitbook/assets/bootloader-family-select.png)
+>**注意**
+>
+>你也可以使用 USB `rpiboot` 重新烧录引导加载程序。此方法通常用于批量预配计算模块。通过 USB 重新烧录引导加载程序也是 CM4 和 CM4S 唯一可用的方式。更多信息，请参阅[计算模块硬件](ji-suan-mo-kuai-ying-jian.md#计算模块-4-引导加载程序)。
 
-7. 选择引导模式：存储卡（建议）、USB、网络
+要在树莓派设备上重新烧录引导加载程序：
 
-![选择你的存储设备](../.gitbook/assets/bootloader-storage-select.png)
+1. 将一张备用或空的存储卡连接到你的主机计算机。
+2. 在主机计算机上找到并打开树莓派启动盘制作工具。
+3. 在**设备（Device）**选项卡中，从列表中选择你的树莓派型号，然后选择**下一步（Next）**。
+4. 在**操作系统（OS）**选项卡中，滚动到列表底部，选择**其他工具镜像（Misc utility images）> 引导加载程序（Bootloader）> 存储卡启动（SD Card Boot）**，然后选择**下一步（Next）**。
+5. 在**存储（Storage）**选项卡中，选择你的存储设备，然后选择**下一步（Next）**。
+6. 在**写入（Writing）**选项卡中，选择**写入（Write）**。
+7. 选择**我明白，擦除并写入（I understand, erase and write）**；等待写入完成，然后选择**完成（Finish）**。
+8. 从主机计算机中弹出存储设备，然后将其插入你的树莓派。
+9. 通过接通电源来启动你的树莓派。
+10. 当绿色活动 LED 以稳定模式闪烁、且 HDMI 显示器显示绿屏后，断开树莓派的电源并弹出启动介质，将其关闭。
 
-8. 选择 **存储卡** 然后 **写入（Write）**
-9. 单击 **确认（Yes）** 继续
-10. 使用新的镜像引导树莓派，请等待至少十秒钟
-11. 当绿色状态指示灯有规律的闪烁，且 HDMI 显示绿屏后，你就已成功写入引导程序了
-12. 断开树莓派的电源，拔出存储卡
+### 更新引导加载程序配置
 
-#### 使用 `raspi-config` 来更新引导加载程序
+引导加载程序的 `default` 版本即最新的出厂默认固件镜像。它会更新以提供关键的错误修复、硬件支持，并在 `latest` 版本中经过特性测试后定期更新。`latest` 引导加载程序的更新更为频繁，包含最新的修复和改进。
 
-要在树莓派系统上更改启动模式、变动引导加载程序版本，请运行 `raspi-config`。
+高级用户可以切换到 `latest` 引导加载程序以获取最新功能。
 
-1. 更新树莓派系统，下载软件包 `rpi-eeprom` 的最新版本。
-2. 运行 `sudo raspi-config`。
-3. 选择 **Advanced Options**。
-4. 选择 **Bootloader Version**。
-5. 选择 **Default** 可恢复出厂设置、选择 **Latest** 可获取最新发布的引导程序。
-6. 使用 `sudo reboot` 重启。
+首先，确保你的树莓派运行最新的软件。运行以下命令进行更新：
 
-### 更新引导程序配置
+```bash
+$ sudo apt update && sudo apt full-upgrade
+```
 
-引导加载程序 `default` 版本即最新的出厂默认固件镜像。它提供了关键的错误修复、硬件支持，并且特性均在 latest 版本中经过测试，然后定期更新。latest 版引导加载程序的更新更为频繁，包含了最新的修复和改进。
-
-专业用户可以切换到 latest 版引导加载程序以获得最新功能。
-
-运行以下命令启动 `raspi-config`。
+接下来，运行以下命令打开 `raspi-config`：
 
 ```bash
 $ sudo raspi-config
 ```
 
-切换到 **Advanced Options**，然后选择 **Bootloader Version**。选择 **Latest** 并选择 **Yes** 确认。选择 **Finish** 确认重启。重启后，再次打开命令提示符更新你的系统：
+导航到 `Advanced Options` > `Bootloader Version`。选择 `Latest`，然后选择 `Yes` 确认。选择 `Finish` 并确认你要重启。
 
-```bash
-$ sudo apt update
-```
-
-如运行 `sudo rpi-eeprom-update`，你将看到引导加载程序的更新版本是 latest 发行版。
+如果你运行 `sudo rpi-eeprom-update`，应该会看到有更新版本的引导加载程序可用，且它是 `latest` 发布版本：
 
 ```bash
 *** UPDATE AVAILABLE ***
@@ -233,14 +233,14 @@ BOOTLOADER: update available
     LATEST: 000138c0
 ```
 
-现在，你可以更新你的引导加载程序。
+现在你可以更新引导加载程序了。
 
 ```bash
 $ sudo rpi-eeprom-update -a
 $ sudo reboot
 ```
 
-重启，然后运行 `sudo rpi-eeprom-update`。现在你应该看到 `CURRENT` 的日期已更新为引导程序的最新版本之日期。
+重启，然后运行 `sudo rpi-eeprom-update`。现在你应该看到 `CURRENT` 日期已更新为引导加载程序的最新版本：
 
 ```bash
 BOOTLOADER: up to date
@@ -255,9 +255,9 @@ BOOTLOADER: up to date
     LATEST: 000138c0
 ```
 
-#### 查阅当前引导程序配置
+#### 查看当前引导加载程序配置
 
-要查看当前运行的引导程序使用之配置，请运行以下命令：
+要查看当前运行的引导加载程序使用的配置，请运行以下命令：
 
 ```bash
 $ rpi-eeprom-config
@@ -271,22 +271,20 @@ $ rpi-eeprom-config
 $ rpi-eeprom-config pieeprom.bin
 ```
 
-#### 编辑当前的引导加载程序配置
+#### 编辑当前引导加载程序配置
 
-执行以下命令可将当前引导加载程序配置加载到文本编辑器。当关闭编辑器后，`rpi-eeprom-config` 将更新后的配置应用于最新的可用引导加载程序版本，并使用 `rpi-eeprom-update` 在系统重启时应用更新：
+以下命令会把当前引导加载程序配置加载到文本编辑器中。当编辑器关闭时，`rpi-eeprom-config` 会将更新后的配置应用到最新的可用引导加载程序版本，并使用 `rpi-eeprom-update` 安排在系统重启时进行更新：
 
 ```bash
-$ sudo -E rpi-eeprom-config --edit
+$ sudo rpi-eeprom-config --edit
 $ sudo reboot
 ```
 
-如果更新后的配置与原配置相同、或为空，则不会进行任何更改。
-
-编辑器取决于环境变量 `EDITOR`。
+如果更新后的配置相同或为空，则不会进行任何更改。
 
 #### 应用已保存的配置
 
-以下命令将 `boot.conf` 应用于最新可用的引导加载程序镜像，使用 `rpi-eeprom-update` 在系统重启时应用更新。
+以下命令将 `boot.conf` 应用到最新的可用引导加载程序镜像，并使用 `rpi-eeprom-update` 安排在系统重启时进行更新：
 
 ```bash
 $ sudo rpi-eeprom-config --apply boot.conf
@@ -295,7 +293,7 @@ $ sudo reboot
 
 ### 自动更新
 
-`rpi-eeprom-update` 的 systemd 服务会在启动时运行，且在新镜像可用时应用更新，自动迁移当前的引导加载程序配置。
+`rpi-eeprom-update` 的 systemd 服务会在启动时运行，并在有新镜像可用时自动迁移当前的引导加载程序配置并应用更新。
 
 要禁用自动更新：
 
@@ -311,11 +309,11 @@ $ sudo systemctl unmask rpi-eeprom-update
 
 >**注意**
 >
->如果设置了 `FREEZEVERSION` 引导加载程序配置，则更新服务将跳过自动更新。这样可以避免在安装了多个操作系统、更换存储卡时逐个禁用更新服务的需要。
+>如果设置了引导加载程序配置 `FREEZE_VERSION`，更新服务会跳过所有自动更新。这样就无需在安装了多个操作系统、或更换存储卡时逐个禁用更新服务。
 
 #### `rpi-eeprom-update`
 
-树莓派操作系统使用脚本 `rpi-eeprom-update` 实现自动更新服务。该脚本还可以通过交互方式运行、进行封装，创建定制的引导加载程序更新服务。
+树莓派操作系统使用 `rpi-eeprom-update` 脚本实现自动更新服务。该脚本也可以交互式运行，或进行封装以创建自定义的引导加载程序更新服务。
 
 读取当前引导加载程序版本：
 
@@ -329,51 +327,91 @@ $ vcgencmd bootloader_version
 $ sudo rpi-eeprom-update
 ```
 
- 安装更新：
+安装更新：
 
 ```bash
 $ sudo rpi-eeprom-update -a
 $ sudo reboot
 ```
 
-取消待定更新：
+取消待处理的更新：
 
 ```bash
 $ sudo rpi-eeprom-update -r
 ```
 
-安装特定的引导程序镜像:
+安装特定的引导加载程序镜像：
 
 ```bash
 $ sudo rpi-eeprom-update -d -f pieeprom.bin
 ```
 
-参数 `-d` 让 `rpi-eeprom-update` 使用指定的镜像文件中的配置，而不是自动迁移当前的配置。
+`-d` 参数让 `rpi-eeprom-update` 使用指定镜像文件中的配置，而不是自动迁移当前配置。
 
-打开自带文档:
+显示内置文档：
 
 ```bash
 $ rpi-eeprom-update -h
 ```
 
-### 引导加载程序发布状态
+#### A/B 引导加载程序更新
 
-固件发布状态对应于引导加载程序固件镜像的特定子目录（ `/lib/firmware/raspberrypi/bootloader/...` ），可以更改以选择不同的发行版本。
+A/B EEPROM 引导加载程序更新可以防止树莓派设备在更新中断后无法启动——它能在更新过程中断电时保护设备。
 
-* `default`：用于支持新硬件、关键错误修复，并通过在 latest 版本测试过的新功能的定期更新。
-* `latest`：当新功能可用时进行更新
+支持 A/B 的固件会将 EEPROM 分为 A 和 B 两个分区。任何时候，其中一个分区处于"已提交"状态，即设备默认从中启动的分区。更新会写入另一个分区，在新镜像完整写入并检查完毕之前，保持已提交的分区不变。
 
-由于发布状态字符串仅是一个子目录名，因此你可以创建自己的发行版本，例如固定发行或自定义网络引导配置。
+它仅兼容树莓派 5、树莓派计算模块 5 和树莓派 5 键盘计算机设备。
 
-#### 更改启动加载程序版本
+支持 A/B 的固件还支持 `tryboot` 回退机制，可以在提交到新分区之前先测试该分区。更多信息，请参阅 [`rpi-eeprom-ab` README](https://github.com/raspberrypi/utils/tree/master/rpieepromab)。
+
+有关*树莓派系统*的 A/B 更新信息，请参阅[A/B 启动更新](../fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md#ab-启动更新)。
+
+##### 启用 A/B 引导加载程序更新
 
 >**注意**
 >
->你可以通过编辑 `/etc/default/rpi-eeprom-update` 文件，把条目 `FIRMWARE_RELEASE_STATUS` 更改为适当的流来更改在更新过程中使用的发布版本。
+>启用 A/B 固件更新后，直接写入 EEPROM 的工具（例如 `flashrom`）将无法工作。
 
-#### 更新启动加载器配置文件中的启动加载器镜像
+要通过 `raspi-config` 启用或禁用 A/B 固件更新：
 
-以下命令将 `pieeprom.bin` 中的启动加载器配置替换为 `boot.conf` 并将新镜像写入 `new.bin` ：
+1. 在命令行中运行以下命令，将树莓派软件更新到最新版本：
+
+   ```bash
+   $ sudo apt update && sudo apt full-upgrade
+   ```
+
+2. 在命令行中运行以下命令打开 `raspi-config`：
+
+   ```bash
+   $ sudo raspi-config
+   ```
+
+3. 导航到 *`6 Advanced Options > A14 AB Firmware`*，选择 `Enable` 或 `Disable`。
+4. 选择 *`Finish`*，并在出现提示时重启。
+5. 在命令行中运行以下命令执行 A/B 更新：
+
+   ```bash
+   $ rpi-eeprom-update
+   ```
+
+### 引导加载程序发布状态
+
+固件发布状态对应于引导加载程序固件镜像（`/lib/firmware/raspberrypi/bootloader/...`）的特定子目录，可以更改它以选择不同的发布流。
+
+* `default`——在需要新硬件支持、关键错误修复时更新，并定期纳入已在 `latest` 版本中测试过的新功能。
+* `latest`——在有新功能可用时更新。
+
+由于发布状态字符串只是一个子目录名，你可以创建自己的发布流，例如固定的发布版本或自定义网络引导配置。
+
+#### 更改引导加载程序发布版本
+
+>**注意**
+>
+>你可以通过编辑 `/etc/default/rpi-eeprom-update` 文件，将 `FIRMWARE_RELEASE_STATUS` 条目更改为相应的发布流，来更改更新期间使用的发布流。
+
+#### 更新引导加载程序镜像文件中的引导加载程序配置
+
+以下命令将 `pieeprom.bin` 中的引导加载程序配置替换为 `boot.conf`，并将新镜像写入 `new.bin`：
 
 ```bash
 $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
@@ -381,38 +419,38 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 #### `recovery.bin`
 
-在开机时，BCM2711、BCM2712 上的 ROM 会在存储卡的启动分区的根目录中查找文件 `recovery.bin`。如果能找到一个有效的 `recovery.bin`，那么 ROM 就会执行这个文件，而非读取 EEPROM。该机制可确保始终能对引导加载程序闪存恢复出厂设置。
+开机时，BCM2711 和 BCM2712 上的 ROM 会在存储卡启动分区的根目录中查找名为 `recovery.bin` 的文件。如果找到有效的 `recovery.bin`，ROM 会执行它，而不是 EEPROM 中的内容。该机制确保引导加载程序闪存镜像始终能通过出厂默认设置重置为有效镜像。
 
-欲了解更多信息，请参阅 EEPROM 启动流程。
+有关更多信息，请参阅"EEPROM 引导流程"。
 
 #### 引导加载程序更新文件
 
-| 文件名 | 目的                                                                    |
-| :--------: | :------------------------------------------------------------------------- |
-| `recovery.bin`       | 引导加载程序恢复可执行文件                                              |
-| `pieeprom.upd`       | 引导程序 EEPROM 镜像                                                    |
-| `pieeprom.bin`       | 引导程序 EEPROM 镜像：与 `pieeprom.upd` 相同，但会更改 `recovery.bin` 的行为 |
-| `pieeprom.sig`       | 引导程序镜像的 sha256 校验和（`pieeprom.upd/pieeprom.bin`）           |
-| `vl805.bin`       | VLI805 USB 固件 EEPROM 镜像：仅适用于树莓派 4B 修订版 1.3 及更老版本|
-| `vl805.sig`       | `vl805.bin` 的 sha256 校验和                                              |
+| 文件名 | 目的 |
+| :------: | :------ |
+| `recovery.bin` | 引导加载程序恢复可执行文件 |
+| `pieeprom.upd` | 引导加载程序 EEPROM 镜像 |
+| `pieeprom.bin` | 引导加载程序 EEPROM 镜像——与 `pieeprom.upd` 相同，但会改变 `recovery.bin` 的行为，使其不再将自己重命名为 `RECOVERY.000` |
+| `pieeprom.sig` | 引导加载程序镜像（`pieeprom.upd`/`pieeprom.bin`）的 sha256 校验和（及可选的时间戳） |
+| `vl805.bin` | VLI805 USB 固件 EEPROM 镜像——仅适用于树莓派 4B 修订版 1.3 及更早版本 |
+| `vl805.sig` | `vl805.bin` 的 sha256 校验和 |
 
-* 如果引导加载程序更新镜像为 `pieeprom.upd`，则更新完成后 `recovery.bin` 会被重命名为 `recovery.000`，然后系统会重启。由于检测不到 `recovery.bin`，ROM 将从 SPI 闪存加载新近更新的引导加载程序，然后正常启动操作系统。
-* 如果引导加载程序更新镜像为 `pieeprom.bin`，那么更新完成后 `recovery.bin`：如更新成功，HDMI 显示绿屏，绿色状态 LED 快速闪烁；如果更新失败，HDMI 显示红屏，并且通过状态 LED 传递错误代码。
-* `.sig` 文件包含了相应镜像文件的十六进制 sha256 校验和；将来可能会添加其他字段。
-* 在 BCM2711、BCM2712 上的 ROM 查找 `recovery.bin` 的功能，不支持 USB 大容量存储设备及 TFTP。而且，更新版本的引导加载程序已支持自更新功能，使引导加载程序能够自己重新刷新 SPI 闪存。请参阅引导加载程序配置页面上的 `ENABLE_SELF_UPDATE`。
+* 如果引导加载程序更新镜像名为 `pieeprom.upd`，则更新完成后 `recovery.bin` 会被重命名为 `recovery.000`，然后系统重启。由于 `recovery.bin` 不再存在，ROM 会从 SPI 闪存加载新更新的引导加载程序，并正常启动操作系统。
+* 如果引导加载程序更新镜像名为 `pieeprom.bin`，则更新完成后 `recovery.bin` 会停止运行。成功时 HDMI 输出为绿屏，绿色活动 LED 快速闪烁；失败时 HDMI 输出为红屏，且活动 LED 会显示[错误代码](xi-tong-pei-zhi.md#查看-led-警告代码)。
+* `.sig` 文件的第一行包含相应镜像文件的十六进制 sha256 校验和，下一行可选地包含镜像的时间戳（`ts: unixtime`）；将来可能会添加其他字段。
+* BCM2711 和 BCM2712 上的 ROM 不支持从 USB 大容量存储设备或 TFTP 加载 `recovery.bin`。相反，较新版本的引导加载程序支持自更新机制，引导加载程序可以自己重新烧写 SPI 闪存。请参阅"树莓派引导加载程序配置"中的 `ENABLE_SELF_UPDATE`。
 * EEPROM 更新的临时文件会在启动时由 `rpi-eeprom-update` 服务自动删除。
 
-若要获取有关 `rpi-eeprom-update` 配置文件的更多信息，请参阅 `rpi-eeprom-update -h`。
+要获取有关 `rpi-eeprom-update` 配置文件的更多信息，请参阅 `rpi-eeprom-update -h`。
 
 #### EEPROM 写保护
 
-引导加载程序和 VLI EEPROM 都支持硬件写保护。有关如何在更新 EEPROM 时启用此功能的更多信息，请参阅参数 `eeprom_write_protect`。
+引导加载程序和 VLI EEPROM 都支持硬件写保护。有关如何在烧录 EEPROM 时启用此功能的更多信息，请参阅 `eeprom_write_protect` 选项。
 
 ## 树莓派 4 的启动诊断
 
 从树莓派 4 引导加载程序 2020-04-16 版本开始，诊断信息会出现在 HDMI 显示器上。要查看诊断信息，请关闭树莓派 4，拔掉存储卡，然后重启。在接入的显示器上应该会出现类似如下的诊断信息。
 
-![启动诊断屏幕](https://www.raspberrypi.com/documentation/computers/images/bootloader-diagnostics.png?hash=474195e522544fb421403622e269ab1b)
+![启动诊断屏幕](.gitbook/assets/bootloader-diagnostics.png)
 
 该诊断页面也会出现在以下情况：引导加载程序无法引导插入的存储卡、无法进行网络引导；可能因为：存储卡中没有可引导的镜像、存储卡是假冒伪劣产品、网络引导配置错误。
 
@@ -2000,7 +2038,7 @@ GPIO 驱动强度并不表示最大电流，仅表示在此电流下 pad 仍将�
 >
 >对于树莓派 4、400，计算模块 4，当前级别是图表中显示数值的一半。
 
-![GPIO 驱动强度表](https://www.raspberrypi.com/documentation/computers/images/pi_gpio_drive_strength_diagram.png?hash=466ec669893a20d65c4f54da5aea9e3f)
+![GPIO 驱动强度表](.gitbook/assets/pi_gpio_drive_strength_diagram.png)
 
 ### 当前数值
 
@@ -2416,7 +2454,7 @@ $ vcgencmd otp_dump
 
 ## 树莓派连接器用于 PCIe
 
-![树莓派 PCIe 连接器](https://www.raspberrypi.com/documentation/computers/images/pcie.jpg?hash=35b4d5db3702574625f0e1e9686cdd51)
+![树莓派 PCIe 连接器](.gitbook/assets/pcie.jpg)
 
 树莓派连接器用于 PCIe
 
@@ -2529,7 +2567,7 @@ $ sudo raspi-config
 
 ### 添加你自己的电源按钮
 
-![树莓派 5 J2 跳线](https://www.raspberrypi.com/documentation/computers/images/j2.jpg?hash=00e7c33a44c6f752d7818627617a44fb)
+![树莓派 5 J2 跳线](.gitbook/assets/j2.jpg)
 
  J2 跳线帽
 
@@ -2555,7 +2593,7 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 
 ### 以太网供电（PoE）连接器
 
-![PoE 连接器](https://www.raspberrypi.com/documentation/computers/images/poe.jpg?hash=c85522d9ada495cda39eb5e7198205a5)
+![PoE 连接器](.gitbook/assets/poe.jpg)
 
 树莓派 5 PoE 扩展版
 
@@ -2679,7 +2717,7 @@ USB 规范要求 USB 设备不能向上游设备供电。如果 USB 设备向上
 
 树莓派 5 内置了一个 RTC 模块。它通过位于 Type-C 电源连接器右侧，主板上的 J5（BAT）连接器接入电池供电。
 
-![J5 电池连接器](https://www.raspberrypi.com/documentation/computers/images/j5.png?hash=70853cc7a9a01cd836ed8351ece14d59)
+![J5 电池连接器](.gitbook/assets/j5.png)
 
 J5 电池连接器
 
@@ -2719,7 +2757,7 @@ RTC 还提供了启动时的时间，如 `dmesg`，适用于缺乏 NTP 访问权
 
 ### 添加备用电池
 
-![可充电锂锰 RTC 电池](https://www.raspberrypi.com/documentation/computers/images/rtc-battery.jpg?hash=1a1bf655f9bce54c3b4c0a345f3e025c)
+![可充电锂锰 RTC 电池](.gitbook/assets/rtc-battery.jpg)
 
 锂锰可充电 RTC 电池
 

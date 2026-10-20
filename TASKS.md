@@ -168,7 +168,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 全页重写至当前上游，待三轮校对 |
 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `ai.adoc` | 已同步 | 0/3 | 代理 F7（完成） | 2026-10-20 | B9 落盘版逐句核验零改动，主线程已验证；待三轮逐句校对 |
-| `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 已同步 | 0/3 | 未领取（B1 失败） | 2026-10-20 | 继承 `771d4f3` 的同步结果，B1 无新增改动；缺 boot-eeprom 小节待核 |
+| `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 已同步 | 0/3 | 代理 F14（主线程复核） | 2026-10-20 | 27 个 H2 与上游 27 个 .adoc 一一对应；`boot-eeprom`（树莓派引导 EEPROM，line 144）与 `bootflow-legacy`（对应中文「引导顺序」节 line 1126，上游标题即 "Boot sequence"）均已存在且内容完整，原「缺节」误判已澄清；CP-3 抽查通过（无「」/xref/link/image 残留、围栏 224 偶数、弯引号 12/12、CRLF）；待三轮逐句校对 |
 | `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 已同步 | 0/3 | 代理 F7（完成） | 2026-10-20 | F7 完成 4 处修正（microSD→存储卡插槽），B5 落盘版核验可用，主线程已验证落盘；待三轮逐句校对 |
 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 已同步 | 0/3 | 主线程 | 2026-10-20 | CM5 时代全面同步，待三轮校对 |
 | `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 结构已对齐，待三轮校对 |
@@ -306,6 +306,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | F11 | `shu-mei-pai/ruan-jian-lai-yuan.md` | 2026-10-20 | CP-2 + CP-3 | 完成：6 处小修正，A10 落盘版判定可用（主线程已验证落盘） |
 | F12 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 失联（无核验报告）：3 页成果已自动提交（`d7bcd04`），企业版页未处理；由 F13 接替 |
 | F13 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 完成：账号 7 处、Connect 5 处、企业版 1 处修正，书架零改动（主线程已验证） |
+| F14 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 完成：主线程复核硬件页 27 H2 与上游 27 个 .adoc 文件一一对应，原判定「缺 boot-eeprom / bootflow-legacy 两节」为误判（两节均已存在且内容完整：`boot-eeprom`→「树莓派引导 EEPROM」line 144；`bootflow-legacy`→「引导顺序」line 1126），无需新增；CP-3 抽查通过 |
 
 ## 六、待办队列
 
@@ -313,22 +314,22 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | ------ | ---- | ---- | ---- |
 | P0 | 第一波重派已全部完成并验收：安全 5 页 + 摄像头页（C1 交付不实打回，C7 重做成功） | 6 页 | 完成 |
 | P0 | 第二波重派已全部完成并验收：配件板块 19 页（E1–E19） | 19 页 | 完成 |
-| P0 | F 波 15 页：F1–F11 已全部完成并经主线程逐一落盘验证（F6 首轮报告失实，二次重做通过；F3 初轮漏 reference 节，打回补录通过）；仅剩 F12 服务 4 页无报告，已派 F13 接替 | 15 页 | F13 收尾中 |
+| P0 | F 波 15 页已全部完成：F1–F13 经主线程逐一落盘验证通过（F3 漏 reference 节、F6 报告失实均已打回重做通过；F12 失联由 F13 接替）；F14 经主线程复核，硬件页 27/27 节完整，原「缺两节」误判已澄清，无需补录 | 15 页 | 完成 |
 | P0 | 汇总各波代理结果，逐文件复核后更新本文件状态 | 全部 | 滚动进行 |
 | P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
-| P1 | 词汇表已补录 F 波 46 条新术语（F1/F2/F3/F4/F5/F6/F8/F9/F10 报告项，主线程验证实际用例后录入）；仍待录 I/O 控制器页报告的 12 条 | `qian-yan/ci-hui-biao.md` | 无 |
-| P2 | 统一 `shu-mei-pai/io-kong-zhi-qi.md` 的换行符（当前 LF，其余页面 CRLF） | 1 页 | 无 |
-| P1 | 检查 `shu-mei-pai-ying-jian.md` 是否缺 `boot-eeprom` 小节 | 树莓派硬件 | B1 结果 |
-| P2 | 向上游反馈已发现的原文错误 | 见「七」 | 用户批准 |
-| P3 | 图片本地化：正文中仍指向 `www.raspberrypi.com` 的图片迁至 `.gitbook/assets/` | 全部页面 | 需可访问图片源 |
-| P4 | 中文 UI 重制两张 Control Centre 截图 | `shu-mei-pai/yuan-cheng-fang-wen.md` | 人工在中文系统截图 |
+| P1 | 词汇表已补录 F 波 46 条 + I/O 控制器页 5 条（I/O controller、ISP front-end、USB host controller、single-board computer、pin spacing，均验证实际用例） | `qian-yan/ci-hui-biao.md` | 完成 |
+| P2 | 换行符统一：实际范围超出原记录（io-kong-zhi-qi.md 之外还有 26 个内容页 + TASKS/AGENTS/mu-lu 共 27 个 LF 文件），已全部转为 CRLF，全仓库一致 | 27 个文件 | 完成 |
+| P1 | 硬件页缺节经主线程复核为误判：27 个 H2 与上游 27 个 .adoc 文件一一对应，`boot-eeprom.adoc` 对应「树莓派引导 EEPROM」（line 144）、`bootflow-legacy.adoc` 对应「引导顺序」（line 1126，上游标题即 "Boot sequence"），两节均已存在且内容完整，无需补录 | 树莓派硬件 | 完成 |
+| P2 | 向上游反馈已发现的原文错误（30 余条，见「七」，含 F 波新查 17 条） | 见「七」 | 待用户批准 |
+| P3 | 图片本地化：经上游 GitHub 仓库（/tmp 浅克隆）按文件名定位下载，301 张已入 `.gitbook/assets/`，39 页引用已替换；仅剩 6 处上游已移除的 GIF/PNG（build-hat 页）保留原链 | 基本完成 | 6 处无源可迁 |
+| P4 | 中文 UI 重制两张 Control Centre 截图（F1 新增 Imager UI 截图约 20 张同需中文 UI 重截） | `shu-mei-pai/yuan-cheng-fang-wen.md` 等 | 人工在中文系统截图 |
 
 ## 七、阻塞与上游异常
 
 ### 7.1 阻塞
 
-* 官方文档网页受 Cloudflare 挑战，`curl` 无法直接抓取；图片也无法下载，P3 图片本地化暂时受阻。
-* 中文 UI 截图需人工操作，无法由代理完成。
+* 官方文档网页受 Cloudflare 挑战，`curl` 无法直接抓取；但上游 GitHub 仓库可通过 `git clone --depth 1 --filter=blob:none --sparse` 获取全部 adoc 与图片，P3 图片本地化已借此解除（图片按文件名在仓库内定位下载）。
+* 中文 UI 截图需人工操作，无法由代理完成；范围含远程访问页 2 张 Control Centre 截图及 F1 新增的约 20 张 Imager UI 截图。
 
 ### 7.2 已发现的上游原文异常（待反馈）
 

@@ -3,7 +3,7 @@
 
 ## 关于电视扩展板（TV HAT）
 
-![tv hat](https://www.raspberrypi.com/documentation/accessories/images/tv-hat.jpg)
+![tv hat](.gitbook/assets/tv-hat.jpg)
 
 树莓派电视扩展板（TV HAT）
 
@@ -27,7 +27,7 @@
 
 数字视频广播 - 地面（DVB-T）是总部位于欧洲的 DVB 联盟制定的数字地面电视广播传输标准。世界其他地区使用其他的数字电视标准，例如北美使用的 ATSC。不过，电视扩展板仅支持 DVB-T 和 DVB-T2 标准。
 
-![dvbt map](https://www.raspberrypi.com/documentation/accessories/images/dvbt-map.png)
+![dvbt map](.gitbook/assets/dvbt-map.png)
 
 已实施或采取的 DTT 系统（来源：DVB/EBU/BNE DTT 部署数据库，2023 年 3 月）
 
@@ -82,6 +82,6 @@ Found services: 172
 
 ## 机械图纸
 
-![树莓派电视扩展板](https://www.raspberrypi.com/documentation/accessories/images/mechanical.png)
+![树莓派电视扩展板](.gitbook/assets/mechanical.png)
 
 树莓派电视扩展板

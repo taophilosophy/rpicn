@@ -2,7 +2,7 @@
 
 ## 关于
 
-![512 GB 树莓派 SSD](https://www.raspberrypi.com/documentation/accessories/images/ssd.png)
+![512 GB 树莓派 SSD](.gitbook/assets/ssd.png)
 
 512 GB 树莓派 SSD
 

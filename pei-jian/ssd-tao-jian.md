@@ -2,7 +2,7 @@
 
 ## 关于
 
-![512 GB 树莓派 SSD 套件](https://www.raspberrypi.com/documentation/accessories/images/ssd-kit.png)
+![512 GB 树莓派 SSD 套件](.gitbook/assets/ssd-kit.png)
 
 树莓派 SSD 套件将[树莓派 M.2 HAT+](m.2-hat+.md)与[树莓派 SSD](ssd.md)捆绑在一起。
 

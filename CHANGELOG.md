@@ -48,3 +48,8 @@
   - 词汇表补录 46 条新术语（均先在实际页面验证用例）；修正 AI Kit→AI 套件大小写
   - 登记上游原文异常 17 条（详见 TASKS.md 第七节），待向上游反馈
   - 52 页已同步，下一阶段为逐页三轮校对，从已同步列表推进：远程访问、计算硬件、摄像头软件、处理器、Pico 系列、零型等
+- 2026.10.20（遗留问题处置）
+  - 词汇表补录 I/O 控制器页 5 条术语（I/O controller、ISP front-end、USB host controller、single-board computer、pin spacing），累计 F 波补录 51 条
+  - 换行符统一：实际 LF 文件共 27 个（26 个内容页 + TASKS/AGENTS/mu-lu），已全部转为 CRLF，全仓库一致
+  - 图片本地化完成：通过上游 GitHub 仓库浅克隆按文件名定位，301 张下载至 `.gitbook/assets/`，39 页 317 处引用替换；6 处上游已移除的图片（build-hat 页 GIF 与 tall-headers.png）保留原链待处理
+  - 硬件页缺节确认并派 F14 补录：上游 `boot-eeprom.adoc`（重置/配置/自动更新/发布状态 4 节）与 `bootflow-legacy.adoc`（BCM2837 旧版引导顺序）在中文页无对应，此前 B1 疑点坐实

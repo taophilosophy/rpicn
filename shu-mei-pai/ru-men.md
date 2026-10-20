@@ -42,7 +42,7 @@
 
 读写速度更快的存储设备能提升树莓派的整体性能，使其运行更流畅。如果你不确定该买哪种存储卡，可以考虑[树莓派官方存储卡](https://www.raspberrypi.com/products/sd-cards/)。你可能还需要一个读卡器，以便把存储卡连接到计算机来安装操作系统。
 
-![树莓派官方 128 GB 存储卡](https://www.raspberrypi.com/documentation/computers/images/peripherals/microSD.png)
+![树莓派官方 128 GB 存储卡](.gitbook/assets/microSD.png)
 
 自树莓派 Model B+ 起的所有型号都带有存储卡插槽；这些树莓派设备会自动从插入了有效操作系统镜像的存储卡启动。
 
@@ -415,13 +415,13 @@
 
 1. 在 **Device** 选项卡中，从列表中选择你的树莓派型号，然后选择 **Next**。
 
-   ![树莓派启动盘制作工具的 Device 选项卡](https://www.raspberrypi.com/documentation/computers/images/imager/device-tab.png)
+   ![树莓派启动盘制作工具的 Device 选项卡](.gitbook/assets/device-tab.png)
 
 2. 在 **OS** 选项卡中，选择一个操作系统，然后选择 **Next**。
 
    你既可以选择要安装的现有操作系统（适用于你树莓派型号的推荐操作系统位于列表顶部），也可以选择 **Use Custom** 从计算机上的镜像安装操作系统。
 
-   ![树莓派启动盘制作工具中的操作系统选项](https://www.raspberrypi.com/documentation/computers/images/imager/os-tab.png)
+   ![树莓派启动盘制作工具中的操作系统选项](.gitbook/assets/os-tab.png)
 
 3. 把存储设备接入计算机。例如，用外置或内置读卡器把存储卡插入计算机。
 4. 在 **Storage** 选项卡中，选择你的存储设备，然后选择 **Next**。
@@ -430,7 +430,7 @@
 
    如果你要写入的操作系统支持自定义，**Customisation** 选项卡会打开。
 
-   ![树莓派启动盘制作工具中的存储选择选项](https://www.raspberrypi.com/documentation/computers/images/imager/storage-tab.png)
+   ![树莓派启动盘制作工具中的存储选择选项](.gitbook/assets/storage-tab.png)
 
 >**警告**
 >
@@ -465,7 +465,7 @@
 
 你的树莓派会使用 [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) 向网络广播这个主机名。当你把树莓派接入网络后，网络上的其他设备就可以用 `<hostname>.local` 或 `<hostname>.lan` 与你的树莓派通信。
 
-![树莓派启动盘制作工具的 Hostname 自定义选项卡](https://www.raspberrypi.com/documentation/computers/images/imager/hostname-subtab.png)
+![树莓派启动盘制作工具的 Hostname 自定义选项卡](.gitbook/assets/hostname-subtab.png)
 
 ##### 本地化
 
@@ -475,13 +475,13 @@
 
 完成后选择 **Next**。
 
-![树莓派启动盘制作工具的 Localisation 自定义选项卡](https://www.raspberrypi.com/documentation/computers/images/imager/localisation-subtab.png)
+![树莓派启动盘制作工具的 Localisation 自定义选项卡](.gitbook/assets/localisation-subtab.png)
 
 ##### 用户
 
 在 **User** 子选项卡中，输入树莓派管理员用户的用户名和密码，然后选择 **Next**。
 
-![树莓派启动盘制作工具的 User 自定义选项卡](https://www.raspberrypi.com/documentation/computers/images/imager/user-subtab.png)
+![树莓派启动盘制作工具的 User 自定义选项卡](.gitbook/assets/user-subtab.png)
 
 用户名必须为小写，且只能包含字母、数字、下划线和连字符。
 
@@ -497,13 +497,13 @@
 
 如果你要设置无头树莓派，现在就配置好 Wi-Fi 连接非常重要，因为树莓派需要知道开机的那一刻如何上网。
 
-![树莓派启动盘制作工具的 Wi-Fi 自定义选项卡](https://www.raspberrypi.com/documentation/computers/images/imager/wifi-subtab.png)
+![树莓派启动盘制作工具的 Wi-Fi 自定义选项卡](.gitbook/assets/wifi-subtab.png)
 
 ##### 远程访问
 
 在 **Remote Access** 子选项卡中，配置你的 SSH 设置，然后选择 **Next**。
 
-![树莓派启动盘制作工具的远程访问自定义选项卡](https://www.raspberrypi.com/documentation/computers/images/imager/ssh-subtab.png)
+![树莓派启动盘制作工具的远程访问自定义选项卡](.gitbook/assets/ssh-subtab.png)
 
 要通过网络远程使用树莓派，请用对应的开关打开 **Enable SSH**。
 
@@ -520,16 +520,16 @@
 
 1. 用开关打开 **Enable Raspberry Pi Connect**。
 
-   ![树莓派启动盘制作工具的树莓派 Connect 自定义选项卡](https://www.raspberrypi.com/documentation/computers/images/imager/connect-subtab.png)
+   ![树莓派启动盘制作工具的树莓派 Connect 自定义选项卡](.gitbook/assets/connect-subtab.png)
 
 2. 选择 **Open Raspberry Pi Connect**。这会在你的默认浏览器中打开树莓派 Connect。
 
-   ![树莓派 Connect 页面](https://www.raspberrypi.com/documentation/computers/images/imager/os-customisation-site.png)
+   ![树莓派 Connect 页面](.gitbook/assets/os-customisation-site.png)
 
 3. 登录你的树莓派 ID 账户；如果还没有账户，请先注册。
 4. 在 **New auth key** 页面创建你的授权密钥。这是一次性的临时令牌。个人授权密钥在创建后 6 小时过期，组织授权密钥在创建后 1 到 90 天过期（默认为 1 天）。要使用该令牌，请在过期前启动你的树莓派并让它接入互联网。
 
-   ![树莓派 Connect 的新建授权密钥页面](https://www.raspberrypi.com/documentation/computers/images/imager/connect-auth-key.png)
+   ![树莓派 Connect 的新建授权密钥页面](.gitbook/assets/connect-auth-key.png)
 
    * 如果你是一个或多个组织的成员，请选择要与该密钥关联的组织或账户，然后选择 **Create auth key and launch Raspberry Pi Imager**。
 5. 你的浏览器可能会询问是否允许该网站打开树莓派启动盘制作工具。确认你要打开树莓派启动盘制作工具。
@@ -551,20 +551,20 @@
 
 完成后，在 **App Options** 窗口的右下角选择 **Save**。
 
-![App Options 对话框](https://www.raspberrypi.com/documentation/computers/images/imager/app-options.png)
+![App Options 对话框](.gitbook/assets/app-options.png)
 
 #### 步骤 5. 把镜像写入存储设备
 
 在制作工具中完成各选项卡的设置后，你可以在 **Writing** 选项卡中查看自己所做选择的**摘要（Summary）**。
 
-![在写入前于树莓派启动盘制作工具中检查你的选择](https://www.raspberrypi.com/documentation/computers/images/imager/write.png)
+![在写入前于树莓派启动盘制作工具中检查你的选择](.gitbook/assets/write.png)
 
 如果你对这些选择满意并想继续：
 
 1. 选择制作工具右下角的 **Write**。
 2. 制作工具会弹出提示，警告你即将覆盖存储介质上的所有数据。要继续，请选择 **I understand, erase and write**。如果看到要求读取和写入存储介质权限的管理员提示，请授予制作工具相应权限以继续。
 
-   ![在树莓派启动盘制作工具中确认重新写入存储设备](https://www.raspberrypi.com/documentation/computers/images/imager/are-you-sure.png)
+   ![在树莓派启动盘制作工具中确认重新写入存储设备](.gitbook/assets/imager-are-you-sure.png)
 
 3. 制作工具开始把镜像写入存储设备。这可能需要几分钟。
 4. 写入镜像后，制作工具会校验镜像是否被正确写入。这也可能需要几分钟。我们建议你完成校验步骤。不过，如果你想取消校验，可以选择 **Skip verification**。
@@ -608,7 +608,7 @@
 
 4. 树莓派安装程序下载完成后，你的树莓派会自动加载树莓派启动盘制作工具。按照[使用树莓派启动盘制作工具安装](#使用树莓派启动盘制作工具安装)中的说明操作。
 
-   ![选择存储设备](https://www.raspberrypi.com/documentation/computers/images/network-install-4.png)
+   ![选择存储设备](.gitbook/assets/network-install-4.png)
 
 有关网络安装配置的更多信息，见 [HTTP 引导](shu-mei-pai-ying-jian.md#http-引导)。
 
@@ -645,13 +645,13 @@
 >
 >只有当你的树莓派通过以太网接入网络时，欢迎窗口上才会显示 IP 地址。
 
-![配置向导的欢迎窗口](https://www.raspberrypi.com/documentation/computers/images/initial-setup/welcome_bt.png)
+![配置向导的欢迎窗口](.gitbook/assets/welcome_bt.png)
 
 如果你使用蓝牙键盘或鼠标，你的树莓派会搜索可配对的设备，并为每类外设连接找到的第一台设备。此过程适用于内置或外置 USB 蓝牙适配器。如果你使用 USB 适配器，请在启动树莓派之前插入。
 
-![正在尝试与蓝牙设备配对](https://www.raspberrypi.com/documentation/computers/images/initial-setup/pairing.png)
+![正在尝试与蓝牙设备配对](.gitbook/assets/pairing.png)
 
-![蓝牙配对成功消息](https://www.raspberrypi.com/documentation/computers/images/initial-setup/pairing_success.png)
+![蓝牙配对成功消息](.gitbook/assets/pairing_success.png)
 
 #### 国家/地区
 
@@ -660,25 +660,25 @@
 * 选择 **Use English language**，确保桌面界面以英文显示，覆盖本地语言的默认值。
 * 选择 **Use US keyboard**，确保操作系统能正确识别美式布局键盘的输入。
 
-![在配置向导中设置国家/地区、语言、时区和键盘布局](https://www.raspberrypi.com/documentation/computers/images/initial-setup/locale.png)
+![在配置向导中设置国家/地区、语言、时区和键盘布局](.gitbook/assets/locale.png)
 
 #### 用户
 
 配置默认用户账户的用户名和密码。你的用户名必须以字母开头，只能包含小写字母、数字、下划线和连字符。
 
-![配置向导中的创建用户窗口](https://www.raspberrypi.com/documentation/computers/images/initial-setup/user.png)
+![配置向导中的创建用户窗口](.gitbook/assets/user.png)
 
 #### 无线网络
 
 从列表中选择你首选的 Wi-Fi 网络。如果你的网络需要密码，接下来会提示你输入密码，然后才能继续。你也可以跳过这一步。
 
-![在配置向导中选择无线网络](https://www.raspberrypi.com/documentation/computers/images/initial-setup/network.png)
+![在配置向导中选择无线网络](.gitbook/assets/network.png)
 
 #### 默认浏览器
 
 选择你的默认浏览器：**Chromium** 或 **Firefox**。此外，为了节省启动介质的空间，你可以卸载没有设为默认的那个浏览器。
 
-![选择浏览器页面](https://www.raspberrypi.com/documentation/computers/images/initial-setup/browser.png)
+![选择浏览器页面](.gitbook/assets/browser.png)
 
 #### 软件更新
 
@@ -688,15 +688,15 @@
 
 软件更新可能需要长达半小时，具体取决于可用更新的数量和你的网络速度。
 
-![在配置向导中更新软件](https://www.raspberrypi.com/documentation/computers/images/initial-setup/update.png)
+![在配置向导中更新软件](.gitbook/assets/update.png)
 
 #### 完成
 
 完成配置向导的每个步骤后，会出现一个提示系统已设置完成的确认窗口。选择 **OK**，然后选择 **Launch**（如果你看到的是 **Restart**，则选择它来重启树莓派）。你的配置会应用到树莓派，随后它会启动并加载图形桌面环境，你就可以像在其他台式计算机上一样使用窗口、图标和菜单了。
 
-![系统更新成功消息](https://www.raspberrypi.com/documentation/computers/images/initial-setup/ok.png)
+![系统更新成功消息](.gitbook/assets/ok.png)
 
-![设置完成成功消息](https://www.raspberrypi.com/documentation/computers/images/initial-setup/launch.png)
+![设置完成成功消息](.gitbook/assets/launch.png)
 
 ### 更改配置
 
@@ -732,9 +732,9 @@
 * 树莓派 5、500 或 500+：单按**电源键**打开**关机选项**窗口。
 * 树莓派 400：按 **Fn** + **F10** 打开**关机选项**窗口。
 
-![桌面关机选项](https://www.raspberrypi.com/documentation/computers/images/shutdown.png)
+![桌面关机选项](.gitbook/assets/shutdown.png)
 
-![桌面关机菜单](https://www.raspberrypi.com/documentation/computers/images/shutdown-menu.png)
+![桌面关机菜单](.gitbook/assets/shutdown-menu.png)
 
 你可以使用鼠标，或键盘方向键和 **Enter** 键，从**关机**、**重启**和**注销**中选择一项，见[桌面关机选项](#桌面关机选项)。
 

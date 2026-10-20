@@ -12,7 +12,7 @@ MicroPython 是 Python 3 编程语言的完整实现，可直接运行在树莓�
 
 你可以将 Pico 通过 USB 连接到计算机，然后拖放文件来编程，因此我们提供了一个可下载的 UF2 文件，让你能更轻松地安装 MicroPython。
 
-![MicroPython 安装演示](https://www.raspberrypi.com/documentation/microcontrollers/images/MicroPython.webm)
+![MicroPython 安装演示](.gitbook/assets/MicroPython.webm)
 
 下载适合你板子的 MicroPython UF2 文件：
 

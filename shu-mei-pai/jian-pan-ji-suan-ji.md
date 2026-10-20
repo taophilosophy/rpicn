@@ -64,7 +64,7 @@ Raspberry Pi 键盘计算机既可以单独购买，也可以作为套件的一�
 
 Raspberry Pi 400 键盘计算机于 2020 年发布，基于 Raspberry Pi 4（4 GB）。
 
-![Raspberry Pi 400 键盘计算机](https://www.raspberrypi.com/documentation/computers/images/rpi400.jpg)
+![Raspberry Pi 400 键盘计算机](.gitbook/assets/rpi400.jpg)
 
 Raspberry Pi 400 套件包含以下物品：
 
@@ -79,7 +79,7 @@ Raspberry Pi 400 套件包含以下物品：
 
 Raspberry Pi 500 键盘计算机于 2024 年发布，基于 Raspberry Pi 5（8 GB）。
 
-![Raspberry Pi 500 键盘计算机](https://www.raspberrypi.com/documentation/computers/images/rpi500.png)
+![Raspberry Pi 500 键盘计算机](.gitbook/assets/rpi500.png)
 
 Raspberry Pi 500 套件包含以下物品：
 
@@ -94,7 +94,7 @@ Raspberry Pi 500 套件包含以下物品：
 
 Raspberry Pi 500+ 键盘计算机于 2025 年发布，基于 Raspberry Pi 5（16 GB）。
 
-![Raspberry Pi 500+ 键盘计算机](https://www.raspberrypi.com/documentation/computers/images/rpi500plus.png)
+![Raspberry Pi 500+ 键盘计算机](.gitbook/assets/rpi500plus.png)
 
 Raspberry Pi 500+ 套件包含以下物品：
 
@@ -212,27 +212,27 @@ Raspberry Pi 500+ 是最新的键盘计算机。它提供以下自定义选项�
 
 1. **拧下键盘螺丝。** 找到键盘底部的五颗螺丝，用十字螺丝刀将其拧下。请妥善保管螺丝。
 
-   ![拧下键盘螺丝](https://www.raspberrypi.com/documentation/computers/images/M2-step-1.jpg)
+   ![拧下键盘螺丝](.gitbook/assets/M2-step-1.jpg)
 
 2. **撬开键盘顶部与底部。** 将撬棒放入键盘前部的凹槽中，然后向上倾斜撬棒，开始分离键盘。
 
-   ![撬棒](https://www.raspberrypi.com/documentation/computers/images/M2-step-2.jpg)
+   ![撬棒](.gitbook/assets/M2-step-2.jpg)
 
 3. **使键盘顶部与底部分离。** 将撬棒楔入键盘前部的开口槽并沿槽滑动，使键盘顶部与底部分离。
 
-   ![沿凹槽滑动撬棒](https://www.raspberrypi.com/documentation/computers/images/M2-step-3.jpg)
+   ![沿凹槽滑动撬棒](.gitbook/assets/M2-step-3.jpg)
 
 4. **打开键盘。** 将键盘底部放在平坦表面上，把键盘顶部翻转（不要提起）过来，使其正面朝下放在同一表面上。注意不要将顶部和底部完全拉开，因为它们通过柔性排线相连。
 
-   ![翻转打开键盘](https://www.raspberrypi.com/documentation/computers/images/M2-step-4.jpg)
+   ![翻转打开键盘](.gitbook/assets/M2-step-4.jpg)
 
 5. **松开 M.2 SSD。** 用手或一字螺丝刀逆时针转动 M.2 SSD 右侧的螺丝，将其拧松。取下螺丝并妥善保管。拧下螺丝后，M.2 SSD 会弹起。
 
-   ![松开 M.2 SSD](https://www.raspberrypi.com/documentation/computers/images/M2-step-5.jpg)
+   ![松开 M.2 SSD](.gitbook/assets/M2-step-5.jpg)
 
 6. **拔出 M.2 SSD。** 先将 M.2 SSD 向外拉，然后从键盘中取出。
 
-   ![拔出 M.2 SSD](https://www.raspberrypi.com/documentation/computers/images/M2-step-6.jpg)
+   ![拔出 M.2 SSD](.gitbook/assets/M2-step-6.jpg)
 
 7. **安装新的 M.2 SSD。** 将另一块 M.2 SSD 滑入左侧的插槽。SSD 只能以一个方向装入。按住新插入的 M.2 SSD，装回其右侧的螺丝，并顺时针拧紧。
 8. **合上键盘。** 将键盘顶部翻回键盘底部上方，并咔嗒一声扣回原位。

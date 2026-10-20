@@ -50,7 +50,7 @@ SDK 源代码是开源的，可在 [pico-sdk GitHub 仓库](https://github.com/r
 
 使用新的微控制器时，每个人写的第一个程序都是让板上的 LED 闪烁。树莓派 Pico 板上有一个单独的 LED。对于 Pico 和 Pico 2，该 LED 连接到板载微控制器的 `GP25`；对于 Pico W 和 Pico 2 W，则连接到 Infineon 43439 无线芯片的 `WL_GPIO0`。
 
-![闪烁 LED 演示](https://www.raspberrypi.com/documentation/microcontrollers/images/Blink-an-LED.webm)
+![闪烁 LED 演示](.gitbook/assets/Blink-an-LED.webm)
 
 你可以按以下步骤让它闪烁：
 
@@ -67,7 +67,7 @@ SDK 源代码是开源的，可在 [pico-sdk GitHub 仓库](https://github.com/r
 
 下一个程序是通过 USB 串口连接打印 “Hello World”。
 
-![Hello World 演示](https://www.raspberrypi.com/documentation/microcontrollers/images/Hello-World.webm)
+![Hello World 演示](.gitbook/assets/Hello-World.webm)
 
 1. 下载 [“Hello World” UF2](https://github.com/raspberrypi/pico-sdk-prebuilts/releases/latest/download/hello_universal.uf2)。
 2. 按住 BOOTSEL 按钮，将 Pico 插入树莓派或其他计算机的 USB 端口。

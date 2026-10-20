@@ -101,3 +101,8 @@
 |debug build|调试构建|
 |camera stack|摄像头软件栈|
 |framebuffer|帧缓冲|
+|I/O controller|I/O 控制器|
+|ISP front-end|ISP 前端|
+|USB host controller|USB 主机控制器|
+|single-board computer|单板计算机|
+|pin spacing|引脚间距|

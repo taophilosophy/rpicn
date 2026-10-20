@@ -7,7 +7,7 @@
 * 免费图书带有云图标，任何人都可以下载。
 * 仅贡献者可见的图书带有挂锁图标，除非你使用与捐助或印刷版杂志订阅关联的 [Raspberry Pi ID](shu-mei-pai-zhang-hao-raspberry-pi-id.md) 登录书架。部分仅贡献者可见的图书之后会向所有人开放。
 
-![书架中显示带挂锁图标的仅贡献者可见图书](https://www.raspberrypi.com/documentation/services/images/bookshelf-with-padlock.png)
+![书架中显示带挂锁图标的仅贡献者可见图书](.gitbook/assets/bookshelf-with-padlock.png)
 
 书架（Bookshelf）包含在树莓派系统桌面版和完整版镜像中。
 

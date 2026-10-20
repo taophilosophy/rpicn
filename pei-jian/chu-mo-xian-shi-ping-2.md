@@ -4,7 +4,7 @@
 
 [树莓派触摸显示屏 2](https://www.raspberrypi.com/products/touch-display-2/)是一款触摸屏 LCD，提供 5 英寸、7 英寸和 10 英寸版本。它面向平板电脑、娱乐系统和信息仪表板等交互式应用场景。
 
-![树莓派触摸显示屏 2](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-hero.jpg)
+![树莓派触摸显示屏 2](.gitbook/assets/touch-display-2-hero.jpg)
 
 树莓派触摸显示屏 2。
 
@@ -59,7 +59,7 @@
 | **5 英寸** / **7 英寸** | 八颗 M2.5 螺丝 | 15 路转 15 路（树莓派 4 及更早版本）<br>22 路转 15 路 *标准 – Mini*（树莓派 5） | GPIO 电源线 |
 | **10 英寸** | 八颗 M2.5 螺丝 | 22 路转 22 路 *Mini – Mini*（树莓派 5） | GPIO 电源线 |
 
-![5 英寸和 7 英寸型号触摸显示屏 2 包装盒内包含的部件](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-whats-in-the-box.jpg)
+![5 英寸和 7 英寸型号触摸显示屏 2 包装盒内包含的部件](.gitbook/assets/touch-display-2-whats-in-the-box.jpg)
 
 5 英寸和 7 英寸型号触摸显示屏 2 包装盒内包含的部件。
 
@@ -104,7 +104,7 @@
 
    如果你连接的是树莓派 5，因而使用 22 路转 15 路 FFC，那么 22 路端是电缆较小的一端。将电缆较大的一端插入触摸显示屏 2 的 FFC 连接器。
 
-   ![正确连接到触摸显示屏 2 的扁平柔性电缆和 GPIO 电源线（参见第 3 步）](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-ffc.jpg)
+   ![正确连接到触摸显示屏 2 的扁平柔性电缆和 GPIO 电源线（参见第 3 步）](.gitbook/assets/touch-display-2-ffc.jpg)
 
    扁平柔性电缆和 GPIO 电源线（参见第 3 步）正确连接到触摸显示屏 2。
 
@@ -119,7 +119,7 @@
 
    金属触点必须朝向以太网和 USB-A 端口。
 
-   ![连接到树莓派设备的 FFC 连接器](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-pideviceffc.jpg)
+   ![连接到树莓派设备的 FFC 连接器](.gitbook/assets/touch-display-2-pideviceffc.jpg)
 
    连接到树莓派设备的 FFC 连接器。
 
@@ -136,7 +136,7 @@
 
    这样，红线连接到引脚 2（右上角），黑线（接地）连接到引脚 6。
 
-   ![来自触摸显示屏 2 的 GPIO 电缆连接到树莓派设备上 GPIO 排针的右上角](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-gpio-connection.png)
+   ![来自触摸显示屏 2 的 GPIO 电缆连接到树莓派设备上 GPIO 排针的右上角](.gitbook/assets/touch-display-2-gpio-connection.png)
 
    来自触摸显示屏 2 的 GPIO 电缆连接到树莓派设备上 GPIO 排针的右上角。
 3. （可选）若要将树莓派实际安装到触摸显示屏 2 上，请将设备与触摸显示屏 2 上的四个角间隔柱对齐，然后将四颗 M2.5 螺丝（随附）插入间隔柱，并拧紧，直到树莓派固定牢靠。
@@ -195,7 +195,7 @@
 
    金属触点必须朝上，背离触摸显示屏 2。
 
-   ![连接到触摸显示屏 2 的 FFC](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-ffc.jpg)
+   ![连接到触摸显示屏 2 的 FFC](.gitbook/assets/touch-display-2-ffc.jpg)
 
    连接到触摸显示屏 2 的 FFC。
 
@@ -210,7 +210,7 @@
    * 如果连接到树莓派计算模块 5 IO 板上的 `CAM/DISP 1`。
    * 如果连接到树莓派计算模块 4 IO 板上的 `DISP0` 接口。
 
-   ![连接到树莓派设备的 FFC 连接器。请注意，DSI 端口在某些设备上水平放置，在另一些设备上则垂直放置](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-pideviceffc.jpg)
+   ![连接到树莓派设备的 FFC 连接器。请注意，DSI 端口在某些设备上水平放置，在另一些设备上则垂直放置](.gitbook/assets/touch-display-2-pideviceffc.jpg)
 
    连接到树莓派设备的 FFC 连接器。请注意，DSI 端口在某些设备上水平放置，在另一些设备上则垂直放置。
 
@@ -226,13 +226,13 @@
 2. 调整计算模块 IO 板的放置方向，使 USB 和 HDMI 端口朝左。
 3. 将 GPIO 电源线的三针端连接到 GPIO 排针的右上角（丝印上标记为 `Rasperry Pi HAT`）。
 
-   ![连接到树莓派计算模块板上 GPIO 排针的 GPIO 电源线](https://www.raspberrypi.com/documentation/accessories/images/touch-display-power.jpg)
+   ![连接到树莓派计算模块板上 GPIO 排针的 GPIO 电源线](.gitbook/assets/touch-display-power.jpg)
 
    连接到树莓派计算模块板上 GPIO 排针的 GPIO 电源线。
 
 ##### 第 5 步：打开计算模块电源
 
-![连接到触摸显示屏 2 的树莓派计算模块 IO 板](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-connected.jpg)
+![连接到触摸显示屏 2 的树莓派计算模块 IO 板](.gitbook/assets/touch-display-2-connected.jpg)
 
 连接到触摸显示屏 2 的树莓派计算模块 IO 板。
 
@@ -275,7 +275,7 @@
 
    金属触点必须朝上，背离触摸显示屏 2。
 
-   ![扁平柔性电缆正确连接到触摸显示屏 2 的 10 英寸型号](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-10-ffc.png)
+   ![扁平柔性电缆正确连接到触摸显示屏 2 的 10 英寸型号](.gitbook/assets/touch-display-2-10-ffc.png)
 
    扁平柔性电缆正确连接到触摸显示屏 2 的 10 英寸型号。
 
@@ -303,7 +303,7 @@
 
    这样，红线连接到引脚 2（右上角），黑线（接地）连接到引脚 6。
 
-   ![来自触摸显示屏 2 的 GPIO 电缆连接到树莓派设备上 GPIO 排针的右上角](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-gpio-connection.png)
+   ![来自触摸显示屏 2 的 GPIO 电缆连接到树莓派设备上 GPIO 排针的右上角](.gitbook/assets/touch-display-2-gpio-connection.png)
 
    来自触摸显示屏 2 的 GPIO 电缆连接到树莓派设备上 GPIO 排针的右上角。
 3. （可选）若要将树莓派实际安装到触摸显示屏 2 上，请将设备与触摸显示屏 2 上的四个角间隔柱对齐，然后将四颗 M2.5 螺丝（随附）插入间隔柱，并拧紧，直到树莓派固定牢靠。
@@ -363,7 +363,7 @@
 
    金属触点必须朝上，背离触摸显示屏 2。
 
-   ![扁平柔性电缆正确连接到触摸显示屏 2 的 10 英寸型号](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-10-ffc.png)
+   ![扁平柔性电缆正确连接到触摸显示屏 2 的 10 英寸型号](.gitbook/assets/touch-display-2-10-ffc.png)
 
    扁平柔性电缆正确连接到触摸显示屏 2 的 10 英寸型号。
 
@@ -387,13 +387,13 @@
 2. 调整计算模块 IO 板的放置方向，使 USB 和 HDMI 端口朝左。
 3. 将 GPIO 电源线的三针端连接到 GPIO 排针的右上角（丝印上标记为 `Raspberry Pi HAT`）。
 
-   ![连接到树莓派计算模块 IO 板上 GPIO 排针的 GPIO 电源线](https://www.raspberrypi.com/documentation/accessories/images/touch-display-power.jpg)
+   ![连接到树莓派计算模块 IO 板上 GPIO 排针的 GPIO 电源线](.gitbook/assets/touch-display-power.jpg)
 
    连接到树莓派计算模块 IO 板上 GPIO 排针的 GPIO 电源线。
 
 ##### 第 5 步：打开计算模块电源
 
-![安装并连接到 10 英寸触摸显示屏 2 的树莓派计算模块 IO 板](https://www.raspberrypi.com/documentation/accessories/images/touch-display-2-10-mounted.png)
+![安装并连接到 10 英寸触摸显示屏 2 的树莓派计算模块 IO 板](.gitbook/assets/touch-display-2-10-mounted.png)
 
 安装并连接到 10 英寸触摸显示屏 2 的树莓派计算模块 IO 板。
 
