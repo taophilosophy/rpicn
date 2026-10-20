@@ -2072,8 +2072,8 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 例如，要在视频上实现日期时间戳，请传参 `%F %T %z`：
 
 * `%F` 显示 ISO-8601 日期 (2023-03-07)
-* `%T` 显示 24 小时本地时间 (例如 "09:57:12")
-* `%z` 显示相对于 UTC 的时区 (例如 "-0800")
+* `%T` 显示 24 小时本地时间（例如 “09:57:12”）
+* `%z` 显示相对于 UTC 的时区（例如 “-0800”）
 
 此阶段不会输出任何元数据，但会将在 JSON 配置文件中找到的元数据写入 `annotate.text` 的位置。这样，其他后处理阶段就可以将文本写入图像。
 
@@ -2108,7 +2108,7 @@ $ rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_de
 
 使用注释将相机和日期信息写入图像。
 
-### 使用 TensorFlow Lite 进行后处理。
+### 使用 TensorFlow Lite 进行后处理
 
 #### 先决条件
 
@@ -2379,7 +2379,7 @@ TfStage 类实现了所有后处理阶段通常必须实现的成员函数，除
 * 你可以包括可选的 OpenCV 和/或 TFLite 后处理阶段，或添加你自己的内容。
 * 你可以定制或添加从 `rpicam-apps` 派生的应用程序。
 
-#### 构建 `rpicam-apps` 而不构建 `libcamera`。
+#### 构建 `rpicam-apps` 而不构建 `libcamera`
 
 要构建 `rpicam-apps` 而不必先重新构建 `libcamera` 和 `libepoxy`，请使用 `apt` 安装 `libcamera`、`libepoxy` 及其依赖项：
 

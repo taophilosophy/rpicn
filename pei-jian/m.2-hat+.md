@@ -178,7 +178,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 >**警告**
 >
-> 在往 M.2 插槽连接设备或从 M.2 插槽断开设备之前，务必先断开树莓派的电源。
+>在往 M.2 插槽连接设备或从 M.2 插槽断开设备之前，务必先断开树莓派的电源。
 
 ## 从 NVMe 启动
 
@@ -206,7 +206,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 >**警告**
 >
-> 树莓派 5 未通过 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。
+>树莓派 5 未通过 Gen 3.0 速度认证。PCIe Gen 3.0 连接可能不稳定。
 
 要启用 PCIe Gen 3 速度，请按照[启用 PCIe Gen 3.0](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#pcie-gen-3-0)中的说明操作。
 

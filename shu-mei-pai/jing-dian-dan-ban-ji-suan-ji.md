@@ -24,7 +24,7 @@ Raspberry Pi 设备经历了多个型号的演进，在性能、连接性和功�
 
 >**注意**
 >
-> 如果你使用的是 Raspberry Pi 400、500 或 500+，其 Raspberry Pi 电路板内置于键盘机箱中。有关这些设备的更多信息，请参阅[键盘计算机](jian-pan-ji-suan-ji.md)。
+>如果你使用的是 Raspberry Pi 400、500 或 500+，其 Raspberry Pi 电路板内置于键盘机箱中。有关这些设备的更多信息，请参阅[键盘计算机](jian-pan-ji-suan-ji.md)。
 
 ### 型号列表
 
@@ -269,7 +269,7 @@ Raspberry Pi 3A+ 和 3B+ 包含以下端口：
 
 >**注意**
 >
-> Raspberry Pi 3B 的修订版 1.1 使用 *BCM2837*，已停止生产，不再销售。
+>Raspberry Pi 3B 的修订版 1.1 使用 *BCM2837*，已停止生产，不再销售。
 
 ### 相比 Raspberry Pi 2B 的功能变化
 
@@ -325,7 +325,7 @@ Raspberry Pi 3B 包含以下端口：
 
 >**重要**
 >
-> Raspberry Pi 2B 的修订版 1.1 和修订版 1.2 分别使用 *BCM2836* 和 *BCM2837*，均已停止生产，不再销售。由于这些产品使用的核心 SoC 停止供应，官方停产日期为 2025 年 10 月 16 日。Raspberry Pi 2 型号 B 的修订版 1.3 具有相同的机械尺寸，并使用 *BCM2837B0* 处理器，因此推荐用于现有设计。有关更多信息，请参阅官方的[停产通知](https://pip.raspberrypi.com/documents/RP-009284-PC)。
+>Raspberry Pi 2B 的修订版 1.1 和修订版 1.2 分别使用 *BCM2836* 和 *BCM2837*，均已停止生产，不再销售。由于这些产品使用的核心 SoC 停止供应，官方停产日期为 2025 年 10 月 16 日。Raspberry Pi 2 型号 B 的修订版 1.3 具有相同的机械尺寸，并使用 *BCM2837B0* 处理器，因此推荐用于现有设计。有关更多信息，请参阅官方的[停产通知](https://pip.raspberrypi.com/documents/RP-009284-PC)。
 
 ### 相比 Raspberry Pi A+ 和 B+ 的功能变化
 
@@ -377,7 +377,7 @@ Raspberry Pi 2B 包含以下端口：
 
 >**注意**
 >
-> 为与后来带编号的 Raspberry Pi SBC 区分，Raspberry Pi A+ 和 B+ 有时也被称为 Raspberry Pi 1 A+ 和 1 B+。
+>为与后来带编号的 Raspberry Pi SBC 区分，Raspberry Pi A+ 和 B+ 有时也被称为 Raspberry Pi 1 A+ 和 1 B+。
 
 [Raspberry Pi A+](https://www.raspberrypi.com/products/raspberry-pi-1-model-a-plus/) 和 B+ 相比初代 Raspberry Pi A 和 B 均提供了硬件升级，包括更低的功耗、更好的音频、更多 GPIO 引脚和存储卡插槽。Raspberry Pi A+ 和 B+ 还采用了更整洁的外形尺寸，下文将详细介绍。
 
@@ -454,7 +454,7 @@ Raspberry Pi A+ 和 B+ 包含以下端口：
 
 >**注意**
 >
-> 为与后来带编号的 Raspberry Pi SBC 区分，Raspberry Pi A 和 B 有时也被称为 Raspberry Pi 1A 和 1B。
+>为与后来带编号的 Raspberry Pi SBC 区分，Raspberry Pi A 和 B 有时也被称为 Raspberry Pi 1A 和 1B。
 
 Raspberry Pi B 是第一代经典型 Raspberry Pi SBC，现已由 [Raspberry Pi B+](https://www.raspberrypi.com/products/raspberry-pi-1-model-b-plus/) 取代。
 

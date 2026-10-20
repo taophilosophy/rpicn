@@ -30,7 +30,7 @@ MicroPython 是 Python 3 编程语言的完整实现，可直接运行在树莓�
 
 >**注意**
 >
-> 其他基于 RP2040 和 RP2350 的板子的 MicroPython 发行版可在 [MicroPython 下载页面](https://micropython.org/download/)找到。
+>其他基于 RP2040 和 RP2350 的板子的 MicroPython 发行版可在 [MicroPython 下载页面](https://micropython.org/download/)找到。
 
 要给设备编程，请按以下步骤操作：
 

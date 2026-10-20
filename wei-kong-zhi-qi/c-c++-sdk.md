@@ -37,12 +37,12 @@ SDK 源代码是开源的，可在 [pico-sdk GitHub 仓库](https://github.com/r
 
 >**注意**
 >
-> 如果要使用 C/C++ SDK 为树莓派 Pico 以外的板子构建应用程序，请向 CMake 传递 `-DPICO_BOARD=boardname`，其中 `boardname` 是你的板子名称。例如：
+>如果要使用 C/C++ SDK 为树莓派 Pico 以外的板子构建应用程序，请向 CMake 传递 `-DPICO_BOARD=boardname`，其中 `boardname` 是你的板子名称。例如：
 >
-> * 要为 Adafruit Feather RP2040 构建应用程序，请传递 `-DPICO_BOARD=adafruit_feather_rp2040`。
-> * 要为 Pico W 构建应用程序，请传递 `-DPICO_BOARD=pico_w`（如果要连接无线网络，还要加上 -DWIFI_SSID="Your Network" -DWIFI_PASSWORD="Your Password"）。
+>* 要为 Adafruit Feather RP2040 构建应用程序，请传递 `-DPICO_BOARD=adafruit_feather_rp2040`。
+>* 要为 Pico W 构建应用程序，请传递 `-DPICO_BOARD=pico_w`（如果要连接无线网络，还要加上 -DWIFI_SSID="Your Network" -DWIFI_PASSWORD="Your Password"）。
 >
-> 更多信息请参阅树莓派 Pico SDK 中的 [`boards/` 目录](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards)以及[论坛](https://forums.raspberrypi.com/viewtopic.php?f=147&t=304393)。
+>更多信息请参阅树莓派 Pico SDK 中的 [`boards/` 目录](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards)以及[论坛](https://forums.raspberrypi.com/viewtopic.php?f=147&t=304393)。
 
 ## 第一个二进制程序
 
@@ -88,7 +88,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 >**注意**
 >
-> 以下说明较为简略，且仅适用于 Linux。详细的步骤、其他平台的说明以及一般性内容，请参阅《[Getting started with Raspberry Pi Pico](https://pip.raspberrypi.com/documents/RP-008276-DS)》和《[Raspberry Pi Pico C/C++ SDK](https://pip.raspberrypi.com/documents/RP-009085-KB)》两本书。
+>以下说明较为简略，且仅适用于 Linux。详细的步骤、其他平台的说明以及一般性内容，请参阅《[Getting started with Raspberry Pi Pico](https://pip.raspberrypi.com/documents/RP-008276-DS)》和《[Raspberry Pi Pico C/C++ SDK](https://pip.raspberrypi.com/documents/RP-009085-KB)》两本书。
 
 安装 CMake（版本不低于 3.13）和 GCC 交叉编译器：
 
@@ -154,7 +154,7 @@ pico_add_extra_outputs(hello_world)
 
 >**注意**
 >
-> 此示例使用默认 UART 作为 stdout；如果你想使用默认 USB，请参见 hello-usb 示例。
+>此示例使用默认 UART 作为 stdout；如果你想使用默认 USB，请参见 hello-usb 示例。
 
 建立 CMake 构建目录。例如，如果不使用 IDE：
 

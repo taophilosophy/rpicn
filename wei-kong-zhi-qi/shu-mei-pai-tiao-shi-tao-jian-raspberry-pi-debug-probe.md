@@ -14,7 +14,7 @@
 
 >**注意**
 >
-> 有关树莓派三针调试连接器的更多信息，请参阅[规格说明](https://rpltd.co/debug-spec)。
+>有关树莓派三针调试连接器的更多信息，请参阅[规格说明](https://rpltd.co/debug-spec)。
 
 这使得在 Windows、macOS 和 Linux 等没有 GPIO 排针、无法直连 Pico 串口 UART 或 SWD 端口的平台上，也能轻松使用树莓派 Pico。
 
@@ -40,7 +40,7 @@
 
 >**警告**
 >
-> 当目标设备由独立的电源或计算机供电时，请在连接信号线之前确保两者有共同的参考地。要么先断开目标设备的电源，要么先在目标设备与树莓派调试器之间连接 GND；待 GND 连接好之后，再连接 RX、TX、SC 和 SD。两个系统之间潜在的电压差可能损坏调试器。
+>当目标设备由独立的电源或计算机供电时，请在连接信号线之前确保两者有共同的参考地。要么先断开目标设备的电源，要么先在目标设备与树莓派调试器之间连接 GND；待 GND 连接好之后，再连接 RX、TX、SC 和 SD。两个系统之间潜在的电压差可能损坏调试器。
 
 调试器有五个 LED：一个红色 LED 指示电源，另外四个为活动指示 LED。
 
@@ -48,7 +48,7 @@
 
 >**注意**
 >
-> 当目标设备连接时，OpenOCD 会同时点亮两个 DAP LED，并在调用 `DAP_DISCONNECT` 时将它们熄灭。
+>当目标设备连接时，OpenOCD 会同时点亮两个 DAP LED，并在调用 `DAP_DISCONNECT` 时将它们熄灭。
 
 ## 入门指南
 
@@ -68,7 +68,7 @@
 
 >**注意**
 >
-> 如果你使用的是不带 JST-SH 连接器的非 H 版 Pico 或 Pico W，仍然可以将其连接到调试器。在板子的 `SWCLK`、`GND` 和 `SWDIO` 排针上焊接一个公头连接器。使用调试器随附的另一根三针 JST-SH 连接器转 0.1 英寸排针（母）的电缆，连接到调试器的 “D” 端口。将 Pico 或 Pico W 上的 `SWCLK`、`GND` 和 `SWDIO` 分别连接到调试器上的 `SC`（橙色线）、`GND`（黑色线）和 `SD`（黄色线）引脚。
+>如果你使用的是不带 JST-SH 连接器的非 H 版 Pico 或 Pico W，仍然可以将其连接到调试器。在板子的 `SWCLK`、`GND` 和 `SWDIO` 排针上焊接一个公头连接器。使用调试器随附的另一根三针 JST-SH 连接器转 0.1 英寸排针（母）的电缆，连接到调试器的 “D” 端口。将 Pico 或 Pico W 上的 `SWCLK`、`GND` 和 `SWDIO` 分别连接到调试器上的 `SC`（橙色线）、`GND`（黑色线）和 `SD`（黄色线）引脚。
 
 ![接线](.gitbook/assets/wiring.png)
 
@@ -84,7 +84,7 @@
 
 >**注意**
 >
-> 不建议在 Windows 上手动安装这些工具。
+>不建议在 Windows 上手动安装这些工具。
 
 ## 开始调试会话
 
@@ -104,7 +104,7 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 >**注意**
 >
-> 当你使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是拖放时使用的 UF2 文件。
+>当你使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是拖放时使用的 UF2 文件。
 
 ### 单独调试会话
 
@@ -112,7 +112,7 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 >**重要**
 >
-> 要进行调试，你必须以 `Debug` 而非 `Release` 构建类型来构建二进制文件：
+>要进行调试，你必须以 `Debug` 而非 `Release` 构建类型来构建二进制文件：
 
 ```bash
 $ cd ~/pico/pico-examples/
@@ -129,10 +129,10 @@ $ make -j4
 
 >**注意**
 >
-> 在非树莓派设备上，需要一个能够调试 Arm 处理器的 GDB 变体。请根据你的操作系统和设备选用以下替代方案：
+>在非树莓派设备上，需要一个能够调试 Arm 处理器的 GDB 变体。请根据你的操作系统和设备选用以下替代方案：
 >
-> * 在 Linux 设备上，使用 `gdb-multiarch`。
-> * 在 macOS 和 Windows 设备上，使用来自 [Arm GitLab 仓库](https://gitlab.arm.com/tooling/gnu-toolchains-for-arm)工具链的 `arm-none-eabi-gdb`。
+>* 在 Linux 设备上，使用 `gdb-multiarch`。
+>* 在 macOS 和 Windows 设备上，使用来自 [Arm GitLab 仓库](https://gitlab.arm.com/tooling/gnu-toolchains-for-arm)工具链的 `arm-none-eabi-gdb`。
 
 要启动 OpenOCD 服务器，请运行以下命令：
 
@@ -144,9 +144,9 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 ```bash
 $ gdb blink.elf
-> target remote localhost:3333
-> monitor reset init
-> continue
+>target remote localhost:3333
+>monitor reset init
+>continue
 ```
 
 ## 串行连接
@@ -179,7 +179,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 >**技巧**
 >
-> 要退出 `minicom`，请先按 **CTRL-A**，再按 **X**。
+>要退出 `minicom`，请先按 **CTRL-A**，再按 **X**。
 
 要测试串行通信，你可以构建并上传 “Hello World” 示例应用程序。
 
@@ -213,7 +213,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 >**注意**
 >
-> 必须使用应用程序的**调试构建**，才能通过 SWD 发送输出。
+>必须使用应用程序的**调试构建**，才能通过 SWD 发送输出。
 
 ### 启用 RTT stdio 驱动
 
@@ -270,7 +270,7 @@ OpenOCD 和 VSCode 的 [Cortex-Debug](https://marketplace.visualstudio.com/items
 
 >**注意**
 >
-> 前缀为 `monitor` 的 `gdb` 命令会被透传给 `openocd`。关于这里所用命令的更多信息，请参阅 OpenOCD 手册的[第 15.6 节](https://openocd.org/doc/html/General-Commands.html)。
+>前缀为 `monitor` 的 `gdb` 命令会被透传给 `openocd`。关于这里所用命令的更多信息，请参阅 OpenOCD 手册的[第 15.6 节](https://openocd.org/doc/html/General-Commands.html)。
 
 OpenOCD 会在目标上搜索 RTT 控制块，然后在本地创建一个监听 60000 端口的 TCP 套接字。
 
@@ -296,7 +296,7 @@ $ lsusb -v -d 2e8a:000c | grep bcdDevice
 
 >**注意**
 >
-> `openocd` 报告的 `Info : CMSIS-DAP: FW Version = 2.0.0` 一行只表示 CMSIS-DAP 协议级别（与调试器固件版本不同）。
+>`openocd` 报告的 `Info : CMSIS-DAP: FW Version = 2.0.0` 一行只表示 CMSIS-DAP 协议级别（与调试器固件版本不同）。
 
 按以下步骤更新调试器的固件版本：
 
