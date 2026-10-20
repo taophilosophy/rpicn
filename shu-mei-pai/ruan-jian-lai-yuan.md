@@ -62,7 +62,7 @@ $ debuild -uc -us
 **[raspberrypi/firmware](https://github.com/raspberrypi/firmware)**：此仓库包含闭源固件，不过以下两个链接很有用：
 
 * [固件的变更日志](https://github.com/raspberrypi/firmware/commits/master/)
-* [设备树覆盖层 README](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README)
+* [设备树叠加层 README](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README)
 
 **[raspberrypi/rpi-eeprom](https://github.com/raspberrypi/rpi-eeprom)**：树莓派 4 和树莓派 5 引导加载程序 EEPROM 的安装脚本和二进制文件，包括[发布版本](https://github.com/raspberrypi/rpi-eeprom/releases)和[发行说明](https://github.com/raspberrypi/rpi-eeprom/blob/master/releases.md)。
 
@@ -151,7 +151,7 @@ $ debuild -uc -us
 
 **[raspberrypi/pico-sdk](https://github.com/raspberrypi/pico-sdk)**：树莓派 Pico SDK 源代码。
 
-**[raspberrypi/debugprobe](https://github.com/raspberrypi/debugprobe)**：树莓派调试器的源代码，可轻松提供 SWD 和 UART。
+**[raspberrypi/debugprobe](https://github.com/raspberrypi/debugprobe)**：树莓派调试套件的源代码，可轻松提供 SWD 和 UART。
 
 **[raspberrypi/openocd](https://github.com/raspberrypi/openocd)**：树莓派下游 OpenOCD 源代码。
 
