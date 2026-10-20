@@ -198,7 +198,7 @@ boot_partition=2
 
 #### `dtoverlay`
 
-`dtoverlay` 参数会要求固件加载指定的设备树覆盖层——这是一个配置文件，可启用内核对内置和外部硬件的支持。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
+`dtoverlay` 参数会要求固件加载指定的设备树叠加层，即一个可以启用内核对内置和外部硬件支持的配置文件。例如，`dtoverlay=vc4-kms-v3d` 会加载叠加层，启用内核图形驱动程序。
 
 作为特例，如果在调用时不带值（即 `dtoverlay=`），该参数会标记叠加层参数列表的结束。如果用在任何其他 `dtoverlay` 或 `dtparam` 设置之前，它会阻止加载任何扩展板叠加层。
 
@@ -292,7 +292,7 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 ### `kernel`
 
-`kernel` 是用于加载内核的启动分区上的一个备用文件名。树莓派 1、Zero、Zero W 和计算模块 1 的默认值为 `kernel.img`。树莓派 2、3、3+、Zero 2 W 和计算模块 3、3+ 的默认值为 `kernel7.img`。树莓派 4、400 和计算模块 4 的默认值为 `kernel8.img`；如将 `arm_64bit` 置为 0，则默认值为 `kernel7l.img`。
+`kernel` 是启动分区上用于加载内核的备用文件名。树莓派 1、Zero、Zero W 和计算模块 1 的默认值为 `kernel.img`。树莓派 2、3、3+、Zero 2 W 和计算模块 3、3+ 的默认值为 `kernel7.img`。树莓派 4、400 和计算模块 4 的默认值为 `kernel8.img`；如将 `arm_64bit` 置为 0，则默认值为 `kernel7l.img`。
 
 树莓派 5、500、500+ 和计算模块 5 的固件默认加载 `kernel_2712.img`，因为此镜像包含针对这些机型的优化（例如 16K 页大小）。如果此文件不存在，则会改为加载通用 64 位内核（`kernel8.img`）。
 
@@ -335,7 +335,7 @@ stub 是在内核之前运行的一小段 Arm 代码。它的职责是设置中�
 
 ### `ramfsfile`
 
-`ramfsfile` 是启动分区上的 `ramfs` 的一个可选文件名。
+`ramfsfile` 是启动分区上要加载的 `ramfs` 的可选文件名。
 
 >**注意**
 >

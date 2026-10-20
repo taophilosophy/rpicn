@@ -29,8 +29,8 @@
 * **无需载板的配置。** 治具使用弹簧探针直接与 CM5 连接，无需载板（IO 板），并减少高密度引脚连接器的磨损。
 * **LED 状态指示。** 治具通过专用 LED 显示当前状态和配置进度。有关这些 LED 的更多信息，请参阅 [LED 行为](#led-行为)。
 * **双网络连接。** 治具通过以太网（**JIG ETH**）或 Wi-Fi® 连接到配置网络，第二个以太网端口（**DUT ETH**）为正在编程的 CM5 提供加速的软件传输。
-* **自动化配置。** 治具自动化配置流程，包括操作系统安装、全盘加密和安全启动配置（取决于你选择的安全级别）。
-* **三级安全。** 你可以选择将治具配置为以三种安全级别之一编程 CM5：完全安全（`secure-boot`）、加密存储和设备唯一密钥（`fde-only`），以及仅操作系统（`naked`）。更多信息请参阅[安全级别](https://www.raspberrypi.com/documentation/security/secure-boot-provisioner.html#security-levels)。
+* **自动化配置。** 治具会自动完成配置流程，包括操作系统安装、全盘加密和安全启动配置（取决于你选择的安全级别）。
+* **三级安全。** 你可以将治具配置为按三种安全级别之一来编程 CM5：完全安全（`secure-boot`）、加密存储和设备唯一密钥（`fde-only`），以及仅操作系统（`naked`）。更多信息请参阅[安全级别](https://www.raspberrypi.com/documentation/security/secure-boot-provisioner.html#security-levels)。
 * **用户可维护。** 治具附带镊子和备用弹簧探针，使你能够拆卸和更换任何损坏的弹簧探针。更多信息请参阅[更换弹簧探针](#更换弹簧探针)。
 
 >**警告**

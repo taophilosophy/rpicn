@@ -183,26 +183,43 @@ $ sudo make -j6 modules_install
     $ sudo cp arch/arm/boot/dts/overlays/README /boot/firmware/overlays/
     ```
 
-最后，运行以下命令重新启动你的树莓派，并运行新编译的内核：
+最后，运行以下命令重启树莓派，让它运行新编译的内核：
 
 ```bash
 $ sudo reboot
 ```
 
+树莓派重启后，[检查你的自定义内核是否正在运行](#检查你的自定义内核是否正在运行)。
 
 >**技巧**
 >
->还可以使用不同的文件名（例如 `kernel-myconfig.img`）复制内核，而不是覆盖文件 `kernel.img` 。然后，在引导分区下编辑 `config.txt`，选择你的内核：
+>另一种做法是用不同的文件名（例如 `kernel-myconfig.img`）复制内核，而不是覆盖 `$KERNEL.img`。然后编辑启动分区中的 `config.txt`，选用你的内核：
 >
->```bash
+>```ini
 >kernel=kernel-myconfig.img
 >```
 >
->将此方法与自定义 `LOCALVERSION` 结合使用，可将你的自定义内核与系统管理的默认内核镜像分开。这样一来，如果你的内核无法启动，你可以快速恢复到默认内核。
+>把这种做法与自定义 `LOCALVERSION` 结合使用，可以让你的自定义内核与系统管理的默认内核镜像彼此分开。这样安排后，一旦你的内核无法启动，也能迅速换回默认内核。
+>
+>树莓派系统 Bookworm 及更高版本默认包含 `initramfs`，通过在 `config.txt` 中使用 `auto_initramfs` 启用。
+>
+>当 `auto_initramfs` 设为 `1` 时，固件要求 `initramfs` 的文件名与内核文件名对应：把内核文件名的 `kernel` 前缀换成 `initramfs`，并省略文件扩展名。例如，`kernel-myconfig.img` 会去找 `initramfs-myconfig`。
+>
+>如果没有提供匹配的文件名，你必须用一个不带 `=` 号的显式 `initramfs` 指令来指定 ramdisk，例如：
+>
+>```ini
+>initramfs <filename> followkernel
+>```
+
+>**注意**
+>
+>编译和更新 `initramfs` 被视为高级技巧，只有经验丰富的用户才会采用。树莓派官方并不支持这种做法，因此我们也不提供相关说明。
+>
+>如果你用自己的内核覆盖了 `$KERNEL.img`，启动分区上现有的 `initramfs` 仍然包含为旧内核版本编译的模块。这些模块很可能与内核不兼容，因而不会被加载。需要 `initramfs` 的自定义内核编译方式不在本指南的讨论范围内。
 
 ### 交叉编译内核
 
-首先，你需要一台合适的 Linux 交叉编译主机。我们一般用 Ubuntu。由于树莓派系统同样也是一款基于 Debian 的发行版，所以编译命令极为接近。
+首先，你需要一台合适的 Linux 交叉编译主机。我们通常使用 Ubuntu；由于树莓派系统同样基于 Debian，两者的编译命令也很相似。
 
 #### 安装所需的依赖和工具链
 
@@ -212,7 +229,7 @@ $ sudo reboot
 $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 ```
 
-然后，安装适用于你要编译的内核架构之工具链：
+然后，安装与你要编译的内核架构匹配的工具链：
 
 * 要安装用于编译 64 位内核的 64 位工具链，请运行以下命令：
 
@@ -227,40 +244,28 @@ $ sudo apt install bc bison flex libssl-dev make libc6-dev libncurses5-dev
 
 #### 构建配置
 
-本节介绍了如何在构建内核时采用默认配置。你也可以用下述方式配置内核：
+本节介绍如何在构建内核时应用默认配置。你也可以通过以下方式配置内核：
 
-* [启用、禁用内核功能](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)
-* [打上其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
+* [启用或禁用内核功能](#配置内核)
+* [应用其他来源的补丁](#打补丁)
 
-输入以下命令构建源代码和设备树文件：
+请根据你的架构和树莓派型号，运行下表中的对应命令来构建内核源代码和设备树文件：
 
-| 目标架构       | 目标型号                   | 命令                                                                                                                                                      |
-| :--------------: | :--------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 64 位          | 树莓派 3                   | `$ cd linux`<br />`$ KERNEL=kernel8`<br />`$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig`                                            |
-|| 树莓派计算模块 3                      |                                                                                                                                                           |
-|| 树莓派 3+                                |                                                                                                                                                           |
-|| 树莓派计算模块 3+                           |                                                                                                                                                           |
-|| 树莓派 Zero 2 W                           |                                                                                                                                                           |
-|| 树莓派 4                              |                                                                                                                                                           |
-|| 树莓派 400                               |                                                                                                                                                           |
-|| 树莓派计算模块 4                             |                                                                                                                                                           |
-|| 树莓派计算模块 4S                            |                                                                                                                                                           |
-|| 树莓派 5       | `$ cd linux`<br />`$ KERNEL=kernel_2712`<br />`$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2712_defconfig`                       |
-| 32 位 |        树莓派 1                   | `$ cd linux`<br />`$ KERNEL=kernel`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig`                                              |
-|| 树莓派计算模块 1                            |                                                                                                                                                           |
-|| 树莓派 Zero                               |                                                                                                                                                           |
-|| 树莓派 Zero W                             |                                                                                                                                                           |
-|| 树莓派 2       | `$ cd linux`<br />`$ KERNEL=kernel7`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig`                           |
-|| 树莓派 3       |                            |                                                                                                                                                           |
-| |树莓派计算模块 3 |                            |                                                                                                                                                           |
-| |树莓派 3+      |                            |                                                                                                                                                           |
-| |树莓派计算模块 3+ |                            |                                                                                                                                                           |
-| |树莓派 Zero 2 W |                            |                                                                                                                                                           |
-| |树莓派 4       | `$ cd linux`<br />`$ KERNEL=kernel7l`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2711_defconfig`                          |
-| |树莓派 400     |                            |                                                                                                                                                           |
-| |树莓派计算模块 4 |                            |                                                                                                                                                           |
-| |树莓派计算模块 4S |                            |                                                                                                                                                           |
-                                                                                                                                      
+| 目标架构 | 目标型号 | 命令 |
+| :--- | :--- | :--- |
+| 64 位 | 树莓派 3、3+、计算模块 3、计算模块 3+、Zero 2 W、4、400、计算模块 4、计算模块 4S、5、500、500+、计算模块 5 | `$ cd linux`<br />`$ KERNEL=kernel8`<br />`$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig` |
+| 64 位（优化） | 树莓派 5、500、500+、计算模块 5 | `$ cd linux`<br />`$ KERNEL=kernel_2712`<br />`$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2712_defconfig` |
+| 32 位 | 树莓派 1、计算模块 1、Zero、Zero W | `$ cd linux`<br />`$ KERNEL=kernel`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig` |
+| 32 位 | 树莓派 2、3、3+、计算模块 3、计算模块 3+、Zero 2 W | `$ cd linux`<br />`$ KERNEL=kernel7`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig` |
+| 32 位 | 树莓派 4、400、计算模块 4、计算模块 4S（6.18 之前的内核） | `$ cd linux`<br />`$ KERNEL=kernel7l`<br />`$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2711_defconfig` |
+
+>**注意**
+>
+>`bcm2712_defconfig` 编译出的 `kernel_2712.img` 针对 BCM2712 设备（Raspberry Pi 5、500、500+、计算模块 5）做了优化，使用 16K 页大小。用 `bcm2711_defconfig` 编译出的 `kernel8.img` 也能在这些设备上运行，页大小为 4K。如果存在 `kernel_2712.img`，固件会加载它，否则回退到 `kernel8.img`。
+
+>**注意**
+>
+>自内核 6.18 起，BCM2711 设备（Raspberry Pi 4、400、计算模块 4、计算模块 4S）不再支持编译 32 位内核，请改用 64 位的 `kernel8`。
 
 #### 使用 `LOCALVERSION` 自定义内核版本
 
