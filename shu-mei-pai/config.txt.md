@@ -912,7 +912,7 @@ SD_QUIRKS=0x1
 HDMI_DELAY=0
 ```
 
-示例 `config.txt`——（目前适用于树莓派 5 及后续机型）
+示例 `config.txt`（目前适用于树莓派 5 及后续机型）：
 
 ```bash
 # config.txt——若 PM_RSTS 中最初请求的分区号是
