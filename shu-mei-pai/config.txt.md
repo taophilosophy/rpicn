@@ -238,9 +238,9 @@ boot_partition=2
 
 ### `audio_pwm_mode`
 
-`audio_pwm_mode=1` 选择传统低质量模拟音频，基于 3.5 mm AV 端子。
+`audio_pwm_mode=1` 选择由 3.5 mm AV 插孔输出的传统低质量模拟音频。
 
-`audio_pwm_mode=2` 选择使用高级调制方案的高质量模拟音频。（默认）
+`audio_pwm_mode=2`（默认）选择使用高级调制方案的高质量模拟音频。
 
 >**注意**
 >
@@ -248,11 +248,11 @@ boot_partition=2
 
 ### `disable_audio_dither`
 
-在默认情况下，如果音频流路由输出到了模拟音频，则会应用 1.0LSB 抖动。在某些情况下（如 ALSA 音量处于较低水平），就有可能产生可闻的背景嘶声。将 `disable_audio_dither` 置为 `1` 可禁用抖动功能。
+默认情况下，如果音频流被路由到模拟音频输出，就会应用 1.0LSB 抖动。在某些情况下（如 ALSA 音量处于较低水平），就有可能产生可闻的背景嘶声。将 `disable_audio_dither` 置为 `1` 可禁用抖动。
 
 ### `enable_audio_dither`
 
-当音频样本大于 16 位时，通常就会禁用音频抖动（请参阅上述 `disable_audio_dither`）。将此参数置为 `1` 可强制对所有位深度都应用抖动。
+当音频样本大于 16 位时，通常就会禁用音频抖动（请参阅上文 `disable_audio_dither`）。将此参数置为 `1` 可强制对所有位深度都应用抖动。
 
 ### `pwm_sample_bits`
 
@@ -260,7 +260,7 @@ boot_partition=2
 
 ## HDMI 音频
 
-在默认情况下，所有搭载 HDMI 输出接口的树莓派型号均启用了 HDMI 音频输出。
+默认情况下，所有带 HDMI 输出的树莓派型号都启用 HDMI 音频输出。
 
 要禁用 HDMI 音频输出，请在 `/boot/firmware/config.txt` 中的 `dtoverlay=vc4-kms-v3d` 这行末尾添加 `,noaudio`：
 
@@ -363,7 +363,7 @@ stub 是在内核之前运行的一小段 Arm 代码。它的职责是设置中�
 
 ### `disable_poe_fan`
 
-在默认情况下，即使未接入 PoE 扩展板，启动时仍会探测 I²C 总线。将此参数置为 1，可禁用通过 I²C（在 `ID_SD` 和 `ID_SC` 引脚上）对 PoE 扩展板风扇的控制。如果你不打算使用 PoE 扩展板，这是缩短启动时间的有效方法。
+默认情况下，即使未接入 PoE 扩展板，启动时仍会探测 I²C 总线。将此参数置为 1，可禁用通过 I²C（在 `ID_SD` 和 `ID_SC` 引脚上）对 PoE 扩展板风扇的控制。如果你不打算使用 PoE 扩展板，这是缩短启动时间的有效方法。
 
 ### `disable_splash`
 
@@ -785,7 +785,7 @@ gpio=17-21=ip
 
 #### `force_turbo`
 
-在默认情况下（`force_turbo=0`），按需的 CPU 频率驱动程序会在 Arm 核心繁忙时把时钟提升到最大频率，并在 Arm 核心空闲时将其降至最低频率。
+默认情况下（`force_turbo=0`），按需的 CPU 频率驱动程序会在 Arm 核心繁忙时把时钟提升到最大频率，并在 Arm 核心空闲时将其降至最低频率。
 
 `force_turbo=1` 会覆盖上述行为，即使 Arm 核心不忙也强制使用最大频率。
 
@@ -1133,7 +1133,7 @@ Serial          : 0000000012345678
 
 >**注意**
 >
->在某些树莓派型号上，前 8 位十六进制数字包含的可能是 `0` 以外的值。即使在这种情况下，也只使用最后八位十六进制数字作为串号。
+>在某些树莓派型号上，前 8 个十六进制数字可能包含 `0` 以外的值。即使在这种情况下，也只用最后 8 个十六进制数字作为串号。
 
 你可以定义仅应用于这台特定树莓派的设置：
 
@@ -1266,7 +1266,7 @@ CEA 和 DMT 标准中只有一种不兼容的模式：DMT 模式 81，1366x768 @
 dtoverlay=vc4-kms-v3d,composite
 ```
 
-在默认情况下，会输出复合视频 NTSC。要选择其他模式，请改为在 `/boot/firmware/cmdline.txt` 的单行内容末尾追加以下内容：
+默认情况下，系统会输出 NTSC 复合视频。要选择其他模式，请改为在 `/boot/firmware/cmdline.txt` 的单行内容末尾追加以下内容：
 
 ```bash
 vc4.tv_norm=<video_mode>
@@ -1287,7 +1287,7 @@ vc4.tv_norm=<video_mode>
 
 #### `ignore_lcd`
 
-在默认情况下，会在 I²C 总线上检测树莓派触摸显示屏，检测到即使用。`ignore_lcd=1` 可跳过这个检测阶段。这会阻止 LCD 显示屏被使用。
+默认情况下，系统会在 I²C 总线上检测树莓派触摸显示屏，一旦检测到就使用。`ignore_lcd=1` 可跳过这个检测阶段。这会阻止 LCD 显示屏被使用。
 
 #### `disable_touchscreen`
 
@@ -1299,7 +1299,7 @@ vc4.tv_norm=<video_mode>
 
 #### `disable_fw_kms_setup`
 
-在默认情况下，固件会解析所有通过 HDMI 接入的显示器的 EDID，选择合适的视频模式，然后通过内核命令行上的设置把该模式的分辨率和帧率（以及过扫描参数）传给 Linux 内核。在极少数情况下，固件可能会选择 EDID 中不存在的模式，该模式可能与设备不兼容。使用 `disable_fw_kms_setup=1` 可以禁用视频模式参数的传递，从而避免此问题。Linux 视频模式系统（KMS）会自己解析 EDID 并选择合适的模式。
+默认情况下，固件会解析所有通过 HDMI 接入的显示器的 EDID，选择合适的视频模式，然后通过内核命令行上的设置把该模式的分辨率和帧率（以及过扫描参数）传给 Linux 内核。在极少数情况下，固件可能会选择 EDID 中不存在的模式，该模式可能与设备不兼容。使用 `disable_fw_kms_setup=1` 可以禁用视频模式参数的传递，从而避免此问题。Linux 视频模式系统（KMS）会自己解析 EDID 并选择合适的模式。
 
 >**注意**
 >
@@ -1309,8 +1309,8 @@ vc4.tv_norm=<video_mode>
 
 ### `disable_camera_led`
 
-将 `disable_camera_led` 置为 `1`，可在录制视频或拍摄照片时阻止摄像机的红色 LED 点亮。这对于防止反光（例如摄像机正对着窗户时）很有用。
+将 `disable_camera_led` 置为 `1`，可在录制视频或拍摄照片时阻止摄像头的红色 LED 点亮。这对于防止反光（例如摄像头正对着窗户时）很有用。
 
 ### `awb_auto_is_greyworld`
 
-将 `awb_auto_is_greyworld` 置为 `1`，可以让内部不支持灰度世界（greyworld）选项的库或应用程序使用 NoIR 摄像头捕捉到有效的图像和视频。它会把自动 awb 模式切换为使用灰度世界算法。这应该只在 NoIR 摄像头，或[移除了红外滤光片](https://www.raspberrypi.com/documentation/accessories/camera.html#filter-removal)的高质量（HQ）摄像头上才需要。
+将 `awb_auto_is_greyworld` 置为 `1`，可让本不支持灰度世界（greyworld）选项的库或应用程序也能用 NoIR 摄像头拍摄出正常的图像和视频。它会把自动 awb 模式切换为使用灰度世界算法。只有在使用 NoIR 摄像头，或使用[移除了红外滤光片](https://www.raspberrypi.com/documentation/accessories/camera.html#filter-removal)的高质量（HQ）摄像头时才需要这样做。

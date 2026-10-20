@@ -12,7 +12,7 @@
 
 >**注意**
 >
-> 可在[设备兼容性](#设备兼容性)部分找到受支持设备的完整列表。
+> 受支持设备的完整列表见[设备兼容性](#设备兼容性)一节。
 
 它为 SPIKE™ 系列产品中的乐高®机械组电机和传感器提供了四个连接器。可用的传感器包括距离传感器、颜色传感器和多用途力传感器。角度电机有多种尺寸，并带有集成编码器，可查询其位置。
 
@@ -44,7 +44,7 @@ SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 可从乐高®
 >
 > 在开始使用你的树莓派 Build 扩展板之前，请先设置你的树莓派，并使用[树莓派启动盘制作工具](https://www.raspberrypi.com/downloads/)安装最新版本的操作系统。
 
-将 9 mm 间隔柱连接到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保方向正确。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高®元件留出空间。
+将 9 mm 间隔柱装到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保方向正确。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高®元件留出空间。
 
 ![安装 Build 扩展板](.gitbook/assets/fitting-build-hat.webm)
 
@@ -73,7 +73,7 @@ SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 可从乐高®
 
 ![设置](.gitbook/assets/setting-up.png)
 
-#### 使用你的无头树莓派
+#### 以无头方式使用树莓派
 
 如果你以无头方式运行树莓派，并使用 `raspi-config`，请从第一个菜单中选择 “Interface Options”。
 
@@ -297,7 +297,7 @@ using Brick brick = new("/dev/serial0");
 
 #### 显示 Build 扩展板信息
 
-你可以收集各种软件版本、签名和输入电压：
+你可以读取各种软件版本、签名和输入电压：
 
 ```csharp
 var info = brick.BuildHatInformation;
@@ -376,7 +376,7 @@ brick 可能需要很长时间才能完成初始化。已实现等待传感器�
 brick.WaitForSensorToConnect(SensorPort.PortB);
 ```
 
-它还接受一个 `CancellationToken`，如果你想实现高级功能（例如在一段时间后警告用户并重试），可以使用它。
+如果你需要实现高级功能（例如在一段时间后警告用户并重试），还可以传入一个 `CancellationToken`。
 
 ### 使用 .NET 控制电机
 
@@ -471,7 +471,7 @@ active2.Stop();
 >
 > 在需要时不要忘记启动和停止你的电机。
 
-高级功能适用于主动电机。你可以请求移动几秒钟、移动到特定位置或特定绝对位置。以下是一些示例：
+高级功能适用于主动电机。你可以让它转动指定秒数，也可以把它移动到特定位置或特定绝对位置。以下是一些示例：
 
 ```csharp
 // 承上例，这会把电机转回初始位置：
@@ -614,9 +614,9 @@ while(!console.KeyAvailable)
 
 #### SPIKE Prime 力传感器
 
-![spike 力传感器](.gitbook/assets/spike-force.png)
+![SPIKE 力传感器](.gitbook/assets/spike-force.png)
 
-[Spike 力传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37312c01)
+[SPIKE 力传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37312c01)
 
 该力传感器测量施加在它上面的压力，以及它是否被按下。这两个值可分别通过 `Force` 和 `IsPressed` 属性读取。
 
@@ -635,7 +635,7 @@ while(!force.IsPressed)
 
 ![SPIKE Essential 3×3 彩色灯光矩阵](.gitbook/assets/3x3matrix.png)
 
-[Spike 3×3 矩阵，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=47592c01)
+[SPIKE 3×3 矩阵，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=47592c01)
 
 这是一个小型 3×3 显示屏，带有 9 个可单独控制的 LED。该类公开了控制屏幕的函数。以下是一个使用示例：
 
@@ -669,7 +669,7 @@ SPIKE 颜色传感器：
 
 ![SPIKE 颜色传感器](.gitbook/assets/spike-color.png)
 
-[Spike 颜色传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37308c01)
+[SPIKE 颜色传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37308c01)
 
 颜色和距离传感器：
 
@@ -707,7 +707,7 @@ while (!Console.KeyAvailable)
 
 #### SPIKE Prime 超声波距离传感器
 
-![spike 超声波距离传感器](.gitbook/assets/spike-distance.png)
+![SPIKE 超声波距离传感器](.gitbook/assets/spike-distance.png)
 
 [超声波距离传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37316c01)
 

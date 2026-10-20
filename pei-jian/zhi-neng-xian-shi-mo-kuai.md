@@ -1,6 +1,6 @@
 # 智能显示模块
 
-树莓派智能显示模块是一款用于树莓派计算模块 5（CM5）的转接板，使你无需外部线缆或外部电源，即可将 CM5 集成到兼容的数字标牌中。
+树莓派智能显示模块（Raspberry Pi Smart Display Module）是一款用于树莓派计算模块 5（CM5）的转接板，使你无需外部线缆或外部电源，即可将 CM5 集成到兼容的数字标牌中。
 
 更多信息请参阅[产品页面](https://www.raspberrypi.com/products/smart-display-module)。
 
@@ -25,10 +25,10 @@
 * **M.2 M key 扩展。** M.2 M key PCIe 插槽兼容 2230、2242、2260 和 2280 外形尺寸，为添加存储设备或 AI 加速器提供扩展空间。
 * **外部天线空间。** 使用[树莓派天线套件](../shu-mei-pai/ji-suan-mo-kuai-ying-jian.md#天线cm4-和-cm5)，你可以在主机显示器外部安装外置天线。
 * **HDMI 输出。** 支持第二路独立的视频流。
-* **连接器。** 将各种[连接器](#连接器)暴露到主机显示器外部。
+* **连接器。** 将各种[连接器](#连接器)引到主机显示器外部。
 * **启动模式开关。** 在从 eMMC 启动（标记为 **NORMAL**）和从 USB 设备模式启动（标记为 **USB**）之间切换 CM5。
-* **外部电源按钮。** 独立于显示器对 CM5 进行电源循环。
-* **LED 指示灯。** 指示 CM5 的电源状态和存储活动。此指示灯显示与树莓派 5 相同的 LED 行为。更多信息请参阅 [LED 行为](https://www.raspberrypi.com/documentation/computers/configuration.html#led-behaviour)。
+* **外部电源按钮。** 可让 CM5 独立于显示器断电重启。
+* **LED 指示灯。** 指示 CM5 的电源状态和存储活动。此指示灯的行为与树莓派 5 的 LED 相同。更多信息请参阅 [LED 行为](https://www.raspberrypi.com/documentation/computers/configuration.html#led-behaviour)。
 
 ### 硬件
 
@@ -57,7 +57,7 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 | CM5 接口 | Intel SDM 接口 |
 | ---- | ---- |
 | HDMI0 | HDMI |
-| USB 3.0 port 1 | USB3 |
+| USB 3.0 端口 1 | USB3 |
 | GPIO7/9/10/11 (SPI0) | GSPI |
 | GPIO14/GPIO15 (UART0) | UART |
 | GPIO2/GPIO3 (I2C1) | I2C0（CM5 为目标端） |
@@ -72,21 +72,21 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 >
 > 树莓派 SDM 不会通过 Intel SDM 边缘连接器连接 DisplayPort、PCIe 或以太网接口。
 
-在主机显示器的外部，智能显示模块暴露以下连接器：
+在主机显示器的外部，智能显示模块提供以下连接器：
 
 * HDMI 2.0。连接到 CM5 上的 HDMI1。
 * USB-C（USB 2.0）。此端口仅支持设备模式，用于在安装后为 CM5 编程。
 * 以太网（RJ45）连接器。
 * USB-A（USB 3.0）。连接到 CM5 上的 USB 3.0 端口 0。
 
-在内部，智能显示模块暴露以下连接器：
+在内部，智能显示模块提供以下连接器：
 
 * 22 针摄像头和显示接口。连接到 CM5 上的 CAM/DISP 0。
 * RTC 电池座（CR2032）。
 * M.2 M key PCIe 插槽。
 * CM5 插槽。
 
-在内部，智能显示模块还在最靠近 CM5 的短边上暴露以下引脚。
+在内部，智能显示模块还在最靠近 CM5 的短边上提供以下引脚。
 
 引脚以两个为一组标注。在引脚标签方向正确时，顶部四对引脚左侧为接地引脚，右侧为有效引脚；底部四对引脚每对都有两个功能相同的有效引脚。
 
@@ -107,7 +107,7 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 | **VBUS** | `VBUS_EN` | 向外置 USB 3.0 端口供电的信号。 |
 | **FPWM** | `Fan_PWM` | 驱动各种 PWM 控制的风扇。 |
 | **GND** | `GND` | 接地（0 V） |
-| **FTACH** | `Fan_Tacho` | 读取许多 PWM 风扇上存在的转速计输出信号。 |
+| **FTACH** | `Fan_Tacho` | 读取许多 PWM 风扇所提供的转速计输出信号。 |
 
 有关这些引脚及其使用方法的更多信息，请参阅[计算模块 5 数据手册](https://pip.raspberrypi.com/documents/RP-008180-DS)和[计算模块 5 IO 板数据手册](https://pip.raspberrypi.com/documents/RP-008182-DS)。
 
@@ -206,7 +206,7 @@ Intel SDM 边缘连接器将以下接口或信号从 CM5 传输到主机显示�
 
 ## 在原位编程 CM5
 
-你可以在将 CM5 安装到智能显示模块中，并将智能显示模块安装到主机显示器中之后，再对 CM5 进行配置。
+你可以在 CM5 装入智能显示模块、智能显示模块也装入主机显示器之后，再对 CM5 进行配置。
 
 为此，你需要以下设备：
 

@@ -138,18 +138,18 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ### 3.2 页面统计
 
-统计时间：2026-10-20 12:45
+统计时间：2026-10-20 16:00
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 1 | 16 | 0 | 0 | 0 | 6% |
+| 树莓派 | 17 | 17 | 2 | 15 | 0 | 0 | 0 | 12% |
 | 配件 | 20 | 20 | 0 | 20 | 0 | 0 | 0 | 0% |
-| 微控制器 | 6 | 6 | 0 | 6 | 0 | 0 | 0 | 0% |
+| 微控制器 | 6 | 6 | 2 | 4 | 0 | 0 | 0 | 33% |
 | 服务 | 4 | 4 | 0 | 4 | 0 | 0 | 0 | 0% |
 | 安全 | 5 | 5 | 0 | 5 | 0 | 0 | 0 | 0% |
-| 合计 | 52 | 52 | 1 | 51 | 0 | 0 | 0 | 2% |
+| 合计 | 52 | 52 | 4 | 48 | 0 | 0 | 0 | 8% |
 
-完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。CP-2/CP-3 已通过（52 页全部同步），下一阶段为三轮逐句校对（从已完成同步的 51 页中按「六、待办队列」推进）。
+完成率按「复查通过 / 总页数」计算，仅统计完成三轮逐句校对并复查的页面。CP-2/CP-3 已通过（52 页全部同步），当前阶段为三轮逐句校对：主线程已完成 3 页（G0：处理器、无线电模块、微控制器芯片），另有子代理并行校对 33 页（G1/G2、H1–H5、H7、H8、H9a、H9b、H12），回报后逐文件验收。
 
 ## 四、页面清单
 
@@ -308,9 +308,23 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | F13 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 完成：账号 7 处、Connect 5 处、企业版 1 处修正，书架零改动（主线程已验证） |
 | F14 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 完成：主线程复核硬件页 27 H2 与上游 27 个 .adoc 文件一一对应，原判定「缺 boot-eeprom / bootflow-legacy 两节」为误判（两节均已存在且内容完整：`boot-eeprom`→「树莓派引导 EEPROM」line 144；`bootflow-legacy`→「引导顺序」line 1126），无需新增；CP-3 抽查通过 |
 
-| G0 | `shu-mei-pai/chu-li-qi.md`、`wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md`、`wei-kong-zhi-qi/rp2040.md` | 2026-10-20 | 三轮 + 复查 | 主线程执行：P0 队列点名的最小三页（137 / 58 / 244 行），逐句对照上游 |
+| G0 | `shu-mei-pai/chu-li-qi.md`、`wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md`、`wei-kong-zhi-qi/rp2040.md` | 2026-10-20 | 三轮 + 复查 | 完成：三页均达「复查通过」（主线程逐句执行，合计 20 处修订） |
 | G1 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
 | G2 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H1 | `shu-mei-pai/xi-tong-pei-zhi.md` | 2026-10-20 | 三轮 + 复查 | 进行中（4147 行，按 H2 分节推进） |
+| H2 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中（3402 行，27 节） |
+| H3 | `shu-mei-pai/config.txt.md`、`jiu-ban-config.txt-can-shu.md` | 2026-10-20 | 三轮 + 复查 | 进行中（参数参考页，逐条核对默认值） |
+| H4 | `shu-mei-pai/ru-men.md`、`raspberry-pi-os.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H5 | `shu-mei-pai/jian-pan-ji-suan-ji.md`、`linux-nei-he.md` | 2026-10-20 | 三轮 + 复查 | 进行中（含内核页 3 处官方 URL 内部化） |
+| H6 | `shu-mei-pai/io-kong-zhi-qi.md`、`jing-dian-dan-ban-ji-suan-ji.md`、`ren-gong-zhi-neng-ruan-jian.md`、`ling-dian-xing-hao.md`、`ruan-jian-lai-yuan.md` | 2026-10-20 | 三轮 + 复查 | 进行中（io 页已有 1 轮基础，补 2 轮 + 复查） |
+| H7 | `pei-jian/build-hat.md`、`shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H8 | `pei-jian/she-xiang-tou.md`、`chu-mo-xian-shi-ping-2.md`、`xian-shi-qi.md`、`ai-she-xiang-tou.md` | 2026-10-20 | 三轮 + 复查 | 进行中（规格表逐格核对） |
+| H9a | `pei-jian/` 8 个小页（sd-ka、ssd、ssd-tao-jian、bao-hu-ke、jian-pan-he-shu-biao、raspberry-pi-monitor、usb-pei-jian、ai-hat） | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H9b | `pei-jian/` 6 页（ai-kit、tv-hat、sense-hat、m.2-hat+、zhi-neng-xian-shi-mo-kuai、cm5-bian-cheng-zhi-ju） | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H10 | `fu-wu/shu-mei-pai-connect-qi-ye-ban.md` | 2026-10-20 | 三轮 + 复查 | 进行中（2079 行） |
+| H11 | `fu-wu/` 3 页（connect、id、bookshelf） | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H12 | `an-quan/` 5 页 | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H13 | `wei-kong-zhi-qi/` 4 页（micropython、c-c++-sdk、debug-probe、pico） | 2026-10-20 | 三轮 + 复查 | 进行中 |
 
 ## 六、待办队列
 

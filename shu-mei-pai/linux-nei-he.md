@@ -10,11 +10,11 @@
 
 ## 编译内核
 
-操作系统随附的默认编译器和链接器都配置为编译在该操作系统上运行的可执行文件。**本地编译（Native builds）** 使用这些默认的编译器和链接器。**交叉编译（Cross-compilation）** 是指为运行构建过程的主机之外的的目标编译代码的过程。
+操作系统随附的默认编译器和链接器都配置为编译在该操作系统上运行的可执行文件。**本地编译（Native builds）** 使用这些默认的编译器和链接器。**交叉编译（Cross-compilation）** 是指为运行构建过程的主机之外的目标编译代码的过程。
 
 对树莓派内核进行交叉编译，可以让你在 32 位操作系统上编译 64 位内核，反之亦然。你也可以在非树莓派设备上交叉编译 32 位或 64 位的树莓派内核。
 
-以下说明分为本地编译和交叉编译两部分，请选择适合你情况的其中一部分。虽然两种流程有许多相似的步骤，但也存在一些重要差异。
+以下说明分为本地编译和交叉编译两部分，请选择适合你情况的那部分。两种流程虽然有许多相同步骤，但也存在一些重要差异。
 
 >**注意**
 >
@@ -38,21 +38,21 @@ $ git clone --depth=1 https://github.com/raspberrypi/linux
 
 >**技巧**
 >
->命令 `git clone` 用于下载当前活跃分支的代码，我们用这个分支来构建树莓派系统镜像；未包含历史记录。要下载包含全部分支一切历史的完整仓库，请省略参数 `--depth=1`。这会花费更长时间，占用更多存储空间。
+>上面的 `git clone` 命令会下载当前活跃分支，且不带任何历史记录，我们正是用这个分支构建树莓派系统镜像。如果要下载包含所有分支全部历史的完整仓库，请省略 `--depth=1`。这样会花费更长时间，占用更多存储空间。
 >
->如需下载的其他分支（不带历史记录），可在上述命令中添加参数 `--branch`，把 `<分支>` 改成你想下载的分支名：
+>如果要下载其他分支且不带历史记录，可在上述命令中添加 `--branch` 参数，并把 `<branch>` 换成你想下载的分支名：
 >
 >```bash
->$ git clone --depth=1 --branch <分支> https://github.com/raspberrypi/linux
+>$ git clone --depth=1 --branch <branch> https://github.com/raspberrypi/linux
 >```
 >
 >要查看所有可用分支的完整列表，请参见[树莓派内核存储库](https://github.com/raspberrypi/linux)。
 
-现在你已经有了内核源码，可以选择[本地编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#natively-build-a-kernel)还是用[交叉编译](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#cross-compile-the-kernel)构建新内核。
+现在你已经有了内核源码，可以用[本地编译](#本地编译内核)或[交叉编译](#交叉编译内核)的方式编译一个新内核。
 
 ### 本地编译内核
 
-本指南假设你的树莓派正运行着最新版本的[树莓派系统](https://www.raspberrypi.com/documentation/computers/os.html)。
+本指南假设你的树莓派运行的是最新版本的[树莓派系统](raspberry-pi-os.md)。
 
 先安装编译所需的依赖包：
 
@@ -62,59 +62,44 @@ $ sudo apt install bc bison flex libssl-dev make
 
 #### 编译配置
 
-本节介绍了如何在编译内核时采用默认配置。你也可以使用以下方式配置你的内核：
+本节介绍如何在编译内核时应用默认配置。你也可以通过以下方式配置内核：
 
-* [启用、禁用内核功能](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)
-* [应用其他来源的补丁](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#patch-the-kernel)
+* [启用或禁用内核功能](#配置内核)
+* [应用其他来源的补丁](#打补丁)
 
-要准备默认配置，请根据你的树莓派型号执行下表中的对应命令。
+要准备默认配置，请根据你的架构和树莓派型号，执行下表中的对应命令。
 
-
-| 架构                           | 型号             | 命令                                                  |
-| :------------------------------: | :----------------: | :----------------------------------------------------- |
-|64 位| 树莓派 3          | `$ cd linux`<br />`$ KERNEL=kernel8`<br />`$ make bcm2711_defconfig`    |
-| |树莓派计算模块 3               |                  |                                                       |
-| |树莓派 3+                      |                  |                                                       |
-|| 树莓派计算模块 3+              |                  |                                                       |
-| |树莓派 Zero 2 W                |                  |                                                       |
-| |树莓派 4                       |                  |                                                       |
-| |树莓派 400                     |                  |                                                       |
-| |树莓派计算模块 4               |                  |                                                       |
-|| 树莓派计算模块 4S              |                  |                                                       |
-| |树莓派 5                       | `$ cd linux`<br />`$ KERNEL=kernel_2712`<br />`$ make bcm2712_defconfig`           |
-| 32 位| 树莓派 1          | `$ cd linux`<br />`$ KERNEL=kernel`<br />`$ make bcmrpi_defconfig`    |
-| |树莓派计算模块 1               |                  |                                                       |
-| |树莓派 Zero                    |                  |                                                       |
-|| 树莓派 Zero W                  |                  |                                                       |
-|| 树莓派 2                       | `$ cd linux`<br />`$ KERNEL=kernel7`<br />`$ make bcm2709_defconfig`           |
-| |树莓派 3                       |                  |                                                       |
-| |树莓派计算模块 3               |                  |                                                       |
-|| 树莓派 3+                      |                  |                                                       |
-| |树莓派计算模块 3+              |                  |                                                       |
-| |树莓派 Zero 2 W                |                  |                                                       |
-| |树莓派 4                       | `$ cd linux`<br />`$ KERNEL=kernel7l`<br />`$ make bcm2711_defconfig`           |
-| |树莓派 400                     |                  |                                                       |
-| |树莓派计算模块 4               |                  |                                                       |
-|| 树莓派计算模块 4S              |                  |                                                       |
-
+| 架构 | 型号 | 命令 |
+| :--- | :--- | :--- |
+| 64 位 | 树莓派 3、3+、计算模块 3、计算模块 3+、Zero 2 W、4、400、计算模块 4、计算模块 4S、5、500、500+、计算模块 5 | `$ cd linux`<br />`$ KERNEL=kernel8`<br />`$ make bcm2711_defconfig` |
+| 64 位（优化） | 树莓派 5、500、500+、计算模块 5 | `$ cd linux`<br />`$ KERNEL=kernel_2712`<br />`$ make bcm2712_defconfig` |
+| 32 位 | 树莓派 1、计算模块 1、Zero、Zero W | `$ cd linux`<br />`$ KERNEL=kernel`<br />`$ make bcmrpi_defconfig` |
+| 32 位 | 树莓派 2、3、3+、计算模块 3、计算模块 3+、Zero 2 W | `$ cd linux`<br />`$ KERNEL=kernel7`<br />`$ make bcm2709_defconfig` |
+| 32 位 | 树莓派 4、400、计算模块 4、计算模块 4S（6.18 之前的内核） | `$ cd linux`<br />`$ KERNEL=kernel7l`<br />`$ make bcm2711_defconfig` |
 
 >**注意**
 >
->树莓派 4B、5、400，计算模块 4、计算模块 4S 上的 32 位版树莓派系统使用了 32 位用户空间，但运行的是 **64 位内核**。如果要编译 32 位内核，请设定 `ARCH=arm`。若要启动 32 位内核，在 `config.txt` 中设定 `arm_64bit=0`。
+>`bcm2712_defconfig` 编译出的 `kernel_2712.img` 针对 BCM2712 设备（Raspberry Pi 5、500、500+、计算模块 5）做了优化，使用 16K 页大小。`bcm2711_defconfig` 编译出的 `kernel8.img` 也能在这些设备上运行，但使用 4K 页大小。在 BCM2712 设备上，如果存在 `kernel_2712.img`，固件会加载它，否则回退到 `kernel8.img`。
+
+>**注意**
+>
+>在 BCM2711 设备上，32 位版树莓派系统使用 32 位用户空间，但运行的是 **64 位内核**。自内核 6.18 起，BCM2711 设备（Raspberry Pi 4、400、计算模块 4、计算模块 4S）不再支持编译 32 位内核，请改用 64 位的 `kernel8`。对于更早的内核版本，请设置 `ARCH=arm` 编译 32 位内核，并在 `config.txt` 中设置 `arm_64bit=0` 来启动它。
 
 #### 使用 `LOCALVERSION` 自定义内核版本
 
-为了防止内核覆盖 `/lib/modules` 中的现有模块，并在 `uname` 输出中明确输出你运行的是自定义内核，请调整 `LOCALVERSION`。
+为了防止内核覆盖 `/lib/modules` 中的现有模块，也为了在 `uname` 输出中看出你运行的是自定义内核，请调整 `LOCALVERSION`。
 
 要调整 `LOCALVERSION`，请修改 `.config` 文件中的这一行：
 
-```json
-CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
+```ini
+CONFIG_LOCALVERSION="-v8-MY_CUSTOM_KERNEL"
 ```
+
+每种默认配置都会设置自己的 `LOCALVERSION` 后缀，例如 `bcm2711_defconfig`（64 位）为 `-v8`，`bcm2712_defconfig` 为 `-v8-16k`，`bcm2709_defconfig` 为 `-v7`。请保留该后缀，再在后面追加你自己的文字，如上例所示。
 
 >**技巧**
 >
->你还可以通过图形界面的 `menuconfig` 更改此设置，路径为 **General setup** \> **Local version - append to kernel release**。更多有关 `menuconfig` 的信息，请参见 [内核配置说明](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#configure-the-kernel)。
+>你还可以在图形界面的 `menuconfig` 中更改此设置，路径为 **General setup** \> **Local version - append to kernel release**。有关 `menuconfig` 的更多信息，请参阅[内核配置说明](#配置内核)。
 
 #### 编译
 
@@ -133,7 +118,7 @@ CONFIG_LOCALVERSION="-v7l-MY_CUSTOM_KERNEL"
 
 >**技巧**
 >
->在多核款树莓派上，参数 `make -j<数量>` 会把工作分配到多个核心，从而显著提高编译速度。可运行 `nproc` 查看你有多少处理器，我们建议使用的数字为处理器数量的 1.5 倍。
+>在多核树莓派型号上，`make -j<n>` 参数会把工作分配到多个核心，可显著加快编译速度。运行 `nproc` 可以查看你有多少处理器；我们建议传入处理器数量 1.5 倍的数值。
 
 #### 安装内核
 
@@ -145,13 +130,23 @@ $ sudo make -j6 modules_install
 
 然后，将内核和设备树二进制文件安装到启动分区中，并备份原有内核。
 
+>**重要**
+>
+>在 BCM2712 设备（Raspberry Pi 5、500、500+、计算模块 5）上，固件会优先加载 `kernel_2712.img`（如果存在），而不是 `kernel8.img`。
+>
+>树莓派系统默认包含 `kernel_2712.img`。如果你为这类设备编译的是 `KERNEL=kernel8`，必须把下面这行加入 `config.txt`：
+>
+>```ini
+>kernel=kernel8.img
+>```
+
 >**技巧**
 >
->如果你不想将新编译的内核安装到运行此命令的树莓派上，请将编译好的内核复制到一个单独启动介质的启动分区中，而非 `/boot/firmware/`。
+>如果你不想将新编译的内核安装到运行此命令的树莓派上，请把编译好的内核复制到另一块启动介质的启动分区中，而不是 `/boot/firmware/`。
 
 要安装 64 位内核：
 
-* 运行以下命令可创建当前内核的备份镜像，安装新的内核镜像、叠加层文件、README 文件，再卸载分区：
+* 运行以下命令，备份当前内核，并安装新的内核镜像、设备树二进制文件、叠加层和 README：
 
   ```bash
   $ sudo cp /boot/firmware/$KERNEL.img /boot/firmware/$KERNEL-backup.img
@@ -169,7 +164,7 @@ $ sudo make -j6 modules_install
     $ sudo cp /boot/firmware/$KERNEL.img /boot/firmware/$KERNEL-backup.img
     $ sudo cp arch/arm/boot/zImage /boot/firmware/$KERNEL.img
     ```
-2. 根据你的[内核版本](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#identify-your-kernel-version)，可运行以下命令：
+2. 根据你的[内核版本](#确认你的内核版本)，运行以下命令：
 
     * 对于 6.4 版本及以下的内核：
 
@@ -181,7 +176,7 @@ $ sudo make -j6 modules_install
       ```bash
       $ sudo cp arch/arm/boot/dts/broadcom/*.dtb /boot/firmware/
       ```
-3. 最后，复制覆盖文件和 README 文件：
+3. 最后，复制叠加层和 README：
 
     ```bash
     $ sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/firmware/overlays/

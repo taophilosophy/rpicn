@@ -14,7 +14,7 @@
 
 ![Num Lock、Caps Lock 和 Scroll Lock 指示灯](.gitbook/assets/num-cap-scroll.png)
 
-`Num Lock` 可使用字母键上标注的红色数字键，等效于一个数字小键盘。按 `Num Lock` 键可启用或禁用此模式。
+`Num Lock` 可启用字母键上标注的红色数字键，相当于多了一个数字小键盘。按 `Num Lock` 键可启用或禁用此模式。
 
 `Caps Lock` 可输入大写字母；在该模式下按 `Shift` 键可输入小写字母。按 `Caps Lock` 键可启用或禁用此模式。
 

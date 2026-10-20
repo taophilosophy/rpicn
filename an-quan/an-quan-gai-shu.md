@@ -39,7 +39,7 @@
 
 树莓派遵循结构化的漏洞报告和管理流程。作为该流程的一部分，我们会定期跟踪并整合来自 Debian 的安全更新。
 
-树莓派在我们网站上公布官方安全漏洞披露信息。更多信息，请参阅[安全公告](https://www.raspberrypi.com/security#security-advisories)和[树莓派系统 — CVE 报告](https://raspberrypi.github.io/cve-list/)。
+树莓派在我们的网站上公布官方安全漏洞披露信息。更多信息，请参阅[安全公告](https://www.raspberrypi.com/security#security-advisories)和[树莓派系统 — CVE 报告](https://raspberrypi.github.io/cve-list/)。
 
 要报告树莓派上的安全问题，请发送电子邮件至 [security@raspberrypi.com](mailto:security@raspberrypi.com)。更多信息，请参阅[报告漏洞](https://www.raspberrypi.com/security/#reporting-a-vulnerability)。
 
