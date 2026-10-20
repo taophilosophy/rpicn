@@ -166,12 +166,12 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/config.txt.md` | `config_txt.adoc` | 已同步 | 0/3 | 代理 F4（完成） | 2026-10-20 | F4 全文重写（13 H2；989→1316 行，含 armstub/sha256/enable_jtag_gpio 补录与大量默认值修订），主线程已验证落盘；待三轮逐句校对 |
 | `shu-mei-pai/linux-nei-he.md` | `linux_kernel.adoc` | 已同步 | 0/3 | 代理 B4（完成） | 2026-10-20 | B4 整页重写已提交（`79d516b`），主线程已复核：7 节与上游一一对应（含 5 级标题）、BCM2712/kernel_2712 等齐备；待三轮逐句校对 |
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
-| `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 全页重写至当前上游，待三轮校对 |
+| `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 校对中 | 0/3 | 代理 G2 | 2026-10-20 | 全页重写至当前上游；本轮开始三轮逐句校对（上游主文件 61 行 + 31 个子文件，约 2000 行） |
 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `ai.adoc` | 已同步 | 0/3 | 代理 F7（完成） | 2026-10-20 | B9 落盘版逐句核验零改动，主线程已验证；待三轮逐句校对 |
 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 已同步 | 0/3 | 代理 F14（主线程复核） | 2026-10-20 | 27 个 H2 与上游 27 个 .adoc 一一对应；`boot-eeprom`（树莓派引导 EEPROM，line 144）与 `bootflow-legacy`（对应中文「引导顺序」节 line 1126，上游标题即 "Boot sequence"）均已存在且内容完整，原「缺节」误判已澄清；CP-3 抽查通过（无「」/xref/link/image 残留、围栏 224 偶数、弯引号 12/12、CRLF）；待三轮逐句校对 |
 | `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 已同步 | 0/3 | 代理 F7（完成） | 2026-10-20 | F7 完成 4 处修正（microSD→存储卡插槽），B5 落盘版核验可用，主线程已验证落盘；待三轮逐句校对 |
-| `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 已同步 | 0/3 | 主线程 | 2026-10-20 | CM5 时代全面同步，待三轮校对 |
-| `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 已同步 | 0/3 | 代理（已结束） | 2026-10-20 | 结构已对齐，待三轮校对 |
+| `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 校对中 | 0/3 | 代理 G1 | 2026-10-20 | CM5 时代全面同步；本轮开始三轮逐句校对（上游主文件 13 行 + 7 个子文件共 1280 行） |
+| `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 校对中 | 1/3 | 主线程 G0 | 2026-10-20 | 第一轮逐句对照完成：7 节与上游 7 个子文件一一对应；已发现 5 处提示块正文 `>` 后多余空格、1 处「金属散热片」增补（上游仅 heat spreader）、1 处漏译 "now"、1 处 heat spreader 与 heatsink 术语混同 |
 | `shu-mei-pai/io-kong-zhi-qi.md` | `io-controllers.adoc` | 已同步 | 1/3 | 代理 B8（完成） | 2026-10-20 | 8 处修订；RP1 规格与上游一致；视频宏改为普通链接。注意本文件为 LF，与仓库其他 CRLF 文件不同 |
 | `shu-mei-pai/ruan-jian-lai-yuan.md` | `software-sources.adoc` | 同步中 | 0/3 | 代理 F11 | 2026-10-20 | A10 失联，部分改动已落盘（`da040ea`），F11 核验补齐 |
 | `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 已同步 | 0/3 | 代理 F6（完成） | 2026-10-20 | F6 二次重做验收（8 H2；删除已迁移至现代页的旧版 GPIO 控制/armstub/sha256 节，23 项 grep 证据全中）；首轮报告失实源于 WSL 编辑器缓冲未刷盘，勘误已记录；待三轮逐句校对 |
@@ -207,8 +207,8 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 | 中文文件 | 上游 adoc | 状态 | 校对轮次 | 负责人 | 最后更新 | 备注 |
 | -------- | --------- | ---- | -------- | ------ | -------- | ---- |
-| `wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md` | `radio-modules.adoc` | 已同步 | 0/3 | 主线程 | 2026-10-20 | 本轮新建；含 RM2 规格与认证 |
-| `wei-kong-zhi-qi/rp2040.md` | `microcontroller-chips.adoc` | 已同步 | 0/3 | 主线程 | 2026-10-20 | H1 改为「微控制器芯片」；RP1 节仅保留指引 |
+| `wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md` | `radio-modules.adoc` | 校对中 | 0/3 | 主线程 G0 | 2026-10-20 | 本轮新建；含 RM2 规格与认证；开始三轮逐句校对（上游 7 行主文件 + rm2.adoc 58 行） |
+| `wei-kong-zhi-qi/rp2040.md` | `microcontroller-chips.adoc` | 校对中 | 0/3 | 主线程 G0 | 2026-10-20 | H1 改为「微控制器芯片」；RP1 节仅保留指引；本轮开始三轮逐句校对（上游 132 行主文件 + rp2040/rp2350 两子文件）；发现该文件存在 1 行 bare LF 混合换行待修 |
 | `wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md` | `pico-series.adoc` | 已同步 | 0/3 | 代理 F10（完成） | 2026-10-20 | F10 全页重写：上游结构重构（8 型号汇总表、两代变体表、SWD 表），23 个链接迁 pip.raspberrypi.com，主线程已验证落盘；待三轮逐句校对 |
 | `wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md` | `debug-probe.adoc` | 已同步 | 0/3 | 代理 F5（完成） | 2026-10-20 | F5 全量重写（8 H2；改用 VS Code 扩展安装路线、补 UART 连接、RTT 表），主线程已验证落盘；待三轮逐句校对 |
 | `wei-kong-zhi-qi/micropython.md` | `micropython.adoc` | 已同步 | 0/3 | 代理 F5（完成） | 2026-10-20 | F5 全量重写（4 H2；数据手册编号、Bug 列表与 Pico 2 W 变体），主线程已验证落盘；待三轮逐句校对 |
@@ -243,7 +243,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ## 五、当前进行中
 
-统计时间：2026-10-20 03:50。滚动更新：每次代理领取或结束时立即修改本节。
+统计时间：2026-10-20 15:05。滚动更新：每次代理领取或结束时立即修改本节。
 
 | 代理 | 负责文件 | 开始时间 | 目标检查点 | 状态 |
 | ---- | -------- | -------- | ---------- | ---- |
@@ -307,6 +307,10 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | F12 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 失联（无核验报告）：3 页成果已自动提交（`d7bcd04`），企业版页未处理；由 F13 接替 |
 | F13 | `fu-wu/` 4 页 | 2026-10-20 | CP-2 + CP-3 | 完成：账号 7 处、Connect 5 处、企业版 1 处修正，书架零改动（主线程已验证） |
 | F14 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 完成：主线程复核硬件页 27 H2 与上游 27 个 .adoc 文件一一对应，原判定「缺 boot-eeprom / bootflow-legacy 两节」为误判（两节均已存在且内容完整：`boot-eeprom`→「树莓派引导 EEPROM」line 144；`bootflow-legacy`→「引导顺序」line 1126），无需新增；CP-3 抽查通过 |
+
+| G0 | `shu-mei-pai/chu-li-qi.md`、`wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md`、`wei-kong-zhi-qi/rp2040.md` | 2026-10-20 | 三轮 + 复查 | 主线程执行：P0 队列点名的最小三页（137 / 58 / 244 行），逐句对照上游 |
+| G1 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| G2 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
 
 ## 六、待办队列
 
