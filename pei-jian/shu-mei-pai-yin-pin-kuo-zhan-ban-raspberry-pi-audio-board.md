@@ -169,8 +169,8 @@ $ grep -a . /proc/device-tree/hat/*
 
 终端将返回以下字符串之一：
 
-- `Raspberry Pi Ltd.`：无需进一步操作（参见下文的额外 Codec Zero 配置）。
-- `IQaudIO Limited`：无需进一步操作（参见下文的额外 Codec Zero 配置）。
+- `Raspberry Pi Ltd.`：无需进一步操作（参见[额外的 Codec Zero 配置](#额外的-codec-zero-configuration)）。
+- `IQaudIO Limited`：无需进一步操作（参见[额外的 Codec Zero 配置](#额外的-codec-zero-configuration)）。
 - `No such file or directory`：HAT 未被检测到。请执行以下操作：
   1. 关闭设备电源。
   2. 检查 HAT 与树莓派设备之间的物理连接。
