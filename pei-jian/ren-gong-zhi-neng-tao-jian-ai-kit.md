@@ -4,7 +4,7 @@
 
 树莓派 **AI 套件**（AI Kit）已停产，我们建议改用 [AI HAT](ai-hat.md) 页面中介绍的其中一款。你也可以在本页面进一步了解 Hailo NPU 所提供的 AI 技术；AI 套件，以及 AI HAT+ 中功能与之等同的 Hailo-8L 变体，都采用了这款 NPU。
 
-![树莓派 AI 套件](.gitbook/assets/ai-kit.jpg)
+![树莓派 AI 套件](../.gitbook/assets/ai-kit.jpg)
 
 树莓派 AI 套件
 
@@ -33,7 +33,7 @@ Hailo AI 模块提供：
 
 我们建议在树莓派 5 上安装主动散热器。如果你想跳过这一步，或者你的树莓派 5 已经安装了主动散热器，请直接进行下一步。
 
-![安装主动散热器](.gitbook/assets/ai-kit-installation-01.png)
+![安装主动散热器](../.gitbook/assets/ai-kit-installation-01.png)
 
 首先，请确保你的树莓派 5 已断开电源，然后：
 
@@ -58,15 +58,15 @@ M.2 HAT+ 通过 PCIe 接口连接到树莓派 5，PCIe 是一种用于连接硬�
 4. **将 PCIe 排线插入树莓派。** 将排线的另一端插入树莓派 5 上的 PCIe 接口。为此，先将树莓派 5 上 PCIe 接口的固定夹从两侧向上滑开，然后将排线插入 PCIe 接口。确保金属触点朝向内侧（即朝向 USB 接口）。
 5. **将 PCIe 排线固定到树莓派上。** 按住排线，将固定夹从两侧推回接口，确保排线插入均匀到位。
 
-![将 PCIe 排线插入树莓派](.gitbook/assets/ai-kit-installation-02.png)
+![将 PCIe 排线插入树莓派](../.gitbook/assets/ai-kit-installation-02.png)
 
 6. **安装扩展板。** 将扩展板的主要组件朝上，使扩展板上的安装孔与树莓派 5 上的间隔柱对齐。使用剩下的四颗（较短的）螺丝将扩展板固定到位。
 
-![安装扩展板](.gitbook/assets/ai-kit-installation-03.png)
+![安装扩展板](../.gitbook/assets/ai-kit-installation-03.png)
 
 7. **将 PCIe 排线插入扩展板。** 将排线未连接的一端插入扩展板上的 PCIe 接口。为此，先将扩展板上 PCIe 接口的固定夹从两侧向外滑开，然后将排线插入 PCIe 接口。
 
-![将 PCIe 排线插入扩展板](.gitbook/assets/ai-kit-installation-04.png)
+![将 PCIe 排线插入扩展板](../.gitbook/assets/ai-kit-installation-04.png)
 
 8. **将 PCIe 排线固定到扩展板上。** 按住排线，将固定夹从两侧推回接口，确保排线插入均匀到位。
 

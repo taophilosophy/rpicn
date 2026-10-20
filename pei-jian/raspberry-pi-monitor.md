@@ -4,7 +4,7 @@
 
 [树莓派显示器](https://www.raspberrypi.com/products/raspberry-pi-monitor/)是一款 15.6 英寸 1920 × 1080p IPS LCD 显示屏，可通过 HDMI 电缆连接到计算机。显示器还需要一个 USB-C 电源。要获得完整的亮度和音量范围，该电源必须是能够提供至少 1.5A 电流的 USB-PD 电源。
 
-![树莓派显示器](.gitbook/assets/monitor-hero.png)
+![树莓派显示器](../.gitbook/assets/monitor-hero.png)
 
 树莓派显示器
 
@@ -24,10 +24,10 @@
 
 | 消息 | 描述 |
 | :---: | :--- |
-| ![未检测到 HDMI 信号](.gitbook/assets/no-hdmi.png) | 未检测到 HDMI 信号。 |
-| ![待机模式](.gitbook/assets/no-valid-hdmi-signal-standby.png) | 显示器即将进入待机模式以节省功耗。 |
-| ![不支持的分辨率](.gitbook/assets/not-supported-resolution.png) | 不支持所连接设备的输出显示分辨率。 |
-| ![省电模式](.gitbook/assets/power-saving-mode.png) | 显示器正以省电模式运行，亮度和音量降低，因为它未连接到能够提供至少 1.5A 电流的电源。 |
+| ![未检测到 HDMI 信号](../.gitbook/assets/no-hdmi.png) | 未检测到 HDMI 信号。 |
+| ![待机模式](../.gitbook/assets/no-valid-hdmi-signal-standby.png) | 显示器即将进入待机模式以节省功耗。 |
+| ![不支持的分辨率](../.gitbook/assets/not-supported-resolution.png) | 不支持所连接设备的输出显示分辨率。 |
+| ![省电模式](../.gitbook/assets/power-saving-mode.png) | 显示器正以省电模式运行，亮度和音量降低，因为它未连接到能够提供至少 1.5A 电流的电源。 |
 
 此外，OSD 会用 🔆（太阳）符号提示显示屏亮度的变化，用 🔈（扬声器）符号提示扬声器音量的变化。亮度和音量均采用 0 到 100 的范围。
 
@@ -48,7 +48,7 @@
 
 * 将一体式支架完全向上翻起，朝向显示器顶部。使用钻孔模板创建两个相距 55 mm 的安装点。利用一体式支架背面的槽口悬挂显示器。
 
-  ![钻孔模板](.gitbook/assets/drill-hole-template.png)
+  ![钻孔模板](../.gitbook/assets/drill-hole-template.png)
 
   钻孔模板
 
@@ -95,6 +95,6 @@
 
 ### 机械图纸
 
-![机械图纸](.gitbook/assets/mechanical-drawing.png)
+![机械图纸](../.gitbook/assets/mechanical-drawing.png)
 
 机械图纸

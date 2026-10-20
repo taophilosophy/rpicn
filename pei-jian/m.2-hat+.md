@@ -2,9 +2,9 @@
 
 ## 关于
 
-![树莓派 M.2 HAT+](.gitbook/assets/m2-hat-plus.jpg)
+![树莓派 M.2 HAT+](../.gitbook/assets/m2-hat-plus.jpg)
 
-![树莓派 M.2 HAT+ Compact 装在树莓派外壳中](.gitbook/assets/m2-hat-plus-compact-with-case.jpg)
+![树莓派 M.2 HAT+ Compact 装在树莓派外壳中](../.gitbook/assets/m2-hat-plus-compact-with-case.jpg)
 
 树莓派 M.2 HAT+ M Key 和 M.2 HAT+ Compact M Key 可以让你把 M.2 外部设备（如 NVMe 存储设备和其他 PCIe 配件）连接到树莓派 5 的 PCIe 接口。
 
@@ -83,7 +83,7 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 1. M.2 HAT+ 兼容树莓派 5 主动散热器。如果你有主动散热器，请在安装 M.2 HAT+ 之前装好散热器。
 
-    ![安装主动散热器](.gitbook/assets/m2-hat-plus-installation-01.png)
+    ![安装主动散热器](../.gitbook/assets/m2-hat-plus-installation-01.png)
 
 ### 安装固定硬件
 
@@ -93,33 +93,33 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 4. 从两侧抬起树莓派 PCIe 接口上的排线固定器，然后将排线以金属触点朝向 USB 接口的方向插入。
 5. 将排线完全且均匀地插入 PCIe 接口后，从两侧向下按压排线固定器，将排线牢固地固定到位。
 
-    ![安装固定硬件](.gitbook/assets/m2-hat-plus-installation-02.png)
+    ![安装固定硬件](../.gitbook/assets/m2-hat-plus-installation-02.png)
 
 ### 安装转接板
 
 1. 将 M.2 HAT+ 放在间隔柱上，使用剩余的螺丝将其固定到位。
 
-    ![安装转接板](.gitbook/assets/m2-hat-plus-installation-03.png)
+    ![安装转接板](../.gitbook/assets/m2-hat-plus-installation-03.png)
 
 2. 将排线插入 M.2 HAT+ 上的插槽。
 
     从两侧抬起排线固定器，然后将排线以铜触点朝上的方向插入。将排线完全且均匀地插入接口后，从两侧向下按压排线固定器，将排线牢固地固定到位。
 
-    ![插入排线](.gitbook/assets/m2-hat-plus-installation-04.png)
+    ![插入排线](../.gitbook/assets/m2-hat-plus-installation-04.png)
 
 ### 安装你的 M.2 存储设备
 
 1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 Key 边缘连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
 
-    ![安装 M.2 存储设备](.gitbook/assets/m2-hat-plus-installation-05.png)
+    ![安装 M.2 存储设备](../.gitbook/assets/m2-hat-plus-installation-05.png)
 
 2. 将驱动器固定螺丝上的凹口推入你的 M.2 存储设备尾部的插槽。将存储设备平放贴紧 M.2 HAT+，然后顺时针旋转拧入 SSD 固定螺丝，直到感觉到 SSD 已固定。不要过度拧紧螺丝。
 
-    ![固定 M.2 存储设备](.gitbook/assets/m2-hat-plus-installation-06.png)
+    ![固定 M.2 存储设备](../.gitbook/assets/m2-hat-plus-installation-06.png)
 
 恭喜，你已成功安装 M.2 HAT+。
 
-![已安装的 M.2 HAT+](.gitbook/assets/m2-hat-plus-installation-07.png)
+![已安装的 M.2 HAT+](../.gitbook/assets/m2-hat-plus-installation-07.png)
 
 ## 安装 M.2 HAT+ Compact
 
@@ -129,33 +129,33 @@ M.2 HAT+ 还附带一个 16 mm GPIO 堆叠排针；M.2 HAT+ Compact 不含此部
 
 1. 使用随附的螺丝安装间隔柱。
 
-    ![安装固定硬件](.gitbook/assets/m2-hat-plus-compact-installation-02.png)
+    ![安装固定硬件](../.gitbook/assets/m2-hat-plus-compact-installation-02.png)
 
 ### 安装转接板
 
 1. 将 M.2 HAT+ Compact 放在间隔柱上，使用剩余的螺丝将其固定到位。
 
-    ![安装转接板](.gitbook/assets/m2-hat-plus-compact-installation-03.png)
+    ![安装转接板](../.gitbook/assets/m2-hat-plus-compact-installation-03.png)
 
 2. 将排线插入树莓派的 PCIe 接口。
 
     从两侧抬起排线固定器，然后将排线以铜触点朝内、朝向 USB 接口的方向插入。将排线完全且均匀地插入 PCIe 接口后，从两侧向下按压排线固定器，将排线牢固地固定到位。
 
-    ![插入排线](.gitbook/assets/m2-hat-plus-compact-installation-04.png)
+    ![插入排线](../.gitbook/assets/m2-hat-plus-compact-installation-04.png)
 
 ### 安装你的 M.2 存储设备
 
 1. 逆时针旋转螺丝，取下驱动器固定螺丝。将你的 M.2 固态硬盘插入 M.2 Key 边缘连接器，以轻微向上的角度将存储设备滑入插槽。不要强行将存储设备插入插槽：它应该能轻轻滑入。
 
-    ![安装 M.2 存储设备](.gitbook/assets/m2-hat-plus-compact-installation-05.png)
+    ![安装 M.2 存储设备](../.gitbook/assets/m2-hat-plus-compact-installation-05.png)
 
 2. 将驱动器固定螺丝上的凹口推入你的 M.2 存储设备尾部的插槽。将存储设备平放贴紧 M.2 HAT+ Compact，然后顺时针旋转拧入 SSD 固定螺丝，直到感觉到 SSD 已固定。不要过度拧紧螺丝。
 
-    ![固定 M.2 存储设备](.gitbook/assets/m2-hat-plus-compact-installation-06.png)
+    ![固定 M.2 存储设备](../.gitbook/assets/m2-hat-plus-compact-installation-06.png)
 
 恭喜，你已成功安装 M.2 HAT+ Compact。
 
-![已安装的 M.2 HAT+ Compact](.gitbook/assets/m2-hat-plus-compact-installation-07.png)
+![已安装的 M.2 HAT+ Compact](../.gitbook/assets/m2-hat-plus-compact-installation-07.png)
 
 ## 启动你的树莓派
 

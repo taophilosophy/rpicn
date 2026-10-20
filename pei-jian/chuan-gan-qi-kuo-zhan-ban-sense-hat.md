@@ -4,7 +4,7 @@
 
 [树莓派传感器扩展板（Sense HAT）](https://www.raspberrypi.com/products/sense-hat/)可为你的树莓派提供一系列传感功能。板载传感器可让你监测压力、湿度、温度、颜色、方向和运动。8×8 RGB LED 矩阵可让你将传感器数据可视化，五按钮摇杆可供用户与你的项目交互。
 
-![树莓派传感器扩展板（Sense HAT）](.gitbook/assets/Sense-HAT.jpg)
+![树莓派传感器扩展板（Sense HAT）](../.gitbook/assets/Sense-HAT.jpg)
 
 Sense HAT 最初是为国际空间站开发的，属于[树莓派基金会](https://raspberrypi.org/)与[欧洲航天局](https://www.esa.int/)合作开展的 [Astro Pi](https://astro-pi.org/) 教育计划的一部分。你可以借助它完成任何需要位置、运动、方向或环境传感的项目。
 

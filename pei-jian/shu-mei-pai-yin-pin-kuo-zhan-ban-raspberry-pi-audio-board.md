@@ -28,7 +28,7 @@
 
 树莓派 DAC Pro 扩展板是我们保真度最高的数模转换器（DAC）。
 
-![DAC Pro Board Diagram](.gitbook/assets/DAC_Pro_Board_Diagram.jpg)
+![DAC Pro Board Diagram](../.gitbook/assets/DAC_Pro_Board_Diagram.jpg)
 
 DAC Pro 采用 Texas Instruments PCM5242，信噪比（SNR）表现出色，并在 Phono/RCA 线路电平输出之外支持平衡/差分输出。它还带有专用耳机放大器。DAC Pro 由树莓派通过 GPIO 排针供电。
 
@@ -46,7 +46,7 @@ DAC Pro 采用 Texas Instruments PCM5242，信噪比（SNR）表现出色，并�
 
 Pi-DAC PRO 引出了一个 6 针排针，供可选的 XLR 扩展板使用，通过位于树莓派设备 USB/以太网接口上方的 XLR 插座提供差分/平衡输出。
 
-![optional xlr board](.gitbook/assets/optional_xlr_board.jpg)
+![optional xlr board](../.gitbook/assets/optional_xlr_board.jpg)
 
 XLR 连接器用于工作室及部分高端高保真系统，也可用于驱动迪斯科舞厅或舞台上使用的有源“监听”扬声器。
 
@@ -54,7 +54,7 @@ XLR 连接器用于工作室及部分高端高保真系统，也可用于驱动�
 
 树莓派 DAC+ 是一款高分辨率音频输出扩展板，可提供 24 位 192 kHz 数字音频输出。
 
-![DAC+ Board Diagram](.gitbook/assets/DAC+_Board_Diagram.jpg)
+![DAC+ Board Diagram](../.gitbook/assets/DAC+_Board_Diagram.jpg)
 
 DAC+ 采用 Texas Instruments PCM5122，将模拟音频输出到设备的 Phono 连接器。它还带有专用耳机放大器，并由树莓派通过 GPIO 排针供电。
 
@@ -76,7 +76,7 @@ DigiAMP+ 采用 Texas Instruments TAS5756M PowerDAC，必须由外部电源供�
 >
 >DigiAMP+ 设计用于树莓派 3 及更早的设备。如果将其与树莓派 4 或更新的设备搭配使用，请使用带外部供电的 USB 集线器，避免 USB 接口给设备带来额外负载；否则很可能触发低电压警告。
 
-![DigiAmp+ 扩展板俯视图，展示丝印和元件](.gitbook/assets/DigiAMP+_Board_Diagram.jpg)
+![DigiAmp+ 扩展板俯视图，展示丝印和元件](../.gitbook/assets/DigiAMP+_Board_Diagram.jpg)
 
 DigiAMP+ 的电源输入桶形连接器尺寸为 5.5 mm × 2.5 mm。
 
@@ -117,7 +117,7 @@ DigiAMP+ 可同时为树莓派和自身并联供电，并通过 GPIO 排针向�
 * 五段均衡器
 * 单声道线路输出/迷你扬声器驱动器：1.2 W @ 5V，THD < 10%，R = 8 Ω
 
-![Codec Zero Board Diagram](.gitbook/assets/Codec_Zero_Board_Diagram.jpg)
+![Codec Zero Board Diagram](../.gitbook/assets/Codec_Zero_Board_Diagram.jpg)
 
 Codec Zero 内置 EEPROM，必要时可用于自动配置 Linux 环境。它带有集成 MEMS 麦克风，可通过 3.5 mm 插孔使用立体声麦克风输入，并可连接单声道扬声器（1.2W/8Ω）。
 
@@ -129,7 +129,7 @@ Codec Zero 内置 EEPROM，必要时可用于自动配置 Linux 环境。它带�
 | -- | -- |
 | **P1** | 第 1 针为方形。 |
 
-![CODEC ZERO ZOOMED IN DIAGRAM](.gitbook/assets/CODEC_ZERO_ZOOMED_IN_DIAGRAM.jpg)
+![CODEC ZERO ZOOMED IN DIAGRAM](../.gitbook/assets/CODEC_ZERO_ZOOMED_IN_DIAGRAM.jpg)
 
 对于对讲机、智能门铃、复古收音机改造或智能音箱等小型项目，Codec Zero 都是理想的设计起点。
 
@@ -198,7 +198,7 @@ dtoverlay=rpi-digiampplus
 1. 右键单击屏幕右上角的音频设置。
 2. 在板载音频设置和 HAT 音频设置之间切换。
 
-![gui](.gitbook/assets/gui.png)
+![gui](../.gitbook/assets/gui.png)
 
 你还可以禁用板载音频设备，使树莓派音频扩展板成为树莓派系统中的主要音频设备。
 
@@ -426,7 +426,7 @@ $ alsamixer
 
 作为树莓派音频扩展板功能的一个示例，让我们一起来制作一个玩具聊天盒。其板载麦克风、可编程按钮和扬声器驱动器使 Codec Zero 成为这一应用的理想选择。
 
-![Chatter Box](.gitbook/assets/Chatter_Box.jpg)
+![Chatter Box](../.gitbook/assets/Chatter_Box.jpg)
 
 按下按钮时，将随机播放一段预录的 5 秒音频片段。按住 10 秒后，会发出一声提示用的打嗝声，随后录制一段新的 5 秒片段。按住按钮超过 20 秒将播放第二声打嗝，然后删除之前所有的录音。
 
@@ -434,7 +434,7 @@ $ alsamixer
 
 对于这个项目，任何小型无源扬声器基本都够用。我们使用的是[这款扬声器](https://shop.pimoroni.com/products/3-speaker-4-3w?variant=380549926)，它在 4 Ω 下可承受 5 W 功率。我们还使用了一个带照明的瞬时按钮和一个激光切割的盒子来容纳所有组件；但两者都完全可选。仅使用 Codec Zero 的板载按钮（已预先连接到 GPIO 27）也可以运行本示例。（或者，你也可以使用任何瞬时按钮，例如[这款](https://shop.pimoroni.com/products/mini-arcade-buttons?variant=40377171274)。）
 
-![Chatterbox Labels](.gitbook/assets/Chatterbox_Labels.png)
+![Chatterbox Labels](../.gitbook/assets/Chatterbox_Labels.png)
 
 使用小号一字螺丝刀将扬声器连接到螺钉端子。对于额外的按钮，如有需要，请将按钮导线按图示直接焊接到 Codec Zero 的焊盘上：开关使用 GPIO 27 针脚和地线，LED 使用 +3.3V 和地线。
 
@@ -588,11 +588,11 @@ $ crontab -e
 
 ### DAC PRO、DAC+、DigiAMP+、Codec Zero
 
-![all audio boards gpio pinouts](.gitbook/assets/all_audio_boards_gpio_pinouts.png)
+![all audio boards gpio pinouts](../.gitbook/assets/all_audio_boards_gpio_pinouts.png)
 
 DAC PRO、DAC+ 和 DigiAMP+ 重新引出了树莓派信号，便于添加额外的传感器和外设。部分信号为某些扩展板专用（I2S 和 EEPROM）；其他信号（如 I2C）可在多块扩展板之间共享。
 
-![pin out new](.gitbook/assets/pin_out_new.png)
+![pin out new](../.gitbook/assets/pin_out_new.png)
 
 ### 保存 AlsaMixer 设置
 
@@ -642,7 +642,7 @@ audio_output {
 
 在编程过程中，你需要用导线连接红框中所示的两个焊盘，以拉低 EEPROM 写保护跳线。
 
-![write protect tabs](.gitbook/assets/write_protect_tabs.jpg)
+![write protect tabs](../.gitbook/assets/write_protect_tabs.jpg)
 
 >**注意**
 >
@@ -662,11 +662,11 @@ $ sudo rpi-audio-flash
 
 启动后，你将看到一个警告界面。
 
-![warning](.gitbook/assets/warning.png)
+![warning](../.gitbook/assets/warning.png)
 
 选择 *Yes* 继续。你将看到一个菜单，可在其中选择你的硬件。
 
-![select](.gitbook/assets/select.png)
+![select](../.gitbook/assets/select.png)
 
 >**注意**
 >
@@ -674,11 +674,11 @@ $ sudo rpi-audio-flash
 
 选择硬件后，屏幕会显示新固件正在刷入 HAT 的界面。
 
-![flashing](.gitbook/assets/flashing.png)
+![flashing](../.gitbook/assets/flashing.png)
 
 随后会显示一个界面，告知你新固件已安装。
 
-![flashed](.gitbook/assets/flashed.png)
+![flashed](../.gitbook/assets/flashed.png)
 
 >**注意**
 >

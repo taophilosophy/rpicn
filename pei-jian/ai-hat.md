@@ -4,11 +4,11 @@ AI HAT 是树莓派 5 的附加板，内置 AI 加速芯片：Hailo 神经处理
 
 AI HAT 采用较新的树莓派 HAT 规范，名称中的加号（**+**）即表示这一点。AI HAT 有两种型号：**AI HAT+** 和 **AI HAT+ 2**。更多信息请参阅[型号](#型号)。这些 AI HAT 提供不同的性能变体，以推理性能的每秒万亿次运算（TOPS）衡量。AI HAT+ 有 **13 TOPS** 和 **26 TOPS** 两种变体；AI HAT+ 2 只有 **40 TOPS** 一种变体。更多信息请参阅[性能（TOPS）变体](#性能tops变体)。
 
-![26 TOPS（每秒万亿次运算）的树莓派 AI HAT+](.gitbook/assets/ai-hat-plus-hero.jpg)
+![26 TOPS（每秒万亿次运算）的树莓派 AI HAT+](../.gitbook/assets/ai-hat-plus-hero.jpg)
 
 26 TOPS（每秒万亿次运算）的树莓派 AI HAT+
 
-![40 TOPS（每秒万亿次运算）的树莓派 AI HAT+ 2](.gitbook/assets/ai-hat-plus-2-hero.jpg)
+![40 TOPS（每秒万亿次运算）的树莓派 AI HAT+ 2](../.gitbook/assets/ai-hat-plus-2-hero.jpg)
 
 40 TOPS（每秒万亿次运算）的树莓派 AI HAT+ 2
 
@@ -55,17 +55,17 @@ AI HAT 与树莓派 5 集成，利用板载 Hailo NPU（加速芯片）提供硬
 
 下图展示了 AI HAT+ 的大致物理尺寸，单位为毫米（mm）。AI HAT+ 约为 66 mm × 56.5 mm。Hailo NPU 周围有金属外壳，使其约为 17 mm × 17 mm。
 
-![AI HAT+ 的机械图；所有测量值均为近似值，单位为毫米](.gitbook/assets/aihat-plus-mechanical.png)
+![AI HAT+ 的机械图；所有测量值均为近似值，单位为毫米](../.gitbook/assets/aihat-plus-mechanical.png)
 
 ### AI HAT+ 2 与散热器规格
 
 下图展示了 AI HAT+ 2 的大致物理尺寸，单位为毫米（mm）。AI HAT+ 2 约为 66 mm × 56.5 mm。Hailo NPU 约为 15 mm × 15 mm，SDRAM 约为 14.5 mm × 10 mm。
 
-![AI HAT+ 2 的机械图；所有测量值均为近似值，单位为毫米](.gitbook/assets/aihat-plus-2-mechanical.png)
+![AI HAT+ 2 的机械图；所有测量值均为近似值，单位为毫米](../.gitbook/assets/aihat-plus-2-mechanical.png)
 
 下图展示了 AI HAT+ 2 散热器的大致物理尺寸，单位为毫米（mm）。算上两个用于固定散热器、带推入式销钉孔的角，散热器约为 42.5 mm × 64 mm。装上推入式销钉后，AI HAT+ 2 的高度约为 14 mm；不装时约为 3.2 mm。
 
-![AI HAT+ 2 散热器的机械图；所有测量值均为近似值，单位为毫米](.gitbook/assets/aihat-plus-2-heatsink-mechanical.png)
+![AI HAT+ 2 散热器的机械图；所有测量值均为近似值，单位为毫米](../.gitbook/assets/aihat-plus-2-heatsink-mechanical.png)
 
 ## 硬件组装
 
@@ -81,7 +81,7 @@ AI HAT+ 和 AI HAT+ 2 均附带以下安装硬件：
 - 一个 GPIO 堆叠排针。
 - 一根排线。
 
-![AI HAT 的安装硬件](.gitbook/assets/ai-hat-plus-installation-02.png)
+![AI HAT 的安装硬件](../.gitbook/assets/ai-hat-plus-installation-02.png)
 
 此外，你还需要：
 
@@ -97,7 +97,7 @@ AI HAT+ 2 附带一个额外的散热器，需安装在 HAT 顶部。我们建�
 
 我们建议在树莓派 5 上安装主动散热器。如果你想跳过此步骤，或者你的树莓派 5 已经安装了主动散热器，请继续下一步。
 
-![将主动散热器安装到树莓派 5 上](.gitbook/assets/ai-hat-plus-installation-01.png)
+![将主动散热器安装到树莓派 5 上](../.gitbook/assets/ai-hat-plus-installation-01.png)
 
 首先，确保树莓派 5 已断开电源。然后：
 

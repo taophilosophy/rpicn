@@ -44,7 +44,7 @@
 
 ### 计算模块 5
 
-![计算模块 5](.gitbook/assets/cm5.png)
+![计算模块 5](../.gitbook/assets/cm5.png)
 
 计算模块 5（CM5）融合了树莓派 5 的核心组件，并可选配闪存存储。主要特性包括：
 
@@ -57,7 +57,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 4S
 
-![计算模块 4S](.gitbook/assets/cm4s.jpg)
+![计算模块 4S](../.gitbook/assets/cm4s.jpg)
 
 计算模块 4S（CM4S）融合了树莓派 4 的核心组件，并可选配闪存存储。主要特性包括：
 
@@ -71,7 +71,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 4
 
-![计算模块 4](.gitbook/assets/cm4.jpg)
+![计算模块 4](../.gitbook/assets/cm4.jpg)
 
 计算模块 4（CM4）融合了树莓派 4 的核心组件，并可选配闪存存储。主要特性包括：
 
@@ -90,7 +90,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 3+
 
-![计算模块 3+](.gitbook/assets/cm3-plus.jpg)
+![计算模块 3+](../.gitbook/assets/cm3-plus.jpg)
 
 计算模块 3+（CM3+）融合了树莓派 3 Model B+ 的核心组件，并可选配闪存存储。主要特性包括：
 
@@ -101,7 +101,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 3
 
-![计算模块 3](.gitbook/assets/compute-module-cm3.jpg)
+![计算模块 3](../.gitbook/assets/compute-module-cm3.jpg)
 
 >**重要**
 >
@@ -116,7 +116,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 1
 
-![计算模块 1](.gitbook/assets/cm1.jpg)
+![计算模块 1](../.gitbook/assets/cm1.jpg)
 
 计算模块 1（CM1）融合了树莓派 Model B 的核心组件，并配备 4 GB 闪存。主要特性包括：
 
@@ -153,7 +153,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 5 IO 板
 
-![计算模块 5 IO 板](.gitbook/assets/cm5io.png)
+![计算模块 5 IO 板](../.gitbook/assets/cm5io.png)
 
 计算模块 5 IO 板（CM5IO）提供以下功能：
 
@@ -180,7 +180,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 4 IO 板
 
-![计算模块 4 IO 板](.gitbook/assets/cm4io.jpg)
+![计算模块 4 IO 板](../.gitbook/assets/cm4io.jpg)
 
 计算模块 4 IO 板（CM4IO）提供以下功能：
 
@@ -207,7 +207,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### 计算模块 IO 板（版本 1 和 3）
 
-![计算模块 IO 板（版本 3）](.gitbook/assets/cmio.jpg)
+![计算模块 IO 板（版本 3）](../.gitbook/assets/cmio.jpg)
 
 计算模块 IO 板有两个版本：
 
@@ -237,7 +237,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 ### CM5IO 机箱
 
-![计算模块 5 IO 板机箱（版本 2）](.gitbook/assets/cm5io-case-v2.jpg)
+![计算模块 5 IO 板机箱（版本 2）](../.gitbook/assets/cm5io-case-v2.jpg)
 
 计算模块 5 IO 板（CM5IO）机箱是一个两件式金属外壳，组装后可为装有 CM5 的 CM5IO 提供物理保护。
 
@@ -253,7 +253,7 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 #### 机箱规格
 
-![CM5IO 机箱端口](.gitbook/assets/cm5io-case-front.png)
+![CM5IO 机箱端口](../.gitbook/assets/cm5io-case-front.png)
 
 组装后，CM5IO 机箱的尺寸约为 170 mm × 94 mm × 28 mm。它由金属板制成，重约 350 g。
 
@@ -261,13 +261,13 @@ CM5 与 *CM4* 采用相同的外形规格，并提供标准树莓派板卡之外
 
 下图展示了 CM5IO 机箱的物理尺寸（单位：毫米）。两个版本的机箱尺寸相同，唯一区别是风扇的位置。有关不同版本的信息，请参见[机箱版本](#机箱版本)。
 
-![CM5IO 机箱（版本 2）物理规格](.gitbook/assets/case-physical.png)
+![CM5IO 机箱（版本 2）物理规格](../.gitbook/assets/case-physical.png)
 
 #### 机箱版本
 
 CM5IO 机箱有两个版本，区别在于预装风扇的位置：版本 1 和版本 2。
 
-![左：CM5IO 机箱版本 1；右：CM5IO 机箱版本 2](.gitbook/assets/case-versions.jpg)
+![左：CM5IO 机箱版本 1；右：CM5IO 机箱版本 2](../.gitbook/assets/case-versions.jpg)
 
 版本 1 的风扇更靠近外壳的长边。该版本的内部布局和可用间隙不允许同时将风扇和 CM5 散热器安装在机箱内。如果要将 CM5 散热器装进机箱，必须先拆下风扇。
 
@@ -302,13 +302,13 @@ CM5IO 机箱有两个版本，区别在于预装风扇的位置：版本 1 和�
 
 树莓派天线套件提供经过认证的外置天线，用于增强 CM4 或 CM5 的无线接收能力。
 
-![连接到 CM4 的天线](.gitbook/assets/cm4-cm5-antenna.jpg)
+![连接到 CM4 的天线](../.gitbook/assets/cm4-cm5-antenna.jpg)
 
 #### 天线规格
 
 该天线支持双频 Wi-Fi，可连接到 CM4 或 CM5 上的 [U.FL 连接器](https://en.wikipedia.org/wiki/Hirose_U.FL)。天线完全展开时高约 108.5 mm，弯折 90 度时长约 87.5 mm；SMA 转 U.FL 电缆长约 205 mm。
 
-![CM4 和 CM5 天线物理规格](.gitbook/assets/cm4-cm5-antenna-physical.png)
+![CM4 和 CM5 天线物理规格](../.gitbook/assets/cm4-cm5-antenna-physical.png)
 
 #### 通过 CM5IO 机箱连接天线
 
@@ -322,7 +322,7 @@ CM5IO 机箱有两个版本，区别在于预装风扇的位置：版本 1 和�
 
 现在你可以完成[机箱组装](#机箱组装)中剩余的步骤，将 CM5IO 装入机箱。
 
-![CM4 和 CM5 天线组装图](.gitbook/assets/cm4-cm5-antenna-assembly.svg)
+![CM4 和 CM5 天线组装图](../.gitbook/assets/cm4-cm5-antenna-assembly.svg)
 
 要将天线与计算模块配合使用，请在 `/boot/firmware/config.txt` 中添加 `dtparam` 指令。在 `config.txt` 文件末尾添加以下行：`dtparam=ant2`
 
@@ -330,13 +330,13 @@ CM5IO 机箱有两个版本，区别在于预装风扇的位置：版本 1 和�
 
 CM5 散热器是无源散热片，帮助散发 CM5 的热量，从而改善 CPU 性能并延长使用寿命。
 
-![CM5 散热器](.gitbook/assets/cm5-cooler.jpg)
+![CM5 散热器](../.gitbook/assets/cm5-cooler.jpg)
 
 #### 散热器规格
 
 CM5 散热器的尺寸约为 41 mm × 56 mm × 12.7 mm。它是一款铝制散热片，底部带有导热硅胶垫。较新版本的 [CM5IO 机箱](#cm5io-机箱)允许同时将散热器和预装风扇装入机箱。如果你使用的是旧版 CM5IO 机箱，必须拆下风扇才能为散热器腾出空间。
 
-![CM5 散热器物理规格](.gitbook/assets/cm5-cooler-physical.png)
+![CM5 散热器物理规格](../.gitbook/assets/cm5-cooler-physical.png)
 
 #### 安装 CM5 散热器
 
@@ -803,11 +803,11 @@ $ sudo apt full-upgrade
 1. 断开计算模块的电源。
 2. 使用 RPI-CAMERA 板或树莓派 Zero 摄像头电缆将摄像头模块连接到 CAM1 接口。
 
-![连接到转接板](.gitbook/assets/CMIO-Cam-Adapter.jpg)
+![连接到转接板](../.gitbook/assets/CMIO-Cam-Adapter.jpg)
 
 3. （仅限 CM5）：按照板上的书面说明，在 J6 上装两个跳线。
 
-![CAM1 的 J6 跳线](.gitbook/assets/cm5io-j6-cam1.png)
+![CAM1 的 J6 跳线](../.gitbook/assets/cm5io-j6-cam1.png)
 
 4. （仅限 CM1、CM3、CM3+ 和 CM4S）：使用跳线电缆连接以下 GPIO 引脚：
 
@@ -816,7 +816,7 @@ $ sudo apt full-upgrade
     * 2 到 CAM1_I01
     * 3 到 CAM1_I00
 
-![单个摄像头的 GPIO 连接](.gitbook/assets/CMIO-Cam-GPIO.jpg)
+![单个摄像头的 GPIO 连接](../.gitbook/assets/CMIO-Cam-GPIO.jpg)
 
 5. 将计算模块重新连接到电源。
 6. 如果 `/boot/firmware/config.txt` 中存在以下行，请删除（或用前缀 `#` 注释掉）：
@@ -865,7 +865,7 @@ $ sudo apt full-upgrade
 2. 断开计算模块的电源。
 3. 使用 RPI-CAMERA 板或树莓派 Zero 摄像头电缆将摄像头模块连接到 CAM0 接口。
 
-![连接到转接板](.gitbook/assets/CMIO-Cam-Adapter.jpg)
+![连接到转接板](../.gitbook/assets/CMIO-Cam-Adapter.jpg)
 
 4. （仅限 CM1、CM3、CM3+ 和 CM4S）：使用跳线连接以下 GPIO 引脚：
 
@@ -874,11 +874,11 @@ $ sudo apt full-upgrade
     * 30 到 CAM0_I01
     * 31 到 CAM0_I00
 
-![搭载附加摄像头的 GPIO 连接](.gitbook/assets/CMIO-Cam-GPIO2.jpg)
+![搭载附加摄像头的 GPIO 连接](../.gitbook/assets/CMIO-Cam-GPIO2.jpg)
 
 5. （CM4）：使用两根垂直方向的跳线连接 J6 GPIO 引脚。
 
-![连接到垂直方向的 J6 GPIO 引脚](.gitbook/assets/j6_vertical.jpg)
+![连接到垂直方向的 J6 GPIO 引脚](../.gitbook/assets/j6_vertical.jpg)
 
 6. 将计算模块重新连接到电源。
 7. （仅限 CM1、CM3、CM3+ 和 CM4S）：向 `/boot/firmware/config.txt` 添加以下指令，将 GPIO 31 分配为 CAM0 稳压器：
@@ -1100,4 +1100,4 @@ CM1、CM3、CM3+ 和 CM4S I/O 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO �
 
 以下原理图描述了旧款树莓派型号中使用的欠压检测电路：
 
-![欠压检测](.gitbook/assets/under_voltage_detect.png)
+![欠压检测](../.gitbook/assets/under_voltage_detect.png)

@@ -8,7 +8,7 @@
 >
 >树莓派 Build 扩展板目前尚不支持树莓派系统 *Trixie*。要使用 Build 扩展板，请暂时安装或继续使用树莓派系统 *Bookworm*。
 
-![Build 扩展板](.gitbook/assets/build-hat.jpg)
+![Build 扩展板](../.gitbook/assets/build-hat.jpg)
 
 >**注意**
 >
@@ -20,7 +20,7 @@ Build 扩展板适用于所有带有 40 引脚 GPIO 排针的树莓派计算机�
 
 树莓派 Build 扩展板的电源适配器（PSU）[单独出售](https://raspberrypi.com/products/build-hat-power-supply)，旨在为 Build 扩展板、树莓派计算机以及所有连接的乐高®机械组设备供电。
 
-![电源适配器](.gitbook/assets/psu.jpg)
+![电源适配器](../.gitbook/assets/psu.jpg)
 
 SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 可从乐高®教育经销商处单独购买，其中包含一组 Build 扩展板支持的实用元件。
 
@@ -46,13 +46,13 @@ SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 可从乐高®
 
 将 9 mm 间隔柱装到板的底部。将树莓派 Build 扩展板安装到你的树莓派上。确保方向正确。与其他扩展板不同，所有组件都在底部，为顶部的面包板或乐高®元件留出空间。
 
-![安装 Build 扩展板](.gitbook/assets/fitting-build-hat.webm)
+![安装 Build 扩展板](../.gitbook/assets/fitting-build-hat.webm)
 
 ### 访问 GPIO 引脚
 
 如果你想访问树莓派的 GPIO 引脚，可以添加一个可选的长排针，并使用 15 mm 间隔柱。
 
-![长排针](.gitbook/assets/tall-headers.jpg)
+![长排针](../.gitbook/assets/tall-headers.jpg)
 
 下面的引脚由 Build 扩展板本身使用；请勿将任何东西连接到这些引脚上。
 
@@ -71,29 +71,29 @@ SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 可从乐高®
 
 选择 **Interfaces** 选项卡，并按照下图所示调整串口设置：
 
-![设置](.gitbook/assets/setting-up.png)
+![设置](../.gitbook/assets/setting-up.png)
 
 #### 以无头方式使用树莓派
 
 如果你以无头方式运行树莓派，并使用 `raspi-config`，请从第一个菜单中选择 “Interface Options”。
 
-![raspi config 1](.gitbook/assets/raspi-config-1.png)
+![raspi config 1](../.gitbook/assets/raspi-config-1.png)
 
 然后选择 “P6 Serial Port”。
 
-![raspi config 2](.gitbook/assets/raspi-config-2.png)
+![raspi config 2](../.gitbook/assets/raspi-config-2.png)
 
 禁用串口控制台：
 
-![raspi config 3](.gitbook/assets/raspi-config-3.png)
+![raspi config 3](../.gitbook/assets/raspi-config-3.png)
 
 然后启用串口硬件。
 
-![raspi config 4](.gitbook/assets/raspi-config-4.png)
+![raspi config 4](../.gitbook/assets/raspi-config-4.png)
 
 最终设置如下所示。
 
-![raspi config 5](.gitbook/assets/raspi-config-5.png)
+![raspi config 5](../.gitbook/assets/raspi-config-5.png)
 
 如果你在此期间进行了一些更改，此时需要重启。
 
@@ -105,7 +105,7 @@ SPIKE™ Prime 套装 45678 和 SPIKE™ Prime 扩展套装 45681 可从乐高®
 >
 >Build 扩展板无法为键盘系列设备供电，因为它们不支持通过 GPIO 排针供电。
 
-![扩展板供电](.gitbook/assets/powering-build-hat.webm)
+![扩展板供电](../.gitbook/assets/powering-build-hat.webm)
 
 >**注意**
 >
@@ -133,7 +133,7 @@ $ sudo apt install python3-build-hat
 
 将电机连接到 Build 扩展板上的 A 端口。LPF2 连接器需要以正确的方向插入。如果连接器无法轻松滑入，请旋转 180 度后重试。
 
-![接入电机](.gitbook/assets/connect-motor.webm)
+![接入电机](../.gitbook/assets/connect-motor.webm)
 
 #### 使用电机
 
@@ -149,11 +149,11 @@ motor_a.run_for_seconds(5)
 
 通过单击播放/运行按钮来运行程序。如果这是自树莓派启动以来首次运行 Build 扩展板程序，固件复制到板上的过程中会暂停几秒。红色 LED 熄灭，绿色 LED 点亮。此后运行 Python 程序就不再需要这段等待。
 
-![熄灭灯](.gitbook/assets/blinking-light.webm)
+![熄灭灯](../.gitbook/assets/blinking-light.webm)
 
 你的电机顺时针转动 5 秒。
 
-![电机转动](.gitbook/assets/turning-motor.webm)
+![电机转动](../.gitbook/assets/turning-motor.webm)
 
 更改程序的最后一行并重新运行。
 
@@ -397,7 +397,7 @@ train.SetBias(0.2);
 
 #### 被动电机
 
-![火车电机](.gitbook/assets/train-motor.png)
+![火车电机](../.gitbook/assets/train-motor.png)
 
 [火车电机，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0896c01)
 
@@ -434,7 +434,7 @@ train.Stop();
 
 #### 主动电机
 
-![主动电机](.gitbook/assets/active-motor.png)
+![主动电机](../.gitbook/assets/active-motor.png)
 
 [主动电机，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0960c01)
 
@@ -543,7 +543,7 @@ void ButtonPropertyEvent(object? sender, PropertyChangedEventArgs e)
 
 #### 被动灯光
 
-![被动灯光](.gitbook/assets/passive-light.png)
+![被动灯光](../.gitbook/assets/passive-light.png)
 
 [被动灯光，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=22168c01)
 
@@ -572,7 +572,7 @@ light.Off()
 
 #### WeDo 倾斜传感器
 
-![WeDo 倾斜传感器](.gitbook/assets/wedo-tilt.png)
+![WeDo 倾斜传感器](../.gitbook/assets/wedo-tilt.png)
 
 [WeDo 倾斜传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=20841)
 
@@ -595,7 +595,7 @@ while(!console.KeyAvailable)
 
 #### WeDo 距离传感器
 
-![WeDo 距离传感器](.gitbook/assets/wedo-distance.png)
+![WeDo 距离传感器](../.gitbook/assets/wedo-distance.png)
 
 [WeDo 距离传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=20844)
 
@@ -614,7 +614,7 @@ while(!console.KeyAvailable)
 
 #### SPIKE Prime 力传感器
 
-![SPIKE 力传感器](.gitbook/assets/spike-force.png)
+![SPIKE 力传感器](../.gitbook/assets/spike-force.png)
 
 [SPIKE 力传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37312c01)
 
@@ -633,7 +633,7 @@ while(!force.IsPressed)
 
 #### SPIKE Essential 3×3 彩色灯光矩阵
 
-![SPIKE Essential 3×3 彩色灯光矩阵](.gitbook/assets/3x3matrix.png)
+![SPIKE Essential 3×3 彩色灯光矩阵](../.gitbook/assets/3x3matrix.png)
 
 [SPIKE 3×3 矩阵，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=47592c01)
 
@@ -667,13 +667,13 @@ matrix.DisplayColorPerPixel(brg, col);
 
 SPIKE 颜色传感器：
 
-![SPIKE 颜色传感器](.gitbook/assets/spike-color.png)
+![SPIKE 颜色传感器](../.gitbook/assets/spike-color.png)
 
 [SPIKE 颜色传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37308c01)
 
 颜色和距离传感器：
 
-![颜色和距离传感器](.gitbook/assets/color-distance.png)
+![颜色和距离传感器](../.gitbook/assets/color-distance.png)
 
 [颜色距离传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0891c01)
 
@@ -707,7 +707,7 @@ while (!Console.KeyAvailable)
 
 #### SPIKE Prime 超声波距离传感器
 
-![SPIKE 超声波距离传感器](.gitbook/assets/spike-distance.png)
+![SPIKE 超声波距离传感器](../.gitbook/assets/spike-distance.png)
 
 [超声波距离传感器，来自 Bricklink 的图片](https://www.bricklink.com/v2/catalog/catalogitem.page?P=37316c01)
 
@@ -773,4 +773,4 @@ Build 扩展板库支持 SPIKE™ 系列产品中包含的所有乐高®机械�
 
 树莓派 Build 扩展板的机械图纸。
 
-![Build 扩展板机械图纸](.gitbook/assets/mech-build-hat.png)
+![Build 扩展板机械图纸](../.gitbook/assets/mech-build-hat.png)

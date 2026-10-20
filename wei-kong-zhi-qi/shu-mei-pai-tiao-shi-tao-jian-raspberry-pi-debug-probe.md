@@ -2,7 +2,7 @@
 
 ## 调试套件简介
 
-![树莓派调试套件](.gitbook/assets/debug-probe.jpg)
+![树莓派调试套件](../.gitbook/assets/debug-probe.jpg)
 
 树莓派调试套件（Raspberry Pi Debug Probe）是一款同时提供 UART 串口和标准 Arm 串行线调试（SWD）接口的 USB 设备。该调试套件专为简单、免焊接、即插即用的调试而设计，具有以下功能：
 
@@ -22,7 +22,7 @@
 
 调试套件在标称 3.3V 的 I/O 电压下运行。
 
-![调试套件](.gitbook/assets/the-probe.png)
+![调试套件](../.gitbook/assets/the-probe.png)
 
 调试套件随附一根 USB 电源线和三根调试线：
 
@@ -44,7 +44,7 @@
 
 调试套件有五个 LED：一个红色 LED 指示电源，另外四个为活动指示 LED。
 
-![调试套件 LED](.gitbook/assets/debug-leds.png)
+![调试套件 LED](../.gitbook/assets/debug-leds.png)
 
 >**注意**
 >
@@ -52,7 +52,7 @@
 
 ## 入门指南
 
-![标注好的接线](.gitbook/assets/labelled-wiring.jpg)
+![标注好的接线](../.gitbook/assets/labelled-wiring.jpg)
 
 根据你的实际配置，有多种方式可以将调试套件连接到 [Pico 系列设备](shu-mei-pai-pico-he-pico-w.md)。下面的示例将调试套件连接到带有更新式三针 JST-SH SWD 连接器的树莓派 Pico H。
 
@@ -70,7 +70,7 @@
 >
 >如果你使用的是不带 JST-SH 连接器的非 H 版 Pico 或 Pico W，仍然可以将其连接到调试套件。在板子的 `SWCLK`、`GND` 和 `SWDIO` 排针上焊接一个公头连接器。使用调试套件随附的另一根三针 JST-SH 连接器转 0.1 英寸排针（母）的电缆，连接到调试套件的 “D” 端口。将 Pico 或 Pico W 上的 `SWCLK`、`GND` 和 `SWDIO` 分别连接到调试套件上的 `SC`（橙色线）、`GND`（黑色线）和 `SD`（黄色线）引脚。
 
-![接线](.gitbook/assets/wiring.png)
+![接线](../.gitbook/assets/wiring.png)
 
 ## 安装工具
 
@@ -153,7 +153,7 @@ $ gdb blink.elf
 
 确保调试套件已连接到树莓派 Pico 的 UART 引脚。
 
-![接线](.gitbook/assets/wiring.png)
+![接线](../.gitbook/assets/wiring.png)
 
 树莓派 Pico UART0 的默认引脚如下：
 
@@ -201,7 +201,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 对于支持该功能的终端程序，USB 串口 UART 的描述信息会包含在 USB 设备描述中。
 
-![USB 设备描述](.gitbook/assets/description.jpg)
+![USB 设备描述](../.gitbook/assets/description.jpg)
 
 该描述中的唯一序列号意味着在 Windows 上，你的 COM 端口编号对每个设备是“粘性”的，你可以据此编写 `udev` 规则，将命名的设备节点与特定的调试套件关联起来。
 
@@ -315,4 +315,4 @@ $ lsusb -v -d 2e8a:000c | grep bcdDevice
 
 原理图上标示的测试点（TP）位于下图所示位置。
 
-![调试套件测试点](.gitbook/assets/debug-probe-tps.jpg)
+![调试套件测试点](../.gitbook/assets/debug-probe-tps.jpg)

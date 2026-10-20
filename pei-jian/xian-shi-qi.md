@@ -4,7 +4,7 @@
 
 [树莓派触摸显示屏](https://www.raspberrypi.com/products/raspberry-pi-touch-display/)是一款 7 英寸触摸屏 LCD，适用于平板电脑、娱乐系统和信息仪表板等交互式项目。
 
-![树莓派 7 英寸触摸显示屏](.gitbook/assets/display.png)
+![树莓派 7 英寸触摸显示屏](../.gitbook/assets/display.png)
 
 树莓派 7 英寸触摸显示屏
 
@@ -124,7 +124,7 @@
 
 你可以将任何树莓派 B+ 及更高版本安装到触摸显示屏背面。
 
-![连接到触摸显示屏的树莓派](.gitbook/assets/GPIO_power-500x333.jpg)
+![连接到触摸显示屏的树莓派](../.gitbook/assets/GPIO_power-500x333.jpg)
 
 连接到触摸显示屏的树莓派
 
@@ -158,7 +158,7 @@
 
 1. 在树莓派设备的 GPIO 排针上的 5 V 和 `GND` 引脚与显示屏上的 5 V 和 `GND` 引脚之间连接跳线。
 
-   ![树莓派排针的位置](.gitbook/assets/pi_plugs.png)
+   ![树莓派排针的位置](../.gitbook/assets/pi_plugs.png)
 
    树莓派排针的位置
 2. 将黑色跳线的一端连接到树莓派上的引脚 6（`GND`）。
@@ -168,7 +168,7 @@
 
    如果引脚 4 不可用，可以使用另一个 5 V 引脚（引脚 2）连接红线。
 
-   ![显示屏的 5 V 和 `GND` 引脚的位置](.gitbook/assets/display_plugs.png)
+   ![显示屏的 5 V 和 `GND` 引脚的位置](../.gitbook/assets/display_plugs.png)
 
    显示屏的 5 V 和 `GND` 引脚的位置
 4. 将黑线的另一端连接到显示屏上的 `GND` 引脚。
@@ -248,13 +248,13 @@
 5. 将黑色跳线的一端连接到 IO 板上 GPIO 排针的引脚 6（`GND`）。
 6. 将红色跳线的一端连接到 IO 板上 GPIO 排针的引脚 4（5 V）。
 
-   ![CM4IO 板上树莓派 GPIO 排针的位置](.gitbook/assets/cmio4pins.png)
+   ![CM4IO 板上树莓派 GPIO 排针的位置](../.gitbook/assets/cmio4pins.png)
 
    CM4IO 板上树莓派 GPIO 排针的位置
 7. 将黑线的另一端连接到显示屏上的 `GND` 引脚。
 8. 将红线的另一端连接到显示屏上的 5 V 引脚。
 
-   ![显示屏的 5 V 和 `GND` 引脚的位置](.gitbook/assets/display_plugs.png)
+   ![显示屏的 5 V 和 `GND` 引脚的位置](../.gitbook/assets/display_plugs.png)
 
    显示屏的 5 V 和 `GND` 引脚的位置
 

@@ -4,7 +4,7 @@
 
 治具运行[安全启动配置器（`rpi-sb-provisioner`）](https://www.raspberrypi.com/documentation/security/secure-boot-provisioner.html)以自动化配置流程。当你将 CM5 插入治具并固定后，治具会自动执行所有配置步骤，包括安全启动实施、全盘加密和操作系统安装。
 
-![计算模块 5 编程治具](.gitbook/assets/hero.jpg)
+![计算模块 5 编程治具](../.gitbook/assets/hero.jpg)
 
 计算模块 5 编程治具
 
@@ -52,7 +52,7 @@
 
 #### 连接器
 
-![CM5 编程治具背面的连接器](.gitbook/assets/back.jpg)
+![CM5 编程治具背面的连接器](../.gitbook/assets/back.jpg)
 
 CM5 编程治具背面的连接器
 
@@ -270,11 +270,11 @@ CM5 紧密地嵌入模块槽中，CM5 上的树莓派标志朝上，并且与治
 
 1. 向后按压锁扣顶部以释放夹紧机构，让盖子向上滑动，然后将盖子向后转动直到停止。
 
-   ![夹紧机构前部的金属锁扣将其保持闭合。](.gitbook/assets/latch-open.jpg)
+   ![夹紧机构前部的金属锁扣将其保持闭合。](../.gitbook/assets/latch-open.jpg)
 
 2. 将计算模块 5 放入模块槽，CM5 上的树莓派标志朝上，并与治具上的树莓派标志方向一致。将计算模块 5 角上的孔与模块凹槽角上的通孔螺柱对齐。螺柱会穿过 CM5 上的孔。
 
-   ![计算模块位于模块凹槽内。](.gitbook/assets/open-tray-cm.jpg)
+   ![计算模块位于模块凹槽内。](../.gitbook/assets/open-tray-cm.jpg)
 
 3. 将盖子向前转动直到与 CM5 平行，并按压盖子使其向下滑动，以闭合夹紧机构。当盖子到达底部时，锁扣会啮合，将 CM5 固定到位。
 

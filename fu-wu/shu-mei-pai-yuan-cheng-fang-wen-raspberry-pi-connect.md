@@ -4,7 +4,7 @@
 
 树莓派 Connect（Raspberry Pi Connect）可让你从世界上任何地方安全地访问你的树莓派。它的工作原理是把你的设备关联到你的 Connect 账号。
 
-![显示三个不同的树莓派 Connect 界面：用户界面、操作系统图形界面和终端视图](.gitbook/assets/hero.png)
+![显示三个不同的树莓派 Connect 界面：用户界面、操作系统图形界面和终端视图](../.gitbook/assets/hero.png)
 
 Connect 默认安装在树莓派系统桌面版（Raspberry Pi OS Desktop）和完整版（Raspberry Pi OS Full，即含推荐软件的桌面版）中。
 
@@ -26,7 +26,7 @@ Connect 还有一个备选的**精简（Lite）**变体，仅支持远程 shell 
 
 Connect 菜单可让你打开或关闭 Connect、登录和登出，以及启用或禁用两种远程访问方法（shell 和屏幕共享）。
 
-![Connect 菜单可让你打开、管理和关闭该服务](.gitbook/assets/turn-on-connect.png)
+![Connect 菜单可让你打开、管理和关闭该服务](../.gitbook/assets/turn-on-connect.png)
 
 ### 安全与数据存储
 
@@ -67,20 +67,20 @@ Connect 账号分为两种类型：个人账号和组织账号。
 1. 接通你的树莓派设备的电源。
 2. 点击系统托盘中的 Connect 图标，选择 **打开树莓派 Connect**。
 
-    ![树莓派 Connect 界面，显示打开树莓派 Connect 下拉菜单选项](.gitbook/assets/turn-on-connect.png)
+    ![树莓派 Connect 界面，显示打开树莓派 Connect 下拉菜单选项](../.gitbook/assets/turn-on-connect.png)
 
 3. 如果这是你第一次打开 Connect 服务，或者你尚未使用树莓派 ID 登录，浏览器会自动打开。
 
-    ![树莓派 Connect 页面，提示使用你的树莓派 ID 登录 Connect](.gitbook/assets/browser-sign-in.png)
+    ![树莓派 Connect 页面，提示使用你的树莓派 ID 登录 Connect](../.gitbook/assets/browser-sign-in.png)
 
 4. 输入你的树莓派 ID 电子邮件和密码，然后选择 **登录**（Sign In）。
 5. 按照屏幕提示为你的树莓派设备命名，并选择将其关联到哪个 Connect 账号。
 
-    ![树莓派 Connect 页面，邀请你创建新设备并登录](.gitbook/assets/new-device.png)
+    ![树莓派 Connect 页面，邀请你创建新设备并登录](../.gitbook/assets/new-device.png)
 
     如果你是某个[组织](shu-mei-pai-connect-qi-ye-ban.md)的管理员，选择将此设备添加到你的个人账号还是特定组织。
 
-    ![树莓派 Connect 页面，显示新设备的账号选择界面](.gitbook/assets/new-organisation-device.png)
+    ![树莓派 Connect 页面，显示新设备的账号选择界面](../.gitbook/assets/new-organisation-device.png)
 
 6. 选择 **创建设备并登录**（Create device and sign in）。
 
@@ -88,7 +88,7 @@ Connect 账号分为两种类型：个人账号和组织账号。
 
 你的注册邮箱也会收到一封通知邮件，告知有一台新设备关联到了你的 Connect 账号。
 
-![树莓派 Connect 页面，显示账号登录通知界面](.gitbook/assets/sign-in-email.png)
+![树莓派 Connect 页面，显示账号登录通知界面](../.gitbook/assets/sign-in-email.png)
 
 **命令行**
 
@@ -118,7 +118,7 @@ Connect 账号分为两种类型：个人账号和组织账号。
 
 你还可以在命令行输入 `rpi-connect status` 来查看连接状态。
 
-![树莓派 Connect 页面，显示账号登录通知界面](.gitbook/assets/sign-in-email.png)
+![树莓派 Connect 页面，显示账号登录通知界面](../.gitbook/assets/sign-in-email.png)
 
 **认证密钥**
 
@@ -154,7 +154,7 @@ $ rpi-connect signin --auth-key=@/home/alice/auth.key
 
 你的注册邮箱也会收到一封通知邮件，告知有一台新设备关联到了你的 Connect 账号。
 
-![树莓派 Connect 页面，显示账号登录通知界面](.gitbook/assets/sign-in-email.png)
+![树莓派 Connect 页面，显示账号登录通知界面](../.gitbook/assets/sign-in-email.png)
 
 ### 安全最佳实践
 
@@ -173,7 +173,7 @@ Connect 会在**设备**标签页中列出你所有已关联的设备。
 1. 在任意设备上登录 [connect.raspberrypi.com](https://connect.raspberrypi.com/)。
 2. 选择 **设备** 标签页。Connect 会显示已关联设备的列表。
 
-![树莓派 Connect 页面，显示已关联设备界面](.gitbook/assets/devices.png)
+![树莓派 Connect 页面，显示已关联设备界面](../.gitbook/assets/devices.png)
 
 如果你使用组织账号，可以对该列表进行[搜索和筛选](shu-mei-pai-connect-qi-ye-ban.md#搜索和筛选设备)，并为设备添加[标签](shu-mei-pai-connect-qi-ye-ban.md#为设备添加标签)。
 
@@ -196,7 +196,7 @@ Connect 会在**设备**标签页中列出你所有已关联的设备。
 
 Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
-![树莓派 Connect 屏幕共享界面，界面左下方包含常见键盘功能切换按钮和按键](.gitbook/assets/screen-sharing.png)
+![树莓派 Connect 屏幕共享界面，界面左下方包含常见键盘功能切换按钮和按键](../.gitbook/assets/screen-sharing.png)
 
 你可以使用界面左下角的按钮模拟常见的键盘功能：
 
@@ -214,7 +214,7 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 * **Enter full screen**（进入全屏）。把浏览器窗口扩展到全屏大小。
 * **Disconnect**（断开连接）。终止共享会话。
 
-![树莓派 Connect 页面，显示树莓派下拉菜单](.gitbook/assets/screen-sharing.png)
+![树莓派 Connect 页面，显示树莓派下拉菜单](../.gitbook/assets/screen-sharing.png)
 
 #### 开始屏幕共享
 
@@ -229,22 +229,22 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
     支持屏幕共享的设备会在设备名称下方显示灰色的 **Screen sharing**（屏幕共享）徽章。
 
-    ![树莓派 Connect 页面，列出支持屏幕共享的设备](.gitbook/assets/devices.png)
+    ![树莓派 Connect 页面，列出支持屏幕共享的设备](../.gitbook/assets/devices.png)
 
 4. 点击你想访问的设备右侧的 **通过 Connect** 按钮。
 5. 从菜单中选择 **Screen sharing**（屏幕共享）选项。
 
     浏览器窗口会打开并显示你设备的桌面，现在你可以像使用本地设备一样使用它。
 
-    ![浏览器窗口打开，显示正在等待树莓派设备响应的消息](.gitbook/assets/waiting-for-screen-sharing.png)
+    ![浏览器窗口打开，显示正在等待树莓派设备响应的消息](../.gitbook/assets/waiting-for-screen-sharing.png)
 
     屏幕共享开始后，Connect 仪表板中 **Screen sharing**（屏幕共享）徽章旁会出现绿色圆点，表示有活动的屏幕共享会话。悬停即可查看当前的屏幕共享会话数。
 
-    ![屏幕共享界面，显示共享进行中](.gitbook/assets/screen-sharing-in-progress.png)
+    ![屏幕共享界面，显示共享进行中](../.gitbook/assets/screen-sharing-in-progress.png)
 
     屏幕共享会话进行时，系统托盘中的 Connect 图标会旋转。每当屏幕共享会话开始时，桌面上都会出现一条通知。
 
-    ![树莓派 Connect 界面，显示关闭树莓派 Connect 下拉菜单选项](.gitbook/assets/screen-sharing-notification.png)
+    ![树莓派 Connect 界面，显示关闭树莓派 Connect 下拉菜单选项](../.gitbook/assets/screen-sharing-notification.png)
 
 #### 停止屏幕共享
 
@@ -253,7 +253,7 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 1. 选择显示屏幕共享的浏览器窗口。
 2. 点击左上角的 **断开连接**（Disconnect）按钮。
 
-![屏幕共享界面，显示会话已结束的消息](.gitbook/assets/screen-sharing-ended.png)
+![屏幕共享界面，显示会话已结束的消息](../.gitbook/assets/screen-sharing-ended.png)
 
 #### 禁止与重新允许屏幕共享
 
@@ -315,16 +315,16 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
     支持远程 shell 访问的设备会在设备名称下方显示灰色的 **Remote shell**（远程 shell）徽章。
 
-    ![树莓派 Connect 界面，显示设备列表](.gitbook/assets/devices.png)
+    ![树莓派 Connect 界面，显示设备列表](../.gitbook/assets/devices.png)
 
 3. 点击你想访问的设备右侧的 **通过 Connect** 按钮。
 4. 从菜单中选择 **Remote shell**（远程 shell）选项。这会在你的设备上打开一个 shell 会话。
 
-    ![连接期间显示的等待界面](.gitbook/assets/waiting-for-remote-shell.png)
+    ![连接期间显示的等待界面](../.gitbook/assets/waiting-for-remote-shell.png)
 
     现在你可以像使用本地设备一样使用它。
 
-![显示使用远程 shell 打开的连接的窗口](.gitbook/assets/remote-shell.png)
+![显示使用远程 shell 打开的连接的窗口](../.gitbook/assets/remote-shell.png)
 
 >**技巧**
 >
@@ -332,7 +332,7 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
 每当远程 shell 会话开始时，桌面上都会出现通知。连接期间，Connect 仪表板中 **Remote shell** 徽章旁会出现绿色圆点，表示有活动的远程 shell 会话。悬停即可查看当前的远程 shell 会话数。
 
-![树莓派 Connect 界面，显示设备列表，Remote shell 图标中包含绿色圆点，表示远程 shell 会话进行中](.gitbook/assets/remote-shell-in-progress.png)
+![树莓派 Connect 界面，显示设备列表，Remote shell 图标中包含绿色圆点，表示远程 shell 会话进行中](../.gitbook/assets/remote-shell-in-progress.png)
 
 >**技巧**
 >
@@ -346,7 +346,7 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
 要关闭远程 shell 会话，请在命令行运行 `exit` 命令，或关闭浏览器窗口。
 
-![显示远程 shell 连接已结束、现在可以关闭窗口的窗口](.gitbook/assets/remote-shell-ended.png)
+![显示远程 shell 连接已结束、现在可以关闭窗口的窗口](../.gitbook/assets/remote-shell-ended.png)
 
 #### 禁止与重新允许远程 shell 访问
 
@@ -363,7 +363,7 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
     你的设备保持登录 Connect，但你将无法从 Connect 仪表板创建远程 shell 会话。
 
-    ![树莓派 Connect 界面，显示包含允许屏幕共享选项的下拉菜单](.gitbook/assets/disallow-screen-sharing.png)
+    ![树莓派 Connect 界面，显示包含允许屏幕共享选项的下拉菜单](../.gitbook/assets/disallow-screen-sharing.png)
 
 **命令行**
 
@@ -376,7 +376,7 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
     在 Connect 仪表板中，**Remote shell** 徽章和 **通过 Connect** 菜单中的 **Remote shell** 选项将显示删除线。
 
-    ![树莓派 Connect 界面，显示设备标签页中的通过 Connect 下拉菜单](.gitbook/assets/remote-shell-disabled.png)
+    ![树莓派 Connect 界面，显示设备标签页中的通过 Connect 下拉菜单](../.gitbook/assets/remote-shell-disabled.png)
 
 要重新允许远程 shell 访问：
 
@@ -435,11 +435,11 @@ Connect 支持两种更新构件：
 
 4. 选择 **Next**（下一步）。
 
-![树莓派 Connect 中新部署界面的第 1 步，显示已填写的名称字段以及已上传的构件文件，其校验和与上传均已完成](.gitbook/assets/new-deployment-personal-step-1.png)
+![树莓派 Connect 中新部署界面的第 1 步，显示已填写的名称字段以及已上传的构件文件，其校验和与上传均已完成](../.gitbook/assets/new-deployment-personal-step-1.png)
 
 在 **第 2 步：检查并部署**（Step 2: Review and deploy）中，检查名称、文件和 SHA-256 校验和，然后选择 **Deploy**（部署）。如果发现错误，选择 **Back**（上一步）进行更正。此步骤还会显示上传文件的过期时间。
 
-![树莓派 Connect 中新部署界面的第 2 步，显示待部署构件的名称、文件和校验和，以及部署按钮](.gitbook/assets/new-deployment-personal-step-2.png)
+![树莓派 Connect 中新部署界面的第 2 步，显示待部署构件的名称、文件和校验和，以及部署按钮](../.gitbook/assets/new-deployment-personal-step-2.png)
 
 部署时接收设备不必在线，但 Connect 只把你上传的构件保留两小时，之后会将其删除。
 
@@ -726,7 +726,7 @@ rpi-image-gen 输出一个包含 A/B 启动镜像的 `.img` 文件。
 4. 填写表单，然后选择 **Create auth key**（创建认证密钥）。
 5. 记下该密钥。
 
-![树莓派 Connect 中的认证密钥页面，允许你把密钥复制到剪贴板](.gitbook/assets/auth-key.png)
+![树莓派 Connect 中的认证密钥页面，允许你把密钥复制到剪贴板](../.gitbook/assets/auth-key.png)
 
 #### 第 4 步：构建 A/B 启动配置镜像
 
@@ -777,7 +777,7 @@ rpi-image-gen 输出一个包含 A/B 启动镜像的 `.img` 文件。
 2. 在图形界面中从 **Accessories**（附件）菜单打开 **Raspberry Pi Imager**。出现提示时输入你的密码。
 3. 选择接收设备类型：**Raspberry Pi 4** 或 **Raspberry Pi 5**，然后选择 **Next**（下一步）。
 
-    ![树莓派启动盘制作工具用于写入镜像](.gitbook/assets/raspberrypi-imager.png)
+    ![树莓派启动盘制作工具用于写入镜像](../.gitbook/assets/raspberrypi-imager.png)
 
 4. 在 OS 标签页中，一直滚动到底部并选择 **Use Custom**（使用自定义）。
 5. 导航到你在第 4 步中创建的 `.img` 文件，选择它，然后选择 **Open**（打开）。
@@ -886,27 +886,27 @@ $ loginctl enable-linger
 
 要在屏幕共享或远程 shell 会话进行时禁用动画图标，请右键单击菜单栏中的 Connect 图标并选择 **Configure Plugin...**（配置插件）。
 
-![树莓派 Connect 界面，显示用于选择 Configure Plugin 的下拉菜单](.gitbook/assets/configure-plugin.png)
+![树莓派 Connect 界面，显示用于选择 Configure Plugin 的下拉菜单](../.gitbook/assets/configure-plugin.png)
 
 选择 **Animate Icon** 开关以切换到备用图标。
 
-![树莓派 Connect 界面，显示禁用动画开关](.gitbook/assets/disable-animate-icon.png)
+![树莓派 Connect 界面，显示禁用动画开关](../.gitbook/assets/disable-animate-icon.png)
 
 当屏幕共享或远程 shell 会话进行时，Connect 图标会变成蓝色。
 
-![树莓派 Connect 界面，显示蓝色的 Connect 图标](.gitbook/assets/static-icon.png)
+![树莓派 Connect 界面，显示蓝色的 Connect 图标](../.gitbook/assets/static-icon.png)
 
 ## 管理设备
 
 Connect 仪表板列出了与你的 Connect 账号关联的所有设备，并显示访问它们的各种方式。
 
-![树莓派 Connect 页面，显示已关联设备界面](.gitbook/assets/devices.png)
+![树莓派 Connect 页面，显示已关联设备界面](../.gitbook/assets/devices.png)
 
 点击设备名称打开设备详情页面。此屏幕提供有关设备的底层信息。
 
 要重命名或删除设备，请在设备页面选择 **Settings**（设置）。
 
-![特定设备的详情页面，显示硬件和 Connect 客户端详情](.gitbook/assets/device.png)
+![特定设备的详情页面，显示硬件和 Connect 客户端详情](../.gitbook/assets/device.png)
 
 从 Connect 中删除设备会自动让你在设备上注销 Connect。菜单栏中的 Connect 图标变为灰色，菜单只提供 **登录…**（Sign In...）选项。
 

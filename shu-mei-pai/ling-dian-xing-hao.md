@@ -34,7 +34,7 @@
 
 ## Raspberry Pi Zero 2 W（带与不带排针）
 
-![不带排针的 Raspberry Pi Zero 2 W（左）和带排针的版本（右）](.gitbook/assets/zero2wandwh.jpg)
+![不带排针的 Raspberry Pi Zero 2 W（左）和带排针的版本（右）](../.gitbook/assets/zero2wandwh.jpg)
 
 [Raspberry Pi Zero 2 W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) 配有未焊接引脚的 GPIO 排针；Raspberry Pi Zero 2 W with headers 配有预焊的 GPIO 排针。与 [Zero W 和 WH](#raspberry-pi-zero-w-和-wh) 一样，两个型号都可以通过 Wi-Fi 连接到网络。
 
@@ -79,7 +79,7 @@ Raspberry Pi Zero 2 W（带与不带排针）包含以下端口：
 
 ### 测试点位置
 
-![Zero 2 W 测试点示意图](.gitbook/assets/zero2-pad-diagram.png)
+![Zero 2 W 测试点示意图](../.gitbook/assets/zero2-pad-diagram.png)
 
 Raspberry Pi Zero 2 W（带与不带排针）有若干在生产过程中使用的测试点，如下表所列。
 
@@ -111,7 +111,7 @@ Raspberry Pi Zero 2 W（带与不带排针）有若干在生产过程中使用�
 
 ## Raspberry Pi Zero W 和 WH
 
-![Raspberry Pi Zero W（左）和 WH（右）](.gitbook/assets/zerowandwh.jpg)
+![Raspberry Pi Zero W（左）和 WH（右）](../.gitbook/assets/zerowandwh.jpg)
 
 [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/) 配有未焊接引脚的 GPIO 排针；Raspberry Pi Zero WH 配有预焊的 GPIO 排针。两个型号都不包含有线以太网端口，但你仍然可以通过 Wi-Fi 连接到网络。
 
@@ -157,7 +157,7 @@ Raspberry Pi Zero W 和 WH 包含以下端口：
 
 Raspberry Pi Zero 是经典型树莓派型号的更紧凑版本，连接器更少，GPIO 排针未焊接引脚。
 
-![Raspberry Pi Zero](.gitbook/assets/zero1.jpg)
+![Raspberry Pi Zero](../.gitbook/assets/zero1.jpg)
 
 Raspberry Pi Zero 的尺寸约为 65 mm × 30 mm。更详细的尺寸，请参阅 [Raspberry Pi Zero 的机械图](https://pip.raspberrypi.com/documents/RP-008366-DS)。有关电路、元件和引脚连接的工程图，请参阅 [Raspberry Pi Zero 的原理图](https://pip.raspberrypi.com/documents/RP-008365-DS)。
 

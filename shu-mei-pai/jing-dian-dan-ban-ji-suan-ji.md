@@ -47,7 +47,7 @@ Raspberry Pi 设备经历了多个型号的演进，在性能、连接性和功�
 
 ## Raspberry Pi 5
 
-![Raspberry Pi 5](.gitbook/assets/rpi5.jpg)
+![Raspberry Pi 5](../.gitbook/assets/rpi5.jpg)
 
 [Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) 是 Raspberry Pi 的第五代经典型 SBC。与之前的型号相比，它在 CPU 性能、图形能力、内存带宽、I/O 吞吐量和电源管理方面均有提升。该板引入了将 I/O 管理与主处理器分离的新架构，从而实现更快的外设连接和更好的整体系统性能，具体如下。
 
@@ -121,7 +121,7 @@ Raspberry Pi 5 包含以下端口：
 
 ## Raspberry Pi 4 型号 B
 
-![Raspberry Pi 4B](.gitbook/assets/rpi4b.jpg)
+![Raspberry Pi 4B](../.gitbook/assets/rpi4b.jpg)
 
 [Raspberry Pi 4B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) 是 Raspberry Pi 的第四代经典型 SBC。与之前的型号相比，它在处理器性能、内存容量、网络和多媒体能力方面均有提升。该板配备更强大的四核处理器，支持最高 4K 分辨率的双显示输出，并通过千兆以太网、USB 3.0 和双频无线网络提供更快的连接，具体如下。
 
@@ -189,7 +189,7 @@ Raspberry Pi 4B 包含以下端口：
 
 ## Raspberry Pi 3 型号 A+ 和 B+
 
-![Raspberry Pi 3A+（左）和 3B+（右）](.gitbook/assets/rpi3aplusand3bplus.jpg)
+![Raspberry Pi 3A+（左）和 3B+（右）](../.gitbook/assets/rpi3aplusand3bplus.jpg)
 
 Raspberry Pi 3A+ 和 3B+ 相比初代 Raspberry Pi 3B 均提供了硬件升级，包括更快的 SoC、用于改善散热性能的集成金属散热片，以及升级的无线连接。
 
@@ -258,7 +258,7 @@ Raspberry Pi 3A+ 和 3B+ 包含以下端口：
 
 ## Raspberry Pi 3 型号 B
 
-![Raspberry Pi 3B](.gitbook/assets/rpi3b.jpg)
+![Raspberry Pi 3B](../.gitbook/assets/rpi3b.jpg)
 
 [Raspberry Pi 3B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) 是 Raspberry Pi 的第三代经典型 SBC。它带来了性能升级、内存增加和内置无线连接。它也是首款搭载 64 位 CPU 的 Raspberry Pi 型号，该 CPU 基于四核 Arm Cortex-A53 处理器。其尺寸约为 85 mm × 56 mm。更详细的尺寸，请参阅以下机械图：
 
@@ -319,7 +319,7 @@ Raspberry Pi 3B 包含以下端口：
 
 ## Raspberry Pi 2 型号 B
 
-![Raspberry Pi 2B](.gitbook/assets/rpi2b.jpg)
+![Raspberry Pi 2B](../.gitbook/assets/rpi2b.jpg)
 
 [Raspberry Pi 2B](https://www.raspberrypi.com/products/raspberry-pi-2-model-b/) 是 Raspberry Pi 的第二代经典型 SBC。它带来了性能升级和内存增加，从单核处理器转变为四核处理器和 1 GB 内存，同时保留与 Raspberry Pi B+ 相同的外形尺寸和连接选项。其尺寸为 85 mm × 56 mm。有关电路、组件和引脚连接的工程图，请参阅 [Raspberry Pi 2B 的原理图](https://pip.raspberrypi.com/documents/RP-008327-DS)。
 
@@ -373,7 +373,7 @@ Raspberry Pi 2B 包含以下端口：
 
 ## Raspberry Pi 型号 A+ 和 B+
 
-![Raspberry Pi A+（左）和 B+（右）](.gitbook/assets/rpiaplusandbplus.jpg)
+![Raspberry Pi A+（左）和 B+（右）](../.gitbook/assets/rpiaplusandbplus.jpg)
 
 >**注意**
 >
@@ -450,7 +450,7 @@ Raspberry Pi A+ 和 B+ 包含以下端口：
 
 ## Raspberry Pi 型号 A 和 B
 
-![Raspberry Pi A（左）和 B（右）](.gitbook/assets/rpiaandb.jpg)
+![Raspberry Pi A（左）和 B（右）](../.gitbook/assets/rpiaandb.jpg)
 
 >**注意**
 >

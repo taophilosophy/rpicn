@@ -127,9 +127,9 @@
 
 所有这些版本也适用于独立的[摄像头模块 3 传感器组件](https://www.raspberrypi.com/products/camera-module-3-sensor-assembly/)。
 
-![摄像头模块 3（左）和摄像头模块 3 广角（右）](.gitbook/assets/cm3.jpg)
+![摄像头模块 3（左）和摄像头模块 3 广角（右）](../.gitbook/assets/cm3.jpg)
 
-![摄像头模块 3 NoIR（左）和摄像头模块 3 NoIR 广角（右）](.gitbook/assets/cm3_noir.jpg)
+![摄像头模块 3 NoIR（左）和摄像头模块 3 NoIR 广角（右）](../.gitbook/assets/cm3_noir.jpg)
 
 有关此摄像头硬件特性和功能的详细信息，请参阅[硬件规格](#硬件规格)。
 
@@ -141,7 +141,7 @@
 
 摄像头模块 3 中的 IMX708 传感器具有以下光谱灵敏度特性。
 
-![摄像头模块 3 传输图](.gitbook/assets/cm3-filter.png)
+![摄像头模块 3 传输图](../.gitbook/assets/cm3-filter.png)
 
 ## 全局快门摄像头
 
@@ -151,7 +151,7 @@
 
 你可以通过向板上的外部触发连接施加脉冲来触发全局快门（GS）摄像头。此功能使你能够同步多台全局快门摄像头。更多信息请参阅[全局快门摄像头的外部触发](#全局快门摄像头的外部触发)。
 
-![全局快门摄像头](.gitbook/assets/gs-camera.jpg)
+![全局快门摄像头](../.gitbook/assets/gs-camera.jpg)
 
 有关此摄像头硬件特性和功能的详细信息，请参阅[硬件规格](#硬件规格)。
 
@@ -171,13 +171,13 @@
 
 全局快门摄像头使用 Hoya CM500 红外滤光片。其传输特性如下图所示。
 
-![CM500 传输图](.gitbook/assets/hoyacm500.png)
+![CM500 传输图](../.gitbook/assets/hoyacm500.png)
 
 如果你想增强全局快门摄像头对红外光的敏感度，可以拆除红外滤光片。此操作不可逆，会使保修失效。更多信息请参阅[红外滤光片](#红外滤光片)。
 
 拆除滤光片后，树莓派全局快门摄像头具有以下传输特性：
 
-![不带红外截止滤光片的 GS 摄像头传输图](.gitbook/assets/gs.png)
+![不带红外截止滤光片的 GS 摄像头传输图](../.gitbook/assets/gs.png)
 
 ## 高质量（HQ）摄像头
 
@@ -185,7 +185,7 @@
 
 你可以通过向外部触发施加脉冲来触发高质量（HQ）摄像头。此功能使你能够同步多台高质量（HQ）摄像头。更多信息请参阅[同步捕获](#同步捕获)。
 
-![高质量（HQ）摄像头，M12 卡口（左）和 C/CS 卡口（右）](.gitbook/assets/hq.jpg)
+![高质量（HQ）摄像头，M12 卡口（左）和 C/CS 卡口（右）](../.gitbook/assets/hq.jpg)
 
 有关此摄像头硬件特性和功能的详细信息，请参阅[硬件规格](#硬件规格)。
 
@@ -193,13 +193,13 @@
 
 高质量（HQ）摄像头使用 Hoya CM500 红外滤光片。其传输特性如下图所示。
 
-![CM500 传输图](.gitbook/assets/hoyacm500.png)
+![CM500 传输图](../.gitbook/assets/hoyacm500.png)
 
 如果你想增强高质量（HQ）摄像头对红外光的敏感度，可以拆除红外滤光片。此操作不可逆，会使保修失效。更多信息请参阅[红外滤光片](#红外滤光片)。
 
 拆除滤光片后，树莓派高质量（HQ）摄像头具有以下传输特性：
 
-![不带红外截止滤光片的高质量摄像头传输图](.gitbook/assets/hq.png)
+![不带红外截止滤光片的高质量摄像头传输图](../.gitbook/assets/hq.png)
 
 ## 推荐镜头
 
@@ -227,7 +227,7 @@
 
 ### M12 镜头
 
-![M12 卡口](.gitbook/assets/m12-lens.jpg)
+![M12 卡口](../.gitbook/assets/m12-lens.jpg)
 
 我们推荐三款由[高嘉光电](https://www.gaojiaoptotech.com/)制造的镜头。这些镜头可从离你最近的[授权经销商](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/)处购买。
 
@@ -358,7 +358,7 @@ $ rpicam-vid --frames 300 --qt-preview -o source.h264
 
 曝光时间等于低脉冲宽度加上额外的 14.26 µs。例如，10000 µs 的低脉冲会产生 10014.26 µs 的曝光时间。帧速率直接取决于你向该引脚施加脉冲的频率。30 Hz 的 PWM 频率对应每秒 30 帧的帧速率。
 
-![显示脉冲格式的图片](.gitbook/assets/external_trigger.jpg)
+![显示脉冲格式的图片](../.gitbook/assets/external_trigger.jpg)
 
 ### 准备工作
 
@@ -368,13 +368,13 @@ $ rpicam-vid --frames 300 --qt-preview -o source.h264
 
 如果你的主板上安装了晶体管 Q2（如下图蓝色所示），则需要从主板上拆除 R11（如下图红色所示）。它将 GP1 连接到 XTR，如果不拆除 R11，摄像头将无法在外部触发模式下工作。元件的位置如下图所示。
 
-![显示待拆除电阻器的图片](.gitbook/assets/resistor.jpg)
+![显示待拆除电阻器的图片](../.gitbook/assets/resistor.jpg)
 
 接下来，在 GS 摄像头板的 XTR 和 GND 触点上焊接一根导线。请注意，XTR 是 1.8 V 输入，因此你可能需要电平转换器或电位分压器。
 
 我们可以使用树莓派 Pico 来提供触发信号。将任意 Pico GPIO 引脚（本示例使用 GP28）通过 1.5 kΩ 电阻连接到 XTR。还在 XTR 和 GND 之间连接一个 1.8 kΩ 电阻，将高逻辑电平降低到 1.8 V。接线图如下图所示。
 
-![显示树莓派 Pico 接线的图片](.gitbook/assets/pico_wiring.jpg)
+![显示树莓派 Pico 接线的图片](../.gitbook/assets/pico_wiring.jpg)
 
 #### 树莓派 Pico MicroPython 代码
 
@@ -451,7 +451,7 @@ $ rpicam-hello -t 0 --qt-preview --shutter 3000
 
 你可以从 HQ 和 GS 摄像头上拆除滤光片。下面的演示展示了 HQ 摄像头。
 
-![安装好滤光片的 HQ 摄像头](.gitbook/assets/FILTER_ON_small.jpg)
+![安装好滤光片的 HQ 摄像头](../.gitbook/assets/FILTER_ON_small.jpg)
 
 >**重要**
 >
@@ -459,27 +459,27 @@ $ rpicam-hello -t 0 --qt-preview --shutter 3000
 
 1. 拧下主电路板底部的两个 1.5 mm 六角锁紧螺钉。小心不要让垫圈滚开。
 
-   ![拧下六角锁紧螺钉后的摄像头](.gitbook/assets/SCREW_REMOVED_small.jpg)
+   ![拧下六角锁紧螺钉后的摄像头](../.gitbook/assets/SCREW_REMOVED_small.jpg)
 
 2. 外壳和 PCB 之间有一层略带粘性的密封垫圈，需要用一点力气才能分开。你也可以尝试一些方法来弱化粘合剂，例如使用少量异丙醇或加热（约 20-30 °C）。
 3. 粘合剂松动后，抬起主板并将其放在非常干净的表面上。确保传感器不会接触到表面。
 
-   ![放置在干净表面上的摄像头主板](.gitbook/assets/FLATLAY_small.jpg)
+   ![放置在干净表面上的摄像头主板](../.gitbook/assets/FLATLAY_small.jpg)
 
 4. 将镜头座翻转使镜头朝上，并将其放在平坦的表面上。
 
-   ![使用溶剂弱化粘合剂](.gitbook/assets/SOLVENT_small.jpg)
+   ![使用溶剂弱化粘合剂](../.gitbook/assets/SOLVENT_small.jpg)
 
 5. 为最大限度降低损坏滤光片的风险，请使用笔帽或类似的软塑料物品，仅在玻璃与铝相接的边缘处向下按压滤光片。胶水会断裂，滤光片将从镜头座上脱落。
 
-   ![从镜头座上拆下的滤光片](.gitbook/assets/REMOVE_FILTER_small.jpg)
+   ![从镜头座上拆下的滤光片](../.gitbook/assets/REMOVE_FILTER_small.jpg)
 
 6. 鉴于更换镜头会使传感器暴露，此时你可以安装一个透明滤光片（例如 OHP 塑料），以尽量减少灰尘进入传感器腔的机会。
 7. 将主外壳重新装回电路板上。确保外壳与仍留在电路板上的密封垫圈重新对齐。
 8. 先放上尼龙垫圈，以防止损坏电路板。
 9. 接着放上钢垫圈，它可以防止尼龙垫圈损坏。拧紧两个六角锁紧螺钉。只要垫圈按正确顺序安装，就不需要拧得很紧。
 
-   ![拆除滤光片后的 HQ 摄像头](.gitbook/assets/FILTER_OFF_small.jpg)
+   ![拆除滤光片后的 HQ 摄像头](../.gitbook/assets/FILTER_OFF_small.jpg)
 
 >**注意**
 >
@@ -529,7 +529,7 @@ $ rpicam-hello -t 0 --qt-preview --shutter 3000
 
 此外，下图展示了树莓派 CSI 摄像头连接器的原理图。
 
-![树莓派 CSI 摄像头连接器的原理图](.gitbook/assets/RPi-S5-conn.png)
+![树莓派 CSI 摄像头连接器的原理图](../.gitbook/assets/RPi-S5-conn.png)
 
 ### 引脚信息
 

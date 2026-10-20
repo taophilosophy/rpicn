@@ -450,7 +450,7 @@ $ rpi-eeprom-config --config boot.conf --out new.bin pieeprom.bin
 
 树莓派 4 及之后旗舰型号上的引导加载程序可以在启动时通过 HDMI 显示器显示诊断信息。要查看诊断信息，请关闭树莓派，断开启动介质（通常是存储卡或固态硬盘），然后重新开机。如果树莓派连接了显示器，你应该会看到类似如下的诊断信息：
 
-![启动诊断屏幕](.gitbook/assets/bootloader-diagnostics.png)
+![启动诊断屏幕](../.gitbook/assets/bootloader-diagnostics.png)
 
 如果引导加载程序无法从任何启动介质或网络引导，也会显示该诊断页面。原因可能是启动介质上没有可引导的镜像、启动介质已损坏，或网络引导参数不正确。
 
@@ -2039,7 +2039,7 @@ GPIO 驱动强度并不表示最大电流，仅表示在此电流下 pad 仍将�
 >
 >对于树莓派 4、400，计算模块 4，当前级别是图表中显示数值的一半。
 
-![GPIO 驱动强度表](.gitbook/assets/pi_gpio_drive_strength_diagram.png)
+![GPIO 驱动强度表](../.gitbook/assets/pi_gpio_drive_strength_diagram.png)
 
 ### 当前数值
 
@@ -2455,7 +2455,7 @@ $ vcgencmd otp_dump
 
 ## 树莓派连接器用于 PCIe
 
-![树莓派 PCIe 连接器](.gitbook/assets/pcie.jpg)
+![树莓派 PCIe 连接器](../.gitbook/assets/pcie.jpg)
 
 树莓派连接器用于 PCIe
 
@@ -2568,7 +2568,7 @@ $ sudo raspi-config
 
 ### 添加你自己的电源按钮
 
-![树莓派 5 J2 跳线](.gitbook/assets/j2.jpg)
+![树莓派 5 J2 跳线](../.gitbook/assets/j2.jpg)
 
  J2 跳线帽
 
@@ -2594,7 +2594,7 @@ J2 跳线帽位于 RTC 电池连接器和主板边缘间。在此引出可以让
 
 ### 以太网供电（PoE）连接器
 
-![PoE 连接器](.gitbook/assets/poe.jpg)
+![PoE 连接器](../.gitbook/assets/poe.jpg)
 
 树莓派 5 PoE 扩展版
 
@@ -2718,7 +2718,7 @@ USB 规范要求 USB 设备不能向上游设备供电。如果 USB 设备向上
 
 树莓派 5 内置了一个 RTC 模块。它通过位于 Type-C 电源连接器右侧，主板上的 J5（BAT）连接器接入电池供电。
 
-![J5 电池连接器](.gitbook/assets/j5.png)
+![J5 电池连接器](../.gitbook/assets/j5.png)
 
 J5 电池连接器
 
@@ -2758,7 +2758,7 @@ RTC 还提供了启动时的时间，如 `dmesg`，适用于缺乏 NTP 访问权
 
 ### 添加备用电池
 
-![可充电锂锰 RTC 电池](.gitbook/assets/rtc-battery.jpg)
+![可充电锂锰 RTC 电池](../.gitbook/assets/rtc-battery.jpg)
 
 锂锰可充电 RTC 电池
 

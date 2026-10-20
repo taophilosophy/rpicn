@@ -123,7 +123,7 @@ Vulnerability Spectre v2:             Mitigation; CSV2, BHB
 
 它用于[树莓派 Zero 2 W](ling-dian-xing-hao.md)。
 
-![RP3A0 剖面图](.gitbook/assets/RP3A0-crosssection.png)
+![RP3A0 剖面图](../.gitbook/assets/RP3A0-crosssection.png)
 
 RP3A0 是四核 64 位 Arm Cortex A53 CPU，主频为 1 GHz；不过，在加装散热片或采用其他散热方案的情况下，该芯片有可能超频至 1.2 GHz。
 

@@ -2,7 +2,7 @@
 
 ## 关于电视扩展板（TV HAT）
 
-![树莓派电视扩展板（TV HAT）](.gitbook/assets/tv-hat.jpg)
+![树莓派电视扩展板（TV HAT）](../.gitbook/assets/tv-hat.jpg)
 
 树莓派电视扩展板（TV HAT）
 
@@ -25,7 +25,7 @@
 
 数字视频广播－地面（DVB-T）是以欧洲为基础的 DVB 联盟为数字地面电视广播传输制定的标准。世界其他地区则使用不同的数字电视标准，例如北美使用的 ATSC。不过，电视扩展板仅支持 DVB-T 和 DVB-T2 标准。
 
-![已实施或采用的 DTT 系统](.gitbook/assets/dvbt-map.png)
+![已实施或采用的 DTT 系统](../.gitbook/assets/dvbt-map.png)
 
 已实施或采用的 DTT 系统（来源：DVB/EBU/BNE DTT 部署数据库，2023 年 3 月）
 
@@ -79,6 +79,6 @@ Found services: 172
 
 ## 机械图纸
 
-![树莓派电视扩展板](.gitbook/assets/mechanical.png)
+![树莓派电视扩展板](../.gitbook/assets/mechanical.png)
 
 树莓派电视扩展板
