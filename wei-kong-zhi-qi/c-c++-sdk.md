@@ -6,7 +6,7 @@
 
 不过，如果你打算在 [32 位树莓派系统或精简版树莓派系统](../shu-mei-pai/raspberry-pi-os.md)上开发 Pico，我们的 VS Code 扩展并不支持这些操作系统。你可以改为在命令行中运行我们的设置脚本，快速完成 C/C++ 工具链的安装。
 
-1. 在运行设置脚本之前，先确保你树莓派上的树莓派系统[更新到最新版本](../shu-mei-pai/raspberry-pi-os.md#更新软件)。
+1. 在运行设置脚本之前，先确保你树莓派上的树莓派系统[更新到最新版本](../shu-mei-pai/raspberry-pi-os.md#更新当前的树莓派软件)。
 2. 运行以下命令，下载并执行设置脚本：
 
 ```bash
@@ -40,7 +40,7 @@ SDK 源代码是开源的，可在 [pico-sdk GitHub 仓库](https://github.com/r
 >如果要使用 C/C++ SDK 为树莓派 Pico 以外的板子构建应用程序，请向 CMake 传递 `-DPICO_BOARD=boardname`，其中 `boardname` 是你的板子名称。例如：
 >
 >* 要为 Adafruit Feather RP2040 构建应用程序，请传递 `-DPICO_BOARD=adafruit_feather_rp2040`。
->* 要为 Pico W 构建应用程序，请传递 `-DPICO_BOARD=pico_w`（如果要连接无线网络，还要加上 -DWIFI_SSID="Your Network" -DWIFI_PASSWORD="Your Password"）。
+>* 要为 Pico W 构建应用程序，请传递 `-DPICO_BOARD=pico_w`（如果要连接无线网络，还要加上 `-DWIFI_SSID="Your Network" -DWIFI_PASSWORD="Your Password"`）。
 >
 >更多信息请参阅树莓派 Pico SDK 中的 [`boards/` 目录](https://github.com/raspberrypi/pico-sdk/tree/master/src/boards)以及[论坛](https://forums.raspberrypi.com/viewtopic.php?f=147&t=304393)。
 
@@ -84,7 +84,7 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 你可以在 [GitHub](https://github.com/raspberrypi/pico-examples/blob/master/hello_world/usb/hello_usb.c) 上查看编写自己的 hello_world 程序的代码。
 
-## 快速启动你的项目
+## 快速启动你自己的项目
 
 >**注意**
 >

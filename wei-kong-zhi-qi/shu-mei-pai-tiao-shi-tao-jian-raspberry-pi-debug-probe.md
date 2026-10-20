@@ -4,7 +4,7 @@
 
 ![树莓派调试套件](.gitbook/assets/debug-probe.jpg)
 
-树莓派调试器（Raspberry Pi Debug Probe）是一款同时提供 UART 串口和标准 Arm 串行线调试（SWD）接口的 USB 设备。该调试器专为简单、免焊接、即插即用的调试而设计，具有以下功能：
+树莓派调试套件（Raspberry Pi Debug Probe）是一款同时提供 UART 串口和标准 Arm 串行线调试（SWD）接口的 USB 设备。该调试套件专为简单、免焊接、即插即用的调试而设计，具有以下功能：
 
 * USB 转 Arm [串行线调试](https://support.arm.com/documentation/ihi0031/a/The-Serial-Wire-Debug-Port--SW-DP-/Introduction-to-the-ARM-Serial-Wire-Debug--SWD--protocol)（SWD）端口
 * USB 转 UART 桥接器
@@ -18,13 +18,13 @@
 
 这使得在 Windows、macOS 和 Linux 等没有 GPIO 排针、无法直连 Pico 串口 UART 或 SWD 端口的平台上，也能轻松使用树莓派 Pico。
 
-### 调试器
+### 调试套件本体
 
-调试器在标称 3.3V 的 I/O 电压下运行。
+调试套件在标称 3.3V 的 I/O 电压下运行。
 
-![调试器](.gitbook/assets/the-probe.png)
+![调试套件](.gitbook/assets/the-probe.png)
 
-调试器随附一根 USB 电源线和三根调试线：
+调试套件随附一根 USB 电源线和三根调试线：
 
 * 三针 JST-SH 连接器转三针 JST-SH 连接器的电缆
 * 三针 JST-SH 连接器转 0.1 英寸排针（母）的电缆
@@ -32,19 +32,19 @@
 
 两根 0.1 英寸排针电缆分别用于面包板（公头）或直接连接到带排针的板子（母头），颜色如下：
 
-* 橙色：TX/SC（调试器输出）
+* 橙色：TX/SC（调试套件输出）
 * 黑色：GND
-* 黄色：RX/SD（输入到调试器或 I/O）
+* 黄色：RX/SD（输入到调试套件或 I/O）
 
 带有三针 JST-SH 连接器的电缆，用于配合较新的树莓派主板在 SWD 调试端口和 UART 连接器上使用的[标准三针连接器](https://rpltd.co/debug-spec)。
 
 >**警告**
 >
->当目标设备由独立的电源或计算机供电时，请在连接信号线之前确保两者有共同的参考地。要么先断开目标设备的电源，要么先在目标设备与树莓派调试器之间连接 GND；待 GND 连接好之后，再连接 RX、TX、SC 和 SD。两个系统之间潜在的电压差可能损坏调试器。
+>当目标设备由独立的电源或计算机供电时，请在连接信号线之前确保两者有共同的参考地。要么先断开目标设备的电源，要么先在目标设备与树莓派调试套件之间连接 GND；待 GND 连接好之后，再连接 RX、TX、SC 和 SD。两个系统之间潜在的电压差可能损坏调试套件。
 
-调试器有五个 LED：一个红色 LED 指示电源，另外四个为活动指示 LED。
+调试套件有五个 LED：一个红色 LED 指示电源，另外四个为活动指示 LED。
 
-![调试器 LED](.gitbook/assets/debug-leds.png)
+![调试套件 LED](.gitbook/assets/debug-leds.png)
 
 >**注意**
 >
@@ -54,27 +54,27 @@
 
 ![标注好的接线](.gitbook/assets/labelled-wiring.jpg)
 
-根据你的实际配置，有多种方式可以将调试器连接到 [Pico 系列设备](shu-mei-pai-pico-he-pico-w.md)。下面的示例将调试器连接到带有更新式三针 JST-SH SWD 连接器的树莓派 Pico H。
+根据你的实际配置，有多种方式可以将调试套件连接到 [Pico 系列设备](shu-mei-pai-pico-he-pico-w.md)。下面的示例将调试套件连接到带有更新式三针 JST-SH SWD 连接器的树莓派 Pico H。
 
 [观看安装演示视频](https://www.youtube.com/watch?v=4RCZBZsfsek)
 
 按如下方式连接：
 
-* 将调试器的 “D” 端口连接到 Pico H 的 SWD JST-SH 连接器
-* 将调试器的 “U” 端口通过三针 JST-SH 连接器转 0.1 英寸排针（公）的电缆连接：
-  * 调试器的 `RX` 连接到 Pico H 的 `TX` 引脚
-  * 调试器的 `TX` 连接到 Pico H 的 `RX` 引脚
-  * 调试器的 `GND` 连接到 Pico H 的 `GND` 引脚
+* 将调试套件的 “D” 端口连接到 Pico H 的 SWD JST-SH 连接器
+* 将调试套件的 “U” 端口通过三针 JST-SH 连接器转 0.1 英寸排针（公）的电缆连接：
+  * 调试套件的 `RX` 连接到 Pico H 的 `TX` 引脚
+  * 调试套件的 `TX` 连接到 Pico H 的 `RX` 引脚
+  * 调试套件的 `GND` 连接到 Pico H 的 `GND` 引脚
 
 >**注意**
 >
->如果你使用的是不带 JST-SH 连接器的非 H 版 Pico 或 Pico W，仍然可以将其连接到调试器。在板子的 `SWCLK`、`GND` 和 `SWDIO` 排针上焊接一个公头连接器。使用调试器随附的另一根三针 JST-SH 连接器转 0.1 英寸排针（母）的电缆，连接到调试器的 “D” 端口。将 Pico 或 Pico W 上的 `SWCLK`、`GND` 和 `SWDIO` 分别连接到调试器上的 `SC`（橙色线）、`GND`（黑色线）和 `SD`（黄色线）引脚。
+>如果你使用的是不带 JST-SH 连接器的非 H 版 Pico 或 Pico W，仍然可以将其连接到调试套件。在板子的 `SWCLK`、`GND` 和 `SWDIO` 排针上焊接一个公头连接器。使用调试套件随附的另一根三针 JST-SH 连接器转 0.1 英寸排针（母）的电缆，连接到调试套件的 “D” 端口。将 Pico 或 Pico W 上的 `SWCLK`、`GND` 和 `SWDIO` 分别连接到调试套件上的 `SC`（橙色线）、`GND`（黑色线）和 `SD`（黄色线）引脚。
 
 ![接线](.gitbook/assets/wiring.png)
 
 ## 安装工具
 
-要使用调试器，需要 OpenOCD 和 GNU 项目调试器（GDB）。集成开发环境（IDE）也可能对你有帮助。
+要使用调试套件，需要 OpenOCD 和 GNU 项目调试器（GDB）。集成开发环境（IDE）也可能对你有帮助。
 
 在树莓派系统、大多数 Linux 变体、macOS 和 Microsoft Windows 上，我们建议你安装我们的 VS Code 扩展。该扩展捆绑了 OpenOCD、Arm 工具链、GDB 以及 Pico 系列微控制器的寄存器定义。
 
@@ -88,7 +88,7 @@
 
 ## 开始调试会话
 
-调试器让你可以通过 SWD 端口和 OpenOCD 加载二进制文件：无需在每次向 Pico 推送新二进制文件时先拔下设备，再按住 BOOTSEL 按钮。使用调试器上传新的二进制文件完全是自动化的。
+调试套件让你可以通过 SWD 端口和 OpenOCD 加载二进制文件：无需在每次向 Pico 推送新二进制文件时先拔下设备，再按住 BOOTSEL 按钮。使用调试套件上传新的二进制文件完全是自动化的。
 
 随后使用 GDB 调试运行在 Pico 上的二进制文件。
 
@@ -104,7 +104,7 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 >**注意**
 >
->当你使用调试器上传二进制文件时，使用的是文件的 ELF 版本，而不是拖放时使用的 UF2 文件。
+>当你使用调试套件上传二进制文件时，使用的是文件的 ELF 版本，而不是拖放时使用的 UF2 文件。
 
 ### 单独调试会话
 
@@ -144,14 +144,14 @@ $ sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed
 
 ```bash
 $ gdb blink.elf
->target remote localhost:3333
->monitor reset init
->continue
+> target remote localhost:3333
+> monitor reset init
+> continue
 ```
 
 ## 串行连接
 
-确保调试器已连接到树莓派 Pico 的 UART 引脚。
+确保调试套件已连接到树莓派 Pico 的 UART 引脚。
 
 ![接线](.gitbook/assets/wiring.png)
 
@@ -163,7 +163,7 @@ $ gdb blink.elf
 | UART0_TX | 1 | GP0 |
 | UART0_RX | 2 | GP1 |
 
-连接后，树莓派 Pico UART 上的通信流量将由调试器中继到你的计算机，并呈现为一个 CDC UART。在树莓派上，它会显示为 `/dev/ttyACM0`；在其他平台上，该串口的显示方式有所不同（例如在 macOS 上显示为 `/dev/cu.usbmodemXXXX`）。
+连接后，树莓派 Pico UART 上的通信流量将由调试套件中继到你的计算机，并呈现为一个 CDC UART。在树莓派上，它会显示为 `/dev/ttyACM0`；在其他平台上，该串口的显示方式有所不同（例如在 macOS 上显示为 `/dev/cu.usbmodemXXXX`）。
 
 如果你还没有安装 minicom，请先安装：
 
@@ -203,13 +203,13 @@ $ minicom -b 115200 -o -D /dev/ttyACM0
 
 ![USB 设备描述](.gitbook/assets/description.jpg)
 
-该描述中的唯一序列号意味着在 Windows 上，你的 COM 端口编号对每个设备是“粘性”的，你可以据此编写 `udev` 规则，将命名的设备节点与特定的调试器关联起来。
+该描述中的唯一序列号意味着在 Windows 上，你的 COM 端口编号对每个设备是“粘性”的，你可以据此编写 `udev` 规则，将命名的设备节点与特定的调试套件关联起来。
 
 ## RTT 连接
 
 你还可以将应用程序配置为直接通过 SWD 接口发送输出，而无需 UART 连接。这使用了一种称为 Segger 实时传输（Real-Time Transport，RTT）的机制。
 
-为此，你必须在应用程序中启用 RTT stdio 驱动，并使用调试器连接到 RTT。
+为此，你必须在应用程序中启用 RTT stdio 驱动，并使用调试套件连接到 RTT。
 
 >**注意**
 >
@@ -256,7 +256,7 @@ OpenOCD 和 VSCode 的 [Cortex-Debug](https://marketplace.visualstudio.com/items
 如果你使用的是[开始调试会话](#开始调试会话)一节中描述的单独调试会话，可以通过以下步骤连接到 RTT：
 
 1. 构建并上传启用了 RTT 的应用程序。
-2. 连接调试器，并在单独的终端中启动 `openocd` 和 `gdb`。更多信息请参阅[单独调试会话](#单独调试会话)。
+2. 连接调试套件，并在单独的终端中启动 `openocd` 和 `gdb`。更多信息请参阅[单独调试会话](#单独调试会话)。
 3. 在 `gdb` 提示符下输入以下命令：
 
 ```bash
@@ -280,39 +280,39 @@ OpenOCD 会在目标上搜索 RTT 控制块，然后在本地创建一个监听 
 $ nc localhost 60000
 ```
 
-## 更新调试器固件
+## 更新调试套件固件
 
-调试器固件由树莓派以 UF2 文件的形式分发。
+调试套件固件由树莓派以 UF2 文件的形式分发。
 
-调试器固件的最新版本是 2.3.1。如果你运行的是较旧的版本，或者不小心覆盖了调试器上的固件，可以在 [debugprobe GitHub 仓库](https://github.com/raspberrypi/debugprobe/releases/latest)中找到最新版本的固件。
+调试套件固件的最新版本是 2.3.1。如果你运行的是较旧的版本，或者不小心覆盖了调试套件上的固件，可以在 [debugprobe GitHub 仓库](https://github.com/raspberrypi/debugprobe/releases/latest)中找到最新版本的固件。
 
-要检查调试器的固件版本，请运行：
+要检查调试套件的固件版本，请运行：
 
 ```bash
 $ lsusb -v -d 2e8a:000c | grep bcdDevice
 ```
 
-对于 2.3.1 版的调试器固件，该命令会报告 `bcdDevice 2.31`。
+对于 2.3.1 版的调试套件固件，该命令会报告 `bcdDevice 2.31`。
 
 >**注意**
 >
->`openocd` 报告的 `Info : CMSIS-DAP: FW Version = 2.0.0` 一行只表示 CMSIS-DAP 协议级别（与调试器固件版本不同）。
+>`openocd` 报告的 `Info : CMSIS-DAP: FW Version = 2.0.0` 一行只表示 CMSIS-DAP 协议级别（与调试套件固件版本不同）。
 
-按以下步骤更新调试器的固件版本：
+按以下步骤更新调试套件的固件版本：
 
 1. 从最新版本下载 `debugprobe.uf2`。
-2. 掀开调试器外壳的顶部。
-3. 在把调试器插入计算机的同时按住 BOOTSEL 按钮，以挂载名为 “RPI-RP2”（Pico）或 “RP2350”（Pico 2）的卷。
+2. 掀开调试套件外壳的顶部。
+3. 在把调试套件插入计算机的同时按住 BOOTSEL 按钮，以挂载名为 “RPI-RP2”（Pico）或 “RP2350”（Pico 2）的卷。
 4. 将 `debugprobe.uf2` 复制到挂载的卷上。文件复制完成后，卷会自动卸载。
-5. 调试器会重新启动，现在运行的是更新后的调试器固件，可以开始调试了。
+5. 调试套件会重新启动，现在运行的是更新后的调试套件固件，可以开始调试了。
 
 ## 原理图
 
-调试器的原理图和机械图纸可在以下位置获取：
+调试套件的原理图和机械图纸可在以下位置获取：
 
 * [原理图](https://pip.raspberrypi.com/documents/RP-008194-DS)（PDF）
 * [机械图](https://pip.raspberrypi.com/documents/RP-008192-DS)（PDF）
 
 原理图上标示的测试点（TP）位于下图所示位置。
 
-![调试器测试点](.gitbook/assets/debug-probe-tps.jpg)
+![调试套件测试点](.gitbook/assets/debug-probe-tps.jpg)

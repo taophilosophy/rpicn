@@ -24,8 +24,8 @@
 | Audio Board      | 音频扩展板     |
 | Pico             | Pico          |
 | Pico W           | Pico W        |
-| Debug Probe      | 调试器        |
-| Probe            | 调试器        |
+| Debug Probe      | 调试套件      |
+| Probe            | 调试套件      |
 | MicroPython      | MicroPython   |
 | SDK              | SDK           |
 |peripherals |外设/外部设备|
