@@ -319,4 +319,5 @@ EOF
 
 - **AutoCorrect**（`.github/.autocorrectrc`，根目录另有一份 `.autocorrectrc`）：仅启用 `space-word`（CJK 与英文/数字间空格，error 级）；标点、括号、反引号、全半角转换、拼写检查等其余规则全部关闭。`AutoCorrect.yml` 与 `md-padding.yml` 为手动触发，运行后必须逐文件核对 diff 再提交，禁止盲目批量应用。
 - **markdownlint**（`.github/.markdownlint.json`）：PR 时由 `Markdown-lint2-pr.yml` 自动检查变更的 `.md` 文件；**lychee**（`.github/lychee.toml`）由 `links.yml` 定期检查链接；textlint 未配置。
+- **加粗空格**（`.github/scripts/check_bold_spacing.py`）：检查 `**加粗**` 两侧空格，规则见“编写规范 · 格式”；PR 时由 `bold-spacing.yml` 自动执行，本地可加 `--fix` 就地修复。
 - PDF 导出：`create-pdf.yml` 工作流，或使用 `README.md` 提到的 [gitbook-pdf-export](https://github.com/FreeBSD-Ask/gitbook-pdf-export) 脚本。
