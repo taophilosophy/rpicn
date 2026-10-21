@@ -138,16 +138,16 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ### 3.2 页面统计
 
-统计时间：2026-10-21 09:15
+统计时间：2026-10-21 09:55
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
-| 树莓派 | 17 | 17 | 15 | 0 | 0 | 2 | 0 | 88% |
+| 树莓派 | 17 | 17 | 16 | 0 | 0 | 1 | 0 | 94% |
 | 配件 | 20 | 20 | 20 | 0 | 0 | 0 | 0 | 100% |
 | 微控制器 | 6 | 6 | 6 | 0 | 0 | 0 | 0 | 100% |
 | 服务 | 4 | 4 | 2 | 2 | 0 | 0 | 0 | 50% |
 | 安全 | 5 | 5 | 5 | 0 | 0 | 0 | 0 | 100% |
-| 合计 | 52 | 52 | 48 | 2 | 0 | 2 | 0 | 92% |
+| 合计 | 52 | 52 | 49 | 1 | 0 | 2 | 0 | 94% |
 
 剩余待校 8 页：树莓派 `xi-tong-pei-zhi`(4147)、`shu-mei-pai-ying-jian`(3403)、`config.txt`(1316)、`jiu-ban-config.txt-can-shu`(902)、`she-xiang-tou-ruan-jian`(校对中)、`ji-suan-mo-kuai-ying-jian`(校对中)；服务 `yuan-cheng-fang-wen`(1268)、`connect-qi-ye-ban`(2079)。
 
@@ -170,7 +170,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/yuan-cheng-fang-wen.md` | `remote-access.adoc` | 复查通过 | 复查✓ | 主线程 | 2026-10-18 | 约 160 处修订；截图待中文 UI 重制 |
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 复查通过 | 3/3 | G2+主线程 | 2026-10-20 | G2 中断 + 主线程逐句三轮：对照上游 31 个文件 3474 行（3112 行中文，3140 行改后）；参数参考 5 文件全量核对（common 607 行/options_still+vid+libav+detect）；修正 30 余处：补译 Hailo 相关（meson 两条命令 -Denable_hailo=disabled、TIP 第 4 条、标志参考 2 条）、ldconfig 提示块与 rpicam-still --version 检查步骤、libopencv-dev 依赖、low-latency 与 sync 两个参数、detect 注意块 TFLite 链接、反引号错位 3 处（post-process 段首、num_frames 单元格）、术语（舞台→阶段 2 处、vksip→vskip）、上游已删的 Bullseye/Glamor 冗余段删除；8 个内外部链接补全并内部化；上游笔误记录（rescaling、h,>、You can can、the the）；快检 274 围栏成对 |
 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `ai.adoc` | 复查通过 | 3/3 | 主线程 | 2026-10-20 | 主线程三轮：逐句对照 getting-started.adoc 546 行（505 行中文）；hailortcli/dmesg/Docker/Open WebUI 全部命令块逐字核对；YOLO 表 4 行、软件包版本 4.19/4.18/4.17 三组核对一致；修正 1 处（更新软件/更新引导加载程序配置双链接内部化，锚点验证存在）；上游笔误「PCI Gen 3.0」缺 e 已按正确含义译出 |
-| `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 已同步 | 0/3 | 代理 F14（主线程复核） | 2026-10-20 | 27 个 H2 与上游 27 个 .adoc 一一对应；`boot-eeprom`（树莓派引导 EEPROM，line 144）与 `bootflow-legacy`（对应中文「引导顺序」节 line 1126，上游标题即 "Boot sequence"）均已存在且内容完整，原「缺节」误判已澄清；CP-3 抽查通过（无「」/xref/link/image 残留、围栏 224 偶数、弯引号 12/12、CRLF）；待三轮逐句校对 |
+| `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 复查通过 | 3/3 | H2+主线程 | 2026-10-20 | H2 中断 + 主线程逐句三轮：对照上游 27 文件 5189 行（3436 行中文）；**修正 SPI 硬件节重大编号错位**（SPI0/SPI1/SPI2 三项全部错写为 SPI1/SPI2/SPI2 且漏 SPI0，按上游复原）；**补译树莓派 5 RP1 SPI 整段**（九个 SSI 控制器、SPI0-5 片选数、DDR 不支持、SPI4/SPI7 设备模式两条 NOTE）与 PARTITION 高分区号看门狗示例（[partition=62]）；bootloader 代码示例注释补译 2 处；引导 EEPROM/诊断/引导模式/USB/MSD/网络/GPIO/NVMe/HTTP 引导、引导顺序、DPI、GPIO 排针、OTP、PCIe、电源、RTC、修订代码节逐句核对；上游代码行比对 161 行中仅 15 行差异且均为注释翻译或已补译；220 围栏成对、页内锚点与相对链接零缺失 |
 | `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 复查通过 | 3/3 | F7 | 2026-10-20 | 主线程三轮：逐句对照 zero.adoc（含 zero-intro/zero-models 全部子节，189 行中文）；22 行测试点坐标逐一核对；修正 2 处（W/WH 端口表上游笔误「Zero 2 W」→Zero W、intro 节「存储卡插槽」补 microSD 前缀）；上游笔误 schematc 已按正确含义 |
 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 复查通过 | 3/3 | G1+主线程 | 2026-10-20 | G1 中断 + 主线程逐句三轮：对照上游 7 文件 1293 行（1103 行中文）；型号表 6 行/IO 板兼容表 4 行/CM5IO 与 CM4IO 功能列表/机箱组装 10 步/天线 5 步/刷写三平台/设备树 .dtb 清单 11 行逐字核对一致；修正 10 处（I/O 板→IO 板 9 处全仓统一、触摸显示屏 2 链接补 #连接到树莓派设备 锚点）；上游异常：cm-peri-sw-guide L56 与 L107 设备树文件名自相矛盾（bcm2710-rpi-cm3.dtb vs bcm2710-rpi-cm.dtb，中文照录）、You can can 重复 |
 | `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 11 处修订：5 处提示块 `>` 后多余空格、heat spreader 改「均热盖」（术语表同步区分 heatsink）、删「金属」增补、补 "now"、16 纳米改 16 nm、3 处双重「的」与并列结构改写、`potentially` 改正。术语表新增 heatsink 条目 |
