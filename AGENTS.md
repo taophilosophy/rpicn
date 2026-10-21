@@ -8,16 +8,150 @@
 > - **三轮逐句校对 + 复查：52/52 完成（100%）**——树莓派 17/17、配件 20/20、微控制器 6/6、服务 4/4、安全 5/5。本阶段已结束，逐页任务书 `TASKS.md` 已于 2026-10-21 删除，进度以本快照与 `CHANGELOG.md` 为准。
 > - 全仓工程项已清零：CRLF、图片引用 `../` 前缀（368 处）、提示块空格（80 处）、正文直引号（29 处）、失效锚点（系统配置页 59 处等）、日式引号（2026-10-20 新规：禁止「」『』）。
 
-## 下次同步上游时怎么做
+## 下次同步上游时怎么做（按需 diff 增量增补）
 
-官方文档 `master` 分支在有新版本发行后变动集中（平时可能只有少量修订）。同步流程：
+本仓库**不保存上游 AsciiDoc 副本**（原 `script/upstream-*/` 基准目录已删除）。每次同步时临时拉取上游仓库，用 `git diff` 找出旧基线以来的改动，**只增补受影响的中文页**，不做全量重译。
 
-1. **确认基线**：先读 `CHANGELOG.md` 末尾，找到本项目当前对应的上游 commit；新基线记录也写进 `CHANGELOG.md`。
-2. **抓取原文**：用 `script/fetch_upstream.sh`、`script/fetch_missing.sh` 拉取上游 AsciiDoc 到 `script/upstream-<板块>/`。官方文档网页受 Cloudflare 挑战，`curl` 无法直接抓取；上游 GitHub 仓库可 `git clone --depth 1 --filter=blob:none --sparse` 获取。
-3. **逐句比对**：以 `script/upstream-*/` 为唯一权威基准，中文页在 `shu-mei-pai/`、`pei-jian/`、`wei-kong-zhi-qi/`、`fu-wu/`、`an-quan/`。上游笔误按正确含义译出并记入异常清单。
-4. **跑 lint**：`python script/lint_all.py`（21 条规则），交付页必须全绿再提交。
-5. **更新目录**：改 `SUMMARY.md` 后同步 `mu-lu.md` 卡片（板块内顺序须与 `SUMMARY.md` 逐位一致）。
-6. **更新 README**：`README.md`「版本说明」的基线与「翻译校对进度」表。
+### 第 1 步：确定旧基线
+
+读 `CHANGELOG.md` 末尾最近一条「同步至 `<commit>`」记录，记为 `BASE`。日志中没有 commit 时，用 `README.md`「版本说明」里的基线链接。
+
+### 第 2 步：拉取上游（只在临时目录，严禁写进仓库）
+
+```bash
+cd /tmp                                    # 或任一系统临时目录
+git clone --filter=blob:none --no-checkout --depth 300 \
+  https://github.com/raspberrypi/documentation.git up-doc
+cd up-doc
+git sparse-checkout set documentation/asciidoc
+git checkout master
+```
+
+- 只认 `master`（对应官方已发布页面）；`develop` 含未发布内容，不得作为同步基准。
+- 官方文档网页（raspberrypi.com/documentation）受 Cloudflare 挑战，`curl` 抓不动；单文件核对可用 `raw.githubusercontent.com`（已验证 52 个上游文件全部可达）。
+- 若 `BASE` 过老被 shallow 克隆裁掉：`git fetch --deepen=300`，必要时 `git fetch --unshallow`。
+
+### 第 3 步：生成差异清单
+
+```bash
+git diff --stat BASE..HEAD -- documentation/asciidoc
+git diff --name-status BASE..HEAD -- documentation/asciidoc
+```
+
+抄下所有改动的 `.adoc` 路径（A=新增、M=修改、D=删除、R=重命名）。上游平时变动很小；若输出只有文件顺序调整（重命名到同内容），可跳过。
+
+### 第 4 步：用映射表定位中文页
+
+上游路径规则：`documentation/asciidoc/<板块>/<页面>.adoc`，该页拆分的子文件在**同名子目录**下（`<页面>/*.adoc`），由主文件 `include::` 引用。逐句比对时须把子文件按 include 顺序拼接后对照中文页。
+
+| 中文页 | 上游 `asciidoc/` 下路径 |
+| --- | --- |
+| `shu-mei-pai/ru-men.md` | `computers/getting-started.adoc` |
+| `shu-mei-pai/raspberry-pi-os.md` | `computers/os.adoc` |
+| `shu-mei-pai/xi-tong-pei-zhi.md` | `computers/configuration.adoc` |
+| `shu-mei-pai/config.txt.md` | `computers/config_txt.adoc` |
+| `shu-mei-pai/linux-nei-he.md` | `computers/linux_kernel.adoc` |
+| `shu-mei-pai/yuan-cheng-fang-wen.md` | `computers/remote-access.adoc` |
+| `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `computers/camera_software.adoc` |
+| `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `computers/ai.adoc` |
+| `shu-mei-pai/shu-mei-pai-ying-jian.md` | `computers/raspberry-pi.adoc` |
+| `shu-mei-pai/ling-dian-xing-hao.md` | `computers/zero.adoc` |
+| `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `computers/compute-module.adoc` |
+| `shu-mei-pai/chu-li-qi.md` | `computers/processors.adoc` |
+| `shu-mei-pai/io-kong-zhi-qi.md` | `computers/io-controllers.adoc` |
+| `shu-mei-pai/ruan-jian-lai-yuan.md` | `computers/software-sources.adoc` |
+| `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `computers/legacy_config_txt.adoc` |
+| `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | `computers/sbcs.adoc` |
+| `shu-mei-pai/jian-pan-ji-suan-ji.md` | `computers/keyboard-computers.adoc` |
+| `pei-jian/sd-ka.md` | `accessories/sd-cards.adoc` |
+| `pei-jian/ssd.md` | `accessories/ssds.adoc` |
+| `pei-jian/ssd-tao-jian.md` | `accessories/ssd-kit.adoc` |
+| `pei-jian/m.2-hat+.md` | `accessories/m2-hat-plus.adoc` |
+| `pei-jian/xian-shi-qi.md` | `accessories/display.adoc` |
+| `pei-jian/chu-mo-xian-shi-ping-2.md` | `accessories/touch-display-2.adoc` |
+| `pei-jian/raspberry-pi-monitor.md` | `accessories/monitor.adoc` |
+| `pei-jian/she-xiang-tou.md` | `accessories/camera.adoc` |
+| `pei-jian/ai-she-xiang-tou.md` | `accessories/ai-camera.adoc` |
+| `pei-jian/jian-pan-he-shu-biao.md` | `accessories/keyboard-and-mouse.adoc` |
+| `pei-jian/usb-pei-jian.md` | `accessories/usb.adoc` |
+| `pei-jian/build-hat.md` | `accessories/build-hat.adoc` |
+| `pei-jian/chuan-gan-qi-kuo-zhan-ban-sense-hat.md` | `accessories/sense-hat.adoc` |
+| `pei-jian/ren-gong-zhi-neng-tao-jian-ai-kit.md` | `accessories/ai-kit.adoc` |
+| `pei-jian/ai-hat.md` | `accessories/ai-hat-plus.adoc` |
+| `pei-jian/shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | `accessories/audio.adoc` |
+| `pei-jian/dian-shi-kuo-zhan-ban-tv-hat.md` | `accessories/tv-hat.adoc` |
+| `pei-jian/cm5-bian-cheng-zhi-ju.md` | `accessories/cm5-programming-jig.adoc` |
+| `pei-jian/zhi-neng-xian-shi-mo-kuai.md` | `accessories/smart-display-module.adoc` |
+| `pei-jian/bao-hu-ke.md` | `accessories/bumper.adoc` |
+| `wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md` | `microcontrollers/radio-modules.adoc` |
+| `wei-kong-zhi-qi/rp2040.md` | `microcontrollers/microcontroller-chips.adoc` |
+| `wei-kong-zhi-qi/shu-mei-pai-pico-he-pico-w.md` | `microcontrollers/pico-series.adoc` |
+| `wei-kong-zhi-qi/shu-mei-pai-tiao-shi-tao-jian-raspberry-pi-debug-probe.md` | `microcontrollers/debug-probe.adoc` |
+| `wei-kong-zhi-qi/micropython.md` | `microcontrollers/micropython.adoc` |
+| `wei-kong-zhi-qi/c-c++-sdk.md` | `microcontrollers/c_sdk.adoc` |
+| `fu-wu/shu-mei-pai-zhang-hao-raspberry-pi-id.md` | `services/id.adoc` |
+| `fu-wu/shu-mei-pai-yuan-cheng-fang-wen-raspberry-pi-connect.md` | `services/connect.adoc` |
+| `fu-wu/shu-mei-pai-connect-qi-ye-ban.md` | `services/connect-for-organisations.adoc` |
+| `fu-wu/shu-mei-pai-shu-jia.md` | `services/bookshelf.adoc` |
+| `an-quan/an-quan-gai-shu.md` | `security/security.adoc` |
+| `an-quan/an-quan-jia-gou.md` | `security/security-architecture.adoc` |
+| `an-quan/an-quan-qi-dong-pei-zhi-qi.md` | `security/secure-boot-provisioner.adoc` |
+| `an-quan/yun-ying-an-quan.md` | `security/operational-security.adoc` |
+| `an-quan/ufw-fang-huo-qiang.md` | `security/ufw.adoc` |
+
+diff 里出现上表没有的路径（上游新增/重命名页面）时：先读主文件确认内容归属，再决定映射到哪一页，**并把新映射补进本表**。
+
+### 第 5 步：增量增补（只处理 diff 命中的页）
+
+对每个受影响的中文页：
+
+1. 读上游新版全文（主文件 + 按 `include::` 顺序拼接子文件），与中文页逐句比对，**只改有差异的部分**，不做无关重构。
+2. 上游笔误（拼写错误、自相矛盾的参数、错位的表格）按正确含义译出，记入异常清单；照录的丝印/截图文法除外（如 `WiFI/BT`）。
+3. 遵守本文件「编写规范」全部条款（提示块、反引号、禁日式引号、禁 AsciiDoc 残留、表格列数等）。
+4. 上游**新增**页面 → 新增中文页（拼音命名，不得含空格/中文/冒号）+ `SUMMARY.md` 条目 + `mu-lu.md` 卡片（板块内顺序与 `SUMMARY.md` 逐位一致，卡片图用上游 `images/full-sized/` 线上地址并验证 200）；上游**删除**页面 → 三处同步移除。
+5. 上游改动涉及图片时：下载到 `.gitbook/assets/`，正文用 `](../.gitbook/assets/xxx.png)` 引用（子目录页面必须带 `../`）。
+
+### 第 6 步：质量门禁（原 `script/lint_all.py` 已随 `script/` 删除，改用内联检查）
+
+```bash
+python - <<'EOF'
+import re, glob, os
+files = [f for d in ['shu-mei-pai','pei-jian','wei-kong-zhi-qi','fu-wu','an-quan','qian-yan'] for f in glob.glob(d+'/*.md')]
+def strip_code(s):
+    out, infence = [], False
+    for l in s.split('\n'):
+        if l.lstrip('> \t').startswith('```'): infence = not infence; continue
+        if not infence: out.append(l)
+    return '\n'.join(out)
+bad = 0
+for f in files:
+    raw = open(f,'rb').read(); s = raw.decode('utf-8'); body = strip_code(s)
+    probs = []
+    if any(c in s for c in '「」『』'): probs.append('日式引号')
+    if re.findall(r'xref:|link::|image::', body): probs.append('asciidoc残留')
+    if len(re.findall(r'^```', s, re.M)) % 2: probs.append('围栏奇数')
+    if body.count('“') != body.count('”'): probs.append('弯引号不配对')
+    if [l for l in body.split('\n') if l.startswith('> ')]: probs.append('提示块空格')
+    if [l for l in body.split('\n') if re.match(r'^#+ .*[。.]$', l)]: probs.append('标题句号')
+    if raw.count(b'\n') != raw.count(b'\r\n'): probs.append('换行混合')
+    for m in re.finditer(r'\]\((\.{0,2})\.gitbook/assets/[^)]+\)', s):
+        if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(f), m.group(1)+'.gitbook/assets/'+m.group(0)[m.group(0).find('assets/')+7:-1]))): probs.append('图片缺失:'+m.group(0)[:40])
+    if probs: print(f, probs); bad += 1
+print('交付页 %d 个，问题文件 %d 个' % (len(files), bad))
+EOF
+```
+
+要求输出 `问题文件 0 个`。此外按需补查：表格列数一致性、页内锚点命中标题（slug 规则：标题去反引号/星号、保留英文下划线、空格转 `-`、全小写）、内部链接目标存在。
+
+### 第 7 步：收尾登记
+
+1. `CHANGELOG.md` 追加一条：日期、新基线 commit、改动页清单（每页修正数）、上游异常清单。
+2. `README.md` 更新「版本说明」的基线链接；若为全量完成，更新「翻译校对进度」表。
+3. 提交（本仓库要求 GPG 签名，Git 自带 gpg 无密钥库，须用系统 GnuPG）：
+   ```bash
+   git -c gpg.program="C:\Program Files\GnuPG\bin\gpg.exe" commit -m "同步上游至 <新commit>：<改动概述>"
+   ```
+4. 清理临时目录：`rm -rf /tmp/up-doc`。仓库内严禁留下任何 `upstream-*`、`*.bak`、临时脚本。
 
 ## 仓库概览
 
