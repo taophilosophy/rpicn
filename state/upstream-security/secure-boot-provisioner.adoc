@@ -1,1 +1,0 @@
-include::secure-boot-provisioner/secure-boot-provisioner.adoc[]
