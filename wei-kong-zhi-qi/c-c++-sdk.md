@@ -23,15 +23,15 @@ chmod +x pico_setup.sh
 
 你可以在以下位置找到有关 C/C++ SDK 的文档：
 
-- [树莓派 Pico C/C++ SDK API 文档](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html)
+* [树莓派 Pico C/C++ SDK API 文档](https://www.raspberrypi.com/documentation/pico-sdk/index_doxygen.html)
 
-- [Getting started with Raspberry Pi Pico-series](https://pip.raspberrypi.com/documents/RP-008276-DS)
+* [Getting started with Raspberry Pi Pico-series](https://pip.raspberrypi.com/documents/RP-008276-DS)
 
-- [Wi-Fi and Bluetooth connectivity on Pico W-series devices](https://pip.raspberrypi.com/documents/RP-008257-DS)
+* [Wi-Fi and Bluetooth connectivity on Pico W-series devices](https://pip.raspberrypi.com/documents/RP-008257-DS)
 
-- [Raspberry Pi Pico-series C/C++ SDK](https://pip.raspberrypi.com/documents/RP-009085-KB)
+* [Raspberry Pi Pico-series C/C++ SDK](https://pip.raspberrypi.com/documents/RP-009085-KB)
 
-- [pico-examples 仓库](https://github.com/raspberrypi/pico-examples)
+* [pico-examples 仓库](https://github.com/raspberrypi/pico-examples)
 
 SDK 源代码是开源的，可在 [pico-sdk GitHub 仓库](https://github.com/raspberrypi/pico-sdk)中获取。
 

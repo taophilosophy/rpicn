@@ -554,23 +554,23 @@ USB 有两种独立的启动模式：
 
 USB 主机引导模式采用以下逻辑：
 
-- 启用 USB 端口并等待 D+ 线被拉高，表示连接了 USB 2.0 设备（我们只支持 USB 2.0）
-- 如果设备是集线器：
-  - 为集线器的所有下游端口供电
-  - 对于每个端口，最多等待两秒（如果设置了 `program_usb_boot_timeout=1`，则为五秒）
-    - 解除复位并等待 D+ 被拉高，以指示设备已连接
-    - 如果检测到设备：
-      - 发送“获取设备描述符”
-        - 如果 `VID == SMSC` 并且 `PID == 9500`
-          - 将设备添加到以太网设备列表
-        - 如果接口类别为大容量存储类
-          - 将设备添加到大容量存储设备列表
-- 否则
-  - 枚举单个设备
-- 遍历大容量存储设备列表
-  - 从大容量存储设备启动
-- 遍历以太网设备列表
-  - 从以太网启动
+* 启用 USB 端口并等待 D+ 线被拉高，表示连接了 USB 2.0 设备（我们只支持 USB 2.0）
+* 如果设备是集线器：
+  * 为集线器的所有下游端口供电
+  * 对于每个端口，最多等待两秒（如果设置了 `program_usb_boot_timeout=1`，则为五秒）
+    * 解除复位并等待 D+ 被拉高，以指示设备已连接
+    * 如果检测到设备：
+      * 发送“获取设备描述符”
+        * 如果 `VID == SMSC` 并且 `PID == 9500`
+          * 将设备添加到以太网设备列表
+        * 如果接口类别为大容量存储类
+          * 将设备添加到大容量存储设备列表
+* 否则
+  * 枚举单个设备
+* 遍历大容量存储设备列表
+  * 从大容量存储设备启动
+* 遍历以太网设备列表
+  * 从以太网启动
 
 
 在树莓派 3B、3A+ 和 3B+ 上，默认禁用主机引导。要启用 USB 主机引导，请在 `/boot/firmware/config.txt` 末尾添加一行 `program_usb_boot_mode=1`。
@@ -1773,7 +1773,7 @@ XHCI_DEBUG=0x3
 
 ## 显示并行接口 (DPI)
 
-##### [在树莓派上使用 DPI 显示](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003471-WP/Using-a-DPI-display.pdf)
+### [在树莓派上使用 DPI 显示](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003471-WP/Using-a-DPI-display.pdf)
 
 在树莓派上使用 DPI 显示器
 
@@ -2122,7 +2122,7 @@ GPIO 引脚的物理特性有更多信息。
 
 ### 一次性可编程设置
 
-##### [在树莓派单板计算机上使用一次性可编程内存](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003611-WP/Using-the-One-time-programmable-memory-on-Raspberry-Pi-single-board-computers.pdf)
+#### [在树莓派单板计算机上使用一次性可编程内存](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003611-WP/Using-the-One-time-programmable-memory-on-Raspberry-Pi-single-board-computers.pdf)
 
 在树莓派开发板计算机上使用一次性可编程内存
 
@@ -2667,7 +2667,7 @@ $ vcgencmd get_config usb_max_current_enable
 >
 >这些测量基于标准的树莓派系统镜像（截至 2016 年 2 月 26 日，对于树莓派 4 为 2019 年 6 月），室温，树莓派接入了 HDMI 显示器、USB 键盘和 USB 鼠标。树莓派 3A 接入到了无线局域网接入点，树莓派 4 连接到了以太网。所有这些功耗测量均为近似值，并未考虑来自额外 USB 设备的功耗；如果接入了多个额外 USB 设备和扩展板，功耗很容易超过这些测量值。
 
-##### [树莓派 4 和计算模块 4 上附加的电源管理功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
+#### [树莓派 4 和计算模块 4 上附加的电源管理功能](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-004340-WP/Extra-PMIC-features-on-Raspberry-Pi-4-and-Compute-Module-4.pdf)
 
 树莓派 4 和计算模块 4 上的额外电源管理功能
 
@@ -2693,7 +2693,7 @@ BOOT_ORDER=0xf416
 
 电压会因多种原因而降低：你可能已将太多高需求的 USB 设备插入；电源适配器供应可能不足；接入适配器的充电线可能过细。
 
-##### [制作更具弹性的文件系统](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003610-WP/Making-a-more-resilient-file-system.pdf)
+#### [制作更具弹性的文件系统](https://pip.raspberrypi.com/categories/685-whitepapers-app-notes/documents/RP-003610-WP/Making-a-more-resilient-file-system.pdf)
 
 创建更具弹性的文件系统
 

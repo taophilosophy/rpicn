@@ -698,17 +698,17 @@ rpi-image-gen 输出一个包含 A/B 启动镜像的 `.img` 文件。
 1. 进入 rpi-image-gen 安装文件夹。
 2. 打开 `examples/ota/layer/ota.yaml`。
 3. 自定义以下元数据：
-    - X-Env-Layer-Name。
-    - X-Env-Layer-Category。
-    - X-Env-Layer-Desc。
-    - X-Env-Layer-Reqs。
+    * X-Env-Layer-Name。
+    * X-Env-Layer-Category。
+    * X-Env-Layer-Desc。
+    * X-Env-Layer-Reqs。
 4. 打开 `examples/ota/config/ota.yaml`。
 5. 设置以下环境变量：
-    - Version（版本）。用于确定启动镜像的版本。现在设置一个起始版本号，以后每创建一个更新构件就相应递增。如果不指定版本号，默认为 1.0.0。
-    - Device hostname（设备主机名）。用于为此设备创建的所有镜像。必须唯一。如果不指定设备主机名，每次构建都会创建默认值 `ota-device-1`。
+    * Version（版本）。用于确定启动镜像的版本。现在设置一个起始版本号，以后每创建一个更新构件就相应递增。如果不指定版本号，默认为 1.0.0。
+    * Device hostname（设备主机名）。用于为此设备创建的所有镜像。必须唯一。如果不指定设备主机名，每次构建都会创建默认值 `ota-device-1`。
 6. （可选）打开 `examples/ota/config/ota.yaml` 并：
-    - 定义构建时要安装的额外软件包。更多信息请参见 [Packages](https://raspberrypi.github.io/rpi-image-gen/config/index.html#_packages)。
-    - 添加无线网络凭据。更多信息请参见 [Wireless Networking](https://github.com/raspberrypi/rpi-image-gen/tree/master/examples/ota)。
+    * 定义构建时要安装的额外软件包。更多信息请参见 [Packages](https://raspberrypi.github.io/rpi-image-gen/config/index.html#_packages)。
+    * 添加无线网络凭据。更多信息请参见 [Wireless Networking](https://github.com/raspberrypi/rpi-image-gen/tree/master/examples/ota)。
 
 #### 第 3 步：生成认证密钥
 
@@ -1065,7 +1065,7 @@ Screen sharing is supported by this version of rpi-connect
 ✓ Peer-to-peer connection candidate via TURN
 ```
 
-如果 Connect 无法在你的网络上正常通信，失败的测试项旁边会显示"x"而不是勾号。请让你的网络管理员在你的网络上启用以下连接：
+如果 Connect 无法在你的网络上正常通信，失败的测试项旁边会显示“x”而不是勾号。请让你的网络管理员在你的网络上启用以下连接：
 
 * 在 443 端口上向 `api.connect.raspberrypi.com` 和 `ws.connect.raspberrypi.com` 的树莓派 Connect API 和 WebSocket 服务器发出的 HTTPS 请求
 * 向以下所有主机的 UDP 3478 端口上的树莓派 Connect STUN 或 TURN 服务器发出的请求：
@@ -1122,7 +1122,7 @@ Remote shell: allowed (0 sessions active)
 
 此命令的输出表明你当前是否已登录 Connect，以及在树莓派上启用的远程服务。
 
-如果你看到包含"Raspberry Pi Connect is not running, run rpi-connect on"的输出，请运行 `rpi-connect on` 启动 Connect。
+如果你看到包含“Raspberry Pi Connect is not running, run rpi-connect on”的输出，请运行 `rpi-connect on` 启动 Connect。
 
 ### 启用增强日志记录
 

@@ -572,7 +572,7 @@ $ sudo reboot
 
 ### 安全启动的配置属性
 
-##### 白皮书
+#### 白皮书
 
 >[如何使用树莓派安全启动（How to use Raspberry Pi Secure Boot）](https://pip.raspberrypi.com/documents/RP-003466-WP)
 >
@@ -799,7 +799,7 @@ GPU 核心、CPU、SDRAM 和 GPU 各自拥有自己的 PLL，频率可相互独�
 
 ### 监控核心温度
 
-##### 白皮书
+#### 白皮书
 
 >[树莓派设备散热（Cooling a Raspberry Pi device）](https://pip.raspberrypi.com/documents/RP-003608-WP)
 >

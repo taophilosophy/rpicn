@@ -1037,7 +1037,7 @@ CM1、CM3、CM3+ 和 CM4S IO 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO 引
 
 * [CM4 数据表](https://pip.raspberrypi.com/documents/RP-008168-DS)
 
-##### 白皮书
+#### 白皮书
 
 >[配置计算模块 4](https://pip.raspberrypi.com/documents/RP-003470-WP)
 >
@@ -1075,7 +1075,7 @@ CM1、CM3、CM3+ 和 CM4S IO 板未提供 `cam1_reg` 和 `cam0_reg` 的 GPIO 引
 * [CM1 的原理图](https://pip.raspberrypi.com/documents/RP-008162-DS)
 * [CM3 的原理图](https://pip.raspberrypi.com/documents/RP-008164-DS)
 
-##### 白皮书
+#### 白皮书
 
 >[从计算模块 1 和计算模块 3 过渡到计算模块 4](https://pip.raspberrypi.com/documents/RP-003469-WP)
 >

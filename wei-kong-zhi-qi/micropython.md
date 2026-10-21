@@ -44,15 +44,15 @@ MicroPython 是 Python 3 编程语言的完整实现，可直接运行在树莓�
 
 你可以在以下位置找到有关 MicroPython 移植到树莓派微控制器的信息：
 
-- [树莓派 Pico Python SDK](https://pip.raspberrypi.com/documents/RP-008355-DS)
+* [树莓派 Pico Python SDK](https://pip.raspberrypi.com/documents/RP-008355-DS)
 
-- [Wi-Fi and Bluetooth connectivity on Pico W-series devices](https://pip.raspberrypi.com/documents/RP-008257-DS)
+* [Wi-Fi and Bluetooth connectivity on Pico W-series devices](https://pip.raspberrypi.com/documents/RP-008257-DS)
 
-- [RP2 Quick Reference](https://docs.micropython.org/en/latest/rp2/quickref.html)
+* [RP2 Quick Reference](https://docs.micropython.org/en/latest/rp2/quickref.html)
 
-- [RP2 Library](https://docs.micropython.org/en/latest/library/rp2.html)
+* [RP2 Library](https://docs.micropython.org/en/latest/library/rp2.html)
 
-- [pico-micropython-examples 仓库](https://github.com/raspberrypi/pico-micropython-examples)
+* [pico-micropython-examples 仓库](https://github.com/raspberrypi/pico-micropython-examples)
 
 ## 我正在用的硬件是哪个？
 
