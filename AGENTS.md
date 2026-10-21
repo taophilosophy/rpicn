@@ -134,8 +134,8 @@ for f in files:
     if [l for l in body.split('\n') if l.startswith('> ')]: probs.append('提示块空格')
     if [l for l in body.split('\n') if re.match(r'^#+ .*[。.]$', l)]: probs.append('标题句号')
     if raw.count(b'\n') != raw.count(b'\r\n'): probs.append('换行混合')
-    for m in re.finditer(r'\]\((\.{0,2})\.gitbook/assets/[^)]+\)', s):
-        if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(f), m.group(1)+'.gitbook/assets/'+m.group(0)[m.group(0).find('assets/')+7:-1]))): probs.append('图片缺失:'+m.group(0)[:40])
+    for m in re.finditer(r'\]\((\.{0,2}\.gitbook/assets/[^)]+)\)', s):
+        if not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(f), m.group(1)))): probs.append('图片缺失:'+m.group(1)[:40])
     if probs: print(f, probs); bad += 1
 print('交付页 %d 个，问题文件 %d 个' % (len(files), bad))
 EOF
