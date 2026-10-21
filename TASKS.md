@@ -138,7 +138,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ### 3.2 页面统计
 
-统计时间：2026-10-21 09:55
+统计时间：2026-10-21 10:35
 
 | 板块 | 上游页数 | 中文页数 | 复查通过 | 已同步待复查 | 部分同步 | 同步中 | 待同步 | 完成率 |
 | ---- | -------- | -------- | -------- | ------------ | -------- | ------ | ------ | ------ |
@@ -176,7 +176,7 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 11 处修订：5 处提示块 `>` 后多余空格、heat spreader 改「均热盖」（术语表同步区分 heatsink）、删「金属」增补、补 "now"、16 纳米改 16 nm、3 处双重「的」与并列结构改写、`potentially` 改正。术语表新增 heatsink 条目 |
 | `shu-mei-pai/io-kong-zhi-qi.md` | `io-controllers.adoc` | 复查通过 | 3/3 | B8 | 2026-10-20 | 主线程三轮：逐句对照 io-controllers.adoc（64 行中文）；RP1 规格、USB 主机控制器、ISP 前端术语与上游一致；零新增修改；LF→CRLF 已随全仓换行统一修复 |
 | `shu-mei-pai/ruan-jian-lai-yuan.md` | `software-sources.adoc` | 复查通过 | 3/3 | F11 | 2026-10-20 | 主线程三轮：逐句对照 software-sources.adoc（160 行中文）；修正 2 处（设备树覆盖层 README 链接文字统一「叠加层」、debugprobe 描述统一「调试套件」）；仓库列表逐条核对一致 |
-| `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 已同步 | 0/3 | 代理 F6（完成） | 2026-10-20 | F6 二次重做验收（8 H2；删除已迁移至现代页的旧版 GPIO 控制/armstub/sha256 节，23 项 grep 证据全中）；首轮报告失实源于 WSL 编辑器缓冲未刷盘，勘误已记录；待三轮逐句校对 |
+| `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 复查通过 | 3/3 | F6+主线程 | 2026-10-20 | F6 首轮报告失实已打回重做（WSL 编辑缓冲）+ 主线程逐句三轮：对照上游 8 文件 2027 行（903 行中文）；**参数清单 71/71 全对齐**（含合并标题形态 start_x、start_debug / dpi_group, dpi_mode, dpi_output_format / max_framebuffer_height, max_framebuffer_width）；**CEA 模式表 107 行 + DMT 模式表 86 行逐格核对**（模式号/分辨率/刷新率，193 行零缺失、零数值不一致）；旧版启动/超频/条件筛选器/内存/视频/树莓派 4 HDMI 管道/其他节逐句核对；26 围栏成对、页内锚点与表格列数全合规 |
 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | `sbcs.adoc` | 复查通过 | 3/3 | 主线程 | 2026-10-20 | 主线程三轮：逐句对照 sbc-intro+sbc-models 782 行（494 行中文）；10 行旗舰规格表、七个型号组件/端口表逐格核对一致；修正 2 处（表标题「表 4.」编号统一、4B 节「焊接在 Pi 5 上」上游复制粘贴笔误→Pi 4B，上游 L152 即笔误，记入异常清单）；H6 曾报告的「> 空格 5 处」已随全局清零修复 |
 | `shu-mei-pai/jian-pan-ji-suan-ji.md` | `keyboard-computers.adoc` | 复查通过 | 3/3 | F9 | 2026-10-20 | 主线程三轮：逐句对照 keyboard-computers.adoc（494 行中文）；修正 2 处（表标题「表 4.」编号统一、4B 节「焊接在 Pi 5 上」上游复制粘贴笔误→Pi 4B）；400/500 型号规格表逐格核对一致；4 处官方外链内部化 |
 
