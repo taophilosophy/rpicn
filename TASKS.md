@@ -38,7 +38,7 @@
 
 ### 1.5 领取规则
 
-* 一个文件同时只能有一个负责人（代理或人工）。领取前先查「五、当前进行中」。
+* 一个文件同时只能有一个负责人（代理或人工）。领取前先查“五、代理记录”确认无冲突。
 * 修改标题必须同步 `SUMMARY.md` 与 `mu-lu.md`；这两个文件与本文件、`CHANGELOG.md`、`AGENTS.md` 由主线程统一维护，子代理不得改动。
 * 修改 `qian-yan/ci-hui-biao.md` 只由主线程执行；子代理在报告中提出新术语。
 * 不运行 `git commit` / `git push`，提交由主线程统一处理（仓库另有自动提交机制）。
@@ -171,14 +171,14 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | `camera_software.adoc` | 复查通过 | 3/3 | G2+主线程 | 2026-10-20 | G2 中断 + 主线程逐句三轮：对照上游 31 个文件 3474 行（3112 行中文，3140 行改后）；参数参考 5 文件全量核对（common 607 行/options_still+vid+libav+detect）；修正 30 余处：补译 Hailo 相关（meson 两条命令 -Denable_hailo=disabled、TIP 第 4 条、标志参考 2 条）、ldconfig 提示块与 rpicam-still --version 检查步骤、libopencv-dev 依赖、low-latency 与 sync 两个参数、detect 注意块 TFLite 链接、反引号错位 3 处（post-process 段首、num_frames 单元格）、术语（舞台→阶段 2 处、vksip→vskip）、上游已删的 Bullseye/Glamor 冗余段删除；8 个内外部链接补全并内部化；上游笔误记录（rescaling、h,>、You can can、the the）；快检 274 围栏成对 |
 | `shu-mei-pai/ren-gong-zhi-neng-ruan-jian.md` | `ai.adoc` | 复查通过 | 3/3 | 主线程 | 2026-10-20 | 主线程三轮：逐句对照 getting-started.adoc 546 行（505 行中文）；hailortcli/dmesg/Docker/Open WebUI 全部命令块逐字核对；YOLO 表 4 行、软件包版本 4.19/4.18/4.17 三组核对一致；修正 1 处（更新软件/更新引导加载程序配置双链接内部化，锚点验证存在）；上游笔误「PCI Gen 3.0」缺 e 已按正确含义译出 |
 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | `raspberry-pi.adoc` | 复查通过 | 3/3 | H2+主线程 | 2026-10-20 | H2 中断 + 主线程逐句三轮：对照上游 27 文件 5189 行（3436 行中文）；**修正 SPI 硬件节重大编号错位**（SPI0/SPI1/SPI2 三项全部错写为 SPI1/SPI2/SPI2 且漏 SPI0，按上游复原）；**补译树莓派 5 RP1 SPI 整段**（九个 SSI 控制器、SPI0-5 片选数、DDR 不支持、SPI4/SPI7 设备模式两条 NOTE）与 PARTITION 高分区号看门狗示例（[partition=62]）；bootloader 代码示例注释补译 2 处；引导 EEPROM/诊断/引导模式/USB/MSD/网络/GPIO/NVMe/HTTP 引导、引导顺序、DPI、GPIO 排针、OTP、PCIe、电源、RTC、修订代码节逐句核对；上游代码行比对 161 行中仅 15 行差异且均为注释翻译或已补译；220 围栏成对、页内锚点与相对链接零缺失 |
-| `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 复查通过 | 3/3 | F7 | 2026-10-20 | 主线程三轮：逐句对照 zero.adoc（含 zero-intro/zero-models 全部子节，189 行中文）；22 行测试点坐标逐一核对；修正 2 处（W/WH 端口表上游笔误「Zero 2 W」→Zero W、intro 节「存储卡插槽」补 microSD 前缀）；上游笔误 schematc 已按正确含义 |
+| `shu-mei-pai/ling-dian-xing-hao.md` | `zero.adoc` | 复查通过 | 3/3 | F7 | 2026-10-20 | 主线程三轮：逐句对照 zero.adoc（含 zero-intro/zero-models 全部子节，189 行中文）；22 行测试点坐标逐一核对；修正 2 处（W/WH 端口表上游笔误“Zero 2 W”→Zero W、intro 节“存储卡插槽”补 microSD 前缀）；上游笔误 schematc 已按正确含义 |
 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | `compute-module.adoc` | 复查通过 | 3/3 | G1+主线程 | 2026-10-20 | G1 中断 + 主线程逐句三轮：对照上游 7 文件 1293 行（1103 行中文）；型号表 6 行/IO 板兼容表 4 行/CM5IO 与 CM4IO 功能列表/机箱组装 10 步/天线 5 步/刷写三平台/设备树 .dtb 清单 11 行逐字核对一致；修正 10 处（I/O 板→IO 板 9 处全仓统一、触摸显示屏 2 链接补 #连接到树莓派设备 锚点）；上游异常：cm-peri-sw-guide L56 与 L107 设备树文件名自相矛盾（bcm2710-rpi-cm3.dtb vs bcm2710-rpi-cm.dtb，中文照录）、You can can 重复 |
 | `shu-mei-pai/chu-li-qi.md` | `processors.adoc` | 复查通过 | 复查✓ | 主线程 G0 | 2026-10-20 | 11 处修订：5 处提示块 `>` 后多余空格、heat spreader 改「均热盖」（术语表同步区分 heatsink）、删「金属」增补、补 "now"、16 纳米改 16 nm、3 处双重「的」与并列结构改写、`potentially` 改正。术语表新增 heatsink 条目 |
 | `shu-mei-pai/io-kong-zhi-qi.md` | `io-controllers.adoc` | 复查通过 | 3/3 | B8 | 2026-10-20 | 主线程三轮：逐句对照 io-controllers.adoc（64 行中文）；RP1 规格、USB 主机控制器、ISP 前端术语与上游一致；零新增修改；LF→CRLF 已随全仓换行统一修复 |
-| `shu-mei-pai/ruan-jian-lai-yuan.md` | `software-sources.adoc` | 复查通过 | 3/3 | F11 | 2026-10-20 | 主线程三轮：逐句对照 software-sources.adoc（160 行中文）；修正 2 处（设备树覆盖层 README 链接文字统一「叠加层」、debugprobe 描述统一「调试套件」）；仓库列表逐条核对一致 |
+| `shu-mei-pai/ruan-jian-lai-yuan.md` | `software-sources.adoc` | 复查通过 | 3/3 | F11 | 2026-10-20 | 主线程三轮：逐句对照 software-sources.adoc（160 行中文）；修正 2 处（设备树覆盖层 README 链接文字统一“叠加层”、debugprobe 描述统一“调试套件”）；仓库列表逐条核对一致 |
 | `shu-mei-pai/jiu-ban-config.txt-can-shu.md` | `legacy_config_txt.adoc` | 复查通过 | 3/3 | F6+主线程 | 2026-10-20 | F6 首轮报告失实已打回重做（WSL 编辑缓冲）+ 主线程逐句三轮：对照上游 8 文件 2027 行（903 行中文）；**参数清单 71/71 全对齐**（含合并标题形态 start_x、start_debug / dpi_group, dpi_mode, dpi_output_format / max_framebuffer_height, max_framebuffer_width）；**CEA 模式表 107 行 + DMT 模式表 86 行逐格核对**（模式号/分辨率/刷新率，193 行零缺失、零数值不一致）；旧版启动/超频/条件筛选器/内存/视频/树莓派 4 HDMI 管道/其他节逐句核对；26 围栏成对、页内锚点与表格列数全合规 |
 | `shu-mei-pai/jing-dian-dan-ban-ji-suan-ji.md` | `sbcs.adoc` | 复查通过 | 3/3 | 主线程 | 2026-10-20 | 主线程三轮：逐句对照 sbc-intro+sbc-models 782 行（494 行中文）；10 行旗舰规格表、七个型号组件/端口表逐格核对一致；修正 2 处（表标题「表 4.」编号统一、4B 节「焊接在 Pi 5 上」上游复制粘贴笔误→Pi 4B，上游 L152 即笔误，记入异常清单）；H6 曾报告的「> 空格 5 处」已随全局清零修复 |
-| `shu-mei-pai/jian-pan-ji-suan-ji.md` | `keyboard-computers.adoc` | 复查通过 | 3/3 | F9 | 2026-10-20 | 主线程三轮：逐句对照 keyboard-computers.adoc（494 行中文）；修正 2 处（表标题「表 4.」编号统一、4B 节「焊接在 Pi 5 上」上游复制粘贴笔误→Pi 4B）；400/500 型号规格表逐格核对一致；4 处官方外链内部化 |
+| `shu-mei-pai/jian-pan-ji-suan-ji.md` | `keyboard-computers.adoc` | 复查通过 | 3/3 | F9 | 2026-10-20 | 主线程三轮：逐句对照 keyboard-computers.adoc（494 行中文）；修正 2 处（表标题“表 4.”编号统一、4B 节“焊接在 Pi 5 上”上游复制粘贴笔误→Pi 4B）；400/500 型号规格表逐格核对一致；4 处官方外链内部化 |
 
 ### 4.2 配件（20）
 
@@ -243,9 +243,9 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | `qian-yan/guan-yu-wo-men.md` | 无 | 不适用 | 2024 | |
 | `qian-yan/ban-quan-shuo-ming.md` | 无 | 不适用 | 2024 | |
 
-## 五、当前进行中
+## 五、代理记录（历史，全部已结项）
 
-统计时间：2026-10-20 15:05。滚动更新：每次代理领取或结束时立即修改本节。
+统计时间：2026-10-21 11:30。本节保留代理派发与结项历史；52 页状态以“四、页面清单”为准，当前无进行中代理。
 
 | 代理 | 负责文件 | 开始时间 | 目标检查点 | 状态 |
 | ---- | -------- | -------- | ---------- | ---- |
@@ -311,22 +311,22 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | F14 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | CP-2 + CP-3 | 完成：主线程复核硬件页 27 H2 与上游 27 个 .adoc 文件一一对应，原判定「缺 boot-eeprom / bootflow-legacy 两节」为误判（两节均已存在且内容完整：`boot-eeprom`→「树莓派引导 EEPROM」line 144；`bootflow-legacy`→「引导顺序」line 1126），无需新增；CP-3 抽查通过 |
 
 | G0 | `shu-mei-pai/chu-li-qi.md`、`wei-kong-zhi-qi/wu-xian-dian-mo-kuai.md`、`wei-kong-zhi-qi/rp2040.md` | 2026-10-20 | 三轮 + 复查 | 完成：三页均达「复查通过」（主线程逐句执行，合计 20 处修订） |
-| G1 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
-| G2 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
-| H1 | `shu-mei-pai/xi-tong-pei-zhi.md` | 2026-10-20 | 三轮 + 复查 | 进行中（4147 行，按 H2 分节推进） |
-| H2 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 进行中（3402 行，27 节） |
-| H3 | `shu-mei-pai/config.txt.md`、`jiu-ban-config.txt-can-shu.md` | 2026-10-20 | 三轮 + 复查 | 进行中（参数参考页，逐条核对默认值） |
+| G1 | `shu-mei-pai/ji-suan-mo-kuai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程接手逐句三轮（1103 行 vs 上游 7 文件 1293 行），修正 10 处（IO 板术语统一 9 处、TD2 锚点补齐）；复查通过 |
+| G2 | `shu-mei-pai/she-xiang-tou-ruan-jian.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程接手逐句三轮（3112 行 vs 上游 31 文件 3474 行），修正 30 余处（Hailo 漏译 5 处、ldconfig 提示块、反引号错位 3 处、舞台→阶段）；复查通过 |
+| H1 | `shu-mei-pai/xi-tong-pei-zhi.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程接手逐句三轮（4148 行 vs 上游 13 文件 4426 行），修正 59 处退化锚点；复查通过 |
+| H2 | `shu-mei-pai/shu-mei-pai-ying-jian.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程接手逐句三轮（3436 行 vs 上游 27 文件 5189 行），修正 SPI 总线编号错位、补译树莓派 5 RP1 SPI 整段与 PARTITION 示例；复查通过 |
+| H3 | `shu-mei-pai/config.txt.md`、`jiu-ban-config.txt-can-shu.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮，config.txt 参数 65/65 对齐、旧版 CEA 107 行 + DMT 86 行逐格核对；两页零修改；复查通过 |
 | H4 | `shu-mei-pai/ru-men.md`、`raspberry-pi-os.md` | 2026-10-20 | 三轮 + 复查 | 完成（主线程验收）：两页各 20 处修订，全部合理；跨页锚点 10 个逐一验证存在（含「连接蓝牙外设」「启动时要求输入密码」等）；遗留 `raspberry-pi-os.md` L514 锚点 `#get_config-配置项目intstr` 依赖 GitBook slug 对 `[|]` 的处理，待 CI 验证；`ru-men.md` 存在重复标题「连接有线网络」（L272/L337，上游结构），锚点歧义风险低；报告另附 11 条上游异常（Rasberry 拼写 ×2、that→than、in one of 漏词、also 重复、列项重复、the 重复等） |
-| H5 | `shu-mei-pai/jian-pan-ji-suan-ji.md`、`linux-nei-he.md` | 2026-10-20 | 三轮 + 复查 | 进行中（含内核页 3 处官方 URL 内部化） |
-| H6 | `shu-mei-pai/io-kong-zhi-qi.md`、`jing-dian-dan-ban-ji-suan-ji.md`、`ren-gong-zhi-neng-ruan-jian.md`、`ling-dian-xing-hao.md`、`ruan-jian-lai-yuan.md` | 2026-10-20 | 三轮 + 复查 | 进行中（io 页已有 1 轮基础，补 2 轮 + 复查） |
-| H7 | `pei-jian/build-hat.md`、`shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | 2026-10-20 | 三轮 + 复查 | 进行中 |
-| H8 | `pei-jian/she-xiang-tou.md`、`chu-mo-xian-shi-ping-2.md`、`xian-shi-qi.md`、`ai-she-xiang-tou.md` | 2026-10-20 | 三轮 + 复查 | 进行中（规格表逐格核对） |
-| H9a | `pei-jian/` 8 个小页（sd-ka、ssd、ssd-tao-jian、bao-hu-ke、jian-pan-he-shu-biao、raspberry-pi-monitor、usb-pei-jian、ai-hat） | 2026-10-20 | 三轮 + 复查 | 进行中 |
-| H9b | `pei-jian/` 6 页（ai-kit、tv-hat、sense-hat、m.2-hat+、zhi-neng-xian-shi-mo-kuai、cm5-bian-cheng-zhi-ju） | 2026-10-20 | 三轮 + 复查 | 进行中 |
-| H10 | `fu-wu/shu-mei-pai-connect-qi-ye-ban.md` | 2026-10-20 | 三轮 + 复查 | 进行中（2079 行） |
-| H11 | `fu-wu/` 3 页（connect、id、bookshelf） | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H5 | `shu-mei-pai/jian-pan-ji-suan-ji.md`、`linux-nei-he.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮，键盘计算机页修正 2 处、内核页 3 处链接内部化；复查通过 |
+| H6 | `shu-mei-pai/io-kong-zhi-qi.md`、`jing-dian-dan-ban-ji-suan-ji.md`、`ren-gong-zhi-neng-ruan-jian.md`、`ling-dian-xing-hao.md`、`ruan-jian-lai-yuan.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮（5 页），SBC 4B 上游笔误修正、Zero 2 处、软件来源 2 处、AI 软件 1 处、I/O 控制器零修改；复查通过 |
+| H7 | `pei-jian/build-hat.md`、`shu-mei-pai-yin-pin-kuo-zhan-ban-raspberry-pi-audio-board.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮，Build HAT 零修改（12×17 兼容表逐格）、音频扩展板修正 5 处（P1 信号、External Line Return 误译等）；复查通过 |
+| H8 | `pei-jian/she-xiang-tou.md`、`chu-mo-xian-shi-ping-2.md`、`xian-shi-qi.md`、`ai-she-xiang-tou.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮，摄像头零修改（18×7 规格表逐格）、TD2 零修改、显示器 1 处、AI 摄像头零修改；复查通过 |
+| H9a | `pei-jian/` 8 个小页（sd-ka、ssd、ssd-tao-jian、bao-hu-ke、jian-pan-he-shu-biao、raspberry-pi-monitor、usb-pei-jian、ai-hat） | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮，sd-ka 1 处（microSD 精度）、ai-hat 零修改、其余 6 页零修改；复查通过 |
+| H9b | `pei-jian/` 6 页（ai-kit、tv-hat、sense-hat、m.2-hat+、zhi-neng-xian-shi-mo-kuai、cm5-bian-cheng-zhi-ju） | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮，6 页均零新增修改；复查通过 |
+| H10 | `fu-wu/shu-mei-pai-connect-qi-ye-ban.md` | 2026-10-20 | 三轮 + 复查 | 完成：主线程接手逐句三轮（2080 行 vs 上游 2532 行），API 端点 27/27、状态码 8/8、字段 26/26 全对齐；零修改；复查通过 |
+| H11 | `fu-wu/` 3 页（connect、id、bookshelf） | 2026-10-20 | 三轮 + 复查 | 完成：主线程逐句三轮，Connect 零修改（1269 行 vs 上游 9 文件 1373 行）、账号 1 处、书架零修改；复查通过 |
 | H12 | `an-quan/` 5 页 | 2026-10-20 | 三轮 + 复查 | 代理因 429 频率限制中断（运行 56 分钟，5 页已落盘 43 行润色改动，质量合格）；主线程接手完成全部剩余轮次并验收：五页逐句对照上游 2304 行，复查通过。主线程补 2 处（概述页与配置器页「存储卡」→「microSD 卡」）；H12 的「一线安全披露」「OTP 内存」「一次性可编程」三处译法经核实均正确（上游即 Frontline；词汇表即 OTP 内存）；上游异常：operational-security.adoc 两处 ini 代码块缺 `enabled = true` 等号（jail.conf 语法必需，中文已按正确含义补上，见 L62-69/L87-95）；跨页锚点 6 个逐一验证存在 |
-| H13 | `wei-kong-zhi-qi/` 4 页（micropython、c-c++-sdk、debug-probe、pico） | 2026-10-20 | 三轮 + 复查 | 进行中 |
+| H13 | `wei-kong-zhi-qi/` 4 页（micropython、c-c++-sdk、debug-probe、pico） | 2026-10-20 | 三轮 + 复查 | 完成：主线程接手逐句三轮，Debug Probe 译法统一 42 处 + 词汇表同步修订、c-c++-sdk 失效锚点修复、Pico 4 处直引号与列表编号、micropython 1 处；复查通过 |
 
 ## 六、待办队列
 
@@ -335,14 +335,16 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 | P0 | 第一波重派已全部完成并验收：安全 5 页 + 摄像头页（C1 交付不实打回，C7 重做成功） | 6 页 | 完成 |
 | P0 | 第二波重派已全部完成并验收：配件板块 19 页（E1–E19） | 19 页 | 完成 |
 | P0 | F 波 15 页已全部完成：F1–F13 经主线程逐一落盘验证通过（F3 漏 reference 节、F6 报告失实均已打回重做通过；F12 失联由 F13 接替）；F14 经主线程复核，硬件页 27/27 节完整，原「缺两节」误判已澄清，无需补录 | 15 页 | 完成 |
-| P0 | 汇总各波代理结果，逐文件复核后更新本文件状态 | 全部 | 滚动进行 |
-| P0 | 对已同步页面执行三轮逐句校对 | `yuan-cheng-fang-wen`、`ji-suan-mo-kuai-ying-jian`、`she-xiang-tou-ruan-jian`、`chu-li-qi`、`rp2040`、`wu-xian-dian-mo-kuai` | 代理结束 |
+| P0 | **52/52 页三轮逐句校对 + 复查全部完成（100%）**，各波代理结果均已逐文件复核并更新本文件状态 | 全部 | 已完成 2026-10-21 |
+| P0 | 上文所列六页（远程访问、计算模块硬件、摄像头软件、处理器、RP2040、无线电模块）已全部复查通过，本项结项 | 6 页 | 完成 |
 | P1 | 词汇表已补录 F 波 46 条 + I/O 控制器页 5 条（I/O controller、ISP front-end、USB host controller、single-board computer、pin spacing，均验证实际用例） | `qian-yan/ci-hui-biao.md` | 完成 |
 | P2 | 换行符统一：实际范围超出原记录（io-kong-zhi-qi.md 之外还有 26 个内容页 + TASKS/AGENTS/mu-lu 共 27 个 LF 文件），已全部转为 CRLF，全仓库一致 | 27 个文件 | 完成 |
 | P1 | 硬件页缺节经主线程复核为误判：27 个 H2 与上游 27 个 .adoc 文件一一对应，`boot-eeprom.adoc` 对应「树莓派引导 EEPROM」（line 144）、`bootflow-legacy.adoc` 对应「引导顺序」（line 1126，上游标题即 "Boot sequence"），两节均已存在且内容完整，无需补录 | 树莓派硬件 | 完成 |
 | P2 | 向上游反馈已发现的原文错误（30 余条，见「七」，含 F 波新查 17 条） | 见「七」 | 待用户批准 |
 | P3 | 图片本地化：经上游 GitHub 仓库（/tmp 浅克隆）按文件名定位下载，301 张已入 `.gitbook/assets/`，39 页引用已替换；仅剩 6 处上游已移除的 GIF/PNG（build-hat 页）保留原链 | 基本完成 | 6 处无源可迁 |
 | P4 | 中文 UI 重制两张 Control Centre 截图（F1 新增 Imager UI 截图约 20 张同需中文 UI 重截） | `shu-mei-pai/yuan-cheng-fang-wen.md` 等 | 人工在中文系统截图 |
+| P2 | 上游新版本同步：官方文档 `master` 在有新版本发行后变动集中，同步流程见 `CONTRIBUTING.md` 与 `script/` 抓取脚本，基线写进 `CHANGELOG.md` | 全仓库 | 视上游发布节奏 |
+| P3 | 已复查页增量抽查（上游静默修订时用 `git diff` 对比 `script/upstream-*/` 与中文页） | 52 页 | 按需 |
 
 ## 七、阻塞与上游异常
 
@@ -392,9 +394,9 @@ grep -o 'href="[^"]*\.md"' mu-lu.md | sed 's/href="//;s/"//' | while read f; do 
 
 ## 八、本文件更新规则
 
-1. **开始工作前**：把目标页面状态改为 `同步中`，在「五、当前进行中」登记代理代号与文件。
-2. **每完成一个页面**：立即更新「四、页面清单」该行的状态、校对轮次、最后更新日期；不要攒到最后统一改。
+1. **开始工作前**：把目标页面状态改为 `同步中`，在“五、代理记录”登记代理代号与文件。
+2. **每完成一个页面**：立即更新“四、页面清单”该行的状态、校对轮次、最后更新日期；不要攒到最后统一改。
 3. **每完成一轮校对**：校对轮次从 `0/3` 递增到 `3/3`；三轮结束后做完整复查，通过则改为 `复查通过` / `复查✓`。
-4. **阻塞时**：状态改为 `阻塞`，在「七、阻塞」写明原因与解除条件。
+4. **阻塞时**：状态改为 `阻塞`，在“七、阻塞”写明原因与解除条件。
 5. **完成后**：在 `CHANGELOG.md` 追加一条记录；本文件只保留进度状态，不重复记录细节。
-6. **交接**：接手者先读「五、当前进行中」与「六、待办队列」，确认无文件冲突后再领取。
+6. **交接**：接手者先读“五、代理记录”与“六、待办队列”，确认无文件冲突后再领取。
