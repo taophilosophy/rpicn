@@ -241,7 +241,7 @@ EOF
 - **图片：** 正文插图使用 markdown 格式（`![说明](路径)`），全部本地化到 `.gitbook/assets/`，不得保留站外 URL。三条硬性要求（`python script/audit_images.py` 与 `script/audit_duplicates.py` 可自动校验）：
   1. **唯一性**：同一张图只能有一个文件。内容相同（同哈希）或仅大小写不同的重名一律合并为单一文件名；`.gitbook/assets/` 内不得存在同名不同大小写的文件（Windows 大小写不敏感会掩盖问题，GitBook 构建在 Linux 上会失败）。
   2. **不得悬空**：每个 assets 文件都必须被至少一个文档引用；反向，每个引用必须命中真实文件（区分大小写），相对路径前缀必须与实际层级一致（子目录页面用 `../`，根文件不带）。
-  3. **必须本地化**：禁止 `![](https://…)` 形式的站外图片引用；新增图片从上游 `images/full-sized/` 或对应板块 `images/` 目录下载后放入 `.gitbook/assets/`。
+  3. **必须本地化**：禁止站外图片引用（正文插图的目标路径必须指向 `.gitbook/assets/`，不得写成 `https://` 开头的图床或官网地址）；新增图片从上游 `images/full-sized/` 或对应板块 `images/` 目录下载后放入 `.gitbook/assets/`。
 - **第二人称：** 一律使用"你"而非"您"。
 
 ### 术语
