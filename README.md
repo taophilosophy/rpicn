@@ -30,7 +30,7 @@
 
 ## 版本说明
 
-**2026-10-20 起全部 52 个页面已同步至 [树莓派官方文档](https://raspberrypi.com/documentation) 当前版本**（英文原版 GitHub `master` 分支；上一基线为 [2024.9.8 版本](https://github.com/raspberrypi/documentation/commit/1b7709fea907aed7af8950f936ccfd1b82a29edd)，其间上游新增配件 11 页、计算机 6 页、微控制器 2 页、安全板块 5 页、服务 2 页，本项目已全部补译）。
+**2026-10-20 起全部 52 个页面已同步至 [树莓派官方文档](https://raspberrypi.com/documentation) 当前版本**（英文原版 GitHub `master` 分支）。
 
 翻译进度、校对标准与项目结构见 [AGENTS.md](AGENTS.md)，编辑历史见[编辑日志](CHANGELOG.md)。
 
