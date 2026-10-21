@@ -36,7 +36,7 @@ If you believe someone is violating the code of conduct, we ask that you report 
 
   * Posting sexually explicit or violent material.
 
-  * Posting (or threatening to post) other people’s personally identifying information ("doxing").
+  * Posting (or threatening to post) other people’s personally identifying information (“doxing”).
 
   * Personal insults, especially those using racist or sexist terms.
 
