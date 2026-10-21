@@ -8,7 +8,7 @@
 
 Connect 默认安装在树莓派系统桌面版（Raspberry Pi OS Desktop）和完整版（Raspberry Pi OS Full，即含推荐软件的桌面版）中。
 
-Connect 还有一个备选的**精简（Lite）**变体，仅支持远程 shell 访问、无法进行屏幕共享，默认安装在精简版树莓派系统中。
+Connect 还有一个备选的 **精简（Lite）** 变体，仅支持远程 shell 访问、无法进行屏幕共享，默认安装在精简版树莓派系统中。
 
 >**注意**
 >
@@ -166,7 +166,7 @@ $ rpi-connect signin --auth-key=@/home/alice/auth.key
 
 ### 查看已关联的设备
 
-Connect 会在**设备**标签页中列出你所有已关联的设备。
+Connect 会在 **设备** 标签页中列出你所有已关联的设备。
 
 要查看你的设备：
 
@@ -328,7 +328,7 @@ Connect 的屏幕共享界面同时针对桌面设备和移动设备设计。
 
 >**技巧**
 >
->在某些操作系统上，浏览器会拦截 **Ctrl**+**Shift**+**C** 和 **Ctrl**+**C** 等组合键。此时你可以使用右键菜单或 **Ctrl**+**Insert** 进行复制、**Shift**+**Insert** 进行粘贴。
+>在某些操作系统上，浏览器会拦截 **Ctrl** + **Shift** + **C** 和 **Ctrl** + **C** 等组合键。此时你可以使用右键菜单或 **Ctrl** + **Insert** 进行复制、**Shift** + **Insert** 进行粘贴。
 
 每当远程 shell 会话开始时，桌面上都会出现通知。连接期间，Connect 仪表板中 **Remote shell** 徽章旁会出现绿色圆点，表示有活动的远程 shell 会话。悬停即可查看当前的远程 shell 会话数。
 

@@ -2,7 +2,7 @@
 
 ## `config.txt` 是什么？
 
-树莓派设备没有使用传统 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS)，而是使用名为 `config.txt` 的配置文件。GPU 会在 Arm CPU 和 Linux 初始化之前读取 `config.txt`。树莓派系统（Raspberry Pi OS）会在位于 `/boot/firmware/` 的**启动分区**中查找此文件。
+树莓派设备没有使用传统 PC 上的 [BIOS](https://en.wikipedia.org/wiki/BIOS)，而是使用名为 `config.txt` 的配置文件。GPU 会在 Arm CPU 和 Linux 初始化之前读取 `config.txt`。树莓派系统（Raspberry Pi OS）会在位于 `/boot/firmware/` 的 **启动分区** 中查找此文件。
 
 你可以直接在树莓派系统上编辑 `config.txt`。你也可以取下存储设备，在另一台计算机上编辑启动分区中的文件（包括 `config.txt`）。
 
@@ -351,7 +351,7 @@ stub 是在内核之前运行的一小段 Arm 代码。它的职责是设置中�
 >
 >构建和更新 `initramfs` 被视为只有经验丰富的用户才会尝试的高级技术。树莓派官方不对其提供支持，因此我们也不提供相关说明。
 
-命令 `initramfs` 同时指定了 ramfs 的文件名**和**它将加载到的内存地址。它在一个参数中同时执行了 `ramfsfile` 和 `ramfsaddr` 的操作。地址也可以是 `followkernel`（或 `0`），将其放置在内核镜像之后的内存中。示例值为 `initramfs initramf.gz 0x00800000` 或 `initramfs init.gz followkernel`。同 `ramfsfile` 一样，新版固件可加载多个文件，多个文件名以逗号分隔。
+命令 `initramfs` 同时指定了 ramfs 的文件名 **和** 它将加载到的内存地址。它在一个参数中同时执行了 `ramfsfile` 和 `ramfsaddr` 的操作。地址也可以是 `followkernel`（或 `0`），将其放置在内核镜像之后的内存中。示例值为 `initramfs initramf.gz 0x00800000` 或 `initramfs init.gz followkernel`。同 `ramfsfile` 一样，新版固件可加载多个文件，多个文件名以逗号分隔。
 
 >**注意**
 >
@@ -514,7 +514,7 @@ $ sudo reboot
 
 >**注意**
 >
->在树莓派系统 _Bookworm_ 上，`RuntimeWatchdogSec` 参数**默认未启用**，必须先在 `/etc/systemd/system.conf` 中配置，固件内核看门狗才能使用。
+>在树莓派系统 _Bookworm_ 上，`RuntimeWatchdogSec` 参数 **默认未启用**，必须先在 `/etc/systemd/system.conf` 中配置，固件内核看门狗才能使用。
 >
 >如果 `BOOT_WATCHDOG_TIMEOUT`（EEPROM/引导加载程序设置，仅在树莓派 4 和 5 上支持）和 `kernel_watchdog_timeout` 都已设置，引导加载程序会在操作系统启动时无缝地从引导加载程序看门狗切换到内核看门狗。这提供了从上电到操作系统运行时的连续看门狗覆盖。
 >

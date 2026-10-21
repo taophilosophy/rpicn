@@ -438,7 +438,7 @@ $ --startup-animation "name_of_animation"
 | :--- | :--- |
 | `START_ANIM_NONE` | 无启动动画。 |
 | `START_ANIM_B_NO_FADE` | 脉冲彩虹动画，随后 LED 熄灭，然后立即进入所选效果。 |
-| `START_ANIM_B_FADE_VAL` | 脉冲彩虹动画，随后 LED 熄灭并淡入所选效果。这是**默认**启动动画。 |
+| `START_ANIM_B_FADE_VAL` | 脉冲彩虹动画，随后 LED 熄灭并淡入所选效果。这是 **默认** 启动动画。 |
 | `START_ANIM_W_NO_FADE` | 脉冲彩虹动画，随后 LED 变为白色，然后立即进入所选效果。 |
 | `START_ANIM_W_FADE_SAT` | 脉冲彩虹动画，随后 LED 变为白色并淡入所选效果。 |
 

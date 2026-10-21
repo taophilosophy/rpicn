@@ -1,6 +1,6 @@
 # 使用 UFW 的防火墙
 
-防火墙是一种网络安全系统，它根据一组定义的安全规则监控和控制传入和传出的网络流量。本页介绍**简单防火墙（UFW）**，这是一种使用 [`iptables`](https://www.netfilter.org/projects/iptables/index.html) 简化 Linux 系统防火墙配置的防火墙工具。
+防火墙是一种网络安全系统，它根据一组定义的安全规则监控和控制传入和传出的网络流量。本页介绍 **简单防火墙（UFW）**，这是一种使用 [`iptables`](https://www.netfilter.org/projects/iptables/index.html) 简化 Linux 系统防火墙配置的防火墙工具。
 
 UFW 还有一些图形用户界面（GUI）前端，例如 GUFW，但 `ufw` 命令通常在命令行中运行。本页概述 UFW 命令行界面并提供基本操作说明。
 

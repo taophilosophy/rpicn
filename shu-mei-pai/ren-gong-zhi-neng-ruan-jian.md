@@ -326,7 +326,7 @@ $ sudo apt-mark hold hailo-tappas-core hailort hailo-dkms
 
 #### 后端层
 
-LLM 由 **Hailo Ollama 服务器**加载和运行。该后端层：
+LLM 由 **Hailo Ollama 服务器** 加载和运行。该后端层：
 
 * 从 Hailo Gen-AI Model Zoo 加载 LLM。
 * 管理 Hailo-10H NPU 上的推理。

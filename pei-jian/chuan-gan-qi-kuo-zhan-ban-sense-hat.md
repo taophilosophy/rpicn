@@ -30,7 +30,7 @@ LED 矩阵是一个 ID 为 `RPi-Sense FB` 的 RGB565 [帧缓冲区](https://www.
 
 ### 摇杆
 
-摇杆会作为一个名为 `Raspberry Pi Sense HAT Joystick` 的输入事件设备出现，映射到方向键和**回车键**。任何能够处理输入的库都支持它，你也可以直接通过 [evdev 接口](https://www.kernel.org/doc/Documentation/input/input.txt)访问它。适用的库包括 [SDL](https://www.libsdl.org/)、[pygame](https://www.pygame.org/docs/) 和 [python-evdev](https://python-evdev.readthedocs.org/en/latest/)。附带的 `snake` 示例展示了如何直接访问摇杆。
+摇杆会作为一个名为 `Raspberry Pi Sense HAT Joystick` 的输入事件设备出现，映射到方向键和 **回车键**。任何能够处理输入的库都支持它，你也可以直接通过 [evdev 接口](https://www.kernel.org/doc/Documentation/input/input.txt)访问它。适用的库包括 [SDL](https://www.libsdl.org/)、[pygame](https://www.pygame.org/docs/) 和 [python-evdev](https://python-evdev.readthedocs.org/en/latest/)。附带的 `snake` 示例展示了如何直接访问摇杆。
 
 ## 安装
 

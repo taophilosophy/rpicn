@@ -259,7 +259,7 @@ $ sudo reboot
 
 如果你想回到精简版树莓派系统，可以卸载这些软件包。或者，如果你不想卸载已安装的桌面软件包、又想要精简版的体验，可以按照[启动到控制台或桌面](xi-tong-pei-zhi.md#启动到控制台或桌面)的说明，把树莓派设置为启动到命令行。
 
-你还可以安装完整版树莓派系统附带的推荐应用：打开树莓派主菜单，选择**首选项 > 推荐软件**（Preferences > Recommended Software）。
+你还可以安装完整版树莓派系统附带的推荐应用：打开树莓派主菜单，选择 **首选项 > 推荐软件**（Preferences > Recommended Software）。
 
 ## 播放音视频
 
@@ -535,7 +535,7 @@ $ vcgencmd get_config total_mem
 
 有视觉障碍的树莓派系统用户，可以在菜单 **推荐软件**（Recommended Software）中找到实用的工具。
 
-我们提供 [Orca 屏幕阅读器](https://help.gnome.org/users/orca/stable/introduction.html.en)来简化树莓派桌面的操作，还提供屏幕放大器来放大界面和屏幕元素，提高可读性。你还可以在**控制中心**（Control Centre）里调整界面元素的大小。
+我们提供 [Orca 屏幕阅读器](https://help.gnome.org/users/orca/stable/introduction.html.en)来简化树莓派桌面的操作，还提供屏幕放大器来放大界面和屏幕元素，提高可读性。你还可以在 **控制中心**（Control Centre）里调整界面元素的大小。
 
 #### Orca 屏幕阅读器
 

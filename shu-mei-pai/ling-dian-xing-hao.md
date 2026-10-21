@@ -119,12 +119,12 @@ Raspberry Pi Zero W 和 WH 的尺寸约为 65 mm × 30 mm。更详细的尺寸�
 
 ### 相比 Raspberry Pi Zero 的功能变化
 
-Raspberry Pi Zero W 和 WH 具有与 Raspberry Pi Zero 相同的外形尺寸、组件、连接器和安装孔，但还加入了**无线网络**：
+Raspberry Pi Zero W 和 WH 具有与 Raspberry Pi Zero 相同的外形尺寸、组件、连接器和安装孔，但还加入了 **无线网络**：
 
 * 单频（2.4 GHz）802.11b/g/n Wi-Fi。
 * 蓝牙 4.0 和低功耗蓝牙（BLE）。
 
-此外，Raspberry Pi Zero WH 是首个提供**预焊 GPIO 排针**的 Zero 型号。
+此外，Raspberry Pi Zero WH 是首个提供 **预焊 GPIO 排针** 的 Zero 型号。
 
 以下各节在介绍这些变化的同时，还介绍：
 
