@@ -13,22 +13,33 @@ for root, _, files in os.walk(repo_root):
         if file.lower().endswith('.md'):
             md_files.append(Path(root) / file)
 
-# 正则表达式匹配图片引用
-image_pattern = re.compile(
+# 图片引用模式（三条，缺一不可）：
+#   1. Markdown 语法：![说明](路径 "标题")
+#   2. HTML 标签：<img src="路径">（mu-lu.md 的 52 张目录卡片图全部使用此形式）
+#   3. HTML 媒体标签：<video src>、<source src>
+# 历史上仅实现第 1 条，导致 mu-lu.md 的卡片图被误报为“未使用图片”。
+md_image_pattern = re.compile(
     r'!\[.*?\]\(\s*([^\)\s]*)(?:\s+["\'].*?["\'])?\s*\)',
     re.IGNORECASE
 )
+html_image_pattern = re.compile(
+    r'<(?:img|video|source)\b[^>]*?\ssrc\s*=\s*["\']([^"\']+)["\']',
+    re.IGNORECASE
+)
 
-# 收集所有使用的图片路径
+# 收集所有使用的图片路径。只统计指向 .gitbook/assets/ 的引用：
+# 规则文件（AGENTS.md 等）中含 `![说明](路径)` 一类书写示例，不是真实引用。
 used_images = set()
 
 for md_file in md_files:
     md_path = Path(md_file)
     content = md_path.read_text(encoding='utf-8')
 
-    for match in image_pattern.findall(content):
+    for match in md_image_pattern.findall(content) + html_image_pattern.findall(content):
         img_path = match.strip().replace('\\', '/')
-        if any(img_path.startswith(p) for p in ('http://', 'https://', '//')):
+        if any(img_path.startswith(p) for p in ('http://', 'https://', '//', 'data:')):
+            continue
+        if '.gitbook/assets/' not in img_path:
             continue
 
         # 处理绝对路径和相对路径
