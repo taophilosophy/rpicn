@@ -20,7 +20,7 @@ SD 卡质量是决定树莓派整体用户体验的关键因素。总线速度�
 
 ## 规格
 
-![128 GB 树莓派 SD 卡](../.gitbook/assets/sd-cards.png)
+![128 GB 树莓派 SD 卡](../.gitbook/assets/microSD.png)
 
 128 GB 树莓派 SD 卡
 
