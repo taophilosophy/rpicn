@@ -32,21 +32,7 @@
 
 **2026-10-20 起全部 52 个页面已同步至 [树莓派官方文档](https://raspberrypi.com/documentation) 当前版本**（英文原版 GitHub `master` 分支；上一基线为 [2024.9.8 版本](https://github.com/raspberrypi/documentation/commit/1b7709fea907aed7af8950f936ccfd1b82a29edd)，其间上游新增配件 11 页、计算机 6 页、微控制器 2 页、安全板块 5 页、服务 2 页，本项目已全部补译）。
 
-翻译进度与校对标准见 [AGENTS.md](AGENTS.md)，编辑历史见[编辑日志](CHANGELOG.md)。
-
-### 项目结构
-
-| 目录 | 内容 |
-| ---- | ---- |
-| `shu-mei-pai/` | 树莓派（17 页）：入门、系统、硬件、配置、摄像头等 |
-| `pei-jian/` | 配件（20 页）：摄像头、HAT、显示屏、音频板、SSD 等 |
-| `wei-kong-zhi-qi/` | 微控制器（6 页）：Pico、RP2040、MicroPython、C/C++ SDK 等 |
-| `fu-wu/` | 服务（4 页）：树莓派 ID/账号、Connect、Connect 企业版、书架 |
-| `an-quan/` | 安全（5 页）：概述、架构、启动配置器、UFW、运营安全 |
-| `qian-yan/` | 前言与词汇表 |
-| `AGENTS.md` | 仓库约定、进度快照，以及「下次同步上游」的 diff 增量增补流程（含 52 页上游路径映射表） |
-| `script/` | 校验脚本（`audit_images.py` 图片三项审计、`audit_duplicates.py` 唯一性审计）；临时脚本与日志亦放此处 |
-| `.gitbook/assets/` | 全部配图与视频资源（本地化，唯一且无悬空） |
+翻译进度、校对标准与项目结构见 [AGENTS.md](AGENTS.md)，编辑历史见[编辑日志](CHANGELOG.md)。
 
 ## 参与贡献
 
