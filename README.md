@@ -2,13 +2,7 @@
 
 本文档是 [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/) 的简体中文翻译版本。
 
-本项目开源地址：<https://github.com/taophilosophy/rpicn>
-
-**[点击此处可浏览目录](mu-lu.md)**
-
->**注意**
->
->全部 52 个页面已完成三轮逐句校对并复查通过（2026-10-21，完成率 100%）。后续将随上游版本更新持续同步，具体历史请参考[编辑日志](CHANGELOG.md)。
+**[点击此处浏览目录](mu-lu.md)**
 
 ## PDF 文档
 
@@ -30,7 +24,7 @@
 
 ## 版本说明
 
-**2026-10-20 起全部 52 个页面已同步至 [树莓派官方文档](https://raspberrypi.com/documentation) 当前版本**（英文原版 GitHub `master` 分支）。
+**2026-10-20 起全部页面同步至 [树莓派官方文档](https://raspberrypi.com/documentation) 当前版本**（英文原版 GitHub `master` 分支）。
 
 翻译进度、校对标准与项目结构见 [AGENTS.md](AGENTS.md)，编辑历史见[编辑日志](CHANGELOG.md)。
 
